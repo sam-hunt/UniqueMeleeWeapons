@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Placeholder melee weapon traits for the proof-of-concept.
+
+       Generation rules (from CompUniqueWeapon): 1-3 traits roll per weapon. The first pick
+       must have canGenerateAlone=true, and the generated set must yield at least one
+       traitAdjective or naming throws. So a generic alone-able trait with adjectives must
+       always exist; the colour inlays are add-ons that can only roll alongside it. -->
+
+  <!-- Generic alone-able trait: guarantees a valid first pick + a naming adjective. -->
+  <WeaponTraitDef>
+    <defName>UMW_Honed</defName>
+    <label>honed</label>
+    <description>This blade has been honed to an exceptional edge.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <statFactors>
+      <MarketValue>1.2</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>honed</li>
+      <li>keen</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+  <!-- Gold inlay: reuses Odyssey's category-agnostic UniqueWeapon_Gold ColorDef as the forced
+       accent colour (colour one / red mask). canGenerateAlone=false so it only rolls as an
+       add-on; the Color exclusion tag keeps at most one inlay per weapon. -->
+  <WeaponTraitDef>
+    <defName>UMW_GoldInlay</defName>
+    <label>gold inlay</label>
+    <description>This weapon is inlaid with gold. Traders will pay more for it.</description>
+    <commonality>0.5</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Color</li>
+    </exclusionTags>
+    <forcedColor>UniqueWeapon_Gold</forcedColor>
+    <statOffsets>
+      <Beauty>20</Beauty>
+    </statOffsets>
+    <statFactors>
+      <MarketValue>2</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>gold</li>
+      <li>golden</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+  <!-- Jade inlay -->
+  <WeaponTraitDef>
+    <defName>UMW_JadeInlay</defName>
+    <label>jade inlay</label>
+    <description>This weapon is adorned with jade. Traders will pay more for it.</description>
+    <commonality>0.5</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Color</li>
+    </exclusionTags>
+    <forcedColor>UniqueWeapon_Jade</forcedColor>
+    <statOffsets>
+      <Beauty>10</Beauty>
+    </statOffsets>
+    <statFactors>
+      <MarketValue>1.4</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>jade</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

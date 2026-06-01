@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Proof-of-concept unique longsword.
+
+       PARENTING: parents the real MeleeWeapon_LongSword (Odyssey's pattern for its ranged uniques,
+       e.g. Gun_ChargeRifle_Unique -> Gun_ChargeRifle), so we inherit its tools, stats, stuff
+       categories, etc. and only override the deltas below. This is possible because
+       Patches/AddNameToBaseMeleeWeapons.xml patches a Name= onto the longsword first (vanilla melee
+       weapons don't ship one). Inheriting beats re-implementing: no drift if vanilla rebalances.
+
+       The custom thingClass (UniqueMeleeWeapon) routes the stuff colour onto colour two so the
+       CutoutComplex mask shows material tint (green) and the unique accent (red, from
+       CompUniqueWeapon) at once. See UniqueMeleeWeapon.cs.
+
+       Like Odyssey's uniques: not craftable (recipeMaker nulled), reward-only (generateAllowChance
+       0 + UniqueWeapon reward tags), filed under WeaponsUnique, and back-linked to its base via
+       descriptionHyperlinks (vanilla convention; also what "Unique Weapons Unbound" reads to revert
+       to base). Test by dev-spawning it (lets you pick any stuff, including gold). -->
+  <ThingDef ParentName="MeleeWeapon_LongSword">
+    <defName>UMW_LongSword_Unique</defName>
+    <label>unique longsword</label>
+    <description>A longsword bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/LongSword</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_LongSword</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Blade</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>longsword</li>
+          <li>blade</li>
+          <li>sword</li>
+          <li>edge</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

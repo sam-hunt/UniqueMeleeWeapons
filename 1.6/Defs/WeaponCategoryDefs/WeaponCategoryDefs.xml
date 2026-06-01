@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Placeholder melee weapon categories for the unique-weapon trait system.
+       WeaponCategoryDef is a bare Def. A weapon's CompProperties_UniqueWeapon lists the
+       categories whose traits may roll on it; each WeaponTraitDef declares exactly one
+       category. Odyssey's stock traits are all tagged Ranged/Gun/etc., so a melee weapon
+       that lists only these categories will never roll a ranged trait. -->
+
+  <WeaponCategoryDef>
+    <defName>UMW_Melee</defName>
+    <label>melee</label>
+  </WeaponCategoryDef>
+
+  <WeaponCategoryDef>
+    <defName>UMW_Blade</defName>
+    <label>blade</label>
+  </WeaponCategoryDef>
+
+</Defs>

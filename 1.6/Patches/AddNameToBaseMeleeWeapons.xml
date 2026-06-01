@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Vanilla concrete *melee* weapons ship without a Name= attribute, unlike ranged weapons
+       (e.g. Gun_Revolver is declared Name="Gun_Revolver"). Since RimWorld's ParentName resolves
+       against Name=, not defName, a melee weapon can't be a ParentName target as-shipped.
+
+       We add Name=<defName> to each base weapon we build a unique variant of, so those uniques
+       can ParentName the real weapon and inherit its tools/stats/recipe (Odyssey's pattern for
+       ranged uniques) instead of re-implementing them — no drift if vanilla rebalances.
+
+       Patches are applied before XML-inheritance resolution (LoadedModManager: ApplyPatches ->
+       ParseAndProcessXML), so the Name is in place when ParentName resolves. PatchOperationAttributeAdd
+       is add-if-missing (it skips nodes that already have the attribute), so this is a no-op for any
+       weapon another mod has already named — safe to stack. Add one Operation per base weapon. -->
+
+  <Operation Class="PatchOperationAttributeAdd">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_LongSword"]</xpath>
+    <attribute>Name</attribute>
+    <value>MeleeWeapon_LongSword</value>
+  </Operation>
+
+</Patch>
