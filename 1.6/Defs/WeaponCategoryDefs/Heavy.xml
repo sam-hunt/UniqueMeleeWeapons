@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Handling category — slow two-handed swing (cooldown 2.6s). Pure stat archetypes that lean
+       into the heft or tame it; no on-hit effect. Shared "SwingProfile" exclusion tag makes its
+       traits mutually exclusive. -->
+  <WeaponCategoryDef>
+    <defName>UMW_Heavy</defName>
+    <label>heavy</label>
+  </WeaponCategoryDef>
+
+</Defs>

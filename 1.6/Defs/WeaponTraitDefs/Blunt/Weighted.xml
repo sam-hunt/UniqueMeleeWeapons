@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Blunt. Crush — heavier head: more damage, slower, brief stun (30t @ 35%). -->
+  <WeaponTraitDef>
+    <defName>UMW_Weighted</defName>
+    <label>weighted head</label>
+    <description>A heavier head lands crushing blows that can stagger a foe — at the cost of speed.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Blunt</weaponCategory>
+    <exclusionTags>
+      <li>Head</li>
+    </exclusionTags>
+    <statFactors>
+      <MeleeWeapon_DamageMultiplier>1.12</MeleeWeapon_DamageMultiplier>
+      <MeleeWeapon_CooldownMultiplier>1.1</MeleeWeapon_CooldownMultiplier>
+      <Mass>1.15</Mass>
+    </statFactors>
+    <traitAdjectives>
+      <li>weighted</li>
+      <li>heavy-headed</li>
+      <li>crushing</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_Stun">
+            <ticks>30</ticks>
+            <chance>0.35</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

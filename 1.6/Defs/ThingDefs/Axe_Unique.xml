@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Axe. Royalty, Medieval. Cut -> Bladed. MayRequire-gated: the base weapon exists only with
+       Royalty (the mod itself requires only Odyssey), so this def is skipped without it. -->
+  <ThingDef ParentName="MeleeWeapon_Axe" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>UMW_Axe_Unique</defName>
+    <label>unique axe</label>
+    <description>An axe bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Axe</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_Axe</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Bladed</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>axe</li>
+          <li>cleaver</li>
+          <li>bit</li>
+          <li>edge</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

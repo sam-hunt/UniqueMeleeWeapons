@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Weight — lighter, quicker swing. The universal alone-able trait
+       (canGenerateAlone defaults true); its adjectives guarantee every weapon can be named. -->
+  <WeaponTraitDef>
+    <defName>UMW_Lightweight</defName>
+    <label>lightweight</label>
+    <description>This weapon is much lighter than normal, quickening its swing.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Weight</li>
+    </exclusionTags>
+    <statFactors>
+      <Mass>0.7</Mass>
+      <MeleeWeapon_CooldownMultiplier>0.9</MeleeWeapon_CooldownMultiplier>
+      <MarketValue>1.3</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>light</li>
+      <li>nimble</li>
+      <li>quickdraw</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Weight — heavier, slower swing. -->
+  <WeaponTraitDef>
+    <defName>UMW_Cumbersome</defName>
+    <label>cumbersome</label>
+    <description>This weapon is unwieldy and badly balanced, slowing its swing.</description>
+    <commonality>1</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Weight</li>
+    </exclusionTags>
+    <statFactors>
+      <Mass>1.3</Mass>
+      <MeleeWeapon_CooldownMultiplier>1.15</MeleeWeapon_CooldownMultiplier>
+      <MarketValue>0.8</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>cumbersome</li>
+      <li>bulky</li>
+      <li>ungainly</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

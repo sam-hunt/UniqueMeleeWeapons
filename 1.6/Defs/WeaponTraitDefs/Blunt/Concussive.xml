@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Blunt. Crush — longer stun (60t @ 25%). -->
+  <WeaponTraitDef>
+    <defName>UMW_Concussive</defName>
+    <label>concussive</label>
+    <description>Blows from this weapon ring through armor and bone, briefly stunning the struck.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Blunt</weaponCategory>
+    <exclusionTags>
+      <li>Head</li>
+    </exclusionTags>
+    <traitAdjectives>
+      <li>concussive</li>
+      <li>ringing</li>
+      <li>stunning</li>
+      <li>thunderous</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_Stun">
+            <ticks>60</ticks>
+            <chance>0.25</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

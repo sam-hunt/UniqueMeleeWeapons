@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mechanism category — weapon has a Stab tool. Thrust traits add an extra high-AP Stab on hit
+       (punches through armour); shared "Point" exclusion tag caps it at one thrust effect per
+       weapon. -->
+  <WeaponCategoryDef>
+    <defName>UMW_Pointed</defName>
+    <label>pointed</label>
+  </WeaponCategoryDef>
+
+</Defs>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Pointed. Thrust — precise: +melee hit chance and an armour-piercing Stab follow-up. -->
+  <WeaponTraitDef>
+    <defName>UMW_NeedlePoint</defName>
+    <label>needle point</label>
+    <description>The tip tapers to a fine needle, slipping precisely into gaps.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Pointed</weaponCategory>
+    <exclusionTags>
+      <li>Point</li>
+    </exclusionTags>
+    <equippedStatOffsets>
+      <MeleeHitChance>0.04</MeleeHitChance>
+    </equippedStatOffsets>
+    <traitAdjectives>
+      <li>needle</li>
+      <li>needling</li>
+      <li>tapered</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
+            <def>Stab</def>
+            <amount>4</amount>
+            <armorPenetration>0.6</armorPenetration>
+            <chance>0.6</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

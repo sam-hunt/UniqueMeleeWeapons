@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Cosmetic — crude: cheaper and uglier. -->
+  <WeaponTraitDef>
+    <defName>UMW_Ugly</defName>
+    <label>ugly</label>
+    <description>This weapon was made with no respect for aesthetics. It looks like junk but gets the job done. Traders will pay less for it.</description>
+    <commonality>0.5</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Appearance</li>
+    </exclusionTags>
+    <statOffsets>
+      <Beauty>-4</Beauty>
+    </statOffsets>
+    <statFactors>
+      <MarketValue>0.8</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>crude</li>
+      <li>ugly</li>
+      <li>monstrous</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

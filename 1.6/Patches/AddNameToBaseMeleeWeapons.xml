@@ -5,19 +5,66 @@
        (e.g. Gun_Revolver is declared Name="Gun_Revolver"). Since RimWorld's ParentName resolves
        against Name=, not defName, a melee weapon can't be a ParentName target as-shipped.
 
-       We add Name=<defName> to each base weapon we build a unique variant of, so those uniques
-       can ParentName the real weapon and inherit its tools/stats/recipe (Odyssey's pattern for
-       ranged uniques) instead of re-implementing them — no drift if vanilla rebalances.
+       We add Name=<defName> to each base weapon we build a unique variant of, so those uniques can
+       ParentName the real weapon and inherit its tools/stats/recipe (Odyssey's pattern for ranged
+       uniques) instead of re-implementing them — no drift if vanilla rebalances.
 
        Patches are applied before XML-inheritance resolution (LoadedModManager: ApplyPatches ->
        ParseAndProcessXML), so the Name is in place when ParentName resolves. PatchOperationAttributeAdd
-       is add-if-missing (it skips nodes that already have the attribute), so this is a no-op for any
-       weapon another mod has already named — safe to stack. Add one Operation per base weapon. -->
+       is add-if-missing (skips nodes that already have the attribute), so this is a no-op for any
+       weapon another mod has already named — safe to stack. Add one Operation per base weapon.
 
+       The Axe and Warhammer are Royalty weapons; the mod itself requires only Odyssey. We gate those
+       two in PatchOperationConditional on the node's existence (rather than PatchOperationFindMod, so
+       it tracks the actual weapon, not a mod name) so they're skipped cleanly — no "could not find
+       node" error — when Royalty isn't loaded. Their unique defs are MayRequire-gated to match. -->
+
+  <!-- Core weapons (always present). -->
   <Operation Class="PatchOperationAttributeAdd">
     <xpath>Defs/ThingDef[defName="MeleeWeapon_LongSword"]</xpath>
     <attribute>Name</attribute>
     <value>MeleeWeapon_LongSword</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAttributeAdd">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Knife"]</xpath>
+    <attribute>Name</attribute>
+    <value>MeleeWeapon_Knife</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAttributeAdd">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear"]</xpath>
+    <attribute>Name</attribute>
+    <value>MeleeWeapon_Spear</value>
+  </Operation>
+
+  <Operation Class="PatchOperationAttributeAdd">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Mace"]</xpath>
+    <attribute>Name</attribute>
+    <value>MeleeWeapon_Mace</value>
+  </Operation>
+
+  <!-- Royalty weapons (gated on existence). -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+    <match>
+      <Operation Class="PatchOperationAttributeAdd">
+        <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+        <attribute>Name</attribute>
+        <value>MeleeWeapon_Axe</value>
+      </Operation>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+    <match>
+      <Operation Class="PatchOperationAttributeAdd">
+        <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+        <attribute>Name</attribute>
+        <value>MeleeWeapon_Warhammer</value>
+      </Operation>
+    </match>
   </Operation>
 
 </Patch>

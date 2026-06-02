@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mechanism category — primary Blunt tool. Crush traits add a chance to briefly stun on hit
+       (StunFor takes the max, so it can't lock); shared "Head" exclusion tag caps it at one crush
+       effect per weapon. -->
+  <WeaponCategoryDef>
+    <defName>UMW_Blunt</defName>
+    <label>blunt</label>
+  </WeaponCategoryDef>
+
+</Defs>

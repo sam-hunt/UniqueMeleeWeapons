@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Cosmetic — beauty over function: less damage, more beauty & market value. -->
+  <WeaponTraitDef>
+    <defName>UMW_Ornamental</defName>
+    <label>ornamental</label>
+    <description>This weapon was crafted for beauty over function. It deals less damage but looks magnificent.</description>
+    <commonality>0.5</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Appearance</li>
+    </exclusionTags>
+    <statFactors>
+      <MeleeWeapon_DamageMultiplier>0.9</MeleeWeapon_DamageMultiplier>
+      <MarketValue>1.5</MarketValue>
+    </statFactors>
+    <statOffsets>
+      <Beauty>8</Beauty>
+    </statOffsets>
+    <traitAdjectives>
+      <li>beautiful</li>
+      <li>elegant</li>
+      <li>ornamental</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

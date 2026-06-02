@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mechanism category — weapon has a Cut tool. Edge traits add an extra low-AP Cut on hit
+       (a bleeding gash); shared "Edge" exclusion tag caps it at one edge effect per weapon. -->
+  <WeaponCategoryDef>
+    <defName>UMW_Bladed</defName>
+    <label>bladed</label>
+  </WeaponCategoryDef>
+
+</Defs>

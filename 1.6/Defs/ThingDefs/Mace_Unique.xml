@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Mace. Core, Medieval. Blunt -> Blunt. -->
+  <ThingDef ParentName="MeleeWeapon_Mace">
+    <defName>UMW_Mace_Unique</defName>
+    <label>unique mace</label>
+    <description>A mace bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Mace</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_Mace</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Blunt</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>mace</li>
+          <li>bludgeon</li>
+          <li>club</li>
+          <li>head</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

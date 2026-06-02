@@ -53,13 +53,16 @@ About/              # Mod metadata (About.xml, ModIcon.png, Preview.png)
 │   ├── ThingDefs/          # Weapon ThingDefs
 │   ├── WeaponCategoryDefs/ # Trait-system categories (which traits a weapon may roll)
 │   └── WeaponTraitDefs/    # Unique-weapon traits (stat mods, forced accent colours)
+│                           #   (one def per file in every Defs .xml — see Naming)
 └── Patches/        # XPath patches (if/when needed)
 Textures/
 └── Things/Item/Equipment/WeaponMelee/UniqueWeapons/<Weapon>/   # per-weapon variant folder
 Source/1.6/
 ├── Core/           # Mod subclass (Harmony setup + settings window) and ModSettings
 ├── Things/         # Custom thingClass subclasses (e.g. UniqueMeleeWeapon)
-├── Patches/        # Harmony patches (add as needed)
+├── Graphics/       # Graphic_RandomComplex (random variant, preserves colour two)
+├── Traits/         # Melee trait on-hit effects (MeleeTraitEffectExtension + MeleeOnHitEffect)
+├── Patches/        # Harmony patches (e.g. Verb_MeleeAttackDamage on-hit-trait postfix)
 └── Properties/     # AssemblyInfo
 ```
 
@@ -68,6 +71,19 @@ Source/1.6/
 All defs use the `UMW_` prefix (Unique Melee Weapons). For a unique variant of a vanilla
 weapon, mirror Odyssey's official convention of suffixing the base weapon name with `_Unique`
 — e.g. the unique longsword (vanilla `MeleeWeapon_LongSword`) is `UMW_LongSword_Unique`.
+
+**File layout:** one def per file (for discoverability) in *every* `Defs/` `.xml` — current and
+any future subfolder — named after the def with the redundant `UMW_` prefix stripped — e.g.
+`UMW_Serrated` → `WeaponTraitDefs/Bladed/Serrated.xml`,
+`UMW_LongSword_Unique` → `ThingDefs/LongSword_Unique.xml` (the `_Unique` suffix stays; it's
+meaningful). Trait files are further grouped into per-category subfolders under `WeaponTraitDefs/`
+— one folder per `WeaponCategoryDef`, named after the category with the `UMW_` prefix stripped
+(`Melee/`, `Bladed/`, `Pointed/`, `Blunt/`, `Heavy/`) — so a trait sits beside its siblings and
+its `<weaponCategory>` is obvious from its path. RimWorld loads `Defs/` recursively and the
+`StageMod` manifest is generic over the folder (its globs use `**`), so adding per-def files or
+new subfolders needs no build change. Keep each category's shared theme /
+on-hit-effect rationale on its `WeaponCategoryDef` file, and the broad system overview in this
+doc — don't re-duplicate it across the individual trait files.
 
 **Texture naming** also follows Odyssey: variants live in a per-weapon folder
 (`Textures/Things/Item/Equipment/WeaponMelee/UniqueWeapons/<Weapon>/`) and are named
@@ -114,7 +130,32 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   never roll on a melee-categorised weapon — melee needs its own traits (we reuse Odyssey's
   category-agnostic `ColorDef`s like `UniqueWeapon_Gold` for inlays). Generation **throws** unless at
   least one eligible trait has `canGenerateAlone=true` (the first pick) *and* the rolled set yields a
-  `traitAdjective` — so always keep a generic alone-able trait with adjectives (e.g. `UMW_Honed`).
+  `traitAdjective` — so every weapon's category set must include an alone-able trait with adjectives.
+  Ours is guaranteed by **`UMW_Melee`'s universal `UMW_Lightweight`** plus each mechanism category's
+  alone-able traits. The locked taxonomy is **5 categories**: `UMW_Melee` (universal — six generic
+  cosmetic/value/weight traits ported from Odyssey: Ornamental, Ugly, Lightweight, Cumbersome,
+  Gold/Jade inlay), the mechanism categories `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a
+  damage-family on-hit effect — see next note), and the handling category `UMW_Heavy` (slow-swing
+  stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
+  `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. **Discipline:**
+  every category has ≥2 traits behind it — `UMW_Reach` was considered for the spear but dropped
+  (melee has no reach mechanic, so its traits would be flavor-only orphans).
+- **Melee trait on-hit effects (`Source/1.6/Traits/`, `Source/1.6/Patches/Verb_MeleeAttackDamage_OnHitTraits_Patch.cs`).**
+  Vanilla's mechanically interesting `WeaponTraitDef` fields — `damageDefOverride`, `extraDamages`,
+  `additionalStoppingPower`, `burstShot*`, `ignoresAccuracyMaluses` — are consumed **only** by
+  `Projectile`/`Verb_LaunchProjectile`, so they silently do **nothing** on a melee weapon. Only
+  `statOffsets`/`statFactors` (on the live melee stats `MeleeWeapon_DamageMultiplier` — which also
+  drives armor pen, there is *no* separate melee AP stat — and `MeleeWeapon_CooldownMultiplier`, plus
+  `Mass`/`Beauty`/`MarketValue`), `equippedStatOffsets` (buffs the *wielder's* pawn stats), and
+  `forcedColor` reach melee. To give the mechanism categories real, distinct effects we add our own
+  layer: a `MeleeTraitEffectExtension : DefModExtension` (a `List<MeleeOnHitEffect>` — `…_ExtraDamage`
+  for Bladed bleed / Pointed armor-pierce, `…_Stun` for Blunt) attached to the trait def, fired by a
+  Harmony **postfix on `Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget`** (gated on a landed,
+  wounding hit by a weapon with a `CompUniqueWeapon`). Using a `DefModExtension` + postfix — rather
+  than subclassing `WeaponTraitDef` — keeps the trait an ordinary def, so vanilla generation/naming/
+  stats stay untouched. `…_ExtraDamage` calls `Thing.TakeDamage` directly (not the verb), so it can't
+  re-trigger the postfix. This same extra-damage mechanism is the path for any future on-hit element
+  (tox/incendiary just need the matching `DamageDef`).
 - **Parenting: patch a `Name=` onto the base weapon, then inherit it.** RimWorld's `ParentName`
   resolves against a node's `Name=` attribute, not its `defName`. Vanilla *ranged* weapons expose
   `Name=` (so Odyssey does `ParentName="Gun_Revolver"`), but **no concrete vanilla *melee* weapon
@@ -126,7 +167,12 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `AttributeAdd` is **add-if-missing** (skips nodes that already have it), so it's safe to stack with
   other mods. The unique def then `ParentName`s the real weapon and overrides only the deltas
   (graphic, `thingClass`, comps, reward tags, nulled `recipeMaker`) — inheriting tools/stats/stuff
-  automatically. Add one patch Operation per new base weapon.
+  automatically. Add one patch Operation per new base weapon. **DLC-gated bases:** the Axe and
+  Warhammer are Royalty weapons but the mod requires only Odyssey, so their two name patches are
+  wrapped in `PatchOperationConditional` testing the base node's existence (`Defs/ThingDef[defName=…]`)
+  — this tracks the actual weapon rather than a mod name, skipping cleanly with no "could not find
+  node" error when Royalty is absent. Their unique defs carry `MayRequire="Ludeon.RimWorld.Royalty"`
+  to match.
 - **Back-reference the base via `descriptionHyperlinks`.** `<descriptionHyperlinks><ThingDef>MeleeWeapon_LongSword</ThingDef></descriptionHyperlinks>`
   — vanilla/Odyssey convention, and the link "Unique Weapons Unbound" reads to let the weapon revert
   to its base. The `_Unique` suffix alone isn't enough: our prefixed `UMW_LongSword_Unique` minus the

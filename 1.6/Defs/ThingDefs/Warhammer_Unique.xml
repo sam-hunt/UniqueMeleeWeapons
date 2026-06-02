@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Warhammer. Royalty, Medieval. Blunt, slow 2.6s swing -> Blunt + Heavy. MayRequire-gated. -->
+  <ThingDef ParentName="MeleeWeapon_Warhammer" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>UMW_Warhammer_Unique</defName>
+    <label>unique warhammer</label>
+    <description>A warhammer bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Warhammer</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_Warhammer</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Blunt</li>
+          <li>UMW_Heavy</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>warhammer</li>
+          <li>hammer</li>
+          <li>maul</li>
+          <li>head</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

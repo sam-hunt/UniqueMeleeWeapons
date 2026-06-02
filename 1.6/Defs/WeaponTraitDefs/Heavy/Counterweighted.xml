@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Heavy. Swing profile — faster recovery, slightly less power. -->
+  <WeaponTraitDef>
+    <defName>UMW_Counterweighted</defName>
+    <label>counterweighted</label>
+    <description>A counterweight tames the heft, recovering faster between swings at a slight cost to power.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Heavy</weaponCategory>
+    <exclusionTags>
+      <li>SwingProfile</li>
+    </exclusionTags>
+    <statFactors>
+      <MeleeWeapon_CooldownMultiplier>0.82</MeleeWeapon_CooldownMultiplier>
+      <MeleeWeapon_DamageMultiplier>0.95</MeleeWeapon_DamageMultiplier>
+      <MarketValue>1.3</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>balanced</li>
+      <li>counterweighted</li>
+      <li>swift</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

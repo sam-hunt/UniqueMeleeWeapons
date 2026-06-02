@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Universal category — every unique melee weapon lists it. Carries Odyssey's six generic
+       ported traits (cosmetic / value / weight; no on-hit effect): Ornamental, Ugly, Lightweight,
+       Cumbersome, plus the Gold/Jade inlays. Includes UMW_Lightweight, the universal alone-able
+       trait whose adjectives guarantee every weapon can be named. -->
+  <WeaponCategoryDef>
+    <defName>UMW_Melee</defName>
+    <label>melee</label>
+  </WeaponCategoryDef>
+
+</Defs>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Bladed. Edge — bigger but less reliable bleed (6 dmg @ 50%). -->
+  <WeaponTraitDef>
+    <defName>UMW_Serrated</defName>
+    <label>serrated</label>
+    <description>The edge is cut into vicious teeth that tear ragged, bleeding wounds.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Bladed</weaponCategory>
+    <exclusionTags>
+      <li>Edge</li>
+    </exclusionTags>
+    <statOffsets>
+      <Beauty>-2</Beauty>
+    </statOffsets>
+    <traitAdjectives>
+      <li>serrated</li>
+      <li>jagged</li>
+      <li>vicious</li>
+      <li>sawtooth</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
+            <def>Cut</def>
+            <amount>6</amount>
+            <armorPenetration>0.15</armorPenetration>
+            <chance>0.5</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

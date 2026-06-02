@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Pointed. Thrust — armour-breaking Stab follow-up (very high AP). -->
+  <WeaponTraitDef>
+    <defName>UMW_ArmorSpike</defName>
+    <label>armor spike</label>
+    <description>A reinforced spike drives through plate and carapace that would turn a lesser point.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Pointed</weaponCategory>
+    <exclusionTags>
+      <li>Point</li>
+    </exclusionTags>
+    <traitAdjectives>
+      <li>spiked</li>
+      <li>armorbane</li>
+      <li>punching</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
+            <def>Stab</def>
+            <amount>3</amount>
+            <armorPenetration>1.2</armorPenetration>
+            <chance>0.85</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

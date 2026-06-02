@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Proof-of-concept unique longsword.
-
-       PARENTING: parents the real MeleeWeapon_LongSword (Odyssey's pattern for its ranged uniques,
-       e.g. Gun_ChargeRifle_Unique -> Gun_ChargeRifle), so we inherit its tools, stats, stuff
-       categories, etc. and only override the deltas below. This is possible because
-       Patches/AddNameToBaseMeleeWeapons.xml patches a Name= onto the longsword first (vanilla melee
-       weapons don't ship one). Inheriting beats re-implementing: no drift if vanilla rebalances.
-
-       The custom thingClass (UniqueMeleeWeapon) routes the stuff colour onto colour two so the
-       CutoutComplex mask shows material tint (green) and the unique accent (red, from
-       CompUniqueWeapon) at once. See UniqueMeleeWeapon.cs.
-
-       Like Odyssey's uniques: not craftable (recipeMaker nulled), reward-only (generateAllowChance
-       0 + UniqueWeapon reward tags), filed under WeaponsUnique, and back-linked to its base via
-       descriptionHyperlinks (vanilla convention; also what "Unique Weapons Unbound" reads to revert
-       to base). Test by dev-spawning it (lets you pick any stuff, including gold). -->
+  <!-- Longsword (flagship). Core, Medieval. Cut+Stab, slow 2.6s swing -> all four melee categories. -->
   <ThingDef ParentName="MeleeWeapon_LongSword">
     <defName>UMW_LongSword_Unique</defName>
     <label>unique longsword</label>
@@ -45,7 +30,9 @@
       <li Class="CompProperties_UniqueWeapon">
         <weaponCategories>
           <li>UMW_Melee</li>
-          <li>UMW_Blade</li>
+          <li>UMW_Bladed</li>
+          <li>UMW_Pointed</li>
+          <li>UMW_Heavy</li>
         </weaponCategories>
         <namerLabels>
           <li>longsword</li>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Bladed. Edge — small reliable bleed (3 dmg @ 85%) plus a flat damage boost. -->
+  <WeaponTraitDef>
+    <defName>UMW_Razored</defName>
+    <label>razored</label>
+    <description>The edge is honed to a razor that bites deeper with every cut.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Bladed</weaponCategory>
+    <exclusionTags>
+      <li>Edge</li>
+    </exclusionTags>
+    <statFactors>
+      <MeleeWeapon_DamageMultiplier>1.08</MeleeWeapon_DamageMultiplier>
+    </statFactors>
+    <traitAdjectives>
+      <li>razored</li>
+      <li>razor-sharp</li>
+      <li>keen</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
+            <def>Cut</def>
+            <amount>3</amount>
+            <armorPenetration>0.15</armorPenetration>
+            <chance>0.85</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>
