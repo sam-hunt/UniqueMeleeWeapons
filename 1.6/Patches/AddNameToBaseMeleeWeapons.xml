@@ -44,26 +44,24 @@
     <value>MeleeWeapon_Mace</value>
   </Operation>
 
-  <!-- Royalty weapons (gated on existence). -->
+  <!-- Royalty weapons (gated on existence). Note <match> is itself the nested operation
+       (PatchOperationConditional.match is a PatchOperation field) — the Class= goes on the
+       <match> tag directly, not on an <Operation> wrapped inside it. -->
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
-    <match>
-      <Operation Class="PatchOperationAttributeAdd">
-        <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
-        <attribute>Name</attribute>
-        <value>MeleeWeapon_Axe</value>
-      </Operation>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Axe</value>
     </match>
   </Operation>
 
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
-    <match>
-      <Operation Class="PatchOperationAttributeAdd">
-        <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
-        <attribute>Name</attribute>
-        <value>MeleeWeapon_Warhammer</value>
-      </Operation>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Warhammer</value>
     </match>
   </Operation>
 
