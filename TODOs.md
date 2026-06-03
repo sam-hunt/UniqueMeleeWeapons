@@ -2,8 +2,6 @@
 
 # Features
 
-- Use idiomatic unique weapon def names instead of `UMW_` suffixed? rename files
-- Investigate whether we can inherit ranged traits in melee category trait defs
 - Investigate tox-tipped pointed trait
 - Brainstorm incendiary traits etc
 - Ability traits (aoe shock stun? cleave attack?)

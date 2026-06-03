@@ -4,7 +4,26 @@
   <!-- Universal category — every unique melee weapon lists it. Carries Odyssey's six generic
        ported traits (cosmetic / value / weight; no on-hit effect): Ornamental, Ugly, Lightweight,
        Cumbersome, plus the Gold/Jade inlays. Includes UMW_Lightweight, the universal alone-able
-       trait whose adjectives guarantee every weapon can be named. -->
+       trait whose adjectives guarantee every weapon can be named.
+
+       These six are INTENTIONAL self-contained ports, not lazy copies — do NOT "DRY" them into
+       XML inheritance (ParentName) from Odyssey's trait defs. Two hard reasons:
+         1. Odyssey's trait defs carry no Name= attribute, so ParentName can't target them without
+            first patching one on (à la AddNameToBaseMeleeWeapons) — reaching into paid-DLC
+            internals with a hard load-order dependency. A future Odyssey rename/restructure →
+            "could not find parent node" → the trait fails to load → it drops out of UMW_Melee →
+            and if that ever leaves a category with no alone-able adjective-bearing trait,
+            weapon generation THROWS. Self-contained copies can't break that way.
+         2. statOffsets/statFactors entries merge by element name (see Verse.XmlInheritance.
+            RecursiveNodeCopyOverwriteElements), so an inherited RangedWeapon_* stat could NOT be
+            removed by override — only Inherit="False" drops it, which means restating the whole
+            block anyway (= copy-paste, plus a fragile parent link). No DRY win.
+       Two flavours, per file:
+         • Re-pointed to melee stats — Ornamental, Lightweight, Cumbersome: Odyssey drives
+           ranged-only stats (RangedWeapon_DamageMultiplier / _WarmupMultiplier) that are inert on
+           melee, so these were redesigned onto MeleeWeapon_* stats. Each file notes its deltas inline.
+         • Verbatim-equivalent — Ugly, Gold/Jade inlay: touch only category-agnostic stats
+           (Beauty / MarketValue / forcedColor), so their values match Odyssey 1:1. -->
   <WeaponCategoryDef>
     <defName>UMW_Melee</defName>
     <label>melee</label>

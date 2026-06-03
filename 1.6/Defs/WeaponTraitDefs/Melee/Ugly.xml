@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. Cosmetic — crude: cheaper and uglier. -->
+  <!-- UMW_Melee. Cosmetic — crude: cheaper and uglier. Verbatim-equivalent port of Odyssey's
+       Ranged "Ugly" — touches only category-agnostic stats (Beauty -4, MarketValue ×0.8), so
+       values match Odyssey 1:1. -->
   <WeaponTraitDef>
     <defName>UMW_Ugly</defName>
     <label>ugly</label>

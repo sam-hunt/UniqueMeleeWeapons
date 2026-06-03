@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. Weight — heavier, slower swing. -->
+  <!-- UMW_Melee. Weight — heavier, slower swing. Re-pointed port of Odyssey's Ranged
+       "Cumbersome" (deltas noted inline). -->
   <WeaponTraitDef>
     <defName>UMW_Cumbersome</defName>
     <label>cumbersome</label>
@@ -13,9 +14,9 @@
       <li>Weight</li>
     </exclusionTags>
     <statFactors>
-      <Mass>1.3</Mass>
-      <MeleeWeapon_CooldownMultiplier>1.15</MeleeWeapon_CooldownMultiplier>
-      <MarketValue>0.8</MarketValue>
+      <Mass>1.3</Mass> <!-- not in Odyssey's Cumbersome; added as Lightweight's mirror -->
+      <MeleeWeapon_CooldownMultiplier>1.15</MeleeWeapon_CooldownMultiplier> <!-- Odyssey: RangedWeapon_WarmupMultiplier +0.2 (inert on melee) -->
+      <MarketValue>0.8</MarketValue> <!-- matches Odyssey -->
     </statFactors>
     <traitAdjectives>
       <li>cumbersome</li>

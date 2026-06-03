@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. Cosmetic — beauty over function: less damage, more beauty & market value. -->
+  <!-- UMW_Melee. Cosmetic — beauty over function: less damage, more beauty & market value.
+       Re-pointed port of Odyssey's Ranged "Ornamental" (deltas noted inline). -->
   <WeaponTraitDef>
     <defName>UMW_Ornamental</defName>
     <label>ornamental</label>
@@ -13,11 +14,11 @@
       <li>Appearance</li>
     </exclusionTags>
     <statFactors>
-      <MeleeWeapon_DamageMultiplier>0.9</MeleeWeapon_DamageMultiplier>
-      <MarketValue>1.5</MarketValue>
+      <MeleeWeapon_DamageMultiplier>0.9</MeleeWeapon_DamageMultiplier> <!-- Odyssey: RangedWeapon_DamageMultiplier -0.15 offset (inert on melee) -->
+      <MarketValue>1.5</MarketValue> <!-- Odyssey: +40 flat offset → factor, scales with weapon value -->
     </statFactors>
     <statOffsets>
-      <Beauty>8</Beauty>
+      <Beauty>8</Beauty> <!-- Odyssey: +5 -->
     </statOffsets>
     <traitAdjectives>
       <li>beautiful</li>

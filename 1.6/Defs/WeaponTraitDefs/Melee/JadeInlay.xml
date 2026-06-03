@@ -3,7 +3,9 @@
 
   <!-- UMW_Melee. Inlay — forces the UniqueWeapon_Jade accent colour (colour one / red mask).
        Add-on only (canGenerateAlone=false); shared "Color" exclusion tag = one inlay per weapon.
-       Reuses Odyssey's category-agnostic UniqueWeapon_* ColorDefs. -->
+       Verbatim-equivalent port of Odyssey's Ranged "JadeInlay" — touches only category-agnostic
+       stats (Beauty +10, MarketValue ×1.4, forcedColor), so values match Odyssey 1:1; reuses
+       Odyssey's UniqueWeapon_* ColorDefs directly. -->
   <WeaponTraitDef>
     <defName>UMW_JadeInlay</defName>
     <label>jade inlay</label>

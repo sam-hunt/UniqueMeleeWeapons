@@ -139,7 +139,11 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
   `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. **Discipline:**
   every category has ≥2 traits behind it — `UMW_Reach` was considered for the spear but dropped
-  (melee has no reach mechanic, so its traits would be flavor-only orphans).
+  (melee has no reach mechanic, so its traits would be flavor-only orphans). The six `UMW_Melee`
+  ports are **intentional self-contained copies, not XML inheritance from Odyssey's defs** — three
+  (Ornamental/Lightweight/Cumbersome) re-pointed onto melee stats because Odyssey's `RangedWeapon_*`
+  mods are inert on melee, three (Ugly/Gold/Jade inlay) verbatim-equivalent. `WeaponCategoryDefs/Melee.xml`
+  documents why inheritance is avoided; each ported trait file notes its deltas inline.
 - **Melee trait on-hit effects (`Source/1.6/Traits/`, `Source/1.6/Patches/Verb_MeleeAttackDamage_OnHitTraits_Patch.cs`).**
   Vanilla's mechanically interesting `WeaponTraitDef` fields — `damageDefOverride`, `extraDamages`,
   `additionalStoppingPower`, `burstShot*`, `ignoresAccuracyMaluses` — are consumed **only** by
