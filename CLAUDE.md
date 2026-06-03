@@ -97,7 +97,7 @@ variant per spawn; `_m` masks auto-pair per variant). The custom class is requir
 
 - **C# entry point:** `UniqueMeleeWeaponsMod` (in `Source/1.6/Core/`) applies all Harmony patches via `PatchAll()` at startup, so any `[HarmonyPatch]` class under the assembly is picked up automatically — no manual registration.
 - **Namespace:** root namespace is `UniqueMeleeWeapons`. Use a `*Patches` suffix for patch namespaces (e.g. `UniqueMeleeWeapons.Patches`) to avoid RimWorld type-name conflicts.
-- **Settings:** persisted via `UniqueMeleeWeaponsSettings` (ModSettings). Currently empty — add fields + `Scribe_Values.Look` calls and surface them in `DoWindowContents`.
+- **Settings:** persisted via `UniqueMeleeWeaponsSettings` (ModSettings); the `Mod` subclass just delegates `DoSettingsWindowContents` → `Settings.DoWindowContents`. No configurable fields yet, but the window is pre-wired for a large list of balance toggles: the body renders inside a scroll view that only shows a scrollbar once content would overflow vertically (inner-rect height = `Mathf.Max(contentHeight, viewRect.height)`, with `contentHeight` re-measured each frame from `listing.CurHeight`), and a pinned "Reset to defaults" button calls `ResetToDefaults()`. Scroll offset/height are transient UI state and deliberately **not** scribed. To add a setting: declare the field (with default), persist it in `ExposeData` (`Scribe_Values.Look` with the same default), restore it in `ResetToDefaults`, and add a row in `DoWindowContents` (see the commented example there) — new rows need no layout bookkeeping.
 
 ### Architecture notes
 

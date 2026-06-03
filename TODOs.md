@@ -10,6 +10,7 @@
 - Investigate VWE integration (akimbo etc?)
 - Mod settings to add each weapon to rewards pools
 - Mod settings port dynamic area scrolling
+- Mercenary camp quest?
 - About.xml
 
 # Art
