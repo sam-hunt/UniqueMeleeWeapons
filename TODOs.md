@@ -2,15 +2,21 @@
 
 # Features
 
-- Weapon defs
-- Weapon trait category defs
-- Weapon trait defs
-- Persona weapons?
+- Use idiomatic unique weapon def names instead of `UMW_` suffixed? rename files
+- Investigate whether we can inherit ranged traits in melee category trait defs
+- Investigate tox-tipped pointed trait
+- Brainstorm incendiary traits etc
+- Ability traits (aoe shock stun? cleave attack?)
+- Wielder-hediff trait (`equippedHediffs`) for an equip buff/curse
+- Differentiate Bladed (bleed-over-time) vs Pointed (armor-shred debuff) — currently both just "+extra damage"
+- Investigate VWE integration (akimbo etc?)
+- Mod settings to add each weapon to rewards pools
+- Mod settings port dynamic area scrolling
 - About.xml
 
 # Art
 
 - Hero art
-- Weapon diffuse and mask textures
+- Weapon diffuse + mask textures — Knife, Spear, Axe, Mace, Warhammer, Gladius
 - ModIcon.png
 - Preview.png

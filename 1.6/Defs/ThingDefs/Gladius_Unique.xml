@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Gladius. Core, Medieval. Cut+Stab, light/nimble 2.0s swing -> Bladed + Pointed (no Heavy;
+       that archetype is reserved for the slow 2.6s-swing longsword/warhammer). -->
+  <ThingDef ParentName="MeleeWeapon_Gladius">
+    <defName>UMW_Gladius_Unique</defName>
+    <label>unique gladius</label>
+    <description>A gladius bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Gladius</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_Gladius</ThingDef>
+    </descriptionHyperlinks>
+    <comps>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Bladed</li>
+          <li>UMW_Pointed</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>gladius</li>
+          <li>blade</li>
+          <li>sword</li>
+          <li>edge</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

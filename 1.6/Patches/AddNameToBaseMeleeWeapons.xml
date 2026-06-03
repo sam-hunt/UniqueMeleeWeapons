@@ -44,6 +44,12 @@
     <value>MeleeWeapon_Mace</value>
   </Operation>
 
+  <Operation Class="PatchOperationAttributeAdd">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Gladius"]</xpath>
+    <attribute>Name</attribute>
+    <value>MeleeWeapon_Gladius</value>
+  </Operation>
+
   <!-- Royalty weapons (gated on existence). Note <match> is itself the nested operation
        (PatchOperationConditional.match is a PatchOperation field) — the Class= goes on the
        <match> tag directly, not on an <Operation> wrapped inside it. -->
