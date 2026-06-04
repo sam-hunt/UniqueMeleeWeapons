@@ -137,9 +137,17 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   Gold/Jade inlay), the mechanism categories `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a
   damage-family on-hit effect — see next note), and the handling category `UMW_Heavy` (slow-swing
   stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
-  `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. **Discipline:**
-  every category has ≥2 traits behind it — `UMW_Reach` was considered for the spear but dropped
-  (melee has no reach mechanic, so its traits would be flavor-only orphans). The six `UMW_Melee`
+  `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. `UMW_Pointed` also
+  carries a second family — the **"coating" traits `UMW_Envenomed`/`UMW_Paralytic`** (a venom delivered
+  on hit) — gated by a dedicated **`Coating`** token (one coating per weapon). This is the melee analog
+  of the `AmmoType` tag Odyssey's `ToxRounds`/`ParalyticArrows` share. The **`Color`** tag (the inlays')
+  is applied *separately and only to coatings that force a tint*: `UMW_Envenomed` forces
+  `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay), while
+  `UMW_Paralytic` forces no color — faithful to Odyssey's `ParalyticArrows`, which carries no `Color`
+  tag — so it tags only `Coating` and *can* sit alongside an inlay. A coating combines freely with a
+  point-shape trait (`Point` tag) either way. **Discipline:** every category has ≥2 traits behind it —
+  `UMW_Reach` was considered for the spear but dropped (melee has no reach mechanic, so its traits would
+  be flavor-only orphans). The six `UMW_Melee`
   ports are **intentional self-contained copies, not XML inheritance from Odyssey's defs** — three
   (Ornamental/Lightweight/Cumbersome) re-pointed onto melee stats because Odyssey's `RangedWeapon_*`
   mods are inert on melee, three (Ugly/Gold/Jade inlay) verbatim-equivalent. `WeaponCategoryDefs/Melee.xml`
@@ -158,8 +166,17 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   wounding hit by a weapon with a `CompUniqueWeapon`). Using a `DefModExtension` + postfix — rather
   than subclassing `WeaponTraitDef` — keeps the trait an ordinary def, so vanilla generation/naming/
   stats stay untouched. `…_ExtraDamage` calls `Thing.TakeDamage` directly (not the verb), so it can't
-  re-trigger the postfix. This same extra-damage mechanism is the path for any future on-hit element
-  (tox/incendiary just need the matching `DamageDef`).
+  re-trigger the postfix. This same extra-damage mechanism is the path for any on-hit element that a
+  `DamageDef` can carry — the Pointed **`UMW_Envenomed`** coating realises it: a self-contained
+  `UMW_Stab_Tox` DamageDef (`Defs/DamageDefs/`, a `Stab` clone — `Stab` has no `Name=` so it can't be a
+  `ParentName`) with the **`additionalHediffs`→`ToxicBuildup`** block lifted verbatim from Core's
+  `ScratchToxic`. **Why this works on melee (verified by decompile):** unlike the ranged-only
+  `damageDefOverride`, `DamageDef.additionalHediffs` is applied source-agnostically by
+  **`Pawn_HealthTracker.PostApplyDamage(dinfo, totalDamageDealt)`** — reached by *every* `Thing.TakeDamage`,
+  including our `…_ExtraDamage` hit — so the ToxicBuildup stacks (scaled by the venom-stab's damage
+  dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. (The **paralytic**
+  coating `UMW_Paralytic` is Odyssey's "paralytic arrows" ported via the existing `…_Stun` — also no
+  C#.) Incendiary would be the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`.
 - **Parenting: patch a `Name=` onto the base weapon, then inherit it.** RimWorld's `ParentName`
   resolves against a node's `Name=` attribute, not its `defName`. Vanilla *ranged* weapons expose
   `Name=` (so Odyssey does `ParentName="Gun_Revolver"`), but **no concrete vanilla *melee* weapon

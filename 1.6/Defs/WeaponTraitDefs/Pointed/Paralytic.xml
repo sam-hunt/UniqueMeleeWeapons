@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Pointed. Coating — a fast-acting paralytic biotoxin that briefly stuns on a clean thrust
+       (35t @ 18%). This is Odyssey's "paralytic arrows" mechanic ported to melee. Differentiated from
+       the Blunt UMW_Concussive stun (60t @ 25%) by category, shorter/rarer proc, and the neurotoxin
+       flavour. Tags only "Coating" (mutually exclusive with the other coating, Envenomed) — and,
+       faithful to Odyssey's ParalyticArrows, forces NO color, so unlike Envenomed it can coexist with
+       a Gold/Jade inlay (no "Color" tag). Combines freely with a point-shape trait. -->
+  <WeaponTraitDef>
+    <defName>UMW_Paralytic</defName>
+    <label>paralytic</label>
+    <description>The point weeps a fast-acting paralytic biotoxin; a clean thrust can briefly lock up the struck.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Pointed</weaponCategory>
+    <exclusionTags>
+      <li>Coating</li>
+    </exclusionTags>
+    <statOffsets>
+      <MarketValue>80</MarketValue>
+    </statOffsets>
+    <traitAdjectives>
+      <li>paralytic</li>
+      <li>paralyzing</li>
+      <li>numbing</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_Stun">
+            <ticks>35</ticks>
+            <chance>0.18</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

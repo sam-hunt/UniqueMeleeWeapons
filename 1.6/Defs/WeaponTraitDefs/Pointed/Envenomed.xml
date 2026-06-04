@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Pointed. Coating — a thrust drives venom deep, stacking ToxicBuildup over a sustained fight
+       (extra UMW_Stab_Tox hit @ 50%). Tags "Coating" (one coating per weapon — mutually exclusive with
+       Paralytic) AND "Color", because it forces the green UniqueWeapon_Tox tint and so can't share a
+       weapon with the Gold/Jade inlays. This mirrors Odyssey's ToxRounds, which tags AmmoType+Color
+       (Coating is our melee analog of AmmoType). Combines freely with a point-shape trait
+       (ArmorSpike/NeedlePoint, tag "Point"). -->
+  <WeaponTraitDef>
+    <defName>UMW_Envenomed</defName>
+    <label>envenomed</label>
+    <description>The point is coated in a slow neurotoxic venom that seeps into every wound it opens.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Pointed</weaponCategory>
+    <exclusionTags>
+      <li>Coating</li>
+      <li>Color</li>
+    </exclusionTags>
+    <forcedColor>UniqueWeapon_Tox</forcedColor>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <traitAdjectives>
+      <li>envenomed</li>
+      <li>venomous</li>
+      <li>poisoned</li>
+      <li>toxic</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
+            <def>UMW_Stab_Tox</def>
+            <amount>3</amount>
+            <armorPenetration>0.3</armorPenetration>
+            <chance>0.5</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

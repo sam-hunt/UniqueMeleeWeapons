@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Envenomed-stab damage carried by the UMW_Envenomed "coating" trait. Dealt as an extra hit by
+       MeleeOnHitEffect_ExtraDamage; the ToxicBuildup is applied source-agnostically by
+       Pawn_HealthTracker.PostApplyDamage off DamageDef.additionalHediffs (NOT the projectile path),
+       so it works for a melee-sourced DamageInfo — see the on-hit-effects architecture note in CLAUDE.md.
+
+       Self-contained clone of Core's Stab, NOT ParentName="Stab": the vanilla Stab DamageDef carries
+       no Name= attribute, so it can't be a parent (same gotcha as the base melee weapons — see
+       AddNameToBaseMeleeWeapons.xml). The additionalHediffs block + Toxic sound/effecter are copied
+       verbatim from Core's ScratchToxic (the vanilla melee-toxic precedent): severity scales with the
+       venom-stab's damage dealt, reduced by the victim's ToxicResistance and larger body size, so it
+       matches Bullet_TraitTox / ScratchToxic 1:1. applyAdditionalHediffsIfHuntingForFood=false so a
+       poisoned weapon doesn't taint hunted meat. Per-hit rate is tuned on the trait (chance/amount),
+       not here, keeping this def a faithful sibling of the vanilla tox defs. -->
+  <DamageDef>
+    <defName>UMW_Stab_Tox</defName>
+    <label>toxic stab</label>
+    <workerClass>DamageWorker_Stab</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been stabbed to death.</deathMessage>
+    <hediff>Stab</hediff>
+    <hediffSolid>Crack</hediffSolid>
+    <impactSoundType>Toxic</impactSoundType>
+    <damageEffecter>Impact_Toxic</damageEffecter>
+    <armorCategory>Sharp</armorCategory>
+    <stabChanceOfForcedInternal>0.6</stabChanceOfForcedInternal>
+    <overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+    <additionalHediffs>
+      <li>
+        <hediff>ToxicBuildup</hediff>
+        <severityPerDamageDealt>0.015</severityPerDamageDealt>
+        <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+        <inverseStatScaling>true</inverseStatScaling>
+        <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+      </li>
+    </additionalHediffs>
+    <applyAdditionalHediffsIfHuntingForFood>false</applyAdditionalHediffsIfHuntingForFood>
+  </DamageDef>
+
+</Defs>
