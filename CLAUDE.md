@@ -52,16 +52,22 @@ About/              # Mod metadata (About.xml, ModIcon.png, Preview.png)
 ├── Defs/
 │   ├── ThingDefs/          # Weapon ThingDefs
 │   ├── WeaponCategoryDefs/ # Trait-system categories (which traits a weapon may roll)
-│   └── WeaponTraitDefs/    # Unique-weapon traits (stat mods, forced accent colours)
-│                           #   (one def per file in every Defs .xml — see Naming)
+│   ├── WeaponTraitDefs/    # Unique-weapon traits (stat mods, forced accent colours)
+│   │                       #   (one def per file in every Defs .xml — see Naming)
+│   ├── DamageDefs/         # Custom melee DamageDefs carried by on-hit effects / base-damage conversion (UMW_Stab_Tox, UMW_Cut_Ragged)
+│   ├── HediffDefs/         # Custom injury hediffs targeted by those DamageDefs (e.g. UMW_Cut_Ragged)
+│   ├── ColorDefs/          # Forced accent colours (e.g. UMW_Blood)
+│   └── ThoughtDefs/        # Wielder moodlets driven by a trait (e.g. UMW_BloodSoakedWeapon)
 └── Patches/        # XPath patches (if/when needed)
 Textures/
 └── Things/Item/Equipment/WeaponMelee/UniqueWeapons/<Weapon>/   # per-weapon variant folder
 Source/1.6/
-├── Core/           # Mod subclass (Harmony setup + settings window) and ModSettings
+├── Core/           # Mod subclass (Harmony setup + settings window), ModSettings, UMW_DefOf
 ├── Things/         # Custom thingClass subclasses (e.g. UniqueMeleeWeapon)
 ├── Graphics/       # Graphic_RandomComplex (random variant, preserves colour two)
-├── Traits/         # Melee trait on-hit effects (MeleeTraitEffectExtension + MeleeOnHitEffect)
+├── Traits/         # Melee trait effect machinery: MeleeTraitEffectExtension + MeleeOnHitEffect
+│                   #   subclasses, MeleeDamageConversionExtension (base-damage reroute), and
+│                   #   ThoughtWorker_BloodSoakedWeapon (equip-mood for a trait)
 ├── Patches/        # Harmony patches (e.g. Verb_MeleeAttackDamage on-hit-trait postfix)
 └── Properties/     # AssemblyInfo
 ```
@@ -132,11 +138,12 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   least one eligible trait has `canGenerateAlone=true` (the first pick) *and* the rolled set yields a
   `traitAdjective` — so every weapon's category set must include an alone-able trait with adjectives.
   Ours is guaranteed by **`UMW_Melee`'s universal `UMW_Lightweight`** plus each mechanism category's
-  alone-able traits. The locked taxonomy is **5 categories**: `UMW_Melee` (universal — six generic
+  alone-able traits. The locked taxonomy is **5 categories**: `UMW_Melee` (universal — the six generic
   cosmetic/value/weight traits ported from Odyssey: Ornamental, Ugly, Lightweight, Cumbersome,
-  Gold/Jade inlay), the mechanism categories `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a
-  damage-family on-hit effect — see next note), and the handling category `UMW_Heavy` (slow-swing
-  stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
+  Gold/Jade inlay, plus `UMW_BloodSoaked` — a gory forced-tint trait that panics humanlikes on hit and
+  carries a balancing equip-mood downside; see its own note below), the mechanism categories
+  `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a damage-family on-hit effect — see next note),
+  and the handling category `UMW_Heavy` (slow-swing stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
   `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. `UMW_Pointed` also
   carries a second family — the **"coating" traits `UMW_Envenomed`/`UMW_Paralytic`** (a venom delivered
   on hit) — gated by a dedicated **`Coating`** token (one coating per weapon). This is the melee analog
@@ -145,9 +152,14 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay), while
   `UMW_Paralytic` forces no color — faithful to Odyssey's `ParalyticArrows`, which carries no `Color`
   tag — so it tags only `Coating` and *can* sit alongside an inlay. A coating combines freely with a
-  point-shape trait (`Point` tag) either way. **Discipline:** every category has ≥2 traits behind it —
-  `UMW_Reach` was considered for the spear but dropped (melee has no reach mechanic, so its traits would
-  be flavor-only orphans). The six `UMW_Melee`
+  point-shape trait (`Point` tag) either way. **Discipline:** single-trait categories are fine (Odyssey
+  ships several — `Rifle`/`Shotgun`/`BeamWeapon`/`LowStoppingPower` each have one); the bar is that every
+  trait be mechanically **meaningful**, not that a category hit some count. `UMW_Reach` was considered for
+  the spear but dropped (melee has no reach mechanic, so its traits would be flavor-only orphans).
+  `UMW_Blunt` is thus a single trait — `UMW_Concussive`, a brief resonant stun — after the old
+  `UMW_Weighted` (which duplicated that stun *and* `UMW_Heavy`'s heavy-head stat profile) was removed. (A
+  pure-AP blunt trait isn't an option either: melee damage and AP share one stat,
+  `MeleeWeapon_DamageMultiplier`, owned by `UMW_Heavy`.) The six `UMW_Melee`
   ports are **intentional self-contained copies, not XML inheritance from Odyssey's defs** — three
   (Ornamental/Lightweight/Cumbersome) re-pointed onto melee stats because Odyssey's `RangedWeapon_*`
   mods are inert on melee, three (Ugly/Gold/Jade inlay) verbatim-equivalent. `WeaponCategoryDefs/Melee.xml`
@@ -161,7 +173,8 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `Mass`/`Beauty`/`MarketValue`), `equippedStatOffsets` (buffs the *wielder's* pawn stats), and
   `forcedColor` reach melee. To give the mechanism categories real, distinct effects we add our own
   layer: a `MeleeTraitEffectExtension : DefModExtension` (a `List<MeleeOnHitEffect>` — `…_ExtraDamage`
-  for Bladed bleed / Pointed armor-pierce, `…_Stun` for Blunt) attached to the trait def, fired by a
+  for Bladed bleed / Pointed armor-pierce, `…_Stun` for Blunt, `…_MentalState` for the Blood-soaked
+  dread/flee) attached to the trait def, fired by a
   Harmony **postfix on `Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget`** (gated on a landed,
   wounding hit by a weapon with a `CompUniqueWeapon`). Using a `DefModExtension` + postfix — rather
   than subclassing `WeaponTraitDef` — keeps the trait an ordinary def, so vanilla generation/naming/
@@ -177,6 +190,37 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. (The **paralytic**
   coating `UMW_Paralytic` is Odyssey's "paralytic arrows" ported via the existing `…_Stun` — also no
   C#.) Incendiary would be the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`.
+- **Base-damage conversion (`MeleeDamageConversionExtension` + `Verb_MeleeAttackDamage_DamageConversion_Patch`).**
+  A trait may instead **convert** the weapon's *base* melee hit in place — rerouting one `DamageDef` to
+  another, same quantity, no extra hit stacked — via a passthrough postfix on
+  `Verb_MeleeAttackDamage.DamageInfosToApply` (a weapon's `meleeDamageDef` is fixed per def, so a
+  trait-gated reroute must happen at runtime). `UMW_Serrated` uses it to send `Cut` → the bleedier,
+  scar-prone `UMW_Cut_Ragged`, paired with a `MeleeWeapon_DamageMultiplier` <1 nerf (that one stat drives
+  both melee damage *and* AP). Tuning and the one-large-wound / no-split scar-curve rationale live on
+  `UMW_Cut_Ragged` (`Defs/HediffDefs/`).
+- **Blood-soaked = on-hit dread + a trait-conditioned wielder moodlet (`UMW_BloodSoaked`).** Two halves.
+  (1) *Dread:* `MeleeOnHitEffect_MentalState` tries to start a `MentalStateDef` (`PanicFlee`) on a wounding
+  hit, `humanlikeOnly` so animals/mechs are immune; `TryStartMentalState` is non-forced, so it no-ops
+  when guards block it. (2) *Balancing downside + bloodlust upside:* **two situational `ThoughtDef`s share
+  one situation-only `ThoughtWorker_BloodSoakedWeapon`** (it checks only that `pawn.equipment.Primary`'s
+  `CompUniqueWeapon` carries `UMW_DefOf.UMW_BloodSoaked`; both defs use stage 0, so one `ActiveAtStage(0)`
+  serves either). *All* personality routing lives in def fields, never the worker:
+  - **Penalty `UMW_BloodSoakedWeapon`** — −2 mood while equipped, **nullified** for the hardened via
+    `<nullifyingTraits>` (Bloodlust/Psychopath, plus VTE `VTE_Desensitized`/`VTE_WorldWeary` as `MayRequire`
+    list items so the def loads without that mod) and via `<nullifyingGenes>` (`Hemogenic`, `MayRequire`
+    Biotech — sanguophages etc. are inured to blood; `ThoughtUtility.NullifyingGene` reads it).
+  - **Buff `UMW_BloodSoakedWeapon_Bloodlust`** — +3 mood, gated by `<requiredTraits>Bloodlust`. Bloodlusters
+    *relish* the gore; mood can't flip sign within one thought (`nullifyingTraits` only zeroes), so the
+    upside is a separate def. Bloodlust stays in the penalty's `nullifyingTraits`, so a bloodluster gets the
+    +3 alone, not penalty + buff.
+
+  **Gotcha (verified by decompile):** the situational pipeline (`SituationalThoughtHandler.TryCreateThought`)
+  calls `CanGetThought` (which *does* enforce `requiredTraits`/`requiredGenes` — so the buff's gate works)
+  but with `checkIfNullified=false`, so it does **not** apply nullification there; nullification instead runs
+  in **`Thought.MoodOffset()`** (→ `ThoughtUtility.ThoughtNullified`, covering `nullifyingTraits` *and*
+  `nullifyingGenes`), which *does* cover situational thoughts — so those fields work and the worker must NOT
+  re-check traits/genes (mirrors vanilla `ThoughtWorker_ColonistLeftUnburied`). The trait forces the
+  `UMW_Blood` `ColorDef`, so it shares the inlays' `Color` exclusion tag (one forced tint per weapon).
 - **Parenting: patch a `Name=` onto the base weapon, then inherit it.** RimWorld's `ParentName`
   resolves against a node's `Name=` attribute, not its `defName`. Vanilla *ranged* weapons expose
   `Name=` (so Odyssey does `ParentName="Gun_Revolver"`), but **no concrete vanilla *melee* weapon

@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Pointed. Thrust — precise: +melee hit chance and an armour-piercing Stab follow-up. -->
+  <!-- UMW_Pointed. Thrust shape — a fine needle that concentrates force: a flat passive buff to melee
+       damage AND armor penetration (both ride MeleeWeapon_DamageMultiplier — there is no separate melee
+       AP stat), traded against a slight hit-chance penalty (a delicate point is less forgiving to land).
+       A pure-stat tradeoff, deliberately distinct from ArmorSpike's big high-AP on-hit Stab proc; shared
+       "Point" tag keeps the two shape traits mutually exclusive. -->
   <WeaponTraitDef>
     <defName>UMW_NeedlePoint</defName>
     <label>needle point</label>
-    <description>The tip tapers to a fine needle, slipping precisely into gaps.</description>
+    <description>Tapered to a fine needle, the point concentrates the full force of a thrust onto a single spot — driving deeper and biting through armor, though so slender a point is less forgiving to land cleanly.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Pointed</weaponCategory>
     <exclusionTags>
       <li>Point</li>
     </exclusionTags>
+    <statFactors>
+      <MeleeWeapon_DamageMultiplier>1.2</MeleeWeapon_DamageMultiplier>
+    </statFactors>
     <equippedStatOffsets>
-      <MeleeHitChance>0.04</MeleeHitChance>
+      <MeleeHitChance>-0.1</MeleeHitChance>
     </equippedStatOffsets>
     <traitAdjectives>
       <li>needle</li>
       <li>needling</li>
-      <li>tapered</li>
+      <li>hypodermic</li>
     </traitAdjectives>
-    <modExtensions>
-      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
-        <onHitEffects>
-          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
-            <def>Stab</def>
-            <amount>4</amount>
-            <armorPenetration>0.6</armorPenetration>
-            <chance>0.6</chance>
-          </li>
-        </onHitEffects>
-      </li>
-    </modExtensions>
   </WeaponTraitDef>
 
 </Defs>

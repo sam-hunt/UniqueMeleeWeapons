@@ -2,9 +2,9 @@
 <Defs>
 
   <!-- Mechanism category — weapon has a Stab tool. Two independent trait families ride the thrust:
-       point-SHAPE traits (ArmorSpike/NeedlePoint, "Point" tag) add an extra high-AP Stab that punches
-       through armour, and "COATING" traits (Envenomed/Paralytic, "Coating" tag) deliver a venom on
-       hit — at most one coating per weapon. Envenomed additionally tags "Color" because it forces the
+       point-SHAPE traits share the "Point" tag (ArmorSpike adds an extra high-AP Stab on hit; NeedlePoint
+       gives a passive damage/armor-pen buff at a slight hit-chance cost), and "COATING" traits
+       (Envenomed/Paralytic, "Coating" tag) deliver a venom on hit — at most one coating per weapon. Envenomed additionally tags "Color" because it forces the
        green tint (so it can't co-occur with a Gold/Jade inlay); Paralytic forces no color and so can.
        Both combine freely with a point shape — a pointed weapon can be e.g. "armor-spiked, envenomed". -->
   <WeaponCategoryDef>

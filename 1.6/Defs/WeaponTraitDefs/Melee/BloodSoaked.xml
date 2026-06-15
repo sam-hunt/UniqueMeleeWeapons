@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Blood-soaked — a gore-caked weapon, balanced (not purely beneficial): the menace that
+       panics enemies also unsettles the wielder.
+         • On-hit "dread": a wounding blow can panic a HUMANLIKE target into fleeing (PanicFlee via the
+           MeleeOnHitEffect_MentalState class). Animals/mechanoids don't scare, so humanlikeOnly=true.
+         • Downside: while equipped it inflicts a -2 mood (UMW_BloodSoakedWeapon ThoughtDef), nullified
+           for the hardened (Bloodlust/Psychopath, + VTE Desensitized/World-weary when that mod loads).
+       Forces the dark UMW_Blood tint, so it tags "Color" (one forced-colour trait per weapon — can't
+       co-occur with a Gold/Jade inlay or the Envenomed coating). canGenerateAlone defaults true: a
+       weapon can roll just "blood-soaked" as a complete, nameable identity. -->
+  <WeaponTraitDef>
+    <defName>UMW_BloodSoaked</defName>
+    <label>blood-soaked</label>
+    <description>This weapon is caked in layers of dark, dried blood. The sight of it strikes fear into those it wounds, though carrying so grisly a thing weighs on all but the hardened.</description>
+    <commonality>1</commonality>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Color</li>
+    </exclusionTags>
+    <forcedColor>UMW_Blood</forcedColor>
+    <traitAdjectives>
+      <li>blood-soaked</li>
+      <li>bloodstained</li>
+      <li>bloody</li>
+      <li>gory</li>
+      <li>sanguine</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
+        <onHitEffects>
+          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_MentalState">
+            <stateDef>PanicFlee</stateDef>
+            <humanlikeOnly>true</humanlikeOnly>
+            <chance>0.08</chance>
+          </li>
+        </onHitEffects>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

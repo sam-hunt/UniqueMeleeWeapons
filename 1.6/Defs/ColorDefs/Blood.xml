@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Dark dried-blood red. Forced accent (colour one / red mask) for UMW_BloodSoaked. Self-contained
+       rather than ParentName="UniqueWeaponColorBase" (Odyssey's abstract base): it only sets the two
+       fields that base provides — a Weapon colorType and randomlyPickable=false so it never shows up in
+       the random weapon-colour pool — so depending on a DLC's abstract node buys nothing. -->
+  <ColorDef>
+    <defName>UMW_Blood</defName>
+    <label>blood red</label>
+    <colorType>Weapon</colorType>
+    <color>(120, 20, 20)</color>
+    <randomlyPickable>false</randomlyPickable>
+  </ColorDef>
+
+</Defs>

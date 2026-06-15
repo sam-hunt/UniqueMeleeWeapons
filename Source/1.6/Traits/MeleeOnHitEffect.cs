@@ -1,4 +1,5 @@
 using Verse;
+using Verse.AI;
 
 namespace UniqueMeleeWeapons;
 
@@ -60,5 +61,33 @@ public class MeleeOnHitEffect_Stun : MeleeOnHitEffect
     public override void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon)
     {
         victim.stances?.stunner?.StunFor(ticks, attacker, addBattleLog: false);
+    }
+}
+
+/// <summary>
+/// Tries to push the victim into a mental state on a wounding hit — the "dread"/terror effect (used by
+/// the Blood-soaked trait's <c>PanicFlee</c>). Defaults to humanlikes only, since animals and
+/// mechanoids don't panic at a fearsome blade. <c>TryStartMentalState</c> is non-forced, so it
+/// respects the usual guards (already broken, can't take the state, etc.) and simply no-ops when the
+/// roll can't apply.
+/// </summary>
+public class MeleeOnHitEffect_MentalState : MeleeOnHitEffect
+{
+    /// <summary>Mental state to start, resolved from the def database (e.g. <c>PanicFlee</c>, <c>Berserk</c>).</summary>
+    public MentalStateDef stateDef;
+    /// <summary>If true (default), only humanlike victims are affected.</summary>
+    public bool humanlikeOnly = true;
+
+    public override void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon)
+    {
+        if (stateDef == null)
+        {
+            return;
+        }
+        if (humanlikeOnly && !victim.RaceProps.Humanlike)
+        {
+            return;
+        }
+        victim.mindState?.mentalStateHandler?.TryStartMentalState(stateDef);
     }
 }

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Blunt. Crush — longer stun (60t @ 25%). -->
+  <!-- UMW_Blunt. The signature blunt effect, by design: a solid blow rings resonant shock through
+       armor and bone, briefly stunning the struck (60t @ 25%). The sole Blunt trait, which is fine —
+       single-trait categories are allowed (Odyssey has several). Replaced the old UMW_Weighted (which
+       duplicated this stun atop a heavy-head stat profile already owned by UMW_Heavy/HeadWeighted). The
+       "Head" exclusion tag stays so any future blunt-head trait is mutually exclusive. -->
   <WeaponTraitDef>
     <defName>UMW_Concussive</defName>
     <label>concussive</label>
-    <description>Blows from this weapon ring through armor and bone, briefly stunning the struck.</description>
+    <description>This weapon is balanced so that a solid blow rings resonant shock through armor and bone — a clean strike briefly stuns the struck.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Blunt</weaponCategory>
     <exclusionTags>

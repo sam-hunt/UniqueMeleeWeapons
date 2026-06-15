@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Situational moodlet for wielding a UMW_BloodSoaked weapon (the trait's balancing downside).
+       ThoughtWorker_BloodSoakedWeapon reports only the situation (primary weapon carries the trait);
+       all personality routing rides def fields, which Thought.MoodOffset / CanGetThought honor for
+       situational thoughts too (verified by decompile — see the worker's doc-comment):
+         • nullifyingTraits — the hardened feel nothing. Bloodlust is listed here so the penalty zeroes
+           out for them; their *positive* reaction is the companion UMW_BloodSoakedWeapon_Bloodlust
+           thought (requiredTraits Bloodlust). The VTE traits are MayRequire-gated so the def loads
+           cleanly without Vanilla Traits Expanded.
+         • nullifyingGenes — hemogenic gene-carriers (Biotech sanguophages etc.) are inured to blood,
+           so the Hemogenic li is MayRequire-gated on Biotech, exactly like vanilla ColonistLeftUnburied
+           gates its Anomaly nullifyingHediff. -->
+  <ThoughtDef>
+    <defName>UMW_BloodSoakedWeapon</defName>
+    <workerClass>UniqueMeleeWeapons.ThoughtWorker_BloodSoakedWeapon</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>Bloodlust</li>
+      <li>Psychopath</li>
+      <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_Desensitized</li>
+      <li MayRequire="VanillaExpanded.VanillaTraitsExpanded">VTE_WorldWeary</li>
+    </nullifyingTraits>
+    <nullifyingGenes>
+      <li MayRequire="Ludeon.RimWorld.Biotech">Hemogenic</li>
+    </nullifyingGenes>
+    <stages>
+      <li>
+        <label>blood-soaked weapon</label>
+        <description>I'm carrying a weapon caked in dried blood. Its reek, and the memory of what it's done, turn my stomach.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

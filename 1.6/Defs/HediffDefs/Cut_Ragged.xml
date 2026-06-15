@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Injury left by UMW_Serrated's rerouted cut (paired with the UMW_Cut_Ragged DamageDef; see the
+       on-hit-effects note in CLAUDE.md). Clone of Core's Cut injury (inherits InjuryBase: Hediff_Injury,
+       tendable, displayWound), with the two deltas that ARE the trait's identity:
+
+         - bleedRate 0.12 (2x Core's Cut 0.06): bleeds harder. Pawn bleed = SUM(severity x bleedRate),
+           so this multiplier is the ONLY bleed lever — the wound COUNT is irrelevant (splitting a hit
+           into many small wounds conserves total severity and does NOT raise bleeding; that's why we
+           convert one wound, never split).
+
+         - becomePermanentChanceFactor 10 (vs default 1): scars far more often. Per-wound permanent chance
+           is 0.02 x part.permanentInjuryChanceFactor x becomePermanentChanceFactor x curve(severity),
+           where curve = {4 -> 0, 14 -> 1}: a wound <=4 severity NEVER scars and the ramp tops out at 14.
+           So the hit must stay ONE large wound to sit high on that curve, and the eventual scar size is
+           Rand(1, severity/2) — bigger wound, bigger scar. (Scar pain is rolled from a global table,
+           HealthTuning.InjuryPainCategories, not tunable here.) -->
+  <HediffDef ParentName="InjuryBase">
+    <defName>UMW_Cut_Ragged</defName>
+    <label>ragged cut</label>
+    <labelNoun>a ragged cut</labelNoun>
+    <description>A ragged, torn cut with frayed edges that bleed freely and scar badly.</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>ragged scar</permanentLabel>
+        <becomePermanentChanceFactor>10</becomePermanentChanceFactor>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <bleedRate>0.12</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Cut off</destroyedLabel>
+      <destroyedOutLabel>Cut out</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+
+</Defs>

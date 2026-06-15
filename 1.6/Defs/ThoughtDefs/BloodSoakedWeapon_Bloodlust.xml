@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Companion to UMW_BloodSoakedWeapon: bloodlusters don't merely tolerate a gore-caked weapon, they
+       relish it. The two thoughts share the situation-only ThoughtWorker_BloodSoakedWeapon; the
+       personality split is entirely in the def fields. This one is gated by requiredTraits>Bloodlust
+       (CanGetThought returns false for everyone else — verified by decompile), so only bloodlusters
+       ever receive it; meanwhile Bloodlust sits in the penalty thought's nullifyingTraits, zeroing that
+       −2 — so a bloodluster feels the +buff alone, not penalty + buff. Mood can't flip sign within one
+       thought (nullifyingTraits only zeroes), hence the separate def rather than a second stage. -->
+  <ThoughtDef>
+    <defName>UMW_BloodSoakedWeapon_Bloodlust</defName>
+    <workerClass>UniqueMeleeWeapons.ThoughtWorker_BloodSoakedWeapon</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>Bloodlust</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>blood-soaked weapon</label>
+        <description>I'm carrying a weapon caked in the blood of those I've cut down. Its reek, and the memory of what it's done, thrill me to the core.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

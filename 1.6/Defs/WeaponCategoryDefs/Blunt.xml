@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Mechanism category — primary Blunt tool. Crush traits add a chance to briefly stun on hit
-       (StunFor takes the max, so it can't lock); shared "Head" exclusion tag caps it at one crush
-       effect per weapon. -->
+  <!-- Mechanism category — primary Blunt tool. A single on-hit effect: UMW_Concussive briefly stuns
+       the struck (StunFor max-merges, so procs can't lock), tagged "Head" so any future blunt-head trait
+       is mutually exclusive with it. (Replaced the old UMW_Weighted, whose stun duplicated Concussive and
+       whose heavy-head stat profile duplicated UMW_Heavy/HeadWeighted.) -->
   <WeaponCategoryDef>
     <defName>UMW_Blunt</defName>
     <label>blunt</label>
