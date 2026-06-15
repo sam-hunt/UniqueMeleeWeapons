@@ -7,9 +7,13 @@
            MeleeOnHitEffect_MentalState class). Animals/mechanoids don't scare, so humanlikeOnly=true.
          • Downside: while equipped it inflicts a -2 mood (UMW_BloodSoakedWeapon ThoughtDef), nullified
            for the hardened (Bloodlust/Psychopath, + VTE Desensitized/World-weary when that mod loads).
-       Forces the dark UMW_Blood tint, so it tags "Color" (one forced-colour trait per weapon — can't
-       co-occur with a Gold/Jade inlay or the Envenomed coating). canGenerateAlone defaults true: a
-       weapon can roll just "blood-soaked" as a complete, nameable identity. -->
+       Forces the dark UMW_Blood tint onto COLOUR TWO (the green-masked body) via
+       ForcedColorTwoExtension, not vanilla's colour-one forcedColor — the gore caking the blade reads
+       as the body itself, and it REPLACES the material tint (a blood-soaked plasteel and a blood-soaked
+       wooden weapon look alike). So it tags "BodyColor" (its own one-per-weapon family), NOT "Color":
+       being on a different mask channel, blood-soaked can now co-occur with a colour-one Gold/Jade inlay
+       or the Envenomed coating. canGenerateAlone defaults true: a weapon can roll just "blood-soaked"
+       as a complete, nameable identity. -->
   <WeaponTraitDef>
     <defName>UMW_BloodSoaked</defName>
     <label>blood-soaked</label>
@@ -17,9 +21,8 @@
     <commonality>1</commonality>
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>
-      <li>Color</li>
+      <li>BodyColor</li>
     </exclusionTags>
-    <forcedColor>UMW_Blood</forcedColor>
     <traitAdjectives>
       <li>blood-soaked</li>
       <li>bloodstained</li>
@@ -36,6 +39,9 @@
             <chance>0.08</chance>
           </li>
         </onHitEffects>
+      </li>
+      <li Class="UniqueMeleeWeapons.ForcedColorTwoExtension">
+        <color>UMW_Blood</color>
       </li>
     </modExtensions>
   </WeaponTraitDef>

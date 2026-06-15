@@ -66,7 +66,8 @@ Source/1.6/
 ├── Things/         # Custom thingClass subclasses (e.g. UniqueMeleeWeapon)
 ├── Graphics/       # Graphic_RandomComplex (random variant, preserves colour two)
 ├── Traits/         # Melee trait effect machinery: MeleeTraitEffectExtension + MeleeOnHitEffect
-│                   #   subclasses, MeleeDamageConversionExtension (base-damage reroute), and
+│                   #   subclasses, MeleeDamageConversionExtension (base-damage reroute),
+│                   #   ForcedColorTwoExtension (trait-forced body/colour-two tint), and
 │                   #   ThoughtWorker_BloodSoakedWeapon (equip-mood for a trait)
 ├── Patches/        # Harmony patches (e.g. Verb_MeleeAttackDamage on-hit-trait postfix)
 └── Properties/     # AssemblyInfo
@@ -118,10 +119,20 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   - **Mask red → colour one (`DrawColor`)** = the unique accent. Supplied for free by vanilla
     `CompUniqueWeapon.ForceColor()` (a random weapon `ColorDef`, or a trait's `forcedColor` like
     `UniqueWeapon_Gold`). No code needed for this half.
-  - **Mask green → colour two (`DrawColorTwo`)** = the stuff/material tint. Vanilla leaves
+  - **Mask green → colour two (`DrawColorTwo`)** = the stuff/material tint *by default*. Vanilla leaves
     `DrawColorTwo` at the def's white `colorTwo`; our `thingClass` (`UniqueMeleeWeapon : ThingWithComps`)
-    overrides it to `def.GetColorForStuff(Stuff)`. `GraphicData.GraphicColoredFor` bakes both colours
-    into the thing's `Graphic`, so colour two also reaches the equipped/held view. **Gotcha:** vanilla
+    overrides it to `def.GetColorForStuff(Stuff)`. A trait may instead **force** colour two via our
+    `ForcedColorTwoExtension` (`Source/1.6/Traits/`) — the colour-two analogue of vanilla's colour-one
+    `forcedColor` (which never reaches colour two). `DrawColorTwo` checks the equipped
+    `CompUniqueWeapon`'s traits for the extension and, if present, returns its `ColorDef` instead of the
+    stuff tint. There is no third mask channel, so a forced body colour **replaces** the material tint
+    (a forced weapon no longer shows its stuff) — first such trait wins; gate the family with its own
+    `BodyColor` exclusion token (one body-colour trait per weapon). It sits on a different channel from
+    the `Color`-tagged colour-one inlays, so a forced body colour *can* co-occur with a Gold/Jade inlay.
+    No persistence or cache-dirtying is needed: colour two is re-derived from the (scribed) trait list at
+    draw time, and traits are set in `PostPostMake` before the graphic is first built — the same timing
+    that already makes colour one and the stuff tint work. `GraphicData.GraphicColoredFor` bakes both
+    colours into the thing's `Graphic`, so colour two also reaches the equipped/held view. **Gotcha:** vanilla
     `Graphic_Random.GetColoredVersion` clamps colour two to white (logs *"Cannot use
     Graphic_Random.GetColoredVersion with a non-white colorTwo"*), which renders the green-masked body
     plain white. We use `Graphic_RandomComplex` (`Source/1.6/Graphics/`), a one-method subclass that
@@ -140,8 +151,8 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   Ours is guaranteed by **`UMW_Melee`'s universal `UMW_Lightweight`** plus each mechanism category's
   alone-able traits. The locked taxonomy is **5 categories**: `UMW_Melee` (universal — the six generic
   cosmetic/value/weight traits ported from Odyssey: Ornamental, Ugly, Lightweight, Cumbersome,
-  Gold/Jade inlay, plus `UMW_BloodSoaked` — a gory forced-tint trait that panics humanlikes on hit and
-  carries a balancing equip-mood downside; see its own note below), the mechanism categories
+  Gold/Jade inlay, plus `UMW_BloodSoaked` — a gory trait that forces a body tint (colour two), panics
+  humanlikes on hit, and carries a balancing equip-mood downside; see its own note below), the mechanism categories
   `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a damage-family on-hit effect — see next note),
   and the handling category `UMW_Heavy` (slow-swing stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
   `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. `UMW_Pointed` also
@@ -152,7 +163,10 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay), while
   `UMW_Paralytic` forces no color — faithful to Odyssey's `ParalyticArrows`, which carries no `Color`
   tag — so it tags only `Coating` and *can* sit alongside an inlay. A coating combines freely with a
-  point-shape trait (`Point` tag) either way. **Discipline:** single-trait categories are fine (Odyssey
+  point-shape trait (`Point` tag) either way. `Color` governs only **colour one** (the red-masked accent);
+  a separate **`BodyColor`** token governs **colour two** (the green-masked body, forced via
+  `ForcedColorTwoExtension` — see the double-mask note). `UMW_BloodSoaked` is the sole `BodyColor` member,
+  so a forced body colour and a `Color` accent/inlay live on different channels and *can* co-occur. **Discipline:** single-trait categories are fine (Odyssey
   ships several — `Rifle`/`Shotgun`/`BeamWeapon`/`LowStoppingPower` each have one); the bar is that every
   trait be mechanically **meaningful**, not that a category hit some count. `UMW_Reach` was considered for
   the spear but dropped (melee has no reach mechanic, so its traits would be flavor-only orphans).
@@ -220,7 +234,10 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   in **`Thought.MoodOffset()`** (→ `ThoughtUtility.ThoughtNullified`, covering `nullifyingTraits` *and*
   `nullifyingGenes`), which *does* cover situational thoughts — so those fields work and the worker must NOT
   re-check traits/genes (mirrors vanilla `ThoughtWorker_ColonistLeftUnburied`). The trait forces the
-  `UMW_Blood` `ColorDef`, so it shares the inlays' `Color` exclusion tag (one forced tint per weapon).
+  `UMW_Blood` `ColorDef` onto **colour two** (the body) via `ForcedColorTwoExtension` — not vanilla's
+  colour-one `forcedColor` — so it tags the `BodyColor` exclusion token (its own one-per-weapon family),
+  *not* the inlays' colour-one `Color` token; being on a different mask channel, blood-soaked can co-occur
+  with a Gold/Jade inlay or the Envenomed coating. See the double-mask note for the colour-two path.
 - **Parenting: patch a `Name=` onto the base weapon, then inherit it.** RimWorld's `ParentName`
   resolves against a node's `Name=` attribute, not its `defName`. Vanilla *ranged* weapons expose
   `Name=` (so Odyssey does `ParentName="Gun_Revolver"`), but **no concrete vanilla *melee* weapon

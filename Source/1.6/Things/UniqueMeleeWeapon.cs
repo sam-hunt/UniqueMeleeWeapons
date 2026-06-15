@@ -1,3 +1,4 @@
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -24,17 +25,46 @@ public class UniqueMeleeWeapon : ThingWithComps
     /// <summary>
     /// Colour one (the red-masked accent) is left to the base implementation, which returns
     /// the first comp's <c>ForceColor()</c> — i.e. <c>CompUniqueWeapon</c>'s unique colour.
-    /// We only reroute colour two to the material so it lands on the green-masked body.
+    /// Colour two (the green-masked body) defaults to the stuff/material tint, but a trait may
+    /// override it via <see cref="ForcedColorTwoExtension"/> — the colour-two analogue of vanilla's
+    /// colour-one <c>forcedColor</c>. A forced body colour <b>replaces</b> the material tint
+    /// (there is no third mask channel); first such trait wins.
     /// </summary>
     public override Color DrawColorTwo
     {
         get
         {
+            ColorDef forced = ForcedBodyColor();
+            if (forced != null)
+            {
+                return forced.color;
+            }
             if (Stuff != null)
             {
                 return def.GetColorForStuff(Stuff);
             }
             return base.DrawColorTwo;
         }
+    }
+
+    /// <summary>The body (colour two) override from the first equipped trait carrying a
+    /// <see cref="ForcedColorTwoExtension"/>, or <c>null</c> for the default material tint.</summary>
+    private ColorDef ForcedBodyColor()
+    {
+        var comp = this.TryGetComp<CompUniqueWeapon>();
+        if (comp == null)
+        {
+            return null;
+        }
+        var traits = comp.TraitsListForReading;
+        for (int i = 0; i < traits.Count; i++)
+        {
+            ColorDef color = traits[i].GetModExtension<ForcedColorTwoExtension>()?.color;
+            if (color != null)
+            {
+                return color;
+            }
+        }
+        return null;
     }
 }
