@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Mechanism category — weapon has a Cut tool. Edge traits add an extra low-AP Cut on hit
-       (a bleeding gash); shared "Edge" exclusion tag caps it at one edge effect per weapon. -->
+  <!-- Mechanism category — weapon has a Cut tool. Edge traits reshape the cut: Razored/Monomolecular
+       floor the blade's armor penetration (Razored also nudges its damage), while Serrated reroutes the
+       cut to a bleedier, scar-prone ragged wound. The shared "Edge" exclusion tag caps a weapon at one
+       edge effect. -->
   <WeaponCategoryDef>
     <defName>UMW_Bladed</defName>
     <label>bladed</label>

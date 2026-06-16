@@ -2,8 +2,9 @@
 <Defs>
 
   <!-- UMW_Pointed. Coating — a thrust drives venom deep, stacking ToxicBuildup over a sustained fight
-       (extra UMW_Stab_Tox hit @ 50%). Tags "Coating" (one coating per weapon — mutually exclusive with
-       Paralytic) AND "Color", because it forces the green UniqueWeapon_Tox tint and so can't share a
+       (extra UMW_Stab_Tox hit @ 50%). Tags "Coating" (one coating per weapon — currently the only coating,
+       but the tag keeps any future coating mutually exclusive) AND "Color", because it forces the green
+       UniqueWeapon_Tox tint and so can't share a
        weapon with the Gold/Jade inlays. This mirrors Odyssey's ToxRounds, which tags AmmoType+Color
        (Coating is our melee analog of AmmoType). Combines freely with a point-shape trait
        (ArmorSpike/NeedlePoint, tag "Point"). -->
