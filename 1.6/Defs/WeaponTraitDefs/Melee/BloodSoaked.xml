@@ -12,8 +12,10 @@
        as the body itself, and it REPLACES the material tint (a blood-soaked plasteel and a blood-soaked
        wooden weapon look alike). So it tags "BodyColor" (its own one-per-weapon family), NOT "Color":
        being on a different mask channel, blood-soaked can now co-occur with a colour-one Gold/Jade inlay
-       or the Envenomed coating. canGenerateAlone defaults true: a weapon can roll just "blood-soaked"
-       as a complete, nameable identity. -->
+       or the Envenomed coating. It also tags "Appearance" (shared with Ornamental/Ugly) so a gore-caked
+       weapon never also rolls "ornamental" or "ugly" — it has its own look — and carries MarketValue x0.8
+       (gore devalues it). canGenerateAlone defaults true: a weapon can roll just "blood-soaked" as a
+       complete, nameable identity. -->
   <WeaponTraitDef>
     <defName>UMW_BloodSoaked</defName>
     <label>blood-soaked</label>
@@ -22,7 +24,11 @@
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>
       <li>BodyColor</li>
+      <li>Appearance</li>
     </exclusionTags>
+    <statFactors>
+      <MarketValue>0.8</MarketValue>
+    </statFactors>
     <traitAdjectives>
       <li>blood-soaked</li>
       <li>bloodstained</li>
