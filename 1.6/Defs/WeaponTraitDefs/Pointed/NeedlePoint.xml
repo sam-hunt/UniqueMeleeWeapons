@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Pointed. Thrust shape — a fine needle that concentrates force: a flat passive buff to melee
-       damage AND armor penetration (both ride MeleeWeapon_DamageMultiplier — there is no separate melee
-       AP stat), traded against a slight hit-chance penalty (a delicate point is less forgiving to land).
-       A pure-stat tradeoff, deliberately distinct from ArmorSpike's big high-AP on-hit Stab proc; shared
-       "Point" tag keeps the two shape traits mutually exclusive. -->
+  <!-- UMW_Pointed. Point shape — a fine needle that concentrates a thrust into a flat passive buff to
+       melee damage AND armor penetration (both ride MeleeWeapon_DamageMultiplier — there is no separate
+       melee AP stat), traded against a slight hit-chance penalty (a delicate point is less forgiving to
+       land). DECISION: unlike UMW_HeadWeighted (whose incidental AP we neutralize), we deliberately KEEP
+       the coupling here — a finer point genuinely drives deeper, so the AP riding along is the point of
+       the trait. A pure-stat tradeoff, distinct from ArmorSpike's pure Stab-AP floor; shared "Point" tag
+       keeps the two shape traits mutually exclusive. -->
   <WeaponTraitDef>
     <defName>UMW_NeedlePoint</defName>
     <label>needle point</label>
