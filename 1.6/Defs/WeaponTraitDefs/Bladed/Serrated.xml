@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Bladed. Edge — converts the weapon's normal Cut into a bleedier, scar-prone ragged cut
-       (UMW_Cut_Ragged), traded against -10% MeleeWeapon_DamageMultiplier. That one stat drives both melee
-       damage AND armor pen, so the trade is a single lever: less burst lethality + worse vs armor, balanced
-       by ~2x bleeding and far more permanent scars. A conversion (no extra damage stacked), not a buff. -->
+  <!-- UMW_Bladed. Edge — the jagged-edge bleed. MeleeDamageConversionExtension reroutes the base Cut to
+       the bleedier, scar-prone UMW_Cut_Ragged. MeleeToolModExtension then shapes per-tool damage: the Cut
+       deals -10% (a sawtooth edge slashes less cleanly) while the Stab deals +10%, because on a thrust the
+       same teeth catch and tear flesh on the way out — a nastier exit wound (the boost is the serration's
+       after-effect, NOT a finer point). Unlike the old weapon-wide -10% MeleeWeapon_DamageMultiplier this
+       no longer reduces armor pen; the ragged bleed is the whole tradeoff. The Edge tag keeps it mutually
+       exclusive with Razored/Monomolecular. -->
   <WeaponTraitDef>
     <defName>UMW_Serrated</defName>
     <label>serrated</label>
-    <description>The edge is cut into vicious teeth that tear ragged, freely bleeding wounds — slow to close and quick to scar, though the jagged edge bites less cleanly and drives less force through armor.</description>
+    <description>The edge is cut into vicious teeth that tear ragged, freely bleeding wounds. On a thrust the same teeth catch and rip flesh as the blade is drawn back.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Bladed</weaponCategory>
     <exclusionTags>
@@ -17,9 +20,6 @@
     <statOffsets>
       <Beauty>-2</Beauty>
     </statOffsets>
-    <statFactors>
-      <MeleeWeapon_DamageMultiplier>0.9</MeleeWeapon_DamageMultiplier>
-    </statFactors>
     <traitAdjectives>
       <li>serrated</li>
       <li>jagged</li>
@@ -34,6 +34,22 @@
             <to>UMW_Cut_Ragged</to>
           </li>
         </conversions>
+      </li>
+      <li Class="UniqueMeleeWeapons.MeleeToolModExtension">
+        <mods>
+          <li>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <damageFactor>0.9</damageFactor>
+          </li>
+          <li>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <damageFactor>1.1</damageFactor>
+          </li>
+        </mods>
       </li>
     </modExtensions>
   </WeaponTraitDef>
