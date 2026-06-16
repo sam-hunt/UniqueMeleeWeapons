@@ -2,11 +2,12 @@
 <Defs>
 
   <!-- Mechanism category — weapon has a Stab tool. Two independent trait families ride the thrust:
-       point-SHAPE traits share the "Point" tag (ArmorSpike adds an extra high-AP Stab on hit; NeedlePoint
-       gives a passive damage/armor-pen buff at a slight hit-chance cost), and "COATING" traits
-       (Envenomed/Paralytic, "Coating" tag) deliver a venom on hit — at most one coating per weapon. Envenomed additionally tags "Color" because it forces the
-       green tint (so it can't co-occur with a Gold/Jade inlay); Paralytic forces no color and so can.
-       Both combine freely with a point shape — a pointed weapon can be e.g. "armor-spiked, envenomed". -->
+       point-SHAPE traits share the "Point" tag (ArmorSpike floors the Stab tool's armor penetration;
+       NeedlePoint gives a coupled damage/armor-pen buff at a slight hit-chance cost), and a "COATING"
+       family (currently just Envenomed, "Coating" tag) delivers a venom on hit — at most one coating per
+       weapon. Envenomed additionally tags "Color" because it forces the green tint (so it can't co-occur
+       with a Gold/Jade inlay). A coating combines freely with a point shape — a pointed weapon can be e.g.
+       "armor-spiked, envenomed". -->
   <WeaponCategoryDef>
     <defName>UMW_Pointed</defName>
     <label>pointed</label>
