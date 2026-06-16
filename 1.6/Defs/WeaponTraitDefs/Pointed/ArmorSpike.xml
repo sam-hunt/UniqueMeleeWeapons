@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Pointed. Thrust — armour-breaking Stab follow-up (very high AP). -->
+  <!-- UMW_Pointed. Point shape — a reinforced spike that drives the thrust through heavy armor. Realised
+       via MeleeToolModExtension flooring the Stab tool's armor penetration to 0.8 (no extra hit, no damage
+       change — the point itself just punches through). Distinct from NeedlePoint, which is a coupled
+       damage+AP buff with a hit-chance cost; the shared "Point" tag keeps the two shapes mutually
+       exclusive. -->
   <WeaponTraitDef>
     <defName>UMW_ArmorSpike</defName>
     <label>armor spike</label>
-    <description>A reinforced spike drives through plate and carapace that would turn a lesser point.</description>
+    <description>A reinforced spike drives the point through plate and carapace that would turn a lesser thrust.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Pointed</weaponCategory>
     <exclusionTags>
@@ -17,15 +21,15 @@
       <li>punching</li>
     </traitAdjectives>
     <modExtensions>
-      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
-        <onHitEffects>
-          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
-            <def>Stab</def>
-            <amount>3</amount>
-            <armorPenetration>1.2</armorPenetration>
-            <chance>0.85</chance>
+      <li Class="UniqueMeleeWeapons.MeleeToolModExtension">
+        <mods>
+          <li>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <armorPenetrationFloor>0.8</armorPenetrationFloor>
           </li>
-        </onHitEffects>
+        </mods>
       </li>
     </modExtensions>
   </WeaponTraitDef>
