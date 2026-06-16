@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Bladed. Edge — a mechanite-sustained mono-molecular edge that shears through armor. Inspired
+       by (not ported from) Royalty's monosword concept; an original trait that rolls on this mod's own
+       bladed weapons and needs no DLC. Realises "ignores armor" via MeleeToolModExtension, which floors
+       the Cut AND Stab tools' armor penetration to 0.9 (the only trait that raises a base hit's AP
+       without also raising its damage — AP is wasted on unarmored targets but devastating vs plate/mechs).
+       Flashy, so rarer (commonality 0.5). Forces the pure-white UMW_MonoWhite onto COLOUR TWO (the body)
+       via ForcedColorTwoExtension, so it tags BodyColor (its own one-per-weapon family) — being on a
+       different mask channel than the Color-tagged inlays, it can co-occur with a Gold/Jade inlay. The
+       Edge tag keeps it mutually exclusive with Razored/Serrated. -->
+  <WeaponTraitDef>
+    <defName>UMW_Monomolecular</defName>
+    <label>monomolecular</label>
+    <description>The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there.</description>
+    <commonality>0.5</commonality>
+    <weaponCategory>UMW_Bladed</weaponCategory>
+    <exclusionTags>
+      <li>Edge</li>
+      <li>BodyColor</li>
+    </exclusionTags>
+    <statFactors>
+      <MarketValue>1.5</MarketValue>
+    </statFactors>
+    <traitAdjectives>
+      <li>monomolecular</li>
+      <li>mono-edged</li>
+      <li>crystalline</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeToolModExtension">
+        <mods>
+          <li>
+            <capacities>
+              <li>Cut</li>
+              <li>Stab</li>
+            </capacities>
+            <armorPenetrationFloor>0.9</armorPenetrationFloor>
+          </li>
+        </mods>
+      </li>
+      <li Class="UniqueMeleeWeapons.ForcedColorTwoExtension">
+        <color>UMW_MonoWhite</color>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>
