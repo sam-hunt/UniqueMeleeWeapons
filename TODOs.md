@@ -14,10 +14,10 @@
 - Tweak blood-soaked color to be a little more washed?
 - Add a Component-rechargable EMP pulser effect to blunt-headed weapons? differs from odyssey's version in that it costs components to recharge rather than cooldown?
 - Reinforced trait for spears in a new category that grants a pole vault ability?
+- Rebalance market values from factors to offsets like Odyssey?
 
-- `monomolecular` (Bladed)
-  (1) AP == damage here (`MeleeWeapon_DamageMultiplier`, owned by UMW_Heavy) → needs an exclusion token vs Heavy;
-  (2) white forced colour rides colour-two/`BodyColor`, so mutually exclusive with UMW_BloodSoaked etc
+- `monomolecular` (Bladed) ✅ DONE — added the per-tool AP/damage axis (`MeleeToolModExtension` + postfixes on
+  `AdjustedMeleeDamageAmount`/`AdjustedArmorPenetration`); Razored/ArmorSpike/Serrated/HeadWeighted refactored onto it.
 - `pyrophoric` (Bladed, coating-family or colour-two): `MeleeOnHitEffect_ExtraDamage` w/ Core `Flame`/`Burn` (Odyssey `IncendiaryRounds` analog).
 - `shock-charged` (→ UMW_Blunt, pressure-triggered head mechanism, NOT an "edge"): `…_ExtraDamage` w/ Core `EMP` (Odyssey `EMPRounds` analog), free mech/shield stun. Keep crisply distinct from UMW_Concussive (generic resonant stun vs anti-mech/shield EMP). Cf. the component-recharge EMP pulser under Features — decide if same trait or a fancier sibling.
 
@@ -32,12 +32,14 @@ spotting what's missing, not hard quotas:
 - Variety reads at the whole-mod level, not per category — single-trait categories are fine (Odyssey
   ships several: Rifle/Shotgun/BeamWeapon/LowStoppingPower). Grow a category only when a genuinely
   distinct, meaningful archetype earns it (e.g. Bladed is two bleeds — a non-bleed option would add
-  real variety; redundant filler would not).
+  real variety; redundant filler would not — Bladed now spans two AP traits (Razored staple + Monomolecular)
+  plus the Serrated bleed, so a non-AP, non-bleed edge would be the variety add).
 - ~1/3 of stat traits should carry a downside (tradeoff or drawback) for roll variance; today only
   the cosmetic Ugly/Cumbersome do.
 - Flashy = rarer: abilities & inlays at commonality ~0.5, staples at 1. Keep every category's
   alone-able adjective trait (generation throws otherwise).
-- Odyssey's most common roll is a reliable "+X" with no proc — a tier we lack in mechanism categories.
+- Odyssey's most common roll is a reliable "+X" with no proc — `UMW_Razored` now fills this tier in Bladed
+  (a clean +damage/AP staple); Pointed/Blunt/Heavy could still use one.
 
 Net-new gap ideas (low-tech-plausible). Abilities (cleave/slam), incendiary edge, wielder-hediff,
 spear pole-vault, and the component-EMP-pulser are already listed under Features above.

@@ -153,27 +153,29 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   cosmetic/value/weight traits ported from Odyssey: Ornamental, Ugly, Lightweight, Cumbersome,
   Gold/Jade inlay, plus `UMW_BloodSoaked` — a gory trait that forces a body tint (colour two), panics
   humanlikes on hit, and carries a balancing equip-mood downside; see its own note below), the mechanism categories
-  `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a damage-family on-hit effect — see next note),
+  `UMW_Bladed`/`UMW_Pointed`/`UMW_Blunt` (each gates a distinct mechanism effect — per-tool AP/damage
+  modifiers and/or on-hit effects; see the next notes),
   and the handling category `UMW_Heavy` (slow-swing stat archetypes). Within a mechanism category, traits share an `exclusionTags` token (`Edge`,
   `Point`, `Head`, `SwingProfile`) so a weapon gets at most one effect per family. `UMW_Pointed` also
-  carries a second family — the **"coating" traits `UMW_Envenomed`/`UMW_Paralytic`** (a venom delivered
-  on hit) — gated by a dedicated **`Coating`** token (one coating per weapon). This is the melee analog
-  of the `AmmoType` tag Odyssey's `ToxRounds`/`ParalyticArrows` share. The **`Color`** tag (the inlays')
+  carries a second family — the **"coating" trait `UMW_Envenomed`** (a venom delivered
+  on hit) — gated by a dedicated **`Coating`** token (one coating per weapon; a single trait today, but the
+  token keeps any future coating exclusive). This is the melee analog
+  of the `AmmoType` tag Odyssey's `ToxRounds` carries. The **`Color`** tag (the inlays')
   is applied *separately and only to coatings that force a tint*: `UMW_Envenomed` forces
-  `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay), while
-  `UMW_Paralytic` forces no color — faithful to Odyssey's `ParalyticArrows`, which carries no `Color`
-  tag — so it tags only `Coating` and *can* sit alongside an inlay. A coating combines freely with a
-  point-shape trait (`Point` tag) either way. `Color` governs only **colour one** (the red-masked accent);
+  `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay). A coating
+  combines freely with a point-shape trait (`Point` tag). `Color` governs only **colour one** (the red-masked accent);
   a separate **`BodyColor`** token governs **colour two** (the green-masked body, forced via
-  `ForcedColorTwoExtension` — see the double-mask note). `UMW_BloodSoaked` is the sole `BodyColor` member,
-  so a forced body colour and a `Color` accent/inlay live on different channels and *can* co-occur. **Discipline:** single-trait categories are fine (Odyssey
+  `ForcedColorTwoExtension` — see the double-mask note). `UMW_BloodSoaked` and `UMW_Monomolecular` are the `BodyColor` members (the token keeps it to one
+  body-colour trait per weapon), so a forced body colour and a `Color` accent/inlay live on different
+  channels and *can* co-occur. **Discipline:** single-trait categories are fine (Odyssey
   ships several — `Rifle`/`Shotgun`/`BeamWeapon`/`LowStoppingPower` each have one); the bar is that every
   trait be mechanically **meaningful**, not that a category hit some count. `UMW_Reach` was considered for
   the spear but dropped (melee has no reach mechanic, so its traits would be flavor-only orphans).
   `UMW_Blunt` is thus a single trait — `UMW_Concussive`, a brief resonant stun — after the old
   `UMW_Weighted` (which duplicated that stun *and* `UMW_Heavy`'s heavy-head stat profile) was removed. (A
-  pure-AP blunt trait isn't an option either: melee damage and AP share one stat,
-  `MeleeWeapon_DamageMultiplier`, owned by `UMW_Heavy`.) The six `UMW_Melee`
+  pure-AP blunt trait via *stats* isn't possible — melee damage and AP share `MeleeWeapon_DamageMultiplier`
+  — but the per-tool `MeleeToolModExtension` could now floor a Blunt tool's AP directly if a distinct blunt
+  archetype ever warranted it.) The six `UMW_Melee`
   ports are **intentional self-contained copies, not XML inheritance from Odyssey's defs** — three
   (Ornamental/Lightweight/Cumbersome) re-pointed onto melee stats because Odyssey's `RangedWeapon_*`
   mods are inert on melee, three (Ugly/Gold/Jade inlay) verbatim-equivalent. `WeaponCategoryDefs/Melee.xml`
@@ -187,7 +189,7 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `Mass`/`Beauty`/`MarketValue`), `equippedStatOffsets` (buffs the *wielder's* pawn stats), and
   `forcedColor` reach melee. To give the mechanism categories real, distinct effects we add our own
   layer: a `MeleeTraitEffectExtension : DefModExtension` (a `List<MeleeOnHitEffect>` — `…_ExtraDamage`
-  for Bladed bleed / Pointed armor-pierce, `…_Stun` for Blunt, `…_MentalState` for the Blood-soaked
+  for the Pointed venom coating, `…_Stun` for Blunt, `…_MentalState` for the Blood-soaked
   dread/flee) attached to the trait def, fired by a
   Harmony **postfix on `Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget`** (gated on a landed,
   wounding hit by a weapon with a `CompUniqueWeapon`). Using a `DefModExtension` + postfix — rather
@@ -201,17 +203,31 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `damageDefOverride`, `DamageDef.additionalHediffs` is applied source-agnostically by
   **`Pawn_HealthTracker.PostApplyDamage(dinfo, totalDamageDealt)`** — reached by *every* `Thing.TakeDamage`,
   including our `…_ExtraDamage` hit — so the ToxicBuildup stacks (scaled by the venom-stab's damage
-  dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. (The **paralytic**
-  coating `UMW_Paralytic` is Odyssey's "paralytic arrows" ported via the existing `…_Stun` — also no
-  C#.) Incendiary would be the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`.
+  dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. Incendiary would be
+  the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`.
 - **Base-damage conversion (`MeleeDamageConversionExtension` + `Verb_MeleeAttackDamage_DamageConversion_Patch`).**
   A trait may instead **convert** the weapon's *base* melee hit in place — rerouting one `DamageDef` to
   another, same quantity, no extra hit stacked — via a passthrough postfix on
   `Verb_MeleeAttackDamage.DamageInfosToApply` (a weapon's `meleeDamageDef` is fixed per def, so a
   trait-gated reroute must happen at runtime). `UMW_Serrated` uses it to send `Cut` → the bleedier,
-  scar-prone `UMW_Cut_Ragged`, paired with a `MeleeWeapon_DamageMultiplier` <1 nerf (that one stat drives
-  both melee damage *and* AP). Tuning and the one-large-wound / no-split scar-curve rationale live on
+  scar-prone `UMW_Cut_Ragged`, now paired with a per-tool damage split via `MeleeToolModExtension` (Cut
+  ×0.9, Stab ×1.1 — see that note) rather than the old weapon-wide `MeleeWeapon_DamageMultiplier` nerf, so
+  it no longer reduces armor pen. Tuning and the one-large-wound / no-split scar-curve rationale live on
   `UMW_Cut_Ragged` (`Defs/HediffDefs/`).
+- **Per-tool combat modifiers (`MeleeToolModExtension` + `Verb_MeleeAttack_ToolMods_Patch`).**
+  Melee damage and armor pen both ride the single weapon-wide `MeleeWeapon_DamageMultiplier` stat (there
+  is *no* separate melee AP stat), and a weapon's `<tools>` are shared by every instance of its def — so
+  XML alone can't raise AP without raising damage, nor modify one tool independently. The extension carries
+  a list of per-capacity `MeleeToolMod`s (`damageFactor`, `armorPenetrationFloor`, `armorPenetrationFactor`),
+  applied by passthrough postfixes on `VerbProperties.AdjustedMeleeDamageAmount` and `AdjustedArmorPenetration`
+  (the `(Tool, Pawn, Thing, HediffComp_VerbGiver)` overloads — both reached by live combat *and* the pawn's
+  stat card). AP resolves factors first, then the highest floor (floors win). `UMW_Monomolecular`/`UMW_Razored`/
+  `UMW_ArmorSpike` use AP floors; `UMW_Serrated` uses per-tool damage factors (Cut −10% / Stab +10%);
+  `UMW_HeadWeighted` uses an AP factor (1/1.3) to neutralize the AP its damage multiplier would otherwise
+  inflate. No cache/flush — recomputed each swing from the live trait list (cf. the graphics path, which
+  *does* need build-time timing). **Limitation:** the *unequipped* weapon item card shows static per-tool AP
+  (the abstract `ThingDef` stat path has no instance), but vanilla returns 0 for melee AP on a non-pawn item
+  anyway, so there's no regression; the *wielded* stat card is correct.
 - **Blood-soaked = on-hit dread + a trait-conditioned wielder moodlet (`UMW_BloodSoaked`).** Two halves.
   (1) *Dread:* `MeleeOnHitEffect_MentalState` tries to start a `MentalStateDef` (`PanicFlee`) on a wounding
   hit, `humanlikeOnly` so animals/mechs are immune; `TryStartMentalState` is non-forced, so it no-ops
@@ -235,9 +251,9 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `nullifyingGenes`), which *does* cover situational thoughts — so those fields work and the worker must NOT
   re-check traits/genes (mirrors vanilla `ThoughtWorker_ColonistLeftUnburied`). The trait forces the
   `UMW_Blood` `ColorDef` onto **colour two** (the body) via `ForcedColorTwoExtension` — not vanilla's
-  colour-one `forcedColor` — so it tags the `BodyColor` exclusion token (its own one-per-weapon family),
-  *not* the inlays' colour-one `Color` token; being on a different mask channel, blood-soaked can co-occur
-  with a Gold/Jade inlay or the Envenomed coating. See the double-mask note for the colour-two path.
+  colour-one `forcedColor` — so it tags the `BodyColor` exclusion token (the one-body-colour-per-weapon
+  family, shared with `UMW_Monomolecular`), *not* the inlays' colour-one `Color` token; being on a
+  different mask channel, blood-soaked can co-occur with a Gold/Jade inlay or the Envenomed coating. See the double-mask note for the colour-two path.
 - **Parenting: patch a `Name=` onto the base weapon, then inherit it.** RimWorld's `ParentName`
   resolves against a node's `Name=` attribute, not its `defName`. Vanilla *ranged* weapons expose
   `Name=` (so Odyssey does `ParentName="Gun_Revolver"`), but **no concrete vanilla *melee* weapon
