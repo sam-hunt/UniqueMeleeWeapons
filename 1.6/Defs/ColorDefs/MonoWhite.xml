@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Pure white. Forced BODY colour (colour two / green mask) for UMW_Monomolecular, applied via
+       ForcedColorTwoExtension — it replaces the stuff/material tint so the blade renders bright and
+       crystalline regardless of material. No pure-white ColorDef exists in Core/DLC (Structure_White is
+       grey 184), so we add our own. Self-contained like UMW_Blood: just a Weapon colorType and
+       randomlyPickable=false so it never enters the random weapon-colour pool. -->
+  <ColorDef>
+    <defName>UMW_MonoWhite</defName>
+    <label>monomolecular white</label>
+    <colorType>Weapon</colorType>
+    <color>(255, 255, 255)</color>
+    <randomlyPickable>false</randomlyPickable>
+  </ColorDef>
+
+</Defs>
