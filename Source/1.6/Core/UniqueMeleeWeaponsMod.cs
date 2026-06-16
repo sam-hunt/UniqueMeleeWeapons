@@ -4,11 +4,9 @@ using Verse;
 
 namespace UniqueMeleeWeapons;
 
-/// <summary>
-/// Mod entry point. Wires up settings and applies all Harmony patches at startup.
-/// Add patch classes under the UniqueMeleeWeapons.Patches namespace; <c>PatchAll</c>
-/// discovers them automatically via their <c>[HarmonyPatch]</c> attributes.
-/// </summary>
+// Mod entry point. Wires up settings and applies all Harmony patches at startup.
+// Add patch classes under the UniqueMeleeWeapons.Patches namespace; PatchAll
+// discovers them automatically via their [HarmonyPatch] attributes.
 public class UniqueMeleeWeaponsMod : Mod
 {
     public static UniqueMeleeWeaponsSettings Settings { get; private set; }

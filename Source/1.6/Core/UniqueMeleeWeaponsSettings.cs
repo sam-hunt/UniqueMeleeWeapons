@@ -3,22 +3,20 @@ using Verse;
 
 namespace UniqueMeleeWeapons;
 
-/// <summary>
-/// Mod settings. No configurable fields yet — but the settings window is already
-/// wired for a robust list of balance toggles: the body renders inside a scroll
-/// view that only shows a scrollbar once the content would overflow vertically,
-/// and a "Reset to defaults" button sits pinned below it.
-///
-/// To add a setting:
-///  1. declare a public field here (with its default as the initializer),
-///  2. persist it in <see cref="ExposeData"/> with <c>Scribe_Values.Look</c>
-///     (pass the same default so an unset value loads correctly),
-///  3. restore it in <see cref="ResetToDefaults"/>,
-///  4. surface it in <see cref="DoWindowContents"/> via the <c>listing</c>
-///     (see the commented example there).
-/// The scroll view measures its own content each frame, so new rows need no
-/// layout bookkeeping — they just push the scrollbar in once they don't fit.
-/// </summary>
+// Mod settings. No configurable fields yet — but the settings window is already
+// wired for a robust list of balance toggles: the body renders inside a scroll
+// view that only shows a scrollbar once the content would overflow vertically,
+// and a "Reset to defaults" button sits pinned below it.
+//
+// To add a setting:
+//  1. declare a public field here (with its default as the initializer),
+//  2. persist it in ExposeData with Scribe_Values.Look
+//     (pass the same default so an unset value loads correctly),
+//  3. restore it in ResetToDefaults,
+//  4. surface it in DoWindowContents via the listing
+//     (see the commented example there).
+// The scroll view measures its own content each frame, so new rows need no
+// layout bookkeeping — they just push the scrollbar in once they don't fit.
 public class UniqueMeleeWeaponsSettings : ModSettings
 {
     // --- Settings fields (none yet) ---------------------------------------
@@ -36,11 +34,9 @@ public class UniqueMeleeWeaponsSettings : ModSettings
         // Scribe_Values.Look(ref exampleToggle, "exampleToggle", true);
     }
 
-    /// <summary>
-    /// Restores every setting to its shipped default. Called by the
-    /// "Reset to defaults" button. Keep this in sync with the field
-    /// initializers above (and the <c>Scribe_Values.Look</c> defaults).
-    /// </summary>
+    // Restores every setting to its shipped default. Called by the
+    // "Reset to defaults" button. Keep this in sync with the field
+    // initializers above (and the Scribe_Values.Look defaults).
     public void ResetToDefaults()
     {
         // exampleToggle = true;

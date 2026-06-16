@@ -44,6 +44,15 @@ dotnet_style_explicit_tuple_names = true:warning
 # Code quality
 dotnet_code_quality_unused_parameters = all:suggestion
 
+# Roslynator analyzers (Roslynator.Analyzers package + global `roslynator` CLI).
+# Pinned explicitly so the build and the CLI agree on severity rather than each
+# applying its own defaults. Only the rules we've actually hit are listed; the
+# other ~500 stay at package defaults. Style stays "warnings only" — nothing here
+# fails the build.
+dotnet_diagnostic.RCS1146.severity = warning   # Use conditional access (real win)
+dotnet_diagnostic.RCS1139.severity = none       # "Add summary element to doc comment" — we don't ship XML docs
+dotnet_diagnostic.RCS1226.severity = none       # "Add paragraph to doc comment" — same
+
 # XML files (Defs, About.xml, Patches)
 [*.xml]
 indent_style = space

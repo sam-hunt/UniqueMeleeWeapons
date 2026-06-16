@@ -5,24 +5,20 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches;
 
-/// <summary>
-/// Converts a unique weapon's base melee damage in place, per its traits' <see cref="MeleeDamageConversionExtension"/>.
-/// <para>
-/// <c>Verb_MeleeAttackDamage.DamageInfosToApply</c> builds the <see cref="DamageInfo"/>s a swing will deal
-/// (the weapon's normal hit comes first, from <c>verbProps.meleeDamageDef</c>). We passthrough-postfix it
-/// and, for a weapon carrying a conversion trait, rebuild any matching hit with its <c>DamageDef</c> swapped
-/// — same amount/AP/everything else, just a different wound (e.g. <c>UMW_Serrated</c> reroutes <c>Cut</c> →
-/// <c>UMW_Cut_Ragged</c>). This <em>modifies</em> the base damage rather than stacking an extra hit (cf. the
-/// <c>ApplyMeleeDamageToTarget</c> on-hit-effects postfix). A weapon's <c>meleeDamageDef</c> is fixed per
-/// def, so a trait-gated reroute has to happen here at runtime.
-/// </para>
-/// <para>
-/// Cost: gated exactly like the on-hit-effects postfix — <c>EquipmentSource</c> is null for every natural
-/// attack (animals/mechs/fists bail first), and non-unique weapons fail the <c>CompUniqueWeapon</c> check.
-/// When nothing matches we return the original enumerable unchanged (no wrapper, no allocation); only an
-/// actual conversion-traited weapon pays for the wrapping iterator. Discovered by <c>PatchAll()</c>.
-/// </para>
-/// </summary>
+// Converts a unique weapon's base melee damage in place, per its traits' MeleeDamageConversionExtension.
+//
+// Verb_MeleeAttackDamage.DamageInfosToApply builds the DamageInfos a swing will deal
+// (the weapon's normal hit comes first, from verbProps.meleeDamageDef). We passthrough-postfix it
+// and, for a weapon carrying a conversion trait, rebuild any matching hit with its DamageDef swapped
+// — same amount/AP/everything else, just a different wound (e.g. UMW_Serrated reroutes Cut →
+// UMW_Cut_Ragged). This modifies the base damage rather than stacking an extra hit (cf. the
+// ApplyMeleeDamageToTarget on-hit-effects postfix). A weapon's meleeDamageDef is fixed per
+// def, so a trait-gated reroute has to happen here at runtime.
+//
+// Cost: gated exactly like the on-hit-effects postfix — EquipmentSource is null for every natural
+// attack (animals/mechs/fists bail first), and non-unique weapons fail the CompUniqueWeapon check.
+// When nothing matches we return the original enumerable unchanged (no wrapper, no allocation); only an
+// actual conversion-traited weapon pays for the wrapping iterator. Discovered by PatchAll().
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply")]
 public static class Verb_MeleeAttackDamage_DamageConversion_Patch
 {
@@ -46,7 +42,7 @@ public static class Verb_MeleeAttackDamage_DamageConversion_Patch
         return ApplyConversions(values, conversions);
     }
 
-    /// <summary>Gathers every conversion off the weapon's traits, or null if none carry one.</summary>
+    // Gathers every conversion off the weapon's traits, or null if none carry one.
     private static List<DamageConversion> CollectConversions(CompUniqueWeapon comp)
     {
         List<DamageConversion> result = null;
@@ -84,8 +80,8 @@ public static class Verb_MeleeAttackDamage_DamageConversion_Patch
         return null;
     }
 
-    /// <summary>Rebuilds <paramref name="src"/> with a new <see cref="DamageDef"/>. <c>DamageInfo</c> has no
-    /// <c>SetDef</c>, so we reconstruct, mirroring exactly the fields the melee verb populated.</summary>
+    // Rebuilds src with a new DamageDef. DamageInfo has no
+    // SetDef, so we reconstruct, mirroring exactly the fields the melee verb populated.
     private static DamageInfo Reroute(DamageInfo src, DamageDef to)
     {
         var di = new DamageInfo(to, src.Amount, src.ArmorPenetrationInt, src.Angle, src.Instigator,

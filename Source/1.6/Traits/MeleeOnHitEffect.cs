@@ -3,37 +3,33 @@ using Verse.AI;
 
 namespace UniqueMeleeWeapons;
 
-/// <summary>
-/// One on-hit effect carried by a <see cref="MeleeTraitEffectExtension"/>. Subclasses are selected in
-/// XML via <c>&lt;li Class="UniqueMeleeWeapons.MeleeOnHitEffect_..."&gt;</c>. <see cref="Apply"/> runs
-/// after a landed, wounding melee hit (gated by the verb postfix); <see cref="chance"/> is rolled per
-/// hit by the caller, so implementations don't repeat the roll.
-/// </summary>
+// One on-hit effect carried by a MeleeTraitEffectExtension. Subclasses are selected in
+// XML via <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_...">. Apply runs
+// after a landed, wounding melee hit (gated by the verb postfix); chance is rolled per
+// hit by the caller, so implementations don't repeat the roll.
 public abstract class MeleeOnHitEffect
 {
-    /// <summary>Per-hit proc chance (0–1). Rolled by the postfix before <see cref="Apply"/> is called.</summary>
+    // Per-hit proc chance (0–1). Rolled by the postfix before Apply is called.
     public float chance = 1f;
 
-    /// <param name="victim">The pawn that was struck (already confirmed alive and spawned).</param>
-    /// <param name="attacker">The wielder (may be null for non-pawn casters).</param>
-    /// <param name="weapon">The unique weapon that landed the hit.</param>
+    // victim: The pawn that was struck (already confirmed alive and spawned).
+    // attacker: The wielder (may be null for non-pawn casters).
+    // weapon: The unique weapon that landed the hit.
     public abstract void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon);
 }
 
-/// <summary>
-/// Applies an extra <see cref="DamageInfo"/> to the victim — our melee stand-in for the ranged-only
-/// <c>extraDamages</c>. A low-AP <c>Cut</c> reads as a bleeding gash (Bladed); a high-AP <c>Stab</c>
-/// reads as an armour-punching follow-through (Pointed). Re-entrancy is safe: this calls
-/// <c>Thing.TakeDamage</c> directly, not the melee verb the postfix hooks.
-/// </summary>
+// Applies an extra DamageInfo to the victim — our melee stand-in for the ranged-only
+// extraDamages. A low-AP Cut reads as a bleeding gash (Bladed); a high-AP Stab
+// reads as an armour-punching follow-through (Pointed). Re-entrancy is safe: this calls
+// Thing.TakeDamage directly, not the melee verb the postfix hooks.
 public class MeleeOnHitEffect_ExtraDamage : MeleeOnHitEffect
 {
-    /// <summary>Damage type of the extra hit (e.g. <c>Cut</c>, <c>Stab</c>). Resolved from the def database.</summary>
+    // Damage type of the extra hit (e.g. Cut, Stab). Resolved from the def database.
     public DamageDef def;
-    /// <summary>Damage amount before the usual ±20% combat variance is applied here.</summary>
+    // Damage amount before the usual ±20% combat variance is applied here.
     public float amount = 1f;
-    /// <summary>Armor penetration fraction (0–1+). Stored verbatim on the <see cref="DamageInfo"/>;
-    /// there is no "auto" sentinel, so always set a sensible value.</summary>
+    // Armor penetration fraction (0–1+). Stored verbatim on the DamageInfo;
+    // there is no "auto" sentinel, so always set a sensible value.
     public float armorPenetration = 0f;
 
     public override void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon)
@@ -48,14 +44,12 @@ public class MeleeOnHitEffect_ExtraDamage : MeleeOnHitEffect
     }
 }
 
-/// <summary>
-/// Briefly stuns the victim — the Blunt-family "maul/concussion" effect. Mirrors vanilla, which
-/// already derives a blunt stun of <c>damageAmount * 30</c> ticks in <c>StunHandler.Notify_DamageApplied</c>;
-/// <c>StunFor</c> takes the max of the current and requested duration, so procs can't stack into a lock.
-/// </summary>
+// Briefly stuns the victim — the Blunt-family "maul/concussion" effect. Mirrors vanilla, which
+// already derives a blunt stun of damageAmount * 30 ticks in StunHandler.Notify_DamageApplied;
+// StunFor takes the max of the current and requested duration, so procs can't stack into a lock.
 public class MeleeOnHitEffect_Stun : MeleeOnHitEffect
 {
-    /// <summary>Stun duration in ticks (60 = 1 second).</summary>
+    // Stun duration in ticks (60 = 1 second).
     public int ticks = 60;
 
     public override void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon)
@@ -64,18 +58,16 @@ public class MeleeOnHitEffect_Stun : MeleeOnHitEffect
     }
 }
 
-/// <summary>
-/// Tries to push the victim into a mental state on a wounding hit — the "dread"/terror effect (used by
-/// the Blood-soaked trait's <c>PanicFlee</c>). Defaults to humanlikes only, since animals and
-/// mechanoids don't panic at a fearsome blade. <c>TryStartMentalState</c> is non-forced, so it
-/// respects the usual guards (already broken, can't take the state, etc.) and simply no-ops when the
-/// roll can't apply.
-/// </summary>
+// Tries to push the victim into a mental state on a wounding hit — the "dread"/terror effect (used by
+// the Blood-soaked trait's PanicFlee). Defaults to humanlikes only, since animals and
+// mechanoids don't panic at a fearsome blade. TryStartMentalState is non-forced, so it
+// respects the usual guards (already broken, can't take the state, etc.) and simply no-ops when the
+// roll can't apply.
 public class MeleeOnHitEffect_MentalState : MeleeOnHitEffect
 {
-    /// <summary>Mental state to start, resolved from the def database (e.g. <c>PanicFlee</c>, <c>Berserk</c>).</summary>
+    // Mental state to start, resolved from the def database (e.g. PanicFlee, Berserk).
     public MentalStateDef stateDef;
-    /// <summary>If true (default), only humanlike victims are affected.</summary>
+    // If true (default), only humanlike victims are affected.
     public bool humanlikeOnly = true;
 
     public override void Apply(Pawn victim, Pawn attacker, ThingWithComps weapon)

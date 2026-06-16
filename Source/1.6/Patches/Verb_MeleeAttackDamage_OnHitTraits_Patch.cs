@@ -4,25 +4,22 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches;
 
-/// <summary>
-/// Fires unique-weapon trait on-hit effects after a landed melee blow.
-/// <para>
-/// <c>Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget</c> is the concrete melee-weapon hit path; it
-/// runs once per non-dodged swing and returns the resolved <c>DamageResult</c>. We postfix it,
-/// confirm the blow actually wounded a living pawn, then replay each equipped trait's
-/// <see cref="MeleeTraitEffectExtension"/> effects. Gating on <c>EquipmentSource</c> having a
-/// <c>CompUniqueWeapon</c> makes natural attacks and non-unique weapons no-ops. This mirrors how
-/// vanilla <c>Verb</c> already reaches trait data off the verb (the <c>burstShotSpeedMultiplier</c>
-/// loop). Discovered automatically by <c>PatchAll()</c> in <c>UniqueMeleeWeaponsMod</c>.
-/// </para>
-/// </summary>
+// Fires unique-weapon trait on-hit effects after a landed melee blow.
+//
+// Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget is the concrete melee-weapon hit path; it
+// runs once per non-dodged swing and returns the resolved DamageResult. We postfix it,
+// confirm the blow actually wounded a living pawn, then replay each equipped trait's
+// MeleeTraitEffectExtension effects. Gating on EquipmentSource having a
+// CompUniqueWeapon makes natural attacks and non-unique weapons no-ops. This mirrors how
+// vanilla Verb already reaches trait data off the verb (the burstShotSpeedMultiplier
+// loop). Discovered automatically by PatchAll() in UniqueMeleeWeaponsMod.
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "ApplyMeleeDamageToTarget")]
 public static class Verb_MeleeAttackDamage_OnHitTraits_Patch
 {
     public static void Postfix(Verb_MeleeAttackDamage __instance, LocalTargetInfo target, DamageWorker.DamageResult __result)
     {
         // Only on a hit that actually wounded a living, spawned pawn — deflected/missed blows do nothing.
-        if (__result == null || !__result.wounded)
+        if (__result?.wounded != true)
         {
             return;
         }
