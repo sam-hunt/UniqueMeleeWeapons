@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Heavy. Swing profile — slow but devastating. -->
+  <!-- UMW_Heavy. Swing profile — slow but devastating. The +30% MeleeWeapon_DamageMultiplier is the
+       damage payload; because that one stat also scales armor pen, it would inflate AP as a side effect.
+       We don't want HeadWeighted to be a stealth armor-piercer (AP is meant to be owned by the dedicated
+       floor traits), so MeleeToolModExtension multiplies AP back down by 1/1.3 on every tool, leaving the
+       damage boost but a neutral AP.
+       GOTCHA: the 0.7692 factor is 1/1.3 — if the MeleeWeapon_DamageMultiplier below changes, update the
+       factor to match (1 / newMultiplier). -->
   <WeaponTraitDef>
     <defName>UMW_HeadWeighted</defName>
     <label>head-weighted</label>
@@ -21,6 +27,15 @@
       <li>mighty</li>
       <li>ponderous</li>
     </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.MeleeToolModExtension">
+        <mods>
+          <li>
+            <armorPenetrationFactor>0.7692</armorPenetrationFactor>
+          </li>
+        </mods>
+      </li>
+    </modExtensions>
   </WeaponTraitDef>
 
 </Defs>
