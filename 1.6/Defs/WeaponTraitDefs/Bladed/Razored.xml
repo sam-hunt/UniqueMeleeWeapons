@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Bladed. Edge — small reliable bleed (3 dmg @ 85%) plus a flat damage boost. -->
+  <!-- UMW_Bladed. Edge — the reliable common staple: a keen edge that bites a little harder (+10% Cut
+       damage) and drives cleanly through light armor (Cut AP floored to 0.45). Realised via
+       MeleeToolModExtension on the Cut tool only, so the bonus is the blade's, not the point's. No proc
+       and no forced colour — the dependable "+X" tier the trait spread otherwise lacks. The Edge tag keeps
+       it mutually exclusive with Serrated/Monomolecular. -->
   <WeaponTraitDef>
     <defName>UMW_Razored</defName>
     <label>razored</label>
-    <description>The edge is honed to a razor that bites deeper with every cut.</description>
+    <description>The edge is honed to a keen razor that bites deeper and drives cleanly through light armor.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Bladed</weaponCategory>
     <exclusionTags>
       <li>Edge</li>
     </exclusionTags>
-    <statFactors>
-      <MeleeWeapon_DamageMultiplier>1.08</MeleeWeapon_DamageMultiplier>
-    </statFactors>
     <traitAdjectives>
       <li>razored</li>
       <li>razor-sharp</li>
       <li>keen</li>
     </traitAdjectives>
     <modExtensions>
-      <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
-        <onHitEffects>
-          <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_ExtraDamage">
-            <def>Cut</def>
-            <amount>3</amount>
-            <armorPenetration>0.15</armorPenetration>
-            <chance>0.85</chance>
+      <li Class="UniqueMeleeWeapons.MeleeToolModExtension">
+        <mods>
+          <li>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <damageFactor>1.1</damageFactor>
+            <armorPenetrationFloor>0.45</armorPenetrationFloor>
           </li>
-        </onHitEffects>
+        </mods>
       </li>
     </modExtensions>
   </WeaponTraitDef>
