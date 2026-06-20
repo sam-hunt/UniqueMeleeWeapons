@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Blunt. The signature blunt effect, by design: a solid blow rings resonant shock through armor
-       and bone, briefly stunning the struck (60t @ 25%). The sole Blunt trait, which is fine — single-trait
-       categories are allowed (Odyssey has several). Replaced the old UMW_Weighted (which duplicated this
-       stun atop a heavy-head stat profile already owned by UMW_Heavy/HeadWeighted). The "Head" exclusion
-       tag stays so any future blunt-head trait is mutually exclusive. -->
+  <!-- UMW_Blunt. The kinetic blunt effect: a solid blow rings resonant shock through armor and bone,
+       briefly stunning the struck (60t @ 25%), hitting flesh and mechs alike. Replaced the old UMW_Weighted
+       (which duplicated this stun atop a heavy-head stat profile already owned by UMW_Heavy/HeadWeighted).
+       The "Head" token makes it mutually exclusive with UMW_EMP (the electromagnetic, mech-only blunt stun)
+       — a weapon gets one blunt-head incapacitation effect. -->
   <WeaponTraitDef>
     <defName>UMW_Concussive</defName>
     <label>concussive</label>

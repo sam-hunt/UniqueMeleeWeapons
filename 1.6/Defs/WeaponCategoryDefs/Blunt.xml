@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Mechanism category — primary Blunt tool. A single on-hit effect: UMW_Concussive briefly stuns
-       the struck (StunFor max-merges, so procs can't lock), tagged "Head" so any future blunt-head trait
-       is mutually exclusive with it. (Replaced the old UMW_Weighted, whose stun duplicated Concussive and
-       whose heavy-head stat profile duplicated UMW_Heavy/HeadWeighted.) -->
+  <!-- Mechanism category — primary Blunt tool. The "Head" exclusion token gates the blunt head's on-hit
+       incapacitation effect, of which a weapon gets exactly one: UMW_Concussive (kinetic resonant stun, hits
+       flesh and mechs; StunFor max-merges so procs can't lock) OR UMW_EMP (electromagnetic stun, mechanoids
+       only — the melee port of Odyssey's EMPRounds). (The token was inherited from the removed UMW_Weighted,
+       whose stun duplicated Concussive and whose heavy-head stat profile duplicated UMW_Heavy/HeadWeighted.) -->
   <WeaponCategoryDef>
     <defName>UMW_Blunt</defName>
     <label>blunt</label>

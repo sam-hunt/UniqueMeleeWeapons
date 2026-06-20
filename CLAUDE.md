@@ -161,8 +161,10 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   on hit) — gated by a dedicated **`Coating`** token (one coating per weapon; a single trait today, but the
   token keeps any future coating exclusive). This is the melee analog
   of the `AmmoType` tag Odyssey's `ToxRounds` carries. The **`Color`** tag (the inlays')
-  is applied *separately and only to coatings that force a tint*: `UMW_Envenomed` forces
-  `UniqueWeapon_Tox` green so it tags `Coating`+`Color` (can't co-occur with a Gold/Jade inlay). A coating
+  is applied *separately and to any mechanism trait that forces a colour-one tint*: `UMW_Envenomed` forces
+  `UniqueWeapon_Tox` green so it tags `Coating`+`Color`, and `UMW_Blunt`'s `UMW_EMP` forces `UniqueWeapon_EMP`
+  so it tags `Head`+`Color` (both can't co-occur with a Gold/Jade inlay; mirrors Odyssey's `EMPRounds`/`ToxRounds`,
+  which tag `Color` alongside `AmmoType`). A coating
   combines freely with a point-shape trait (`Point` tag). `Color` governs only **colour one** (the red-masked accent);
   a separate **`BodyColor`** token governs **colour two** (the green-masked body, forced via
   `ForcedColorTwoExtension` — see the double-mask note). `UMW_BloodSoaked` and `UMW_Monomolecular` are the `BodyColor` members (the token keeps it to one
@@ -171,8 +173,11 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   ships several — `Rifle`/`Shotgun`/`BeamWeapon`/`LowStoppingPower` each have one); the bar is that every
   trait be mechanically **meaningful**, not that a category hit some count. `UMW_Reach` was considered for
   the spear but dropped (melee has no reach mechanic, so its traits would be flavor-only orphans).
-  `UMW_Blunt` is thus a single trait — `UMW_Concussive`, a brief resonant stun — after the old
-  `UMW_Weighted` (which duplicated that stun *and* `UMW_Heavy`'s heavy-head stat profile) was removed. (A
+  `UMW_Blunt`'s `Head` token gates the blunt head's one on-hit incapacitation effect — `UMW_Concussive` (a
+  brief kinetic resonant stun on flesh and mechs) **or** `UMW_EMP` (an electromagnetic, mechanoid-only stun;
+  the melee port of Odyssey's `EMPRounds` — same `UniqueWeapon_EMP` tint, an extra Core `EMP` hit via
+  `MeleeOnHitEffect_ExtraDamage`, commonality 0.5 like `UMW_Monomolecular`; see its own note below). The old
+  `UMW_Weighted` (which duplicated Concussive's stun *and* `UMW_Heavy`'s heavy-head stat profile) was removed. (A
   pure-AP blunt trait via *stats* isn't possible — melee damage and AP share `MeleeWeapon_DamageMultiplier`
   — but the per-tool `MeleeToolModExtension` could now floor a Blunt tool's AP directly if a distinct blunt
   archetype ever warranted it.) The six `UMW_Melee`
@@ -189,8 +194,8 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   `Mass`/`Beauty`/`MarketValue`), `equippedStatOffsets` (buffs the *wielder's* pawn stats), and
   `forcedColor` reach melee. To give the mechanism categories real, distinct effects we add our own
   layer: a `MeleeTraitEffectExtension : DefModExtension` (a `List<MeleeOnHitEffect>` — `…_ExtraDamage`
-  for the Pointed venom coating, `…_Stun` for Blunt, `…_MentalState` for the Blood-soaked
-  dread/flee) attached to the trait def, fired by a
+  for the Pointed venom coating and the Blunt `UMW_EMP` discharge, `…_Stun` for the Blunt `UMW_Concussive`
+  kinetic stun, `…_MentalState` for the Blood-soaked dread/flee) attached to the trait def, fired by a
   Harmony **postfix on `Verb_MeleeAttackDamage.ApplyMeleeDamageToTarget`** (gated on a landed,
   wounding hit by a weapon with a `CompUniqueWeapon`). Using a `DefModExtension` + postfix — rather
   than subclassing `WeaponTraitDef` — keeps the trait an ordinary def, so vanilla generation/naming/
@@ -204,7 +209,13 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   **`Pawn_HealthTracker.PostApplyDamage(dinfo, totalDamageDealt)`** — reached by *every* `Thing.TakeDamage`,
   including our `…_ExtraDamage` hit — so the ToxicBuildup stacks (scaled by the venom-stab's damage
   dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. Incendiary would be
-  the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`.
+  the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`. The Blunt **`UMW_EMP`** trait realises the
+  same path with Core's vanilla `EMP` `DamageDef` (no clone needed) — `EMP` carries `causeStun`/`harmsHealth=false`,
+  and the **stun** is applied source-agnostically by `Pawn_HealthTracker.PreApplyDamage` → `stances.stunner.Notify_DamageApplied`
+  (also reached by *every* `Thing.TakeDamage`, the same path Odyssey's `EMPRounds` `extraDamages` ride). `StunHandler`
+  only stuns **non-flesh** pawns for `EMP`, so it's a pure anti-mechanoid effect (no injury, no effect on flesh), and
+  `EMP`'s own `stunAdaptationTicks` self-limits a chain — so `UMW_EMP` needs no proc `chance` gate (fires every wounding
+  hit, like the ranged version).
 - **Base-damage conversion (`MeleeDamageConversionExtension` + `Verb_MeleeAttackDamage_DamageConversion_Patch`).**
   A trait may instead **convert** the weapon's *base* melee hit in place — rerouting one `DamageDef` to
   another, same quantity, no extra hit stacked — via a passthrough postfix on
