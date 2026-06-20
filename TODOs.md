@@ -16,8 +16,6 @@
 - Reinforced trait for spears in a new category that grants a pole vault ability?
 - Rebalance market values from factors to offsets like Odyssey?
 
-- `monomolecular` (Bladed) ✅ DONE — added the per-tool AP/damage axis (`MeleeToolModExtension` + postfixes on
-  `AdjustedMeleeDamageAmount`/`AdjustedArmorPenetration`); Razored/ArmorSpike/Serrated/HeadWeighted refactored onto it.
 - `pyrophoric` (Bladed, coating-family or colour-two): `MeleeOnHitEffect_ExtraDamage` w/ Core `Flame`/`Burn` (Odyssey `IncendiaryRounds` analog).
 - `shock-charged` (→ UMW_Blunt, pressure-triggered head mechanism, NOT an "edge"): `…_ExtraDamage` w/ Core `EMP` (Odyssey `EMPRounds` analog), free mech/shield stun. Keep crisply distinct from UMW_Concussive (generic resonant stun vs anti-mech/shield EMP). Cf. the component-recharge EMP pulser under Features — decide if same trait or a fancier sibling.
 
