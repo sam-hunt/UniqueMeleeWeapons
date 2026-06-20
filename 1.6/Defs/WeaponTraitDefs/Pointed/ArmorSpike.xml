@@ -15,6 +15,9 @@
     <exclusionTags>
       <li>Point</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>40</MarketValue> <!-- cf. PiercingRounds -->
+    </statOffsets>
     <traitAdjectives>
       <li>lancing</li>
       <li>armorbane</li>

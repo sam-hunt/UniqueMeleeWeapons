@@ -33,8 +33,6 @@
       <li>EMP</li>
       <li>electric</li>
       <li>shocking</li>
-      <li>sparky</li>
-      <li>zapping</li>
     </traitAdjectives>
     <modExtensions>
       <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">

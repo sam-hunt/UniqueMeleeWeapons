@@ -174,9 +174,8 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   trait be mechanically **meaningful**, not that a category hit some count. `UMW_Reach` was considered for
   the spear but dropped (melee has no reach mechanic, so its traits would be flavor-only orphans).
   `UMW_Blunt`'s `Head` token gates the blunt head's one on-hit incapacitation effect — `UMW_Concussive` (a
-  brief kinetic resonant stun on flesh and mechs) **or** `UMW_EMP` (an electromagnetic, mechanoid-only stun;
-  the melee port of Odyssey's `EMPRounds` — same `UniqueWeapon_EMP` tint, an extra Core `EMP` hit via
-  `MeleeOnHitEffect_ExtraDamage`, commonality 0.5 like `UMW_Monomolecular`; see its own note below). The old
+  brief kinetic stun on flesh and mechs) **or** `UMW_EMP` (an electromagnetic, mechanoid-only stun, the melee
+  port of Odyssey's `EMPRounds`; see its own note below). The old
   `UMW_Weighted` (which duplicated Concussive's stun *and* `UMW_Heavy`'s heavy-head stat profile) was removed. (A
   pure-AP blunt trait via *stats* isn't possible — melee damage and AP share `MeleeWeapon_DamageMultiplier`
   — but the per-tool `MeleeToolModExtension` could now floor a Blunt tool's AP directly if a distinct blunt
@@ -185,6 +184,15 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   (Ornamental/Lightweight/Cumbersome) re-pointed onto melee stats because Odyssey's `RangedWeapon_*`
   mods are inert on melee, three (Ugly/Gold/Jade inlay) verbatim-equivalent. `WeaponCategoryDefs/Melee.xml`
   documents why inheritance is avoided; each ported trait file notes its deltas inline.
+- **`MarketValue` convention: factor only for value-scaling, flat offset for everything else.** Mirrors
+  Odyssey, which uses a `MarketValue` *factor* only for value-*scaling* traits — precious-material inlays
+  (`GoldInlay ×2`, `JadeInlay ×1.4`) and quality reducers (`Ugly`/`Cumbersome ×0.8`) — while every
+  added-capability trait takes a flat **offset** (a fixed fabrication cost). So: **factor ⟺ precious-inlay
+  scaling or devaluation; offset ⟺ any added capability.** Our inlays/`UMW_Ugly`/`UMW_Cumbersome` keep factors,
+  `UMW_BloodSoaked` keeps `×0.8` (gore devalues, an `Ugly` analog), and all functional traits use offsets sized
+  from the nearest Odyssey analog (named inline in each trait file). The Heavy archetypes take offsets too despite
+  their *combat* effect being a stat factor — following the precedent that Odyssey's own positive handling trait
+  `Lightweight` is an offset.
 - **Melee trait on-hit effects (`Source/1.6/Traits/`, `Source/1.6/Patches/Verb_MeleeAttackDamage_OnHitTraits_Patch.cs`).**
   Vanilla's mechanically interesting `WeaponTraitDef` fields — `damageDefOverride`, `extraDamages`,
   `additionalStoppingPower`, `burstShot*`, `ignoresAccuracyMaluses` — are consumed **only** by
@@ -209,13 +217,10 @@ comps, Harmony patch rationale, Odyssey-specific hooks, etc.), mirroring the bui
   **`Pawn_HealthTracker.PostApplyDamage(dinfo, totalDamageDealt)`** — reached by *every* `Thing.TakeDamage`,
   including our `…_ExtraDamage` hit — so the ToxicBuildup stacks (scaled by the venom-stab's damage
   dealt, the victim's `ToxicResistance`, and inverse body size) for free, no new C#. Incendiary would be
-  the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`. The Blunt **`UMW_EMP`** trait realises the
-  same path with Core's vanilla `EMP` `DamageDef` (no clone needed) — `EMP` carries `causeStun`/`harmsHealth=false`,
-  and the **stun** is applied source-agnostically by `Pawn_HealthTracker.PreApplyDamage` → `stances.stunner.Notify_DamageApplied`
-  (also reached by *every* `Thing.TakeDamage`, the same path Odyssey's `EMPRounds` `extraDamages` ride). `StunHandler`
-  only stuns **non-flesh** pawns for `EMP`, so it's a pure anti-mechanoid effect (no injury, no effect on flesh), and
-  `EMP`'s own `stunAdaptationTicks` self-limits a chain — so `UMW_EMP` needs no proc `chance` gate (fires every wounding
-  hit, like the ranged version).
+  the same shape: a `Flame`/`Burn` `DamageDef` via `…_ExtraDamage`. The Blunt **`UMW_EMP`** trait reuses Core's
+  vanilla `EMP` `DamageDef` the same way (no clone): its `causeStun` fires source-agnostically on any `Thing.TakeDamage`
+  (the path Odyssey's `EMPRounds` rides), stunning only **non-flesh** pawns — a pure anti-mechanoid effect — and `EMP`'s
+  own `stunAdaptationTicks` self-limits a chain, so it needs no proc `chance` gate.
 - **Base-damage conversion (`MeleeDamageConversionExtension` + `Verb_MeleeAttackDamage_DamageConversion_Patch`).**
   A trait may instead **convert** the weapon's *base* melee hit in place — rerouting one `DamageDef` to
   another, same quantity, no extra hit stacked — via a passthrough postfix on

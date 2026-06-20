@@ -19,6 +19,7 @@
     </exclusionTags>
     <statOffsets>
       <Beauty>-2</Beauty>
+      <MarketValue>30</MarketValue> <!-- nasty-wound w/ Cut-damage tradeoff -->
     </statOffsets>
     <traitAdjectives>
       <li>serrated</li>

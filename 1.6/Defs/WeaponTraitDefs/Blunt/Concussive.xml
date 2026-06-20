@@ -15,6 +15,9 @@
     <exclusionTags>
       <li>Head</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>50</MarketValue> <!-- chance-based stun, cheaper than ParalyticArrows +80 -->
+    </statOffsets>
     <traitAdjectives>
       <li>concussive</li>
       <li>ringing</li>

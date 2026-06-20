@@ -11,10 +11,12 @@
     <exclusionTags>
       <li>SwingProfile</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>40</MarketValue> <!-- net-positive archetype (offset, though its combat effect is a factor) -->
+    </statOffsets>
     <statFactors>
       <MeleeWeapon_CooldownMultiplier>0.82</MeleeWeapon_CooldownMultiplier>
       <MeleeWeapon_DamageMultiplier>0.95</MeleeWeapon_DamageMultiplier>
-      <MarketValue>1.3</MarketValue>
     </statFactors>
     <traitAdjectives>
       <li>balanced</li>

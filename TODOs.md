@@ -12,12 +12,10 @@
 - About.xml
 - Test Blood-soaked moodlets and nullifications, PanicFlee-on-hit vs humanlikes
 - Tweak blood-soaked color to be a little more washed?
-- Add a Component-rechargable EMP pulser effect to blunt-headed weapons? differs from odyssey's version in that it costs components to recharge rather than cooldown?
-- Reinforced trait for spears in a new category that grants a pole vault ability?
-- Rebalance market values from factors to offsets like Odyssey?
+- Test EMP trait
+- Consider concussive balance vs paralytic arrows
 
 - `pyrophoric` (Bladed, coating-family or colour-two): `MeleeOnHitEffect_ExtraDamage` w/ Core `Flame`/`Burn` (Odyssey `IncendiaryRounds` analog).
-- `shock-charged` (→ UMW_Blunt, pressure-triggered head mechanism, NOT an "edge"): `…_ExtraDamage` w/ Core `EMP` (Odyssey `EMPRounds` analog), free mech/shield stun. Keep crisply distinct from UMW_Concussive (generic resonant stun vs anti-mech/shield EMP). Cf. the component-recharge EMP pulser under Features — decide if same trait or a fancier sibling.
 
 # Trait spread (vanilla-like coverage)
 
@@ -58,6 +56,5 @@ spear pole-vault, and the component-EMP-pulser are already listed under Features
 
 # Art
 
-- Weapon diffuse + mask textures — Knife, Spear, Axe, Mace, Warhammer, Gladius
 - ModIcon.png
 - Preview.png

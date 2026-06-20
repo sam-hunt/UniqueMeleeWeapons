@@ -13,10 +13,12 @@
     <exclusionTags>
       <li>Weight</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>80</MarketValue> <!-- = Odyssey Lightweight -->
+    </statOffsets>
     <statFactors>
       <Mass>0.7</Mass> <!-- Odyssey: ×0.75 -->
       <MeleeWeapon_CooldownMultiplier>0.9</MeleeWeapon_CooldownMultiplier> <!-- Odyssey: RangedWeapon_WarmupMultiplier -0.2 (inert on melee) -->
-      <MarketValue>1.3</MarketValue> <!-- Odyssey: +80 flat offset → factor -->
     </statFactors>
     <traitAdjectives>
       <li>light</li>

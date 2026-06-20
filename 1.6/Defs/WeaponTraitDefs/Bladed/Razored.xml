@@ -15,6 +15,9 @@
     <exclusionTags>
       <li>Edge</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>40</MarketValue> <!-- cf. PiercingRounds -->
+    </statOffsets>
     <traitAdjectives>
       <li>razored</li>
       <li>razor-sharp</li>

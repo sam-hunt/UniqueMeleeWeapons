@@ -20,9 +20,9 @@
       <li>Edge</li>
       <li>BodyColor</li>
     </exclusionTags>
-    <statFactors>
-      <MarketValue>1.5</MarketValue>
-    </statFactors>
+    <statOffsets>
+      <MarketValue>120</MarketValue> <!-- premium tier, cf. ChargeCapacitor -->
+    </statOffsets>
     <traitAdjectives>
       <li>monomolecular</li>
       <li>mono-edged</li>

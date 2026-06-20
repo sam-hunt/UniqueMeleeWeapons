@@ -15,10 +15,10 @@
     </exclusionTags>
     <statFactors>
       <MeleeWeapon_DamageMultiplier>0.9</MeleeWeapon_DamageMultiplier> <!-- Odyssey: RangedWeapon_DamageMultiplier -0.15 offset (inert on melee) -->
-      <MarketValue>1.5</MarketValue> <!-- Odyssey: +40 flat offset → factor, scales with weapon value -->
     </statFactors>
     <statOffsets>
       <Beauty>8</Beauty> <!-- Odyssey: +5 -->
+      <MarketValue>40</MarketValue> <!-- = Odyssey Ornamental -->
     </statOffsets>
     <traitAdjectives>
       <li>beautiful</li>

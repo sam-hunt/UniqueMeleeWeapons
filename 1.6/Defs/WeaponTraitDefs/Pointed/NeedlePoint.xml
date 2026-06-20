@@ -17,6 +17,9 @@
     <exclusionTags>
       <li>Point</li>
     </exclusionTags>
+    <statOffsets>
+      <MarketValue>50</MarketValue> <!-- damage buff w/ hit-chance cost -->
+    </statOffsets>
     <statFactors>
       <MeleeWeapon_DamageMultiplier>1.2</MeleeWeapon_DamageMultiplier>
     </statFactors>
