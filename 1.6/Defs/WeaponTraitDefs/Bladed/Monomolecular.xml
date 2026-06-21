@@ -24,9 +24,9 @@
       <MarketValue>120</MarketValue> <!-- premium tier, cf. ChargeCapacitor -->
     </statOffsets>
     <traitAdjectives>
-      <li>monomolecular</li>
       <li>mono-edged</li>
       <li>crystalline</li>
+      <li>honed</li>
     </traitAdjectives>
     <modExtensions>
       <li Class="UniqueMeleeWeapons.MeleeToolModExtension">

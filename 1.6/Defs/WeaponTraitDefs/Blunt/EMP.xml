@@ -17,7 +17,7 @@
        own UMW_Envenomed (Coating+Color). -->
   <WeaponTraitDef>
     <defName>UMW_EMP</defName>
-    <label>EMP</label>
+    <label>EMP-charged</label>
     <description>The head carries embedded EMP capacitors that discharge on impact, temporarily disabling electronics and mechanoids.</description>
     <commonality>0.5</commonality>
     <weaponCategory>UMW_Blunt</weaponCategory>
@@ -30,7 +30,7 @@
       <MarketValue>75</MarketValue>
     </statOffsets>
     <traitAdjectives>
-      <li>EMP</li>
+      <li>EMP-charged</li>
       <li>electric</li>
       <li>shocking</li>
     </traitAdjectives>
