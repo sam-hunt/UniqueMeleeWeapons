@@ -2,10 +2,16 @@
 <Defs>
 
   <!-- UMW_Blunt. The kinetic blunt effect: a solid blow rings resonant shock through armor and bone,
-       briefly stunning the struck (60t @ 25%), hitting flesh and mechs alike. Replaced the old UMW_Weighted
+       briefly stunning the struck (120t @ 25%), hitting flesh and mechs alike. Replaced the old UMW_Weighted
        (which duplicated this stun atop a heavy-head stat profile already owned by UMW_Heavy/HeadWeighted).
        The "Head" token makes it mutually exclusive with UMW_EMP (the electromagnetic, mech-only blunt stun)
-       — a weapon gets one blunt-head incapacitation effect. -->
+       — a weapon gets one blunt-head incapacitation effect.
+       Priced at parity with Odyssey's ranged ParalyticArrows (+80): same 120t (2s, human) stun. The 25%
+       proc gate is the melee-safe divergence — a guaranteed 2s stun at a ~2s swing cooldown would stunlock;
+       ParalyticArrows can afford 100% because a bow can't fight in melee. Lower per-hit uptime than the arrow
+       (which also re-stuns up to its 240t adaptation) is offset by Concussive's universal target (stuns mechs
+       too, which ParalyticArrows can't) and no adaptation gate (every proc refreshes). Sits just above its
+       mech-only Head sibling UMW_EMP (+75). -->
   <WeaponTraitDef>
     <defName>UMW_Concussive</defName>
     <label>concussive</label>
@@ -16,7 +22,7 @@
       <li>Head</li>
     </exclusionTags>
     <statOffsets>
-      <MarketValue>50</MarketValue> <!-- chance-based stun, cheaper than ParalyticArrows +80 -->
+      <MarketValue>80</MarketValue> <!-- parity with ParalyticArrows +80 (matched 120t stun) -->
     </statOffsets>
     <traitAdjectives>
       <li>concussive</li>
@@ -28,7 +34,7 @@
       <li Class="UniqueMeleeWeapons.MeleeTraitEffectExtension">
         <onHitEffects>
           <li Class="UniqueMeleeWeapons.MeleeOnHitEffect_Stun">
-            <ticks>60</ticks>
+            <ticks>120</ticks>
             <chance>0.25</chance>
           </li>
         </onHitEffects>

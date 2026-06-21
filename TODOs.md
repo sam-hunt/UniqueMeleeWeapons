@@ -13,7 +13,6 @@
 - Test Blood-soaked moodlets and nullifications, PanicFlee-on-hit vs humanlikes
 - Tweak blood-soaked color to be a little more washed?
 - Test EMP trait
-- Consider concussive balance vs paralytic arrows
 
 - `pyrophoric` (Bladed, coating-family or colour-two): `MeleeOnHitEffect_ExtraDamage` w/ Core `Flame`/`Burn` (Odyssey `IncendiaryRounds` analog).
 
