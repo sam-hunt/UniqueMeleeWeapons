@@ -52,7 +52,22 @@ public class QuestPart_SpawnWarband : QuestPart
         }
         try
         {
+            // Already spawned: the part stays alive on the quest after pawns.Clear(), so a
+            // re-delivered MapGenerated signal (map regenerated on a later visit, or the list
+            // scribed back empty) is a benign re-entry, not an error.
+            if (pawns.NullOrEmpty())
+            {
+                return;
+            }
+            // No site map means the warband genuinely can't spawn; warn so the empty site is
+            // diagnosable from the log. TryGetArg leaves arg null on failure, so one check covers
+            // a missing SUBJECT and a MapParent whose map is gone.
             signal.args.TryGetArg("SUBJECT", out MapParent arg);
+            if (arg?.Map == null)
+            {
+                Log.Warning($"[Unique Melee Weapons] Skipped spawning warband: signal '{signal.tag}' carried no map (SUBJECT={arg?.ToString() ?? "null"}).");
+                return;
+            }
             Map map = arg.Map;
 
             // The abandoned-settlement footprint, set during map-gen by TileMutatorWorker_AbandonedColony.
