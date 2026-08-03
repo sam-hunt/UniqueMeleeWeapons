@@ -32,6 +32,8 @@ Work through each step below **one at a time**, confirming with the user before 
 - Show the commit log since the last tag (already displayed above)
 - If the repo has no tags yet this is the first release: use the full history
   (`git log --oneline --no-merges`) and summarise the mod's shipped feature set rather than a diff
+- If the repo has no tags yet this is the first release: use the full history
+  (`git log --oneline --no-merges`) and summarise the mod's shipped feature set rather than a diff
 - Draft changelog notes grouped by category (Fixes, Features, Polish/Other)
 - Omit chore/version-bump commits from the changelog
 - **Present the draft to the user and ask them to confirm or edit**
