@@ -23,5 +23,11 @@ namespace UniqueMeleeWeapons;
 public class TraitEffectLinesExtension : DefModExtension
 {
     // One short line per effect, already localized into the active language, in display order.
+    // [NoTranslate] because the lines are DERIVED at startup from Keyed strings (UMW_Stats.xml),
+    // which are what translators actually translate: without it, DefInjectionUtility's walker
+    // (the in-game report, and the L10nProbe expectations dump built on it) advertises
+    // modExtensions.N.lines as injection points that would fight the derivation. The attribute
+    // does not touch the name or type, so the duck-typing contract above is unaffected.
+    [NoTranslate]
     public List<string> lines = new List<string>();
 }
