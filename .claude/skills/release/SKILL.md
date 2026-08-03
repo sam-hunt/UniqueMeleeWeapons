@@ -36,25 +36,28 @@ Work through each step below **one at a time**, confirming with the user before 
 - Omit chore/version-bump commits from the changelog
 - **Present the draft to the user and ask them to confirm or edit**
 
-### 3. Check translation freshness
+### 3. Refresh translation expectations and check freshness
 
-Run:
+Run, in order:
 ```bash
+python3 Scripts/refresh-translation-expectations.py
 python3 Scripts/check-translations.py --strict
 ```
 
-- Report the per-language result (missing keys, stale entries, errors). CI's
-  release gate runs the same script without `--strict`; the stricter local run
-  surfaces warnings while there is still time to act on them
-- If translations are stale or incomplete, **ask the user** whether to update
-  them now (via the `translate` skill's update pass) or ship with a known-stale
-  note in the changelog. Errors other than staleness should be fixed before
-  release.
-- If this release adds new defs (weapons, `abilityProps` traits, hediffs,
-  factions), the script's `EXTERNAL_INJECTIONS` manifest may under-cover
-  vanilla-inherited and C#-default strings. The in-game translation report (Dev
-  Mode > Logging > Translation report, one non-English language) is the
-  documented backstop until the L10nProbe integration lands — see `HANDOVER.md`.
+- The first command regenerates `Scripts/expected-injections.json` by
+  launching the local RimWorld client with `-l10nprobe` (graphical boot,
+  ~1-2 min; the L10nProbe dev mod dumps every DefInjected key the live game
+  expects, then quits). This is what surfaces vanilla-inherited and
+  C#-default strings a def-XML scan cannot see. Report its diff summary.
+- If the diff shows **added or changed keys**, translate them in every
+  language now (the `translate` skill's update pass), then rerun the checker.
+- Report the per-language checker result (missing keys, stale entries,
+  errors). CI's release gate runs the same script without `--strict` against
+  the checked-in sidecar; the stricter local run surfaces warnings while
+  there is still time to act on them.
+- If the sidecar or any translations changed, commit them as their own
+  `fix(l10n)` commit (show the diff and **ask the user to confirm**) before
+  moving on — step 7 stages only the version-bump files.
 
 ### 4. Update CHANGELOG.md
 

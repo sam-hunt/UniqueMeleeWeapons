@@ -1,0 +1,1388 @@
+{
+  "meta": {
+    "gameBuild": "1.6.4871 rev591",
+    "activeDlcs": [
+      "Core",
+      "Royalty",
+      "Ideology",
+      "Biotech",
+      "Odyssey"
+    ],
+    "modPackageId": "shunter.uniquemeleeweapons",
+    "modName": "Unique Melee Weapons"
+  },
+  "defInjections": {
+    "AbilityDef": {
+      "UMW_Earthshake.description": {
+        "english": "Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing.",
+        "required": true
+      },
+      "UMW_Earthshake.label": {
+        "english": "earthshake",
+        "required": true
+      },
+      "UMW_RallyingCry.description": {
+        "english": "Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them.",
+        "required": true
+      },
+      "UMW_RallyingCry.label": {
+        "english": "rallying cry",
+        "required": true
+      }
+    },
+    "ColorDef": {
+      "UMW_BloodRed.label": {
+        "english": "blood red",
+        "required": true
+      },
+      "UMW_CarbonBlack.label": {
+        "english": "carbon black",
+        "required": true
+      },
+      "UMW_EnamelPurple.label": {
+        "english": "enamel purple",
+        "required": true
+      },
+      "UMW_MonoWhite.label": {
+        "english": "monomolecular white",
+        "required": true
+      },
+      "UMW_PlasmaOrange.label": {
+        "english": "plasma orange",
+        "required": true
+      }
+    },
+    "DamageDef": {
+      "UMW_Cut_Ragged.deathMessage": {
+        "english": "{0} has been cut to death.",
+        "required": true
+      },
+      "UMW_Cut_Ragged.label": {
+        "english": "cut",
+        "required": true
+      },
+      "UMW_Stab_Deep.deathMessage": {
+        "english": "{0} has been stabbed to death.",
+        "required": true
+      },
+      "UMW_Stab_Deep.label": {
+        "english": "stab",
+        "required": true
+      },
+      "UMW_Stab_Ragged.deathMessage": {
+        "english": "{0} has been stabbed to death.",
+        "required": true
+      },
+      "UMW_Stab_Ragged.label": {
+        "english": "stab",
+        "required": true
+      },
+      "UMW_Stab_Tox.deathMessage": {
+        "english": "{0} has been stabbed to death.",
+        "required": true
+      },
+      "UMW_Stab_Tox.label": {
+        "english": "toxic stab",
+        "required": true
+      },
+      "UMW_Stab_Tranq.deathMessage": {
+        "english": "{0} has been stabbed to death.",
+        "required": true
+      },
+      "UMW_Stab_Tranq.label": {
+        "english": "tranquilizing stab",
+        "required": true
+      }
+    },
+    "FactionDef": {
+      "UMW_Warband.description": {
+        "english": "A roving company of fighters who live by the raid, preying on settlements and travellers across the land.",
+        "required": true
+      },
+      "UMW_Warband.label": {
+        "english": "warband",
+        "required": true
+      },
+      "UMW_Warband.leaderTitle": {
+        "english": "warlord",
+        "required": true
+      },
+      "UMW_Warband.messageDefendersAttacking": {
+        "english": "{0} from {1} are attacking your {2}.",
+        "required": true
+      },
+      "UMW_Warband.pawnSingular": {
+        "english": "warrior",
+        "required": true
+      },
+      "UMW_Warband.pawnsPlural": {
+        "english": "warriors",
+        "required": true
+      }
+    },
+    "HediffDef": {
+      "UMW_Cut_Ragged.comps.HediffComp_GetsPermanent.permanentLabel": {
+        "english": "ragged scar",
+        "required": true,
+        "normalized": "UMW_Cut_Ragged.comps.2.permanentLabel"
+      },
+      "UMW_Cut_Ragged.comps.HediffComp_TendDuration.labelSolidTendedWell": {
+        "english": "set",
+        "normalized": "UMW_Cut_Ragged.comps.0.labelSolidTendedWell"
+      },
+      "UMW_Cut_Ragged.comps.HediffComp_TendDuration.labelTendedWell": {
+        "english": "bandaged",
+        "normalized": "UMW_Cut_Ragged.comps.0.labelTendedWell"
+      },
+      "UMW_Cut_Ragged.comps.HediffComp_TendDuration.labelTendedWellInner": {
+        "english": "sutured",
+        "normalized": "UMW_Cut_Ragged.comps.0.labelTendedWellInner"
+      },
+      "UMW_Cut_Ragged.description": {
+        "english": "A ragged, torn cut that bleeds freely and scars badly.",
+        "required": true
+      },
+      "UMW_Cut_Ragged.injuryProps.destroyedLabel": {
+        "english": "Cut off",
+        "required": true
+      },
+      "UMW_Cut_Ragged.injuryProps.destroyedOutLabel": {
+        "english": "Cut out",
+        "required": true
+      },
+      "UMW_Cut_Ragged.label": {
+        "english": "ragged cut",
+        "required": true
+      },
+      "UMW_Cut_Ragged.labelNoun": {
+        "english": "a ragged cut",
+        "required": true
+      },
+      "UMW_Cut_Ragged.labelNounPretty": {
+        "english": "{0} in the {1}",
+        "required": true
+      },
+      "UMW_Rallied.description": {
+        "english": "Stirred by the rallying cry of a storied weapon's bearer. For a time, wounds barely register, and a hit does little to break their stride.",
+        "required": true
+      },
+      "UMW_Rallied.label": {
+        "english": "rallied",
+        "required": true
+      },
+      "UMW_SedativeBuildup.description": {
+        "english": "A fast-acting sedative building up in the bloodstream. At high levels it renders creatures unconscious.",
+        "required": true
+      },
+      "UMW_SedativeBuildup.label": {
+        "english": "sedative buildup",
+        "required": true
+      },
+      "UMW_SedativeBuildup.stages.dosed.label": {
+        "english": "dosed",
+        "required": true,
+        "normalized": "UMW_SedativeBuildup.stages.0.label"
+      },
+      "UMW_SedativeBuildup.stages.sedated.label": {
+        "english": "sedated",
+        "required": true,
+        "normalized": "UMW_SedativeBuildup.stages.2.label"
+      },
+      "UMW_SedativeBuildup.stages.woozy.label": {
+        "english": "woozy",
+        "required": true,
+        "normalized": "UMW_SedativeBuildup.stages.1.label"
+      },
+      "UMW_Stab_Ragged.comps.HediffComp_GetsPermanent.permanentLabel": {
+        "english": "ragged scar",
+        "required": true,
+        "normalized": "UMW_Stab_Ragged.comps.2.permanentLabel"
+      },
+      "UMW_Stab_Ragged.comps.HediffComp_TendDuration.labelSolidTendedWell": {
+        "english": "set",
+        "normalized": "UMW_Stab_Ragged.comps.0.labelSolidTendedWell"
+      },
+      "UMW_Stab_Ragged.comps.HediffComp_TendDuration.labelTendedWell": {
+        "english": "bandaged",
+        "normalized": "UMW_Stab_Ragged.comps.0.labelTendedWell"
+      },
+      "UMW_Stab_Ragged.comps.HediffComp_TendDuration.labelTendedWellInner": {
+        "english": "sutured",
+        "normalized": "UMW_Stab_Ragged.comps.0.labelTendedWellInner"
+      },
+      "UMW_Stab_Ragged.description": {
+        "english": "A ragged, torn stab wound that bleeds freely and scars badly.",
+        "required": true
+      },
+      "UMW_Stab_Ragged.injuryProps.destroyedLabel": {
+        "english": "Cut off",
+        "required": true
+      },
+      "UMW_Stab_Ragged.injuryProps.destroyedOutLabel": {
+        "english": "Cut out",
+        "required": true
+      },
+      "UMW_Stab_Ragged.label": {
+        "english": "ragged stab",
+        "required": true
+      },
+      "UMW_Stab_Ragged.labelNoun": {
+        "english": "a ragged stab wound",
+        "required": true
+      },
+      "UMW_Stab_Ragged.labelNounPretty": {
+        "english": "{0} in the {1}",
+        "required": true
+      }
+    },
+    "QuestScriptDef": {
+      "UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings": {
+        "english": [
+          "questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travellers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]",
+          "location(atLandmark==true)->The warriors are hiding out in an abandoned settlement at [landmarkName].",
+          "location(atLandmark==false)->The warriors are hiding out in an abandoned settlement."
+        ],
+        "isCollection": true,
+        "fullListAllowed": true,
+        "required": true
+      },
+      "UMW_OpportunitySite_Warband.questNameRules.rulesStrings": {
+        "english": [
+          "questName->The [savage] [warband]",
+          "questName->[savage] [warband]",
+          "savage->Savage",
+          "savage->Wild",
+          "savage->Fierce",
+          "savage->Bloodthirsty",
+          "savage->Roaming",
+          "warband->Warband",
+          "warband->War Party",
+          "warband->Marauders",
+          "warband->Raiders",
+          "warband->Warriors"
+        ],
+        "isCollection": true,
+        "fullListAllowed": true,
+        "required": true
+      },
+      "UMW_OpportunitySite_Warband.questSubjectRules.rulesStrings": {
+        "english": [
+          "subject->tribal raiders",
+          "subject->marauding warriors",
+          "subject->savage tribesfolk",
+          "questMapFeature->raider camp",
+          "questMapFeature->drawing of a tribal warrior",
+          "questMapFeature->sketch of a master-forged blade",
+          "questMapText->dangerous raiders",
+          "questMapText->a master-forged weapon",
+          "questMapText->savage warriors"
+        ],
+        "isCollection": true,
+        "fullListAllowed": true,
+        "required": true
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.GetMap.canBeSpace.slateRef": {
+        "english": "true",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.2.canBeSpace.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.GetSiteTile.allowedLandmarks.slateRef": {
+        "english": "<li>Oasis</li><li>Lake</li><li>LakeWithIsland</li><li>LakeWithIslands</li><li>Pond</li><li>DryLake</li><li>ToxicLake</li><li>Wetland</li><li>HotSprings</li><li>Archipelago</li><li>CoastalIsland</li><li>Peninsula</li><li>Bay</li><li>Valley</li><li>Cavern</li><li>Chasm</li><li>Cliffs</li><li>Hollow</li><li>TerraformingScar</li><li>LavaLake</li><li>Dunes</li><li>AncientHeatVent</li>",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.4.allowedLandmarks.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.GetSiteTile.canSelectComboLandmarks.slateRef": {
+        "english": "false",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.4.canSelectComboLandmarks.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.GetSiteTile.preferCloserTiles.slateRef": {
+        "english": "true",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.4.preferCloserTiles.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.GetSiteTile.selectLandmarkChance.slateRef": {
+        "english": "0.75",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.4.selectLandmarkChance.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.Set.value.slateRef": {
+        "english": "20~60",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.3.value.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.Util_AdjustPointsForDistantFight.def.slateRef": {
+        "english": "Util_AdjustPointsForDistantFight",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.1.def.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.Util_RandomizePointsChallengeRating.def.slateRef": {
+        "english": "Util_RandomizePointsChallengeRating",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.0.def.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.Util_RandomizePointsChallengeRating.parms.pointsFactorThreeStar.value.slateRef": {
+        "english": "2",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.0.parms.1.value.slateRef"
+      },
+      "UMW_OpportunitySite_Warband.root.nodes.Util_RandomizePointsChallengeRating.parms.pointsFactorTwoStar.value.slateRef": {
+        "english": "1.5",
+        "normalized": "UMW_OpportunitySite_Warband.root.nodes.0.parms.0.value.slateRef"
+      }
+    },
+    "RulePackDef": {
+      "UMW_Combat_Parry.rulePack.rulesStrings": {
+        "english": [
+          "r_logentry(p=0.4)->[RECIPIENT_definite] caught [INITIATOR_definite]'s [attack_noun] on the crossguard and turned it aside.",
+          "r_logentry(p=0.3)->[RECIPIENT_definite] [skillAdvMaybe] parried [INITIATOR_definite]'s [attack_noun] with [RECIPIENT_possessive] quillons.",
+          "r_logentry(p=0.3)->[RECIPIENT_definite] turned [INITIATOR_definite]'s [attack_noun] aside on [RECIPIENT_possessive] guard.",
+          "skillAdvMaybe->",
+          "skillAdvMaybe->[skillAdv]",
+          "attack_noun->blow",
+          "attack_noun->strike",
+          "attack_noun->swing",
+          "attack_noun->attack",
+          "result->but [RECIPIENT_definite] caught it on the crossguard",
+          "result->but the [attack_noun] was turned aside on [RECIPIENT_possessive] quillons",
+          "result->but [RECIPIENT_definite] parried with [RECIPIENT_possessive] guard"
+        ],
+        "isCollection": true,
+        "fullListAllowed": true,
+        "required": true
+      },
+      "UMW_NamerStuffAdjectives.rulePack.rulesStrings": {
+        "english": [
+          "weapon_adjective->[stuff_adjective]",
+          "r_weapon_name(p=0.4)->The [stuff_adjective] [weapon_noun]",
+          "r_weapon_name(p=0.3)->[stuff_adjective] [badass_noun]"
+        ],
+        "isCollection": true,
+        "fullListAllowed": true,
+        "required": true
+      }
+    },
+    "SitePartDef": {
+      "UMW_WarbandCamp.description": {
+        "english": "A hostile warband hiding out in an abandoned settlement.",
+        "required": true
+      },
+      "UMW_WarbandCamp.label": {
+        "english": "warband camp",
+        "required": true
+      }
+    },
+    "SoundDef": {
+      "UMW_RallyingCryShout_Female.subSounds.0.name": {
+        "english": "UMW_RallyingCryShout_Female_0"
+      },
+      "UMW_RallyingCryShout_Male.subSounds.0.name": {
+        "english": "UMW_RallyingCryShout_Male_0"
+      }
+    },
+    "ThingDef": {
+      "UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Axe_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Axe_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Axe_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "axe",
+          "cleaver",
+          "bit",
+          "edge"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Axe_Unique.comps.5.namerLabels"
+      },
+      "UMW_Axe_Unique.description": {
+        "english": "An axe bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Axe_Unique.label": {
+        "english": "unique axe",
+        "required": true
+      },
+      "UMW_Axe_Unique.tools.edge.label": {
+        "english": "edge",
+        "required": true,
+        "normalized": "UMW_Axe_Unique.tools.1.label"
+      },
+      "UMW_Axe_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_Axe_Unique.tools.0.label"
+      },
+      "UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Gladius_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "gladius",
+          "blade",
+          "sword",
+          "edge"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.comps.5.namerLabels"
+      },
+      "UMW_Gladius_Unique.description": {
+        "english": "A gladius bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Gladius_Unique.label": {
+        "english": "unique gladius",
+        "required": true
+      },
+      "UMW_Gladius_Unique.tools.edge.label": {
+        "english": "edge",
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.tools.2.label"
+      },
+      "UMW_Gladius_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.tools.0.label"
+      },
+      "UMW_Gladius_Unique.tools.point.label": {
+        "english": "point",
+        "required": true,
+        "normalized": "UMW_Gladius_Unique.tools.1.label"
+      },
+      "UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Knife_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Knife_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Knife_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "knife",
+          "blade",
+          "dagger",
+          "edge"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Knife_Unique.comps.5.namerLabels"
+      },
+      "UMW_Knife_Unique.description": {
+        "english": "A knife honed by a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Knife_Unique.label": {
+        "english": "unique knife",
+        "required": true
+      },
+      "UMW_Knife_Unique.tools.blade.label": {
+        "english": "blade",
+        "required": true,
+        "normalized": "UMW_Knife_Unique.tools.1.label"
+      },
+      "UMW_Knife_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_Knife_Unique.tools.0.label"
+      },
+      "UMW_Knife_Unique.tools.point.label": {
+        "english": "point",
+        "required": true,
+        "normalized": "UMW_Knife_Unique.tools.2.label"
+      },
+      "UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.comps.0.chargeNoun"
+      },
+      "UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_LongSword_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "longsword",
+          "blade",
+          "sword",
+          "edge"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.comps.5.namerLabels"
+      },
+      "UMW_LongSword_Unique.description": {
+        "english": "A longsword bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_LongSword_Unique.label": {
+        "english": "unique longsword",
+        "required": true
+      },
+      "UMW_LongSword_Unique.tools.edge.label": {
+        "english": "edge",
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.tools.2.label"
+      },
+      "UMW_LongSword_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.tools.0.label"
+      },
+      "UMW_LongSword_Unique.tools.point.label": {
+        "english": "point",
+        "required": true,
+        "normalized": "UMW_LongSword_Unique.tools.1.label"
+      },
+      "UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Mace_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Mace_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Mace_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "mace",
+          "bludgeon",
+          "club",
+          "head"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Mace_Unique.comps.5.namerLabels"
+      },
+      "UMW_Mace_Unique.description": {
+        "english": "A mace bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Mace_Unique.label": {
+        "english": "unique mace",
+        "required": true
+      },
+      "UMW_Mace_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_Mace_Unique.tools.0.label"
+      },
+      "UMW_Mace_Unique.tools.head.label": {
+        "english": "head",
+        "required": true,
+        "normalized": "UMW_Mace_Unique.tools.1.label"
+      },
+      "UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Spear_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Spear_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Spear_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "spear",
+          "lance",
+          "pike",
+          "point"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Spear_Unique.comps.5.namerLabels"
+      },
+      "UMW_Spear_Unique.description": {
+        "english": "A spear bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Spear_Unique.label": {
+        "english": "unique spear",
+        "required": true
+      },
+      "UMW_Spear_Unique.tools.point.label": {
+        "english": "point",
+        "required": true,
+        "normalized": "UMW_Spear_Unique.tools.1.label"
+      },
+      "UMW_Spear_Unique.tools.shaft.label": {
+        "english": "shaft",
+        "required": true,
+        "normalized": "UMW_Spear_Unique.tools.0.label"
+      },
+      "UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_Warhammer_Unique.comps.0.chargeNoun"
+      },
+      "UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_Warhammer_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_Warhammer_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "warhammer",
+          "hammer",
+          "maul",
+          "head"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_Warhammer_Unique.comps.5.namerLabels"
+      },
+      "UMW_Warhammer_Unique.description": {
+        "english": "A warhammer bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_Warhammer_Unique.label": {
+        "english": "unique warhammer",
+        "required": true
+      },
+      "UMW_Warhammer_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_Warhammer_Unique.tools.0.label"
+      },
+      "UMW_Warhammer_Unique.tools.head.label": {
+        "english": "head",
+        "required": true,
+        "normalized": "UMW_Warhammer_Unique.tools.1.label"
+      }
+    },
+    "ThoughtDef": {
+      "UMW_BloodStainedWeapon.stages.bloodstained_weapon-0.description": {
+        "english": "I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, turn my stomach.",
+        "required": true,
+        "normalized": "UMW_BloodStainedWeapon.stages.0.description"
+      },
+      "UMW_BloodStainedWeapon.stages.bloodstained_weapon-0.label": {
+        "english": "blood-stained weapon",
+        "required": true,
+        "normalized": "UMW_BloodStainedWeapon.stages.0.label"
+      },
+      "UMW_BloodStainedWeapon.stages.bloodstained_weapon-1.description": {
+        "english": "I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me to the core.",
+        "required": true,
+        "normalized": "UMW_BloodStainedWeapon.stages.1.description"
+      },
+      "UMW_BloodStainedWeapon.stages.bloodstained_weapon-1.label": {
+        "english": "blood-stained weapon",
+        "required": true,
+        "normalized": "UMW_BloodStainedWeapon.stages.1.label"
+      },
+      "UMW_StoriedWeapon.stages.storied_weapon.description": {
+        "english": "I'm carrying a weapon with a name and a history. The deeds of those who bore it before me are remembered, and one day mine will be too.",
+        "required": true,
+        "normalized": "UMW_StoriedWeapon.stages.0.description"
+      },
+      "UMW_StoriedWeapon.stages.storied_weapon.label": {
+        "english": "storied weapon",
+        "required": true,
+        "normalized": "UMW_StoriedWeapon.stages.0.label"
+      }
+    },
+    "WeaponCategoryDef": {
+      "UMW_Bladed.label": {
+        "english": "bladed",
+        "required": true
+      },
+      "UMW_Blunt.label": {
+        "english": "blunt",
+        "required": true
+      },
+      "UMW_Guarded.label": {
+        "english": "guarded",
+        "required": true
+      },
+      "UMW_Heavy.label": {
+        "english": "heavy",
+        "required": true
+      },
+      "UMW_Melee.label": {
+        "english": "melee",
+        "required": true
+      },
+      "UMW_Pointed.label": {
+        "english": "pointed",
+        "required": true
+      }
+    },
+    "WeaponTraitDef": {
+      "UMW_ArmorSpike.description": {
+        "english": "The point is reinforced into a heavy armor-piercing spike that punches through plate and carapace.",
+        "required": true
+      },
+      "UMW_ArmorSpike.exclusionTags": {
+        "english": [
+          "Point"
+        ],
+        "isCollection": true
+      },
+      "UMW_ArmorSpike.label": {
+        "english": "armor spike",
+        "required": true
+      },
+      "UMW_ArmorSpike.traitAdjectives": {
+        "english": [
+          "lancing",
+          "armorbane",
+          "punching"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Barbed.description": {
+        "english": "Barbs behind the point catch in the wound and tear it wider as the weapon is drawn back out.",
+        "required": true
+      },
+      "UMW_Barbed.exclusionTags": {
+        "english": [
+          "Point",
+          "Ragged"
+        ],
+        "isCollection": true
+      },
+      "UMW_Barbed.label": {
+        "english": "barbed",
+        "required": true
+      },
+      "UMW_Barbed.traitAdjectives": {
+        "english": [
+          "barbed",
+          "hooked",
+          "cruel"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_BellCast.description": {
+        "english": "The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target.",
+        "required": true
+      },
+      "UMW_BellCast.exclusionTags": {
+        "english": [
+          "Head"
+        ],
+        "isCollection": true
+      },
+      "UMW_BellCast.label": {
+        "english": "bell-cast",
+        "required": true
+      },
+      "UMW_BellCast.traitAdjectives": {
+        "english": [
+          "bell-cast",
+          "ringing",
+          "resonant"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_BloodStained.description": {
+        "english": "This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it.",
+        "required": true
+      },
+      "UMW_BloodStained.exclusionTags": {
+        "english": [
+          "BodyColor",
+          "Appearance"
+        ],
+        "isCollection": true
+      },
+      "UMW_BloodStained.label": {
+        "english": "blood-stained",
+        "required": true
+      },
+      "UMW_BloodStained.traitAdjectives": {
+        "english": [
+          "blood-stained",
+          "bloody",
+          "gory",
+          "sanguine"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Carbonized.description": {
+        "english": "This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly.",
+        "required": true
+      },
+      "UMW_Carbonized.exclusionTags": {
+        "english": [
+          "BodyColor",
+          "Appearance"
+        ],
+        "isCollection": true
+      },
+      "UMW_Carbonized.label": {
+        "english": "carbonized",
+        "required": true
+      },
+      "UMW_Carbonized.traitAdjectives": {
+        "english": [
+          "carbonized",
+          "fire-blackened",
+          "charred",
+          "soot-stained"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Counterweighted.description": {
+        "english": "A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power.",
+        "required": true
+      },
+      "UMW_Counterweighted.exclusionTags": {
+        "english": [
+          "SwingProfile"
+        ],
+        "isCollection": true
+      },
+      "UMW_Counterweighted.label": {
+        "english": "counterweighted",
+        "required": true
+      },
+      "UMW_Counterweighted.traitAdjectives": {
+        "english": [
+          "balanced",
+          "swift"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Cumbersome.description": {
+        "english": "This weapon is bulky and overbuilt, slowing its swing.",
+        "required": true
+      },
+      "UMW_Cumbersome.exclusionTags": {
+        "english": [
+          "Weight"
+        ],
+        "isCollection": true
+      },
+      "UMW_Cumbersome.label": {
+        "english": "cumbersome",
+        "required": true
+      },
+      "UMW_Cumbersome.traitAdjectives": {
+        "english": [
+          "cumbersome",
+          "bulky",
+          "ungainly"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_DeadBlow.description": {
+        "english": "The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them.",
+        "required": true
+      },
+      "UMW_DeadBlow.exclusionTags": {
+        "english": [
+          "Head"
+        ],
+        "isCollection": true
+      },
+      "UMW_DeadBlow.label": {
+        "english": "dead-blow",
+        "required": true
+      },
+      "UMW_DeadBlow.traitAdjectives": {
+        "english": [
+          "dead-blow",
+          "shot-filled",
+          "battering"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Enameled.description": {
+        "english": "A vitreous enamel has been fired and fused over the body of this weapon, glazing it in a deep, glossy violet. Traders will pay more for it.",
+        "required": true
+      },
+      "UMW_Enameled.exclusionTags": {
+        "english": [
+          "BodyColor",
+          "Appearance"
+        ],
+        "isCollection": true
+      },
+      "UMW_Enameled.label": {
+        "english": "enameled",
+        "required": true
+      },
+      "UMW_Enameled.traitAdjectives": {
+        "english": [
+          "enameled",
+          "glazed",
+          "violet-sheened"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Envenomed.description": {
+        "english": "The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds.",
+        "required": true
+      },
+      "UMW_Envenomed.exclusionTags": {
+        "english": [
+          "Coating",
+          "Color"
+        ],
+        "isCollection": true
+      },
+      "UMW_Envenomed.label": {
+        "english": "envenomed",
+        "required": true
+      },
+      "UMW_Envenomed.traitAdjectives": {
+        "english": [
+          "envenomed",
+          "venomous",
+          "poisoned",
+          "toxic"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Flanged.description": {
+        "english": "Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it.",
+        "required": true
+      },
+      "UMW_Flanged.label": {
+        "english": "flanged",
+        "required": true
+      },
+      "UMW_Flanged.traitAdjectives": {
+        "english": [
+          "flanged",
+          "riving",
+          "armor-cracking"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_GoldInlay.description": {
+        "english": "This weapon is inlaid with gold. Traders will pay more for it.",
+        "required": true
+      },
+      "UMW_GoldInlay.exclusionTags": {
+        "english": [
+          "Color"
+        ],
+        "isCollection": true
+      },
+      "UMW_GoldInlay.label": {
+        "english": "gold inlay",
+        "required": true
+      },
+      "UMW_GoldInlay.traitAdjectives": {
+        "english": [
+          "gold",
+          "golden"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_HeadWeighted.description": {
+        "english": "Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover.",
+        "required": true
+      },
+      "UMW_HeadWeighted.exclusionTags": {
+        "english": [
+          "SwingProfile"
+        ],
+        "isCollection": true
+      },
+      "UMW_HeadWeighted.label": {
+        "english": "head-weighted",
+        "required": true
+      },
+      "UMW_HeadWeighted.traitAdjectives": {
+        "english": [
+          "devastating",
+          "mighty",
+          "ponderous"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_JadeInlay.description": {
+        "english": "This weapon is adorned with jade. Traders will pay more for it.",
+        "required": true
+      },
+      "UMW_JadeInlay.exclusionTags": {
+        "english": [
+          "Color"
+        ],
+        "isCollection": true
+      },
+      "UMW_JadeInlay.label": {
+        "english": "jade inlay",
+        "required": true
+      },
+      "UMW_JadeInlay.traitAdjectives": {
+        "english": [
+          "jade"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Lightweight.description": {
+        "english": "This weapon is much lighter than normal, quickening its swing.",
+        "required": true
+      },
+      "UMW_Lightweight.exclusionTags": {
+        "english": [
+          "Weight"
+        ],
+        "isCollection": true
+      },
+      "UMW_Lightweight.label": {
+        "english": "lightweight",
+        "required": true
+      },
+      "UMW_Lightweight.traitAdjectives": {
+        "english": [
+          "light",
+          "nimble",
+          "quickdraw"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Monomolecular.description": {
+        "english": "The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there.",
+        "required": true
+      },
+      "UMW_Monomolecular.exclusionTags": {
+        "english": [
+          "Edge",
+          "BodyColor"
+        ],
+        "isCollection": true
+      },
+      "UMW_Monomolecular.label": {
+        "english": "monomolecular",
+        "required": true
+      },
+      "UMW_Monomolecular.traitAdjectives": {
+        "english": [
+          "mono-edged",
+          "crystalline",
+          "honed"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_NeedlePoint.description": {
+        "english": "Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly.",
+        "required": true
+      },
+      "UMW_NeedlePoint.exclusionTags": {
+        "english": [
+          "Point"
+        ],
+        "isCollection": true
+      },
+      "UMW_NeedlePoint.label": {
+        "english": "needle point",
+        "required": true
+      },
+      "UMW_NeedlePoint.traitAdjectives": {
+        "english": [
+          "needle",
+          "needling",
+          "hypodermic"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Opiated.description": {
+        "english": "The point is coated in a potent opiate that builds in the blood with each hit, eventually rendering the victim unconscious.",
+        "required": true
+      },
+      "UMW_Opiated.exclusionTags": {
+        "english": [
+          "Coating"
+        ],
+        "isCollection": true
+      },
+      "UMW_Opiated.label": {
+        "english": "opiated",
+        "required": true
+      },
+      "UMW_Opiated.traitAdjectives": {
+        "english": [
+          "opiated",
+          "sedative",
+          "soporific",
+          "numbing"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Ornamental.description": {
+        "english": "This weapon was crafted for aesthetics over functionality. It deals less damage but looks great.",
+        "required": true
+      },
+      "UMW_Ornamental.exclusionTags": {
+        "english": [
+          "Appearance"
+        ],
+        "isCollection": true
+      },
+      "UMW_Ornamental.label": {
+        "english": "ornamental",
+        "required": true
+      },
+      "UMW_Ornamental.traitAdjectives": {
+        "english": [
+          "beautiful",
+          "elegant",
+          "ornamental"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Piledriver.abilityProps.chargeNoun": {
+        "english": "charge",
+        "required": true
+      },
+      "UMW_Piledriver.abilityProps.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true
+      },
+      "UMW_Piledriver.description": {
+        "english": "The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset.",
+        "required": true
+      },
+      "UMW_Piledriver.exclusionTags": {
+        "english": [
+          "Ability"
+        ],
+        "isCollection": true
+      },
+      "UMW_Piledriver.label": {
+        "english": "piledriver",
+        "required": true
+      },
+      "UMW_Piledriver.traitAdjectives": {
+        "english": [
+          "piledriving",
+          "earthshaking",
+          "quaking",
+          "thunderous"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_PlasmaCored.description": {
+        "english": "The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target.",
+        "required": true
+      },
+      "UMW_PlasmaCored.exclusionTags": {
+        "english": [
+          "Core",
+          "BodyColor"
+        ],
+        "isCollection": true
+      },
+      "UMW_PlasmaCored.label": {
+        "english": "plasma-cored",
+        "required": true
+      },
+      "UMW_PlasmaCored.traitAdjectives": {
+        "english": [
+          "plasma-cored",
+          "burning",
+          "searing",
+          "fiery",
+          "incandescent"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Quilloned.description": {
+        "english": "Quillons flare wide from the hilt, letting the wielder catch incoming blows and turn them aside.",
+        "required": true
+      },
+      "UMW_Quilloned.exclusionTags": {
+        "english": [
+          "Guard"
+        ],
+        "isCollection": true
+      },
+      "UMW_Quilloned.label": {
+        "english": "quilloned",
+        "required": true
+      },
+      "UMW_Quilloned.traitAdjectives": {
+        "english": [
+          "quilloned",
+          "cross-guarded",
+          "warding"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Razored.description": {
+        "english": "The edge is honed to a keen razor that bites deeper and drives cleanly through armor.",
+        "required": true
+      },
+      "UMW_Razored.exclusionTags": {
+        "english": [
+          "Edge"
+        ],
+        "isCollection": true
+      },
+      "UMW_Razored.label": {
+        "english": "razored",
+        "required": true
+      },
+      "UMW_Razored.traitAdjectives": {
+        "english": [
+          "razored",
+          "razor-sharp",
+          "keen"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Serrated.description": {
+        "english": "The edge is cut into vicious teeth that tear ragged, freely bleeding wounds, though they slash a little shallower than a clean edge. On a thrust the same teeth catch and rip flesh as the blade is drawn back.",
+        "required": true
+      },
+      "UMW_Serrated.exclusionTags": {
+        "english": [
+          "Edge",
+          "Ragged"
+        ],
+        "isCollection": true
+      },
+      "UMW_Serrated.label": {
+        "english": "serrated",
+        "required": true
+      },
+      "UMW_Serrated.traitAdjectives": {
+        "english": [
+          "serrated",
+          "jagged",
+          "vicious",
+          "sawtooth"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Storied.abilityProps.chargeNoun": {
+        "english": "charge",
+        "required": true
+      },
+      "UMW_Storied.abilityProps.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true
+      },
+      "UMW_Storied.description": {
+        "english": "This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days.",
+        "required": true
+      },
+      "UMW_Storied.exclusionTags": {
+        "english": [
+          "Ability"
+        ],
+        "isCollection": true
+      },
+      "UMW_Storied.label": {
+        "english": "storied",
+        "required": true
+      },
+      "UMW_Storied.traitAdjectives": {
+        "english": [
+          "storied",
+          "fabled",
+          "ancestral",
+          "honored"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Studded.description": {
+        "english": "The head is set with hard studs that concentrate the impact, driving extra force into every blow.",
+        "required": true
+      },
+      "UMW_Studded.label": {
+        "english": "studded",
+        "required": true
+      },
+      "UMW_Studded.traitAdjectives": {
+        "english": [
+          "studded",
+          "knurled",
+          "cruel"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_Ugly.description": {
+        "english": "This weapon was crafted with no respect for aesthetics. It looks like junk but gets the job done. Traders will pay less for it.",
+        "required": true
+      },
+      "UMW_Ugly.exclusionTags": {
+        "english": [
+          "Appearance"
+        ],
+        "isCollection": true
+      },
+      "UMW_Ugly.label": {
+        "english": "ugly",
+        "required": true
+      },
+      "UMW_Ugly.traitAdjectives": {
+        "english": [
+          "crude",
+          "ugly",
+          "monstrous"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_ZeusHeaded.description": {
+        "english": "The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids.",
+        "required": true
+      },
+      "UMW_ZeusHeaded.exclusionTags": {
+        "english": [
+          "Head",
+          "Color"
+        ],
+        "isCollection": true
+      },
+      "UMW_ZeusHeaded.label": {
+        "english": "zeus-headed",
+        "required": true
+      },
+      "UMW_ZeusHeaded.traitAdjectives": {
+        "english": [
+          "zeus-headed",
+          "thunderous",
+          "electric",
+          "shocking"
+        ],
+        "isCollection": true,
+        "required": true
+      }
+    }
+  }
+}
