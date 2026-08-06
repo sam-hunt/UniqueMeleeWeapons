@@ -24,6 +24,9 @@ public static class UMW_Startup
         // lazy only so it is built at the same well-defined point as the rest of this startup work;
         // there is no rebuild-on-reload angle, since this never re-runs (see the class comment).
         UniqueWeaponDefs.Rebuild();
+        // Warm the relevant-stat gate (see its comment) at the same well-defined point; reload-safe
+        // because it is keyed on defNames, so no rebuild-on-reload angle either.
+        _ = Patches.StatWorker_UniqueTraitStatOffsets.RelevantStatNames;
         UniqueMeleeWeaponsMod.Settings.ApplyWarbandQuestWeight();
         UniqueMeleeWeaponsMod.Settings.ApplyAbilityTuning();
         TraitEffectSummary.AttachToTraits();

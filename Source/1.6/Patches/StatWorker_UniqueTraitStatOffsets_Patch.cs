@@ -33,11 +33,53 @@ namespace UniqueMeleeWeapons.Patches;
 // - StatOffsetFromGear's trailing stat.parts transform (StatPart_Age on MeleeHitChance) is not
 //   replayed for our contribution: those parts transform pawn requests and no-op on a gear
 //   StatRequest, which is all they ever receive here.
+// - Both postfixes ride vanilla's stat pipeline (every gear item x every stat request — tens of
+//   thousands of calls per frame in a big colony, a volume other mods' stat polling controls, not
+//   us), so TraitOffset opens with a relevant-stat gate: one hash lookup against the set of stats
+//   any WeaponTraitDef's equippedStatOffsets actually touches rejects almost every call before any
+//   per-thing work. The set is derived, so a new trait's equippedStatOffsets needs no registration.
 public static class StatWorker_UniqueTraitStatOffsets
 {
+    // defNames of every stat some WeaponTraitDef's equippedStatOffsets touches. Derived from ALL
+    // WeaponTraitDefs, not just ours: trait defs carry no ownership marker, over-breadth only costs
+    // a rare extra IsOurs check, and a foreign trait rolled onto one of our weapons via a shared
+    // category stays covered. Keyed by defName rather than StatDef reference so an in-process
+    // play-data reload (which replaces every def instance without re-running startup — see
+    // UMW_Startup) can't strand the set holding dead references and silently kill the offsets:
+    // defNames are reload-stable and equippedStatOffsets lists come straight from XML, so a set
+    // built from the previous DefDatabase stays correct. Lazy for order-independence; UMW_Startup
+    // touches it eagerly so it is built at the same well-defined point as the other startup caches.
+    private static HashSet<string> relevantStatNames;
+
+    internal static HashSet<string> RelevantStatNames => relevantStatNames ??= BuildRelevantStatNames();
+
+    private static HashSet<string> BuildRelevantStatNames()
+    {
+        var names = new HashSet<string>();
+        foreach (WeaponTraitDef trait in DefDatabase<WeaponTraitDef>.AllDefsListForReading)
+        {
+            if (trait.equippedStatOffsets == null)
+            {
+                continue;
+            }
+            for (int i = 0; i < trait.equippedStatOffsets.Count; i++)
+            {
+                if (trait.equippedStatOffsets[i]?.stat != null)
+                {
+                    names.Add(trait.equippedStatOffsets[i].stat.defName);
+                }
+            }
+        }
+        return names;
+    }
+
     // Summed trait offsets for stat on one of our unique weapons; 0 when gear isn't ours.
     internal static float TraitOffset(Thing gear, StatDef stat)
     {
+        if (!RelevantStatNames.Contains(stat.defName))
+        {
+            return 0f;
+        }
         if (!UniqueWeaponDefs.IsOurs(gear.def))
         {
             return 0f;
