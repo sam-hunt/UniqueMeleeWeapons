@@ -276,8 +276,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>pointe d'aiguille</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly. -->
-  <UMW_NeedlePoint.description>Effilée en une fine aiguille, la pointe s'enfonce loin sous l'os et le muscle, à la recherche des organes. Une pointe aussi mince est plus difficile à placer proprement.</UMW_NeedlePoint.description>
+  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
+  <UMW_NeedlePoint.description>Effilée en une fine aiguille, la pointe s'enfonce loin sous l'os et le muscle, à la recherche des organes. La placer proprement exige des coups d'estoc plus lents et mesurés.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>à pointe d'aiguille</UMW_NeedlePoint.traitAdjectives.0>

@@ -257,8 +257,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>Nadelspitze</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly. -->
-  <UMW_NeedlePoint.description>Zu einer feinen Nadel verjüngt, dringt die Spitze tief unter Knochen und Muskeln vor und sucht die Organe im Innern. Die schlanke Spitze lässt sich schwerer sauber ansetzen.</UMW_NeedlePoint.description>
+  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
+  <UMW_NeedlePoint.description>Zu einer feinen Nadel verjüngt, dringt die Spitze tief unter Knochen und Muskeln vor und sucht die Organe im Innern. Sie sauber anzusetzen erfordert langsamere, bedachte Stöße.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>nadelspitz</UMW_NeedlePoint.traitAdjectives.0>

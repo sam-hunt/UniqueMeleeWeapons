@@ -1100,7 +1100,7 @@
         "required": true
       },
       "UMW_NeedlePoint.description": {
-        "english": "Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly.",
+        "english": "Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts.",
         "required": true
       },
       "UMW_NeedlePoint.exclusionTags": {

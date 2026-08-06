@@ -257,8 +257,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>바늘 끝</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly. -->
-  <UMW_NeedlePoint.description>가느다란 바늘처럼 좁아지는 끝이 뼈와 근육 아래 깊숙이 파고들어 그 안의 장기를 노립니다. 다만 끝이 가늘어 제대로 맞히기는 더 어렵습니다.</UMW_NeedlePoint.description>
+  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
+  <UMW_NeedlePoint.description>가느다란 바늘처럼 좁아지는 끝이 뼈와 근육 아래 깊숙이 파고들어 그 안의 장기를 노립니다. 제대로 찔러 넣으려면 더 느리고 신중한 찌르기가 필요합니다.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>바늘</UMW_NeedlePoint.traitAdjectives.0>
