@@ -33,12 +33,11 @@
   <UMW_TraitStat_FleshOnly>{0} (flesh only)</UMW_TraitStat_FleshOnly>
   <UMW_TraitStat_HumanlikeOnly>{0} (humanlikes only)</UMW_TraitStat_HumanlikeOnly>
 
-  <!-- Wielder-side stat effect, carried by the trait's equippedStatOffsets (routed live by
-       StatWorker_UniqueTraitStatOffsets_Patch) or, should a trait ever need a stat factor, by an
-       equipped hediff. {0} is a stat line or, for a hediff with no stat modifiers, the hediff's own
-       label. The stat line is rendered unfinalized, so a stat with a postProcessCurve shows its raw
-       offset rather than a percentage ("Melee hit chance -1.0", the way vanilla shows Nimble's +15) —
-       see the StatWorker patch header for why those offsets are whole numbers. -->
+  <!-- Wielder-side stat effect, carried by an equipped hediff on the trait (the one vanilla-applied
+       wielder-side vehicle; unused by design, kept as the escape hatch — see CLAUDE.md). {0} is a
+       stat line or, for a hediff with no stat modifiers, the hediff's own label. The stat line is
+       rendered unfinalized, so a stat with a postProcessCurve shows its raw offset rather than a
+       percentage (the way vanilla shows Nimble's +15). -->
   <UMW_TraitStat_Wielder>{0} (wielder)</UMW_TraitStat_Wielder>
 
   <!-- Defender-side parry (MeleeParryExtension). {0} is the parry chance. -->

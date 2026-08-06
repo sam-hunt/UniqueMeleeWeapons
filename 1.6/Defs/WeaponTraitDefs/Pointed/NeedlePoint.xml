@@ -25,23 +25,31 @@
          cost); also the governor on the lethality stack, since a forced-internal strike already
          delivers 115% of rolled damage split 75% outer / 40% organ.
 
-       VEHICLE for the malus: trait-level equippedStatOffsets, made live for our defs by
-       StatWorker_UniqueTraitStatOffsets_Patch (the patch header carries the decompile audit and the
-       raw-units/display rules); shows as the weapon's own "Relevant gear" line in the wielder's
-       MeleeHitChance breakdown.
+       VEHICLE for the malus: weapon-wide MeleeWeapon_CooldownMultiplier statFactor —
+       vanilla-applied (CompUniqueWeapon.GetStatFactor), vanilla-displayed, consumed per swing by
+       Tool.AdjustedCooldown. This REPLACED an equippedStatOffsets MeleeHitChance -1 wielder malus
+       (v1.0.x): that field is bladelink-only in vanilla, and the Harmony patch that routed it live
+       rode vanilla's stat pipeline tens of thousands of times per frame as this trait's sole
+       consumer. A cooldown factor prices the same "hard to place cleanly" fiction as weapon
+       handling instead of wielder skill, matching how Odyssey expresses every one of its maluses
+       (weapon-thing stats, never wielder-side). Weapon-wide is accepted, unlike the per-tool
+       damage/AP mods below: there is no per-tool cooldown stat (Tool.AdjustedCooldown = tool base x
+       this one factor), and a deliberate weapon reads fine slowing a spear's pole strike too.
 
-       TUNING: MeleeHitChance offsets are RAW pre-curve units; the curve ((0,0.50) (10,0.80)
-       (20,0.90)) prices -1 at 3pp of hit chance below the raw-10 knot and 1pp above — unforgiving
-       to whoever hasn't mastered it, without maiming them. Raw Stab DPS nets slightly NEGATIVE
-       (x0.95 by the hit ratio: ~-9% mid-skill before armor) — deliberate and honest: the payoff is
-       placement (85% organ strikes) and penetration (x1.3), not throughput.
+       TUNING: x1.05 cooldown = x0.952 throughput, flat across skill. The old -1 raw MeleeHitChance
+       cost ~4% relative hit rate at the mid-skill knot and ~1% at raw 20; x1.05 sits at the
+       mid-skill equivalence and no longer fades for masters — acceptably close, and it keeps the
+       identity math: raw Stab DPS still nets slightly NEGATIVE (x0.95 damage / x1.05 cooldown ≈
+       x0.905, ~-9.5% before armor, vs ~-9% before) — deliberate and honest: the payoff is
+       placement (85% organ strikes) and penetration (x1.3), not throughput. cf. FrequencyAmplifier,
+       Odyssey's cooldown-priced coupled cost (x1.5 there, on a far larger buff).
        MV 70: PiercingArrows prices the +30% AP alone at 40; the organ-seeking premium sits it
-       below ParalyticArrows' 80 / HollowPoint's 85, discounted for the hit-chance and damage
-       costs. cf. Brawler +4, the nearest Core offset to MeleeHitChance. -->
+       below ParalyticArrows' 80 / HollowPoint's 85, discounted for the cooldown and damage
+       costs. -->
   <WeaponTraitDef>
     <defName>UMW_NeedlePoint</defName>
     <label>needle point</label>
-    <description>Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. The slender point is harder to land cleanly.</description>
+    <description>Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Pointed</weaponCategory>
     <exclusionTags>
@@ -50,9 +58,9 @@
     <statOffsets>
       <MarketValue>70</MarketValue> <!-- PiercingArrows 40 prices the AP; organ premium below ParalyticArrows 80; see header -->
     </statOffsets>
-    <equippedStatOffsets>
-      <MeleeHitChance>-1</MeleeHitChance> <!-- raw, pre-curve: -3pp below melee 10, -1pp above; see header -->
-    </equippedStatOffsets>
+    <statFactors>
+      <MeleeWeapon_CooldownMultiplier>1.05</MeleeWeapon_CooldownMultiplier> <!-- x0.952 throughput, ~= the old -1 MeleeHitChance at mid skill; see header -->
+    </statFactors>
     <traitAdjectives>
       <li>needle</li>
       <li>needling</li>

@@ -123,18 +123,20 @@ fails until the next release run.
 - **Most mechanically interesting `WeaponTraitDef` fields do nothing on melee.**
   `damageDefOverride`, `extraDamages`, `additionalStoppingPower`, `burstShot*` and
   `ignoresAccuracyMaluses` are read only by `Projectile`/`Verb_LaunchProjectile`;
-  `marketValueOffset`, `killThought` and the `bonded*` fields are read only by bladelink (persona)
-  weapons. All of those are **silently inert** on `CompUniqueWeapon` — never use them.
-  `equippedStatOffsets` is bladelink-only in vanilla too, but
-  `Patches/StatWorker_UniqueTraitStatOffsets_Patch.cs` routes it live **for our defs**: it is the
-  vehicle for wielder-side stat *offsets*, displayed as the weapon's own "Relevant gear" line
-  (offsets only, raw pre-curve units — the patch header carries the full decompile audit and the
-  per-stat display rules; check `finalizeEquippedStatOffset` before pointing a new stat at it).
+  `marketValueOffset`, `killThought`, the `bonded*` fields and `equippedStatOffsets` are read only
+  by bladelink (persona) weapons. All of those are **silently inert** on `CompUniqueWeapon` —
+  never use them. (A patch routing `equippedStatOffsets` live shipped in 1.0.x as NeedlePoint's
+  hit-chance malus and was deliberately retired: it rode vanilla's stat pipeline tens of thousands
+  of calls per frame for that one trait, and a weapon-side stat expresses the same fiction — the
+  NeedlePoint header carries the swap rationale and tuning equivalence.)
   What reaches melee natively: `statOffsets`/`statFactors`, `equippedHediffs`, `abilityProps`,
-  `forcedColor`. An equipped hediff (vanilla-applied via `WeaponTraitWorker`) remains the only
-  vehicle for wielder stat *factors* — currently unused; a wielder effect that is a combat
-  *outcome* rather than a stat gets its own mechanic instead (Quilloned's parry —
-  `MeleeParryExtension`). Market value rides `statOffsets`/`statFactors → MarketValue`.
+  `forcedColor`. **Wielder-side effects are expressed as weapon stats first**: canonically a trait
+  is a physical property of the weapon, and Odyssey prices every trait buff/malus as a weapon-thing
+  stat (for ranged uniques even accuracy lives on the weapon), so `equippedHediffs` — the one
+  vanilla-applied wielder-side vehicle (`WeaponTraitWorker`) — stays an unused escape hatch, not a
+  precedented tool. A wielder effect that is a combat *outcome* rather than a stat gets its own
+  mechanic instead (Quilloned's parry — `MeleeParryExtension`). Market value rides
+  `statOffsets`/`statFactors → MarketValue`.
 - **Trait stat mods reach any stat of the weapon *thing***, not just combat ones — item-condition
   stats (`MaxHitPoints`, `DeteriorationRate`, `Flammability`) are fair game. Note melee damage and
   armor pen share the single `MeleeWeapon_DamageMultiplier` stat: there is **no** melee AP stat, so
