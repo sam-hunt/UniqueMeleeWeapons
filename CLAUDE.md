@@ -79,10 +79,13 @@ fails until the next release run.
 - **Settings:** every user-facing string is localized — through `.Translate()` against `UMW_UI.xml`,
   except where vanilla already localizes the exact string (reuse the vanilla Keyed key or def label
   rather than duplicating it), and strings that name game content inject the def label as a
-  placeholder rather than restating it. The
-  step-by-step recipe for adding a setting — including the pattern for a setting that *overrides a
-  def field* (written onto the live def at startup and on window close; XML holds only the
-  shipped default) — is in `Core/UniqueMeleeWeaponsSettings.cs`.
+  placeholder rather than restating it. `UniqueMeleeWeaponsSettings` is one partial class split per
+  UI section: `Core/UniqueMeleeWeaponsSettings.cs` holds only the window frame, the
+  `ExposeData`/`ResetToDefaults` fan-out and the shared row helpers, while each section owns its
+  fields, scribe entries, defaults, def-writes and draw method in a `Core/Settings/Settings_*.cs`
+  file — so adding a setting is a one-file edit. The step-by-step recipe — including the pattern for
+  a setting that *overrides a def field* (written onto the live def at startup and on window close;
+  XML holds only the shipped default) — is in the header of `Core/UniqueMeleeWeaponsSettings.cs`.
 - **Keyed files split by purpose:** `UMW_UI.xml` settings strings, `UMW_Combat.xml` in-combat
   floating text, `UMW_Stats.xml` info-card trait-effect lines.
 - **No em dashes in player-facing text** (def labels/descriptions, `Keyed/`, `About.xml`) — reflow

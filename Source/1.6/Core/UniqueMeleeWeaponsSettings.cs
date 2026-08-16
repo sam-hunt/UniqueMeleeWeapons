@@ -1,268 +1,58 @@
-using System.Collections.Generic;
-using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace UniqueMeleeWeapons;
 
-// Mod settings. Every settings-window string (labels, tooltips, section headers,
-// the reset button, the SettingsCategory mod-list name) is localized: through
-// .Translate() against 1.6/Languages/English/Keyed/UMW_UI.xml, mirroring the
-// companion mods' localizable convention, except where vanilla already localizes
-// the exact string — the Abilities header reuses Core's Keyed <Abilities> and the
-// Quests header reuses MainButtonDefOf.Quests' def label, so translators never
-// see a second copy of either. Strings that name game content (weapons, traits,
-// abilities, the warband) inject the def label instead of restating it, so those
-// names track their own defs' translations. The window body renders inside a scroll
-// view that only shows a scrollbar once the content would overflow vertically;
-// settings are grouped under GameFont.Medium section headers, with a pinned
-// "Reset to defaults" button below the scroll view.
+// Mod settings: the window frame, the ExposeData / ResetToDefaults fan-out, and the shared row helpers.
+// The class is split across Core/Settings/, one partial-class file per UI section, each owning its own
+// fields, scribe entries, defaults, Apply* def-writes and draw method — so a setting is a one-file edit.
 //
-// To add a setting:
-//  1. declare a public field here (with its default as the initializer),
-//  2. persist it in ExposeData with Scribe_Values.Look
-//     (pass the same default so an unset value loads correctly),
-//  3. restore it in ResetToDefaults,
+// Every settings-window string is localized through .Translate() against Keyed/UMW_UI.xml, except where
+// vanilla already localizes the exact string (reuse its Keyed key or def label rather than shipping a
+// second copy translators would do twice) and except names of game content, which are injected as def
+// labels so they track their own defs' translations.
+//
+// To add a setting, in its section's partial file:
+//  1. declare a public field (its default as the initializer, plus a const for that default where other
+//     code needs to name it),
+//  2. Scribe_Values.Look it in Expose*Settings, passing the same default so an unset value loads right,
+//  3. restore it in Reset*Settings,
 //  4. add its label/description keys to UMW_UI.xml,
-//  5. surface it in DoWindowContents under a section header.
-// A setting that only means something with a DLC present wraps its row in the matching
-// ModsConfig.<Dlc>Active check (see allowUltratechTraits) — hidden, not disabled, and the stored
-// value is never touched, so it survives a session with that DLC unloaded. A per-def setting needs no
-// such check at all when its rows are generated from the DefDatabase, since a MayRequire-gated def is
-// absent without its DLC (see the per-weapon rows and UniqueWeaponDefs).
-// A collection-valued setting scribes with Scribe_Collections rather than Scribe_Values, and must
-// re-create itself when loading finds nothing stored (Scribe_Collections leaves the field null on an
-// absent or empty entry); see disabledWeapons.
-// The scroll view measures its own content each frame, so new rows need no
-// layout bookkeeping — they just push the scrollbar in once they don't fit.
-public class UniqueMeleeWeaponsSettings : ModSettings
+//  5. draw it in Draw*Section.
+// A whole new section is a new file there plus three one-line calls here (Expose / Reset / Draw).
+//
+// Two patterns to copy rather than re-derive: a row that only means something with a DLC present is
+// HIDDEN behind a ModsConfig check rather than disabled, and its stored value is never touched, so it
+// survives a session without that DLC (Settings_Generation.cs — a wholly DLC-specific section
+// early-returns from its Draw*Section instead); and a collection-valued setting scribes with
+// Scribe_Collections, which means it must re-create itself on load (Settings_Weapons.cs).
+public partial class UniqueMeleeWeaponsSettings : ModSettings
 {
-    // --- Settings fields ---------------------------------------------------
+    // Trailing space each section leaves below itself, so a section that early-returns leaves no gap
+    // behind rather than a double gap between its neighbours.
+    private const float SectionGap = 18f;
 
-    // Per-weapon opt-out from every generation and reward pool (see
-    // Patches/ThingSetMakerUtility_CanGenerate_Patch.cs for how it is enforced).
-    //
-    // Stores the defNames the player switched OFF rather than the ones left on, so the empty default
-    // means "all enabled" and a weapon that appears later — a new one in a future version, or the
-    // Royalty pair once that DLC is enabled — is on without a settings migration. Keyed by defName
-    // rather than by ThingDef so the stored value survives a session with the def absent.
-    public HashSet<string> disabledWeapons = new HashSet<string>();
-
-    // Drop Woody stuffs from the random material roll when one of our unique
-    // weapons is generated (see Patches/GenStuff_ExcludeWoodStuff_Patch.cs).
-    public bool excludeWoodStuff = true;
-
-    // Let the three Royalty-tech traits roll (see Patches/CompUniqueWeapon_UltratechTraits_Patch.cs).
-    // Only meaningful — and only shown — with Royalty active, since without it the defs don't exist.
-    public bool allowUltratechTraits = true;
-
-    // Selection weight of the warband opportunity-site quest. This is the real
-    // default; the XML rootSelectionWeight is overwritten by ApplyWarbandQuestWeight
-    // at startup, so the two only need to agree for documentation's sake.
-    public const float WarbandQuestWeightDefault = 0.6f;
-    public float warbandQuestWeight = WarbandQuestWeightDefault;
-
-    // Earthshake (Piledriver's ability). Both are def-field overrides applied by
-    // ApplyAbilityTuning, so the XML holds only the shipped default and these are
-    // the real ones. Stored in the units the slider shows rather than in ticks, so
-    // the label needs no conversion and the snap grid is exact.
-    public const float EarthshakeCooldownHoursDefault = 12f;
-    public float earthshakeCooldownHours = EarthshakeCooldownHoursDefault;
-
-    public const float EarthshakeRadiusDefault = 3.9f;
-    public float earthshakeRadius = EarthshakeRadiusDefault;
-
-    // Rallying Cry (Storied's ability) and the UMW_Rallied buff it grants. Same
-    // def-field-override pattern; the cooldown is in days because it is an heirloom
-    // moment measured against Earthshake's hours.
-    public const float RallyingCryCooldownDaysDefault = 3f;
-    public float rallyingCryCooldownDays = RallyingCryCooldownDaysDefault;
-
-    public const float RallyingCryRadiusDefault = 9.9f;
-    public float rallyingCryRadius = RallyingCryRadiusDefault;
-
-    public const float RalliedDurationHoursDefault = 2f;
-    public float ralliedDurationHours = RalliedDurationHoursDefault;
-
-    // --- Transient UI state (not persisted) -------------------------------
-    // Scroll offset and last-measured content height for the settings list.
-    // These are presentation state, so they are deliberately NOT scribed.
+    // Presentation state for the scroll view, deliberately not scribed.
     private Vector2 scrollPosition;
     private float contentHeight;
 
+    // These two fan out to the sections in display order; serialization order is immaterial (Scribe is
+    // keyed by name).
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Collections.Look(ref disabledWeapons, "disabledWeapons", LookMode.Value);
-        // Scribe_Collections nulls the field when the stored entry is absent or empty (which is the
-        // default state — nothing disabled), so restore the empty set rather than carrying a null.
-        disabledWeapons ??= new HashSet<string>();
-        Scribe_Values.Look(ref excludeWoodStuff, "excludeWoodStuff", true);
-        Scribe_Values.Look(ref allowUltratechTraits, "allowUltratechTraits", true);
-        Scribe_Values.Look(ref warbandQuestWeight, "warbandQuestWeight", WarbandQuestWeightDefault);
-        Scribe_Values.Look(ref earthshakeCooldownHours, "earthshakeCooldownHours", EarthshakeCooldownHoursDefault);
-        Scribe_Values.Look(ref earthshakeRadius, "earthshakeRadius", EarthshakeRadiusDefault);
-        Scribe_Values.Look(ref rallyingCryCooldownDays, "rallyingCryCooldownDays", RallyingCryCooldownDaysDefault);
-        Scribe_Values.Look(ref rallyingCryRadius, "rallyingCryRadius", RallyingCryRadiusDefault);
-        Scribe_Values.Look(ref ralliedDurationHours, "ralliedDurationHours", RalliedDurationHoursDefault);
+        ExposeWeaponSettings();
+        ExposeGenerationSettings();
+        ExposeAbilitySettings();
+        ExposeQuestSettings();
     }
 
-    // Restores every setting to its shipped default. Called by the
-    // "Reset to defaults" button. Keep this in sync with the field
-    // initializers above (and the Scribe_Values.Look defaults).
     public void ResetToDefaults()
     {
-        disabledWeapons.Clear();
-        excludeWoodStuff = true;
-        allowUltratechTraits = true;
-        warbandQuestWeight = WarbandQuestWeightDefault;
-        earthshakeCooldownHours = EarthshakeCooldownHoursDefault;
-        earthshakeRadius = EarthshakeRadiusDefault;
-        rallyingCryCooldownDays = RallyingCryCooldownDaysDefault;
-        rallyingCryRadius = RallyingCryRadiusDefault;
-        ralliedDurationHours = RalliedDurationHoursDefault;
-    }
-
-    // True when the player has switched this weapon off. The Count check comes first because the
-    // pool patch asks this about every candidate ThingDef of every roll, and the common case is an
-    // empty set.
-    public bool IsWeaponDisabled(ThingDef def)
-    {
-        return disabledWeapons.Count > 0 && def != null && disabledWeapons.Contains(def.defName);
-    }
-
-    // Whether any of our weapons can still be rolled at all. The warband quest's whole reward is one of
-    // them, so it stops being offered when the answer is no (QuestNode_Root_Warband.TestRunInt).
-    public bool AnyWeaponEnabled => UniqueWeaponDefs.All.Any(d => !IsWeaponDisabled(d));
-
-    // Refreshes the one place a weapon's pool eligibility is CACHED rather than asked live, so toggling a
-    // weapon mid-session needs no restart. ThingSetMakerUtility.allGeneratableItems is filled once at
-    // play-data load by calling CanGenerate on every def — our patch is therefore already reflected in it
-    // at startup, and this only matters for a later change. Its consumers are base-gen's item scatterers
-    // (SymbolResolver_FillWithThings / _SingleThing pick a random weapon, medicine or drug from it) and
-    // QuestNode_TradeRequest_GetRequestedThing. Reset() does nothing but refill that list (and
-    // ThingSetMaker_Meteorite's mineables, the same way), so re-running it is idempotent and safe
-    // outside a game.
-    //
-    // Every other pool path calls CanGenerate live through ThingSetMakerUtility.GetAllowedThingDefs and
-    // needs no invalidation. (Decompile-verified, RimWorld 1.6.)
-    public void ApplyWeaponAvailability()
-    {
-        ThingSetMakerUtility.Reset();
-    }
-
-    // Writes the configured weight onto the live quest def. rootSelectionWeight is
-    // read fresh from the def on every opportunity-site roll, so a def-field write
-    // is all an override takes. Called after defs load (UMW_Startup) and whenever
-    // the settings window closes (UniqueMeleeWeaponsMod.WriteSettings).
-    public void ApplyWarbandQuestWeight()
-    {
-        if (UMW_QuestDefOf.UMW_OpportunitySite_Warband != null)
-        {
-            UMW_QuestDefOf.UMW_OpportunitySite_Warband.rootSelectionWeight = warbandQuestWeight;
-        }
-    }
-
-    // Writes the configured ability tuning onto the live defs. Called after defs load
-    // (UMW_Startup) and whenever the settings window closes
-    // (UniqueMeleeWeaponsMod.WriteSettings), same as ApplyWarbandQuestWeight.
-    //
-    // Every field written here is read fresh at use, so no restart is needed:
-    // AbilityDef.cooldownTicksRange is sampled per cast (Ability.StartCooldown takes
-    // .RandomInRange), and Verb.EffectiveRange resolves verbProps.AdjustedRange live
-    // rather than caching (both decompile-verified, RimWorld 1.6).
-    public void ApplyAbilityTuning()
-    {
-        SetCooldown(UMW_DefOf.UMW_Earthshake, earthshakeCooldownHours * GenDate.TicksPerHour);
-        SetRadius(UMW_DefOf.UMW_Earthshake, earthshakeRadius);
-        ScaleAreaFleck(UMW_DefOf.UMW_Earthshake, earthshakeRadius / EarthshakeRadiusDefault);
-
-        SetCooldown(UMW_DefOf.UMW_RallyingCry, rallyingCryCooldownDays * GenDate.TicksPerDay);
-        SetRadius(UMW_DefOf.UMW_RallyingCry, rallyingCryRadius);
-        SetHediffDuration(UMW_DefOf.UMW_Rallied, ralliedDurationHours * GenDate.TicksPerHour);
-    }
-
-    private static void SetCooldown(AbilityDef def, float ticks)
-    {
-        if (def == null)
-        {
-            return;
-        }
-        int rounded = Mathf.RoundToInt(ticks);
-        def.cooldownTicksRange = new IntRange(rounded, rounded);
-    }
-
-    // An ability's radius lives in two places that must agree, per CLAUDE.md: verbProperties.range
-    // drives the hover ring (VerbProperties.DrawRadiusRing reads verb.EffectiveRange and never a comp
-    // field), and the effect comp's own radius drives what actually happens. Writing only one of them
-    // would leave a preview that lies about the burst, so this owns both.
-    private static void SetRadius(AbilityDef def, float radius)
-    {
-        if (def == null)
-        {
-            return;
-        }
-        if (def.verbProperties != null)
-        {
-            def.verbProperties.range = radius;
-        }
-        for (int i = 0; i < def.comps.Count; i++)
-        {
-            switch (def.comps[i])
-            {
-                case CompProperties_AbilityGroundShockwave shockwave:
-                    shockwave.explosionRadius = radius;
-                    break;
-
-                case CompProperties_AbilityRallyAllies rally:
-                    rally.radius = radius;
-                    break;
-            }
-        }
-    }
-
-    // Resize an ability's fleck along with its radius, for a fleck that depicts the AREA of the effect:
-    // otherwise a resized burst keeps a fixed-size shimmer sitting over it. Opt-in per ability rather
-    // than folded into SetRadius, because a fleck is not necessarily an area indicator — Rallying Cry's
-    // lightshaft is a beam over the wielder, and scaling THAT to a 12.9-cell rally would put a column of
-    // light over one pawn. Only Earthshake's overhead ripple qualifies.
-    //
-    // Deliberately approximate: FleckDef.growthRate adds a component that this factor does not scale
-    // (FleckStatic grows linearScale additively), so at large radii the ripple lands a little inside the
-    // effect edge rather than a little outside it. It tracks, which is the point.
-    private static void ScaleAreaFleck(AbilityDef def, float factor)
-    {
-        if (def == null)
-        {
-            return;
-        }
-        for (int i = 0; i < def.comps.Count; i++)
-        {
-            if (def.comps[i] is CompProperties_AbilityFleckOnTarget fleck)
-            {
-                fleck.scale = factor;
-            }
-        }
-    }
-
-    // Hediff duration is an IntRange on the disappear comp's props, read at HediffComp_Disappears
-    // .CompPostMake via .RandomInRange — so a props write governs every hediff added from then on, with
-    // no restart and without touching instances already running on a pawn.
-    private static void SetHediffDuration(HediffDef def, float ticks)
-    {
-        if (def?.comps == null)
-        {
-            return;
-        }
-        int rounded = Mathf.RoundToInt(ticks);
-        for (int i = 0; i < def.comps.Count; i++)
-        {
-            if (def.comps[i] is HediffCompProperties_Disappears disappears)
-            {
-                disappears.disappearsAfterTicks = new IntRange(rounded, rounded);
-            }
-        }
+        ResetWeaponSettings();
+        ResetGenerationSettings();
+        ResetAbilitySettings();
+        ResetQuestSettings();
     }
 
     public void DoWindowContents(Rect inRect)
@@ -272,135 +62,31 @@ public class UniqueMeleeWeaponsSettings : ModSettings
         const float buttonWidth = 200f;
         const float scrollBarWidth = 16f;
 
-        // Reserve the bottom strip for the pinned reset button; the scroll
-        // view gets everything above it.
+        // Reserve the bottom strip for the pinned reset button; the scroll view gets everything above it.
         Rect viewRect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height - buttonHeight - buttonGap);
         Rect buttonRect = new Rect(inRect.x, inRect.yMax - buttonHeight, buttonWidth, buttonHeight);
 
-        // The inner (content) rect is as wide as the view minus the scrollbar
-        // gutter, and as tall as the content OR the view — whichever is larger.
-        // When content fits, inner == view height, so no scrollbar shows; once
-        // content exceeds the view, the inner grows and the scrollbar appears.
-        // contentHeight is 0 on the first frame (so no scroll) and is measured
-        // from the listing below for every frame after.
+        // Content is the view minus the scrollbar gutter wide, and the content or the view tall —
+        // whichever is larger — so the scrollbar appears only once the rows overflow. contentHeight is 0
+        // on the first frame and measured off the listing below for every frame after.
         float innerWidth = viewRect.width - scrollBarWidth;
         Rect innerRect = new Rect(0f, 0f, innerWidth, Mathf.Max(contentHeight, viewRect.height));
 
         Widgets.BeginScrollView(viewRect, ref scrollPosition, innerRect);
 
         Listing_Standard listing = new Listing_Standard();
-        // Begin with a tall scratch rect (99999f) so the listing never clamps
-        // its own height; we read the real height back via CurHeight afterwards.
+        // Tall scratch rect so the listing never clamps its own height; the real one comes back below
+        // via CurHeight.
         listing.Begin(new Rect(0f, 0f, innerWidth - 8f, 99999f));
         GameFont prevFont = Text.Font;
 
         listing.Gap();
 
-        // --- Weapons ------------------------------------------------------
-        Text.Font = GameFont.Medium;
-        listing.Label("UMW_SettingsWeapons".Translate());
-        Text.Font = GameFont.Small;
-        listing.Gap(6f);
+        DrawWeaponsSection(listing);
+        DrawGenerationSection(listing);
+        DrawAbilitiesSection(listing);
+        DrawQuestsSection(listing);
 
-        WeaponRows(listing);
-
-        listing.Gap(18f);
-
-        // --- Generation ---------------------------------------------------
-        Text.Font = GameFont.Medium;
-        listing.Label("UMW_SettingsGeneration".Translate());
-        Text.Font = GameFont.Small;
-        listing.Gap(6f);
-
-        listing.CheckboxLabeled(
-            "UMW_ExcludeWoodStuff".Translate(ThingDefOf.WoodLog.label),
-            ref excludeWoodStuff,
-            "UMW_ExcludeWoodStuffDesc".Translate(UMW_DefOf.MeleeWeapon_LongSword.label));
-
-        // Royalty-only row: the three traits it governs are MayRequire-gated on Royalty, so without
-        // the DLC there is nothing to toggle and the row would only confuse. Hidden rather than
-        // disabled, and the stored value is left alone so it survives a run without Royalty loaded.
-        if (ModsConfig.RoyaltyActive)
-        {
-            // The three MayRequireRoyalty DefOf handles are non-null exactly when this row shows.
-            // The label order must match the description's parentheticals (see UMW_UI.xml).
-            listing.CheckboxLabeled(
-                "UMW_AllowUltratechTraits".Translate(),
-                ref allowUltratechTraits,
-                "UMW_AllowUltratechTraitsDesc".Translate(
-                    UMW_DefOf.UMW_Monomolecular.label,
-                    UMW_DefOf.UMW_PlasmaCored.label,
-                    UMW_DefOf.UMW_ZeusHeaded.label));
-        }
-
-        listing.Gap(18f);
-
-        // --- Abilities ----------------------------------------------------
-        // Vanilla already localizes this exact word (Core Keyed <Abilities>), so reuse it
-        // rather than shipping a duplicate key translators would have to do twice.
-        Text.Font = GameFont.Medium;
-        listing.Label("Abilities".Translate());
-        Text.Font = GameFont.Small;
-        listing.Gap(6f);
-
-        // Slider labels are shared templates ("{0} cooldown: {1} hours") fed the subject's own
-        // def label, so the ability/hediff/faction name in each row tracks its def's translation.
-        earthshakeCooldownHours = SliderRow(
-            listing, "UMW_AbilityCooldownHours", "UMW_EarthshakeCooldownDesc",
-            UMW_DefOf.UMW_Earthshake.LabelCap,
-            earthshakeCooldownHours, EarthshakeCooldownHoursDefault,
-            min: 0f, max: 24f, step: 1f, format: "0");
-
-        earthshakeRadius = SliderRow(
-            listing, "UMW_AbilityRadius", "UMW_EarthshakeRadiusDesc",
-            UMW_DefOf.UMW_Earthshake.LabelCap,
-            earthshakeRadius, EarthshakeRadiusDefault,
-            min: 1.9f, max: 12.9f, step: 1f, format: "0.0");
-
-        listing.Gap(6f);
-
-        rallyingCryCooldownDays = SliderRow(
-            listing, "UMW_AbilityCooldownDays", "UMW_RallyingCryCooldownDesc",
-            UMW_DefOf.UMW_RallyingCry.LabelCap,
-            rallyingCryCooldownDays, RallyingCryCooldownDaysDefault,
-            min: 1f, max: 15f, step: 0.5f, format: "0.#");
-
-        rallyingCryRadius = SliderRow(
-            listing, "UMW_AbilityRadius", "UMW_RallyingCryRadiusDesc",
-            UMW_DefOf.UMW_RallyingCry.LabelCap,
-            rallyingCryRadius, RallyingCryRadiusDefault,
-            min: 1.9f, max: 12.9f, step: 1f, format: "0.0");
-
-        ralliedDurationHours = SliderRow(
-            listing, "UMW_HediffDurationHours", "UMW_RalliedDurationDesc",
-            UMW_DefOf.UMW_Rallied.LabelCap,
-            ralliedDurationHours, RalliedDurationHoursDefault,
-            min: 1f, max: 24f, step: 1f, format: "0");
-
-        listing.Gap(18f);
-
-        // --- Quests -------------------------------------------------------
-        // Same vanilla-reuse rule as the Abilities header: the quests main-tab button's def label
-        // is the localized word "quests" in every language, capitalized by LabelCap exactly as the
-        // bottom bar renders it. There is no vanilla Keyed key for it (the tab is a MainButtonDef).
-        Text.Font = GameFont.Medium;
-        listing.Label(MainButtonDefOf.Quests.LabelCap);
-        Text.Font = GameFont.Small;
-        listing.Gap(6f);
-
-        // Annotated at 1.0, which is AncientMercenaries' own rootSelectionWeight: our quest shares the
-        // opportunity-site giver pool with it, so that mark is the reference point for "as often as the
-        // vanilla one". The name comes from that quest's site-part def (see UMW_QuestDefOf.BanditGang)
-        // so it is the same localized string the world map shows, not a second copy of it here.
-        warbandQuestWeight = SliderRow(
-            listing, "UMW_QuestWeight", "UMW_WarbandQuestWeightDesc",
-            UMW_QuestDefOf.UMW_Warband.LabelCap,
-            warbandQuestWeight, WarbandQuestWeightDefault,
-            min: 0f, max: 2f, step: 0.05f, format: "0.00",
-            annotateAt: 1f, annotationLabel: UMW_QuestDefOf.BanditGang?.label);
-
-        // Measure the content height for next frame's scroll calculation,
-        // restore the font, then close the listing and the scroll view.
         Text.Font = prevFont;
         contentHeight = listing.CurHeight;
         listing.End();
@@ -412,59 +98,30 @@ public class UniqueMeleeWeaponsSettings : ModSettings
         }
     }
 
-    // One checkbox per weapon we own, toggling it in or out of every generation and reward pool.
-    //
-    // The list is generated from the DefDatabase (UniqueWeaponDefs.All), not hand-written, so the
-    // Royalty-gated axe and warhammer rows appear only when that DLC is active — their defs are
-    // MayRequire-gated and simply do not exist otherwise — and a weapon added in a future version gets
-    // its row for free. The label is the weapon's own def label, so it is already localized.
-    //
-    // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is a
-    // local that is written back only on an actual change; that keeps the set free of entries for
-    // weapons the player never touched.
-    private void WeaponRows(Listing_Standard listing)
+    // Top-level section heading (medium font), e.g. "Weapons".
+    private static void SectionHeader(Listing_Standard listing, string label)
     {
-        foreach (ThingDef weapon in UniqueWeaponDefs.All)
-        {
-            bool enabled = !IsWeaponDisabled(weapon);
-            bool wasEnabled = enabled;
-            listing.CheckboxLabeled(
-                weapon.LabelCap,
-                ref enabled,
-                "UMW_WeaponEnabledDesc".Translate(weapon.label));
-            if (enabled == wasEnabled)
-            {
-                continue;
-            }
-            if (enabled)
-            {
-                disabledWeapons.Remove(weapon.defName);
-            }
-            else
-            {
-                disabledWeapons.Add(weapon.defName);
-            }
-        }
+        Text.Font = GameFont.Medium;
+        listing.Label(label);
+        Text.Font = GameFont.Small;
+        listing.Gap(6f);
     }
 
-    // One labelled slider row in the house style: "Subject property: value", an inline "(default)"
-    // suffix while it sits at the shipped value, the description as a hover tooltip, and the returned
-    // value snapped to `step` measured from `min` (so a 1.9-to-12.9 radius lands on 1.9, 2.9, ... and
-    // never between). `subject` is the row's own content name (an ability, hediff or faction LabelCap),
-    // injected as the label key's {0} so the name tracks that def's translation; the value is {1}.
+    // One labelled slider row in the house style: "Subject property: value" with the description as a
+    // hover tooltip, and the returned value snapped to `step` measured from `min` (so a 1.9-to-12.9
+    // radius lands on 1.9, 2.9, ... and never between). `subject` is the row's own content name (an
+    // ability, hediff or quest LabelCap), injected as the label key's {0} so the name tracks that def's
+    // translation; the value is {1}.
     //
     // `annotateAt` + `annotationLabel` optionally mark another value as a named reference point
     // ("(same as ancient mercenaries)"), for a setting whose number means nothing on its own.
     //
-    // Suffixes follow the companion mod's convention (UWU_Mod.DoSettingsWindowContents): each is an
-    // independent " (word)" fragment tested on its own and appended in order, with NO precedence between
-    // them — a value that is both the default and a reference point shows both, rather than one silently
-    // suppressing the other. Keep it that way when adding a suffix: no else-chaining.
-    //
-    // The default check is Mathf.Approximately rather than ==, because snapping off a non-zero `min`
-    // does not reproduce the default's exact float: Round((3.9f - 1.9f)/1f) * 1f + 1.9f is
-    // 3.8999999761, while the 3.9f literal is 3.9000000954. An exact compare would silently never show
-    // the suffix on those rows. The residue is far below anything the game can act on.
+    // Suffixes are independent " (word)" fragments, each tested on its own and appended in order with NO
+    // precedence between them, so a value that is both the default and a reference point shows both.
+    // Keep it that way when adding a suffix: no else-chaining. Both tests are Mathf.Approximately rather
+    // than ==, because snapping off a non-zero `min` does not reproduce the default's exact float (3.9f
+    // comes back as 3.8999999761) and an exact compare would silently never show the suffix on those
+    // rows. The residue is far below anything the game can act on.
     private static float SliderRow(Listing_Standard listing, string labelKey, string descKey,
         string subject, float value, float defaultValue, float min, float max, float step, string format,
         float? annotateAt = null, string annotationLabel = null)
