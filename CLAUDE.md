@@ -258,6 +258,11 @@ release, which also covers vanilla updates changing inherited text under unchang
 public language roster lives in CONTRIBUTING.md and must move in the same commit as any language
 change.
 
+**Workshop title coupling:** each language's `UMW_SettingsCategory` Keyed value is the localized
+Steam Workshop title and must equal the title line (line 1) of
+`.steamworkshop/Description/<Language>.txt` — always change the two together (English keeps
+`Unique Melee Weapons` in both).
+
 **Optional-DLC content:** MayRequire is honored on defs but IGNORED on DefInjected entries, so
 content whose strings depend on an optional DLC ships from a LoadFolders-gated compat root
 (`1.6/Mods/<Name>/` with its own `Defs`/`Languages` inside; currently `Royalty` for the unique

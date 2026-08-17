@@ -1,0 +1,88 @@
+Unique Melee Weapons
+
+[h1]About[/h1]
+Odyssey introduced 13 unique weapons: rare one-off variants which roll up to 3 random traits (from 42), colors and names, obtained from quests and world loot. Every one of them is a "gun". Melee got nothing.
+
+This mod fills the gap. New unique variants of vanilla neolithic and medieval melee weapons, each stuffable, with their own set of new traits, name rules, and clean double-masked textures.
+
+[hr][/hr]
+[h2]7 Unique Melee Weapons[/h2]
+Unique variants of vanilla knife, gladius, longsword, spear and mace, plus axe and warhammer with Royalty. Each inherits its base weapon's tools and stats.
+[list]
+[*][b]Stuffable[/b], unlike Odyssey's ranged uniques, so material stat multipliers apply as normal
+[*][b]5 hand-drawn art variants per weapon[/b], with unique accent color and material/stuff tint rendered together independently
+[/list]
+
+[h2]28 New Weapon Traits[/h2]
+Traits roll from 6 new categories, gated by what the weapon physically is. A spear can be barbed but not flanged; a mace can be bell-cast but not razored. Psychic blessings on the wielder remain the domain of persona-bond weapons.
+[list]
+[*][b]Bladed:[/b] razored, serrated, monomolecular*, plasma-cored*
+[*][b]Pointed:[/b] needle point, armor spike, barbed, envenomed, opiated
+[*][b]Blunt:[/b] flanged, studded, bell-cast, dead-blow, zeus-headed*, piledriver
+[*][b]Heavy:[/b] head-weighted, counterweighted
+[*][b]Guarded:[/b] quilloned (for weapons with a real hand guard)
+[*][b]Universal (vanilla):[/b] ornamental, ugly, lightweight, cumbersome, gold inlay, jade inlay
+[*][b]Universal (new):[/b] blood-stained, carbonized, enameled, storied
+[/list]
+[i]*requires Royalty DLC[/i]
+
+[h2]New Melee Effects[/h2]
+Most interesting unique-weapon trait fields don't work for melee; the game only reads them for guns and persona weapons. New traits do real work:
+[list]
+[*][b]On-hit effects:[/b] extra damage, stuns, staggers, mental breaks, bleeding wounds, toxic and sedative buildup
+[*][b]Damage types rerouted:[/b] a serrated edge tears ragged wounds, an envenomed point delivers tox
+[*][b]Armor penetration tuned separately from damage[/b] (typically vanilla couples these), and also per tool
+[*][b]Wielder-side effects:[/b] a needle point's difficulty to land, a quilloned guard's chance to parry
+[*][b]Forced body color:[/b] carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red
+[/list]
+
+[h2]New Active Abilities[/h2]
+[list]
+[*][b]Earthshake[/b] (piledriver): slam the weapon into the ground and send out a stunning shockwave that passes under walls.
+[*][b]Rallying cry[/b] (storied): raise the weapon and shout a rallying cry, allies temporarily shrug off pain and staggers.
+[/list]
+[b]More TBD[/b], ideas welcome!
+
+[h2]New Warband Quest[/h2]
+A low-tech parallel to Odyssey's ancient mercenaries quest. A roving tribal war party has holed up in an abandoned settlement and their chief carries a unique melee weapon. Take out the leader and it's yours.
+
+[h2]Settings[/h2]
+Your colony, your rules:
+[list]
+[*]Toggle weapons individually if you don't like any.
+[*]Disable ultratech traits for lower-tech runs.
+[*]Tune ability cooldowns, radii, duration.
+[*]Adjust or disable warband quest frequency.
+[/list]
+
+[hr][/hr]
+[h1]Mod Compatibility[/h1]
+[list]
+[*]Safe to add to existing saves
+[*]Unsafe to remove, but everything can be turned off in mod settings
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: fully integrated and tuned, thematically realized trait costs
+[*]Melee traits are completely separate from Odyssey's own ranged-only traits, and Royalty's bladelink traits
+[*]Not tested with Combat Extended yet (reports welcome)
+[/list]
+
+[hr][/hr]
+[h1]FAQ[/h1]
+[b]Q: Do I need DLC to use this?[/b]
+A: Yes. Needs Odyssey's unique weapon system. Doesn't need Royalty, but it does unlock extra weapons/traits, per above.
+
+[b]Q: How do I get the weapons?[/b]
+A: The same way as Odyssey's ranged uniques: Quest rewards, ancient crates, fishing and map-generation loot all roll them. Also the mod's own new warband quest
+
+[b]Q: But they're so rare! And the traits and colors aren't what I want![/b]
+A: Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], all weapons are fully supported.
+
+[b]Q: Was this made using LLMs!?[/b]
+A: Some of the grunt code, and most localizations. I'm a software engineer by trade, and have been writing code for 25 years. All code is manually reviewed and tested; all bug reports and mod-conflicts followed up personally as time and detail allows. All art is either commissioned from humans, hand-authored in Krita, or both.
+
+[h2]Localization[/h2]
+English, Simplified Chinese, French, German, Japanese, Korean, Brazilian Portuguese, Russian and Spanish. Additional requests, and corrections from native speakers, are very welcome.
+
+[h2]Links[/h2]
+[url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Source code, bug reports, feature requests etc
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] sibling mod
+Hero art and textures by [url=https://steamcommunity.com/profiles/76561198094174176/myworkshopfiles/?appid=294100]IcyCheeseCake[/url]

@@ -24,6 +24,16 @@ the source of truth; every other language derives from it.
   (Planned / Machine-assisted / Native, plus credit) must be updated in the
   same commit whenever a language is added or a native review lands. The
   target roster lives there — consult it before proposing new languages.
+- **`UMW_SettingsCategory` is that language's localized Workshop title** and
+  must stay in sync with the title line of
+  `.steamworkshop/Description/<Language>.txt` (see the CLAUDE.md localization
+  note) — change both together. The value currently shipped per language is
+  a first-pass translation predating the Workshop title convention (German's
+  still holds the English brand, `Unique Melee Weapons`, verbatim); none of
+  them are confirmed to follow `.steamworkshop/README.md`'s convention (the
+  vanilla-localized "unique weapon" term paired with the ordinary word for
+  melee) until the initial Workshop translation pass runs (see TODOs.md) and
+  reconciles the two files together.
 
 ## File map and conventions
 

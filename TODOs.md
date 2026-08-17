@@ -1,6 +1,12 @@
 # TODOs
 
 - Test settings page refactor
+- Run the initial Steam Workshop description translations: create
+  `.steamworkshop/Description/<Language>.txt` for each non-English language in
+  `1.6/Languages/`, localize titles per `.steamworkshop/README.md`'s
+  convention (no English brand appended), and sync each language's
+  `UMW_SettingsCategory` Keyed value to its title line. Structure and process
+  landed 2026-08-18; only `English.txt` exists so far.
 
 ## Features
 
