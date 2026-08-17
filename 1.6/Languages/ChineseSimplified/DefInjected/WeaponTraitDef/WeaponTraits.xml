@@ -238,22 +238,6 @@
   <UMW_Lightweight.traitAdjectives.2>迅疾</UMW_Lightweight.traitAdjectives.2>
 
 
-  <!-- EN: monomolecular -->
-  <UMW_Monomolecular.label>单分子刃</UMW_Monomolecular.label>
-
-  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
-  <UMW_Monomolecular.description>刃口被研磨至仅有单个分子的厚度，并由纳米机械晶格加以维持。它剖开护甲与骨骼，仿佛它们并不存在。</UMW_Monomolecular.description>
-
-  <!-- EN: mono-edged -->
-  <UMW_Monomolecular.traitAdjectives.0>单分子</UMW_Monomolecular.traitAdjectives.0>
-
-  <!-- EN: crystalline -->
-  <UMW_Monomolecular.traitAdjectives.1>晶质</UMW_Monomolecular.traitAdjectives.1>
-
-  <!-- EN: honed -->
-  <UMW_Monomolecular.traitAdjectives.2>精磨</UMW_Monomolecular.traitAdjectives.2>
-
-
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>针尖</UMW_NeedlePoint.label>
 
@@ -328,28 +312,6 @@
 
   <!-- EN: on cooldown -->
   <UMW_Piledriver.abilityProps.cooldownGerund>冷却中</UMW_Piledriver.abilityProps.cooldownGerund>
-
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.label>等离子内芯</UMW_PlasmaCored.label>
-
-  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
-  <UMW_PlasmaCored.description>刀身的内芯导引着一层由能量力场约束的等离子体鞘层，并将其释放进它切开的伤口。等离子体会灼烧血肉，有时还会点燃目标。</UMW_PlasmaCored.description>
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.traitAdjectives.0>等离子</UMW_PlasmaCored.traitAdjectives.0>
-
-  <!-- EN: burning -->
-  <UMW_PlasmaCored.traitAdjectives.1>灼烧</UMW_PlasmaCored.traitAdjectives.1>
-
-  <!-- EN: searing -->
-  <UMW_PlasmaCored.traitAdjectives.2>炙灼</UMW_PlasmaCored.traitAdjectives.2>
-
-  <!-- EN: fiery -->
-  <UMW_PlasmaCored.traitAdjectives.3>火红</UMW_PlasmaCored.traitAdjectives.3>
-
-  <!-- EN: incandescent -->
-  <UMW_PlasmaCored.traitAdjectives.4>白炽</UMW_PlasmaCored.traitAdjectives.4>
 
 
   <!-- EN: quilloned -->
@@ -459,23 +421,9 @@
   <!-- EN: monstrous -->
   <UMW_Ugly.traitAdjectives.2>畸形</UMW_Ugly.traitAdjectives.2>
 
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.label>宙斯锤头</UMW_ZeusHeaded.label>
-
-  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
-  <UMW_ZeusHeaded.description>锤头内藏有一枚微型化的宙斯电芯，会在撞击时释放电磁脉冲，暂时瘫痪电子设备与机械族。</UMW_ZeusHeaded.description>
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.traitAdjectives.0>宙斯</UMW_ZeusHeaded.traitAdjectives.0>
-
-  <!-- EN: thunderous -->
-  <UMW_ZeusHeaded.traitAdjectives.1>雷霆</UMW_ZeusHeaded.traitAdjectives.1>
-
-  <!-- EN: electric -->
-  <UMW_ZeusHeaded.traitAdjectives.2>电光</UMW_ZeusHeaded.traitAdjectives.2>
-
-  <!-- EN: shocking -->
-  <UMW_ZeusHeaded.traitAdjectives.3>电击</UMW_ZeusHeaded.traitAdjectives.3>
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/ChineseSimplified/DefInjected/WeaponTraitDef/WeaponTraits.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
 
 </LanguageData>

@@ -2,9 +2,11 @@
 <Defs>
 
   <!-- UMW_Bladed. Edge — a mechanite-sustained mono-molecular edge that shears through armor: a
-       reference to Royalty's monosword tech, so the def is MayRequire-gated on Royalty (the same
-       def-level gate the Axe/Warhammer uniques use) together with its UMW_MonoWhite ColorDef — the
-       trait only rolls when the DLC that owns the tech is present. Realises "ignores armor" via
+       reference to Royalty's monosword tech, so the def lives in the Royalty compat load root
+       (see LoadFolders.xml; the same gate the Axe/Warhammer uniques use) together with its
+       UMW_MonoWhite ColorDef — the trait only rolls when the DLC that owns the tech is present.
+       No MayRequire needed - the folder only loads when Royalty is active, and its DefInjected
+       sibling can't gate any other way. Realises "ignores armor" via
        MeleeToolModExtension, which floors the Cut AND Stab tools' armor penetration to 0.97 (the only
        trait that raises a base hit's AP without also raising its damage — AP is wasted on unarmored
        targets but devastating vs plate/mechs). Flashy, so rarer (commonality 0.5). Forces the
@@ -13,7 +15,7 @@
        Color-tagged inlays, it can co-occur with a Gold/Jade inlay. The Edge tag keeps it mutually
        exclusive with Razored/Serrated. Additionally suppressed by the allowUltratechTraits setting,
        which medieval-only runs turn off (Patches/CompUniqueWeapon_UltratechTraits_Patch.cs). -->
-  <WeaponTraitDef MayRequire="Ludeon.RimWorld.Royalty">
+  <WeaponTraitDef>
     <defName>UMW_Monomolecular</defName>
     <label>monomolecular</label>
     <description>The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there.</description>

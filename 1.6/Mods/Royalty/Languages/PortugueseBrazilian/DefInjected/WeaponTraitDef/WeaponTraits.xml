@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+       no MayRequire of their own. MayRequire is honored on defs but
+       IGNORED on DefInjected entries, so these injections live in this
+       LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
+       active) rather than the main
+       1.6/Languages/PortugueseBrazilian/DefInjected/WeaponTraitDef/WeaponTraits.xml, which would
+       error on startup for players without Royalty. Style conventions for these
+       entries are documented in that file's header comment. -->
+
+  <!-- EN: monomolecular -->
+  <UMW_Monomolecular.label>monomolecular</UMW_Monomolecular.label>
+
+  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
+  <UMW_Monomolecular.description>A lâmina é afiada até a espessura de uma única molécula e mantida assim por uma malha de mecanitos. Ela separa armadura e osso como se não estivessem ali.</UMW_Monomolecular.description>
+
+  <!-- EN: mono-edged -->
+  <UMW_Monomolecular.traitAdjectives.0>monomolecular</UMW_Monomolecular.traitAdjectives.0>
+
+  <!-- EN: crystalline -->
+  <UMW_Monomolecular.traitAdjectives.1>impalpável</UMW_Monomolecular.traitAdjectives.1>
+
+  <!-- EN: honed -->
+  <UMW_Monomolecular.traitAdjectives.2>sutil</UMW_Monomolecular.traitAdjectives.2>
+
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.label>núcleo de plasma</UMW_PlasmaCored.label>
+
+  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
+  <UMW_PlasmaCored.description>O núcleo da lâmina canaliza um envoltório de plasma, mantido no lugar por um campo de energia e liberado nas feridas que ela abre. Queima a carne e às vezes incendeia o alvo.</UMW_PlasmaCored.description>
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.traitAdjectives.0>incandescente</UMW_PlasmaCored.traitAdjectives.0>
+
+  <!-- EN: burning -->
+  <UMW_PlasmaCored.traitAdjectives.1>ardente</UMW_PlasmaCored.traitAdjectives.1>
+
+  <!-- EN: searing -->
+  <UMW_PlasmaCored.traitAdjectives.2>candente</UMW_PlasmaCored.traitAdjectives.2>
+
+  <!-- EN: fiery -->
+  <UMW_PlasmaCored.traitAdjectives.3>flamejante</UMW_PlasmaCored.traitAdjectives.3>
+
+  <!-- EN: incandescent -->
+  <UMW_PlasmaCored.traitAdjectives.4>fulgurante</UMW_PlasmaCored.traitAdjectives.4>
+
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.label>cabeça de zeus</UMW_ZeusHeaded.label>
+
+  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
+  <UMW_ZeusHeaded.description>A cabeça abriga uma célula de zeus miniaturizada que libera uma descarga eletromagnética no impacto, desativando temporariamente os sistemas eletrônicos e os mecanoides.</UMW_ZeusHeaded.description>
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.traitAdjectives.0>fulminante</UMW_ZeusHeaded.traitAdjectives.0>
+
+  <!-- EN: thunderous -->
+  <UMW_ZeusHeaded.traitAdjectives.1>trovejante</UMW_ZeusHeaded.traitAdjectives.1>
+
+  <!-- EN: electric -->
+  <UMW_ZeusHeaded.traitAdjectives.2>eletrizante</UMW_ZeusHeaded.traitAdjectives.2>
+
+  <!-- EN: shocking -->
+  <UMW_ZeusHeaded.traitAdjectives.3>faiscante</UMW_ZeusHeaded.traitAdjectives.3>
+
+</LanguageData>

@@ -10,37 +10,6 @@
        which never places an agreeing adjective or article beside [weapon_type] precisely because its
        gender is unknowable there. -->
 
-  <!-- EN: unique axe -->
-  <UMW_Axe_Unique.label>hache unique</UMW_Axe_Unique.label>
-
-  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Axe_Unique.description>Une hache portant la marque de la main d'un maître. Il n'en existe pas deux forgées à l'identique.</UMW_Axe_Unique.description>
-
-  <!-- EN: handle -->
-  <UMW_Axe_Unique.tools.handle.label>manche</UMW_Axe_Unique.tools.handle.label>
-
-  <!-- EN: edge -->
-  <UMW_Axe_Unique.tools.edge.label>tranchant</UMW_Axe_Unique.tools.edge.label>
-
-  <!-- EN: charge -->
-  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>charge</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
-
-  <!-- EN: on cooldown -->
-  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en recharge</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
-
-  <!-- EN: axe -->
-  <UMW_Axe_Unique.comps.5.namerLabels.0>hache</UMW_Axe_Unique.comps.5.namerLabels.0>
-
-  <!-- EN: cleaver -->
-  <UMW_Axe_Unique.comps.5.namerLabels.1>couperet</UMW_Axe_Unique.comps.5.namerLabels.1>
-
-  <!-- EN: bit -->
-  <UMW_Axe_Unique.comps.5.namerLabels.2>taillant</UMW_Axe_Unique.comps.5.namerLabels.2>
-
-  <!-- EN: edge -->
-  <UMW_Axe_Unique.comps.5.namerLabels.3>tranchant</UMW_Axe_Unique.comps.5.namerLabels.3>
-
-
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>glaive unique</UMW_Gladius_Unique.label>
 
@@ -204,35 +173,9 @@
   <!-- EN: point -->
   <UMW_Spear_Unique.comps.5.namerLabels.3>pointe</UMW_Spear_Unique.comps.5.namerLabels.3>
 
-
-  <!-- EN: unique warhammer -->
-  <UMW_Warhammer_Unique.label>marteau de guerre unique</UMW_Warhammer_Unique.label>
-
-  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Warhammer_Unique.description>Un marteau de guerre portant la marque de la main d'un maître. Il n'en existe pas deux forgés à l'identique.</UMW_Warhammer_Unique.description>
-
-  <!-- EN: handle -->
-  <UMW_Warhammer_Unique.tools.handle.label>manche</UMW_Warhammer_Unique.tools.handle.label>
-
-  <!-- EN: head -->
-  <UMW_Warhammer_Unique.tools.head.label>tête</UMW_Warhammer_Unique.tools.head.label>
-
-  <!-- EN: charge -->
-  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>charge</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
-
-  <!-- EN: on cooldown -->
-  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en recharge</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
-
-  <!-- EN: warhammer -->
-  <UMW_Warhammer_Unique.comps.5.namerLabels.0>marteau de guerre</UMW_Warhammer_Unique.comps.5.namerLabels.0>
-
-  <!-- EN: hammer -->
-  <UMW_Warhammer_Unique.comps.5.namerLabels.1>marteau</UMW_Warhammer_Unique.comps.5.namerLabels.1>
-
-  <!-- EN: maul -->
-  <UMW_Warhammer_Unique.comps.5.namerLabels.2>mailloche</UMW_Warhammer_Unique.comps.5.namerLabels.2>
-
-  <!-- EN: head -->
-  <UMW_Warhammer_Unique.comps.5.namerLabels.3>tête</UMW_Warhammer_Unique.comps.5.namerLabels.3>
+  <!-- UMW_Warhammer_Unique and UMW_Axe_Unique (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/French/DefInjected/ThingDef/Weapons_Unique.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
 
 </LanguageData>

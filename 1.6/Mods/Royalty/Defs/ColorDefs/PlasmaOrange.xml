@@ -6,9 +6,11 @@
        UniqueWeapon_Fire (167, 96, 39) was tried first and reads as wood-brown when it tints the whole
        body — it's calibrated as a small colour-one accent, not a full-blade tint. Self-contained like
        UMW_BloodRed/UMW_MonoWhite: Weapon colorType, randomlyPickable=false so it never enters the random
-       weapon-colour pool. MayRequire-gated together with its sole consumer UMW_PlasmaCored (a
-       Royalty-tech reference). -->
-  <ColorDef MayRequire="Ludeon.RimWorld.Royalty">
+       weapon-colour pool. Lives in the Royalty compat load root (see LoadFolders.xml)
+       together with its sole consumer UMW_PlasmaCored (a Royalty-tech reference); no
+       MayRequire needed - the folder only loads when Royalty is active, and its DefInjected
+       sibling can't gate any other way. -->
+  <ColorDef>
     <defName>UMW_PlasmaOrange</defName>
     <label>plasma orange</label>
     <colorType>Weapon</colorType>

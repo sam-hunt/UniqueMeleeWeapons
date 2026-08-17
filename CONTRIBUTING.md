@@ -42,6 +42,12 @@ native speaker), **Planned** (not started — contributions welcome).
   directly above it, e.g. `<!-- EN: Reset to defaults -->` — this is how stale
   translations are detected when the English changes.
 - Placeholders (`{0}`, `{1}`, ...) must match the English exactly.
+- Exception: entries for content gated on Royalty live under
+  `1.6/Mods/Royalty/Languages/<Language>/...` (a LoadFolders-gated root that
+  only loads when Royalty is active — MayRequire is ignored on DefInjected
+  entries, so the folder is the gate). Translate them there, mirroring that
+  root's own structure, never in the main `1.6` tree — the checker enforces
+  this placement.
 - Vanilla def types use bare DefInjected folder names (`ThingDef`,
   `AbilityDef`); any of this mod's own def classes would use
   namespace-qualified names (`UniqueMeleeWeapons.<DefClass>`).
@@ -52,8 +58,8 @@ native speaker), **Planned** (not started — contributions welcome).
   python3 Scripts/check-translations.py --strict
   ```
 
-  It checks key coverage, placeholders, DefInjected paths, staleness, and
-  file hygiene.
+  It checks key coverage, placeholders, DefInjected paths and load-root
+  placement, staleness, and file hygiene.
 
 - Improving a machine-assisted language? Corrections from native speakers
   are gladly merged, no matter how small.

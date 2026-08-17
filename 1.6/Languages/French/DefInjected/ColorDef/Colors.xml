@@ -15,12 +15,9 @@
   <!-- EN: enamel purple -->
   <UMW_EnamelPurple.label>violet émail</UMW_EnamelPurple.label>
 
-
-  <!-- EN: monomolecular white -->
-  <UMW_MonoWhite.label>blanc mono-moléculaire</UMW_MonoWhite.label>
-
-
-  <!-- EN: plasma orange -->
-  <UMW_PlasmaOrange.label>orange plasma</UMW_PlasmaOrange.label>
+  <!-- UMW_PlasmaOrange and UMW_MonoWhite (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/French/DefInjected/ColorDef/Colors.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
 
 </LanguageData>

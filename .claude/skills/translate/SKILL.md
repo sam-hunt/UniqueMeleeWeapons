@@ -35,6 +35,16 @@ the source of truth; every other language derives from it.
   translated per language via DefInjected, not Keyed.
 - Target layout: `1.6/Languages/<Language>/Keyed/*.xml` and
   `1.6/Languages/<Language>/DefInjected/<DefTypeFolder>/*.xml`
+- Gated compat load roots are additional language roots: the Royalty-gated
+  `UMW_Warhammer_Unique`/`UMW_Axe_Unique` (`ThingDef`),
+  `UMW_ZeusHeaded`/`UMW_PlasmaCored`/`UMW_Monomolecular` (`WeaponTraitDef`),
+  and `UMW_PlasmaOrange`/`UMW_MonoWhite` (`ColorDef`) entries live under
+  `1.6/Mods/Royalty/Languages/<Language>/...` — a folder LoadFolders.xml
+  loads only when Royalty is active, because MayRequire is ignored on
+  DefInjected entries, so the gate must be the folder. Each gated def's
+  translations mirror its own root, never the main `1.6` tree (that would be
+  a startup error whenever Royalty is inactive); the checker enforces the
+  placement in both directions.
 - `<DefTypeFolder>` must be the def's resolvable type name: bare for vanilla
   types (`ThingDef`, `WeaponTraitDef`, `HediffDef`, `AbilityDef`,
   `QuestScriptDef`, ...). This mod currently defines no Def subclasses of its
@@ -1523,8 +1533,20 @@ Core skill label), `cortante` / `perfurante` / `contundente` (bladed / pointed /
 ### Initial generation (`/translate <Language>`)
 
 1. Run the checker; confirm English itself is clean.
-2. Enumerate English Keyed keys and DefInjected-translatable def fields
-   (mirror the structure of an existing language if one exists).
+2. Enumerate the target key set: every Keyed key in
+   `1.6/Languages/English/Keyed/UMW_UI.xml` and `UMW_Stats.xml`, plus every
+   `required` DefInjected entry in the `Scripts/expected-injections.json`
+   sidecar, taking the English source text from each entry's `english`
+   field — NOT from `Defs/` or an existing language's file structure, which
+   both miss the fields the sidecar's probe-driven walk exists to catch (see
+   the file-map bullet above). Route the Royalty-gated defs' entries
+   (`UMW_Warhammer_Unique`/`UMW_Axe_Unique` ThingDef,
+   `UMW_ZeusHeaded`/`UMW_PlasmaCored`/`UMW_Monomolecular` WeaponTraitDef,
+   `UMW_PlasmaOrange`/`UMW_MonoWhite` ColorDef) to
+   `1.6/Mods/Royalty/Languages/<Language>/...`; everything else goes in the
+   main `1.6/Languages/<Language>/` tree. The checker enforces this both
+   ways — an entry must live in the load root that declares its def — and
+   its missing-entry errors name the root a translation belongs under.
 3. Extract the vanilla tar for the target language into the scratchpad;
    build a term list for the grounded terms above.
 4. Translate via subagent(s) carrying: the glossary, the vanilla term list,

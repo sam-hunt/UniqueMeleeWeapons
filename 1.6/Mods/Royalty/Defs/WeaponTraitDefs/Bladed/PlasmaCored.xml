@@ -2,9 +2,11 @@
 <Defs>
 
   <!-- UMW_Bladed. Core — plasma wrapped around the blade's core is released into every wound: a
-       reference to Royalty's plasmasword, so the def is MayRequire-gated on Royalty (the same def-level
-       gate as the Axe/Warhammer uniques), and the melee analog of Odyssey's IncendiaryRounds (whose +90
-       MarketValue offset it keeps). MeleeOnHitEffect_ExtraDamage stacks a Core "Flame" hit at half the
+       reference to Royalty's plasmasword, so the def lives in the Royalty compat load root (see
+       LoadFolders.xml; the same gate as the Axe/Warhammer uniques), and the melee analog of
+       Odyssey's IncendiaryRounds (whose +90 MarketValue offset it keeps). No MayRequire needed -
+       the folder only loads when Royalty is active, and its DefInjected sibling can't gate any
+       other way. MeleeOnHitEffect_ExtraDamage stacks a Core "Flame" hit at half the
        plasmasword's own extraMeleeDamages numbers (ours 5 @ 50% vs its 10 @ 50% — one trait on a lesser
        weapon, not a persona blade; AP 0 is Flame's own default, so Heat armor legitimately blunts it).
        Ignition comes free: DamageWorker_Flame.Apply attaches fire on any direct, non-deflected
@@ -21,7 +23,7 @@
        Coating — deliberately isn't Edge, so it can co-roll with Serrated/Razored: a serrated plasma
        blade is legal. Additionally suppressed by the allowUltratechTraits setting, which
        medieval-only runs turn off (Patches/CompUniqueWeapon_UltratechTraits_Patch.cs). -->
-  <WeaponTraitDef MayRequire="Ludeon.RimWorld.Royalty">
+  <WeaponTraitDef>
     <defName>UMW_PlasmaCored</defName>
     <label>plasma-cored</label>
     <description>The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target.</description>

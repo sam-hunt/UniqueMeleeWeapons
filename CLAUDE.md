@@ -258,6 +258,15 @@ release, which also covers vanilla updates changing inherited text under unchang
 public language roster lives in CONTRIBUTING.md and must move in the same commit as any language
 change.
 
+**Optional-DLC content:** MayRequire is honored on defs but IGNORED on DefInjected entries, so
+content whose strings depend on an optional DLC ships from a LoadFolders-gated compat root
+(`1.6/Mods/<Name>/` with its own `Defs`/`Languages` inside; currently `Royalty` for the unique
+Axe/Warhammer ThingDefs and their Royalty-tech WeaponTraitDefs/ColorDefs). Compat roots must sit
+beside the well-known folders, never inside one — anything under `1.6/Defs/**` or
+`1.6/Languages/**` loads unconditionally at any depth. The checker validates key parity,
+placeholders, DefInjected legality and load-root placement (an entry must live in the same load
+root as the def it targets), staleness, and file hygiene.
+
 ## Debugging
 
 1. **Dev Mode:** Settings > Dev Mode > Logging.

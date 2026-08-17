@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Warhammer. Royalty, Medieval. Blunt, slow 2.6s swing -> Blunt + Heavy. MayRequire-gated. -->
-  <ThingDef ParentName="MeleeWeapon_Warhammer" MayRequire="Ludeon.RimWorld.Royalty">
+  <!-- Warhammer. Royalty, Medieval. Blunt, slow 2.6s swing -> Blunt + Heavy. Lives in the
+       Royalty compat load root (see LoadFolders.xml); no MayRequire needed since the folder
+       only loads when Royalty is active, and its DefInjected sibling can't gate any other way. -->
+  <ThingDef ParentName="MeleeWeapon_Warhammer">
     <defName>UMW_Warhammer_Unique</defName>
     <label>unique warhammer</label>
     <description>A warhammer bearing the marks of a master's hand. No two are forged alike.</description>

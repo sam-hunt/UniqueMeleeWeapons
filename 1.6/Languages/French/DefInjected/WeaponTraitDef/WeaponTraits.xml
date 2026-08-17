@@ -257,22 +257,6 @@
   <UMW_Lightweight.traitAdjectives.2>à dégaine rapide</UMW_Lightweight.traitAdjectives.2>
 
 
-  <!-- EN: monomolecular -->
-  <UMW_Monomolecular.label>mono-moléculaire</UMW_Monomolecular.label>
-
-  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
-  <UMW_Monomolecular.description>Le fil est affûté jusqu'à l'épaisseur d'une seule molécule et maintenu ainsi par un réseau de mécanites. Il sépare l'armure et l'os comme s'ils n'étaient pas là.</UMW_Monomolecular.description>
-
-  <!-- EN: mono-edged -->
-  <UMW_Monomolecular.traitAdjectives.0>à fil mono-moléculaire</UMW_Monomolecular.traitAdjectives.0>
-
-  <!-- EN: crystalline -->
-  <UMW_Monomolecular.traitAdjectives.1>de cristal</UMW_Monomolecular.traitAdjectives.1>
-
-  <!-- EN: honed -->
-  <UMW_Monomolecular.traitAdjectives.2>au fil poli</UMW_Monomolecular.traitAdjectives.2>
-
-
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>pointe d'aiguille</UMW_NeedlePoint.label>
 
@@ -347,28 +331,6 @@
 
   <!-- EN: on cooldown -->
   <UMW_Piledriver.abilityProps.cooldownGerund>en recharge</UMW_Piledriver.abilityProps.cooldownGerund>
-
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.label>à cœur de plasma</UMW_PlasmaCored.label>
-
-  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
-  <UMW_PlasmaCored.description>Le cœur de la lame canalise une gaine de plasma, maintenue en place par un champ d'énergie et libérée dans chaque plaie qu'elle ouvre. Elle brûle la chair et enflamme parfois la cible.</UMW_PlasmaCored.description>
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.traitAdjectives.0>à cœur de plasma</UMW_PlasmaCored.traitAdjectives.0>
-
-  <!-- EN: burning -->
-  <UMW_PlasmaCored.traitAdjectives.1>de flamme vive</UMW_PlasmaCored.traitAdjectives.1>
-
-  <!-- EN: searing -->
-  <UMW_PlasmaCored.traitAdjectives.2>de chaleur mordante</UMW_PlasmaCored.traitAdjectives.2>
-
-  <!-- EN: fiery -->
-  <UMW_PlasmaCored.traitAdjectives.3>de feu</UMW_PlasmaCored.traitAdjectives.3>
-
-  <!-- EN: incandescent -->
-  <UMW_PlasmaCored.traitAdjectives.4>d'incandescence</UMW_PlasmaCored.traitAdjectives.4>
 
 
   <!-- EN: quilloned -->
@@ -478,23 +440,9 @@
   <!-- EN: monstrous -->
   <UMW_Ugly.traitAdjectives.2>d'une laideur monstrueuse</UMW_Ugly.traitAdjectives.2>
 
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.label>tête de Zeus</UMW_ZeusHeaded.label>
-
-  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
-  <UMW_ZeusHeaded.description>La tête abrite une cellule de Zeus miniaturisée qui libère une décharge électromagnétique à l'impact et neutralise temporairement l'électronique et les mécanoïdes.</UMW_ZeusHeaded.description>
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.traitAdjectives.0>à tête de Zeus</UMW_ZeusHeaded.traitAdjectives.0>
-
-  <!-- EN: thunderous -->
-  <UMW_ZeusHeaded.traitAdjectives.1>de tonnerre</UMW_ZeusHeaded.traitAdjectives.1>
-
-  <!-- EN: electric -->
-  <UMW_ZeusHeaded.traitAdjectives.2>à décharge électrique</UMW_ZeusHeaded.traitAdjectives.2>
-
-  <!-- EN: shocking -->
-  <UMW_ZeusHeaded.traitAdjectives.3>de décharge</UMW_ZeusHeaded.traitAdjectives.3>
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/French/DefInjected/WeaponTraitDef/WeaponTraits.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
 
 </LanguageData>

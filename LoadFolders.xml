@@ -11,5 +11,12 @@
   <v1.6>
     <li>/</li>
     <li>1.6</li>
+    <!-- Optional-mod compat roots live under 1.6/Mods/<Mod Name>/, one gated entry
+         each (the layout the wider ecosystem uses). Needed whenever content can't
+         gate itself: defs support MayRequire, but DefInjected entries do not (the
+         loader ignores attributes on them). Safe to nest inside 1.6 because the
+         game only scans well-known folders (Languages/, Defs/, ...) directly under
+         a load root, so the plain 1.6 entry above never sees Mods/. -->
+    <li IfModActive="ludeon.rimworld.royalty">1.6/Mods/Royalty</li>
   </v1.6>
 </loadFolders>

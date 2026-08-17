@@ -5,9 +5,11 @@
        ForcedColorTwoExtension — it replaces the stuff/material tint so the blade renders bright and
        crystalline regardless of material. No pure-white ColorDef exists in Core/DLC (Structure_White is
        grey 184), so we add our own. Self-contained like UMW_BloodRed: just a Weapon colorType and
-       randomlyPickable=false so it never enters the random weapon-colour pool. MayRequire-gated
-       together with its sole consumer UMW_Monomolecular (a Royalty-tech reference). -->
-  <ColorDef MayRequire="Ludeon.RimWorld.Royalty">
+       randomlyPickable=false so it never enters the random weapon-colour pool. Lives in the
+       Royalty compat load root (see LoadFolders.xml) together with its sole consumer
+       UMW_Monomolecular (a Royalty-tech reference); no MayRequire needed - the folder only
+       loads when Royalty is active, and its DefInjected sibling can't gate any other way. -->
+  <ColorDef>
     <defName>UMW_MonoWhite</defName>
     <label>monomolecular white</label>
     <colorType>Weapon</colorType>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+       no MayRequire of their own. MayRequire is honored on defs but
+       IGNORED on DefInjected entries, so these injections live in this
+       LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
+       active) rather than the main
+       1.6/Languages/Korean/DefInjected/WeaponTraitDef/WeaponTraits.xml, which would
+       error on startup for players without Royalty. Style conventions for these
+       entries are documented in that file's header comment. -->
+
+  <!-- EN: monomolecular -->
+  <UMW_Monomolecular.label>단분자</UMW_Monomolecular.label>
+
+  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
+  <UMW_Monomolecular.description>칼날이 분자 하나의 두께까지 갈려 있고, 기계입자 격자가 그 상태를 유지시킵니다. 갑옷과 뼈를 마치 없는 것처럼 갈라냅니다.</UMW_Monomolecular.description>
+
+  <!-- EN: mono-edged -->
+  <UMW_Monomolecular.traitAdjectives.0>단분자</UMW_Monomolecular.traitAdjectives.0>
+
+  <!-- EN: crystalline -->
+  <UMW_Monomolecular.traitAdjectives.1>결정질의</UMW_Monomolecular.traitAdjectives.1>
+
+  <!-- EN: honed -->
+  <UMW_Monomolecular.traitAdjectives.2>날카롭게 벼린</UMW_Monomolecular.traitAdjectives.2>
+
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.label>플라즈마 코어</UMW_PlasmaCored.label>
+
+  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
+  <UMW_PlasmaCored.description>칼날의 코어가 플라즈마 막을 흘려보내고, 에너지장이 그것을 붙잡아 두었다가 베어낸 상처 속으로 풀어 놓습니다. 플라즈마는 살을 태우고, 때로는 목표물에 불을 붙입니다.</UMW_PlasmaCored.description>
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.traitAdjectives.0>플라즈마</UMW_PlasmaCored.traitAdjectives.0>
+
+  <!-- EN: burning -->
+  <UMW_PlasmaCored.traitAdjectives.1>타오르는</UMW_PlasmaCored.traitAdjectives.1>
+
+  <!-- EN: searing -->
+  <UMW_PlasmaCored.traitAdjectives.2>태우는</UMW_PlasmaCored.traitAdjectives.2>
+
+  <!-- EN: fiery -->
+  <UMW_PlasmaCored.traitAdjectives.3>불타는</UMW_PlasmaCored.traitAdjectives.3>
+
+  <!-- EN: incandescent -->
+  <UMW_PlasmaCored.traitAdjectives.4>백열의</UMW_PlasmaCored.traitAdjectives.4>
+
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.label>제우스 헤드</UMW_ZeusHeaded.label>
+
+  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
+  <UMW_ZeusHeaded.description>타격부에 소형화된 제우스 전지가 들어 있어, 충격을 받으면 전자기 펄스를 방출해 전자기기와 메카노이드를 일시적으로 무력화합니다.</UMW_ZeusHeaded.description>
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.traitAdjectives.0>제우스</UMW_ZeusHeaded.traitAdjectives.0>
+
+  <!-- EN: thunderous -->
+  <UMW_ZeusHeaded.traitAdjectives.1>천둥의</UMW_ZeusHeaded.traitAdjectives.1>
+
+  <!-- EN: electric -->
+  <UMW_ZeusHeaded.traitAdjectives.2>전기</UMW_ZeusHeaded.traitAdjectives.2>
+
+  <!-- EN: shocking -->
+  <UMW_ZeusHeaded.traitAdjectives.3>감전의</UMW_ZeusHeaded.traitAdjectives.3>
+
+</LanguageData>

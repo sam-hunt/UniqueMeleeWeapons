@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_Warhammer_Unique and UMW_Axe_Unique are declared in this Royalty compat
+       load root (1.6/Mods/Royalty/Defs/ThingDefs/) and carry no MayRequire of
+       their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/Royalty loads only when Royalty is active) rather than
+       the main 1.6/Languages/Spanish/DefInjected/ThingDef/Weapons_Unique.xml, which
+       would error on startup for players without Royalty. Style conventions for
+       these entries are documented in that file's header comment. -->
+
+  <!-- EN: unique axe -->
+  <UMW_Axe_Unique.label>hacha única</UMW_Axe_Unique.label>
+
+  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Axe_Unique.description>Un hacha con las marcas de una mano maestra. No se forjan dos iguales.</UMW_Axe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Axe_Unique.tools.handle.label>empuñadura</UMW_Axe_Unique.tools.handle.label>
+
+  <!-- EN: edge -->
+  <UMW_Axe_Unique.tools.edge.label>filo</UMW_Axe_Unique.tools.edge.label>
+
+  <!-- EN: axe -->
+  <UMW_Axe_Unique.comps.5.namerLabels.0>hacha</UMW_Axe_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: cleaver -->
+  <UMW_Axe_Unique.comps.5.namerLabels.1>machete</UMW_Axe_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: bit -->
+  <UMW_Axe_Unique.comps.5.namerLabels.2>hoja</UMW_Axe_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_Axe_Unique.comps.5.namerLabels.3>filo</UMW_Axe_Unique.comps.5.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>carga</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en enfriamiento</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+
+  <!-- EN: unique warhammer -->
+  <UMW_Warhammer_Unique.label>martillo de guerra único</UMW_Warhammer_Unique.label>
+
+  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Warhammer_Unique.description>Un martillo de guerra con las marcas de una mano maestra. No se forjan dos iguales.</UMW_Warhammer_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Warhammer_Unique.tools.handle.label>empuñadura</UMW_Warhammer_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_Warhammer_Unique.tools.head.label>cabeza</UMW_Warhammer_Unique.tools.head.label>
+
+  <!-- EN: warhammer -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.0>martillo de guerra</UMW_Warhammer_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: hammer -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.1>martillo</UMW_Warhammer_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: maul -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.2>mazo</UMW_Warhammer_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.3>cabeza</UMW_Warhammer_Unique.comps.5.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>carga</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en enfriamiento</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+</LanguageData>

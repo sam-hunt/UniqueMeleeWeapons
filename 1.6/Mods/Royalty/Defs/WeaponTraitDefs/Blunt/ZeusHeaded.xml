@@ -3,8 +3,10 @@
 
   <!-- UMW_Blunt. Head — an electromagnetic discharge on impact, the melee port of Odyssey's ranged EMPRounds
        (same forced UniqueWeapon_EMP tint, same EMP DamageDef). Named for Royalty's zeushammer — the tech the
-       label references — so the def is MayRequire-gated on Royalty (the same def-level gate as the
-       Axe/Warhammer uniques). Realised through our generic on-hit path:
+       label references — so the def lives in the Royalty compat load root (see LoadFolders.xml),
+       the same gate as the Axe/Warhammer uniques; no MayRequire needed since the folder only
+       loads when Royalty is active, and its DefInjected sibling can't gate any other way.
+       Realised through our generic on-hit path:
        MeleeOnHitEffect_ExtraDamage stacks an extra Core "EMP" hit (amount 4) every wounding blow. EMP carries
        causeStun, harmsHealth=false, and stuns ONLY non-flesh pawns (StunHandler.CanBeStunnedByDamage), so it's
        a pure anti-mechanoid effect — no injury, no effect on flesh. The stun fires for free: every
@@ -19,7 +21,7 @@
        "Color" and can't share a weapon with the Gold/Jade inlays — mirrors EMPRounds' AmmoType+Color and our
        own UMW_Envenomed (Coating+Color). Additionally suppressed by the allowUltratechTraits setting,
        which medieval-only runs turn off (Patches/CompUniqueWeapon_UltratechTraits_Patch.cs). -->
-  <WeaponTraitDef MayRequire="Ludeon.RimWorld.Royalty">
+  <WeaponTraitDef>
     <defName>UMW_ZeusHeaded</defName>
     <label>zeus-headed</label>
     <description>The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids.</description>

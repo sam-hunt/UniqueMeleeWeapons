@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_PlasmaOrange and UMW_MonoWhite are declared in this Royalty compat load
+       root (1.6/Mods/Royalty/Defs/ColorDefs/) and carry no MayRequire of their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/Royalty loads only when Royalty is active) rather than
+       the main 1.6/Languages/German/DefInjected/ColorDef/Colors.xml, which would
+       error on startup for players without Royalty. Style conventions for these
+       entries are documented in that file's header comment. -->
+
+  <!-- EN: monomolecular white -->
+  <UMW_MonoWhite.label>monomolekularweiß</UMW_MonoWhite.label>
+
+
+  <!-- EN: plasma orange -->
+  <UMW_PlasmaOrange.label>plasmaorange</UMW_PlasmaOrange.label>
+
+</LanguageData>

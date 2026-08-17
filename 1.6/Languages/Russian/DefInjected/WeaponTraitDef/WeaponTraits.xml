@@ -238,22 +238,6 @@
   <UMW_Lightweight.traitAdjectives.2>молниеносный</UMW_Lightweight.traitAdjectives.2>
 
 
-  <!-- EN: monomolecular -->
-  <UMW_Monomolecular.label>мономолекулярное</UMW_Monomolecular.label>
-
-  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
-  <UMW_Monomolecular.description>Лезвие сведено до толщины в одну молекулу, и решётка механитов удерживает эту кромку. Оно рассекает броню и кость, словно их нет.</UMW_Monomolecular.description>
-
-  <!-- EN: mono-edged -->
-  <UMW_Monomolecular.traitAdjectives.0>мономолекулярный</UMW_Monomolecular.traitAdjectives.0>
-
-  <!-- EN: crystalline -->
-  <UMW_Monomolecular.traitAdjectives.1>кристаллический</UMW_Monomolecular.traitAdjectives.1>
-
-  <!-- EN: honed -->
-  <UMW_Monomolecular.traitAdjectives.2>отточенный</UMW_Monomolecular.traitAdjectives.2>
-
-
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>игольчатое остриё</UMW_NeedlePoint.label>
 
@@ -328,28 +312,6 @@
 
   <!-- EN: on cooldown -->
   <UMW_Piledriver.abilityProps.cooldownGerund>на перезарядке</UMW_Piledriver.abilityProps.cooldownGerund>
-
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.label>плазменный сердечник</UMW_PlasmaCored.label>
-
-  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
-  <UMW_PlasmaCored.description>По сердечнику клинка проходит плазменная оболочка: энергетическое поле удерживает её и высвобождает в наносимые раны. Плазма обжигает плоть и порой поджигает цель.</UMW_PlasmaCored.description>
-
-  <!-- EN: plasma-cored -->
-  <UMW_PlasmaCored.traitAdjectives.0>плазменный</UMW_PlasmaCored.traitAdjectives.0>
-
-  <!-- EN: burning -->
-  <UMW_PlasmaCored.traitAdjectives.1>пылающий</UMW_PlasmaCored.traitAdjectives.1>
-
-  <!-- EN: searing -->
-  <UMW_PlasmaCored.traitAdjectives.2>обжигающий</UMW_PlasmaCored.traitAdjectives.2>
-
-  <!-- EN: fiery -->
-  <UMW_PlasmaCored.traitAdjectives.3>огненный</UMW_PlasmaCored.traitAdjectives.3>
-
-  <!-- EN: incandescent -->
-  <UMW_PlasmaCored.traitAdjectives.4>раскалённый</UMW_PlasmaCored.traitAdjectives.4>
 
 
   <!-- EN: quilloned -->
@@ -459,23 +421,9 @@
   <!-- EN: monstrous -->
   <UMW_Ugly.traitAdjectives.2>чудовищный</UMW_Ugly.traitAdjectives.2>
 
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.label>электробоёк</UMW_ZeusHeaded.label>
-
-  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
-  <UMW_ZeusHeaded.description>В боевой части скрыт миниатюрный электромагнитный конденсатор, как у электромолота: при ударе он испускает электромагнитный разряд, временно выводящий из строя электронику и механоидов.</UMW_ZeusHeaded.description>
-
-  <!-- EN: zeus-headed -->
-  <UMW_ZeusHeaded.traitAdjectives.0>зевсов</UMW_ZeusHeaded.traitAdjectives.0>
-
-  <!-- EN: thunderous -->
-  <UMW_ZeusHeaded.traitAdjectives.1>громоподобный</UMW_ZeusHeaded.traitAdjectives.1>
-
-  <!-- EN: electric -->
-  <UMW_ZeusHeaded.traitAdjectives.2>электрический</UMW_ZeusHeaded.traitAdjectives.2>
-
-  <!-- EN: shocking -->
-  <UMW_ZeusHeaded.traitAdjectives.3>шокирующий</UMW_ZeusHeaded.traitAdjectives.3>
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/Russian/DefInjected/WeaponTraitDef/WeaponTraits.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
 
 </LanguageData>

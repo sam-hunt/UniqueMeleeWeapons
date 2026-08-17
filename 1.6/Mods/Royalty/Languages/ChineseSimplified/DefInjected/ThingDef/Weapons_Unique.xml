@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_Warhammer_Unique and UMW_Axe_Unique are declared in this Royalty compat
+       load root (1.6/Mods/Royalty/Defs/ThingDefs/) and carry no MayRequire of
+       their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/Royalty loads only when Royalty is active) rather than
+       the main 1.6/Languages/ChineseSimplified/DefInjected/ThingDef/Weapons_Unique.xml, which
+       would error on startup for players without Royalty. Style conventions for
+       these entries are documented in that file's header comment. -->
+
+  <!-- EN: unique axe -->
+  <UMW_Axe_Unique.label>特化战斧</UMW_Axe_Unique.label>
+
+  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Axe_Unique.description>一把烙有大师印记的战斧。没有任何两件锻造得一模一样。</UMW_Axe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Axe_Unique.tools.handle.label>斧柄</UMW_Axe_Unique.tools.handle.label>
+
+  <!-- EN: edge -->
+  <UMW_Axe_Unique.tools.edge.label>斧刃</UMW_Axe_Unique.tools.edge.label>
+
+  <!-- EN: charge -->
+  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷却中</UMW_Axe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: axe -->
+  <UMW_Axe_Unique.comps.5.namerLabels.0>战斧</UMW_Axe_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: cleaver -->
+  <UMW_Axe_Unique.comps.5.namerLabels.1>劈刀</UMW_Axe_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: bit -->
+  <UMW_Axe_Unique.comps.5.namerLabels.2>斧刃</UMW_Axe_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_Axe_Unique.comps.5.namerLabels.3>利刃</UMW_Axe_Unique.comps.5.namerLabels.3>
+
+
+  <!-- EN: unique warhammer -->
+  <UMW_Warhammer_Unique.label>特化战锤</UMW_Warhammer_Unique.label>
+
+  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Warhammer_Unique.description>一柄烙有大师印记的战锤。没有任何两件锻造得一模一样。</UMW_Warhammer_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Warhammer_Unique.tools.handle.label>锤柄</UMW_Warhammer_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_Warhammer_Unique.tools.head.label>锤头</UMW_Warhammer_Unique.tools.head.label>
+
+  <!-- EN: charge -->
+  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷却中</UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: warhammer -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.0>战锤</UMW_Warhammer_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: hammer -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.1>锤</UMW_Warhammer_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: maul -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.2>巨锤</UMW_Warhammer_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_Warhammer_Unique.comps.5.namerLabels.3>锤头</UMW_Warhammer_Unique.comps.5.namerLabels.3>
+
+</LanguageData>
