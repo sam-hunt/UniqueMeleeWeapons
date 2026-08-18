@@ -279,9 +279,13 @@ content whose strings depend on an optional DLC ships from a LoadFolders-gated c
 (`1.6/Mods/<Name>/` with its own `Defs`/`Languages` inside; currently `Royalty` for the unique
 Axe/Warhammer ThingDefs and their Royalty-tech WeaponTraitDefs/ColorDefs). Compat roots must sit
 beside the well-known folders, never inside one — anything under `1.6/Defs/**` or
-`1.6/Languages/**` loads unconditionally at any depth. The checker validates key parity,
-placeholders, DefInjected legality and load-root placement (an entry must live in the same load
-root as the def it targets), staleness, and file hygiene.
+`1.6/Languages/**` loads unconditionally at any depth. A compat root's language files must not
+reuse a main-tree file's language-relative path (the game dedups per mod by that path and silently
+skips one whole file — caught pre-release in 2026-08 when all 9 languages' main-tree
+weapon/trait/colour injections silently failed to load in-game); compat-root files carry a
+`_Royalty` suffix. The checker validates key parity, placeholders, DefInjected legality, load-root placement
+(an entry must live in the same load root as the def it targets), cross-root file-path collisions,
+staleness, and file hygiene.
 
 ## Debugging
 

@@ -65,7 +65,11 @@ findings (coined terms, phrasing decisions, and worked `namerLabels`/
   `1.6/Mods/Royalty/Languages/<Language>/...` — MayRequire is ignored on
   DefInjected, so the folder is the gate. Route each gated def's
   translations to that root, never the main `1.6` tree; the checker enforces
-  the placement both ways.
+  the placement both ways. Compat-root file names carry a `_Royalty` suffix
+  (`WeaponTraits_Royalty.xml`) — the game dedups language files per mod by
+  language-relative path and silently skips a duplicate, so a compat-root
+  file must never share its path with a main-tree one (checker-enforced; see
+  `l10n/process.md`).
 
 ## This mod's grounding domain
 
