@@ -1,0 +1,88 @@
+Armes de mêlée uniques
+
+[h1]À propos[/h1]
+Odyssey a introduit 13 armes uniques : de rares variantes générées une seule fois, qui tirent au hasard jusqu'à 3 traits (parmi 42), des couleurs et des noms, obtenues via des quêtes et le butin du monde. Chacune d'entre elles est une « arme à feu ». La mêlée, elle, n'a rien reçu.
+
+Ce mod comble cette lacune. De nouvelles variantes uniques des armes de mêlée néolithiques et médiévales du jeu de base, chacune fabricable en matériau, avec son propre ensemble de nouveaux traits, de règles de nommage et de textures à double masque soignées.
+
+[hr][/hr]
+[h2]7 armes de mêlée uniques[/h2]
+Des variantes uniques du couteau, du glaive, de l'épée longue, de la lance et de la masse du jeu de base, ainsi que la hache et le marteau de guerre avec Royalty. Chacune hérite des outils et des statistiques de son arme de base.
+[list]
+[*][b]Fabricable en matériau[/b], contrairement aux armes uniques à distance d'Odyssey, si bien que les multiplicateurs de statistiques liés au matériau s'appliquent normalement
+[*][b]5 variantes artistiques dessinées à la main par arme[/b], avec une couleur d'accent unique et une teinte de matériau rendues simultanément mais indépendamment l'une de l'autre
+[/list]
+
+[h2]28 nouveaux traits d'arme[/h2]
+Les traits sont tirés parmi 6 nouvelles catégories, déterminées par la nature physique de l'arme. Une lance peut être barbelée mais pas à ailettes ; une masse peut être fondue en cloche mais pas au fil de rasoir. Les bénédictions psychiques sur l'utilisateur restent l'apanage des armes liées à l'âme de leur porteur.
+[list]
+[*][b]Coupant :[/b] fil de rasoir, à dents de scie, mono-moléculaire*, à cœur de plasma*
+[*][b]Perçant :[/b] pointe d'aiguille, pointe perforante, barbelé, empoisonné, opiacé
+[*][b]Contondant :[/b] à ailettes, clouté, fondu en cloche, sans rebond, tête de Zeus*, marteau-pilon
+[*][b]Lourd :[/b] à tête lourde, à contrepoids
+[*][b]À garde :[/b] à quillons (pour les armes dotées d'une véritable garde)
+[*][b]Universel (jeu de base) :[/b] ornemental, laid, léger, encombrant, incrusté d'or, incrusté de jade
+[*][b]Universel (nouveau) :[/b] taché de sang, carbonisé, émaillé, de renom
+[/list]
+[i]*nécessite le DLC Royalty[/i]
+
+[h2]Nouveaux effets de mêlée[/h2]
+La plupart des champs de trait intéressants des armes uniques ne fonctionnent pas en mêlée ; le jeu ne les lit que pour les armes à feu et les armes liées à l'âme de leur porteur. Les nouveaux traits, eux, agissent réellement :
+[list]
+[*][b]Effets à l'impact :[/b] dégâts supplémentaires, étourdissements, titubations, effondrements mentaux, plaies saignantes, accumulation toxique et de sédatif
+[*][b]Types de dégâts redirigés :[/b] un fil à dents de scie ouvre des plaies déchiquetées, une pointe empoisonnée inflige des dégâts toxiques
+[*][b]Pénétration d'armure réglée indépendamment des dégâts[/b] (le jeu de base les lie généralement), et aussi par outil
+[*][b]Effets côté utilisateur :[/b] la difficulté à placer un coup avec une pointe d'aiguille, la chance de parer avec une garde à quillons
+[*][b]Couleur du corps imposée :[/b] noir carbone, violet émail, blanc mono-moléculaire, orange plasma, rouge sang
+[/list]
+
+[h2]Nouvelles capacités actives[/h2]
+[list]
+[*][b]Secousse tellurique[/b] (marteau-pilon) : abattez l'arme sur le sol et envoyez une onde de choc étourdissante qui passe sous les murs.
+[*][b]Cri de ralliement[/b] (de renom) : levez l'arme et poussez un cri de ralliement, vos alliés ignorent temporairement la douleur et les titubations.
+[/list]
+[b]D'autres à venir[/b], vos idées sont les bienvenues !
+
+[h2]Nouvelle quête de bande de guerre[/h2]
+Un pendant à basse technologie de la quête des mercenaires anciens d'Odyssey. Une troupe de guerre tribale nomade s'est retranchée dans une colonie abandonnée, et son chef porte une arme de mêlée unique. Éliminez le chef et elle est à vous.
+
+[h2]Paramètres[/h2]
+Votre colonie, vos règles :
+[list]
+[*]Désactivez chaque arme individuellement si l'une d'elles ne vous convient pas.
+[*]Désactivez les traits ultratechnologiques pour les parties de plus basse technologie.
+[*]Réglez les temps de recharge, les rayons et les durées des capacités.
+[*]Ajustez ou désactivez la fréquence de la quête de la bande de guerre.
+[/list]
+
+[hr][/hr]
+[h1]Compatibilité avec d'autres mods[/h1]
+[list]
+[*]Peut être ajouté sans risque à une sauvegarde existante
+[*]Ne pas retirer sans précaution, mais tout peut être désactivé dans les paramètres du mod
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] : entièrement intégré et équilibré, avec des coûts de trait pensés selon leur thème
+[*]Les traits de mêlée sont totalement distincts des traits à distance propres à Odyssey et des traits à lien de lame de Royalty
+[*]Pas encore testé avec Combat Extended (retours bienvenus)
+[/list]
+
+[hr][/hr]
+[h1]FAQ[/h1]
+[b]Q : Ai-je besoin d'un DLC pour utiliser ce mod ?[/b]
+R : Oui. Le système d'armes uniques d'Odyssey est nécessaire. Royalty n'est pas nécessaire, mais il débloque des armes et des traits supplémentaires, comme indiqué plus haut.
+
+[b]Q : Comment puis-je obtenir ces armes ?[/b]
+R : De la même façon que les armes uniques à distance d'Odyssey : récompenses de quête, caisses scellées, pêche et butin généré à la création de la carte peuvent toutes les tirer au sort. Ainsi que la nouvelle quête de bande de guerre propre à ce mod.
+
+[b]Q : Mais elles sont tellement rares ! Et les traits et les couleurs ne sont pas ceux que je veux ![/b]
+R : Jetez un œil à [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], toutes les armes y sont entièrement prises en charge.
+
+[b]Q : Ce mod a-t-il été réalisé à l'aide de LLM !?[/b]
+R : Une partie du code de base, oui, ainsi que la plupart des localisations. Je suis ingénieur logiciel de métier et j'écris du code depuis 25 ans. Tout le code est relu et testé manuellement ; tous les rapports de bug et les conflits de mods sont suivis personnellement, dans la mesure du temps et des détails disponibles. Tous les visuels sont soit commandés à des artistes humains, soit réalisés à la main dans Krita, soit les deux.
+
+[h2]Localisation[/h2]
+Anglais, chinois simplifié, français, allemand, japonais, coréen, portugais brésilien, russe et espagnol. Les demandes supplémentaires, ainsi que les corrections de locuteurs natifs, sont les bienvenues.
+
+[h2]Liens[/h2]
+[url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Code source, rapports de bug, demandes de fonctionnalités, etc.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] mod jumeau
+Illustrations et textures principales par [url=https://steamcommunity.com/profiles/76561198094174176/myworkshopfiles/?appid=294100]IcyCheeseCake[/url]

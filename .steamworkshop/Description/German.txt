@@ -1,0 +1,88 @@
+Einzigartige Nahkampfwaffen
+
+[h1]Über die Mod[/h1]
+Odyssey führte 13 einzigartige Waffen ein: seltene Einzelstücke, die bis zu 3 zufällige Merkmale (aus 42), Farben und Namen auswürfeln, erhältlich aus Quests und Beute in der Welt. Jede einzelne davon ist eine "Schusswaffe". Der Nahkampf ging leer aus.
+
+Diese Mod schließt diese Lücke. Neue einzigartige Varianten von neolithischen und mittelalterlichen Nahkampfwaffen des Grundspiels, jede aus Material herstellbar, mit eigenen neuen Merkmalen, Namensregeln und sauberen, doppelt maskierten Texturen.
+
+[hr][/hr]
+[h2]7 einzigartige Nahkampfwaffen[/h2]
+Einzigartige Varianten von Messer, Gladius, Langschwert, Speer und Streitkolben aus dem Grundspiel, dazu Axt und Kriegshammer mit Royalty. Jede erbt Werkzeuge und Statistikwerte ihrer Grundwaffe.
+[list]
+[*][b]Aus Material herstellbar[/b], anders als bei Odysseys einzigartigen Fernkampfwaffen, wodurch Materialmultiplikatoren auf Statistikwerte normal gelten
+[*][b]5 handgezeichnete Grafikvarianten pro Waffe[/b], mit einzigartiger Akzentfarbe und unabhängig gerenderter Materialtönung
+[/list]
+
+[h2]28 neue Waffenmerkmale[/h2]
+Merkmale werden aus 6 neuen Kategorien gewürfelt, abhängig davon, was die Waffe physisch ist. Ein Speer kann Widerhaken tragen, aber nicht gerippt sein; ein Streitkolben kann glockengegossen sein, aber nicht rasierscharf. Psychische Segnungen des Trägers bleiben die Domäne von Persona-Waffen.
+[list]
+[*][b]Schnitt:[/b] rasierscharf, gezahnt, monomolekular*, plasmaumhüllt*
+[*][b]Stich:[/b] Nadelspitze, Panzerdorn, Widerhaken, vergiftet, opiatbeschichtet
+[*][b]Wucht:[/b] gerippt, genietet, glockengegossen, rückschlagfrei, Zeuskopf*, Rammkopf
+[*][b]Schwer:[/b] kopfschwer, Gegengewicht
+[*][b]Bewehrt:[/b] Parierstangen (für Waffen mit einem echten Handschutz)
+[*][b]Universal (Grundspiel):[/b] verziert, hässlich, leicht, unhandlich, vergoldet, jadeverziert
+[*][b]Universal (neu):[/b] blutbefleckt, karbonisiert, emailliert, geschichtsträchtig
+[/list]
+[i]*erfordert Royalty-DLC[/i]
+
+[h2]Neue Nahkampfeffekte[/h2]
+Die interessantesten Felder von Waffenmerkmalen für einzigartige Waffen funktionieren im Nahkampf nicht; das Spiel liest sie nur für Schusswaffen und Persona-Waffen aus. Neue Merkmale leisten echte Arbeit:
+[list]
+[*][b]Treffereffekte:[/b] zusätzlicher Schaden, Betäubung, Taumeln, mentale Zusammenbrüche, blutende Wunden, Vergiftung und Sedierung
+[*][b]Umgeleitete Schadensarten:[/b] eine gezahnte Schneide reißt ausgefranste Wunden, eine vergiftete Spitze verursacht Vergiftung
+[*][b]Rüstungsdurchdringung getrennt vom Schaden abgestimmt[/b] (im Grundspiel normalerweise gekoppelt), auch pro Werkzeug
+[*][b]Effekte auf Seiten des Trägers:[/b] die Trefferschwierigkeit einer Nadelspitze, die Parierchance eines Parierstangen-Handschutzes
+[*][b]Erzwungene Körperfarbe:[/b] karbonschwarz, emailviolett, monomolekularweiß, plasmaorange, blutrot
+[/list]
+
+[h2]Neue aktive Fähigkeiten[/h2]
+[list]
+[*][b]Erdstoß[/b] (Rammkopf): Ramme die Waffe in den Boden und schicke eine betäubende Schockwelle aus, die unter Wänden hindurchläuft.
+[*][b]Schlachtruf[/b] (geschichtsträchtig): Hebe die Waffe und stoße einen Schlachtruf aus; Verbündete stecken Schmerz und Taumeln vorübergehend weg.
+[/list]
+[b]Mehr ist in Planung[/b], Ideen sind willkommen!
+
+[h2]Neue Kriegerbande-Quest[/h2]
+Ein Pendant für niedrige Techstufen zu Odysseys Quest der antiken Söldner. Ein umherziehender Kriegszug von Ureinwohnern hat sich in einer verlassenen Siedlung verschanzt, und ihr Häuptling trägt eine einzigartige Nahkampfwaffe. Schalte den Anführer aus, und sie gehört dir.
+
+[h2]Einstellungen[/h2]
+Deine Kolonie, deine Regeln:
+[list]
+[*]Schalte einzelne Waffen ab, wenn dir eine nicht gefällt.
+[*]Deaktiviere hochmoderne Waffenmerkmale für Durchläufe auf niedrigerer Techstufe.
+[*]Passe Abklingzeiten, Radien und Dauer der Fähigkeiten an.
+[*]Passe die Häufigkeit der Kriegerbande-Quest an oder deaktiviere sie.
+[/list]
+
+[hr][/hr]
+[h1]Mod-Kompatibilität[/h1]
+[list]
+[*]Kann sicher zu bestehenden Spielständen hinzugefügt werden
+[*]Unsicher zu entfernen, aber alles kann in den Mod-Einstellungen abgeschaltet werden
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: vollständig integriert und abgestimmt, thematisch umgesetzte Merkmalskosten
+[*]Nahkampf-Merkmale sind vollständig getrennt von Odysseys eigenen, reinen Fernkampf-Merkmalen und von Royaltys Persona-Waffenmerkmalen
+[*]Noch nicht mit Combat Extended getestet (Rückmeldungen willkommen)
+[/list]
+
+[hr][/hr]
+[h1]FAQ[/h1]
+[b]F: Brauche ich DLC, um das hier zu nutzen?[/b]
+A: Ja. Odysseys System für einzigartige Waffen wird benötigt. Royalty wird nicht benötigt, schaltet aber zusätzliche Waffen/Merkmale frei, wie oben beschrieben.
+
+[b]F: Wie bekomme ich die Waffen?[/b]
+A: Auf die gleiche Weise wie Odysseys einzigartige Fernkampfwaffen: Questbelohnungen, versiegelte Kisten, sowie Angel- und Kartengenerierungsbeute würfeln sie alle aus. Außerdem die neue, eigene Kriegerbande-Quest dieser Mod.
+
+[b]F: Aber sie sind so selten! Und die Merkmale und Farben sind nicht das, was ich will![/b]
+A: Wirf einen Blick auf [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], alle Waffen werden vollständig unterstützt.
+
+[b]F: Wurde das hier mit LLMs erstellt!?[/b]
+A: Ein Teil des einfachen Codes, und die meisten Lokalisierungen. Ich bin von Beruf Softwareentwickler und schreibe seit 25 Jahren Code. Aller Code wird manuell überprüft und getestet; allen Fehlermeldungen und Mod-Konflikten wird persönlich nachgegangen, soweit Zeit und Details es zulassen. Alle Grafiken sind entweder bei Menschen in Auftrag gegeben, von Hand in Krita erstellt, oder beides.
+
+[h2]Lokalisierung[/h2]
+Englisch, Vereinfachtes Chinesisch, Französisch, Deutsch, Japanisch, Koreanisch, Brasilianisches Portugiesisch, Russisch und Spanisch. Weitere Anfragen und Korrekturen von Muttersprachlern sind sehr willkommen.
+
+[h2]Links[/h2]
+[url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Quellcode, Fehlerberichte, Feature-Wünsche usw.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], Schwester-Mod
+Heldengrafiken und Texturen von [url=https://steamcommunity.com/profiles/76561198094174176/myworkshopfiles/?appid=294100]IcyCheeseCake[/url]

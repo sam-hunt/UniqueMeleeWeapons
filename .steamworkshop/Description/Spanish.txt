@@ -1,0 +1,88 @@
+Armas cuerpo a cuerpo únicas
+
+[h1]Acerca de[/h1]
+Odyssey introdujo 13 armas únicas: variantes excepcionales y poco frecuentes que sortean hasta 3 rasgos aleatorios (de un total de 42), colores y nombres, obtenidas en misiones y como botín del mundo. Todas y cada una son un "arma de fuego". El cuerpo a cuerpo no recibió nada.
+
+Este mod llena ese vacío. Nuevas variantes únicas de armas cuerpo a cuerpo neolíticas y medievales del juego base, cada una con material variable, con su propio conjunto de rasgos nuevos, reglas de nombres y texturas limpias de doble máscara.
+
+[hr][/hr]
+[h2]7 armas cuerpo a cuerpo únicas[/h2]
+Variantes únicas del cuchillo, el gladius, la espada larga, la lanza y la maza del juego base, más el hacha y el martillo de guerra con Royalty. Cada una hereda las herramientas y estadísticas de su arma base.
+[list]
+[*][b]Con material variable[/b], a diferencia de las armas únicas a distancia de Odyssey, por lo que los multiplicadores de estadísticas del material se aplican con normalidad
+[*][b]5 variantes artísticas dibujadas a mano por arma[/b], con un color de acento único y el tinte del material representados juntos de forma independiente
+[/list]
+
+[h2]28 rasgos de arma nuevos[/h2]
+Los rasgos se sortean entre 6 categorías nuevas, condicionadas por lo que el arma es físicamente. Una lanza puede ser con lengüetas pero no de aletas; una maza puede ser fundida en campana pero no de filo de navaja. Las bendiciones psíquicas sobre el usuario siguen siendo terreno de las armas vinculadas a una persona.
+[list]
+[*][b]Cortante:[/b] filo de navaja, serrado, mono-molecular*, núcleo de plasma*
+[*][b]Punzante:[/b] punta de aguja, pico perforante, con lengüetas, envenenado, opiáceo
+[*][b]Contundente:[/b] de aletas, con tachuelas, fundido en campana, sin rebote, cabeza de Zeus*, martinete
+[*][b]Pesado:[/b] de cabeza pesada, contrapesado
+[*][b]Con guarda:[/b] con gavilanes (para armas con una guarda de mano auténtica)
+[*][b]Universal (del juego base):[/b] ornamental, feo, ligero, torpe, incrustación de oro, incrustación de jade
+[*][b]Universal (nuevo):[/b] manchado de sangre, carbonizado, esmaltado, de renombre
+[/list]
+[i]*requiere el DLC Royalty[/i]
+
+[h2]Nuevos efectos cuerpo a cuerpo[/h2]
+La mayoría de los campos de rasgo más interesantes de las armas únicas no funcionan en cuerpo a cuerpo; el juego solo los lee para armas de fuego y armas vinculadas a una persona. Los rasgos nuevos sí actúan de verdad:
+[list]
+[*][b]Efectos al golpear:[/b] daño extra, aturdimientos, tambaleos, colapsos mentales, heridas sangrantes, acumulación tóxica y de sedante
+[*][b]Tipos de daño redirigidos:[/b] un filo serrado desgarra heridas irregulares, una punta envenenada inflige tóxico
+[*][b]Penetración de armadura ajustada por separado del daño[/b] (normalmente el juego base los acopla), y también por herramienta
+[*][b]Efectos sobre el usuario:[/b] la dificultad de acertar de una punta de aguja, la probabilidad de desviar de una guarda con gavilanes
+[*][b]Color de cuerpo forzado:[/b] negro carbón, púrpura esmalte, blanco mono-molecular, naranja plasma, rojo sangre
+[/list]
+
+[h2]Nuevas habilidades activas[/h2]
+[list]
+[*][b]Sacudida telúrica[/b] (martinete): golpea el suelo con el arma y lanza una onda de choque aturdidora que pasa por debajo de los muros.
+[*][b]Arenga[/b] (de renombre): alza el arma y lanza una arenga; los aliados ignoran temporalmente el dolor y los tambaleos.
+[/list]
+[b]Más por llegar[/b], ¡las ideas son bienvenidas!
+
+[h2]Nueva misión de la banda de guerra[/h2]
+Un paralelismo de baja tecnología a la misión de los mercenarios antiguos de Odyssey. Una partida de guerra tribal itinerante se ha refugiado en un asentamiento abandonado, y su líder porta un arma cuerpo a cuerpo única. Elimina al líder y el arma será tuya.
+
+[h2]Ajustes[/h2]
+Tu colonia, tus reglas:
+[list]
+[*]Activa o desactiva armas individualmente si alguna no te convence.
+[*]Desactiva los rasgos ultratecnológicos para partidas de tecnología más baja.
+[*]Ajusta los enfriamientos, radios y duración de las habilidades.
+[*]Ajusta o desactiva la frecuencia de la misión de la banda de guerra.
+[/list]
+
+[hr][/hr]
+[h1]Compatibilidad de mods[/h1]
+[list]
+[*]Seguro añadirlo a partidas guardadas existentes
+[*]No es seguro quitarlo, pero todo puede desactivarse desde los ajustes del mod
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: totalmente integrado y ajustado, con costes de rasgo resueltos con sentido temático
+[*]Los rasgos cuerpo a cuerpo están completamente separados de los propios rasgos a distancia de Odyssey y de los rasgos de vínculo de Royalty
+[*]Aún no probado con Combat Extended (los informes son bienvenidos)
+[/list]
+
+[hr][/hr]
+[h1]Preguntas frecuentes[/h1]
+[b]P: ¿Necesito algún DLC para usar esto?[/b]
+R: Sí. Necesita el sistema de armas únicas de Odyssey. No necesita Royalty, pero Royalty desbloquea armas y rasgos adicionales, como se explica más arriba.
+
+[b]P: ¿Cómo consigo las armas?[/b]
+R: Del mismo modo que las armas únicas a distancia de Odyssey: las recompensas de misiones, las cajas antiguas, la pesca y el botín de generación del mapa pueden darlas. También la propia misión nueva de la banda de guerra del mod.
+
+[b]P: ¡Pero son tan raras! ¡Y los rasgos y los colores no son los que quiero![/b]
+R: Echa un vistazo a [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]; todas las armas son totalmente compatibles.
+
+[b]P: ¿¡Se hizo esto usando LLM!?[/b]
+R: Parte del código más mecánico, y la mayoría de las localizaciones. Soy ingeniero de software de profesión y llevo 25 años escribiendo código. Todo el código se revisa y se prueba manualmente; todos los informes de errores y los conflictos entre mods se atienden personalmente, según el tiempo y el detalle disponibles. Todo el arte está encargado a artistas humanos, hecho a mano en Krita, o ambas cosas.
+
+[h2]Localización[/h2]
+Inglés, chino simplificado, francés, alemán, japonés, coreano, portugués brasileño, ruso y español. Las peticiones adicionales, y las correcciones de hablantes nativos, son muy bienvenidas.
+
+[h2]Enlaces[/h2]
+[url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Código fuente, informes de errores, solicitudes de funciones, etc.
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] mod hermano
+Arte principal y texturas de [url=https://steamcommunity.com/profiles/76561198094174176/myworkshopfiles/?appid=294100]IcyCheeseCake[/url]
