@@ -244,19 +244,30 @@ fails until the next release run.
 ## Localization
 
 English (Keyed files + def fields) is the source of truth; other languages derive from it via the
-`/translate` skill (`.claude/skills/translate/SKILL.md` — grounding rules, glossary, workflows) and
-are validated deterministically by `python3 Scripts/check-translations.py` (also a CI release gate).
+`/translate` skill (`.claude/skills/translate/SKILL.md` — this mod's translation surface, grounding
+domain, and glossary; family-wide process lives in the `l10n/` submodule, see below) and are
+validated deterministically by `python3 Scripts/check-translations.py` (also a CI release gate).
 The DefInjected expected set is the checked-in sidecar `Scripts/expected-injections.json`: a dump
 of every injection point the *live* game sees for this mod — including vanilla-inherited fields
 (tool labels, `labelNounPretty`, `messageDefendersAttacking`) and C#-default comp strings
 (`chargeNoun`, `cooldownGerund`) that never appear in this repo's XML — produced by
-`Scripts/refresh-translation-expectations.py` driving the `../L10nProbe` dev mod (never shipped)
-through the game's own walker. The checker refuses to run against stale expectations (any defName
-in `Defs/` the sidecar has never seen, or label/description text that drifted), so new content
-forces a regen and the regen sees everything the game sees; the release skill regenerates every
-release, which also covers vanilla updates changing inherited text under unchanged defNames. The
-public language roster lives in CONTRIBUTING.md and must move in the same commit as any language
-change.
+`Scripts/refresh-translation-expectations.py` driving the L10nProbe dev mod (source lives at
+`l10n/probe/`; build/deploy it only from the canonical `~/dev/rimworld-l10n` checkout) through the
+game's own walker. The checker refuses to run against stale expectations (any defName in `Defs/`
+the sidecar has never seen, or label/description text that drifted), so new content forces a regen
+and the regen sees everything the game sees; the release skill regenerates every release, which
+also covers vanilla updates changing inherited text under unchanged defNames. The public language
+roster lives in CONTRIBUTING.md and must move in the same commit as any language change.
+
+- **Shared l10n toolkit (`l10n/` submodule):** the family-wide translation process, per-language
+  mechanics references, cross-language lessons, Workshop conventions, and the checker/refresh
+  script engines live in the `rimworld-l10n` repo, consumed here as the `l10n/` git submodule
+  (canonical working checkout: `~/dev/rimworld-l10n`). `Scripts/check-translations.py` and
+  `Scripts/refresh-translation-expectations.py` are thin per-repo config shims over its engines. If
+  `l10n/` is empty, run `git submodule update --init`. Never edit `l10n/` in place here:
+  mod-independent learnings go upstream in the canonical checkout, then the pin is bumped in each
+  consuming repo; mod-specific learnings (this mod's coined weapon-trait/name-grammar vocabulary)
+  go in this repo's skill/glossary.
 
 **Workshop title coupling:** each language's `UMW_SettingsCategory` Keyed value is the localized
 Steam Workshop title and must equal the title line (line 1) of
