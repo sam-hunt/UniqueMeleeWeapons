@@ -11,24 +11,12 @@ RimWorld's language folder is `French` (tar: `French (Français).tar`).
 
 ## `RulePackDef` naming grammar — this mod's own fields
 
-**French solves rulepack gender with RULE-LEVEL CONSTRAINTS — distinct
-from German's inline `|M|` markers and Spanish's parallel symbol
-families.** Core fr writes one rule per agreement class and lets the
-resolver pick:
-
-```
-<li>staggered(p=3,SUBJECT_gender==Male)->est stupéfait</li>
-<li>staggered(SUBJECT_gender==Female)->est stupéfaite</li>
-<li>staggered(SUBJECT_gender==None)->est stupéfait</li>
-<li>verb_genericattack(INITIATOR_gender!=Female)->s'est rué</li>   <!-- shorthand for Male+None -->
-```
-
-**Always cover `None`** (or use `!=Female`): a missing branch fails to
-resolve for genderless pawns, i.e. mechanoids. This is a French-specific
-finding not yet confirmed promoted to the shared engine-mechanics file —
-flag for upstream if a future pass verifies it belongs there.
-
-Two def fields this mod owns, both constrained by that namer:
+The rule-level gender-constraint technique itself (one rule per agreement
+class via `SUBJECT_gender==…`, the `!=Female` shorthand, and the
+must-cover-`None` trap with its whole-string-falls-back-to-English failure
+mode) is family-generic and lives upstream in `l10n/languages/French.md`
+(promoted and decompile-verified 2026-08-18). Two def fields this mod
+owns, both constrained by that namer:
 
 - **`traitAdjectives` must be GENDER-INVARIANT** — the same requirement
   Spanish has, for the same reason (they postpose onto a `[weapon_noun]` of
