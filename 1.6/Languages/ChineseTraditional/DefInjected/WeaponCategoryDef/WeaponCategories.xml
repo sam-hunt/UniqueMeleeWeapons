@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Short lowercase category labels, not vanilla-sourced. UMW_Melee grounds on Core's Melee
+       skill label (格鬥). UMW_Bladed/Pointed/Blunt are built on the ToolCapacityDef roots for
+       cut/stab/blunt (割/刺/鈍擊) plus the common Chinese weapon-class suffix 器, since these
+       mechanism categories are defined by exactly those tool capacities. UMW_Heavy and
+       UMW_Guarded have no vanilla anchor and are mod-decided. -->
+
+  <!-- EN: melee -->
+  <UMW_Melee.label>格鬥</UMW_Melee.label>
+
+  <!-- EN: bladed -->
+  <UMW_Bladed.label>刃器</UMW_Bladed.label>
+
+  <!-- EN: pointed -->
+  <UMW_Pointed.label>尖器</UMW_Pointed.label>
+
+  <!-- EN: blunt -->
+  <UMW_Blunt.label>鈍器</UMW_Blunt.label>
+
+  <!-- EN: heavy -->
+  <UMW_Heavy.label>沉重</UMW_Heavy.label>
+
+  <!-- EN: guarded -->
+  <UMW_Guarded.label>護手</UMW_Guarded.label>
+
+</LanguageData>

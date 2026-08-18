@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- In-combat floating text. -->
+  <!-- Thrown over a pawn whose weapon parries an incoming melee blow; the parry counterpart of
+       vanilla's <TextMote_Dodge>Dodge</TextMote_Dodge>, so keep the same single-word register. -->
+  <!-- EN: Parried -->
+  <UMW_TextMote_Parried>格擋</UMW_TextMote_Parried>
+
+</LanguageData>

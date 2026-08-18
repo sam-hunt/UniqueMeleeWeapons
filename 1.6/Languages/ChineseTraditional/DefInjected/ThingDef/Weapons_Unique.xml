@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: unique gladius -->
+  <UMW_Gladius_Unique.label>獨特短劍</UMW_Gladius_Unique.label>
+
+  <!-- EN: A gladius bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Gladius_Unique.description>一把烙有大師印記的短劍。沒有任何兩件鍛造得一模一樣。</UMW_Gladius_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Gladius_Unique.tools.handle.label>劍柄</UMW_Gladius_Unique.tools.handle.label>
+
+  <!-- EN: point -->
+  <UMW_Gladius_Unique.tools.point.label>劍尖</UMW_Gladius_Unique.tools.point.label>
+
+  <!-- EN: edge -->
+  <UMW_Gladius_Unique.tools.edge.label>劍鋒</UMW_Gladius_Unique.tools.edge.label>
+
+  <!-- EN: charge -->
+  <UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: gladius -->
+  <UMW_Gladius_Unique.comps.5.namerLabels.0>短劍</UMW_Gladius_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_Gladius_Unique.comps.5.namerLabels.1>利刃</UMW_Gladius_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_Gladius_Unique.comps.5.namerLabels.2>劍</UMW_Gladius_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_Gladius_Unique.comps.5.namerLabels.3>劍鋒</UMW_Gladius_Unique.comps.5.namerLabels.3>
+
+
+  <!-- EN: unique knife -->
+  <UMW_Knife_Unique.label>獨特小刀</UMW_Knife_Unique.label>
+
+  <!-- EN: A knife honed by a master's hand. No two are forged alike. -->
+  <UMW_Knife_Unique.description>一把經大師之手磨礪的小刀。沒有任何兩件鍛造得一模一樣。</UMW_Knife_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Knife_Unique.tools.handle.label>刀柄</UMW_Knife_Unique.tools.handle.label>
+
+  <!-- EN: blade -->
+  <UMW_Knife_Unique.tools.blade.label>刀身</UMW_Knife_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_Knife_Unique.tools.point.label>刀尖</UMW_Knife_Unique.tools.point.label>
+
+  <!-- EN: charge -->
+  <UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_Knife_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: knife -->
+  <UMW_Knife_Unique.comps.5.namerLabels.0>小刀</UMW_Knife_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_Knife_Unique.comps.5.namerLabels.1>利刃</UMW_Knife_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: dagger -->
+  <UMW_Knife_Unique.comps.5.namerLabels.2>匕首</UMW_Knife_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_Knife_Unique.comps.5.namerLabels.3>刀鋒</UMW_Knife_Unique.comps.5.namerLabels.3>
+
+
+  <!-- EN: unique longsword -->
+  <UMW_LongSword_Unique.label>獨特長劍</UMW_LongSword_Unique.label>
+
+  <!-- EN: A longsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_LongSword_Unique.description>一把烙有大師印記的長劍。沒有任何兩件鍛造得一模一樣。</UMW_LongSword_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_LongSword_Unique.tools.handle.label>劍柄</UMW_LongSword_Unique.tools.handle.label>
+
+  <!-- EN: point -->
+  <UMW_LongSword_Unique.tools.point.label>劍尖</UMW_LongSword_Unique.tools.point.label>
+
+  <!-- EN: edge -->
+  <UMW_LongSword_Unique.tools.edge.label>劍鋒</UMW_LongSword_Unique.tools.edge.label>
+
+  <!-- EN: charge -->
+  <UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_LongSword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: longsword -->
+  <UMW_LongSword_Unique.comps.5.namerLabels.0>長劍</UMW_LongSword_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_LongSword_Unique.comps.5.namerLabels.1>利刃</UMW_LongSword_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_LongSword_Unique.comps.5.namerLabels.2>劍</UMW_LongSword_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_LongSword_Unique.comps.5.namerLabels.3>劍鋒</UMW_LongSword_Unique.comps.5.namerLabels.3>
+
+
+  <!-- EN: unique mace -->
+  <UMW_Mace_Unique.label>獨特錘子</UMW_Mace_Unique.label>
+
+  <!-- EN: A mace bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Mace_Unique.description>一把烙有大師印記的錘子。沒有任何兩件鍛造得一模一樣。</UMW_Mace_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_Mace_Unique.tools.handle.label>握柄</UMW_Mace_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_Mace_Unique.tools.head.label>錘頭</UMW_Mace_Unique.tools.head.label>
+
+  <!-- EN: charge -->
+  <UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_Mace_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: mace -->
+  <UMW_Mace_Unique.comps.5.namerLabels.0>錘子</UMW_Mace_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: bludgeon -->
+  <UMW_Mace_Unique.comps.5.namerLabels.1>重錘</UMW_Mace_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: club -->
+  <UMW_Mace_Unique.comps.5.namerLabels.2>棍棒</UMW_Mace_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_Mace_Unique.comps.5.namerLabels.3>錘頭</UMW_Mace_Unique.comps.5.namerLabels.3>
+
+
+  <!-- EN: unique spear -->
+  <UMW_Spear_Unique.label>獨特長矛</UMW_Spear_Unique.label>
+
+  <!-- EN: A spear bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_Spear_Unique.description>一杆烙有大師印記的長矛。沒有任何兩件鍛造得一模一樣。</UMW_Spear_Unique.description>
+
+  <!-- EN: shaft -->
+  <UMW_Spear_Unique.tools.shaft.label>矛柄</UMW_Spear_Unique.tools.shaft.label>
+
+  <!-- EN: point -->
+  <UMW_Spear_Unique.tools.point.label>刃尖</UMW_Spear_Unique.tools.point.label>
+
+  <!-- EN: charge -->
+  <UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_Spear_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: spear -->
+  <UMW_Spear_Unique.comps.5.namerLabels.0>長矛</UMW_Spear_Unique.comps.5.namerLabels.0>
+
+  <!-- EN: lance -->
+  <UMW_Spear_Unique.comps.5.namerLabels.1>長槍</UMW_Spear_Unique.comps.5.namerLabels.1>
+
+  <!-- EN: pike -->
+  <UMW_Spear_Unique.comps.5.namerLabels.2>矛</UMW_Spear_Unique.comps.5.namerLabels.2>
+
+  <!-- EN: point -->
+  <UMW_Spear_Unique.comps.5.namerLabels.3>刃尖</UMW_Spear_Unique.comps.5.namerLabels.3>
+
+  <!-- UMW_Warhammer_Unique and UMW_Axe_Unique (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/ChineseTraditional/DefInjected/ThingDef/Weapons_Unique.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
+
+</LanguageData>

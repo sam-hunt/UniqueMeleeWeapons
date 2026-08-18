@@ -80,7 +80,7 @@ R: Echa un vistazo a [url=https://steamcommunity.com/sharedfiles/filedetails/?id
 R: Parte del código más mecánico, y la mayoría de las localizaciones. Soy ingeniero de software de profesión y llevo 25 años escribiendo código. Todo el código se revisa y se prueba manualmente; todos los informes de errores y los conflictos entre mods se atienden personalmente, según el tiempo y el detalle disponibles. Todo el arte está encargado a artistas humanos, hecho a mano en Krita, o ambas cosas.
 
 [h2]Localización[/h2]
-Inglés, chino simplificado, francés, alemán, japonés, coreano, portugués brasileño, ruso y español. Las peticiones adicionales, y las correcciones de hablantes nativos, son muy bienvenidas.
+Inglés, chino simplificado, chino tradicional, francés, alemán, japonés, coreano, portugués brasileño, ruso y español. Las peticiones adicionales, y las correcciones de hablantes nativos, son muy bienvenidas.
 
 [h2]Enlaces[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Código fuente, informes de errores, solicitudes de funciones, etc.

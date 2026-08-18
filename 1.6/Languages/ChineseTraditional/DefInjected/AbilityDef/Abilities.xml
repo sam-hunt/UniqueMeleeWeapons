@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: earthshake -->
+  <UMW_Earthshake.label>撼地</UMW_Earthshake.label>
+
+  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing. -->
+  <UMW_Earthshake.description>將武器的全部重量猛砸向地面，沿大地送出一圈足以擊昏的衝擊波。震波能從牆下穿過，不分敵我地擊昏所有人；只有事先撐穩身形的使用者能站穩腳跟。</UMW_Earthshake.description>
+
+
+  <!-- EN: rallying cry -->
+  <UMW_RallyingCry.label>鼓舞吶喊</UMW_RallyingCry.label>
+
+  <!-- EN: Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them. -->
+  <UMW_RallyingCry.description>高舉武器，放聲吶喊。看到這一幕的盟友會為之一振，一段時間內幾乎不受傷痛拖累。</UMW_RallyingCry.description>
+
+</LanguageData>

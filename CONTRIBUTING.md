@@ -13,6 +13,7 @@ welcome too.
 | -------------------- | ---------------- | ------- |
 | English              | Source           | —       |
 | Simplified Chinese   | Machine-assisted | Fable 5 |
+| Traditional Chinese  | Machine-assisted | Fable 5 |
 | Russian              | Machine-assisted | Fable 5 |
 | Korean               | Machine-assisted | Opus 5  |
 | German               | Machine-assisted | Opus 5  |

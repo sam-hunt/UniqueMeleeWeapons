@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+       no MayRequire of their own. MayRequire is honored on defs but
+       IGNORED on DefInjected entries, so these injections live in this
+       LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
+       active) rather than the main
+       1.6/Languages/ChineseTraditional/DefInjected/WeaponTraitDef/WeaponTraits.xml, which would
+       error on startup for players without Royalty. Style conventions for these
+       entries are documented in that file's header comment. -->
+
+  <!-- EN: monomolecular -->
+  <UMW_Monomolecular.label>單分子刃</UMW_Monomolecular.label>
+
+  <!-- EN: The edge is honed to a single molecule and held there by a lattice of mechanites. It parts armor and bone as though they were not there. -->
+  <UMW_Monomolecular.description>刃口被研磨至僅有單個分子的厚度，並由奈米機械晶格加以維持。它剖開護甲與骨骼，彷彿它們並不存在。</UMW_Monomolecular.description>
+
+  <!-- EN: mono-edged -->
+  <UMW_Monomolecular.traitAdjectives.0>單分子</UMW_Monomolecular.traitAdjectives.0>
+
+  <!-- EN: crystalline -->
+  <UMW_Monomolecular.traitAdjectives.1>晶質</UMW_Monomolecular.traitAdjectives.1>
+
+  <!-- EN: honed -->
+  <UMW_Monomolecular.traitAdjectives.2>精磨</UMW_Monomolecular.traitAdjectives.2>
+
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.label>等離子內芯</UMW_PlasmaCored.label>
+
+  <!-- EN: The core of the blade channels a sheath of plasma, held in place by an energy field and released into the wounds it cuts. It sears flesh and sometimes ignites the target. -->
+  <UMW_PlasmaCored.description>刀身的內芯導引著一層由能量力場約束的電漿鞘層，並將其釋放進它切開的傷口。電漿會灼傷血肉，有時還會點燃目標。</UMW_PlasmaCored.description>
+
+  <!-- EN: plasma-cored -->
+  <UMW_PlasmaCored.traitAdjectives.0>等離子</UMW_PlasmaCored.traitAdjectives.0>
+
+  <!-- EN: burning -->
+  <UMW_PlasmaCored.traitAdjectives.1>灼燒</UMW_PlasmaCored.traitAdjectives.1>
+
+  <!-- EN: searing -->
+  <UMW_PlasmaCored.traitAdjectives.2>炙灼</UMW_PlasmaCored.traitAdjectives.2>
+
+  <!-- EN: fiery -->
+  <UMW_PlasmaCored.traitAdjectives.3>火紅</UMW_PlasmaCored.traitAdjectives.3>
+
+  <!-- EN: incandescent -->
+  <UMW_PlasmaCored.traitAdjectives.4>白熾</UMW_PlasmaCored.traitAdjectives.4>
+
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.label>宙斯錘頭</UMW_ZeusHeaded.label>
+
+  <!-- EN: The head houses a miniaturized zeus-cell that releases an electromagnetic discharge on impact, temporarily disabling electronics and mechanoids. -->
+  <UMW_ZeusHeaded.description>錘頭內藏有一枚微型化的宙斯電芯，會在撞擊時釋放 EMP 脈衝，使電子設備和機械族暫時失靈。</UMW_ZeusHeaded.description>
+
+  <!-- EN: zeus-headed -->
+  <UMW_ZeusHeaded.traitAdjectives.0>宙斯</UMW_ZeusHeaded.traitAdjectives.0>
+
+  <!-- EN: thunderous -->
+  <UMW_ZeusHeaded.traitAdjectives.1>雷霆</UMW_ZeusHeaded.traitAdjectives.1>
+
+  <!-- EN: electric -->
+  <UMW_ZeusHeaded.traitAdjectives.2>電力</UMW_ZeusHeaded.traitAdjectives.2>
+
+  <!-- EN: shocking -->
+  <UMW_ZeusHeaded.traitAdjectives.3>暈眩</UMW_ZeusHeaded.traitAdjectives.3>
+
+</LanguageData>

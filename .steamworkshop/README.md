@@ -32,6 +32,9 @@ differ: schinese, koreana, brazilian, latam, ...). The `release` skill diffs
 `English.txt` against the last release tag and refreshes the translations
 whenever it changed.
 
-All nine language files exist (initial pass 2026-08-18); the non-English ones
-are machine-assisted first passes pending native review, and still need their
-first manual paste into the Workshop page's per-language edit UI.
+All ten language files exist (initial pass 2026-08-18; Traditional Chinese
+added 2026-08-19); the non-English ones are machine-assisted first passes
+pending native review, and still need their first manual paste into the
+Workshop page's per-language edit UI. The 2026-08-19 pass also added
+Traditional Chinese to every file's Localization roster line, so all ten
+pages need a (re-)paste.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: warband -->
+  <UMW_Warband.label>戰團</UMW_Warband.label>
+
+  <!-- EN: A roving company of fighters who live by the raid, preying on settlements and travellers across the land. -->
+  <UMW_Warband.description>一夥以劫掠為生、四處遊蕩的戰士，不斷騷擾這片土地上的定居點和旅行者。</UMW_Warband.description>
+
+  <!-- EN: warrior -->
+  <UMW_Warband.pawnSingular>戰士</UMW_Warband.pawnSingular>
+
+  <!-- EN: warriors -->
+  <UMW_Warband.pawnsPlural>戰士</UMW_Warband.pawnsPlural>
+
+  <!-- EN: warlord -->
+  <UMW_Warband.leaderTitle>首領</UMW_Warband.leaderTitle>
+
+  <!-- EN: {0} from {1} are attacking your {2}. -->
+  <UMW_Warband.messageDefendersAttacking>來自{1}的{0}正在攻擊你的{2}。</UMW_Warband.messageDefendersAttacking>
+
+</LanguageData>

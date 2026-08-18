@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: blood red -->
+  <UMW_BloodRed.label>血紅</UMW_BloodRed.label>
+
+
+  <!-- EN: carbon black -->
+  <UMW_CarbonBlack.label>碳黑</UMW_CarbonBlack.label>
+
+
+  <!-- EN: enamel purple -->
+  <UMW_EnamelPurple.label>琺瑯紫</UMW_EnamelPurple.label>
+
+  <!-- UMW_PlasmaOrange and UMW_MonoWhite (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/ChineseTraditional/DefInjected/ColorDef/Colors.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
+
+</LanguageData>

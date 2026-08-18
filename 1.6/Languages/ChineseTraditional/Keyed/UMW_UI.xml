@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Settings: window category (mod-list entry) -->
+  <!-- EN: Unique Melee Weapons -->
+  <UMW_SettingsCategory>獨特近戰武器</UMW_SettingsCategory>
+
+  <!-- Settings: section headers. -->
+  <!-- EN: Weapons -->
+  <UMW_SettingsWeapons>武器</UMW_SettingsWeapons>
+
+  <!-- EN: Generation -->
+  <UMW_SettingsGeneration>生成</UMW_SettingsGeneration>
+
+  <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
+       appended (no precedence between them), so they must read cleanly back to back. -->
+  <!-- EN:  (default) -->
+  <UMW_DefaultSuffix>（預設）</UMW_DefaultSuffix>
+
+  <!-- {0} is another piece of content the current value matches, named from its own def label. -->
+  <!-- EN:  (same as {0}) -->
+  <UMW_SameAsSuffix>（與「{0}」相同）</UMW_SameAsSuffix>
+
+  <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from this mod's own reward pool and from every vanilla generation and reward pool, including quest rewards, ancient crates, item stashes and map loot, so it no longer appears. (A third-party mod that rolls loot through its own custom generator may bypass this.) Any that already exist in your save are untouched, and the other weapons take its place in the rolls. Turning it back on is enough to restore it. -->
+  <UMW_WeaponEnabledDesc>允許生成「{0}」。關閉後，該武器會從本模組自身的獎勵池，以及原版所有生成池與獎勵池中移除，包括任務獎勵、密封板條箱、物品藏匿點與地圖戰利品，此後不會再出現。（透過自身生成器分配戰利品的第三方模組可能會繞過此設定。）存檔中已有的該武器不受影響，其餘武器會在抽取中頂替它的位置。重新開啟即可將其恢復。</UMW_WeaponEnabledDesc>
+
+  <!-- Settings: buttons -->
+  <!-- EN: Reset to defaults -->
+  <UMW_ResetToDefaults>恢復為預設值</UMW_ResetToDefaults>
+
+  <!-- Settings: Generation -->
+  <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
+  <!-- EN: Exclude {0} from generated unique weapons -->
+  <UMW_ExcludeWoodStuff>生成獨特武器時排除「{0}」</UMW_ExcludeWoodStuff>
+
+  <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
+  <!-- EN: Unique weapons only enter the game through generated rewards (quests, ancient crates, item stashes), rolled from a random eligible material. With this on, wooden materials are dropped from that roll, so a hard-won reward never lands as a wooden {0}. Turn off to allow wooden uniques. -->
+  <UMW_ExcludeWoodStuffDesc>獨特武器只會透過生成的獎勵（任務、密封板條箱、物品藏匿點）進入遊戲，其材料是從符合條件的材料中隨機抽取。開啟後，木質材料會被排除在抽取之外，來之不易的獎勵便不會是一把木製的「{0}」。關閉以允許木製的獨特武器。</UMW_ExcludeWoodStuffDesc>
+
+  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
+       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed.
+       Each parenthetical describes the trait injected just before it, so keep them paired. -->
+  <!-- EN: Allow ultratech weapon traits -->
+  <UMW_AllowUltratechTraits>允許超科技武器特質</UMW_AllowUltratechTraits>
+
+  <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
+  <UMW_AllowUltratechTraitsDesc>三項特質借用了「皇權」的超科技近戰裝備：「{0}」（由奈米機械維持的刃口，可切開護甲）、「{1}」（電漿護層，會灼傷並點燃目標）和「{2}」（能擊昏機械族的 EMP 放電）。關閉後它們不再參與抽取。此設定面向純中世紀或低科技的遊戲流程，在那樣的時代背景下，手工鍛造的劍上出現奈米機械刃口會破壞時代感。其餘特質不受影響，已經抽到這些特質的武器會保留它們。</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
+       (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
+       The unit word is part of the template, so hour- and day-based cooldowns are separate keys. -->
+  <!-- EN: {0} cooldown: {1} hours -->
+  <UMW_AbilityCooldownHours>{0}冷卻時間：{1}小時</UMW_AbilityCooldownHours>
+
+  <!-- EN: {0} cooldown: {1} days -->
+  <UMW_AbilityCooldownDays>{0}冷卻時間：{1}天</UMW_AbilityCooldownDays>
+
+  <!-- EN: {0} radius: {1} cells -->
+  <UMW_AbilityRadius>{0}半徑：{1}格</UMW_AbilityRadius>
+
+  <!-- EN: {0} duration: {1} hours -->
+  <UMW_HediffDurationHours>{0}持續時間：{1}小時</UMW_HediffDurationHours>
+
+  <!-- EN: How long a piledriver weapon must rest between earthshakes. The default matches the cooldown on the EMP pulser, the one weapon-trait ability Odyssey ships with a cooldown. Set to 0 for no cooldown at all. -->
+  <UMW_EarthshakeCooldownDesc>裝有打樁頭的武器在兩次撼地之間需要休整多久。預設值與「EMP 脈衝器」的冷卻時間一致，後者是「漫遊」中唯一自帶冷卻時間的武器特質能力。設為0則完全沒有冷卻時間。</UMW_EarthshakeCooldownDesc>
+
+  <!-- EN: How far the stunning shockwave reaches. It travels through the ground, so walls do not stop it, but it cannot cross a gap with no floor. The overhead ripple scales to match. Remember the shock is indiscriminate: a wider radius catches more of your own colonists too. -->
+  <UMW_EarthshakeRadiusDesc>造成擊昏的衝擊波能波及多遠。衝擊波沿地面傳播，牆壁無法阻擋它，但它無法越過沒有地板的裂隙。地表上方的漣漪特效會隨半徑一同縮放。請記住，震擊不分敵我：半徑越大，殃及的自家殖民者也越多。</UMW_EarthshakeRadiusDesc>
+
+  <!-- EN: How long a storied weapon must rest between rallying cries. Measured in days rather than hours on purpose: the default makes it an heirloom moment rather than a standing aura you re-apply every fight. -->
+  <UMW_RallyingCryCooldownDesc>傳世武器在兩次鼓舞吶喊之間需要休整多久。刻意以天而非小時計量：預設值使吶喊成為傳家寶般的難得時刻，而不是每場戰鬥都重新施放的常駐光環。</UMW_RallyingCryCooldownDesc>
+
+  <!-- EN: How far the cry carries. It rallies every humanlike within this range who is not hostile to the wielder and can see them, so allied and neutral pawns are included but walls and closed doors block it. Waking sleepers uses the same range but ignores walls, and catches enemies as well. -->
+  <UMW_RallyingCryRadiusDesc>吶喊能傳多遠。範圍內所有對使用者不懷敵意且能看見使用者的人類都會受到鼓舞，因此盟友和中立角色也包含在內，但牆壁和關閉的門會擋住吶喊。喚醒沉睡者使用同一範圍，但無視牆壁，也會一併驚醒敵人。</UMW_RallyingCryRadiusDesc>
+
+  <!-- EN: How long the rallied buff lasts on each pawn the cry reaches, halving both their pain and the time a hit staggers them. Anyone who was asleep is woken instead of rallied, and resents it. Changing this affects cries made from now on; anyone already rallied keeps the duration they were given. -->
+  <UMW_RalliedDurationDesc>士氣大振效果在吶喊觸及的每個角色身上持續多久：疼痛和受擊後腳步被打亂的時間都減半。睡著的人不會受到鼓舞，而是被吵醒，並為此心生不滿。修改只影響之後發出的吶喊；已受鼓舞者保留原有的持續時間。</UMW_RalliedDurationDesc>
+
+  <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
+       faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
+       mercenaries, bandit camps, item stashes) are vanilla content names; translate them to match
+       the official localization. -->
+  <!-- EN: {0} quest commonality: {1} -->
+  <UMW_QuestWeight>{0}任務出現頻率：{1}</UMW_QuestWeight>
+
+  <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
+  <UMW_WarbandQuestWeightDesc>戰團任務相對於其他同類地點任務（遠古傭兵、土匪營地、物品藏匿點……）的抽選權重，這類任務可透過商人、乞丐和閱讀取得。數值越高，出現越頻繁。設為0則完全停用該任務。</UMW_WarbandQuestWeightDesc>
+
+</LanguageData>

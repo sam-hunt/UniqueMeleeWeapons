@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: ragged cut -->
+  <UMW_Cut_Ragged.label>撕裂割傷</UMW_Cut_Ragged.label>
+
+  <!-- EN: a ragged cut -->
+  <UMW_Cut_Ragged.labelNoun>撕裂割傷</UMW_Cut_Ragged.labelNoun>
+
+  <!-- EN: A ragged, torn cut that bleeds freely and scars badly. -->
+  <UMW_Cut_Ragged.description>一道參差撕裂的割傷，出血不止，且極易留下難看的疤痕。</UMW_Cut_Ragged.description>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_Cut_Ragged.labelNounPretty>{1}內的{0}</UMW_Cut_Ragged.labelNounPretty>
+
+  <!-- EN: bandaged -->
+  <UMW_Cut_Ragged.comps.0.labelTendedWell>已包紮</UMW_Cut_Ragged.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_Cut_Ragged.comps.0.labelTendedWellInner>已縫合</UMW_Cut_Ragged.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_Cut_Ragged.comps.0.labelSolidTendedWell>已固定</UMW_Cut_Ragged.comps.0.labelSolidTendedWell>
+
+  <!-- EN: ragged scar -->
+  <UMW_Cut_Ragged.comps.2.permanentLabel>撕裂疤痕</UMW_Cut_Ragged.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_Cut_Ragged.injuryProps.destroyedLabel>喪失功能(割傷)</UMW_Cut_Ragged.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_Cut_Ragged.injuryProps.destroyedOutLabel>切除</UMW_Cut_Ragged.injuryProps.destroyedOutLabel>
+
+
+  <!-- EN: rallied -->
+  <UMW_Rallied.label>士氣大振</UMW_Rallied.label>
+
+  <!-- EN: Stirred by the rallying cry of a storied weapon's bearer. For a time, wounds barely register, and a hit does little to break their stride. -->
+  <UMW_Rallied.description>因傳世武器持有者的鼓舞吶喊而振奮。一段時間內，傷痛幾乎難以察覺，受擊也很難讓其停下腳步。</UMW_Rallied.description>
+
+
+  <!-- EN: sedative buildup -->
+  <UMW_SedativeBuildup.label>鎮靜劑累積</UMW_SedativeBuildup.label>
+
+  <!-- EN: A fast-acting sedative building up in the bloodstream. At high levels it renders creatures unconscious. -->
+  <UMW_SedativeBuildup.description>一種在血液中不斷累積的速效鎮靜劑。濃度過高時會使生物失去意識。</UMW_SedativeBuildup.description>
+
+  <!-- EN: dosed -->
+  <UMW_SedativeBuildup.stages.0.label>輕微</UMW_SedativeBuildup.stages.0.label>
+
+  <!-- EN: woozy -->
+  <UMW_SedativeBuildup.stages.1.label>恍惚</UMW_SedativeBuildup.stages.1.label>
+
+  <!-- EN: sedated -->
+  <UMW_SedativeBuildup.stages.2.label>鎮靜</UMW_SedativeBuildup.stages.2.label>
+
+
+  <!-- EN: ragged stab -->
+  <UMW_Stab_Ragged.label>撕裂刺傷</UMW_Stab_Ragged.label>
+
+  <!-- EN: a ragged stab wound -->
+  <UMW_Stab_Ragged.labelNoun>撕裂刺傷</UMW_Stab_Ragged.labelNoun>
+
+  <!-- EN: A ragged, torn stab wound that bleeds freely and scars badly. -->
+  <UMW_Stab_Ragged.description>一道參差撕裂的刺傷，出血不止，且極易留下難看的疤痕。</UMW_Stab_Ragged.description>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_Stab_Ragged.labelNounPretty>{1}內的{0}</UMW_Stab_Ragged.labelNounPretty>
+
+  <!-- EN: bandaged -->
+  <UMW_Stab_Ragged.comps.0.labelTendedWell>已包紮</UMW_Stab_Ragged.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_Stab_Ragged.comps.0.labelTendedWellInner>已縫合</UMW_Stab_Ragged.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_Stab_Ragged.comps.0.labelSolidTendedWell>已固定</UMW_Stab_Ragged.comps.0.labelSolidTendedWell>
+
+  <!-- EN: ragged scar -->
+  <UMW_Stab_Ragged.comps.2.permanentLabel>撕裂疤痕</UMW_Stab_Ragged.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_Stab_Ragged.injuryProps.destroyedLabel>喪失功能(刺傷)</UMW_Stab_Ragged.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>被切下</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
+
+</LanguageData>

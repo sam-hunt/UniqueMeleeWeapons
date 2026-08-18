@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: armor spike -->
+  <UMW_ArmorSpike.label>穿甲尖刺</UMW_ArmorSpike.label>
+
+  <!-- EN: The point is reinforced into a heavy armor-piercing spike that punches through plate and carapace. -->
+  <UMW_ArmorSpike.description>尖端經過加固，成為沉重的穿甲尖刺，足以擊穿板甲與甲殼。</UMW_ArmorSpike.description>
+
+  <!-- EN: lancing -->
+  <UMW_ArmorSpike.traitAdjectives.0>穿刺</UMW_ArmorSpike.traitAdjectives.0>
+
+  <!-- EN: armorbane -->
+  <UMW_ArmorSpike.traitAdjectives.1>破甲</UMW_ArmorSpike.traitAdjectives.1>
+
+  <!-- EN: punching -->
+  <UMW_ArmorSpike.traitAdjectives.2>貫穿</UMW_ArmorSpike.traitAdjectives.2>
+
+
+  <!-- EN: barbed -->
+  <UMW_Barbed.label>倒刺</UMW_Barbed.label>
+
+  <!-- EN: Barbs behind the point catch in the wound and tear it wider as the weapon is drawn back out. -->
+  <UMW_Barbed.description>尖端後方的倒刺會鉤進傷口，在武器拔出時把傷口撕得更大。</UMW_Barbed.description>
+
+  <!-- EN: barbed -->
+  <UMW_Barbed.traitAdjectives.0>倒刺</UMW_Barbed.traitAdjectives.0>
+
+  <!-- EN: hooked -->
+  <UMW_Barbed.traitAdjectives.1>帶鉤</UMW_Barbed.traitAdjectives.1>
+
+  <!-- EN: cruel -->
+  <UMW_Barbed.traitAdjectives.2>殘忍</UMW_Barbed.traitAdjectives.2>
+
+
+  <!-- EN: bell-cast -->
+  <UMW_BellCast.label>鐘鑄錘頭</UMW_BellCast.label>
+
+  <!-- EN: The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target. -->
+  <UMW_BellCast.description>錘頭如鐘一般整體鑄成。乾淨利落的一擊會令共振穿透護甲與骨骼，短暫擊昏目標。</UMW_BellCast.description>
+
+  <!-- EN: bell-cast -->
+  <UMW_BellCast.traitAdjectives.0>鐘鑄</UMW_BellCast.traitAdjectives.0>
+
+  <!-- EN: ringing -->
+  <UMW_BellCast.traitAdjectives.1>鳴響</UMW_BellCast.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_BellCast.traitAdjectives.2>共鳴</UMW_BellCast.traitAdjectives.2>
+
+
+  <!-- EN: blood-stained -->
+  <UMW_BloodStained.label>染血</UMW_BloodStained.label>
+
+  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it. -->
+  <UMW_BloodStained.description>該武器上結著一層又一層深色的乾涸血塊。被它所傷的人一見到它就可能驚慌逃竄；但攜帶如此駭人之物，除了鐵石心腸者，誰都會感到心頭沉重。商人會壓價收購。</UMW_BloodStained.description>
+
+  <!-- EN: blood-stained -->
+  <UMW_BloodStained.traitAdjectives.0>染血</UMW_BloodStained.traitAdjectives.0>
+
+  <!-- EN: bloody -->
+  <UMW_BloodStained.traitAdjectives.1>血腥</UMW_BloodStained.traitAdjectives.1>
+
+  <!-- EN: gory -->
+  <UMW_BloodStained.traitAdjectives.2>浴血</UMW_BloodStained.traitAdjectives.2>
+
+  <!-- EN: sanguine -->
+  <UMW_BloodStained.traitAdjectives.3>殷紅</UMW_BloodStained.traitAdjectives.3>
+
+
+  <!-- EN: carbonized -->
+  <UMW_Carbonized.label>碳化</UMW_Carbonized.label>
+
+  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly. -->
+  <UMW_Carbonized.description>該武器經歷過烈火。焦黑的表面被高溫硬化，而燒過的東西也不易再度燃燒。硬化的表面打擊力超乎尋常，但燒焦的基體變得脆弱，也經不起風吹日曬。</UMW_Carbonized.description>
+
+  <!-- EN: carbonized -->
+  <UMW_Carbonized.traitAdjectives.0>碳化</UMW_Carbonized.traitAdjectives.0>
+
+  <!-- EN: fire-blackened -->
+  <UMW_Carbonized.traitAdjectives.1>火燎</UMW_Carbonized.traitAdjectives.1>
+
+  <!-- EN: charred -->
+  <UMW_Carbonized.traitAdjectives.2>焦黑</UMW_Carbonized.traitAdjectives.2>
+
+  <!-- EN: soot-stained -->
+  <UMW_Carbonized.traitAdjectives.3>煙燻</UMW_Carbonized.traitAdjectives.3>
+
+
+  <!-- EN: counterweighted -->
+  <UMW_Counterweighted.label>配重</UMW_Counterweighted.label>
+
+  <!-- EN: A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
+  <UMW_Counterweighted.description>配重塊馴服了武器的沉重感，使其在揮擊之間恢復得更快，但威力略有損失。</UMW_Counterweighted.description>
+
+  <!-- EN: balanced -->
+  <UMW_Counterweighted.traitAdjectives.0>平衡</UMW_Counterweighted.traitAdjectives.0>
+
+  <!-- EN: swift -->
+  <UMW_Counterweighted.traitAdjectives.1>迅捷</UMW_Counterweighted.traitAdjectives.1>
+
+
+  <!-- EN: cumbersome -->
+  <UMW_Cumbersome.label>笨拙</UMW_Cumbersome.label>
+
+  <!-- EN: This weapon is bulky and overbuilt, slowing its swing. -->
+  <UMW_Cumbersome.description>該武器粗大笨重、用料過度，揮擊速度較慢。</UMW_Cumbersome.description>
+
+  <!-- EN: cumbersome -->
+  <UMW_Cumbersome.traitAdjectives.0>笨拙</UMW_Cumbersome.traitAdjectives.0>
+
+  <!-- EN: bulky -->
+  <UMW_Cumbersome.traitAdjectives.1>笨重</UMW_Cumbersome.traitAdjectives.1>
+
+  <!-- EN: ungainly -->
+  <UMW_Cumbersome.traitAdjectives.2>臃腫</UMW_Cumbersome.traitAdjectives.2>
+
+
+  <!-- EN: dead-blow -->
+  <UMW_DeadBlow.label>無回彈錘頭</UMW_DeadBlow.label>
+
+  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them. -->
+  <UMW_DeadBlow.description>中空的錘頭內填滿鬆散的彈丸，撞擊時彈丸向前湧去，將這一擊的全部動量灌入目標，沒有絲毫回彈。被擊中的目標會搖晃踉蹌，即使這一擊沒有將其擊倒。</UMW_DeadBlow.description>
+
+  <!-- EN: dead-blow -->
+  <UMW_DeadBlow.traitAdjectives.0>無回彈</UMW_DeadBlow.traitAdjectives.0>
+
+  <!-- EN: shot-filled -->
+  <UMW_DeadBlow.traitAdjectives.1>灌珠</UMW_DeadBlow.traitAdjectives.1>
+
+  <!-- EN: battering -->
+  <UMW_DeadBlow.traitAdjectives.2>衝撞</UMW_DeadBlow.traitAdjectives.2>
+
+
+  <!-- EN: enameled -->
+  <UMW_Enameled.label>琺瑯</UMW_Enameled.label>
+
+  <!-- EN: A vitreous enamel has been fired and fused over the body of this weapon, glazing it in a deep, glossy violet. Traders will pay more for it. -->
+  <UMW_Enameled.description>該武器通體燒結了一層玻璃質琺瑯釉，呈現出深邃光亮的紫羅蘭色。商人會為其支付更多錢。</UMW_Enameled.description>
+
+  <!-- EN: enameled -->
+  <UMW_Enameled.traitAdjectives.0>琺瑯</UMW_Enameled.traitAdjectives.0>
+
+  <!-- EN: glazed -->
+  <UMW_Enameled.traitAdjectives.1>釉彩</UMW_Enameled.traitAdjectives.1>
+
+  <!-- EN: violet-sheened -->
+  <UMW_Enameled.traitAdjectives.2>泛紫</UMW_Enameled.traitAdjectives.2>
+
+
+  <!-- EN: envenomed -->
+  <UMW_Envenomed.label>淬毒</UMW_Envenomed.label>
+
+  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
+  <UMW_Envenomed.description>尖端塗有一種緩效的神經毒液，會在被它所傷者體內造成毒性累積。</UMW_Envenomed.description>
+
+  <!-- EN: envenomed -->
+  <UMW_Envenomed.traitAdjectives.0>淬毒</UMW_Envenomed.traitAdjectives.0>
+
+  <!-- EN: venomous -->
+  <UMW_Envenomed.traitAdjectives.1>蛇毒</UMW_Envenomed.traitAdjectives.1>
+
+  <!-- EN: poisoned -->
+  <UMW_Envenomed.traitAdjectives.2>有毒</UMW_Envenomed.traitAdjectives.2>
+
+  <!-- EN: toxic -->
+  <UMW_Envenomed.traitAdjectives.3>劇毒</UMW_Envenomed.traitAdjectives.3>
+
+
+  <!-- EN: flanged -->
+  <UMW_Flanged.label>稜脊錘頭</UMW_Flanged.label>
+
+  <!-- EN: Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it. -->
+  <UMW_Flanged.description>錘頭上隆起道道稜脊，將打擊的力量集中於狹窄的稜邊，足以擊裂裝甲板，而不只是將其砸凹。</UMW_Flanged.description>
+
+  <!-- EN: flanged -->
+  <UMW_Flanged.traitAdjectives.0>稜脊</UMW_Flanged.traitAdjectives.0>
+
+  <!-- EN: riving -->
+  <UMW_Flanged.traitAdjectives.1>劈裂</UMW_Flanged.traitAdjectives.1>
+
+  <!-- EN: armor-cracking -->
+  <UMW_Flanged.traitAdjectives.2>裂甲</UMW_Flanged.traitAdjectives.2>
+
+
+  <!-- EN: gold inlay -->
+  <UMW_GoldInlay.label>鑲金</UMW_GoldInlay.label>
+
+  <!-- EN: This weapon is inlaid with gold. Traders will pay more for it. -->
+  <UMW_GoldInlay.description>該武器鑲有黃金。商人會為其支付更多錢。</UMW_GoldInlay.description>
+
+  <!-- EN: gold -->
+  <UMW_GoldInlay.traitAdjectives.0>黃金</UMW_GoldInlay.traitAdjectives.0>
+
+  <!-- EN: golden -->
+  <UMW_GoldInlay.traitAdjectives.1>金</UMW_GoldInlay.traitAdjectives.1>
+
+
+  <!-- EN: head-weighted -->
+  <UMW_HeadWeighted.label>頭重</UMW_HeadWeighted.label>
+
+  <!-- EN: Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover. -->
+  <UMW_HeadWeighted.description>重量集中於打擊端，每一次揮擊都勢大力沉，但揮擊後恢復較慢。</UMW_HeadWeighted.description>
+
+  <!-- EN: devastating -->
+  <UMW_HeadWeighted.traitAdjectives.0>毀滅</UMW_HeadWeighted.traitAdjectives.0>
+
+  <!-- EN: mighty -->
+  <UMW_HeadWeighted.traitAdjectives.1>威猛</UMW_HeadWeighted.traitAdjectives.1>
+
+  <!-- EN: ponderous -->
+  <UMW_HeadWeighted.traitAdjectives.2>沉重</UMW_HeadWeighted.traitAdjectives.2>
+
+
+  <!-- EN: jade inlay -->
+  <UMW_JadeInlay.label>鑲翡翠</UMW_JadeInlay.label>
+
+  <!-- EN: This weapon is adorned with jade. Traders will pay more for it. -->
+  <UMW_JadeInlay.description>該武器鑲有翡翠。商人會為其支付更多錢。</UMW_JadeInlay.description>
+
+  <!-- EN: jade -->
+  <UMW_JadeInlay.traitAdjectives.0>翡翠</UMW_JadeInlay.traitAdjectives.0>
+
+
+  <!-- EN: lightweight -->
+  <UMW_Lightweight.label>輕巧</UMW_Lightweight.label>
+
+  <!-- EN: This weapon is much lighter than normal, quickening its swing. -->
+  <UMW_Lightweight.description>該武器比普通型號輕得多，揮擊速度更快。</UMW_Lightweight.description>
+
+  <!-- EN: light -->
+  <UMW_Lightweight.traitAdjectives.0>輕盈</UMW_Lightweight.traitAdjectives.0>
+
+  <!-- EN: nimble -->
+  <UMW_Lightweight.traitAdjectives.1>靈巧</UMW_Lightweight.traitAdjectives.1>
+
+  <!-- EN: quickdraw -->
+  <UMW_Lightweight.traitAdjectives.2>速擊</UMW_Lightweight.traitAdjectives.2>
+
+
+  <!-- EN: needle point -->
+  <UMW_NeedlePoint.label>針尖</UMW_NeedlePoint.label>
+
+  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
+  <UMW_NeedlePoint.description>尖端收束成一根細針，可深入骨骼與肌肉之下，直探體內臟器。若要穩穩刺中，出刺便須更慢、更為審慎。</UMW_NeedlePoint.description>
+
+  <!-- EN: needle -->
+  <UMW_NeedlePoint.traitAdjectives.0>針鋒</UMW_NeedlePoint.traitAdjectives.0>
+
+  <!-- EN: needling -->
+  <UMW_NeedlePoint.traitAdjectives.1>針刺</UMW_NeedlePoint.traitAdjectives.1>
+
+  <!-- EN: hypodermic -->
+  <UMW_NeedlePoint.traitAdjectives.2>錐心</UMW_NeedlePoint.traitAdjectives.2>
+
+
+  <!-- EN: opiated -->
+  <UMW_Opiated.label>鴉片塗層</UMW_Opiated.label>
+
+  <!-- EN: The point is coated in a potent opiate that builds in the blood with each hit, eventually rendering the victim unconscious. -->
+  <UMW_Opiated.description>尖端塗有強效鴉片類藥物，每次命中都會使其在血液中累積，最終令受害者失去知覺。</UMW_Opiated.description>
+
+  <!-- EN: opiated -->
+  <UMW_Opiated.traitAdjectives.0>鴉片</UMW_Opiated.traitAdjectives.0>
+
+  <!-- EN: sedative -->
+  <UMW_Opiated.traitAdjectives.1>鎮靜</UMW_Opiated.traitAdjectives.1>
+
+  <!-- EN: soporific -->
+  <UMW_Opiated.traitAdjectives.2>催眠</UMW_Opiated.traitAdjectives.2>
+
+  <!-- EN: numbing -->
+  <UMW_Opiated.traitAdjectives.3>麻醉</UMW_Opiated.traitAdjectives.3>
+
+
+  <!-- EN: ornamental -->
+  <UMW_Ornamental.label>裝飾性</UMW_Ornamental.label>
+
+  <!-- EN: This weapon was crafted for aesthetics over functionality. It deals less damage but looks great. -->
+  <UMW_Ornamental.description>這把武器為美觀打造而犧牲了其功能性。它造成的傷害較低，但外觀出眾。</UMW_Ornamental.description>
+
+  <!-- EN: beautiful -->
+  <UMW_Ornamental.traitAdjectives.0>美觀</UMW_Ornamental.traitAdjectives.0>
+
+  <!-- EN: elegant -->
+  <UMW_Ornamental.traitAdjectives.1>華麗</UMW_Ornamental.traitAdjectives.1>
+
+  <!-- EN: ornamental -->
+  <UMW_Ornamental.traitAdjectives.2>裝飾</UMW_Ornamental.traitAdjectives.2>
+
+
+  <!-- EN: piledriver -->
+  <UMW_Piledriver.label>打樁頭</UMW_Piledriver.label>
+
+  <!-- EN: The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset. -->
+  <UMW_Piledriver.description>錘頭採用打樁機構造。使用者可隨時驅動武器，將其全部質量猛然砸入地面，沿大地送出一道足以擊昏的衝擊波。這股衝擊不分敵我，友軍和敵人都會被擊昏，唯有撐穩武器的使用者安然無恙。使用之後，機構需要一段時間才能復位。</UMW_Piledriver.description>
+
+  <!-- EN: piledriving -->
+  <UMW_Piledriver.traitAdjectives.0>打樁</UMW_Piledriver.traitAdjectives.0>
+
+  <!-- EN: earthshaking -->
+  <UMW_Piledriver.traitAdjectives.1>撼地</UMW_Piledriver.traitAdjectives.1>
+
+  <!-- EN: quaking -->
+  <UMW_Piledriver.traitAdjectives.2>震顫</UMW_Piledriver.traitAdjectives.2>
+
+  <!-- EN: thunderous -->
+  <UMW_Piledriver.traitAdjectives.3>雷鳴</UMW_Piledriver.traitAdjectives.3>
+
+  <!-- EN: charge -->
+  <UMW_Piledriver.abilityProps.chargeNoun>充能</UMW_Piledriver.abilityProps.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Piledriver.abilityProps.cooldownGerund>冷卻中</UMW_Piledriver.abilityProps.cooldownGerund>
+
+
+  <!-- EN: quilloned -->
+  <UMW_Quilloned.label>劍格</UMW_Quilloned.label>
+
+  <!-- EN: Quillons flare wide from the hilt, letting the wielder catch incoming blows and turn them aside. -->
+  <UMW_Quilloned.description>劍格自劍柄向兩側大幅張開，讓持有者得以架住來襲的攻擊並將其盪開。</UMW_Quilloned.description>
+
+  <!-- EN: quilloned -->
+  <UMW_Quilloned.traitAdjectives.0>寬格</UMW_Quilloned.traitAdjectives.0>
+
+  <!-- EN: cross-guarded -->
+  <UMW_Quilloned.traitAdjectives.1>十字格</UMW_Quilloned.traitAdjectives.1>
+
+  <!-- EN: warding -->
+  <UMW_Quilloned.traitAdjectives.2>守禦</UMW_Quilloned.traitAdjectives.2>
+
+
+  <!-- EN: razored -->
+  <UMW_Razored.label>剃刀刃</UMW_Razored.label>
+
+  <!-- EN: The edge is honed to a keen razor that bites deeper and drives cleanly through armor. -->
+  <UMW_Razored.description>刃口被研磨得如剃刀般鋒利，切入更深，還能乾淨利落地穿透護甲。</UMW_Razored.description>
+
+  <!-- EN: razored -->
+  <UMW_Razored.traitAdjectives.0>剃刀</UMW_Razored.traitAdjectives.0>
+
+  <!-- EN: razor-sharp -->
+  <UMW_Razored.traitAdjectives.1>鋒銳</UMW_Razored.traitAdjectives.1>
+
+  <!-- EN: keen -->
+  <UMW_Razored.traitAdjectives.2>銳利</UMW_Razored.traitAdjectives.2>
+
+
+  <!-- EN: serrated -->
+  <UMW_Serrated.label>鋸齒刃</UMW_Serrated.label>
+
+  <!-- EN: The edge is cut into vicious teeth that tear ragged, freely bleeding wounds, though they slash a little shallower than a clean edge. On a thrust the same teeth catch and rip flesh as the blade is drawn back. -->
+  <UMW_Serrated.description>刃口被開出兇惡的鋸齒，會撕出參差不齊、血流不止的傷口，只是砍切深度略遜於平整的刃口。突刺時，這些鋸齒同樣會在刀身抽回時鉤住並撕裂血肉。</UMW_Serrated.description>
+
+  <!-- EN: serrated -->
+  <UMW_Serrated.traitAdjectives.0>鋸齒</UMW_Serrated.traitAdjectives.0>
+
+  <!-- EN: jagged -->
+  <UMW_Serrated.traitAdjectives.1>獠牙</UMW_Serrated.traitAdjectives.1>
+
+  <!-- EN: vicious -->
+  <UMW_Serrated.traitAdjectives.2>兇殘</UMW_Serrated.traitAdjectives.2>
+
+  <!-- EN: sawtooth -->
+  <UMW_Serrated.traitAdjectives.3>鋸牙</UMW_Serrated.traitAdjectives.3>
+
+
+  <!-- EN: storied -->
+  <UMW_Storied.label>傳世</UMW_Storied.label>
+
+  <!-- EN: This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days. -->
+  <UMW_Storied.description>該武器承載著一份記錄在冊的傳承，銘刻著歷代持有者的名號與流傳的功績。持有者可以將它高高舉起、發出鼓舞吶喊；目睹此物的盟友會因此士氣大振，一時之間傷痛幾乎無法拖慢他們的腳步。此等時刻每隔數日方能喚起一次。</UMW_Storied.description>
+
+  <!-- EN: storied -->
+  <UMW_Storied.traitAdjectives.0>傳世</UMW_Storied.traitAdjectives.0>
+
+  <!-- EN: fabled -->
+  <UMW_Storied.traitAdjectives.1>傳奇</UMW_Storied.traitAdjectives.1>
+
+  <!-- EN: ancestral -->
+  <UMW_Storied.traitAdjectives.2>先祖</UMW_Storied.traitAdjectives.2>
+
+  <!-- EN: honored -->
+  <UMW_Storied.traitAdjectives.3>榮耀</UMW_Storied.traitAdjectives.3>
+
+  <!-- EN: charge -->
+  <UMW_Storied.abilityProps.chargeNoun>充能</UMW_Storied.abilityProps.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_Storied.abilityProps.cooldownGerund>冷卻中</UMW_Storied.abilityProps.cooldownGerund>
+
+
+  <!-- EN: studded -->
+  <UMW_Studded.label>嵌釘錘頭</UMW_Studded.label>
+
+  <!-- EN: The head is set with hard studs that concentrate the impact, driving extra force into every blow. -->
+  <UMW_Studded.description>錘頭上嵌滿堅硬的凸釘，將衝擊集中起來，為每一擊注入額外的力道。</UMW_Studded.description>
+
+  <!-- EN: studded -->
+  <UMW_Studded.traitAdjectives.0>嵌釘</UMW_Studded.traitAdjectives.0>
+
+  <!-- EN: knurled -->
+  <UMW_Studded.traitAdjectives.1>滾花</UMW_Studded.traitAdjectives.1>
+
+  <!-- EN: cruel -->
+  <UMW_Studded.traitAdjectives.2>殘酷</UMW_Studded.traitAdjectives.2>
+
+
+  <!-- EN: ugly -->
+  <UMW_Ugly.label>醜陋</UMW_Ugly.label>
+
+  <!-- EN: This weapon was crafted with no respect for aesthetics. It looks like junk but gets the job done. Traders will pay less for it. -->
+  <UMW_Ugly.description>這把武器的製作完全不關注美觀，它看起來像垃圾，但功能完整，因此商人付出的價格較低。</UMW_Ugly.description>
+
+  <!-- EN: crude -->
+  <UMW_Ugly.traitAdjectives.0>粗糙</UMW_Ugly.traitAdjectives.0>
+
+  <!-- EN: ugly -->
+  <UMW_Ugly.traitAdjectives.1>醜陋</UMW_Ugly.traitAdjectives.1>
+
+  <!-- EN: monstrous -->
+  <UMW_Ugly.traitAdjectives.2>怪異</UMW_Ugly.traitAdjectives.2>
+
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular (Royalty-gated) moved to
+       1.6/Mods/Royalty/Languages/ChineseTraditional/DefInjected/WeaponTraitDef/WeaponTraits.xml:
+       MayRequire is ignored on DefInjected entries, so the gate has to be the
+       LoadFolders compat root, not an attribute here. -->
+
+</LanguageData>

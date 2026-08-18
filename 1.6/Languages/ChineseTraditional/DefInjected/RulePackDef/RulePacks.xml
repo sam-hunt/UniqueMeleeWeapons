@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN:
+    <li>r_logentry(p=0.4)->[RECIPIENT_definite] caught [INITIATOR_definite]'s [attack_noun] on the crossguard and turned it aside.</li>
+    <li>r_logentry(p=0.3)->[RECIPIENT_definite] [skillAdvMaybe] parried [INITIATOR_definite]'s [attack_noun] with [RECIPIENT_possessive] quillons.</li>
+    <li>r_logentry(p=0.3)->[RECIPIENT_definite] turned [INITIATOR_definite]'s [attack_noun] aside on [RECIPIENT_possessive] guard.</li>
+    <li>skillAdvMaybe-></li>
+    <li>skillAdvMaybe->[skillAdv]</li>
+    <li>attack_noun->blow</li>
+    <li>attack_noun->strike</li>
+    <li>attack_noun->swing</li>
+    <li>attack_noun->attack</li>
+    <li>result->but [RECIPIENT_definite] caught it on the crossguard</li>
+    <li>result->but the [attack_noun] was turned aside on [RECIPIENT_possessive] quillons</li>
+    <li>result->but [RECIPIENT_definite] parried with [RECIPIENT_possessive] guard</li>
+  -->
+  <UMW_Combat_Parry.rulePack.rulesStrings>
+    <li>r_logentry(p=0.4)->[RECIPIENT_definite]用十字護手接住了[INITIATOR_definite]的[attack_noun]，並將其盪向一旁。</li>
+    <li>r_logentry(p=0.3)->[RECIPIENT_definite][skillAdvMaybe]用劍格架開了[INITIATOR_definite]的[attack_noun]。</li>
+    <li>r_logentry(p=0.3)->[RECIPIENT_definite]用護手撥開了[INITIATOR_definite]的[attack_noun]。</li>
+    <li>skillAdvMaybe-></li>
+    <li>skillAdvMaybe->[skillAdv]</li>
+    <li>attack_noun->攻擊</li>
+    <li>attack_noun->揮擊</li>
+    <li>attack_noun->猛擊</li>
+    <li>attack_noun->重擊</li>
+    <li>result->但[RECIPIENT_definite]用十字護手接住了這一擊</li>
+    <li>result->但這次[attack_noun]被劍格撥開</li>
+    <li>result->但[RECIPIENT_definite]用護手將其擋開</li>
+  </UMW_Combat_Parry.rulePack.rulesStrings>
+
+  <!-- EN:
+    <li>weapon_adjective->[stuff_adjective]</li>
+    <li>r_weapon_name(p=0.4)->The [stuff_adjective] [weapon_noun]</li>
+    <li>r_weapon_name(p=0.3)->[stuff_adjective] [badass_noun]</li>
+  -->
+  <UMW_NamerStuffAdjectives.rulePack.rulesStrings>
+    <li>weapon_adjective->[stuff_adjective]</li>
+    <li>r_weapon_name(p=0.4)->[stuff_adjective][weapon_noun]</li>
+    <li>r_weapon_name(p=0.3)->[stuff_adjective]之[badass_noun]</li>
+  </UMW_NamerStuffAdjectives.rulePack.rulesStrings>
+
+</LanguageData>

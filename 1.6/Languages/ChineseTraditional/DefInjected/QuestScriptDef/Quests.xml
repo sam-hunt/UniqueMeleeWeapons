@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN:
+    <li>questName->The [savage] [warband]</li>
+    <li>questName->[savage] [warband]</li>
+    <li>savage->Savage</li>
+    <li>savage->Wild</li>
+    <li>savage->Fierce</li>
+    <li>savage->Bloodthirsty</li>
+    <li>savage->Roaming</li>
+    <li>warband->Warband</li>
+    <li>warband->War Party</li>
+    <li>warband->Marauders</li>
+    <li>warband->Raiders</li>
+    <li>warband->Warriors</li>
+  -->
+  <UMW_OpportunitySite_Warband.questNameRules.rulesStrings>
+    <li>questName->[savage][warband]</li>
+    <li>questName->[savage][warband]</li>
+    <li>savage->野蠻</li>
+    <li>savage->狂野</li>
+    <li>savage->兇悍</li>
+    <li>savage->嗜血</li>
+    <li>savage->流竄</li>
+    <li>warband->戰團</li>
+    <li>warband->戰幫</li>
+    <li>warband->掠奪者</li>
+    <li>warband->劫掠者</li>
+    <li>warband->戰士</li>
+  </UMW_OpportunitySite_Warband.questNameRules.rulesStrings>
+
+  <!-- EN:
+    <li>questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travellers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]</li>
+    <li>location(atLandmark==true)->The warriors are hiding out in an abandoned settlement at [landmarkName].</li>
+    <li>location(atLandmark==false)->The warriors are hiding out in an abandoned settlement.</li>
+  -->
+  <UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings>
+    <li>questDescription->[discoveryMethod]一夥四處劫掠的部落戰士的位置。他們一直在騷擾周邊地區的定居點和旅行者。\n\n該戰團由[LEADER_nameDef]領導，擁有一件獨特的[WEAPON_quality]武器。該戰團包含：\n\n[warbandList]\n\n如果你能俘虜或殺死首領，你就可以獲得這件獨特的武器。\n\n[location]</li>
+    <li>location(atLandmark==true)->戰士們正藏身於[landmarkName]的廢棄定居點中。</li>
+    <li>location(atLandmark==false)->戰士們正藏身於一處廢棄定居點中。</li>
+  </UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings>
+
+  <!-- EN:
+    <li>subject->tribal raiders</li>
+    <li>subject->marauding warriors</li>
+    <li>subject->savage tribesfolk</li>
+    <li>questMapFeature->raider camp</li>
+    <li>questMapFeature->drawing of a tribal warrior</li>
+    <li>questMapFeature->sketch of a master-forged blade</li>
+    <li>questMapText->dangerous raiders</li>
+    <li>questMapText->a master-forged weapon</li>
+    <li>questMapText->savage warriors</li>
+  -->
+  <UMW_OpportunitySite_Warband.questSubjectRules.rulesStrings>
+    <li>subject->部落劫掠者</li>
+    <li>subject->四處劫掠的戰士</li>
+    <li>subject->野蠻的部落民</li>
+    <li>questMapFeature->劫掠者營地</li>
+    <li>questMapFeature->一名部落戰士的畫像</li>
+    <li>questMapFeature->大師鍛造利刃的素描</li>
+    <li>questMapText->危險的劫掠者</li>
+    <li>questMapText->大師鍛造的武器</li>
+    <li>questMapText->野蠻的戰士</li>
+  </UMW_OpportunitySite_Warband.questSubjectRules.rulesStrings>
+
+</LanguageData>
