@@ -3,7 +3,7 @@
   <name>Unique Melee Weapons</name>
   <author>Sam Hunt</author>
   <packageId>shunter.uniquemeleeweapons</packageId>
-  <modVersion>1.0.2</modVersion>
+  <modVersion>1.1.0</modVersion>
   <description>Odyssey's unique weapons are all guns. This mod adds up to 7 unique melee weapons: knife, gladius, longsword, spear and mace, plus axe and warhammer with Royalty. Each rolls its own stuff, texture, colours, name and up to 3 random traits from a pool of up to 28 balanced for melee. Includes a Savage Warband quest for acquisition, parallel to Odyssey's Ancient Mercenaries. Requires Odyssey.</description>
   <supportedVersions>
     <li>1.6</li>
