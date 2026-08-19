@@ -14,13 +14,13 @@ namespace UniqueMeleeWeapons;
 // All is derived from the DefDatabase rather than hand-listed, which is what makes every consumer
 // DLC-correct with no ModsConfig check: a MayRequire-gated weapon (the Royalty axe and warhammer) never
 // enters the DefDatabase without its DLC, so it is simply absent — including from the per-weapon settings
-// rows. Ordered by label so those rows have a stable, alphabetical order. The cache is built once from
-// UMW_Startup and never again — a static ctor cannot re-run, so an in-process play-data reload
-// (mid-session language change, dev def hot reload) leaves All holding the previous DefDatabase's
-// instances until restart. That is acceptable because everything load-bearing keys on tags or defNames
-// (IsOurs reads the passed def live; the settings set stores defNames): the staleness surfaces only as
-// old-language labels in the settings rows. Don't hand All's def instances to anything that mutates or
-// long-term-caches them.
+// rows. Ordered by label so those rows have a stable, alphabetical order per language. The cache is
+// rebuilt by UMW_Startup.Run on EVERY play-data load (via the CallAll postfix — see
+// Patches/StaticConstructorOnStartupUtility_CallAll_Patch.cs), so after an in-process reload such as a
+// mid-session language change All already holds the new DefDatabase's instances and the rows follow the
+// active language. The list is only as fresh as the last load, so consumers must not long-term-cache
+// All's instances themselves; everything load-bearing keys on tags or defNames anyway (IsOurs reads the
+// passed def live; the settings set stores defNames).
 public static class UniqueWeaponDefs
 {
     // Must match the thingSetMakerTag on every *_Unique weapon def and the allow-filter in

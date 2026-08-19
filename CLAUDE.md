@@ -84,8 +84,9 @@ fails until the next release run.
   `ExposeData`/`ResetToDefaults` fan-out and the shared row helpers, while each section owns its
   fields, scribe entries, defaults, def-writes and draw method in a `Core/Settings/Settings_*.cs`
   file — so adding a setting is a one-file edit. The step-by-step recipe — including the pattern for
-  a setting that *overrides a def field* (written onto the live def at startup and on window close;
-  XML holds only the shipped default) — is in the header of `Core/UniqueMeleeWeaponsSettings.cs`.
+  a setting that *overrides a def field* (written onto the live def on every play-data load and on
+  window close; XML holds only the shipped default) — is in the header of
+  `Core/UniqueMeleeWeaponsSettings.cs`.
 - **Keyed files split by purpose:** `UMW_UI.xml` settings strings, `UMW_Combat.xml` in-combat
   floating text, `UMW_Stats.xml` info-card trait-effect lines.
 - **No em dashes in player-facing text** (def labels/descriptions, `Keyed/`, `About.xml`) — reflow
@@ -158,8 +159,8 @@ fails until the next release run.
   the def*, never as text in a renderer.** Vanilla only ever displays those two lists (plus
   ranged-only fields), so every extension-borne effect, `equippedHediffs` and `abilityProps` would
   otherwise show a description and a market value with no stated effect. The split is strict:
-  `Traits/TraitEffectSummary.cs` derives one short **unstyled** line per effect and attaches them at
-  startup as a `TraitEffectLinesExtension`; renderers add their own bullets and layout
+  `Traits/TraitEffectSummary.cs` derives one short **unstyled** line per effect and attaches them on
+  every play-data load as a `TraitEffectLinesExtension`; renderers add their own bullets and layout
   (`Patches/CompUniqueWeapon_TraitStats_Patch.cs` for the info card). **A new on-hit effect subclass,
   extension or trait mechanism must gain a case in `TraitEffectSummary`**, or it ships undocumented
   in-game. Lines are *derived from the def, never authored prose*, so a retuned number can't drift
@@ -231,6 +232,12 @@ fails until the next release run.
   the companion mod (Unique Weapons Unbound): it publishes the material as that well-known symbol,
   we supply the grammar; neither mod references the other's code. Don't rename it. See
   `Patches/NameGenerator_StuffAdjective_Patch.cs`.
+- **Startup def-writes and def caches re-run on every play-data load, not once per process.** A
+  mid-session language change reloads all play data in-process and replaces every def instance;
+  `[StaticConstructorOnStartup]` never re-runs, so anything it wrote onto defs goes stale. All such
+  work therefore lives in `UMW_Startup.Run` (which must stay idempotent), invoked from
+  `Patches/StaticConstructorOnStartupUtility_CallAll_Patch.cs` — its header carries the verified
+  load ordering and the traps in full.
 
 ### Notable features
 
