@@ -7,7 +7,12 @@
        checked against UMW_Heavy's UMW_HeadWeighted (×1.3 damage @ ×1.18 cooldown, AP-neutralized via its
        own AP factor): a warhammer rolling both stacks to a legal, if punishing, ~×1.5 combined damage
        multiplier — inside Odyssey's own precedent for compounding damage/cooldown factors, and
-       AP stays untouched by either trait. Priced under Odyssey's BroadheadArrows (+30% dmg = +60):
+       AP stays untouched by either trait. Lists Demolish alongside Blunt so on the breach axe (the
+       only Demolish tool in the game) the mod lands on the tool-head the description talks about,
+       not just the Blunt handle; a no-op everywhere else — see Flanged.xml for the shared
+       rationale. Note the factor also rides Demolish's 10x buildingDamageFactor, which is coherent
+       (a harder-biting head breaches faster) and small in absolute terms.
+       Priced under Odyssey's BroadheadArrows (+30% dmg = +60):
        half the damage bonus, so +50 keeps it above the pure-AP +40 tier. -->
   <WeaponTraitDef>
     <defName>UMW_Studded</defName>
@@ -29,6 +34,7 @@
           <li>
             <capacities>
               <li>Blunt</li>
+              <li>Demolish</li> <!-- breach axe tool-head; see header -->
             </capacities>
             <damageFactor>1.15</damageFactor>
           </li>

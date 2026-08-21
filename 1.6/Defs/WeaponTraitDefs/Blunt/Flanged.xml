@@ -6,6 +6,10 @@
        narrow ridge that cracks plate rather than punching through it — a distinct mechanism from
        UMW_ArmorSpike's Stab-tool piercing, so it floors deliberately lower: 0.45 vs ArmorSpike's 0.8. No
        damage change, no extra hit — the head shape alone raises the Blunt tool's floor.
+       Lists Demolish alongside Blunt so on the breach axe (the only Demolish tool in the game) the
+       mod lands on the tool-head the description talks about, not just the Blunt handle; on every
+       other weapon the list is equivalent to Blunt alone. The derived stat line names both
+       capacities on all weapons — accepted cost, it stays factual.
        Priced at parity with Odyssey's ranged PiercingRounds (+40). -->
   <WeaponTraitDef>
     <defName>UMW_Flanged</defName>
@@ -27,6 +31,7 @@
           <li>
             <capacities>
               <li>Blunt</li>
+              <li>Demolish</li> <!-- breach axe tool-head; see header -->
             </capacities>
             <armorPenetrationFloor>0.45</armorPenetrationFloor>
           </li>
