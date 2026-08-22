@@ -1,7 +1,5 @@
 # TODOs
 
-- Investigate Russian workshop title/description failed to save.
-
 ## Features
 
 - New katana texture for longsword?
