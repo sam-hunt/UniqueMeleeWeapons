@@ -78,6 +78,12 @@ fails until the next release run.
 - **C#:** root namespace `UniqueMeleeWeapons`; patch classes use a `.Patches` suffix to avoid
   RimWorld type-name conflicts. All patches are applied by `PatchAll()` in
   `UniqueMeleeWeaponsMod`, so a `[HarmonyPatch]` class anywhere in the assembly is picked up.
+- **Patch-timing hazard (other mods' methods):** that `PatchAll()` runs from the `Mod` subclass
+  constructor — BEFORE any defs are loaded. Applying a detour JIT-compiles the target and runs its
+  declaring type's static ctor, so a patch targeting ANOTHER MOD's method can permanently break
+  that mod when its cctor resolves defs (the BetterTradersGuild v1.1.0 CWTL incident). All current
+  targets are vanilla (safe); before ever adding a foreign-target patch, defer its application
+  until after defs load — worked example: BetterTradersGuild's `Core/DeferredModPatches.cs`.
 - **Settings:** every user-facing string is localized — through `.Translate()` against `UMW_UI.xml`,
   except where vanilla already localizes the exact string (reuse the vanilla Keyed key or def label
   rather than duplicating it), and strings that name game content inject the def label as a
