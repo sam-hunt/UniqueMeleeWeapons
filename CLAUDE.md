@@ -71,7 +71,9 @@ fails until the next release run.
   a trait's `<weaponCategory>` is obvious from its path. Defs load recursively and the deploy
   manifest globs, so new files/subfolders need no build change.
 - **Textures** follow Odyssey: per-weapon folder, variants `Unique<Weapon><Letter>.png` plus a
-  matching `_m` mask. `texPath` points at the *folder*, with
+  matching `_m` mask. They live at the repo root, not under a version folder — art is not
+  version-scoped (a DLC-gated weapon's art goes under `Mods/<DLC>/Textures/`, see Optional-DLC
+  content below). `texPath` points at the *folder*, with
   `graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex`.
 - **C#:** root namespace `UniqueMeleeWeapons`; patch classes use a `.Patches` suffix to avoid
   RimWorld type-name conflicts. All patches are applied by `PatchAll()` in
@@ -281,12 +283,30 @@ Steam Workshop title and must equal the title line (line 1) of
 `.steamworkshop/Description/<Language>.txt` — always change the two together (English keeps
 `Unique Melee Weapons` in both).
 
-**Optional-DLC content:** MayRequire is honored on defs but IGNORED on DefInjected entries, so
-content whose strings depend on an optional DLC ships from a LoadFolders-gated compat root
-(`1.6/Mods/<Name>/` with its own `Defs`/`Languages` inside; currently `Royalty` for the unique
-Axe/Warhammer ThingDefs and their Royalty-tech WeaponTraitDefs/ColorDefs). Compat roots must sit
-beside the well-known folders, never inside one — anything under `1.6/Defs/**` or
-`1.6/Languages/**` loads unconditionally at any depth. A compat root's language files must not
+**Optional-DLC content ships from LoadFolders-gated compat roots**, because MayRequire is honored
+on defs but IGNORED on DefInjected entries, and textures have no node to carry one at all — so the
+load root *is* the gate (`IfModActive`, which is a LoadFolders attribute and unrelated to
+MayRequire). Every well-known content folder is scanned once per active load root
+(`ModContentPack.GetAllFilesForMod` loops `foldersToLoadDescendingOrder`), so gating works for
+Textures exactly as it does for Defs and Languages. There are **two** roots per optional DLC,
+mirroring the ungated `/` + `1.6` split:
+
+- `Mods/<Name>/` — version-independent content: **art**. Same reasoning that puts the main
+  `Textures/` tree at the repo root; nesting it under `1.6/` would make a future `1.7/` either
+  duplicate the PNGs or point a version block back at `1.6/`.
+- `1.6/Mods/<Name>/` — version-specific content: `Defs`, and the `Languages` that must sit in the
+  same load root as the defs they target.
+
+Currently only `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
+Royalty-tech WeaponTraitDefs/ColorDefs. `texPath` is **unaffected by which root the art lives in**:
+textures are keyed by their path relative to `Textures/` in one flat per-mod dictionary merged
+across all roots, so both the def's `texPath` and `Graphic_RandomComplex`'s folder enumeration
+(`ContentFinder.GetAllInFolder`) resolve the same either way. A move therefore needs no def edit —
+only the matching `_ModFiles` glob in `StageMod` (a miss deploys nothing and shows pink boxes
+in-game, with no build error).
+
+Compat roots must sit beside the well-known folders, never inside one — anything under `1.6/Defs/**`
+or `1.6/Languages/**` loads unconditionally at any depth. A compat root's language files must not
 reuse a main-tree file's language-relative path (the game dedups per mod by that path and silently
 skips one whole file — caught pre-release in 2026-08 when all 9 languages' main-tree
 weapon/trait/colour injections silently failed to load in-game); compat-root files carry a
