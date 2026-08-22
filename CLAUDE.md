@@ -327,3 +327,4 @@ staleness, and file hygiene.
    (WSL: `/mnt/c/Users/*/AppData/LocalLow/Ludeon Studios/RimWorld by Ludeon Studios/Player.log`).
 3. **Logging convention:** `Log.Message("[Unique Melee Weapons] ...")`.
 4. **Inspect the API:** `ilspycmd "/mnt/c/.../RimWorldWin64_Data/Managed/Assembly-CSharp.dll" -t "Namespace.ClassName"`.
+5. **Startup smoke test (pre-release):** `python3 Scripts/integration-smoke-test.py` (game closed) boots UMW with its family siblings (UWU, PWU) on a pinned list, then classifies Player.log errors by origin and fails on anything attributed to UMW or a family seam. Run before every release (wired into the release skill); thin shim over the shared engine in `l10n/smoke/` (born from the BetterTradersGuild v1.1.0 CWTL incident).
