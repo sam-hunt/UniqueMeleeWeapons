@@ -6,8 +6,8 @@ Odyssey introduziu 13 armas únicas: variantes raras e exclusivas que sorteiam a
 Este mod preenche essa lacuna. Novas variantes únicas de armas corpo a corpo neolíticas e medievais do jogo base, cada uma fabricável em qualquer material, com seu próprio conjunto de novas características, regras de nomenclatura e texturas limpas com máscara dupla.
 
 [hr][/hr]
-[h2]7 armas corpo a corpo únicas[/h2]
-Variantes únicas de faca, gládio, espada longa, lança e maça do jogo base, além de machado e martelo de guerra com Royalty. Cada uma herda as ferramentas e estatísticas de sua arma base.
+[h2]8 armas corpo a corpo únicas[/h2]
+Variantes únicas de faca, gládio, espada longa, lança, maça e machado de irrupção do jogo base, além de machado e martelo de guerra com Royalty. Cada uma herda as ferramentas e estatísticas de sua arma base.
 [list]
 [*][b]Fabricável em qualquer material[/b], diferente das armas únicas à distância de Odyssey, então os multiplicadores de estatística de material se aplicam normalmente
 [*][b]5 variantes de arte desenhadas à mão por arma[/b], com cor de destaque única e tom de material renderizados juntos, porém de forma independente

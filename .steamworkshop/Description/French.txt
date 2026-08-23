@@ -6,8 +6,8 @@ Odyssey a introduit 13 armes uniques : de rares variantes générées une seule 
 Ce mod comble cette lacune. De nouvelles variantes uniques des armes de mêlée néolithiques et médiévales du jeu de base, chacune fabricable en matériau, avec son propre ensemble de nouveaux traits, de règles de nommage et de textures à double masque soignées.
 
 [hr][/hr]
-[h2]7 armes de mêlée uniques[/h2]
-Des variantes uniques du couteau, du glaive, de l'épée longue, de la lance et de la masse du jeu de base, ainsi que la hache et le marteau de guerre avec Royalty. Chacune hérite des outils et des statistiques de son arme de base.
+[h2]8 armes de mêlée uniques[/h2]
+Des variantes uniques du couteau, du glaive, de l'épée longue, de la lance, de la masse et de la hache de brèche du jeu de base, ainsi que la hache et le marteau de guerre avec Royalty. Chacune hérite des outils et des statistiques de son arme de base.
 [list]
 [*][b]Fabricable en matériau[/b], contrairement aux armes uniques à distance d'Odyssey, si bien que les multiplicateurs de statistiques liés au matériau s'appliquent normalement
 [*][b]5 variantes artistiques dessinées à la main par arme[/b], avec une couleur d'accent unique et une teinte de matériau rendues simultanément mais indépendamment l'une de l'autre

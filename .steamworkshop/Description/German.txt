@@ -6,8 +6,8 @@ Odyssey führte 13 einzigartige Waffen ein: seltene Einzelstücke, die bis zu 3 
 Diese Mod schließt diese Lücke. Neue einzigartige Varianten von neolithischen und mittelalterlichen Nahkampfwaffen des Grundspiels, jede aus Material herstellbar, mit eigenen neuen Merkmalen, Namensregeln und sauberen, doppelt maskierten Texturen.
 
 [hr][/hr]
-[h2]7 einzigartige Nahkampfwaffen[/h2]
-Einzigartige Varianten von Messer, Gladius, Langschwert, Speer und Streitkolben aus dem Grundspiel, dazu Axt und Kriegshammer mit Royalty. Jede erbt Werkzeuge und Statistikwerte ihrer Grundwaffe.
+[h2]8 einzigartige Nahkampfwaffen[/h2]
+Einzigartige Varianten von Messer, Gladius, Langschwert, Speer, Streitkolben und Durchbruchsaxt aus dem Grundspiel, dazu Axt und Kriegshammer mit Royalty. Jede erbt Werkzeuge und Statistikwerte ihrer Grundwaffe.
 [list]
 [*][b]Aus Material herstellbar[/b], anders als bei Odysseys einzigartigen Fernkampfwaffen, wodurch Materialmultiplikatoren auf Statistikwerte normal gelten
 [*][b]5 handgezeichnete Grafikvarianten pro Waffe[/b], mit einzigartiger Akzentfarbe und unabhängig gerenderter Materialtönung

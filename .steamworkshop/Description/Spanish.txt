@@ -6,8 +6,8 @@ Odyssey introdujo 13 armas únicas: variantes excepcionales y poco frecuentes qu
 Este mod llena ese vacío. Nuevas variantes únicas de armas cuerpo a cuerpo neolíticas y medievales del juego base, cada una con material variable, con su propio conjunto de rasgos nuevos, reglas de nombres y texturas limpias de doble máscara.
 
 [hr][/hr]
-[h2]7 armas cuerpo a cuerpo únicas[/h2]
-Variantes únicas del cuchillo, el gladius, la espada larga, la lanza y la maza del juego base, más el hacha y el martillo de guerra con Royalty. Cada una hereda las herramientas y estadísticas de su arma base.
+[h2]8 armas cuerpo a cuerpo únicas[/h2]
+Variantes únicas del cuchillo, el gladius, la espada larga, la lanza, la maza y el hacha zapeadora del juego base, más el hacha y el martillo de guerra con Royalty. Cada una hereda las herramientas y estadísticas de su arma base.
 [list]
 [*][b]Con material variable[/b], a diferencia de las armas únicas a distancia de Odyssey, por lo que los multiplicadores de estadísticas del material se aplican con normalidad
 [*][b]5 variantes artísticas dibujadas a mano por arma[/b], con un color de acento único y el tinte del material representados juntos de forma independiente
