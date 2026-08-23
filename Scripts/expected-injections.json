@@ -423,6 +423,45 @@
         "required": true,
         "normalized": "UMW_Axe_Unique.tools.0.label"
       },
+      "UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_BreachAxe_Unique.comps.0.chargeNoun"
+      },
+      "UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_BreachAxe_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "breacher",
+          "axe",
+          "breaker",
+          "head"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_BreachAxe_Unique.comps.5.namerLabels"
+      },
+      "UMW_BreachAxe_Unique.description": {
+        "english": "A breach axe bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_BreachAxe_Unique.label": {
+        "english": "unique breach axe",
+        "required": true
+      },
+      "UMW_BreachAxe_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_BreachAxe_Unique.tools.0.label"
+      },
+      "UMW_BreachAxe_Unique.tools.head.label": {
+        "english": "head",
+        "required": true,
+        "normalized": "UMW_BreachAxe_Unique.tools.1.label"
+      },
       "UMW_Gladius_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
         "english": "charge",
         "required": true,

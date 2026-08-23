@@ -83,6 +83,7 @@ is PWU's domain.
 | longsword / spear / mace / knife | `épée longue` (F) / `lance` (F) / `masse` (F) / `couteau` (M) | `épée large`, `massue` for mace | Core labels |
 | **gladius** | **`glaive`** | `gladius` | Core `MeleeWeapon_Gladius` — French translates it rather than borrowing |
 | axe / warhammer / club | `hache` (F) / `marteau de guerre` (M) / `massue` (F) | `hache de guerre` | Core+Royalty. `hache` is h-aspiré: never put `la`/`de` straight before it |
+| **breach axe** | **`hache de brèche`** | `hache de siège` | Core `MeleeWeapon_BreachAxe.label` — official fr; still h-aspiré like plain `hache` |
 | tool: handle / point / edge / blade / head / shaft | `manche` (or `poignée` on the longsword) / `pointe` / `tranchant` / `lame` / `tête` / `hampe` | `fil` for edge | Core+Royalty `tools.*.label` |
 | tool capacity: cut / stab / blunt | `coupant` / `perçant` / `contondant` | | Core `ToolCapacityDef` — adjectives, so they cannot simply precede a noun like "dégâts" |
 | **cut / stab (DamageDef)** | **`taillade` / `blessure par lame`** | `perforation` (that is the *hediff* label) | Core splits them: HediffDef `Stab`=`perforation`, DamageDef `Stab`=`blessure par lame`; `Cut`=`taillade` in both. Same trap as ko/de/es |
@@ -146,7 +147,13 @@ guerre`, `troupe de guerre` (war party), **`chef de guerre`** (warlord —
 Core's `Warlordess56.title` is `machine de guerre`, a loose rendering that
 does not mean warlord, so this one is a coinage), `couperet` (cleaver),
 `mailloche` (maul), `taillant` (bit), `épieu` (lance), `pique` (pike),
-`gourdin` (bludgeon), and the colours `rouge sang` / `noir carbone` /
+`gourdin` (bludgeon), **`défonceur`** (breacher — agentive noun from
+*défoncer une porte/un mur*, "to smash/break down a door or wall", the exact
+verb the vanilla `MeleeWeapon_BreachAxe` description uses for what the tool
+does) and **`abatteur`** (breaker — grounded directly in that same vanilla
+description's own wording, "elle excelle dans l'abattage des murs [...]",
+so the noun echoes vanilla's own vocabulary rather than coining fresh), and
+the colours `rouge sang` / `noir carbone` /
 `violet émail` / `blanc mono-moléculaire` / `orange plasma` (patterned on
 Odyssey's `bleu glacier` / `orange feu`). The 2026-07-30 WeaponCategoryDef
 labels are likewise mod-decided: `mêlée` (melee, Core skill label),

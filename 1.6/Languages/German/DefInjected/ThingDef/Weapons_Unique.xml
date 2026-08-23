@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <!-- EN: unique breach axe -->
+  <UMW_BreachAxe_Unique.label>einzigartige Durchbruchsaxt</UMW_BreachAxe_Unique.label>
+
+  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_BreachAxe_Unique.description>Eine Durchbruchsaxt mit den Spuren einer Meisterhand. Keine zwei sind gleich geschmiedet.</UMW_BreachAxe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_BreachAxe_Unique.tools.handle.label>Griff</UMW_BreachAxe_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.tools.head.label>Kopf</UMW_BreachAxe_Unique.tools.head.label>
+
+  <!-- EN: charge -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>Ladung</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>klingt gerade ab</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: breacher -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>|M|Durchbrecher</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: axe -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>|F|Axt</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: breaker -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>|M|Brecher</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>|M|Kopf</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>einzigartiger Gladius</UMW_Gladius_Unique.label>
 

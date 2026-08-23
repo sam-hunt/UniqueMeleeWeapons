@@ -14,6 +14,37 @@
        porrete), plus "gume" (cutting edge) and "azagaia" (light spear) where that corpus has no
        distinct word. Note "clava" renders bludgeon, never mace: mace stays Core's "maça". -->
 
+  <!-- EN: unique breach axe -->
+  <UMW_BreachAxe_Unique.label>machado de irrupção único</UMW_BreachAxe_Unique.label>
+
+  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_BreachAxe_Unique.description>Um machado de irrupção que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_BreachAxe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_BreachAxe_Unique.tools.handle.label>cabo</UMW_BreachAxe_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.tools.head.label>cabeça</UMW_BreachAxe_Unique.tools.head.label>
+
+  <!-- EN: breacher -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>arrombador</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: axe -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>machado</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: breaker -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>demolidor</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>cabeça</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>carga</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>em recarga</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>gládio único</UMW_Gladius_Unique.label>
 

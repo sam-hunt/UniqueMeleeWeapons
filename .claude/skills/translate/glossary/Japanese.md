@@ -24,6 +24,7 @@ finding (upstream) to this mod's own field.
 | ultratech | 最先端の技術力 (noun) / 最先端技術級 (attributive) | ウルトラテック | vanilla `TechLevel_Ultra` |
 | monosword / plasmasword / zeushammer | モノソード / プラズマソード / ゼウスハンマー | | Royalty weapon labels |
 | longsword / spear / mace / knife / gladius / axe / warhammer | ロングソード / スピア / メイス / ナイフ / グラディウス / 戦斧 / ウォーハンマー | | Core/Odyssey/Royalty labels (mostly katakana, not 長剣/槍) |
+| breach axe | ブリーチアックス | | Core `MeleeWeapon_BreachAxe.label`, official JP language pack — full katakana loan, not 戦斧-based |
 | plasteel / jade / wood (stuff adjectives) | プラスチール製 / ヒスイ製 / 木製 | 塑鋼, 翡翠 | Core `stuffProps.stuffAdjective` |
 | mechanite / mechanoid | メカナイト / メカノイド | | Royalty, Odyssey descs |
 | wielder / bearer | 使用者 / 持ち主 | | Odyssey `EMPPulser` desc |
@@ -49,7 +50,12 @@ parallel to vanilla 傭兵団), 襲撃団 (war party), 頭目 (warlord), 鍔 / �
 (opiated), 琺瑯 (enameled), 無反発 (dead-blow, from the real tool term
 無反発ハンマー), 稜付き (flanged), 鋲打ち (studded), 徹甲スパイク (armor
 spike), 先重心 (head-weighted), 素早い (quickdraw — vanilla's 早撃ちの is
-ranged-specific and wrong on melee). The 2026-07-30 WeaponCategoryDef labels
+ranged-specific and wrong on melee), ブリーチャー / ブレイカー (breacher /
+breaker — `UMW_BreachAxe_Unique`'s namerLabels.0/.2, coined 2026-08-23;
+katakana loans chosen to parallel クラブ, the existing loanword synonym slot
+in `UMW_Mace_Unique`'s namerLabels, and to echo the root morpheme of vanilla's
+own ブリーチアックス; ブレイカー is already lexicalized in Japanese, e.g.
+サーキットブレーカー). The 2026-07-30 WeaponCategoryDef labels
 are likewise mod-decided: 格闘 (melee, Core skill label), 斬る / 刺す / 殴る
 (bladed / pointed / blunt, the Core DamageDef labels), 重量 (heavy), 鍔付き
 (guarded).

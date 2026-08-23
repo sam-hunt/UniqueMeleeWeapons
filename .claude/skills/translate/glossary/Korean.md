@@ -20,6 +20,7 @@ attributive verb forms (`가벼운`, `저주받은`) *or* bare noun modifiers (`
 | unique weapon | 고유 무기 | | Odyssey `UniqueWeapon` |
 | **unique \<weapon\>** (label) | **특제 \<weapon\>** | | Odyssey's ranged uniques: 특제 장궁, 특제 돌격소총 |
 | longsword / spear / mace / knife / gladius / axe / warhammer | 장검 / 창 / 철퇴 / 단검 / 검 / 도끼 / 전투망치 | | Core/Odyssey/Royalty labels |
+| breach axe | 파괴용 도끼 | | Core `MeleeWeapon_BreachAxe` — verbatim official ko label; tools.handle/head = 손잡이/머리 |
 | monosword / plasmasword / zeushammer | 단분자검 / 플라즈마검 / 제우스망치 | | Royalty labels |
 | **mechanite(s)** | **기계입자** | 나노머신 | Core, 36/36 (근섬유질 기계입자); 나노머신 renders English *nanomachines* — a different word. Easy trap: they look interchangeable and are not |
 | mechanoid | 메카노이드 | | Core |
@@ -78,4 +79,9 @@ keeping 갈고리 for its "hooked" adjective), 탄화 (carbonized), 혈흔
 염홍색 / 전청색). The 2026-07-30 WeaponCategoryDef labels are likewise
 mod-decided: 근접 (melee, from Core 근접 무기), 잘림 / 찔림 / 맞음 (bladed /
 pointed / blunt, the Core DamageDef labels), 중량 (heavy), 가드 (guarded,
-matching the mod's 십자 가드).
+matching the mod's 십자 가드). 파쇄부 / 파괴부 (breach axe's `breacher`/`breaker`
+namerLabels, 2026-08): coined Sino-Korean axe-compounds distinct from the
+plain axe entry's own namer vocabulary (도끼/도살도/도끼날/칼날) — 파쇄
+("crush/shatter") vs 파괴 ("destroy") keep the two nouns clearly separate
+while both read as axe-like weapon names ending in the 斧(부) "axe" root, in
+the same coinage style as the existing 도살도 ("slaughter blade").

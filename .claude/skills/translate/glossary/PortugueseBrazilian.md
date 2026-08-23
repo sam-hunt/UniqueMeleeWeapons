@@ -114,6 +114,7 @@ collide; pt-BR splits them the other way round from ja.
 | **unique \<weapon\>** (ThingDef label) | **`<arma> único/única`** — postposed and **AGREEING** | | Odyssey `arco grande único`, `fuzil de assalto único`. Unlike fr's invariant `unique`, `único` inflects: `espada longa única` but `machado único` |
 | longsword / spear / mace / knife | `espada longa` (F) / `lança` (F) / `maça` (F) / `faca` (F) | `espada larga`, `clava` for mace | Core labels. **4 feminine vs 3 masculine on our roster**, so a masculine default is wrong more often than right |
 | gladius / axe / warhammer / club | `gládio` (M) / `machado` (M) / `martelo de guerra` (M) / `porrete` (M) | `machado de guerra` | Core |
+| breach axe | `machado de irrupção` (M) | | Core `MeleeWeapon_BreachAxe.label` — official pt-BR term; `machado` is masculine, so `único` agrees as `machado de irrupção único` |
 | monosword / plasmasword / zeushammer | `espada monomolecular` / `espada de plasma` / `martelo de zeus` (vanilla lowercases zeus) | | Royalty labels |
 | **monomolecular (adjective)** | **`monomolecular`** — unhyphenated, and invariant so it is safe as a traitAdjective | `mono-molecular` | Royalty `MeleeWeapon_MonoSword.label`. es and fr both hyphenate; pt-BR does not |
 | tool: handle / point / edge / blade / head / shaft | `cabo` / `ponta` / `lâmina` / `lâmina` / `cabeça` / `eixo` | `punho`, `fio`, `haste` | Core+Royalty `tools.*.label`. pt-BR uses `lâmina` for BOTH edge and blade; `eixo` for shaft is a weak vanilla choice but is the anchor |
@@ -192,3 +193,13 @@ corpo` (melee, Core skill label), `cortante` / `perfurante` /
 `contundente` (bladed / pointed / blunt — `perfurante` over the
 `MeleePiercer` StatCategory's odd `afiado`), `pesado` (heavy),
 `guarnecido` (guarded, echoing `UMW_Studded`'s `guarnecida de cravos`).
+
+`UMW_BreachAxe_Unique`'s namer nouns for `breacher`/`breaker` (added
+2026-08-23) are coined agent nouns, since neither maps to an existing Core
+weapon-noun: **`arrombador`** (one who forces open locks/doors — the
+established Portuguese term for a breacher/burglar, e.g. "arrombador de
+cofres") and **`demolidor`** (demolisher), chosen distinct from `arrombador`
+and from the already-spent `invasor`/`destruidor`-family words, evoking the
+def's own "tearing down walls and doors" framing. The other two namer slots
+ground to existing vocabulary: `axe`→`machado` (this table's breach axe row)
+and `head`→`cabeça` (vanilla `MeleeWeapon_BreachAxe.tools.head.label`).

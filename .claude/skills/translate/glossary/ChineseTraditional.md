@@ -19,6 +19,7 @@ several of its "Use" values are zh-Hant's "Never" (特化武器, 玻璃钢, 钉�
 | unique weapon | 獨特武器 | 特化武器 | Odyssey `UniqueWeapon` |
 | weapon trait (noun / stats title) | 特質 / 武器特質 | | Odyssey `Stat_ThingUniqueWeaponTrait_Label`, `StatsReport_WeaponTraits` (Keyed `WeaponTraits`=特性 exists but the stats slots are our nearer analog) |
 | longsword / spear / mace / knife / gladius / axe / warhammer | 長劍 / 長矛 / 錘子 / 小刀 / 短劍 / 戰斧 / 戰錘 | 釘頭錘, 匕首 (as base labels) | Core/Odyssey/Royalty `MeleeWeapon_*` labels; 匕首 survives only as a knife namer synonym |
+| breach axe | 破城斧 (tools: 握柄/斧頭) | | Core `MeleeWeapon_BreachAxe.label`/`tools.handle.label`/`tools.head.label`, verbatim |
 | monosword / plasmasword / zeushammer | 單分子劍 / 等離子劍 / 宙斯錘 | | Royalty labels; plasma in prose = 電漿, EMP stays ASCII-spaced |
 | wielder (stat context) / holder (flavour) | 使用者 / 持有者 | | Royalty `SpeedBoost` / `OnKill_*` descs |
 | stun / stunned by EMP | 昏迷 (DamageDef), verb 擊昏 | 擊暈 | Core `Stun.label`, `StunnedByEMP` |
@@ -52,6 +53,15 @@ WeaponCategoryDef labels: 格鬥 (melee, Core skill label), 刃器 / 尖器 / �
 (bladed / pointed / blunt), 沉重 (heavy), 護手 (guarded). Faction pawns:
 戰士 (EN "warrior", not 部落民 — that renders EN "tribesfolk" only).
 Localized Workshop title / `UMW_SettingsCategory`: 獨特近戰武器.
+`UMW_BreachAxe_Unique` namer synonyms 破城者 (breacher) / 拆城者 (breaker):
+both pair a verb with 城 (fortress/city, from the weapon's own vanilla label
+破城斧) plus the agentive 者 suffix already used elsewhere in the corpus
+(使用者, 持有者, 打撈者) — 破 (break/breach) vs 拆 (tear down/dismantle)
+keeps the two synonyms distinct while both read as natural nouns that
+compose with a material adjective ([stuff_adjective]破城者). `axe`
+grounds to the existing `UMW_Axe_Unique` namer's own base term 戰斧; `head`
+grounds to vanilla `MeleeWeapon_BreachAxe.tools.head.label` 斧頭 (not the
+mace/warhammer's 錘頭, since the breach axe's head-tool is an axe head).
 
 ## `traitAdjectives` composition rules
 

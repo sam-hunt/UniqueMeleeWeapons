@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <!-- EN: unique breach axe -->
+  <UMW_BreachAxe_Unique.label>獨特破城斧</UMW_BreachAxe_Unique.label>
+
+  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_BreachAxe_Unique.description>一把烙有大師印記的破城斧。沒有任何兩件鍛造得一模一樣。</UMW_BreachAxe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_BreachAxe_Unique.tools.handle.label>握柄</UMW_BreachAxe_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.tools.head.label>斧頭</UMW_BreachAxe_Unique.tools.head.label>
+
+  <!-- EN: charge -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>充能</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>冷卻中</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: breacher -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>破城者</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: axe -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>戰斧</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: breaker -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>拆城者</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>斧頭</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>獨特短劍</UMW_Gladius_Unique.label>
 

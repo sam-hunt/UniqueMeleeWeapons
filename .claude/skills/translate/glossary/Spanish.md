@@ -94,6 +94,8 @@ lookup anyway; expect a collision.
 | unique weapon | `arma única` | | Odyssey `UniqueWeapon` |
 | longsword / spear / mace / knife / gladius | `espada larga` (F) / `lanza` (F) / `maza` (F) / `cuchillo` (M) / `gladius` (M) | | Core labels; genders matter for the `único/única` suffix |
 | axe / warhammer / club | `hacha` (F, takes *el/un hacha*) / `martillo de guerra` (M) / `porra` (F) | | Core |
+| breach axe | `hacha zapeadora` (F) | | Core `MeleeWeapon_BreachAxe.label` — official es language pack |
+| **breach axe handle** | **`mango`** | `empuñadura` | Core `MeleeWeapon_BreachAxe.tools.handle.label` — landmine: breaks the axe/warhammer family pattern above (`empuñadura`); the official string uses `mango` instead, matching bladed/blunt weapons. Ground the handle word per weapon, don't assume the family convention. The breach axe's tool-head is `cabezal`, also Core-grounded, distinct from the mace/warhammer `cabeza` |
 | monosword / plasmasword / zeushammer | `mono-espada` / `espada de plasma` / `martillo de Zeus` | | Royalty labels |
 | **monomolecular (adjective)** | **`mono-molecular`** — hyphenated | `monomolecular` | Royalty renders the *adjective* hyphenated 4/4, though its *noun* varies (`mono-espada` 2 / `monoespada` 3) |
 | tool: handle / point / edge / blade / head / shaft | `mango` (bladed, blunt) or `empuñadura` (axe, warhammer, ultratech) / `punta` / `filo` / `hoja` / `cabeza` / `ástil` | | Core+Royalty `tools.*.label` |
@@ -155,3 +157,13 @@ WeaponCategoryDef labels are likewise mod-decided: `cuerpo a cuerpo`
 (melee, Core skill label), `cortante` / `punzante` / `contundente` (bladed
 / pointed / blunt), `pesado` (heavy), `con guarda` (guarded, matching the
 `de guarda` construction already used for Quilloned).
+
+The 2026-08-23 breach axe pass coins two `namerLabels` nouns (bare, no
+markers needed — these aren't postposed trait adjectives): `zapador`
+(breacher) reuses vanilla's own root — Core's `hacha zapeadora` derives from
+`zapador`, the Spanish military term for a sapper/combat engineer whose job
+is breaching fortifications, so this isn't a fresh coinage so much as
+un-collapsing an adjective vanilla already ships back into its noun; and
+`demoledor` (breaker) is chosen to sit clearly apart from `zapador` while
+still evoking the vanilla description's own "derribar paredes, puertas y
+otras estructuras" (tearing down walls, doors and other structures).

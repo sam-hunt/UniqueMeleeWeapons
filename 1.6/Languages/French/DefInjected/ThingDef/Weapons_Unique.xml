@@ -10,6 +10,37 @@
        which never places an agreeing adjective or article beside [weapon_type] precisely because its
        gender is unknowable there. -->
 
+  <!-- EN: unique breach axe -->
+  <UMW_BreachAxe_Unique.label>hache de brèche unique</UMW_BreachAxe_Unique.label>
+
+  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_BreachAxe_Unique.description>Une hache de brèche portant la marque de la main d'un maître. Il n'en existe pas deux forgées à l'identique.</UMW_BreachAxe_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_BreachAxe_Unique.tools.handle.label>manche</UMW_BreachAxe_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.tools.head.label>tête</UMW_BreachAxe_Unique.tools.head.label>
+
+  <!-- EN: charge -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>charge</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en recharge</UMW_BreachAxe_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: breacher -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>défonceur</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: axe -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>hache</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: breaker -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>abatteur</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: head -->
+  <UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>tête</UMW_BreachAxe_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>glaive unique</UMW_Gladius_Unique.label>
 

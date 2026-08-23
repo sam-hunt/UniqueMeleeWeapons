@@ -128,6 +128,7 @@ Anführerin} einzufangen oder zu töten`.
 | **unique \<weapon\>** (ThingDef label) | **einzigartige/-r/-s \<Waffe\>** — lowercase adj, gender-agreeing | | Odyssey `einzigartiger Großbogen`, `einzigartiges Sturmgewehr`, `einzigartige Vollautomatikflinte` |
 | longsword / spear / mace / knife / gladius | Langschwert / Speer / Streitkolben / Messer / Gladius | Schwert alone, Keule for mace | Core labels |
 | axe / warhammer | Axt / Kriegshammer | Kriegsaxt, Streithammer | Core `MeleeWeapon_Axe`, `MeleeWeapon_Warhammer` |
+| breach axe | Durchbruchsaxt | Sturmaxt, Brechaxt | Core `MeleeWeapon_BreachAxe` — official de Core label (verbatim); tools `Griff`/`Kopf` also match Core |
 | tool: handle / point / edge / head | Griff (bladed) or Stiel (hafted) / Spitze / Klinge / Kopf | | Royalty `MeleeWeapon_*.tools.*.label`; axe's own edge tool is `Schneide` |
 | stagger | Taumeln; stat Taumelzeit-Faktor | Stolpern | Core `StaggerDurationFactor` |
 | move speed / cells | Laufgeschwindigkeit / Zellen | Bewegungsgeschwindigkeit, Felder | Core `MoveSpeed` |
@@ -194,3 +195,11 @@ WeaponCategoryDef labels are likewise mod-decided: `Nahkampf` (melee, Core
 skill label), `Schnitt` / `Stich` / `Wucht` (bladed / pointed / blunt, the
 Core DamageDef labels), `schwer` (heavy), `bewehrt` (guarded, matching the
 `-bewehrt` pattern of the Quilloned family).
+
+The 2026-08-23 breach axe (`UMW_BreachAxe_Unique`) namerLabels coin two
+agent nouns distinct from the grounded `|F|Axt` (axe) and vanilla `|M|Kopf`
+(head) slots: `Durchbrecher` (breacher — agent noun from `durchbrechen`,
+"to break through", echoing the vanilla `Durchbruchsaxt` label itself) and
+`Brecher` (breaker — the plain agent noun from `brechen`, "to break"),
+both masculine and both distinct stems so the two namer slots don't
+collide.
