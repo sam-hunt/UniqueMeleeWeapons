@@ -1,15 +1,8 @@
 # TODOs
 
-- Test settings page refactor
-- Paste the initial Workshop description translations (all languages, done
-  2026-08-18) into the Workshop page's per-language edit UI; note Steam's
-  language names differ (schinese, koreana, brazilian, latam, ...).
-
 ## Features
 
 - New katana texture for longsword?
-- Breach Axe?
-- Check whether our weapons spawn when "Better Exploration Loot" mod is enabled https://steamcommunity.com/sharedfiles/filedetails/?id=3526957922
 - Explore mace and axe trait roster depth
 - Consider Mod integration
   - Alpha Armory? Installed locally

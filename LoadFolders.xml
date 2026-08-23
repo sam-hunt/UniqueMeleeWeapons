@@ -11,12 +11,23 @@
   <v1.6>
     <li>/</li>
     <li>1.6</li>
-    <!-- Optional-mod compat roots live under 1.6/Mods/<Mod Name>/, one gated entry
-         each (the layout the wider ecosystem uses). Needed whenever content can't
-         gate itself: defs support MayRequire, but DefInjected entries do not (the
-         loader ignores attributes on them). Safe to nest inside 1.6 because the
-         game only scans well-known folders (Languages/, Defs/, ...) directly under
-         a load root, so the plain 1.6 entry above never sees Mods/. -->
+    <!-- Optional-mod compat roots, one gated entry each (the layout the wider
+         ecosystem uses). Needed whenever content can't gate itself: defs support
+         MayRequire, but DefInjected entries do not (the loader ignores attributes
+         on them) and textures have no node to carry one at all, so the load root
+         *is* the gate. Gating is by package id via IfModActive (LoadFolders knows
+         nothing about MayRequire).
+
+         Two roots per optional mod, mirroring how the ungated roots above split:
+         Mods/<Mod Name>/ for version-independent content (art) and
+         1.6/Mods/<Mod Name>/ for version-specific content (Defs, and the
+         DefInjected that must sit in the same load root as the defs it targets).
+         Both are safe to nest, because the game only scans well-known folders
+         (Languages/, Defs/, Textures/, ...) directly under a load root - so the
+         plain "/" and 1.6 entries above never see Mods/. ModLister also scans the
+         game's Mods folder one level deep only, so a nested Mods/ inside a
+         deployed mod is never mistaken for a mod. -->
+    <li IfModActive="ludeon.rimworld.royalty">Mods/Royalty</li>
     <li IfModActive="ludeon.rimworld.royalty">1.6/Mods/Royalty</li>
   </v1.6>
 </loadFolders>

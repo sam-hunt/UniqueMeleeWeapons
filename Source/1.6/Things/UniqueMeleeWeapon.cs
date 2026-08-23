@@ -47,6 +47,42 @@ public class UniqueMeleeWeapon : ThingWithComps
         }
     }
 
+    // Interop guard: strip broken CompBladelinkWeapon grafts left by other mods.
+    // More Persona Traits' Blade Whisperer save-restore (BladeWhisperer_ExposeData_Patch)
+    // re-attaches `new CompBladelinkWeapon()` on load to any thing whose save data has a
+    // node named "traits" — meaning every weapon with CompUniqueWeapon, whose trait list
+    // scribes under that exact name — and never assigns the comp's props. A props-null
+    // bladelink comp cannot function: vanilla CompBiocodable.Notify_Equipped dereferences
+    // Props on every equip, so the weapon shows "Not yet bonded" and hard-crashes
+    // JobDriver_Equip, permanently unequippable (player-reported 2026-08 against MPT).
+    // The filter is exact: a comp built from any def always has props assigned by
+    // InitializeComps, and a genuinely bonded graft loads biocoded=true in base.ExposeData
+    // before this runs — so `props == null && !Biocoded` matches only comps that are both
+    // non-functional and hold no player data. Runs at PostLoadInit (the graft happens at
+    // LoadingVars), and only ever at load: in-session grafts are left alone.
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        if (Scribe.mode != LoadSaveMode.PostLoadInit)
+        {
+            return;
+        }
+        for (int i = AllComps.Count - 1; i >= 0; i--)
+        {
+            if (AllComps[i] is CompBladelinkWeapon bladelink
+                && bladelink.props == null && !bladelink.Biocoded)
+            {
+                AllComps.RemoveAt(i);
+                Log.WarningOnce(
+                    "[Unique Melee Weapons] Removed a non-functional bladelink comp (no CompProperties, "
+                    + "never bonded) that another mod attached to a unique melee weapon on load; it would "
+                    + "have made the weapon unequippable. Known cause: More Persona Traits' Blade Whisperer "
+                    + "save-restore misidentifying unique-weapon trait data as its own.",
+                    "UMW_StrippedBladelinkGraft".GetHashCode());
+            }
+        }
+    }
+
     // The unique name hides the material that an ordinary weapon's label shows
     // ("plasteel longsword" → "The Grim Reaper"), so surface it in the inspect
     // pane instead. Reuses the info card's own "Stuff" stat label (Stat_Stuff_Name)
