@@ -13,13 +13,13 @@
 
 RimWorld's Odyssey DLC introduced unique weapons — one-off variants with rolled traits, colours and names, found as quest rewards and in ancient caches. But every one of them is a gun. Melee got nothing.
 
-This mod fills the gap. Seven unique melee weapons, each stuffable, each rolling its own traits, art variant, colours and name — so the silver longsword pulled from a warband chief is unlike any other's. Traits are built as physical features of the weapon (serrated edges, flanged heads, barbed points, quillons) rather than unexplained blessings, and each is gated to the weapons that could plausibly carry it.
+This mod fills the gap. Eight unique melee weapons, each stuffable, each rolling its own traits, art variant, colours and name — so the silver longsword pulled from a warband chief is unlike any other's. Traits are built as physical features of the weapon (serrated edges, flanged heads, barbed points, quillons) rather than unexplained blessings, and each is gated to the weapons that could plausibly carry it.
 
 ## Features
 
-### Seven Unique Melee Weapons
+### Eight Unique Melee Weapons
 
-Unique variants of the vanilla knife, gladius, longsword, spear and mace, plus the axe and warhammer with Royalty — mirroring Odyssey's `_Unique` convention and inheriting their base weapon's tools and stats.
+Unique variants of the vanilla knife, gladius, longsword, spear, mace and breach axe, plus the axe and warhammer with Royalty — mirroring Odyssey's `_Unique` convention and inheriting their base weapon's tools and stats.
 
 - **Stuffable**, unlike Odyssey's ranged uniques: a unique weapon is made of a real material, and its material stat multipliers apply as normal
 - **Five hand-drawn art variants per weapon**, double-masked so the unique accent colour and the material tint render independently on the same sprite

@@ -6,8 +6,8 @@ Odyssey introduced 13 unique weapons: rare one-off variants which roll up to 3 r
 This mod fills the gap. New unique variants of vanilla neolithic and medieval melee weapons, each stuffable, with their own set of new traits, name rules, and clean double-masked textures.
 
 [hr][/hr]
-[h2]7 Unique Melee Weapons[/h2]
-Unique variants of vanilla knife, gladius, longsword, spear and mace, plus axe and warhammer with Royalty. Each inherits its base weapon's tools and stats.
+[h2]8 Unique Melee Weapons[/h2]
+Unique variants of vanilla knife, gladius, longsword, spear, mace and breach axe, plus axe and warhammer with Royalty. Each inherits its base weapon's tools and stats.
 [list]
 [*][b]Stuffable[/b], unlike Odyssey's ranged uniques, so material stat multipliers apply as normal
 [*][b]5 hand-drawn art variants per weapon[/b], with unique accent color and material/stuff tint rendered together independently

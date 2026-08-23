@@ -189,10 +189,10 @@ fails until the next release run.
   Reuse a Core `DamageDef` where one fits; clone only when a field must change.
 - **Every weapon def must carry a `CompEquippable`-derived ability comp.** `CompUniqueWeapon.Setup`
   dereferences `CompEquippableAbilityReloadable` with no null check whenever a rolled trait carries
-  `abilityProps`. Only one such comp is allowed per thing, so all 7 unique defs replace their
-  inherited comps wholesale (`<comps Inherit="False">`, uniform across the 7 even where no ability
+  `abilityProps`. Only one such comp is allowed per thing, so all 8 unique defs replace their
+  inherited comps wholesale (`<comps Inherit="False">`, uniform across the 8 even where no ability
   can currently roll). **If base-game weapon comps change in a vanilla update, replicate the change
-  in all 7 files.**
+  in all 8 files.**
 - **An AoE ability's radius lives in two places and must agree, at `X.9`.** The gizmo-hover preview
   reads `verbProperties.range` (via `VerbProperties.DrawRadiusRing`) and *never* a comp field, so a
   mismatch draws a ring that lies about the effect. Use `X.9`, not `X.0`: the ring outlines the edge
