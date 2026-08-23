@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Breach axe. Core, Neolithic. Blunt+Poke handle plus the game's only Demolish tool-head
+       -> Melee + Blunt. Blunt fits by mechanism, not capacity name: Demolish's DamageDef derives
+       from BluntBase and vanilla classes the weapon MeleeBlunt, and every Blunt head trait reads
+       naturally on a demolition tool-head. The per-tool stat traits (Flanged/Studded) list the
+       Demolish capacity alongside Blunt so their mods land on the head, not just the handle — see
+       those files. No Cut/Stab tool bars Bladed/Pointed; the fast 1-2s tools miss Heavy's 2.6s
+       swing archetype; a bare haft has nothing to mount a guard on (Guarded, same as the spear).
+       A dedicated breaching category is a plausible later addition — Demolish's 10x
+       buildingDamageFactor is a real mechanic to hook, unlike the rejected UMW_Reach — but it
+       ships with its own traits, not here.
+       Texture: five commissioned variants, A-E like every other weapon. -->
+  <ThingDef ParentName="MeleeWeapon_BreachAxe">
+    <defName>UMW_BreachAxe_Unique</defName>
+    <label>unique breach axe</label>
+    <description>A breach axe bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/BreachAxe</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+      <li>UMW_UniqueMelee</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>MeleeWeapon_BreachAxe</ThingDef>
+    </descriptionHyperlinks>
+    <!-- Can't inherit comps: CompEquippableAbilityReloadable must replace CompEquippable
+         (one CompEquippable-derived comp allowed). If BaseWeapon/BaseMeleeWeapon_*_Quality
+         comps change in a vanilla update, replicate here. -->
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" /> <!-- props populated by traits -->
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Blunt</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>breacher</li>
+          <li>axe</li>
+          <li>breaker</li>
+          <li>head</li>
+        </namerLabels>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

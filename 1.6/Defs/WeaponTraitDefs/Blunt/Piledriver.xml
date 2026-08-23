@@ -8,7 +8,7 @@
        CompUniqueWeapon.Setup with zero Harmony; see Earthshake.xml's own header). Pure-cooldown form,
        same shape as Odyssey's EMPPulser trait (just <abilityDef>, no maxCharges/ammo). REQUIRES the
        weapon def to carry CompProperties_EquippableAbilityReloadable in place of plain CompEquippable
-       (true of all 7 weapon defs) — CompUniqueWeapon.Setup
+       (true of all 8 weapon defs) — CompUniqueWeapon.Setup
        dereferences TryGetComp<CompEquippableAbilityReloadable>() with no null check whenever a rolled
        trait has abilityProps, so a weapon missing the comp would NPE the instant this trait rolls.
        Earthshake's shockwave is indiscriminate (see that def) — say so here too, since a wielder

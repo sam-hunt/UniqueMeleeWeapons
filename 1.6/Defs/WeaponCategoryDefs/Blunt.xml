@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- Mechanism category — primary Blunt tool. Token registry (tokens are global across categories):
+  <!-- Mechanism category — primary blunt-mechanism tool: a Blunt-capacity head (mace, warhammer),
+       or the breach axe's Demolish tool-head (Demolish's DamageDef derives from BluntBase and
+       vanilla classes the weapon MeleeBlunt, so it is the same mechanism under another capacity
+       name; the per-tool stat traits below list both capacities so their mods reach it).
+       Token registry (tokens are global across categories):
          • "Head" — the blunt head's one on-hit incapacitation/control effect per weapon:
            UMW_BellCast (bell-solid cast head, kinetic resonant stun, hits flesh and mechs; StunFor
            max-merges so procs can't lock) OR UMW_ZeusHeaded (electromagnetic stun, mechanoids only —
