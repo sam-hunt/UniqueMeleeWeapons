@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-08-23
+
+### Added
+
+- Unique breach axe, the eighth unique melee weapon: stuffable like the rest, with
+  five hand-drawn art variants, its own name grammar, and translations in all nine
+  languages.
+- A pre-release startup smoke test now gates every release on a clean boot alongside
+  the companion mods.
+
+### Fixed
+
+- Weapons no longer throw a red error on equip from another mod grafting a broken
+  bladelink comp onto them at load (seen with More Persona Traits). Such grafts are
+  stripped on load; genuine persona bonds are untouched.
+
+### Changed
+
+- Royalty weapon art now ships from a Royalty-gated folder instead of loading
+  unconditionally without the DLC.
+
 ## [1.1.0] - 2026-08-19
 
 ### Added
@@ -60,6 +81,7 @@ Initial release.
 - Translations for Simplified Chinese, French, German, Japanese, Korean, Brazilian
   Portuguese, Russian and Spanish.
 
+[1.2.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.1.0
 [1.0.2]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.0.2
 [1.0.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.0.1
