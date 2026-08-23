@@ -11,9 +11,7 @@
        A dedicated breaching category is a plausible later addition — Demolish's 10x
        buildingDamageFactor is a real mechanic to hook, unlike the rejected UMW_Reach — but it
        ships with its own traits, not here.
-       Texture: five commissioned variants, lettered A, B, C, E, F with no D shipped;
-       Graphic_RandomComplex just picks among whatever variants the folder holds, so the gap in
-       the lettering is harmless. -->
+       Texture: five commissioned variants, A-E like every other weapon. -->
   <ThingDef ParentName="MeleeWeapon_BreachAxe">
     <defName>UMW_BreachAxe_Unique</defName>
     <label>unique breach axe</label>
