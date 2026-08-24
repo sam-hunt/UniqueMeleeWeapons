@@ -14,6 +14,9 @@
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Génération</UMW_SettingsGeneration>
 
+  <!-- EN: Traders -->
+  <UMW_SettingsTraders>Commerçants</UMW_SettingsTraders>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -54,6 +57,20 @@
 
   <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
   <UMW_AllowUltratechTraitsDesc>Trois traits empruntent l'arsenal de mêlée ultratechnologique de Royalty : {0} (un fil maintenu par des mécanites qui cisaille l'armure), {1} (une gaine de plasma qui brûle et enflamme) et {2} (une décharge IEM qui étourdit les mécanoïdes). Désactivez l'option pour les garder hors du tirage. Elle est prévue pour les parties strictement médiévales ou de basse technologie, où un fil à mécanites sur une épée forgée à la main rompt l'époque. Les autres traits ne sont pas affectés, et les armes qui ont déjà tiré l'un de ces traits le conservent.</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label, capitalized ("Fournisseur militaire", "Chaman"), so it tracks
+       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
+       is Royalty's persona-weapon tech; French vanilla has no single fixed noun for it, so this
+       reuses the adjective "consciente" that every bladelink ThingDef label already carries. -->
+  <!-- EN: Unique weapons in {0} stock -->
+  <UMW_TraderStocksUniques>Armes uniques dans le stock du {0}</UMW_TraderStocksUniques>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Avec cette option activée, une caravane de {0} en visite propose parfois (environ une visite sur deux) une arme de mêlée unique à la vente, à la même rareté que celle que le commerçant orbital impérial de Royalty accorde à ses armes conscientes, et elle achète aussi des armes de mêlée uniques, qu'il y en ait ou non en stock. Les traits d'arme ultratechnologiques ne sont jamais tirés sur les armes qu'elle vend : une troupe de guerre tribale ne traite qu'en armes d'époque. Les armes désactivées dans la section Armes n'y apparaissent pas non plus.</UMW_TraderStocksUniquesWarMerchantDesc>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesShamanDesc>Avec cette option activée, une caravane de {0} en visite propose parfois (environ une visite sur deux) une arme de mêlée unique à la vente, à la même rareté que celle que le commerçant orbital impérial de Royalty accorde à ses armes conscientes, et elle achète aussi des armes de mêlée uniques, qu'il y en ait ou non en stock. Son stock peut aussi tirer des traits d'arme ultratechnologiques : les chamans commercent des reliques qu'ils ne comprennent pas entièrement, tout comme les autres objets étranges de haute technologie déjà présents dans leurs sacs. Les armes désactivées dans la section Armes n'y apparaissent pas non plus.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

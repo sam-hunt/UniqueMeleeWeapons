@@ -21,6 +21,8 @@ public static class UMW_Startup
         UniqueWeaponDefs.Rebuild();
         UniqueMeleeWeaponsMod.Settings.ApplyWarbandQuestWeight();
         UniqueMeleeWeaponsMod.Settings.ApplyAbilityTuning();
+        // After Rebuild: the trader def-writes iterate UniqueWeaponDefs.All.
+        UniqueMeleeWeaponsMod.Settings.ApplyTraderStock();
         TraitEffectSummary.AttachToTraits();
     }
 }

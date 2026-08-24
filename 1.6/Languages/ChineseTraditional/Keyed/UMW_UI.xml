@@ -12,6 +12,9 @@
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>生成</UMW_SettingsGeneration>
 
+  <!-- EN: Traders -->
+  <UMW_SettingsTraders>商人</UMW_SettingsTraders>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -46,6 +49,19 @@
 
   <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
   <UMW_AllowUltratechTraitsDesc>三項特質借用了「皇權」的超科技近戰裝備：「{0}」（由奈米機械維持的刃口，可切開護甲）、「{1}」（電漿護層，會灼傷並點燃目標）和「{2}」（能擊昏機械族的 EMP 放電）。關閉後它們不再參與抽取。此設定面向純中世紀或低科技的遊戲流程，在那樣的時代背景下，手工鍛造的劍上出現奈米機械刃口會破壞時代感。其餘特質不受影響，已經抽到這些特質的武器會保留它們。</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
+       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
+       is Royalty's persona-weapon tech; translate it to match the official localization. -->
+  <!-- EN: Unique weapons in {0} stock -->
+  <UMW_TraderStocksUniques>「{0}」庫存中的獨特武器</UMW_TraderStocksUniques>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>開啟後，來訪的「{0}」旅隊有時（約半數的造訪）會攜帶一把獨特近戰武器出售，其稀有度與「皇權」帝國軌道商人販售羈絆武器時相同，並且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。此商人販售的武器永遠不會抽到超科技武器特質：部落戰幫交易的是符合時代的武器。在「武器」設定區關閉的武器同樣不會出現在此處。</UMW_TraderStocksUniquesWarMerchantDesc>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesShamanDesc>開啟後，來訪的「{0}」旅隊有時（約半數的造訪）會攜帶一把獨特近戰武器出售，其稀有度與「皇權」帝國軌道商人販售羈絆武器時相同，並且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。其庫存也可能抽到超科技武器特質：薩滿販售的是他們自己也不完全理解的文物，就像他們行囊中其他古怪的高科技物品一樣。在「武器」設定區關閉的武器同樣不會出現在此處。</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

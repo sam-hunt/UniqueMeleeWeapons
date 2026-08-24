@@ -10,6 +10,7 @@
        every language and must not be duplicated in this file. -->
   <UMW_SettingsWeapons>Weapons</UMW_SettingsWeapons>
   <UMW_SettingsGeneration>Generation</UMW_SettingsGeneration>
+  <UMW_SettingsTraders>Traders</UMW_SettingsTraders>
 
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
@@ -37,6 +38,14 @@
        Each parenthetical describes the trait injected just before it, so keep them paired. -->
   <UMW_AllowUltratechTraits>Allow ultratech weapon traits</UMW_AllowUltratechTraits>
   <UMW_AllowUltratechTraitsDesc>Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it.</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
+       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
+       is Royalty's persona-weapon tech; translate it to match the official localization. -->
+  <UMW_TraderStocksUniques>Unique weapons in {0} stock</UMW_TraderStocksUniques>
+  <UMW_TraderStocksUniquesWarMerchantDesc>With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <UMW_TraderStocksUniquesShamanDesc>With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

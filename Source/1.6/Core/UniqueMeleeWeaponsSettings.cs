@@ -43,6 +43,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         base.ExposeData();
         ExposeWeaponSettings();
         ExposeGenerationSettings();
+        ExposeTraderSettings();
         ExposeAbilitySettings();
         ExposeQuestSettings();
     }
@@ -51,6 +52,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     {
         ResetWeaponSettings();
         ResetGenerationSettings();
+        ResetTraderSettings();
         ResetAbilitySettings();
         ResetQuestSettings();
     }
@@ -84,6 +86,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
 
         DrawWeaponsSection(listing);
         DrawGenerationSection(listing);
+        DrawTradersSection(listing);
         DrawAbilitiesSection(listing);
         DrawQuestsSection(listing);
 

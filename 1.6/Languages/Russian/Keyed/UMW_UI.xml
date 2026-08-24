@@ -12,6 +12,9 @@
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Генерация</UMW_SettingsGeneration>
 
+  <!-- EN: Traders -->
+  <UMW_SettingsTraders>Торговцы</UMW_SettingsTraders>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -46,6 +49,19 @@
 
   <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
   <UMW_AllowUltratechTraitsDesc>Три свойства заимствуют ультратехнологичный арсенал ближнего боя из Royalty: «{0}» (лезвие, удерживаемое механитами и рассекающее броню), «{1}» (плазменная оболочка, которая обжигает и поджигает) и «{2}» (ЭМИ-разряд, оглушающий механоидов). Отключите, чтобы они не участвовали в розыгрыше. Настройка задумана для средневековых и низкотехнологичных прохождений, где механитное лезвие на выкованном вручную мече выбивается из эпохи. Остальные свойства не затрагиваются, а оружие, уже получившее одно из этих свойств, сохраняет его.</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
+       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
+       is Royalty's persona-weapon tech; translate it to match the official localization. -->
+  <!-- EN: Unique weapons in {0} stock -->
+  <UMW_TraderStocksUniques>Уникальное оружие в ассортименте «{0}»</UMW_TraderStocksUniques>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Если эта настройка включена, заходящий в гости караван «{0}» иногда (примерно в половине визитов) привозит на продажу один экземпляр уникального оружия ближнего боя, той же редкости, что и оружие с ИИ-личностью, которое даёт имперский орбитальный торговец Royalty, а также скупает уникальное оружие ближнего боя независимо от того, есть ли оно у него в наличии. На оружии, которое он продаёт, никогда не выпадают ультратехнологичные свойства: боевой отряд племени торгует оружием своей эпохи. Оружие, отключённое в разделе «Оружие», тоже никогда здесь не появится.</UMW_TraderStocksUniquesWarMerchantDesc>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesShamanDesc>Если эта настройка включена, заходящий в гости караван «{0}» иногда (примерно в половине визитов) привозит на продажу один экземпляр уникального оружия ближнего боя, той же редкости, что и оружие с ИИ-личностью, которое даёт имперский орбитальный торговец Royalty, а также скупает уникальное оружие ближнего боя независимо от того, есть ли оно у него в наличии. В его товарах также могут выпадать ультратехнологичные свойства оружия: шаманы торгуют реликвиями, суть которых не до конца понимают, так же как и другими странными высокотехнологичными товарами, что уже есть в их тюках. Оружие, отключённое в разделе «Оружие», тоже никогда здесь не появится.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

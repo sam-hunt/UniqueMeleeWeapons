@@ -258,6 +258,12 @@ fails until the next release run.
   is in `QuestNode_Root_Warband.cs`.
 - **Wood-free material rolls** (`Patches/GenStuff_ExcludeWoodStuff_Patch.cs`) — setting-gated,
   filtering the single choke point every generation path funnels through, def-gated to our weapons.
+- **Tribal trader stock** (`Traders/StockGenerator_UMWUniqueMelee.cs`,
+  `Core/Settings/Settings_Traders.cs`) — two default-off toggles put uniques in the tribal war
+  merchant's and shaman's stock at Royalty's bladelink rarity. Entirely runtime def-writes (a
+  generator instance on the TraderKindDef plus a Sellable→All tradeability flip while on); nothing
+  trader-related ships in XML. The two file headers carry the rationale, including why the war
+  merchant's stock scope-bans the ultratech traits and the shaman's doesn't.
 
 ## Localization
 

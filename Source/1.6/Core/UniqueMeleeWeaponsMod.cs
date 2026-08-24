@@ -37,6 +37,7 @@ public class UniqueMeleeWeaponsMod : Mod
         Settings.ApplyWeaponAvailability();
         Settings.ApplyWarbandQuestWeight();
         Settings.ApplyAbilityTuning();
+        Settings.ApplyTraderStock();
     }
 
     public override string SettingsCategory() => "UMW_SettingsCategory".Translate();

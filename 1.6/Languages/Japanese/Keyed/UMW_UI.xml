@@ -12,6 +12,9 @@
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>生成</UMW_SettingsGeneration>
 
+  <!-- EN: Traders -->
+  <UMW_SettingsTraders>商人</UMW_SettingsTraders>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -46,6 +49,17 @@
 
   <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
   <UMW_AllowUltratechTraitsDesc>3つの特性はRoyaltyの最先端技術の近接武器を借用しています:「{0}」(装甲を切り裂く,メカナイトが保持する刃),「{1}」(焼き焦がし,発火させるプラズマの鞘),「{2}」(メカノイドをスタンさせるEMP放電).オフにすると,これらは抽選に加わりません.これは中世限定や低技術レベルでのプレイを想定した設定です.そうした時代設定では,手鍛えの剣にメカナイトの刃が付いていると世界観が壊れてしまいます.他の特性には影響せず,既にこれらを引いている武器はその特性を保持します.</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label ("武器屋", "呪い商" per Core's own translation); each description's
+       {0} is the same label. "Bladelink" is Royalty's persona-weapon tech, rendered as ペルソナ to
+       match the official localization (BladelinkEquipWarning). -->
+  <!-- EN: Unique weapons in {0} stock -->
+  <UMW_TraderStocksUniques>「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniques>
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>オンにすると,「{0}」のキャラバンが来訪した際,その約半数の頻度でユニークな近接武器を1つ販売品として持ってくるようになります.これはRoyaltyの帝国の軌道上の貿易商がペルソナ武器に設定しているのと同じ稀少度です.また,在庫の有無に関わらずユニークな近接武器を買い取ります.販売される武器に最先端技術級の武器特性が乗ることはありません:部族の戦士団はその時代の武具を扱っているためです.「武器」の項でオフにした武器は,ここにも登場しません.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesShamanDesc>オンにすると,「{0}」のキャラバンが来訪した際,その約半数の頻度でユニークな近接武器を1つ販売品として持ってくるようになります.これはRoyaltyの帝国の軌道上の貿易商がペルソナ武器に設定しているのと同じ稀少度です.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫には最先端技術級の武器特性が乗ることもあります:呪い商は,自分でも仕組みを理解しきれていない遺物を扱っており,それは彼らの荷物に紛れている他の奇妙なハイテク品と同じことです.「武器」の項でオフにした武器は,ここにも登場しません.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

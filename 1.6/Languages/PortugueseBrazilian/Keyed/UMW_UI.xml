@@ -15,6 +15,9 @@
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Geração</UMW_SettingsGeneration>
 
+  <!-- EN: Traders -->
+  <UMW_SettingsTraders>Comerciantes</UMW_SettingsTraders>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -59,6 +62,25 @@
 
   <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
   <UMW_AllowUltratechTraitsDesc>Três características emprestam o arsenal de combate corpo a corpo ultratecnológico de Royalty: {0} (uma lâmina sustentada por mecanitos que corta a armadura), {1} (uma bainha de plasma que queima e incendeia) e {2} (uma descarga PEM que atordoa mecanoides). Desative para mantê-las fora do sorteio. A opção é voltada para partidas estritamente medievais ou de baixa tecnologia, onde uma lâmina de mecanitos em uma espada forjada à mão destoa da época. As outras características não são afetadas, e as armas que já receberam uma delas a mantêm.</UMW_AllowUltratechTraitsDesc>
+
+  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
+       trader kind's own def label, capitalized ("Comerciantes de guerra", "Comerciantes xamãs" -
+       vanilla pt-BR renders these TraderKindDef labels as plural nouns even though the English
+       source is singular, so the injected value already carries its own agreement); each
+       description's {0} is the same label in lowercase, as vanilla already ships it. "Bladelink"
+       has no dedicated pt-BR keyword: vanilla always renders the concept as "persona" (Royalty's
+       MeleeWeapon_*Bladelink labels read "espada ... persona" / "martelo ... persona", and
+       BladelinkEquipWarning speaks of "a persona da arma"), so a bladelink weapon here is an
+       "arma persona". "Imperial orbital trader" follows Royalty's Orbital_Empire.label
+       ("comerciante imperial"), with "orbital" kept explicit since the English source states it. -->
+  <!-- EN: Unique weapons in {0} stock -->
+  <UMW_TraderStocksUniques>Armas únicas em estoque: {0}</UMW_TraderStocksUniques>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Com esta opção ativada, uma caravana de {0} em visita às vezes (em cerca de metade de suas visitas) traz uma arma corpo a corpo única à venda, na mesma raridade que o comerciante orbital imperial de Royalty dá às suas armas persona, e comprará armas corpo a corpo únicas independentemente de haver alguma em estoque. Características de arma ultratecnológicas nunca são sorteadas nas armas que ela vende: uma tropa de guerra tribal negocia com armas de sua própria época. Armas desativadas na seção Armas também não aparecem aqui.</UMW_TraderStocksUniquesWarMerchantDesc>
+
+  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
+  <UMW_TraderStocksUniquesShamanDesc>Com esta opção ativada, uma caravana de {0} em visita às vezes (em cerca de metade de suas visitas) traz uma arma corpo a corpo única à venda, na mesma raridade que o comerciante orbital imperial de Royalty dá às suas armas persona, e comprará armas corpo a corpo únicas independentemente de haver alguma em estoque. O estoque dela também pode sortear características de arma ultratecnológicas: xamãs negociam com relíquias que não compreendem totalmente, assim como os outros objetos estranhos de alta tecnologia que já carregam em suas bagagens. Armas desativadas na seção Armas também não aparecem aqui.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

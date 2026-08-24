@@ -1,3 +1,4 @@
+using System;
 using HarmonyLib;
 using RimWorld;
 
@@ -19,13 +20,21 @@ namespace UniqueMeleeWeapons.Patches;
 // Not gated on our weapons: these three traits belong to UMW_Bladed/UMW_Blunt, which no non-UMW
 // weapon lists in its CompProperties_UniqueWeapon, so the vanilla ranged uniques never offer them
 // anyway. A null DefOf field (Royalty absent) matches nothing, so the patch is inert there too.
+//
+// Besides the global setting, the same veto serves a second, scoped consumer: banUltratechScope,
+// raised by StockGenerator_UMWUniqueMelee around ThingMaker.MakeThing so the war merchant's stock
+// never rolls these traits while the shaman's still can. The flag works because InitializeTraits
+// runs synchronously inside MakeThing (PostPostMake); it is [ThreadStatic] so a generation on a
+// worker thread can never leak the ban into another thread's roll.
 [HarmonyPatch(typeof(CompUniqueWeapon), nameof(CompUniqueWeapon.CanAddTrait))]
 public static class CompUniqueWeapon_UltratechTraits_Patch
 {
+    [ThreadStatic] internal static bool banUltratechScope;
+
     public static void Postfix(WeaponTraitDef trait, ref bool __result)
     {
         if (__result
-            && UniqueMeleeWeaponsMod.Settings?.allowUltratechTraits == false
+            && (UniqueMeleeWeaponsMod.Settings?.allowUltratechTraits == false || banUltratechScope)
             && IsUltratechTrait(trait))
         {
             __result = false;
