@@ -2,68 +2,48 @@
 <Patch>
 
   <!-- Repoint Odyssey's two class-based unique-weapon rolls off the stock ThingSetMaker_UniqueWeapon
-       onto our ThingSetMaker_UMWUnique (a ThingSetMaker_MarketValue subclass). Two reasons:
+       onto our ThingSetMaker_UMWUnique. Two reasons:
 
          1. Hardening. ThingSetMaker_UniqueWeapon calls MakeThing(def) with no stuff. Our melee uniques
             are stuffable, so it logs a red "madeFromStuff but stuff=null" error and forces them to steel.
-            MarketValue builds via ThingStuffPairWithQuality (passes a stuff; preserves the comp's Super
-            quality), so the error is gone.
-         2. Pool separation. Our subclass keeps the comp-based candidate set MINUS our weapons, so the
+            Our class rolls a random stuff for stuffable candidates, so the error is gone.
+         2. Pool separation. Our class keeps the comp-based candidate set MINUS our weapons, so the
             quest / orbital stash roll Odyssey's (and other mods') uniques but never ours — ours are
             reserved for our own pool (UMW_Reward_UniqueWeapon). Other mods' uniques are unaffected.
 
-       Behaviour is preserved: ThingSetMaker_Sum hands the (sole) quest option the full points->value
-       window, and MarketValue honours totalMarketValueRange + countRange. qualityGenerator=Super is added
-       so the value ESTIMATE used during selection matches the actual Super weapon (matching how the stock
-       class selected on real Super value).
+       Behaviour is otherwise identical by construction: ThingSetMaker_UMWUnique is a faithful port of
+       the stock retry loop (make a random candidate, keep it if its REAL market value fits the window),
+       so both consumers keep vanilla's "exactly one unique, any that fits" outcome. This matters for
+       MapGen_OrbitalItemStash, whose call site passes a fixed (2200,2200) window and no countRange — a
+       value-budget maker (ThingSetMaker_MarketValue, the class's previous base) inverted those semantics
+       and skipped the unique in most stashes; the full worked comparison is in the class header. No
+       fixedParams are injected: quality comes from CompUniqueWeapon.PostPostMake (Super) on the made
+       thing itself, exactly as the stock class relied on.
 
        Each consumer is wrapped in a PatchOperationConditional keyed on the exact node we expect
        (thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]). If a future Odyssey restructure removes or
-       renames it, the patch simply no-ops instead of erroring. The Class predicate also scopes the ops to
-       the unique-weapon option only (MapGen_OrbitalItemStash also has a stockpile sub-tree option). Within
-       each sequence the Add runs before the AttributeSet so both still match on the old Class. -->
+       renames it — or another mod repoints the same node first — the patch simply no-ops instead of
+       erroring (in the collision case our weapons would leak back into that pool; accepted, since we
+       cannot know the replacement class's semantics). The Class predicate also scopes the op to the
+       unique-weapon option only (MapGen_OrbitalItemStash also has a stockpile sub-tree option). -->
 
   <!-- Reward_UniqueWeapon — used by the AncientMercenaries quest (QuestNode_Root_AncientMercenaries). -->
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="Reward_UniqueWeapon"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-    <match Class="PatchOperationSequence">
-      <operations>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingSetMakerDef[defName="Reward_UniqueWeapon"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-          <value>
-            <fixedParams>
-              <qualityGenerator>Super</qualityGenerator>
-            </fixedParams>
-          </value>
-        </li>
-        <li Class="PatchOperationAttributeSet">
-          <xpath>Defs/ThingSetMakerDef[defName="Reward_UniqueWeapon"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-          <attribute>Class</attribute>
-          <value>UniqueMeleeWeapons.ThingSetMaker_UMWUnique</value>
-        </li>
-      </operations>
+    <match Class="PatchOperationAttributeSet">
+      <xpath>Defs/ThingSetMakerDef[defName="Reward_UniqueWeapon"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
+      <attribute>Class</attribute>
+      <value>UniqueMeleeWeapons.ThingSetMaker_UMWUnique</value>
     </match>
   </Operation>
 
   <!-- MapGen_OrbitalItemStash — the unique-weapon option of an orbital platform's item-stash room. -->
   <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="MapGen_OrbitalItemStash"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-    <match Class="PatchOperationSequence">
-      <operations>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingSetMakerDef[defName="MapGen_OrbitalItemStash"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-          <value>
-            <fixedParams>
-              <qualityGenerator>Super</qualityGenerator>
-            </fixedParams>
-          </value>
-        </li>
-        <li Class="PatchOperationAttributeSet">
-          <xpath>Defs/ThingSetMakerDef[defName="MapGen_OrbitalItemStash"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
-          <attribute>Class</attribute>
-          <value>UniqueMeleeWeapons.ThingSetMaker_UMWUnique</value>
-        </li>
-      </operations>
+    <match Class="PatchOperationAttributeSet">
+      <xpath>Defs/ThingSetMakerDef[defName="MapGen_OrbitalItemStash"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_UniqueWeapon"]</xpath>
+      <attribute>Class</attribute>
+      <value>UniqueMeleeWeapons.ThingSetMaker_UMWUnique</value>
     </match>
   </Operation>
 

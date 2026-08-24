@@ -4,9 +4,12 @@
   <!-- Our parallel to Odyssey's Reward_UniqueWeapon, but scoped to OUR weapons only. Uses the stock
        ThingSetMaker_MarketValue (no subclass needed): it's stuff-aware (so our weapons roll with a real
        material — the double-mask tint — instead of forced steel) and honours the caller's value window.
-       Selection is restricted to our weapons via the UMW_UniqueMelee tag (only our *_Unique defs carry
-       it), so no cross-mod concern. qualityGenerator=Super both sets the rolled quality and makes the
-       value ESTIMATE match it during selection.
+       Selection is restricted via the UMW_UniqueMelee tag — an allow-list, so nothing untagged can ever
+       roll here. The tag is a published opt-in contract: a third-party melee unique that adds it joins
+       this pool (and our settings/pool-exclusion machinery) wholesale — semantics documented on
+       UniqueWeaponDefs.Tag, which owns the constant. qualityGenerator=Super makes the value ESTIMATE used
+       during selection match the actual weapon (CompUniqueWeapon.PostPostMake rolls Super quality on the
+       made thing itself; ThingStuffPairWithQuality.MakeThing defers to it for CompUniqueWeapon things).
 
        Only `filter` and `qualityGenerator` are fixed here — countRange and totalMarketValueRange are left
        null so the consuming quest's call-site params flow through (ApplyFixedParams only fills nulls;
