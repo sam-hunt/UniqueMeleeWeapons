@@ -3,10 +3,7 @@
 > A RimWorld mod adding individually-designed unique melee weapons
 
 [![RimWorld](https://img.shields.io/badge/RimWorld-1.6-blue.svg)](https://rimworldgame.com/)
-[![Odyssey DLC](https://img.shields.io/badge/DLC-Odyssey-blue.svg)](https://store.steampowered.com/app/2380740/RimWorld__Odyssey/)
-[![Version](https://img.shields.io/badge/Version-1.2.0-brightgreen.svg)](https://github.com/sam-hunt/UniqueMeleeWeapons/releases)
-[![Development Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)](https://github.com/sam-hunt/UniqueMeleeWeapons/releases)
-
+[![Odyssey DLC](https://img.shields.io/badge/DLC-Odyssey-red.svg)](https://store.steampowered.com/app/2380740/RimWorld__Odyssey/)
 [![Subscribers](https://img.shields.io/steam/subscriptions/3776637622?logo=steam&label=subscribers)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
 [![Downloads](https://img.shields.io/steam/downloads/3776637622?logo=steam&label=downloads)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
 [![Favorites](https://img.shields.io/steam/favorites/3776637622?logo=steam&label=favorites)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
