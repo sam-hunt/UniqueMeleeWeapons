@@ -7,6 +7,11 @@
 [![Version](https://img.shields.io/badge/Version-1.2.0-brightgreen.svg)](https://github.com/sam-hunt/UniqueMeleeWeapons/releases)
 [![Development Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)](https://github.com/sam-hunt/UniqueMeleeWeapons/releases)
 
+[![Subscribers](https://img.shields.io/steam/subscriptions/3776637622?logo=steam&label=subscribers)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
+[![Downloads](https://img.shields.io/steam/downloads/3776637622?logo=steam&label=downloads)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
+[![Favorites](https://img.shields.io/steam/favorites/3776637622?logo=steam&label=favorites)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
+[![Views](https://img.shields.io/steam/views/3776637622?logo=steam&label=views)](https://steamcommunity.com/sharedfiles/filedetails/?id=3776637622)
+
 ![Preview](About/Preview.png)
 
 ## About
