@@ -85,3 +85,20 @@ names compose directly: [stuff_adjective][weapon_noun] → 鋼鐵長劍,
 [skillAdv] entries end in 地 and slot before the verb
 ([RECIPIENT_definite][skillAdvMaybe]用劍格架開了…); [RECIPIENT_possessive] is
 idiomatically dropped, as in vanilla zh.
+
+## Cross-reference: UWU's 2026-08-26 zh-Hant pass
+
+UniqueWeaponsUnbound's zh-Hant generation independently re-confirmed this file's
+two load-bearing calls and now depends on them:
+
+- **特質 / 武器特質** for the Odyssey weapon-trait word (vs Royalty's 特性, which
+  PersonaWeaponsUnbound uses). Both Odyssey-domain mods now ship 特質.
+- **The shipped trait labels above are UWU's `labelKeywords` corpus.** Its
+  `UniqueWeaponsUnbound.TraitCostRuleDef` zh-Hant injection appends 淬毒,
+  鴉片塗層, 輕巧, 裝飾性, 琺瑯, 染血, 鑲金, 鑲翡翠, 單分子刃, 等離子內芯,
+  宙斯錘頭, 穿甲尖刺, 倒刺, 配重, 稜脊錘頭, 頭重, 針尖, 劍格, 剃刀刃, 鋸齒刃 and
+  嵌釘錘頭 as exact whole-label match tokens, because a zh-Hant label has no
+  space or hyphen and is therefore a single token. **Renaming any of those
+  labels silently changes which cost rule matches that trait for zh-Hant
+  players** — nothing in either repo's checker can see the coupling. Update
+  UWU's injection in the same pass as any relabel here.
