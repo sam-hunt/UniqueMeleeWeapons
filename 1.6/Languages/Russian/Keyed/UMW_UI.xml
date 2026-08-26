@@ -29,7 +29,7 @@
 
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from this mod's own reward pool and from every vanilla generation and reward pool, including quest rewards, ancient crates, item stashes and map loot, so it no longer appears. (A third-party mod that rolls loot through its own custom generator may bypass this.) Any that already exist in your save are untouched, and the other weapons take its place in the rolls. Turning it back on is enough to restore it. -->
-  <UMW_WeaponEnabledDesc>Разрешить генерацию «{0}». Отключите, чтобы убрать это оружие из собственного пула наград мода и из всех игровых пулов генерации и наград — включая награды за задания, герметичные ящики, тайники и добычу на карте, — после чего оно перестанет появляться. (Сторонний мод, распределяющий добычу через собственный генератор, может обойти эту настройку.) Экземпляры, уже существующие в сохранении, останутся нетронутыми, а место этого оружия в розыгрышах займут остальные. Чтобы вернуть его, достаточно снова включить настройку.</UMW_WeaponEnabledDesc>
+  <UMW_WeaponEnabledDesc>Разрешить генерацию «{0}». Отключите, чтобы убрать это оружие из собственного пула наград мода и из всех игровых пулов генерации и наград, включая награды за задания, герметичные ящики, тайники и добычу на карте, после чего оно перестанет появляться. (Сторонний мод, распределяющий добычу через собственный генератор, может обойти эту настройку.) Экземпляры, уже существующие в сохранении, останутся нетронутыми, а место этого оружия в розыгрышах займут остальные. Чтобы вернуть его, достаточно снова включить настройку.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: buttons -->
   <!-- EN: Reset to defaults -->
@@ -70,19 +70,19 @@
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
        The unit word is part of the template, so hour- and day-based cooldowns are separate keys. -->
   <!-- EN: {0} cooldown: {1} hours -->
-  <UMW_AbilityCooldownHours>{0} — перезарядка: {1} ч.</UMW_AbilityCooldownHours>
+  <UMW_AbilityCooldownHours>Перезарядка «{0}»: {1} ч.</UMW_AbilityCooldownHours>
 
   <!-- EN: {0} cooldown: {1} days -->
-  <UMW_AbilityCooldownDays>{0} — перезарядка: {1} дн.</UMW_AbilityCooldownDays>
+  <UMW_AbilityCooldownDays>Перезарядка «{0}»: {1} дн.</UMW_AbilityCooldownDays>
 
   <!-- EN: {0} radius: {1} cells -->
-  <UMW_AbilityRadius>{0} — радиус: {1} клет.</UMW_AbilityRadius>
+  <UMW_AbilityRadius>Радиус «{0}»: {1} клет.</UMW_AbilityRadius>
 
   <!-- EN: {0} duration: {1} hours -->
-  <UMW_HediffDurationHours>{0} — длительность: {1} ч.</UMW_HediffDurationHours>
+  <UMW_HediffDurationHours>Длительность «{0}»: {1} ч.</UMW_HediffDurationHours>
 
   <!-- EN: How long a piledriver weapon must rest between earthshakes. The default matches the cooldown on the EMP pulser, the one weapon-trait ability Odyssey ships with a cooldown. Set to 0 for no cooldown at all. -->
-  <UMW_EarthshakeCooldownDesc>Сколько времени оружие должно восстанавливаться между сотрясениями земли. Значение по умолчанию совпадает с перезарядкой ЭМИ-импульсера — единственной в Odyssey способности от свойства оружия, у которой есть перезарядка. Установите 0, чтобы полностью отключить перезарядку.</UMW_EarthshakeCooldownDesc>
+  <UMW_EarthshakeCooldownDesc>Сколько времени оружие должно восстанавливаться между сотрясениями земли. Значение по умолчанию совпадает с перезарядкой ЭМИ-импульсера, единственной в Odyssey способности от свойства оружия, у которой есть перезарядка. Установите 0, чтобы полностью отключить перезарядку.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: How far the stunning shockwave reaches. It travels through the ground, so walls do not stop it, but it cannot cross a gap with no floor. The overhead ripple scales to match. Remember the shock is indiscriminate: a wider radius catches more of your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>Как далеко распространяется оглушающая ударная волна. Она идёт сквозь землю, поэтому стены её не останавливают, но она не может пересечь провал без пола. Видимая рябь над землёй масштабируется вместе с радиусом. Помните, что толчок бьёт без разбора: чем шире радиус, тем больше достаётся и вашим колонистам.</UMW_EarthshakeRadiusDesc>
@@ -91,17 +91,17 @@
   <UMW_RallyingCryCooldownDesc>Сколько времени прославленное оружие должно отдыхать между боевыми кличами. Перезарядка нарочно измеряется в днях, а не в часах: со значением по умолчанию клич остаётся редким, памятным событием, а не постоянной аурой, которую заново накладывают в каждом бою.</UMW_RallyingCryCooldownDesc>
 
   <!-- EN: How far the cry carries. It rallies every humanlike within this range who is not hostile to the wielder and can see them, so allied and neutral pawns are included but walls and closed doors block it. Waking sleepers uses the same range but ignores walls, and catches enemies as well. -->
-  <UMW_RallyingCryRadiusDesc>Как далеко разносится клич. Он воодушевляет всех человекоподобных в этом радиусе, которые не враждебны владельцу оружия и видят его, — то есть действует и на союзных, и на нейтральных персонажей, но стены и закрытые двери его блокируют. Пробуждение спящих использует тот же радиус, но игнорирует стены и затрагивает в том числе врагов.</UMW_RallyingCryRadiusDesc>
+  <UMW_RallyingCryRadiusDesc>Как далеко разносится клич. Он воодушевляет всех человекоподобных в этом радиусе, которые не враждебны владельцу оружия и видят его, то есть действует и на союзных, и на нейтральных персонажей, но стены и закрытые двери его блокируют. Пробуждение спящих использует тот же радиус, но игнорирует стены и затрагивает в том числе врагов.</UMW_RallyingCryRadiusDesc>
 
   <!-- EN: How long the rallied buff lasts on each pawn the cry reaches, halving both their pain and the time a hit staggers them. Anyone who was asleep is woken instead of rallied, and resents it. Changing this affects cries made from now on; anyone already rallied keeps the duration they were given. -->
-  <UMW_RalliedDurationDesc>Как долго эффект воодушевления держится на каждом, до кого донёсся клич: боль и время замедления от попаданий снижаются вдвое. Спящих клич не воодушевляет, а будит — и они этим недовольны. Изменение касается только новых кличей; те, кто уже воодушевлён, сохраняют выданную им длительность.</UMW_RalliedDurationDesc>
+  <UMW_RalliedDurationDesc>Как долго эффект воодушевления держится на каждом, до кого донёсся клич: боль и время замедления от попаданий снижаются вдвое. Спящих клич не воодушевляет, а будит, и они этим недовольны. Изменение касается только новых кличей; те, кто уже воодушевлён, сохраняют выданную им длительность.</UMW_RalliedDurationDesc>
 
   <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
        faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
        mercenaries, bandit camps, item stashes) are vanilla content names; translate them to match
        the official localization. -->
   <!-- EN: {0} quest commonality: {1} -->
-  <UMW_QuestWeight>{0} — частота задания: {1}</UMW_QuestWeight>
+  <UMW_QuestWeight>Частота задания «{0}»: {1}</UMW_QuestWeight>
 
   <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
   <UMW_WarbandQuestWeightDesc>Вес, с которым задание боевого отряда выбирается среди других заданий того же пула (древние наёмники, лагеря бандитов, тайники...), получаемых от торговцев, попрошаек и при чтении. Чем выше значение, тем чаще предлагается задание. 0 полностью отключает его.</UMW_WarbandQuestWeightDesc>
