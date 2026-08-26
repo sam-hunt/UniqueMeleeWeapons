@@ -77,7 +77,10 @@ fails until the next release run.
   `graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex`.
 - **C#:** root namespace `UniqueMeleeWeapons`; patch classes use a `.Patches` suffix to avoid
   RimWorld type-name conflicts. All patches are applied by `PatchAll()` in
-  `UniqueMeleeWeaponsMod`, so a `[HarmonyPatch]` class anywhere in the assembly is picked up.
+  `UniqueMeleeWeaponsMod`, so a `[HarmonyPatch]` class anywhere in the assembly is picked up —
+  with one deliberate exception: `PawnRenderUtility_DrawCarriedWeapon_Patch` carries no attribute
+  and is applied from `UMW_Startup.Run` only if some `ThingDef` consumes its extension, so
+  installs with no consumer place no patch on the render path (rationale in its header).
 - **Patch-timing hazard (other mods' methods):** that `PatchAll()` runs from the `Mod` subclass
   constructor — BEFORE any defs are loaded. Applying a detour JIT-compiles the target and runs its
   declaring type's static ctor, so a patch targeting ANOTHER MOD's method can permanently break
@@ -315,8 +318,16 @@ mirroring the ungated `/` + `1.6` split:
 - `1.6/Mods/<Name>/` — version-specific content: `Defs`, and the `Languages` that must sit in the
   same load root as the defs they target.
 
-Currently only `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
-Royalty-tech WeaponTraitDefs/ColorDefs. `texPath` is **unaffected by which root the art lives in**:
+Currently `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
+Royalty-tech WeaponTraitDefs/ColorDefs; and `VanillaTexturesExpanded` (version root only), a
+Patches-only root that re-poses and re-scales the unique spear to match VTE's redrawn vanilla
+spear (measurements and rationale in that patch's header; the drafted-idle grip nudge rides
+`CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes). The whole root
+is switchable from a default-on Compatibility setting via `PatchOperation_UMWSetting`, which works
+because `Mod` subclasses (and so settings) are created before XML patches apply; any setting that
+gates a patch is therefore restart-to-apply, and its row must say so. Third-party compat uses the same
+shape as DLC compat; gate on the packageId, never `PatchOperationFindMod` (matches by display
+name). `texPath` is **unaffected by which root the art lives in**:
 textures are keyed by their path relative to `Textures/` in one flat per-mod dictionary merged
 across all roots, so both the def's `texPath` and `Graphic_RandomComplex`'s folder enumeration
 (`ContentFinder.GetAllInFolder`) resolve the same either way. A move therefore needs no def edit —

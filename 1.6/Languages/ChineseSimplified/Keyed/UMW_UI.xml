@@ -15,6 +15,9 @@
   <!-- EN: Traders -->
   <UMW_SettingsTraders>商人</UMW_SettingsTraders>
 
+  <!-- EN: Compatibility -->
+  <UMW_SettingsCompat>兼容性</UMW_SettingsCompat>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -100,5 +103,15 @@
 
   <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
   <UMW_WarbandQuestWeightDesc>战团任务相对于其他同类地点任务（古代雇佣兵、匪徒营地、物品藏匿点……）的选取权重，这类任务可通过商人、行乞者和阅读获得。数值越高，出现越频繁。设为0则完全禁用该任务。</UMW_WarbandQuestWeightDesc>
+
+  <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
+       defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
+       spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
+       neither is restated here. Deliberately says nothing about performance. -->
+  <!-- EN: Match the {0} to {1} -->
+  <UMW_MatchVteSpear>调整{0}以匹配{1}</UMW_MatchVteSpear>
+
+  <!-- EN: {1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1}将原版长矛重绘为斜向且比原来更长。开启后，{0}会相应旋转并放大，以便两者在已征召角色手中呈现相同的姿态。关闭则保持{0}原有的姿态和大小，例如当另一个材质模组在{1}之后加载、再次改变原版长矛外观时。纯粹是外观效果，需要重启游戏后生效。</UMW_MatchVteSpearDesc>
 
 </LanguageData>

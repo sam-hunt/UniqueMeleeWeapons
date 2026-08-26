@@ -24,5 +24,8 @@ public static class UMW_Startup
         // After Rebuild: the trader def-writes iterate UniqueWeaponDefs.All.
         UniqueMeleeWeaponsMod.Settings.ApplyTraderStock();
         TraitEffectSummary.AttachToTraits();
+        // The one deferred Harmony patch: applied only if some ThingDef carries
+        // CarriedWeaponOffsetExtension, which is knowable only now. Idempotent, never unpatched.
+        Patches.PawnRenderUtility_DrawCarriedWeapon_Patch.ApplyIfConsumersExist();
     }
 }

@@ -15,6 +15,9 @@
   <!-- EN: Traders -->
   <UMW_SettingsTraders>상인</UMW_SettingsTraders>
 
+  <!-- EN: Compatibility -->
+  <UMW_SettingsCompat>호환성</UMW_SettingsCompat>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -102,5 +105,15 @@
 
   <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
   <UMW_WarbandQuestWeightDesc>상인과 걸인, 독서를 통해 제시되는 다른 기회 지역 임무(고대 용병들, 도적 캠프, 귀중품 은닉처...)와 견주었을 때 전사단 임무가 선택되는 가중치입니다. 높을수록 더 자주 제시됩니다. 0으로 두면 이 임무가 완전히 비활성화됩니다.</UMW_WarbandQuestWeightDesc>
+
+  <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
+       defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
+       spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
+       neither is restated here. Deliberately says nothing about performance. -->
+  <!-- EN: Match the {0} to {1} -->
+  <UMW_MatchVteSpear>{0}을 {1}에 맞추기</UMW_MatchVteSpear>
+
+  <!-- EN: {1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1}은(는) 바닐라 창을 대각선으로, 원본보다 길게 다시 그립니다. 이 옵션을 켜면 {0}도 그에 맞춰 회전하고 커져서, 소집된 인물의 손에서 둘이 똑같은 모습으로 보이게 됩니다. 끄면 {0}은 원래의 자세와 크기를 유지합니다. 예를 들어 {1} 다음에 불러온 다른 텍스처 모드가 바닐라 창의 모습을 다시 바꾸는 경우에 사용하세요. 순수하게 겉모습만 바뀌며, 다시 시작한 뒤에 적용됩니다.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

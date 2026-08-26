@@ -11,6 +11,7 @@
   <UMW_SettingsWeapons>Weapons</UMW_SettingsWeapons>
   <UMW_SettingsGeneration>Generation</UMW_SettingsGeneration>
   <UMW_SettingsTraders>Traders</UMW_SettingsTraders>
+  <UMW_SettingsCompat>Compatibility</UMW_SettingsCompat>
 
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
@@ -67,5 +68,12 @@
        the official localization. -->
   <UMW_QuestWeight>{0} quest commonality: {1}</UMW_QuestWeight>
   <UMW_WarbandQuestWeightDesc>Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely.</UMW_WarbandQuestWeightDesc>
+
+  <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
+       defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
+       spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
+       neither is restated here. Deliberately says nothing about performance. -->
+  <UMW_MatchVteSpear>Match the {0} to {1}</UMW_MatchVteSpear>
+  <UMW_MatchVteSpearDesc>{1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

@@ -29,5 +29,9 @@
          deployed mod is never mistaken for a mod. -->
     <li IfModActive="ludeon.rimworld.royalty">Mods/Royalty</li>
     <li IfModActive="ludeon.rimworld.royalty">1.6/Mods/Royalty</li>
+    <!-- Third-party compat roots use the same shape. VTE needs only the version-specific
+         root: a Patches-only tweak to the unique spear's held pose (see its header). The
+         package id must equal UniqueMeleeWeaponsSettings.VtePackageId (Settings_Compat.cs). -->
+    <li IfModActive="VanillaExpanded.VTEXE">1.6/Mods/VanillaTexturesExpanded</li>
   </v1.6>
 </loadFolders>

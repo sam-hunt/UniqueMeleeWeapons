@@ -46,6 +46,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         ExposeTraderSettings();
         ExposeAbilitySettings();
         ExposeQuestSettings();
+        ExposeCompatSettings();
     }
 
     public void ResetToDefaults()
@@ -55,6 +56,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         ResetTraderSettings();
         ResetAbilitySettings();
         ResetQuestSettings();
+        ResetCompatSettings();
     }
 
     public void DoWindowContents(Rect inRect)
@@ -89,6 +91,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         DrawTradersSection(listing);
         DrawAbilitiesSection(listing);
         DrawQuestsSection(listing);
+        DrawCompatSection(listing);
 
         Text.Font = prevFont;
         contentHeight = listing.CurHeight;

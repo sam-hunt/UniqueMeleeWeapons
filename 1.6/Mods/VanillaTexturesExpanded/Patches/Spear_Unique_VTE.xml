@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Vanilla Textures Expanded (VanillaExpanded.VTEXE) compat: match the unique spear's held pose
+       and apparent length to VTE's redrawn vanilla spear.
+
+       Why: VTE redraws Core's Spear.png from a horizontal, tip-right sprite (which our five
+       UniqueSpear* variants deliberately match) into a corner-to-corner diagonal, tip top-right -
+       the ONLY melee texture it reorients (its Longsword/Knife/etc. stay horizontal). It ships no
+       compensating XML or C# (verified against workshop item 2016436324 v1.6: its patches touch
+       shuttles/animals/plants/main buttons only; MeleeWeapon_Spear appears nowhere), so with VTE on
+       a drafted vanilla spear renders 45 degrees off ours and ~1.37x longer. Reported on the
+       Workshop as our spear looking wrong while drafted (2026-08).
+
+       Both fixes are def-side, so this is XML rather than 10 extra textures (5 variants + masks)
+       that VTE-less players would download for nothing:
+
+       - equippedAngleOffset: PawnRenderUtility.DrawEquipmentAiming rotates the sprite by
+         (aimAngle - 90 + equippedAngleOffset), clockwise-positive (Unity AngleAxis about +Y). The
+         base spear ships -25; VTE's art bakes in a further 45 degrees COUNTER-clockwise (tip
+         top-right), so emulating it on our horizontal art is -25 - 45 = -70. The west-facing branch
+         mirrors the mesh and SUBTRACTS the offset, so a single value serves both facings.
+       - drawSize: 1.6's DrawEquipmentAiming scales the held mesh by Graphic.drawSize (older
+         versions drew a fixed 1x1 plane), and Graphic_Random passes drawSize to every variant.
+         Measured opaque extents (alpha > 40): VTE Spear.png spans 1.370 cells corner to corner
+         with a 0.088-cell shaft; UniqueSpearA/C/E span 1.00-1.01 cells with a 0.078-0.086 shaft.
+         1.35 would match the length to within 2% but thickens our shaft to ~0.115 cells; 1.3
+         (length 1.30, shaft ~0.11) was chosen by eye as the better balance against VTE's thinner
+         shaft - the accepted trade for no new art. Tune here if VTE's art changes.
+       - modExtensions/CarriedWeaponOffsetExtension (our C#, see its header): where a drafted idle
+         pawn grips the sprite. Our head is longer than VTE's (~0.44 vs ~0.29 cells at 1.3x), so
+         with the default grip at texture centre the spear reads as held near the tip when facing
+         north or south; east/west read fine. Shifting the sprite along the shaft toward the tip
+         (held angle 143 - 90 - 70 = -17 degrees, i.e. mostly right, a little up) moves the grip
+         toward the butt. Vanilla offers no XML hook for the carried pose, hence the extension.
+       - uiIconScale: GenUI.IconDrawScale multiplies the UI icon by min(drawSize / Size), so the
+         drawSize bump would enlarge and crop the inventory/trade icon. 1 / 1.3 cancels it.
+
+       Gated by the load root (LoadFolders.xml, IfModActive on VTE's packageId) rather than
+       PatchOperationFindMod, which matches by display NAME and breaks on a rename; and, inside
+       that, by the matchVteSpear setting (default on) for players whose texture stack puts the
+       vanilla spear back to horizontal after VTE, or who simply want the shipped look. This root
+       holds Patches only; the StageMod manifest must glob <version>/Mods/*/Patches/** or it
+       deploys nothing and fails silently in-game. -->
+
+  <!-- The whole compat is switchable: PatchOperation_UMWSetting (our C#, header there) reads the
+       matchVteSpear setting at patch time, so with it off the def keeps its shipped values, carries
+       no extension, and the render patch never applies. Settings_Compat.cs owns the row. -->
+  <Operation Class="UniqueMeleeWeapons.PatchOperation_UMWSetting">
+    <setting>matchVteSpear</setting>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="UMW_Spear_Unique"]</xpath>
+          <value>
+            <equippedAngleOffset>-70</equippedAngleOffset>
+            <uiIconScale>0.77</uiIconScale>
+            <modExtensions>
+              <li Class="UniqueMeleeWeapons.CarriedWeaponOffsetExtension">
+                <north>(0.07, 0, 0.04)</north>
+                <south>(0.07, 0, 0.04)</south>
+              </li>
+            </modExtensions>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="UMW_Spear_Unique"]/graphicData</xpath>
+          <value>
+            <drawSize>1.3</drawSize>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>
