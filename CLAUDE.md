@@ -289,9 +289,12 @@ roster lives in CONTRIBUTING.md and must move in the same commit as any language
   (canonical working checkout: `~/dev/rimworld-l10n`). `Scripts/check-translations.py` and
   `Scripts/refresh-translation-expectations.py` are thin per-repo config shims over its engines. If
   `l10n/` is empty, run `git submodule update --init`. Never edit `l10n/` in place here:
-  mod-independent learnings go upstream in the canonical checkout, then the pin is bumped in each
-  consuming repo; mod-specific learnings (this mod's coined weapon-trait/name-grammar vocabulary)
-  go in this repo's skill/glossary.
+  mod-independent learnings go upstream in the canonical checkout; mod-specific learnings (this
+  mod's coined weapon-trait/name-grammar vocabulary) go in this repo's skill/glossary. Upstream
+  ships as semver release tags (`vMAJOR.MINOR.PATCH`; a major means this repo's shim or flow needs
+  an edit), and the pin here moves only at release (release skill step 2), at the start of a
+  translation pass, or when a new major lands, never per upstream commit, so `git submodule status`
+  names the pinned tag and a stable repo's log stays free of pin bumps.
 
 **Workshop title coupling:** each language's `UMW_SettingsCategory` Keyed value is the localized
 Steam Workshop title and must equal the title line (line 1) of
