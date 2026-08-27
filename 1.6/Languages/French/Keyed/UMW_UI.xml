@@ -33,8 +33,8 @@
        gender varies (hache unique / glaive unique) and which is absent from the vanilla WordInfo gender
        tables, so {0_gender} would silently default to masculine. The French therefore never agrees with
        {0}: it keeps every later reference on "l'arme" and puts no article in front of the placeholder. -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from this mod's own reward pool and from every vanilla generation and reward pool, including quest rewards, ancient crates, item stashes and map loot, so it no longer appears. (A third-party mod that rolls loot through its own custom generator may bypass this.) Any that already exist in your save are untouched, and the other weapons take its place in the rolls. Turning it back on is enough to restore it. -->
-  <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}. Désactivez cette option pour retirer l'arme du groupe de récompenses de ce mod ainsi que de tous les groupes de génération et de récompenses du jeu de base, y compris les récompenses de quête, les caisses scellées, les planques et le butin de la zone, afin qu'elle n'apparaisse plus. (Un mod tiers qui tire son butin avec son propre générateur peut contourner cette option.) Celles qui existent déjà dans votre sauvegarde ne sont pas touchées, et les autres armes prennent sa place dans les tirages. Il suffit de réactiver l'option pour la rétablir.</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
+  <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}. Désactivez l'option pour la retirer de tous les groupes de récompenses et de butin. Les autres armes prennent alors sa place. Les armes déjà présentes dans votre sauvegarde ne sont pas touchées. Certains mods peuvent contourner cette option avec leur propre générateur de butin.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: buttons -->
   <!-- EN: Reset to defaults -->
@@ -49,31 +49,28 @@
        injected label, so the French reaches it through the vanilla material frame "en bois" (Core's
        ThingMadeOfStuffLabel is "{1} en {0}") rather than an agreeing adjective, and puts no article
        in front of it. -->
-  <!-- EN: Unique weapons only enter the game through generated rewards (quests, ancient crates, item stashes), rolled from a random eligible material. With this on, wooden materials are dropped from that roll, so a hard-won reward never lands as a wooden {0}. Turn off to allow wooden uniques. -->
-  <UMW_ExcludeWoodStuffDesc>Les armes uniques n'entrent dans le jeu que par des récompenses générées (quêtes, caisses scellées, planques), avec un matériau tiré au hasard parmi les matériaux valides. Lorsque cette option est active, les matériaux en bois sont écartés de ce tirage, de sorte qu'une récompense durement gagnée n'arrive jamais sous forme de {0} en bois. Désactivez-la pour autoriser les armes uniques en bois.</UMW_ExcludeWoodStuffDesc>
+  <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
+  <UMW_ExcludeWoodStuffDesc>Les armes uniques tirent un matériau valide au hasard. Avec cette option active, le bois n'est jamais tiré, de sorte qu'une récompense durement gagnée n'arrive jamais sous forme de {0} en bois.</UMW_ExcludeWoodStuffDesc>
 
   <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): mono-moléculaire, à cœur de plasma, tête de Zeus.
-       Each parenthetical describes the trait injected just before it, so keep them paired. -->
+       {0}, {1}, {2} are the three trait labels (lowercase): mono-moléculaire, à cœur de plasma, tête de Zeus. -->
   <!-- EN: Allow ultratech weapon traits -->
   <UMW_AllowUltratechTraits>Autoriser les traits d'arme ultratechnologiques</UMW_AllowUltratechTraits>
 
-  <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
-  <UMW_AllowUltratechTraitsDesc>Trois traits empruntent l'arsenal de mêlée ultratechnologique de Royalty : {0} (un fil maintenu par des mécanites qui cisaille l'armure), {1} (une gaine de plasma qui brûle et enflamme) et {2} (une décharge IEM qui étourdit les mécanoïdes). Désactivez l'option pour les garder hors du tirage. Elle est prévue pour les parties strictement médiévales ou de basse technologie, où un fil à mécanites sur une épée forgée à la main rompt l'époque. Les autres traits ne sont pas affectés, et les armes qui ont déjà tiré l'un de ces traits le conservent.</UMW_AllowUltratechTraitsDesc>
+  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
+  <UMW_AllowUltratechTraitsDesc>Trois traits utilisent l'arsenal ultratechnologique de Royalty : {0}, {1} et {2}. Désactivez l'option pour les exclure du tirage, pour les parties médiévales ou de basse technologie. Les autres traits ne sont pas affectés. Les armes qui en ont déjà tiré un le conservent.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("Fournisseur militaire", "Chaman"), so it tracks
-       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
-       is Royalty's persona-weapon tech; French vanilla has no single fixed noun for it, so this
-       reuses the adjective "consciente" that every bladelink ThingDef label already carries. -->
+       vanilla's translation; each description's {0} is the same label in lowercase. -->
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Armes uniques dans le stock du {0}</UMW_TraderStocksUniques>
 
-  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Avec cette option activée, une caravane de {0} en visite propose parfois (environ une visite sur deux) une arme de mêlée unique à la vente, à la même rareté que celle que le commerçant orbital impérial de Royalty accorde à ses armes conscientes, et elle achète aussi des armes de mêlée uniques, qu'il y en ait ou non en stock. Les traits d'arme ultratechnologiques ne sont jamais tirés sur les armes qu'elle vend : une troupe de guerre tribale ne traite qu'en armes d'époque. Les armes désactivées dans la section Armes n'y apparaissent pas non plus.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Une caravane de {0} apporte, environ une visite sur deux, une arme de mêlée unique à la vente, et elle achète aussi des armes de mêlée uniques dans tous les cas. Les traits ultratechnologiques ne sont jamais tirés sur son stock : une troupe de guerre ne traite qu'en armes d'époque. Les armes désactivées n'apparaissent jamais.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
-  <UMW_TraderStocksUniquesShamanDesc>Avec cette option activée, une caravane de {0} en visite propose parfois (environ une visite sur deux) une arme de mêlée unique à la vente, à la même rareté que celle que le commerçant orbital impérial de Royalty accorde à ses armes conscientes, et elle achète aussi des armes de mêlée uniques, qu'il y en ait ou non en stock. Son stock peut aussi tirer des traits d'arme ultratechnologiques : les chamans commercent des reliques qu'ils ne comprennent pas entièrement, tout comme les autres objets étranges de haute technologie déjà présents dans leurs sacs. Les armes désactivées dans la section Armes n'y apparaissent pas non plus.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>Une caravane de {0} apporte, environ une visite sur deux, une arme de mêlée unique à la vente, et elle achète aussi des armes de mêlée uniques dans tous les cas. Les traits ultratechnologiques peuvent être tirés sur son stock : les chamans commercent des reliques qu'ils ne comprennent pas entièrement. Les armes désactivées n'apparaissent jamais.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
@@ -93,20 +90,20 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0} : durée de {1} heures</UMW_HediffDurationHours>
 
-  <!-- EN: How long a piledriver weapon must rest between earthshakes. The default matches the cooldown on the EMP pulser, the one weapon-trait ability Odyssey ships with a cooldown. Set to 0 for no cooldown at all. -->
-  <UMW_EarthshakeCooldownDesc>Durée de repos d'une arme à marteau-pilon entre deux secousses telluriques. La valeur par défaut correspond au temps de recharge du pulsar IEM, la seule capacité de trait d'arme livrée avec un temps de recharge par Odyssey. Mettez 0 pour supprimer complètement le temps de recharge.</UMW_EarthshakeCooldownDesc>
+  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>Temps de repos entre deux secousses telluriques. La valeur par défaut correspond à celle du pulsar IEM d'Odyssey. 0 supprime le temps de recharge.</UMW_EarthshakeCooldownDesc>
 
-  <!-- EN: How far the stunning shockwave reaches. It travels through the ground, so walls do not stop it, but it cannot cross a gap with no floor. The overhead ripple scales to match. Remember the shock is indiscriminate: a wider radius catches more of your own colonists too. -->
-  <UMW_EarthshakeRadiusDesc>Portée de l'onde de choc étourdissante. Elle voyage dans le sol, donc les murs ne l'arrêtent pas, mais elle ne peut pas franchir un vide sans plancher. L'ondulation visible en surface s'ajuste à la même taille. N'oubliez pas que la secousse ne fait pas de distinction : un rayon plus large atteint aussi davantage de vos propres colons.</UMW_EarthshakeRadiusDesc>
+  <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
+  <UMW_EarthshakeRadiusDesc>Portée de l'onde de choc étourdissante. Les murs ne l'arrêtent pas, mais un vide sans plancher le fait. Elle ne fait pas de distinction : un rayon plus large atteint aussi vos propres colons.</UMW_EarthshakeRadiusDesc>
 
-  <!-- EN: How long a storied weapon must rest between rallying cries. Measured in days rather than hours on purpose: the default makes it an heirloom moment rather than a standing aura you re-apply every fight. -->
-  <UMW_RallyingCryCooldownDesc>Durée de repos d'une arme de renom entre deux cris de ralliement. La mesure est en jours plutôt qu'en heures à dessein : avec la valeur par défaut, c'est un moment digne d'un héritage familial et non une aura permanente que vous réappliquez à chaque combat.</UMW_RallyingCryCooldownDesc>
+  <!-- EN: Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight. -->
+  <UMW_RallyingCryCooldownDesc>Temps de repos entre deux cris de ralliement. Mesuré en jours à dessein : la valeur par défaut en fait un moment digne d'un héritage familial, et non une aura permanente réappliquée à chaque combat.</UMW_RallyingCryCooldownDesc>
 
-  <!-- EN: How far the cry carries. It rallies every humanlike within this range who is not hostile to the wielder and can see them, so allied and neutral pawns are included but walls and closed doors block it. Waking sleepers uses the same range but ignores walls, and catches enemies as well. -->
-  <UMW_RallyingCryRadiusDesc>Portée du cri. Il galvanise tout humanoïde à cette distance qui n'est pas hostile à l'utilisateur et qui peut le voir, ce qui inclut donc les alliés et les neutres, mais les murs et les portes fermées le bloquent. Le réveil des dormeurs utilise la même distance, mais ignore les murs et touche aussi les ennemis.</UMW_RallyingCryRadiusDesc>
+  <!-- EN: How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers. -->
+  <UMW_RallyingCryRadiusDesc>Portée du cri. Il galvanise tout humanoïde non hostile à portée et en vue directe, mais les murs le bloquent. Il réveille aussi les dormeurs.</UMW_RallyingCryRadiusDesc>
 
-  <!-- EN: How long the rallied buff lasts on each pawn the cry reaches, halving both their pain and the time a hit staggers them. Anyone who was asleep is woken instead of rallied, and resents it. Changing this affects cries made from now on; anyone already rallied keeps the duration they were given. -->
-  <UMW_RalliedDurationDesc>Durée de l'effet galvanisé sur chaque personnage atteint par le cri, réduisant de moitié à la fois sa douleur et le temps pendant lequel un coup le fait tituber. Celui qui dormait est réveillé au lieu d'être galvanisé, et le prend mal. Les changements ne concernent que les cris lancés à partir de maintenant : celui qui est déjà galvanisé conserve la durée qui lui a été accordée.</UMW_RalliedDurationDesc>
+  <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
+  <UMW_RalliedDurationDesc>Durée de l'effet galvanisé, qui réduit de moitié la douleur et la durée pendant laquelle un coup fait tituber. Les dormeurs sont réveillés à la place, et le prennent mal.</UMW_RalliedDurationDesc>
 
   <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
        faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
@@ -115,8 +112,8 @@
   <!-- EN: {0} quest commonality: {1} -->
   <UMW_QuestWeight>{0} : fréquence de quête de {1}</UMW_QuestWeight>
 
-  <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
-  <UMW_WarbandQuestWeightDesc>Poids de sélection de la quête de la bande de guerre face aux autres quêtes de sites d'opportunité (mercenaires anciens, camps de bandits, planques...) proposées par les commerçants, les mendiants et la lecture. Plus la valeur est élevée, plus la quête est proposée souvent. À 0, la quête est entièrement désactivée.</UMW_WarbandQuestWeightDesc>
+  <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
+  <UMW_WarbandQuestWeightDesc>Fréquence à laquelle la quête de la bande de guerre est proposée face aux autres quêtes de sites d'opportunité (mercenaires anciens, camps de bandits, planques...). Plus la valeur est élevée, plus elle est proposée souvent. 0 la désactive.</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
@@ -125,7 +122,7 @@
   <!-- EN: Match the {0} to {1} -->
   <UMW_MatchVteSpear>Faire correspondre la {0} à {1}</UMW_MatchVteSpear>
 
-  <!-- EN: {1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart. -->
-  <UMW_MatchVteSpearDesc>{1} redessine la lance de base en diagonale et plus longue que l'originale. Avec cette option activée, la {0} est tournée et agrandie pour correspondre, afin que les deux se présentent de la même façon dans les mains d'un personnage mobilisé. Désactivez-la pour garder la {0} dans sa pose et sa taille d'origine, par exemple si un autre mod de textures chargé après {1} donne de nouveau un aspect différent à la lance de base. Purement cosmétique. Prend effet après un redémarrage.</UMW_MatchVteSpearDesc>
+  <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1} redessine la lance de base en diagonale et plus longue. Avec cette option activée, la {0} est tournée et agrandie pour correspondre dans les mains d'un personnage mobilisé. Purement cosmétique. Prend effet après un redémarrage.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

@@ -28,8 +28,8 @@
   <UMW_SameAsSuffix>（与“{0}”相同）</UMW_SameAsSuffix>
 
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from this mod's own reward pool and from every vanilla generation and reward pool, including quest rewards, ancient crates, item stashes and map loot, so it no longer appears. (A third-party mod that rolls loot through its own custom generator may bypass this.) Any that already exist in your save are untouched, and the other weapons take its place in the rolls. Turning it back on is enough to restore it. -->
-  <UMW_WeaponEnabledDesc>允许生成“{0}”。关闭后，该武器会从本模组自身的奖励池以及原版的所有生成池和奖励池中移除，包括任务奖励、密封储物箱、物品藏匿点和地图战利品，此后不会再出现。（通过自带生成器分配战利品的第三方模组可能绕过此设置。）存档中已有的该武器不受影响，其余武器会在抽取中顶替它的位置。重新开启即可将其恢复。</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
+  <UMW_WeaponEnabledDesc>允许生成“{0}”。关闭后，它会从所有奖励和战利品池中移除，其余武器会顶替它的位置。存档中已有的武器不受影响。部分模组自带的战利品生成器可能会绕过此设置。</UMW_WeaponEnabledDesc>
 
   <!-- Settings: buttons -->
   <!-- EN: Reset to defaults -->
@@ -41,28 +41,26 @@
   <UMW_ExcludeWoodStuff>生成特化武器时排除“{0}”</UMW_ExcludeWoodStuff>
 
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
-  <!-- EN: Unique weapons only enter the game through generated rewards (quests, ancient crates, item stashes), rolled from a random eligible material. With this on, wooden materials are dropped from that roll, so a hard-won reward never lands as a wooden {0}. Turn off to allow wooden uniques. -->
-  <UMW_ExcludeWoodStuffDesc>特化武器只能通过生成的奖励（任务、密封储物箱、物品藏匿点）进入游戏，其材料从符合条件的材料中随机抽取。开启后，木质材料会被排除在抽取之外，来之不易的奖励就不会是一把木制“{0}”。关闭以允许木制的特化武器。</UMW_ExcludeWoodStuffDesc>
+  <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
+  <UMW_ExcludeWoodStuffDesc>特化武器会从符合条件的材料中随机抽取。开启后，木材永远不会被抽中，来之不易的奖励就不会是一把木制“{0}”。</UMW_ExcludeWoodStuffDesc>
 
   <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed.
-       Each parenthetical describes the trait injected just before it, so keep them paired. -->
+       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
   <!-- EN: Allow ultratech weapon traits -->
   <UMW_AllowUltratechTraits>允许极致科技武器特性</UMW_AllowUltratechTraits>
 
-  <!-- EN: Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it. -->
-  <UMW_AllowUltratechTraitsDesc>三项特性借用了“皇权”的极致科技近战装备：“{0}”（由纳米机械维持的刃口，可切开护甲）、“{1}”（等离子体护层，会灼伤并点燃目标）和“{2}”（EMP放电，可击晕机械族）。关闭后它们不再参与抽取。此设置面向纯中世纪或低科技的游戏流程，在那样的时代背景下，手工锻造的剑上出现纳米机械刃口会破坏时代感。其余特性不受影响，已经抽到这些特性的武器会保留它们。</UMW_AllowUltratechTraitsDesc>
+  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
+  <UMW_AllowUltratechTraitsDesc>三项特性使用了“皇权”的极致科技装备：“{0}”、“{1}”和“{2}”。关闭后它们不再参与抽取，适合中世纪或低科技的游戏流程。其余特性不受影响，已抽到的武器会保留该特性。</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized (“War merchant”, “Shaman merchant”), so it tracks
-       vanilla's translation; each description's {0} is the same label in lowercase. “Bladelink”
-       is Royalty's persona-weapon tech; translate it to match the official localization. -->
+       vanilla's translation; each description's {0} is the same label in lowercase. -->
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>{0}库存中的特化武器</UMW_TraderStocksUniques>
-  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>开启后，{0}的远行队来访时，有时（约半数情况）会携带一件特化近战武器出售，其稀有度与“皇权”帝国轨道贸易商为智能人格武器设定的稀有度相同，并且无论库存中是否已有特化近战武器，都会收购特化近战武器。它出售的武器绝不会带有极致科技武器特性：部落战帮只经营符合其时代的武器。“武器”部分中被关闭的武器同样不会出现在此处。</UMW_TraderStocksUniquesWarMerchantDesc>
-  <!-- EN: With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either. -->
-  <UMW_TraderStocksUniquesShamanDesc>开启后，{0}的远行队来访时，有时（约半数情况）会携带一件特化近战武器出售，其稀有度与“皇权”帝国轨道贸易商为智能人格武器设定的稀有度相同，并且无论库存中是否已有特化近战武器，都会收购特化近战武器。它出售的武器也可能带有极致科技武器特性：萨满商人贩卖的是他们自己也未必完全理解的遗物，正如他们货物中其他那些古怪的高科技物品一样。“武器”部分中被关闭的武器同样不会出现在此处。</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>约半数{0}来访时会携带一件特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存绝不会带有极致科技特性：战帮只经营符合时代的武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>约半数{0}来访时会携带一件特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存可能带有极致科技特性：萨满商人贩卖的是他们自己也未必理解的遗物。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
@@ -79,20 +77,20 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}持续时间：{1}小时</UMW_HediffDurationHours>
 
-  <!-- EN: How long a piledriver weapon must rest between earthshakes. The default matches the cooldown on the EMP pulser, the one weapon-trait ability Odyssey ships with a cooldown. Set to 0 for no cooldown at all. -->
-  <UMW_EarthshakeCooldownDesc>装有打桩头的武器在两次撼地之间需要休整多久。默认值与“EMP脉冲发生器”的冷却时间一致，后者是奥德赛中唯一自带冷却时间的武器特性能力。设为0则完全没有冷却时间。</UMW_EarthshakeCooldownDesc>
+  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>两次撼地之间的休整时间。默认值与奥德赛的“EMP脉冲发生器”一致。设为0则没有冷却时间。</UMW_EarthshakeCooldownDesc>
 
-  <!-- EN: How far the stunning shockwave reaches. It travels through the ground, so walls do not stop it, but it cannot cross a gap with no floor. The overhead ripple scales to match. Remember the shock is indiscriminate: a wider radius catches more of your own colonists too. -->
-  <UMW_EarthshakeRadiusDesc>造成击晕的冲击波能波及多远。冲击波沿地面传播，墙壁无法阻挡它，但它无法越过没有地面的裂隙。地表上方的涟漪特效会随半径一同缩放。请记住，震击不分敌我：半径越大，殃及的自家殖民者也越多。</UMW_EarthshakeRadiusDesc>
+  <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
+  <UMW_EarthshakeRadiusDesc>击晕冲击波能波及的范围。墙壁无法阻挡它，但没有地面的裂隙可以。它不分敌我：半径越大，殃及的自家殖民者也越多。</UMW_EarthshakeRadiusDesc>
 
-  <!-- EN: How long a storied weapon must rest between rallying cries. Measured in days rather than hours on purpose: the default makes it an heirloom moment rather than a standing aura you re-apply every fight. -->
-  <UMW_RallyingCryCooldownDesc>传世武器在两次鼓舞呐喊之间需要休整多久。刻意以天而非小时计量：默认值使呐喊成为传家宝般的难得时刻，而不是每场战斗都重新施放的常驻光环。</UMW_RallyingCryCooldownDesc>
+  <!-- EN: Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight. -->
+  <UMW_RallyingCryCooldownDesc>两次鼓舞呐喊之间的休整时间。刻意以天计量：默认值使呐喊成为传家宝般的时刻，而非每场战斗都重新施放的常驻光环。</UMW_RallyingCryCooldownDesc>
 
-  <!-- EN: How far the cry carries. It rallies every humanlike within this range who is not hostile to the wielder and can see them, so allied and neutral pawns are included but walls and closed doors block it. Waking sleepers uses the same range but ignores walls, and catches enemies as well. -->
-  <UMW_RallyingCryRadiusDesc>呐喊能传多远。范围内所有对使用者不怀敌意且能看见使用者的人类都会受到鼓舞，因此盟友和中立角色也包括在内，但墙壁和关闭的门会挡住呐喊。唤醒沉睡者使用同一范围，但无视墙壁，也会一并惊醒敌人。</UMW_RallyingCryRadiusDesc>
+  <!-- EN: How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers. -->
+  <UMW_RallyingCryRadiusDesc>呐喊能传多远。范围内所有对使用者不怀敌意且能看见使用者的人类都会受到鼓舞，墙壁会阻挡呐喊。同时会唤醒沉睡者。</UMW_RallyingCryRadiusDesc>
 
-  <!-- EN: How long the rallied buff lasts on each pawn the cry reaches, halving both their pain and the time a hit staggers them. Anyone who was asleep is woken instead of rallied, and resents it. Changing this affects cries made from now on; anyone already rallied keeps the duration they were given. -->
-  <UMW_RalliedDurationDesc>士气大振效果在呐喊触及的每个角色身上持续多久：疼痛和受击后脚步被打乱的时间都减半。睡着的人不会受到鼓舞，而是被吵醒，并为此心生不满。修改只影响之后发出的呐喊；已受鼓舞者保留原有的持续时间。</UMW_RalliedDurationDesc>
+  <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
+  <UMW_RalliedDurationDesc>士气大振效果的持续时间，可使疼痛和脚步被打乱的时间减半。睡着的人不会受到鼓舞，而是被吵醒，并为此心生不满。</UMW_RalliedDurationDesc>
 
   <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
        faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
@@ -101,8 +99,8 @@
   <!-- EN: {0} quest commonality: {1} -->
   <UMW_QuestWeight>{0}任务出现频率：{1}</UMW_QuestWeight>
 
-  <!-- EN: Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely. -->
-  <UMW_WarbandQuestWeightDesc>战团任务相对于其他同类地点任务（古代雇佣兵、匪徒营地、物品藏匿点……）的选取权重，这类任务可通过商人、行乞者和阅读获得。数值越高，出现越频繁。设为0则完全禁用该任务。</UMW_WarbandQuestWeightDesc>
+  <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
+  <UMW_WarbandQuestWeightDesc>战团任务相对于其他同类地点任务（古代雇佣兵、匪徒营地、物品藏匿点……）出现的频率。数值越高，出现越频繁。设为0则禁用该任务。</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
@@ -111,7 +109,7 @@
   <!-- EN: Match the {0} to {1} -->
   <UMW_MatchVteSpear>调整{0}以匹配{1}</UMW_MatchVteSpear>
 
-  <!-- EN: {1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart. -->
-  <UMW_MatchVteSpearDesc>{1}将原版长矛重绘为斜向且比原来更长。开启后，{0}会相应旋转并放大，以便两者在已征召角色手中呈现相同的姿态。关闭则保持{0}原有的姿态和大小，例如当另一个材质模组在{1}之后加载、再次改变原版长矛外观时。纯粹是外观效果，需要重启游戏后生效。</UMW_MatchVteSpearDesc>
+  <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1}将原版长矛绘制为斜向且更长。开启后，{0}会相应旋转并放大以与之匹配，在已征召角色手中呈现相同姿态。纯粹是外观效果，需要重启游戏后生效。</UMW_MatchVteSpearDesc>
 
 </LanguageData>
