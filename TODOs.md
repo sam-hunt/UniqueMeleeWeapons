@@ -2,7 +2,7 @@
 
 ## Features
 
-- New katana texture for longsword?
+- New katana texture for longsword? Explore ideo's stylable axis
 - Explore mace and axe trait roster depth
 - Consider Mod integration
   - Alpha Armory? Installed locally

@@ -21,10 +21,10 @@
 
   <!-- Settings: Weapons. One checkbox per weapon, labelled from the weapon's own def label; the row list
        is generated, so this is the only string it needs. {0} is that label (lowercase).
-       "This mod's own ... and every vanilla" is a deliberate qualifier, not filler: the gate covers every
-       pool that asks ThingSetMakerUtility, which is all shipped content, but a third-party mod rolling
-       loot through its own custom generator can bypass it (see ThingSetMakerUtility_CanGenerate_Patch.cs). -->
-  <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from this mod's own reward pool and from every vanilla generation and reward pool, including quest rewards, ancient crates, item stashes and map loot, so it no longer appears. (A third-party mod that rolls loot through its own custom generator may bypass this.) Any that already exist in your save are untouched, and the other weapons take its place in the rolls. Turning it back on is enough to restore it.</UMW_WeaponEnabledDesc>
+       The closing caveat is deliberate, not filler: the gate covers every pool that asks
+       ThingSetMakerUtility, which is all shipped content, but a third-party mod rolling loot through its
+       own custom generator can bypass it (see ThingSetMakerUtility_CanGenerate_Patch.cs). -->
+  <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: buttons -->
   <UMW_ResetToDefaults>Reset to defaults</UMW_ResetToDefaults>
@@ -33,20 +33,18 @@
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <UMW_ExcludeWoodStuff>Exclude {0} from generated unique weapons</UMW_ExcludeWoodStuff>
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
-  <UMW_ExcludeWoodStuffDesc>Unique weapons only enter the game through generated rewards (quests, ancient crates, item stashes), rolled from a random eligible material. With this on, wooden materials are dropped from that roll, so a hard-won reward never lands as a wooden {0}. Turn off to allow wooden uniques.</UMW_ExcludeWoodStuffDesc>
+  <UMW_ExcludeWoodStuffDesc>Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}.</UMW_ExcludeWoodStuffDesc>
   <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed.
-       Each parenthetical describes the trait injected just before it, so keep them paired. -->
+       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
   <UMW_AllowUltratechTraits>Allow ultratech weapon traits</UMW_AllowUltratechTraits>
-  <UMW_AllowUltratechTraitsDesc>Three traits borrow Royalty's ultratech melee kit: {0} (a mechanite-held edge that shears armor), {1} (a plasma sheath that sears and ignites) and {2} (an EMP discharge that stuns mechanoids). Turn off to keep them out of the roll. This is meant for medieval-only or low-tech runs, where a mechanite edge on a hand-forged sword breaks the period. The other traits are unaffected, and weapons that have already rolled one of these keep it.</UMW_AllowUltratechTraitsDesc>
+  <UMW_AllowUltratechTraitsDesc>Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
-       vanilla's translation; each description's {0} is the same label in lowercase. "Bladelink"
-       is Royalty's persona-weapon tech; translate it to match the official localization. -->
+       vanilla's translation; each description's {0} is the same label in lowercase. -->
   <UMW_TraderStocksUniques>Unique weapons in {0} stock</UMW_TraderStocksUniques>
-  <UMW_TraderStocksUniquesWarMerchantDesc>With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Ultratech weapon traits never roll on the weapons it sells: a tribal war party deals in period arms. Weapons switched off in the Weapons section never appear here either.</UMW_TraderStocksUniquesWarMerchantDesc>
-  <UMW_TraderStocksUniquesShamanDesc>With this on, a visiting {0} caravan sometimes (about half of its visits) carries one unique melee weapon for sale, the same rarity Royalty's Imperial orbital trader gives its bladelink weapons, and it will buy unique melee weapons whether or not one is in stock. Its stock may also roll ultratech weapon traits: shamans trade in relics they do not fully understand, much like the other odd high-tech goods already in their packs. Weapons switched off in the Weapons section never appear here either.</UMW_TraderStocksUniquesShamanDesc>
+  <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
@@ -56,24 +54,24 @@
   <UMW_AbilityRadius>{0} radius: {1} cells</UMW_AbilityRadius>
   <UMW_HediffDurationHours>{0} duration: {1} hours</UMW_HediffDurationHours>
 
-  <UMW_EarthshakeCooldownDesc>How long a piledriver weapon must rest between earthshakes. The default matches the cooldown on the EMP pulser, the one weapon-trait ability Odyssey ships with a cooldown. Set to 0 for no cooldown at all.</UMW_EarthshakeCooldownDesc>
-  <UMW_EarthshakeRadiusDesc>How far the stunning shockwave reaches. It travels through the ground, so walls do not stop it, but it cannot cross a gap with no floor. The overhead ripple scales to match. Remember the shock is indiscriminate: a wider radius catches more of your own colonists too.</UMW_EarthshakeRadiusDesc>
-  <UMW_RallyingCryCooldownDesc>How long a storied weapon must rest between rallying cries. Measured in days rather than hours on purpose: the default makes it an heirloom moment rather than a standing aura you re-apply every fight.</UMW_RallyingCryCooldownDesc>
-  <UMW_RallyingCryRadiusDesc>How far the cry carries. It rallies every humanlike within this range who is not hostile to the wielder and can see them, so allied and neutral pawns are included but walls and closed doors block it. Waking sleepers uses the same range but ignores walls, and catches enemies as well.</UMW_RallyingCryRadiusDesc>
-  <UMW_RalliedDurationDesc>How long the rallied buff lasts on each pawn the cry reaches, halving both their pain and the time a hit staggers them. Anyone who was asleep is woken instead of rallied, and resents it. Changing this affects cries made from now on; anyone already rallied keeps the duration they were given.</UMW_RalliedDurationDesc>
+  <UMW_EarthshakeCooldownDesc>Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown.</UMW_EarthshakeCooldownDesc>
+  <UMW_EarthshakeRadiusDesc>Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too.</UMW_EarthshakeRadiusDesc>
+  <UMW_RallyingCryCooldownDesc>Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight.</UMW_RallyingCryCooldownDesc>
+  <UMW_RallyingCryRadiusDesc>How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers.</UMW_RallyingCryRadiusDesc>
+  <UMW_RalliedDurationDesc>How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it.</UMW_RalliedDurationDesc>
 
   <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
        faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
        mercenaries, bandit camps, item stashes) are vanilla content names; translate them to match
        the official localization. -->
   <UMW_QuestWeight>{0} quest commonality: {1}</UMW_QuestWeight>
-  <UMW_WarbandQuestWeightDesc>Selection weight of the warband quest against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...) offered by traders, beggars and reading. Higher = offered more often. 0 disables the quest entirely.</UMW_WarbandQuestWeightDesc>
+  <UMW_WarbandQuestWeightDesc>How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it.</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
        spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
        neither is restated here. Deliberately says nothing about performance. -->
   <UMW_MatchVteSpear>Match the {0} to {1}</UMW_MatchVteSpear>
-  <UMW_MatchVteSpearDesc>{1} redraws the vanilla spear diagonally and longer than the original. With this on, the {0} is turned and enlarged to match, so the two sit the same way in a drafted pawn's hands. Turn off to keep the {0} at its original pose and size, for example if another texture mod loaded after {1} gives the vanilla spear a different look again. Purely cosmetic. Takes effect after a restart.</UMW_MatchVteSpearDesc>
+  <UMW_MatchVteSpearDesc>{1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart.</UMW_MatchVteSpearDesc>
 
 </LanguageData>
