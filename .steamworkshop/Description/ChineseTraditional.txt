@@ -79,9 +79,6 @@
 [b]問：這是用 LLM 做出來的嗎？！[/b]
 答：部分繁瑣的程式碼，以及大多數本地化文本是。我本職是軟體工程師，寫程式碼已有25年。所有程式碼都經過人工審查和測試；所有錯誤報告與模組衝突，都會在時間和精力允許的範圍內由我親自跟進處理。所有美術作品要麼委託真人繪製，要麼在 Krita 中手工製作，或者兩者兼有。
 
-[h2]本地化[/h2]
-英語、簡體中文、繁體中文、法語、德語、日語、韓語、巴西葡萄牙語、俄語和西班牙語。非常歡迎提出更多語言需求，也歡迎母語者提供修正意見。
-
 [h2]相關連結[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - 原始碼、錯誤報告、功能請求等
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] 姊妹模組

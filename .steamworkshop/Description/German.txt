@@ -79,9 +79,6 @@ A: Wirf einen Blick auf [url=https://steamcommunity.com/sharedfiles/filedetails/
 [b]F: Wurde das hier mit LLMs erstellt!?[/b]
 A: Ein Teil des einfachen Codes, und die meisten Lokalisierungen. Ich bin von Beruf Softwareentwickler und schreibe seit 25 Jahren Code. Aller Code wird manuell überprüft und getestet; allen Fehlermeldungen und Mod-Konflikten wird persönlich nachgegangen, soweit Zeit und Details es zulassen. Alle Grafiken sind entweder bei Menschen in Auftrag gegeben, von Hand in Krita erstellt, oder beides.
 
-[h2]Lokalisierung[/h2]
-Englisch, Vereinfachtes Chinesisch, Traditionelles Chinesisch, Französisch, Deutsch, Japanisch, Koreanisch, Brasilianisches Portugiesisch, Russisch und Spanisch. Weitere Anfragen und Korrekturen von Muttersprachlern sind sehr willkommen.
-
 [h2]Links[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Quellcode, Fehlerberichte, Feature-Wünsche usw.
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], Schwester-Mod

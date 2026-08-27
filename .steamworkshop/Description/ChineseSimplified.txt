@@ -79,9 +79,6 @@ Odyssey 引入了13种特化武器：这些独一无二的稀有变体会随机�
 [b]问：这是用 LLM 做出来的吗？！[/b]
 答：部分体力活式的代码，以及大多数本地化文本是。我本职是软件工程师，写代码已有25年。所有代码都经过人工审查和测试；所有错误报告与模组冲突，都会在时间和精力允许的范围内由我亲自跟进处理。所有美术作品要么委托真人绘制，要么在 Krita 中手工制作，或者两者兼有。
 
-[h2]本地化[/h2]
-英语、简体中文、繁体中文、法语、德语、日语、韩语、巴西葡萄牙语、俄语和西班牙语。非常欢迎提出更多语言需求，也欢迎母语者提供修正意见。
-
 [h2]相关链接[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - 源代码、错误报告、功能请求等
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] 姊妹模组

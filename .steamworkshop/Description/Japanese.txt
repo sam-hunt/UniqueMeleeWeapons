@@ -79,9 +79,6 @@ A: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique
 [b]Q: これはLLMを使って作られたのですか?[/b]
 A: 一部の地味なコードと,ローカライズのほとんどについては使っています.私は本職のソフトウェアエンジニアで,25年間コードを書いてきました.すべてのコードは人の手でレビューとテストを行っており,バグ報告やMOD間の競合には時間と詳細が許す限り個人的に対応しています.アートはすべて人間に依頼したもの,Kritaで手描きしたもの,あるいはその両方です.
 
-[h2]ローカライズ[/h2]
-英語,簡体字中国語,繁体字中国語,フランス語,ドイツ語,日本語,韓国語,ブラジルポルトガル語,ロシア語,スペイン語.追加のリクエストや,ネイティブスピーカーからの修正指摘も大歓迎です.
-
 [h2]リンク[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - ソースコード,バグ報告,機能リクエストなど
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] 姉妹MOD

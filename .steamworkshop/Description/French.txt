@@ -79,9 +79,6 @@ R : Jetez un œil à [url=https://steamcommunity.com/sharedfiles/filedetails/?id
 [b]Q : Ce mod a-t-il été réalisé à l'aide de LLM !?[/b]
 R : Une partie du code de base, oui, ainsi que la plupart des localisations. Je suis ingénieur logiciel de métier et j'écris du code depuis 25 ans. Tout le code est relu et testé manuellement ; tous les rapports de bug et les conflits de mods sont suivis personnellement, dans la mesure du temps et des détails disponibles. Tous les visuels sont soit commandés à des artistes humains, soit réalisés à la main dans Krita, soit les deux.
 
-[h2]Localisation[/h2]
-Anglais, chinois simplifié, chinois traditionnel, français, allemand, japonais, coréen, portugais brésilien, russe et espagnol. Les demandes supplémentaires, ainsi que les corrections de locuteurs natifs, sont les bienvenues.
-
 [h2]Liens[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Code source, rapports de bug, demandes de fonctionnalités, etc.
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] mod jumeau
