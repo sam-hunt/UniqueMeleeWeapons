@@ -17,7 +17,11 @@
        The Axe and Warhammer are Royalty weapons; the mod itself requires only Odyssey. We gate those
        two in PatchOperationConditional on the node's existence (rather than PatchOperationFindMod, so
        it tracks the actual weapon, not a mod name) so they're skipped cleanly — no "could not find
-       node" error — when Royalty isn't loaded. Their unique defs are MayRequire-gated to match. -->
+       node" error — when Royalty isn't loaded. Their unique defs are MayRequire-gated to match.
+
+       The VFE Pirates warcasket broadsword and gravity hammer are gated the same way. Their unique
+       defs live in the VFEP compat load root, so they only exist when the Name does. This patch
+       stays in the ungated main Patches alongside every other base-weapon Name-add. -->
 
   <!-- Core weapons (always present). -->
   <Operation Class="PatchOperationAttributeAdd">
@@ -74,6 +78,25 @@
       <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
       <attribute>Name</attribute>
       <value>MeleeWeapon_Warhammer</value>
+    </match>
+  </Operation>
+
+  <!-- VFE Pirates warcasket weapons (gated on existence, as above). -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword"]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword"]</xpath>
+      <attribute>Name</attribute>
+      <value>VFEP_WarcasketMeleeWeapon_Broadsword</value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer"]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer"]</xpath>
+      <attribute>Name</attribute>
+      <value>VFEP_WarcasketMeleeWeapon_GravityHammer</value>
     </match>
   </Operation>
 

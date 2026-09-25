@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Warcasket gravity hammer. VFE Pirates (compat load root, see LoadFolders.xml: exists only with VFEP
+       active, so no MayRequire). Industrial, not stuffable.
+       Tools: a VFEP_GravityHammerAttack head (Blunt damage plus VEF's 3-cell push-back) and
+       a Poke handle, slow 3s swing, so it takes the warhammer's three categories (Melee, Blunt,
+       Heavy). Studded and Flanged list the head's capacity explicitly (see their headers); no trait
+       converts Blunt damage, so the push-back survives every roll.
+       Warcasket-only: the inherited VEF HeavyWeapon extension makes VEF's CanEquip postfix refuse any
+       pawn without a warcasket, which is wanted. Pawn generation can't hand one out
+       (generateAllowChance 0); the Warband quest and tribal traders are kept off it by
+       UniqueWeaponDefs.TribalTechCap, while the other reward pools take it by design.
+       Not stuffable, so there is no material tint: colour two (the green-masked body) falls through
+       UniqueMeleeWeapon.DrawColorTwo to graphicData.colorTwo, which is therefore the body placeholder
+       colour, and a ForcedColorTwoExtension trait still replaces it. On the floor it draws VFEP's
+       boxed-crate art via OnFloorGraphicExtension (VEF's ThingWithFloorGraphic is replaced by our
+       thingClass), tinted a flat #D7B2FF. -->
+  <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_GravityHammer">
+    <defName>UMW_WarcasketGravityHammer_Unique</defName>
+    <label>unique warcasket gravity hammer</label>
+    <description>A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.</description>
+    <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketGravityHammer</texPath>
+      <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <colorTwo>(91,94,96)</colorTwo> <!-- #5B5E60 body placeholder; see header -->
+    </graphicData>
+    <generateAllowChance>0</generateAllowChance>
+    <possessionCount>0</possessionCount>
+    <tradeability>Sellable</tradeability>
+    <!-- Inherit="False" also drops VFEP's Warcasket tag. -->
+    <thingSetMakerTags Inherit="False">
+      <li>RewardStandardLowFreq</li>
+      <li>UniqueWeapon</li>
+      <li>UMW_UniqueMelee</li>
+    </thingSetMakerTags>
+    <recipeMaker Inherit="False" IsNull="True" />
+    <thingCategories Inherit="False">
+      <li>WeaponsUnique</li>
+    </thingCategories>
+    <descriptionHyperlinks>
+      <ThingDef>VFEP_WarcasketMeleeWeapon_GravityHammer</ThingDef>
+    </descriptionHyperlinks>
+    <!-- Can't inherit comps: CompEquippableAbilityReloadable must replace CompEquippable
+         (one CompEquippable-derived comp allowed). If BaseWeapon/BaseMeleeWeapon_*_Quality
+         comps change in a vanilla update, replicate here. -->
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" /> <!-- props populated by traits -->
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_UniqueWeapon">
+        <weaponCategories>
+          <li>UMW_Melee</li>
+          <li>UMW_Blunt</li>
+          <li>UMW_Heavy</li>
+        </weaponCategories>
+        <namerLabels>
+          <li>hammer</li>
+          <li>maul</li>
+          <li>head</li>
+          <li>gravity hammer</li>
+        </namerLabels>
+      </li>
+    </comps>
+    <!-- Appended to the inherited VEF HeavyWeapon (the warcasket-only equip gate, kept) and
+         FloorGraphicExtension (inert here: only VEF's replaced thingClass reads it). -->
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.OnFloorGraphicExtension">
+        <graphicData>
+          <texPath>Things/Item/WeaponsBoxed/WarcasketGravityHammer_OnFloor</texPath> <!-- VFEP's crate art -->
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>1</drawSize>
+          <color>(215,178,255)</color> <!-- #D7B2FF, Odyssey-logo purple -->
+        </graphicData>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>

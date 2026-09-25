@@ -16,6 +16,11 @@ namespace UniqueMeleeWeapons;
 // the unique accent at once — the trick the whole mod relies on. The mask must contain no
 // black over the weapon silhouette: black means "not painted" and would show the raw,
 // un-tinted diffuse (a black blade would ignore its material entirely).
+//
+// A stuff-less unique (VFE Pirates' warcasket weapons) has no material tint, so colour two falls
+// through to the def's graphicData.colorTwo: that field is the per-def body placeholder, and a
+// forced body-colour trait still replaces it. Such a def may also carry OnFloorGraphicExtension to
+// draw a different graphic while lying on a map (see the Graphic override).
 public class UniqueMeleeWeapon : ThingWithComps
 {
     // The stuff of the weapon currently running PostPostMake (trait roll + naming
@@ -96,6 +101,28 @@ public class UniqueMeleeWeapon : ThingWithComps
             text = text.NullOrEmpty() ? line : text + "\n" + line;
         }
         return text;
+    }
+
+    // While lying on a map, a def carrying OnFloorGraphicExtension draws that graphic instead (the
+    // boxed-crate look VEF's ThingWithFloorGraphic gives VFEP's warcasket weapons, which this
+    // thingClass replaces). Returns graphicData.Graphic, NOT GraphicColoredFor(this): the floor tint
+    // is fixed in XML, not the weapon's accent/body colours, so one graphic cached on the
+    // GraphicData serves every instance, and unlike VEF's per-thing cache there is nothing to
+    // invalidate on a recolour. Held and inventory weapons short-circuit on the holder check.
+    public override Graphic Graphic
+    {
+        get
+        {
+            if (ParentHolder is Map)
+            {
+                GraphicData floor = def.GetModExtension<OnFloorGraphicExtension>()?.graphicData;
+                if (floor != null)
+                {
+                    return floor.Graphic;
+                }
+            }
+            return base.Graphic;
+        }
     }
 
     // Colour one (the red-masked accent) is left to the base implementation, which returns

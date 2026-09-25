@@ -24,9 +24,9 @@ public class MeleeToolMod
 
     // Further capacities matched exactly like `capacities` but left out of the info-card line, which
     // names only `capacities` (TraitEffectSummary). For weapon-specific variants of a named capacity,
-    // so the line stays short and general: e.g. Demolish (the breach axe head) is a BluntBase
-    // damage, so a Blunt entry lists it here and still reads "blunt". Only meaningful alongside a
-    // non-empty `capacities`.
+    // so the line stays short and general: e.g. Demolish (the breach axe head) and VFE Pirates'
+    // VFEP_GravityHammerAttack are both BluntBase damages, so a Blunt entry lists them here and
+    // still reads "blunt". Only meaningful alongside a non-empty `capacities`.
     public List<ToolCapacityDef> alsoMatches;
 
     // Multiplies the matched tool's melee damage (1 = no change).

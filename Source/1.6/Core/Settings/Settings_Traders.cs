@@ -17,8 +17,11 @@ namespace UniqueMeleeWeapons;
 //    content, so traders never offer one). Trader stock hard-requires TraderCanSell — the stock
 //    pipeline error-logs and drops a Sellable thing — so while either toggle is on, Sellable
 //    tagged weapons are flipped to All, and flipped back when both are off. Provably inert
-//    outside our own generator: the defs sit in the WeaponsUnique category with no tradeTags, so
-//    no shipped StockGenerator handles them either way. Only defs recorded as flipped BY US are
+//    outside our own generator: the defs sit in the WeaponsUnique category, and although they
+//    inherit tradeTags (WeaponMelee from BaseMeleeWeapon, plus VFE Pirates' VFEP_WarcasketWeapon
+//    on the warcasket pair), no shipped StockGenerator stocks those: vanilla's only WeaponMelee
+//    generators are Royalty's Empire ones, which also require UltratechMelee/Bladelink weaponTags,
+//    and VFEP stocks only VFEP_WarcasketWeaponExotic. Only defs recorded as flipped BY US are
 //    ever reverted — a third-party weapon opted into UniqueWeaponDefs.Tag that ships its own
 //    tradeability keeps it untouched in both directions.
 // Both writes re-run on every play-data load (UMW_Startup.Run, after UniqueWeaponDefs.Rebuild)

@@ -192,10 +192,10 @@ fails until the next release run.
   Reuse a Core `DamageDef` where one fits; clone only when a field must change.
 - **Every weapon def must carry a `CompEquippable`-derived ability comp.** `CompUniqueWeapon.Setup`
   dereferences `CompEquippableAbilityReloadable` with no null check whenever a rolled trait carries
-  `abilityProps`. Only one such comp is allowed per thing, so all 8 unique defs replace their
-  inherited comps wholesale (`<comps Inherit="False">`, uniform across the 8 even where no ability
+  `abilityProps`. Only one such comp is allowed per thing, so all 10 unique defs replace their
+  inherited comps wholesale (`<comps Inherit="False">`, uniform across the 10 even where no ability
   can currently roll). **If base-game weapon comps change in a vanilla update, replicate the change
-  in all 8 files.**
+  in all 10 files.**
 - **An AoE ability's radius lives in two places and must agree, at `X.9`.** The gizmo-hover preview
   reads `verbProperties.range` (via `VerbProperties.DrawRadiusRing`) and *never* a comp field, so a
   mismatch draws a ring that lies about the effect. Use `X.9`, not `X.0`: the ring outlines the edge
@@ -209,7 +209,9 @@ fails until the next release run.
   with **no black** (black means "not painted" and would ignore the material entirely), and the
   diffuse must stay light/neutral so the multiply yields a clean tint. There are only two channels,
   so a forced body colour *replaces* the material tint — one body-colour trait per weapon, gated by
-  its exclusion token; it can still co-occur with a colour-one inlay.
+  its exclusion token; it can still co-occur with a colour-one inlay. A **non-stuffable** unique (the
+  VFEP warcasket pair) has no material tint, so its body placeholder is the def's
+  `graphicData.colorTwo` (the `DrawColorTwo` fallback), which a forced body colour still replaces.
 - **Vanilla melee weapons have no `Name=`, so they can't be `ParentName` targets.**
   `Patches/AddNameToBaseMeleeWeapons.xml` adds one per base weapon we mirror (patches run before
   inheritance resolution; `AttributeAdd` is add-if-missing, so it stacks safely with other mods).
@@ -327,7 +329,11 @@ mirroring the ungated `/` + `1.6` split:
   same load root as the defs they target.
 
 Currently `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
-Royalty-tech WeaponTraitDefs/ColorDefs; and `VanillaTexturesExpanded` (version root only), a
+Royalty-tech WeaponTraitDefs/ColorDefs; `VanillaFactionsExpandedPirates`, for the two
+non-stuffable warcasket uniques (broadsword, gravity hammer) and their art, warcasket-only via VEF's
+inherited `HeavyWeapon` extension and drawn as VFEP's crate on the floor through
+`OnFloorGraphicExtension` (tinted, since our thingClass replaces VEF's `ThingWithFloorGraphic`);
+and `VanillaTexturesExpanded` (version root only), a
 Patches-only root that re-poses and re-scales the unique spear to match VTE's redrawn vanilla
 spear (measurements and rationale in that patch's header; the drafted-idle grip nudge rides
 `CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes). The whole root

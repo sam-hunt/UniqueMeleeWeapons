@@ -8,10 +8,11 @@ namespace UniqueMeleeWeapons;
 // reaches colour one (the red-masked accent, via CompUniqueWeapon.ForceColor()).
 //
 // Colour two normally carries the material tint (see UniqueMeleeWeapon.DrawColorTwo).
-// There is no third mask channel, so a forced colour two replaces the stuff tint outright: the body
-// renders this colour regardless of material. That is the deliberate trade — use it only for traits whose
-// identity is a body colour (e.g. blood-caked), and gate the family with its own exclusion token
-// (BodyColor) so two body-colour traits can't co-roll. A body-colour trait sits on a different
+// There is no third mask channel, so a forced colour two replaces the stuff tint (or, on a stuff-less
+// weapon, its def's colorTwo placeholder) outright: the body renders this colour regardless of
+// material. That is the deliberate trade — use it only for traits whose identity is a body colour
+// (e.g. blood-caked), and gate the family with its own exclusion token (BodyColor) so two
+// body-colour traits can't co-roll. A body-colour trait sits on a different
 // channel from the Color-tagged inlays (colour one), so the two can legitimately co-occur.
 //
 // No persistence or graphic-cache work is needed: colour two is re-derived from the (already-scribed) trait

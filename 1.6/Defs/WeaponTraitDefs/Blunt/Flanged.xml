@@ -6,10 +6,12 @@
        narrow ridge that cracks plate rather than punching through it — a distinct mechanism from
        UMW_ArmorSpike's Stab-tool piercing, so it floors deliberately lower: 0.45 vs ArmorSpike's 0.8. No
        damage change, no extra hit — the head shape alone raises the Blunt tool's floor.
-       Also matches Demolish (the breach axe, the only Demolish tool in the game), so there the mod
-       lands on the head the description talks about, not just the Blunt handle. Demolish is a
-       BluntBase damage, so it sits in alsoMatches: the info-card line names only "blunt", and on
-       every other weapon the entry is equivalent to Blunt alone.
+       Also matches Demolish (the breach axe, the only Demolish tool in the game) and
+       VFEP_GravityHammerAttack (MayRequire VFE Pirates; VFEP's warcasket gravity hammer, whose only
+       other tool is a Poke handle), so on those weapons the mod lands on the head the description
+       talks about rather than on the handle or nothing. Both are BluntBase damages, so they sit in
+       alsoMatches: the info-card line names only "blunt", and on every other weapon the entry is
+       equivalent to Blunt alone.
        Priced at parity with Odyssey's ranged PiercingRounds (+40). -->
   <WeaponTraitDef>
     <defName>UMW_Flanged</defName>
@@ -34,6 +36,7 @@
             </capacities>
             <alsoMatches> <!-- blunt-damage heads, unnamed in the info card; see header -->
               <li>Demolish</li> <!-- breach axe -->
+              <li MayRequire="OskarPotocki.VFE.Pirates">VFEP_GravityHammerAttack</li> <!-- VFEP gravity hammer -->
             </alsoMatches>
             <armorPenetrationFloor>0.45</armorPenetrationFloor>
           </li>
