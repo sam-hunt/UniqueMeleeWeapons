@@ -217,6 +217,13 @@ fails until the next release run.
   inheritance resolution; `AttributeAdd` is add-if-missing, so it stacks safely with other mods).
   Add an Operation there for each new base weapon, DLC-gated by node existence if it isn't Core.
   Unique defs then override only their deltas and inherit tools/stats/stuff.
+  **A base from a third-party mod also needs that mod in `About.xml` `loadAfter`.**
+  `XmlInheritance.GetBestParentFor` only accepts a parent owned by a mod at or before the child's
+  load order. A node is owned by the mod whose file it came from, and our Name-add doesn't change
+  that. DLCs always load first, so Core/DLC bases are safe. Misordered, the unique logs "Could not
+  find parent node" and still loads, parentless (no tools/stats); we don't guard beyond the vanilla
+  mod-list warning. The smoke test can't catch a missing entry, because it writes its pinned order
+  directly and `loadAfter` never reorders a saved list.
 - **Back-reference the base weapon via `<descriptionHyperlinks>`.** Our `UMW_` prefix means the
   base def isn't derivable from the unique's defName, so the explicit link is required.
 - **Nullified *situational* thoughts still render as a grey "0" row** (only memories are dropped at
