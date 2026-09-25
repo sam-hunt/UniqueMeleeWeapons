@@ -15,12 +15,19 @@ public class MeleeToolModExtension : DefModExtension
     public List<MeleeToolMod> mods;
 }
 
-// A modifier targeting the weapon's tools whose capacities intersect this entry's `capacities`
-// (an empty/absent `capacities` list matches every tool).
+// A modifier targeting the weapon's tools whose capacities intersect this entry's `capacities` or
+// `alsoMatches` (an empty/absent `capacities` list matches every tool).
 public class MeleeToolMod
 {
     // Tool capacities this entry applies to (e.g. Cut, Stab). Empty/null = all of the weapon's tools.
     public List<ToolCapacityDef> capacities;
+
+    // Further capacities matched exactly like `capacities` but left out of the info-card line, which
+    // names only `capacities` (TraitEffectSummary). For weapon-specific variants of a named capacity,
+    // so the line stays short and general: e.g. Demolish (the breach axe head) is a BluntBase
+    // damage, so a Blunt entry lists it here and still reads "blunt". Only meaningful alongside a
+    // non-empty `capacities`.
+    public List<ToolCapacityDef> alsoMatches;
 
     // Multiplies the matched tool's melee damage (1 = no change).
     public float damageFactor = 1f;
@@ -47,7 +54,7 @@ public class MeleeToolMod
         }
         for (int i = 0; i < tool.capacities.Count; i++)
         {
-            if (capacities.Contains(tool.capacities[i]))
+            if (capacities.Contains(tool.capacities[i]) || alsoMatches?.Contains(tool.capacities[i]) == true)
             {
                 return true;
             }

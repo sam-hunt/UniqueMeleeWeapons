@@ -90,7 +90,8 @@ public static class TraitEffectSummary
         AppendForcedArt(trait, lines);
     }
 
-    // Per-tool damage/AP changes, one line per changed quantity.
+    // Per-tool damage/AP changes, one line per changed quantity. The scope names only `capacities`,
+    // never `alsoMatches` (unnamed variants by design; see MeleeToolMod).
     private static void AppendToolMods(WeaponTraitDef trait, List<string> lines)
     {
         List<MeleeToolMod> mods = trait.GetModExtension<MeleeToolModExtension>()?.mods;
