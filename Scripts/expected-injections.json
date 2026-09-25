@@ -17,6 +17,8 @@
       "ludeon.rimworld.ideology",
       "ludeon.rimworld.biotech",
       "ludeon.rimworld.odyssey",
+      "oskarpotocki.vanillafactionsexpanded.core",
+      "oskarpotocki.vfe.pirates",
       "shunter.uniquemeleeweapons",
       "shunter.uniqueweaponsunbound",
       "shunter.personaweaponsunbound",
@@ -671,6 +673,102 @@
         "english": "shaft",
         "required": true,
         "normalized": "UMW_Spear_Unique.tools.0.label"
+      },
+      "UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_WarcasketBroadsword_Unique.comps.0.chargeNoun"
+      },
+      "UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_WarcasketBroadsword_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "broadsword",
+          "blade",
+          "sword",
+          "edge"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_WarcasketBroadsword_Unique.comps.5.namerLabels"
+      },
+      "UMW_WarcasketBroadsword_Unique.description": {
+        "english": "A warcasket broadsword bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_WarcasketBroadsword_Unique.label": {
+        "english": "unique warcasket broadsword",
+        "required": true
+      },
+      "UMW_WarcasketBroadsword_Unique.modExtensions.0.disableOptionLabelKey": {
+        "english": "VFEP.RequiresWarcasket"
+      },
+      "UMW_WarcasketBroadsword_Unique.modExtensions.0.supportedTraits": {
+        "english": [
+          "VFEP_WarcasketTrait"
+        ],
+        "isCollection": true
+      },
+      "UMW_WarcasketBroadsword_Unique.tools.blade.label": {
+        "english": "blade",
+        "required": true,
+        "normalized": "UMW_WarcasketBroadsword_Unique.tools.1.label"
+      },
+      "UMW_WarcasketBroadsword_Unique.tools.point.label": {
+        "english": "point",
+        "required": true,
+        "normalized": "UMW_WarcasketBroadsword_Unique.tools.0.label"
+      },
+      "UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
+        "english": "charge",
+        "required": true,
+        "normalized": "UMW_WarcasketGravityHammer_Unique.comps.0.chargeNoun"
+      },
+      "UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund": {
+        "english": "on cooldown",
+        "required": true,
+        "normalized": "UMW_WarcasketGravityHammer_Unique.comps.0.cooldownGerund"
+      },
+      "UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels": {
+        "english": [
+          "hammer",
+          "maul",
+          "head",
+          "gravity hammer"
+        ],
+        "isCollection": true,
+        "required": true,
+        "normalized": "UMW_WarcasketGravityHammer_Unique.comps.5.namerLabels"
+      },
+      "UMW_WarcasketGravityHammer_Unique.description": {
+        "english": "A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.",
+        "required": true
+      },
+      "UMW_WarcasketGravityHammer_Unique.label": {
+        "english": "unique warcasket gravity hammer",
+        "required": true
+      },
+      "UMW_WarcasketGravityHammer_Unique.modExtensions.0.disableOptionLabelKey": {
+        "english": "VFEP.RequiresWarcasket"
+      },
+      "UMW_WarcasketGravityHammer_Unique.modExtensions.0.supportedTraits": {
+        "english": [
+          "VFEP_WarcasketTrait"
+        ],
+        "isCollection": true
+      },
+      "UMW_WarcasketGravityHammer_Unique.tools.handle.label": {
+        "english": "handle",
+        "required": true,
+        "normalized": "UMW_WarcasketGravityHammer_Unique.tools.1.label"
+      },
+      "UMW_WarcasketGravityHammer_Unique.tools.head.label": {
+        "english": "head",
+        "required": true,
+        "normalized": "UMW_WarcasketGravityHammer_Unique.tools.0.label"
       },
       "UMW_Warhammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun": {
         "english": "charge",

@@ -32,6 +32,8 @@ engine.SMOKE_ACTIVE_MODS = [
     "ludeon.rimworld.ideology",
     "ludeon.rimworld.biotech",
     "ludeon.rimworld.odyssey",
+    "oskarpotocki.vanillafactionsexpanded.core",
+    "oskarpotocki.vfe.pirates",
     "shunter.uniquemeleeweapons",
     "shunter.uniqueweaponsunbound",
     "shunter.personaweaponsunbound",

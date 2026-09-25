@@ -20,7 +20,9 @@ engine.PACKAGE_ID = "shunter.uniquemeleeweapons"
 
 # RATIONALE: Odyssey is a hard dependency (without it the mod's defs do not
 # load at all); Royalty gates the 1.6/Mods/Royalty compat load root (the
-# unique Axe/Warhammer and their Royalty-tech traits/colours). This repo is
+# unique Axe/Warhammer and their Royalty-tech traits/colours); VFE Pirates
+# (with its VEF dependency) gates the 1.6/Mods/VanillaFactionsExpandedPirates
+# root (the unique warcasket broadsword/gravity hammer). This repo is
 # part of the UniqueWeapons family and boots alongside its siblings
 # (UniqueWeaponsUnbound, PersonaWeaponsUnbound) so one boot refreshes every
 # sidecar and their refresh scripts can reuse it with --no-launch; only THIS
@@ -34,6 +36,8 @@ engine.CANONICAL_ACTIVE_MODS = [
     "ludeon.rimworld.ideology",
     "ludeon.rimworld.biotech",
     "ludeon.rimworld.odyssey",
+    "oskarpotocki.vanillafactionsexpanded.core",
+    "oskarpotocki.vfe.pirates",
     "shunter.uniquemeleeweapons",
     "shunter.uniqueweaponsunbound",
     "shunter.personaweaponsunbound",
