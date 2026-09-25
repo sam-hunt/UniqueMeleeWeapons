@@ -32,6 +32,11 @@ namespace UniqueMeleeWeapons;
 // of the trait roll for weapons THIS generator makes, via the scoped veto in
 // CompUniqueWeapon_UltratechTraits_Patch — the trait never enters the candidate set, so another
 // trait rolls in its place and no generate-and-discard retry is needed.
+//
+// Candidates are also capped at maxTechLevelGenerate, mirroring vanilla StockGenerator_MiscItems
+// (StockGenerator declares the field but its base never applies it). Both current instances set it to
+// UniqueWeaponDefs.TribalTechCap, which keeps VFEP's Industrial warcasket uniques out of tribal stock;
+// a higher-tech trader instance would just set a different value.
 public class StockGenerator_UMWUniqueMelee : StockGenerator
 {
     // Whether weapons generated here may roll the Royalty-tech traits (see class header). The
@@ -46,6 +51,7 @@ public class StockGenerator_UMWUniqueMelee : StockGenerator
         }
         List<ThingDef> candidates = UniqueWeaponDefs.All
             .Where(d => d.tradeability.TraderCanSell()
+                && d.techLevel <= maxTechLevelGenerate
                 && UniqueMeleeWeaponsMod.Settings?.IsWeaponDisabled(d) != true)
             .ToList();
         if (candidates.Count == 0)

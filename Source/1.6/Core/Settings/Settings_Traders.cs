@@ -94,6 +94,8 @@ public partial class UniqueMeleeWeaponsSettings
         {
             // Royalty's bladelink rarity, orbital variant — see the generator's header.
             countRange = new IntRange(0, 1),
+            // Tribal stock: Medieval and below, keeping VFEP's Industrial warcasket uniques out.
+            maxTechLevelGenerate = UniqueWeaponDefs.TribalTechCap,
             allowUltratechTraits = allowUltratechTraits,
         };
         generator.ResolveReferences(trader);

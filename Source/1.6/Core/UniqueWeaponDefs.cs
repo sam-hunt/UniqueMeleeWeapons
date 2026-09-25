@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace UniqueMeleeWeapons;
@@ -34,6 +35,17 @@ public static class UniqueWeaponDefs
     // Must match the thingSetMakerTag on every *_Unique weapon def and the allow-filter in
     // UMW_Reward_UniqueWeapon.
     public const string Tag = "UMW_UniqueMelee";
+
+    // Highest weapon techLevel the tribal consumers (warband quest, tribal trader stock) may hand out.
+    // Medieval, not the Warband faction's own Neolithic: it is exactly the ceiling of the pre-VFEP
+    // roster (knife/spear/breach axe Neolithic; longsword/gladius/mace/axe/warhammer Medieval), so it
+    // changes nothing for them and keeps Industrial uniques (VFEP's warcasket weapons, equippable only
+    // in a warcasket) away from tribals. Consumers filter with FitsTribal (a validator), never with
+    // ThingSetMakerParams.techLevel, which also down-weights sub-cap Neolithic gear x0.1 (see
+    // QuestNode_Root_Warband.RunInt).
+    public const TechLevel TribalTechCap = TechLevel.Medieval;
+
+    public static bool FitsTribal(ThingDef def) => def.techLevel <= TribalTechCap;
 
     private static List<ThingDef> all;
 

@@ -16,7 +16,8 @@ namespace UniqueMeleeWeapons;
 //   * Faction: a TEMPORARY, hidden, hostile faction created here (Beggars-style) instead of the permanent
 //     Faction.OfAncientsHostile. It is reserved to the quest so it survives while active, and is removed
 //     automatically once the quest ends and the site world object is destroyed (FactionManager).
-//   * Reward pool: UMW_Reward_UniqueWeapon (our stuff-aware, melee-only pool) instead of Reward_UniqueWeapon.
+//   * Reward pool: UMW_Reward_UniqueWeapon (our stuff-aware, melee-only pool) instead of Reward_UniqueWeapon,
+//     filtered to UniqueWeaponDefs.TribalTechCap so a tribal band never carries an Industrial unique.
 //   * Leader/band: vanilla tribal pawnkinds (Tribal_ChiefMelee + the faction's Combat pawnGroupMaker)
 //     instead of AncientSoldier_Leader / ancients-hostile.
 //   * Site theme: the AbandonedColonyTribal tile mutator (a ruined, pawn-less tribal settlement) instead
@@ -37,8 +38,10 @@ public class QuestNode_Root_Warband : QuestNode
         // Also requires at least one of our weapons to still be enabled in the settings: the entire
         // reward is one rolled unique, so with all of them switched off the quest would offer a leader
         // holding nothing. Stopping it from being offered is the honest outcome, and it comes back the
-        // moment a weapon is re-enabled.
-        return ModsConfig.OdysseyActive && UniqueMeleeWeaponsMod.Settings.AnyWeaponEnabled;
+        // moment a weapon is re-enabled. Counted under the same tech cap as the roll in RunInt, or
+        // leaving only (say) the VFEP warcasket uniques enabled would offer a quest that rolls nothing.
+        return ModsConfig.OdysseyActive
+            && UniqueMeleeWeaponsMod.Settings.AnyWeaponEnabled(UniqueWeaponDefs.FitsTribal);
     }
 
     protected override void RunInt()
@@ -54,8 +57,13 @@ public class QuestNode_Root_Warband : QuestNode
         quest.ReserveFaction(faction);
 
         // 2. Roll exactly one of OUR melee uniques, value-scaled to points (same window as AncientMercenaries).
+        //    Capped at UniqueWeaponDefs.TribalTechCap via validator, NOT parms.techLevel: that one also makes
+        //    ThingSetMakerByTotalStatUtility weight sub-cap Neolithic weapons x0.1 (so a Medieval cap would
+        //    make the knife/spear/breach axe 10x rarer) and feeds the stuff roll. The pool's own fixedParams
+        //    set no validator, so ours passes through ApplyFixedParams untouched.
         ThingSetMakerParams parms = new ThingSetMakerParams
         {
+            validator = UniqueWeaponDefs.FitsTribal,
             makingFaction = faction,
             countRange = new IntRange(1, 1),
             totalMarketValueRange = new FloatRange(0.7f, 1.3f) * QuestTuning.PointsToRewardMarketValueCurve.Evaluate(points)

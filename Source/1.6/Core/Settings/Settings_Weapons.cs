@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -38,9 +39,13 @@ public partial class UniqueMeleeWeaponsSettings
         return disabledWeapons.Count > 0 && def != null && disabledWeapons.Contains(def.defName);
     }
 
-    // Whether any of our weapons can still be rolled at all. The warband quest's whole reward is one of
-    // them, so it stops being offered when the answer is no (QuestNode_Root_Warband.TestRunInt).
-    public bool AnyWeaponEnabled => UniqueWeaponDefs.All.Any(d => !IsWeaponDisabled(d));
+    // Whether any of our weapons (optionally: any passing filter) can still be rolled at all. The warband
+    // quest's whole reward is one of them, so it stops being offered when the answer is no for the
+    // weapons it may roll, i.e. filter UniqueWeaponDefs.FitsTribal (QuestNode_Root_Warband.TestRunInt).
+    public bool AnyWeaponEnabled(Predicate<ThingDef> filter = null)
+    {
+        return UniqueWeaponDefs.All.Any(d => !IsWeaponDisabled(d) && (filter == null || filter(d)));
+    }
 
     // Refreshes the one place a weapon's pool eligibility is CACHED rather than asked live, so toggling a
     // weapon mid-session needs no restart. ThingSetMakerUtility.allGeneratableItems is filled once at

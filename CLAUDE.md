@@ -240,6 +240,14 @@ fails until the next release run.
   once (the repointed vanilla consumers exclude our weapons by construction and never route through the
   utility) — and estimates, "can this maker generate?" checks and saves that already contain the weapon
   all stay consistent.
+- **Tribal consumers are tech-capped by validator, never by `ThingSetMakerParams.techLevel`.** The
+  Warband quest and the tribal trader stock hand out only weapons at or below
+  `UniqueWeaponDefs.TribalTechCap` (Medieval: exactly the pre-VFEP roster), keeping Industrial
+  uniques off tribals. `techLevel` would filter too, but `ThingSetMakerByTotalStatUtility` also
+  weights weapons below the cap and at or below Neolithic ×0.1, so a Medieval cap would make the
+  Neolithic uniques 10× rarer. Use `UniqueWeaponDefs.FitsTribal` as a `validator` (quest, and the
+  quest's `AnyWeaponEnabled` gate) or `maxTechLevelGenerate` (our stock generator). Other pools stay
+  uncapped by decision.
 - **Material must be surfaced explicitly**, because a unique name hides the stuff an ordinary label
   shows. `UniqueMeleeWeapon` adds an inspect-pane line and injects a `stuff_adjective` grammar
   symbol into name generation. That symbol is also a **dependency-free integration contract** with
