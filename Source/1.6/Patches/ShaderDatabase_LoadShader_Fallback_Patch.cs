@@ -131,7 +131,10 @@ public static class ShaderDatabase_LoadShader_Fallback_Patch
 
     private static bool IsUsable(string path)
     {
+        // Plain C# null test (?.) is fine here even though Shader is a UnityEngine.Object: the lookup
+        // loads straight from the live bundles (no cache, decompile-verified), so a non-null result is
+        // never a destroyed object — those live only in ShaderDatabase's cache, evicted above.
         Shader shader = ContentFinder<Shader>.TryFindAssetInModBundles(path);
-        return shader != null && shader.isSupported;
+        return shader?.isSupported == true;
     }
 }
