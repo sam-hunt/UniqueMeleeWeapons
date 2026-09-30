@@ -693,7 +693,7 @@
         ],
         "isCollection": true,
         "required": true,
-        "normalized": "UMW_WarcasketBroadsword_Unique.comps.5.namerLabels"
+        "normalized": "UMW_WarcasketBroadsword_Unique.comps.3.namerLabels"
       },
       "UMW_WarcasketBroadsword_Unique.description": {
         "english": "A warcasket broadsword bearing the marks of a master's hand. No two are forged alike.",
@@ -741,7 +741,7 @@
         ],
         "isCollection": true,
         "required": true,
-        "normalized": "UMW_WarcasketGravityHammer_Unique.comps.5.namerLabels"
+        "normalized": "UMW_WarcasketGravityHammer_Unique.comps.3.namerLabels"
       },
       "UMW_WarcasketGravityHammer_Unique.description": {
         "english": "A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.",
