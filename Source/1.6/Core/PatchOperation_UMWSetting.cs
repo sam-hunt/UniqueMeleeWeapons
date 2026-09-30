@@ -41,9 +41,9 @@ public class PatchOperation_UMWSetting : PatchOperation
         bool enabled = (bool)field.GetValue(UniqueMeleeWeaponsMod.Settings);
         if (enabled)
         {
-            return match == null || match.Apply(xml);
+            return match?.Apply(xml) ?? true;
         }
-        return nomatch == null || nomatch.Apply(xml);
+        return nomatch?.Apply(xml) ?? true;
     }
 
     public override string ToString() => $"{base.ToString()}({setting})";
