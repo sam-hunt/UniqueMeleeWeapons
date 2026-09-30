@@ -208,7 +208,11 @@ fails until the next release run.
   `abilityProps`. Only one such comp is allowed per thing, so all 10 unique defs replace their
   inherited comps wholesale (`<comps Inherit="False">`, uniform across the 10 even where no ability
   can currently roll). **If base-game weapon comps change in a vanilla update, replicate the change
-  in all 10 files.**
+  in all 10 files.** The one sanctioned difference: **a unique mirrors its base's quality**, so the
+  VFEP warcasket pair carries no `CompQuality` (their base has none) and keeps `CompArt` without
+  it, because every unique bears an inscription and only the quality roll would have initialized
+  one; `UniqueMeleeWeapon.PostPostMake` does that for a quality-less def. Vanilla's
+  `CompUniqueWeapon` already null-checks the quality comp, so nothing else needs a guard.
 - **An AoE ability's radius lives in two places and must agree, at `X.9`.** The gizmo-hover preview
   reads `verbProperties.range` (via `VerbProperties.DrawRadiusRing`) and *never* a comp field, so a
   mismatch draws a ring that lies about the effect. Use `X.9`, not `X.0`: the ring outlines the edge

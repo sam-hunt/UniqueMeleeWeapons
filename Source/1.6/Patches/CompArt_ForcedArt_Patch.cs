@@ -7,6 +7,8 @@ namespace UniqueMeleeWeapons.Patches;
 // weapons whose rolled traits carry a ForcedArtExtension, so art initialization succeeds at any
 // quality. Trait order is safe at generation: CompUniqueWeapon.PostPostMake rolls traits BEFORE it
 // calls SetQuality -> InitializeArt, so the scan already sees the trait (decompile-verified).
+// A def with no CompQuality (the VFEP warcasket pair) never comes through here: vanilla's getter
+// returns true whenever TryGetQuality fails, so __result is already true and the postfix early-outs.
 //
 // This getter only decides whether InitializeArtInternal populates or NULLS the art — display
 // never consults it: CompInspectStringExtra, GetDescriptionPart and ITab_Art.IsVisible all gate on

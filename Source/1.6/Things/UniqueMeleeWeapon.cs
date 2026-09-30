@@ -50,6 +50,20 @@ public class UniqueMeleeWeapon : ThingWithComps
         {
             HitPoints = Mathf.Min(HitPoints, MaxHitPoints);
         }
+
+        // A quality-less def (the VFEP warcasket pair, mirroring their base) never reaches
+        // CompQuality.SetQuality, which is the only caller of CompArt.InitializeArt at generation
+        // (decompile-verified 1.6). Every unique bears an inscription: the quality-bearing eight get
+        // theirs because CompUniqueWeapon.PostPostMake's Super roll always clears
+        // minQualityForArtistic, so give the quality-less ones the same tale-less Outsider
+        // inscription that SetQuality(..., Outsider) would have. Safe to call unconditionally on a
+        // quality-less thing: CanShowArt is true whenever TryGetQuality fails, so this never nulls
+        // the art, and InitializeArtInternal early-outs on an existing title. Runs after the base
+        // call so the trait list exists for anything downstream that scans it (ForcedArtExtension).
+        if (GetComp<CompQuality>() == null)
+        {
+            GetComp<CompArt>()?.InitializeArt(ArtGenerationContext.Outsider);
+        }
     }
 
     // Interop guard: strip broken CompBladelinkWeapon grafts left by other mods.

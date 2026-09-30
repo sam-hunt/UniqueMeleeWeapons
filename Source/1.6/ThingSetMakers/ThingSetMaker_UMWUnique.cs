@@ -33,7 +33,9 @@ namespace UniqueMeleeWeapons;
 //
 // Quality needs no handling here: CompUniqueWeapon.PostPostMake rolls the weapon's quality itself
 // (QualityGenerator.Super, decompile-verified), so each made thing's MarketValue is already the real
-// Super-quality value — exactly what the stock class's window test relied on.
+// Super-quality value — exactly what the stock class's window test relied on. A quality-less unique
+// (the VFEP warcasket pair, whose base has no CompQuality) skips that roll and is tested at its base
+// value plus trait offsets, which is likewise its real value.
 //
 // Keeping the candidate set COMP-based (not tag-based) is deliberate: third-party mods' unique weapons
 // stay in the pool even if they never carry the UniqueWeapon tag (vanilla never required it) — only ours

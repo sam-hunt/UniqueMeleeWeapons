@@ -2,7 +2,8 @@
 <Defs>
 
   <!-- Warcasket broadsword. VFE Pirates (compat load root, see LoadFolders.xml: exists only with VFEP
-       active, so no MayRequire). Industrial, not stuffable.
+       active, so no MayRequire). Industrial, not stuffable, and
+       quality-less like its VFEP base (see the comps note).
        Tools: Stab point + Cut blade, slow 2.6-2.8s swings, so it takes the longsword's five
        categories (Melee, Bladed, Pointed, Heavy, Guarded).
        Warcasket-only: the inherited VEF HeavyWeapon extension makes VEF's CanEquip postfix refuse any
@@ -42,19 +43,22 @@
       <ThingDef>VFEP_WarcasketMeleeWeapon_Broadsword</ThingDef>
     </descriptionHyperlinks>
     <!-- Can't inherit comps: CompEquippableAbilityReloadable must replace CompEquippable
-         (one CompEquippable-derived comp allowed). If BaseWeapon/BaseMeleeWeapon_*_Quality
-         comps change in a vanilla update, replicate here. -->
+         (one CompEquippable-derived comp allowed). Otherwise mirrors the VFEP base's comps (vanilla
+         BaseMeleeWeapon: Forbiddable, Equippable, Styleable), which carry NO CompQuality: VFEP's
+         warcasket weapons have no quality tier, so neither does the unique. CompUniqueWeapon.PostPostMake
+         null-checks the comp and skips its Super roll (decompile-verified), so MarketValue is base plus
+         trait offsets. CompArt stays even so: every unique bears an inscription (the eight
+         quality-bearing ones get it because the Super roll always clears minQualityForArtistic), and
+         with no CompQuality nothing would call InitializeArt, so UniqueMeleeWeapon.PostPostMake does.
+         No minQualityForArtistic: CanShowArt is unconditionally true without a CompQuality. If
+         BaseWeapon/BaseMeleeWeapon comps change in a vanilla update, replicate here. -->
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" /> <!-- props populated by traits -->
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Styleable"/>
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
       <li Class="CompProperties_Art">
         <nameMaker>NamerArtWeaponMelee</nameMaker>
         <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
       </li>
       <li Class="CompProperties_UniqueWeapon">
         <weaponCategories>

@@ -2,7 +2,6 @@
 
 ## Fix
 
-- VFEP uniques shouldn't have quality
 - Review player-facing strings
 
 ## Features
