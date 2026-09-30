@@ -14,7 +14,7 @@
        UniqueMeleeWeapon.DrawColorTwo to graphicData.colorTwo, which is therefore the body placeholder
        colour, and a ForcedColorTwoExtension trait still replaces it. On the floor it draws VFEP's
        boxed-crate art via OnFloorGraphicExtension (VEF's ThingWithFloorGraphic is replaced by our
-       thingClass), tinted a flat #D7B2FF. -->
+       thingClass), tinted a flat #D7B2FF that its icons keep (see the graphic's shader note). -->
   <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_Broadsword">
     <defName>UMW_WarcasketBroadsword_Unique</defName>
     <label>unique warcasket broadsword</label>
@@ -83,6 +83,13 @@
         <graphicData>
           <texPath>Things/Item/WeaponsBoxed/WarcasketBroadsword_OnFloor</texPath> <!-- VFEP's crate art -->
           <graphicClass>Graphic_Single</graphicClass>
+          <!-- CutoutComplex rather than the Cutout default, with a mask that is red everywhere. On the
+               map the two render identically (red = colour one = the <color> below), but only
+               CutoutComplex has a UI twin, and Widgets.ThingIcon drops a material whose shader has none,
+               so the info-card and float-menu icon of a grounded crate would come out in the weapon's
+               accent colour instead of this tint. Rationale and load-time check: OnFloorGraphicExtension. -->
+          <shaderType>CutoutComplex</shaderType>
+          <maskPath>Masks/UMW_SolidRed</maskPath>
           <drawSize>1</drawSize>
           <color>(215,178,255)</color> <!-- #D7B2FF, Odyssey-logo purple -->
         </graphicData>

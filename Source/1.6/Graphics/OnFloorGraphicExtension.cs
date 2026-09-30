@@ -21,6 +21,20 @@ namespace UniqueMeleeWeapons;
 // every consumer's graphic once at load, so that surfaces as a load-time missing-texture error
 // (which the smoke test sees) rather than a pink box the first time one is dropped.
 //
+// The graphicData must name a shader with a UI twin, in practice CutoutComplex (the Cutout default
+// has none), and therefore a maskPath, since such shaders tint through a mask: Textures/Masks/
+// UMW_SolidRed is red everywhere, so colour one (= <color>) covers the whole texture exactly as
+// Cutout would and the map render is unchanged. Decompile-verified 1.6: Widgets.GetIconFor(Thing)
+// takes its material from thing.Graphic, so while the weapon is on the map it sees this graphic,
+// but keeps the material only if ShaderDatabase.TryGetUIShader finds a twin (uiLookup pairs
+// CutoutComplex with CutoutComplexUI and nothing else in vanilla). Otherwise it draws the bare
+// texture under GUI.color = thing.DrawColor, the unique's accent, and the info-card and float-menu
+// icons (FloatMenuMakerMap sets iconThing to the clicked thing) of a grounded crate come out in
+// that colour instead of the fixed tint. A Harmony postfix on GetIconFor could force the colour
+// instead; the shader swap was chosen as pure data. UMW_Startup.ResolveFloorGraphics logs an error
+// at load for a twinless shader or a mask that did not resolve (ContentFinder is silent on a
+// mistyped maskPath and the shader then samples its default mask), so the smoke test sees both.
+//
 // Deliberately not named FloorGraphicExtension: VEF's class of that simple name is also present on
 // the same defs, and a shared simple name invites confusion in logs and in duck-typing tools.
 //
