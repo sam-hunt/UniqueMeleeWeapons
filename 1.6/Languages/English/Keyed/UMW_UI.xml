@@ -50,7 +50,7 @@
        def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
        label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
        label, capitalized in the row label and lowercase in the description. -->
-  <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
+  <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in Outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
   <UMW_TraderStocksUniquesOutlanderSettlementDesc>About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
   <UMW_TraderStocksUniquesCaravan>Unique weapons in {0} caravan stock</UMW_TraderStocksUniquesCaravan>
   <UMW_TraderStocksUniquesCaravanDesc>About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesCaravanDesc>
