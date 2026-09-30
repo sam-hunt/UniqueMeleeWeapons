@@ -331,14 +331,16 @@ fails until the next release run.
   filtering the single choke point every generation path funnels through, def-gated to our weapons.
 - **Trader stock** (`Traders/StockGenerator_UMWUniqueMelee.cs`,
   `Core/Settings/Settings_Traders.cs`) — five default-off toggles put uniques in vanilla traders'
-  stock at Royalty's bladelink rarity, in two tech bands that *partition* the roster: the tribal war
-  merchant and shaman carry uniques at or below `UniqueWeaponDefs.TribalTechCap`, and the outlander
-  settlement, combat supplier caravan and combat supplier trade ship (VFE Pirates' own trader set)
-  carry those at or above `OutlanderTechFloor`, one step higher. Neither band dilutes the other's
-  pool, so the choice of trader stays meaningful. The outlander rows are shown only while some
-  unique in the roster clears the floor (none does on the base roster; VFEP's warcasket pair does),
-  derived from the tag-built def list rather than a mod check so a future high-tech unique is picked
-  up automatically. Entirely runtime def-writes (a generator instance on the TraderKindDef plus a
+  stock, in two tech bands that *partition* the roster: the tribal war merchant and shaman carry
+  uniques at or below `UniqueWeaponDefs.TribalTechCap` at Royalty's bladelink rarity (one every
+  other visit), and the outlander settlement, combat supplier caravan and combat supplier trade ship
+  (VFE Pirates' own trader set) carry those at or above `OutlanderTechFloor`, one step higher, at
+  one in five visits. Neither band dilutes the other's pool, so the choice of trader stays
+  meaningful; the bands are balanced separately because they sit in different phases of the game
+  (rationale and the plain-vs-unique rate comparison in the settings header). The outlander rows
+  are shown only while some unique in the roster clears the floor (none does on the base roster;
+  VFEP's warcasket pair does), derived from the tag-built def list rather than a mod check so a
+  future high-tech unique is picked up automatically. Entirely runtime def-writes (a generator instance on the TraderKindDef plus a
   Sellable→All tradeability flip while any toggle is on); nothing trader-related ships in XML. The
   two file headers carry the rationale, including why the war merchant's stock scope-bans the
   ultratech traits and the others don't.

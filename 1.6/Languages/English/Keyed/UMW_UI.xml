@@ -51,11 +51,11 @@
        label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
        label, capitalized in the row label and lowercase in the description. -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>About half of the time an outlander settlement stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
   <UMW_TraderStocksUniquesCaravan>Unique weapons in {0} caravan stock</UMW_TraderStocksUniquesCaravan>
-  <UMW_TraderStocksUniquesCaravanDesc>About half of {0} caravan visits bring one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesCaravanDesc>
+  <UMW_TraderStocksUniquesCaravanDesc>About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesCaravanDesc>
   <UMW_TraderStocksUniquesShip>Unique weapons in {0} trade ship stock</UMW_TraderStocksUniquesShip>
-  <UMW_TraderStocksUniquesShipDesc>About half of {0} trade ships carry one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesShipDesc>
+  <UMW_TraderStocksUniquesShipDesc>About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

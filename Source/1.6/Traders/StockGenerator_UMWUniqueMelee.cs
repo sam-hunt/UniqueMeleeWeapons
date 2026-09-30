@@ -12,9 +12,13 @@ namespace UniqueMeleeWeapons;
 // whole feature is settings-gated at runtime with vanilla defs untouched while it is off (and the
 // countRange/tech-band/ultratech knobs live there, next to the toggle that owns them).
 //
-// Rarity follows Royalty's precedent for bladelink weapons in Imperial stock: countRange 0~1, the
-// range the orbital Empire trader uses (the Imperial caravan actually carries exactly 1 every
-// visit; 0~1 is the rarer of the two shipped variants and fits "occasionally carries a relic").
+// Rarity for the tribal instances follows Royalty's precedent for bladelink weapons in Imperial
+// stock: countRange 0~1, the range the orbital Empire trader uses (the Imperial caravan actually
+// carries exactly 1 every visit; 0~1 is the rarer of the two shipped variants and fits "occasionally
+// carries a relic"). The outlander instances roll -3~1 (one in five): IntRange.RandomInRange is
+// inclusive, and the loop below runs zero times on a non-positive roll, exactly as vanilla's
+// TryMakeForStock does for the -10~1 exotic pin VFE Pirates puts on the same traders. Why the bands
+// differ is on Settings_Traders.
 // The weapon def is picked uniformly rather than through StockGenerator_MarketValue's
 // cheaper-is-likelier curve — the pool is our ~8 similarly-priced weapons, not a whole tag's worth
 // of vanilla gear, so the curve would add a knob with nothing to turn.
