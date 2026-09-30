@@ -125,11 +125,15 @@
 
            To support a new content type, add ONE <_ModFiles Include="..."/> line below.
 
-           Deliberately lean: ModContentLoader lists .psd/.dds among acceptable texture
-           extensions, but the runtime decode path (Texture2D.LoadImage) only handles
-           PNG/JPEG — a shipped .psd/.dds would fail to render AND bloat the download, so
-           only .png/.jpg/.jpeg are whitelisted. The DLL ships without its .pdb. OS junk,
-           editor backups (incl. .kra art sources), dev notes, and Source/ never match. -->
+           Deliberately lean: only .png/.jpg/.jpeg textures are whitelisted. ModContentLoader
+           also accepts .psd and .dds. A .psd goes through Texture2D.LoadImage, which decodes
+           only PNG/JPEG, so it would fail to render. A .dds does load (1.6's ModDdsLoader:
+           DXT1/DXT5, BC7 via a DX10 header (any DX10 header is read as BC7), or uncompressed,
+           used as-is with no load-time recompression) and silently wins over a same-named
+           .png, so it is left out by choice. Add a .dds glob to the Textures line if a mask
+           ever needs BC7 or lossless storage (CLAUDE.md, double-masking). The DLL ships
+           without its .pdb. OS junk, editor backups (incl. .kra art sources), dev notes, and
+           Source/ never match. -->
 
       <!-- Root-only metadata -->
       <_ModFiles Include="$(RepoRoot)/LoadFolders.xml" />
