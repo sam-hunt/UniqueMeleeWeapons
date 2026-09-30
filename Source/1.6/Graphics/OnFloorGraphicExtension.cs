@@ -35,6 +35,19 @@ namespace UniqueMeleeWeapons;
 // at load for a twinless shader or a mask that did not resolve (ContentFinder is silent on a
 // mistyped maskPath and the shader then samples its default mask), so the smoke test sees both.
 //
+// The consumer def must also be drawerType RealtimeOnly. Weapons inherit MapMeshOnly from BaseWeapon
+// and are printed into the static map mesh, and Graphic.Print (decompile-verified 1.6) runs the
+// material through TryGetTextureAtlasReplacementInfo: if the crate texture has a tile in any static
+// atlas, the print uses the atlas material instead, with colour one moved into the vertex colour and
+// maskTex replaced by that atlas's mask atlas, which is null when the texture was inserted mask-less.
+// VFEP's boxed-weapon buildings (VFEP_Box_*) use the very same _OnFloor textures as their main
+// graphic, so vanilla atlases them without a mask, and a printed crate would sample CutoutComplex's
+// default black mask and render untinted (the failure seen in 2026-09 testing). Realtime drawing
+// goes Graphic.Draw -> MatAt, never touches the atlas, and costs one DrawMesh per visible grounded
+// weapon. Nothing else about the weapon depends on drawerType: held weapons are drawn by
+// PawnRenderUtility from the graphic directly. ResolveFloorGraphics errors on a non-RealtimeOnly
+// consumer as well.
+//
 // Deliberately not named FloorGraphicExtension: VEF's class of that simple name is also present on
 // the same defs, and a shared simple name invites confusion in logs and in duck-typing tools.
 //

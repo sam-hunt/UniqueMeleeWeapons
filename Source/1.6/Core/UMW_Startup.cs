@@ -36,8 +36,8 @@ public static class UMW_Startup
     // Builds each OnFloorGraphicExtension graphic now rather than the first time one of the weapons is
     // dropped, so a texture the extension borrows from another mod (VFEP's _OnFloor crates) that has
     // gone missing logs at load, where the smoke test sees it, instead of as a pink box mid-game; and
-    // checks the icon contract from that extension's header (a UI-twinned shader whose mask resolved),
-    // which otherwise fails silently as a wrongly tinted or untinted icon.
+    // checks the contracts from that extension's header (a UI-twinned shader whose mask resolved, and a
+    // RealtimeOnly consumer), which otherwise fail silently as a wrongly tinted icon or an untinted crate.
     // Idempotent: GraphicData caches its graphic, and a reload brings fresh GraphicData instances.
     private static void ResolveFloorGraphics()
     {
@@ -48,6 +48,12 @@ public static class UMW_Startup
             if (mat == null)
             {
                 continue;
+            }
+            if (def.drawerType != DrawerType.RealtimeOnly)
+            {
+                Log.Error($"[Unique Melee Weapons] {def.defName}: carries OnFloorGraphicExtension but is drawerType " +
+                          $"{def.drawerType}, so its printed floor graphic can be swapped for a mask-less static-atlas " +
+                          "material and lose its tint. Set RealtimeOnly (see OnFloorGraphicExtension).");
             }
             if (!ShaderDatabase.TryGetUIShader(mat.shader, out _))
             {

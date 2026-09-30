@@ -16,12 +16,17 @@
        UniqueMeleeWeapon.DrawColorTwo to graphicData.colorTwo, which is therefore the body placeholder
        colour, and a ForcedColorTwoExtension trait still replaces it. On the floor it draws VFEP's
        boxed-crate art via OnFloorGraphicExtension (VEF's ThingWithFloorGraphic is replaced by our
-       thingClass), tinted a flat #D7B2FF that its icons keep (see the graphic's shader note). -->
+       thingClass), tinted a flat #D7B2FF that its icons keep (see the graphic's shader note and drawerType). -->
   <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_GravityHammer">
     <defName>UMW_WarcasketGravityHammer_Unique</defName>
     <label>unique warcasket gravity hammer</label>
     <description>A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
+    <!-- Drawn per frame, not printed into the static map mesh like other weapons (BaseWeapon is
+         MapMeshOnly). Graphic.Print swaps a printed material for the texture's static-atlas material,
+         and VFEP's boxed-weapon building (VFEP_Box_*) atlases this same crate art without a mask, so
+         the printed crate would sample a black mask and lose its tint. See OnFloorGraphicExtension. -->
+    <drawerType>RealtimeOnly</drawerType>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketGravityHammer</texPath>
       <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
