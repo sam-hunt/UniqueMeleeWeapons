@@ -36,7 +36,8 @@ public static class UniqueWeaponDefs
     // UMW_Reward_UniqueWeapon.
     public const string Tag = "UMW_UniqueMelee";
 
-    // Highest weapon techLevel the tribal consumers (warband quest, tribal trader stock) may hand out.
+    // Highest weapon techLevel the tribal consumers (warband quest, tribal trader stock) may hand out; the
+    // outlander trader stock starts one step above it (OutlanderTechFloor below).
     // Medieval, not the Warband faction's own Neolithic: it is exactly the ceiling of the pre-VFEP
     // roster (knife/spear/breach axe Neolithic; longsword/gladius/mace/axe/warhammer Medieval), so it
     // changes nothing for them and keeps Industrial uniques (VFEP's warcasket weapons, equippable only
@@ -45,7 +46,18 @@ public static class UniqueWeaponDefs
     // QuestNode_Root_Warband.RunInt).
     public const TechLevel TribalTechCap = TechLevel.Medieval;
 
+    // Lowest weapon techLevel the outlander consumers (outlander settlement, combat supplier caravan and
+    // trade ship stock) may hand out. Defined as one step above TribalTechCap rather than as a second
+    // literal so the two bands PARTITION the roster: every unique is stocked by exactly one side, so
+    // neither dilutes its pool with the other's stock and the choice of which trader to visit stays
+    // meaningful (tribals deal in the medieval-and-below relics, outlanders in industrial-and-up gear
+    // such as VFEP's warcasket pair). A roster with nothing at or above the floor (no VFEP, no
+    // third-party tagged unique) leaves the outlander toggles inert and hidden (Settings_Traders).
+    public const TechLevel OutlanderTechFloor = (TechLevel)((int)TribalTechCap + 1);
+
     public static bool FitsTribal(ThingDef def) => def.techLevel <= TribalTechCap;
+
+    public static bool FitsOutlander(ThingDef def) => def.techLevel >= OutlanderTechFloor;
 
     private static List<ThingDef> all;
 

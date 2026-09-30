@@ -329,12 +329,19 @@ fails until the next release run.
   is in `QuestNode_Root_Warband.cs`.
 - **Wood-free material rolls** (`Patches/GenStuff_ExcludeWoodStuff_Patch.cs`) — setting-gated,
   filtering the single choke point every generation path funnels through, def-gated to our weapons.
-- **Tribal trader stock** (`Traders/StockGenerator_UMWUniqueMelee.cs`,
-  `Core/Settings/Settings_Traders.cs`) — two default-off toggles put uniques in the tribal war
-  merchant's and shaman's stock at Royalty's bladelink rarity. Entirely runtime def-writes (a
-  generator instance on the TraderKindDef plus a Sellable→All tradeability flip while on); nothing
-  trader-related ships in XML. The two file headers carry the rationale, including why the war
-  merchant's stock scope-bans the ultratech traits and the shaman's doesn't.
+- **Trader stock** (`Traders/StockGenerator_UMWUniqueMelee.cs`,
+  `Core/Settings/Settings_Traders.cs`) — five default-off toggles put uniques in vanilla traders'
+  stock at Royalty's bladelink rarity, in two tech bands that *partition* the roster: the tribal war
+  merchant and shaman carry uniques at or below `UniqueWeaponDefs.TribalTechCap`, and the outlander
+  settlement, combat supplier caravan and combat supplier trade ship (VFE Pirates' own trader set)
+  carry those at or above `OutlanderTechFloor`, one step higher. Neither band dilutes the other's
+  pool, so the choice of trader stays meaningful. The outlander rows are shown only while some
+  unique in the roster clears the floor (none does on the base roster; VFEP's warcasket pair does),
+  derived from the tag-built def list rather than a mod check so a future high-tech unique is picked
+  up automatically. Entirely runtime def-writes (a generator instance on the TraderKindDef plus a
+  Sellable→All tradeability flip while any toggle is on); nothing trader-related ships in XML. The
+  two file headers carry the rationale, including why the war merchant's stock scope-bans the
+  ultratech traits and the others don't.
 
 ## Localization
 

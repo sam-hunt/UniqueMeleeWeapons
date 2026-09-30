@@ -39,12 +39,23 @@
   <UMW_AllowUltratechTraits>Allow ultratech weapon traits</UMW_AllowUltratechTraits>
   <UMW_AllowUltratechTraitsDesc>Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it.</UMW_AllowUltratechTraitsDesc>
 
-  <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
-       trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
+  <!-- Settings: Traders. All toggles default off. Tribal rows: the label is a shared template, {0} is
+       the trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
        vanilla's translation; each description's {0} is the same label in lowercase. -->
   <UMW_TraderStocksUniques>Unique weapons in {0} stock</UMW_TraderStocksUniques>
-  <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear.</UMW_TraderStocksUniquesWarMerchantDesc>
-  <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear.</UMW_TraderStocksUniquesShamanDesc>
+  <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make (with the
+       base game's roster none is; VFE Pirates' warcasket pair is). The settlement trader kind has no
+       def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
+       label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
+       label, capitalized in the row label and lowercase in the description. -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>About half of the time an outlander settlement stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <UMW_TraderStocksUniquesCaravan>Unique weapons in {0} caravan stock</UMW_TraderStocksUniquesCaravan>
+  <UMW_TraderStocksUniquesCaravanDesc>About half of {0} caravan visits bring one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesCaravanDesc>
+  <UMW_TraderStocksUniquesShip>Unique weapons in {0} trade ship stock</UMW_TraderStocksUniquesShip>
+  <UMW_TraderStocksUniquesShipDesc>About half of {0} trade ships carry one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Tribal traders carry the older ones instead. Disabled weapons never appear.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
