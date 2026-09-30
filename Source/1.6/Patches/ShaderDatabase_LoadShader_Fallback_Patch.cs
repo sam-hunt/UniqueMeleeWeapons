@@ -119,8 +119,8 @@ public static class ShaderDatabase_LoadShader_Fallback_Patch
 
         Log.Warning($"[Unique Melee Weapons] Shader {failed} is missing from the mod's asset bundle for " +
                     $"this OS or unsupported on this graphics device ({SystemInfo.graphicsDeviceType}). " +
-                    "Unique weapons will use vanilla CutoutComplex instead: masks still tint, but the two tints " +
-                    "stack rather than mix. Please report this along with your OS and graphics device.");
+                    "Unique Melee Weapons will use vanilla CutoutComplex instead. Feel free to report this " +
+                    "along with your OS and graphics device.");
         if (mapIsOurs) shaderPath = VanillaFor(shaderPath);
         if (uiIsOurs) uiShaderPath = VanillaFor(uiShaderPath);
     }
