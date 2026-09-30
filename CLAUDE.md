@@ -389,8 +389,9 @@ mirroring the ungated `/` + `1.6` split:
 Currently `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
 Royalty-tech WeaponTraitDefs/ColorDefs; `VanillaFactionsExpandedPirates`, for the two
 non-stuffable warcasket uniques (broadsword, gravity hammer) and their art, warcasket-only via VEF's
-inherited `HeavyWeapon` extension and drawn as VFEP's crate on the floor through
-`OnFloorGraphicExtension` (tinted, since our thingClass replaces VEF's `ThingWithFloorGraphic`);
+inherited `HeavyWeapon` extension (VEF's inherited `FloorGraphicExtension` is inert on them: only its
+`ThingWithFloorGraphic` reads it and our thingClass replaces that class, so the pair draws as itself
+on the floor like every other unique; the def headers record why a tinted crate was dropped);
 and `VanillaTexturesExpanded` (version root only), a
 Patches-only root that re-poses and re-scales the unique spear to match VTE's redrawn vanilla
 spear (measurements and rationale in that patch's header; the drafted-idle grip nudge rides

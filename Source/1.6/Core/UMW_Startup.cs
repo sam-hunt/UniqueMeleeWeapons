@@ -26,34 +26,8 @@ public static class UMW_Startup
         // After Rebuild: the trader def-writes iterate UniqueWeaponDefs.All.
         UniqueMeleeWeaponsMod.Settings.ApplyTraderStock();
         TraitEffectSummary.AttachToTraits();
-        ResolveFloorGraphics();
         // The one deferred Harmony patch: applied only if some ThingDef carries
         // CarriedWeaponOffsetExtension, which is knowable only now. Idempotent, never unpatched.
         Patches.PawnRenderUtility_DrawCarriedWeapon_Patch.ApplyIfConsumersExist();
-    }
-
-    // Builds each OnFloorGraphicExtension graphic now rather than the first time one of the weapons is
-    // dropped, so a texture the extension borrows from another mod (VFEP's _OnFloor crates) that has
-    // gone missing logs at load, where the smoke test sees it, instead of as a pink box mid-game; and
-    // checks the consumer is RealtimeOnly (the extension header's one contract), which otherwise fails
-    // silently as the weapon art printed where the crate should be.
-    // Idempotent: GraphicData caches its graphic, and a reload brings fresh GraphicData instances.
-    private static void ResolveFloorGraphics()
-    {
-        foreach (ThingDef def in UniqueWeaponDefs.All)
-        {
-            GraphicData data = def.GetModExtension<OnFloorGraphicExtension>()?.graphicData;
-            if (data == null)
-            {
-                continue;
-            }
-            _ = data.Graphic;
-            if (def.drawerType != DrawerType.RealtimeOnly)
-            {
-                Log.Error($"[Unique Melee Weapons] {def.defName}: carries OnFloorGraphicExtension but is drawerType " +
-                          $"{def.drawerType}; the crate is drawn by UniqueMeleeWeapon.DrawAt, which only the realtime " +
-                          "path calls, so on the map it would show the weapon art. Set RealtimeOnly (see OnFloorGraphicExtension).");
-            }
-        }
     }
 }
