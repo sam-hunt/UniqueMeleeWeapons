@@ -46,6 +46,17 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
   `Source/1.6/UniqueMeleeWeapons.csproj` — see that target's comments for how it globs and what it
   excludes. It is generic over folders, so a new `1.7/` or `Sounds/` needs no build change; only a
   brand-new *file type* does. Local deploy and CI release both call it, so they can't drift.
+- **Asset bundles are committed binaries.** `1.6/AssetBundles/umw_shaders_{win,linux,mac}` carry
+  the mix shader (see "Stuffable uniques are double-masked" below). CI has no Unity and stages
+  whatever is committed, so they are built locally by `Source/UnityShaders/build.sh win linux mac`
+  from the Windows Unity editor at RimWorld's exact version (2022.3.35f1 for 1.6) with the Linux and
+  Mac build-support modules installed; all three OS bundles cross-compile from Windows, and the
+  game loads only the one whose suffix matches the OS. Rebuild when RimWorld moves Unity version.
+  The `com.unity.modules.assetbundle` dependency in the project's `Packages/manifest.json` is
+  load-bearing: without it the build reports success and the game's `LoadAsset` finds nothing.
+  Bundles are extensionless, so theirs is the one `_ModFiles` glob that can't whitelist by
+  extension (it excludes Unity's `.manifest` sidecars instead). `Source/` never deploys, so the
+  Unity project and its editor script stay out of the mod and out of the C# build.
 - **Stop hook (`.claude/hooks/sync-mod.sh`):** rebuilds+redeploys after a turn only when
   mod-relevant files changed, logs to `$TMPDIR/umw-build.log`, warns on failure. It is local-only
   (see below) — if it is ever promoted to committed config, move the helper somewhere
@@ -209,24 +220,40 @@ fails until the next release run.
   a trait-forced body colour). This is the load-bearing trick of the mod — Odyssey's ranged uniques
   are not stuffable and don't need it. **Art rule:** the weapon silhouette must be all red/green
   with **no black** (black means "not painted" and would ignore the material entirely), and the
-  diffuse must stay light/neutral so the multiply yields a clean tint. The two tints **stack, they
-  don't mix**: vanilla `CutoutComplex` computes `diffuse × lerp(1, one, r) × lerp(1, two, g)`
-  (fitted to in-game renders, 2026-09), so a texel carrying both red and green (a crossfade, or a
-  hard red|green edge once filtering or mipmaps blend it) renders lighter than the mix, by
-  `t(1−t)(1−one)(1−two)`, worst with two dark tints. Keep red|green transitions hard; black↔tint
-  fades are linear. There are only two channels,
+  diffuse must stay light/neutral so the multiply yields a clean tint. The uniques draw with our
+  own `UMW_CutoutComplexMix` (`Defs/ShaderTypeDefs/`, source `Source/UnityShaders/`, shipped in the
+  asset bundles): vanilla `CutoutComplex` with one change, the two tints **mix**
+  (`diffuse × (r·one + g·two + (1−r−g))`) where vanilla **stacks** them
+  (`diffuse × lerp(1, one, r) × lerp(1, two, g)`, fitted to in-game renders 2026-09), so a texel
+  carrying both red and green (a feathered or anti-aliased red|green edge, or a hard one once
+  filtering or mipmaps blend it) renders the blend the artist painted instead of a product lighter
+  by `t(1−t)(1−one)(1−two)`. Pure red, pure green and black texels are bit-identical to vanilla, so
+  the shader constrains nothing about existing art. On the vanilla fallback (next bullet but one)
+  stacking returns, so hard red|green edges stay the safer default. There are only two channels,
   so a forced body colour *replaces* the material tint — one body-colour trait per weapon, gated by
   its exclusion token; it can still co-occur with a colour-one inlay. A **non-stuffable** unique (the
   VFEP warcasket pair) has no material tint, so its body placeholder is the def's
   `graphicData.colorTwo` (the `DrawColorTwo` fallback), which a forced body colour still replaces.
+- **The mix shader must fail to vanilla `CutoutComplex`, never `Cutout`.** `ShaderDatabase`'s own
+  fallback for a shader it can't find is plain `Cutout` (no mask, no colour two), it never checks
+  `Shader.isSupported`, and after a mid-session language change the unloaded bundle's destroyed
+  Shader objects stay in its path cache, so the weapons would silently lose their paint on reload.
+  `Patches/ShaderDatabase_LoadShader_Fallback_Patch.cs` fixes all three (cache eviction, bundle +
+  `isSupported` probe, pair-wise rewrite to `Map/CutoutComplex` + `Map/CutoutComplexUI`), and must
+  hook the loader rather than `UMW_Startup`: every ThingDef's graphic and icon material is built
+  before `CallAll`. The two shader paths live in three places that move together: the ShaderTypeDefs,
+  that patch's constants, and the Unity project's asset paths
+  (`Assets/Data/<packageId>/Materials/<path>.shader`; the packageId form, because a Workshop
+  mod's folder name is a numeric id). Third-party weapons carrying our tag keep their own
+  `shaderType` and are untouched.
 - **A mask edge must sit in dark ink or on a pixel-exact colour edge, never along an anti-aliased
   colour change.** `CutoutComplex` is a per-texel multiply, so a texel on the wrong side of a tint
   edge (an anti-alias ramp texel, or one the mask spills onto or misses) renders darker or brighter
   than both neighbours, and the mask's staircase reads as a torn, dashed seam. Ink hides it (dark ×
   anything stays dark; Odyssey keeps ~80% of its tint edges there). Feathering the mask can't fix
   it exactly: no single mask value makes a multiply reproduce a blend for every colour, so the fix
-  is in the art. (The artist's 2026-09 warcasket masks are feathered anyway and read clean at
-  in-game zoom; the mix-shader rollout in `TODOs.md` would make that feathering render exactly.)
+  is in the art. (That is the tinted|untinted seam class. A feathered red|green edge is different:
+  the mix shader renders it exactly, and the artist's 2026-09 warcasket masks lean on that.)
   Masks that follow the art rule above are safe by construction; it bites wherever untinted art sits
   beside tinted art, as on the warcasket pair. An edge that only the mask draws, over flat art,
   can't speck, and a hard diagonal there shows stair-steps only far beyond in-game zoom.

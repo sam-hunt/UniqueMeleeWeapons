@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The mod's replacement for vanilla CutoutComplex, used by every unique's graphicData.
+       Same properties, tags and pass state as vanilla, one difference: the two mask tints are
+       MIXED (r*one + g*two + (1-r-g)) instead of stacked (lerp(1,one,r) * lerp(1,two,g)), so a
+       feathered or anti-aliased red|green mask edge renders the blend the artist painted rather
+       than a lighter product. Pure red, pure green and black texels are bit-identical to vanilla,
+       so art needs no change. Source: Source/UnityShaders/ (built into 1.6/AssetBundles/ per OS).
+
+       ShaderDatabase resolves shaderPath in Resources first, then in the mod's asset bundles at
+       Assets/Data/shunter.uniquemeleeweapons/Materials/<shaderPath>.shader. Both paths here are
+       mirrored as constants in Patches/ShaderDatabase_LoadShader_Fallback_Patch.cs, which makes a
+       missing or unsupported shader degrade to vanilla CutoutComplex (+ its UI twin) instead of
+       plain Cutout, and fixes the stale-cache drop after a mid-session language change. Change
+       a path here, in that patch, and in the Unity project together. -->
+  <ShaderTypeDef>
+    <defName>UMW_CutoutComplexMix</defName>
+    <shaderPath>UMW/CutoutComplexMix</shaderPath>
+    <uiShaderPath>UMW/CutoutComplexMixUI</uiShaderPath>
+  </ShaderTypeDef>
+
+</Defs>

@@ -145,6 +145,13 @@
       <_ModFiles Include="$(RepoRoot)/Patches/**/*.xml;$(RepoRoot)/*/Patches/**/*.xml;$(RepoRoot)/*/Mods/*/Patches/**/*.xml" />
       <_ModFiles Include="$(RepoRoot)/Textures/**/*.png;$(RepoRoot)/Textures/**/*.jpg;$(RepoRoot)/Textures/**/*.jpeg;$(RepoRoot)/*/Textures/**/*.png;$(RepoRoot)/*/Textures/**/*.jpg;$(RepoRoot)/*/Textures/**/*.jpeg;$(RepoRoot)/Mods/*/Textures/**/*.png;$(RepoRoot)/Mods/*/Textures/**/*.jpg;$(RepoRoot)/Mods/*/Textures/**/*.jpeg" />
       <_ModFiles Include="$(RepoRoot)/Sounds/**/*.wav;$(RepoRoot)/Sounds/**/*.mp3;$(RepoRoot)/Sounds/**/*.ogg;$(RepoRoot)/*/Sounds/**/*.wav;$(RepoRoot)/*/Sounds/**/*.mp3;$(RepoRoot)/*/Sounds/**/*.ogg" />
+      <!-- Asset bundles are EXTENSIONLESS files (ModAssetBundlesHandler loads every extensionless
+           file directly under AssetBundles/, and only the _win/_mac/_linux one matching the OS), so
+           this is the one glob that can't whitelist by extension: it takes the folder's direct
+           children and excludes Unity's .manifest sidecars, which must never be copied in anyway.
+           The bundles are committed binaries built by Source/UnityShaders/build.sh (CI has no
+           Unity); see CLAUDE.md, "Shipping the mix shader". -->
+      <_ModFiles Include="$(RepoRoot)/AssetBundles/*;$(RepoRoot)/*/AssetBundles/*" Exclude="$(RepoRoot)/AssetBundles/*.manifest;$(RepoRoot)/*/AssetBundles/*.manifest" />
       <!-- The lines above also match under the gated compat load roots (see
            LoadFolders.xml), which come in two flavours: version-specific ones nest
            inside the version folder as <version>/Mods/<Mod Name>/ (Defs, Patches, Languages),

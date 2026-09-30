@@ -24,7 +24,7 @@
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketGravityHammer</texPath>
       <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
+      <shaderType>UMW_CutoutComplexMix</shaderType> <!-- vanilla CutoutComplex with mixed tints; see Defs/ShaderTypeDefs -->
       <colorTwo>(91,94,96)</colorTwo> <!-- #5B5E60 body placeholder; see header -->
     </graphicData>
     <generateAllowChance>0</generateAllowChance>

@@ -1,0 +1,137 @@
+using System.Collections.Generic;
+using System.Reflection;
+using HarmonyLib;
+using UnityEngine;
+using Verse;
+
+namespace UniqueMeleeWeapons.Patches;
+
+// Guards the mod's own shaders (UMW/CutoutComplexMix and its UI twin, shipped in the asset
+// bundles under 1.6/AssetBundles/ and named by the ShaderTypeDefs in Defs/ShaderTypeDefs/) so
+// that when they cannot be used the unique weapons fall back to vanilla CutoutComplex, which
+// still applies both mask channels, and never to vanilla's default fallback, plain Cutout,
+// which drops the mask and colour two entirely. This file is the full rationale; the
+// ShaderTypeDefs and CLAUDE.md carry only pointers here.
+//
+// Why vanilla's own fallback is unacceptable (decompile-verified, RimWorld 1.6):
+// ShaderDatabase.TryLoadShader looks a path up in Resources, then in every running mod's
+// bundles (ContentFinder<Shader>.TryFindAssetInModBundles), caches the result in the private
+// static `lookup` dictionary, and on a miss warns and substitutes ShaderDatabase.DefaultShader
+// (= Cutout). It never checks Shader.isSupported, so a bundle that lacks the running graphics
+// API (a platform we could not build for, or a player forcing an API such as -force-glcore on
+// Windows) would load a shader Unity cannot run. A stuffable unique drawn with Cutout shows
+// no material tint and no colour two, so "the weapon lost its paint" is what the player sees.
+//
+// Two ways the load can fail:
+//  1. Missing or unsupported: the OS bundle is absent (ModAssetBundlesHandler loads only the
+//     _win/_mac/_linux file matching the OS), the shader is not in it, or the compiled
+//     programs do not cover the active graphics device. Probed here with the same finder
+//     vanilla uses plus Shader.isSupported.
+//  2. Stale after a play-data reload: a mid-session language change runs ClearAllPlayData,
+//     whose ModAssetBundlesHandler.ClearDestroy unloads every mod bundle with
+//     Unload(unloadAllLoadedObjects: true), destroying the Shader objects, but the `lookup`
+//     cache is never cleared. The reload rebuilds every ThingDef's graphic through fresh
+//     ShaderTypeDef instances, TryLoadShader finds the key already present, and the destroyed
+//     object fails its `== null` check: the weapons silently drop to Cutout with a "Could not
+//     load shader" warning. Vanilla's own shaders never hit this because they live in
+//     Resources, which survive the reload. Evicting our two keys before every load makes the
+//     original re-probe the freshly loaded bundle; the cost is one LoadAsset per shader per load.
+//
+// Why a prefix on the 4-argument LoadShader(shaderPath, uiShaderPath, out, out) and not a
+// def-write in UMW_Startup.Run: ShaderTypeDef.Shader resolves lazily through this overload,
+// and every ThingDef's graphic and uiIconMaterial is built in PostLoad delegates that run
+// before StaticConstructorOnStartupUtility.CallAll (see
+// StaticConstructorOnStartupUtility_CallAll_Patch), so by the time our startup runs the
+// materials already hold whatever shader this method returned. The prefix fires on the main
+// thread, after the bundles are in (mod content is the first ExecuteWhenFinished delegate of
+// the load), for each of our two ShaderTypeDefs, once per play-data load.
+//
+// Both paths swap together. ShaderDatabase pairs a map shader with its UI twin in `uiLookup`
+// keyed by the loaded Shader object; if only the UI path were rewritten, the mix map shader
+// would be paired with vanilla CutoutComplexUI (a visible map/info-card mismatch), and if
+// only the map path were, vanilla CutoutComplex would get no UI twin and Widgets.ThingIcon
+// would fall back to an untinted GUI.DrawTexture. So any failure of either shader rewrites
+// every one of our paths in the call to its vanilla counterpart, and the original method then
+// resolves and pairs those exactly as it does for an ordinary CutoutComplex weapon.
+//
+// Patch timing: applied by the ordinary PatchAll from the Mod constructor. ShaderDatabase is a
+// vanilla type whose static initializer only loads vanilla shaders from Resources on the main
+// thread and touches no defs, so triggering it early is harmless (the foreign-cctor hazard in
+// CLAUDE.md does not apply).
+//
+// The probe and warning fire once per load in practice: only UMW_CutoutComplexMix is named by
+// a graphicData.shaderType, so only its ShaderTypeDef.Shader is ever resolved (it names both
+// paths in one call); UMW_CutoutComplexMixUI exists for addressability and is not read.
+//
+// Cross-mod: only our two paths are recognised. Unique Weapons Unbound and any third-party
+// weapon carrying our tag keep whatever shaderType they declare (normally vanilla
+// CutoutComplex) and are untouched by this patch and by the mix shader.
+[HarmonyPatch(typeof(ShaderDatabase), nameof(ShaderDatabase.LoadShader),
+    new[] { typeof(string), typeof(string), typeof(Shader), typeof(Shader) },
+    new[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Out })]
+public static class ShaderDatabase_LoadShader_Fallback_Patch
+{
+    // Must match <shaderPath>/<uiShaderPath> in Defs/ShaderTypeDefs/CutoutComplexMix.xml and
+    // CutoutComplexMixUI.xml, and the asset paths built into the bundles by
+    // Source/UnityShaders (Assets/Data/shunter.uniquemeleeweapons/Materials/<path>.shader).
+    private const string MixPath = "UMW/CutoutComplexMix";
+    private const string MixUIPath = "UMW/CutoutComplexMixUI";
+
+    // Vanilla's Resources paths for the pair we degrade to (ShaderDatabase's own field initialisers).
+    private const string VanillaMapPath = "Map/CutoutComplex";
+    private const string VanillaUIPath = "Map/CutoutComplexUI";
+
+    private static readonly FieldInfo LookupField = AccessTools.Field(typeof(ShaderDatabase), "lookup");
+    private static bool warnedNoLookup;
+
+    public static void Prefix(ref string shaderPath, ref string uiShaderPath)
+    {
+        bool mapIsOurs = IsOurs(shaderPath);
+        bool uiIsOurs = IsOurs(uiShaderPath);
+        if (!mapIsOurs && !uiIsOurs)
+        {
+            return;
+        }
+
+        // (2) Drop any cached entry for our paths so the original re-probes the live bundle.
+        // Resolved by name, so a vanilla rename would silently bring the reload bug back:
+        // say so once rather than skip quietly.
+        if (LookupField?.GetValue(null) is Dictionary<string, Shader> lookup)
+        {
+            lookup.Remove(MixPath);
+            lookup.Remove(MixUIPath);
+        }
+        else if (!warnedNoLookup)
+        {
+            warnedNoLookup = true;
+            Log.Warning("[Unique Melee Weapons] ShaderDatabase.lookup not found; unique weapons may lose their " +
+                        "mask after a mid-session language change until the game is restarted.");
+        }
+
+        // (1) Probe every path the call names; one failure degrades the whole call.
+        string failed = (mapIsOurs && !IsUsable(shaderPath)) ? shaderPath
+            : (uiIsOurs && !IsUsable(uiShaderPath)) ? uiShaderPath
+            : null;
+        if (failed == null)
+        {
+            return;
+        }
+
+        Log.Warning($"[Unique Melee Weapons] Shader {failed} is missing from the mod's asset bundle for " +
+                    $"this OS or unsupported on this graphics device ({SystemInfo.graphicsDeviceType}). " +
+                    "Unique weapons will use vanilla CutoutComplex instead: masks still tint, but the two tints " +
+                    "stack rather than mix. Please report this along with your OS and graphics device.");
+        if (mapIsOurs) shaderPath = VanillaFor(shaderPath);
+        if (uiIsOurs) uiShaderPath = VanillaFor(uiShaderPath);
+    }
+
+    private static bool IsOurs(string path) => path == MixPath || path == MixUIPath;
+
+    private static string VanillaFor(string path) => path == MixPath ? VanillaMapPath : VanillaUIPath;
+
+    private static bool IsUsable(string path)
+    {
+        Shader shader = ContentFinder<Shader>.TryFindAssetInModBundles(path);
+        return shader != null && shader.isSupported;
+    }
+}

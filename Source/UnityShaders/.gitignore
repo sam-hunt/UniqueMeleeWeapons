@@ -1,0 +1,11 @@
+# Unity-generated state; only Assets/, Packages/manifest.json and ProjectSettings/ProjectVersion.txt are source.
+# The build itself runs in a mirror on the Windows side (see build.sh), so these should never appear here.
+Library/
+Temp/
+Logs/
+obj/
+UserSettings/
+Output/
+*.csproj
+*.sln
+*.log

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The UI twin of UMW_CutoutComplexMix (info card, inventory and trade icons), mirroring how
+       vanilla pairs CutoutComplex with CutoutComplexUI. UMW_CutoutComplexMix already names it by
+       uiShaderPath; this def exists so the shader is also addressable as a ShaderTypeDef, as
+       vanilla's is. Rationale and the fallback contract: CutoutComplexMix.xml. -->
+  <ShaderTypeDef>
+    <defName>UMW_CutoutComplexMixUI</defName>
+    <shaderPath>UMW/CutoutComplexMixUI</shaderPath>
+  </ShaderTypeDef>
+
+</Defs>
