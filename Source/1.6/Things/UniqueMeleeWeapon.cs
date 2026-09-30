@@ -20,7 +20,7 @@ namespace UniqueMeleeWeapons;
 // A stuff-less unique (VFE Pirates' warcasket weapons) has no material tint, so colour two falls
 // through to the def's graphicData.colorTwo: that field is the per-def body placeholder, and a
 // forced body-colour trait still replaces it. Such a def may also carry OnFloorGraphicExtension to
-// draw a different graphic while lying on a map (see the Graphic override).
+// draw a different graphic while lying on a map (see the DrawAt override).
 public class UniqueMeleeWeapon : ThingWithComps
 {
     // The stuff of the weapon currently running PostPostMake (trait roll + naming
@@ -119,24 +119,29 @@ public class UniqueMeleeWeapon : ThingWithComps
 
     // While lying on a map, a def carrying OnFloorGraphicExtension draws that graphic instead (the
     // boxed-crate look VEF's ThingWithFloorGraphic gives VFEP's warcasket weapons, which this
-    // thingClass replaces). Returns graphicData.Graphic, NOT GraphicColoredFor(this): the floor tint
-    // is fixed in XML, not the weapon's accent/body colours, so one graphic cached on the
-    // GraphicData serves every instance, and unlike VEF's per-thing cache there is nothing to
-    // invalidate on a recolour. Held and inventory weapons short-circuit on the holder check.
-    public override Graphic Graphic
+    // thingClass replaces). Swapped here, in the map draw, and NOT by overriding Graphic as VEF does:
+    // Graphic also feeds Widgets.GetIconFor, so a Graphic override shows the crate in the info card,
+    // float menu and inventory rows of a grounded weapon (and, its shader having no UI twin, in the
+    // weapon's accent colour). Leaving Graphic alone keeps every UI icon on the weapon art through the
+    // mix UI shader with both mask tints, exactly as when held; only the map sees the crate. DrawAt is
+    // the whole realtime path (Thing.DynamicDrawPhaseAt -> DrawAt), and the consumer def must be
+    // drawerType RealtimeOnly for it to be the only one (Print is not overridden; the extension header
+    // explains why printing is unusable). Draws graphicData.Graphic, NOT GraphicColoredFor(this): the
+    // floor tint is fixed in XML, not the weapon's accent/body colours, so one graphic cached on the
+    // GraphicData serves every instance and there is nothing to invalidate on a recolour. Held and
+    // inventory weapons never reach DrawAt on a map.
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
     {
-        get
+        if (ParentHolder is Map)
         {
-            if (ParentHolder is Map)
+            GraphicData floor = def.GetModExtension<OnFloorGraphicExtension>()?.graphicData;
+            if (floor != null)
             {
-                GraphicData floor = def.GetModExtension<OnFloorGraphicExtension>()?.graphicData;
-                if (floor != null)
-                {
-                    return floor.Graphic;
-                }
+                floor.Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this);
+                return;
             }
-            return base.Graphic;
         }
+        base.DrawAt(drawLoc, flip);
     }
 
     // Colour one (the red-masked accent) is left to the base implementation, which returns

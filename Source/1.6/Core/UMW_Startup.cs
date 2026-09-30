@@ -1,4 +1,3 @@
-using UnityEngine;
 using Verse;
 
 namespace UniqueMeleeWeapons;
@@ -36,35 +35,24 @@ public static class UMW_Startup
     // Builds each OnFloorGraphicExtension graphic now rather than the first time one of the weapons is
     // dropped, so a texture the extension borrows from another mod (VFEP's _OnFloor crates) that has
     // gone missing logs at load, where the smoke test sees it, instead of as a pink box mid-game; and
-    // checks the contracts from that extension's header (a UI-twinned shader whose mask resolved, and a
-    // RealtimeOnly consumer), which otherwise fail silently as a wrongly tinted icon or an untinted crate.
+    // checks the consumer is RealtimeOnly (the extension header's one contract), which otherwise fails
+    // silently as the weapon art printed where the crate should be.
     // Idempotent: GraphicData caches its graphic, and a reload brings fresh GraphicData instances.
     private static void ResolveFloorGraphics()
     {
         foreach (ThingDef def in UniqueWeaponDefs.All)
         {
             GraphicData data = def.GetModExtension<OnFloorGraphicExtension>()?.graphicData;
-            Material mat = data?.Graphic?.MatSingle;
-            if (mat == null)
+            if (data == null)
             {
                 continue;
             }
+            _ = data.Graphic;
             if (def.drawerType != DrawerType.RealtimeOnly)
             {
                 Log.Error($"[Unique Melee Weapons] {def.defName}: carries OnFloorGraphicExtension but is drawerType " +
-                          $"{def.drawerType}, so its printed floor graphic can be swapped for a mask-less static-atlas " +
-                          "material and lose its tint. Set RealtimeOnly (see OnFloorGraphicExtension).");
-            }
-            if (!ShaderDatabase.TryGetUIShader(mat.shader, out _))
-            {
-                Log.Error($"[Unique Melee Weapons] {def.defName}: floor graphic shader {mat.shader.name} has no UI " +
-                          "twin, so its info-card and float-menu icons will take the weapon's accent colour instead " +
-                          "of the graphic's own tint. Use CutoutComplex (see OnFloorGraphicExtension).");
-            }
-            else if (mat.shader.SupportsMaskTex() && mat.GetTexture(ShaderPropertyIDs.MaskTex) == null)
-            {
-                Log.Error($"[Unique Melee Weapons] {def.defName}: floor graphic mask '{data.maskPath}' was not found, " +
-                          "so the crate tints through the shader's default mask instead.");
+                          $"{def.drawerType}; the crate is drawn by UniqueMeleeWeapon.DrawAt, which only the realtime " +
+                          "path calls, so on the map it would show the weapon art. Set RealtimeOnly (see OnFloorGraphicExtension).");
             }
         }
     }

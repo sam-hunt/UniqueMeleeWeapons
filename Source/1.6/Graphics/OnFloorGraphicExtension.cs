@@ -21,32 +21,26 @@ namespace UniqueMeleeWeapons;
 // every consumer's graphic once at load, so that surfaces as a load-time missing-texture error
 // (which the smoke test sees) rather than a pink box the first time one is dropped.
 //
-// The graphicData must name a shader with a UI twin, in practice CutoutComplex (the Cutout default
-// has none), and therefore a maskPath, since such shaders tint through a mask: Textures/Masks/
-// UMW_SolidRed is red everywhere, so colour one (= <color>) covers the whole texture exactly as
-// Cutout would and the map render is unchanged. Decompile-verified 1.6: Widgets.GetIconFor(Thing)
-// takes its material from thing.Graphic, so while the weapon is on the map it sees this graphic,
-// but keeps the material only if ShaderDatabase.TryGetUIShader finds a twin (uiLookup pairs
-// CutoutComplex with CutoutComplexUI and nothing else in vanilla). Otherwise it draws the bare
-// texture under GUI.color = thing.DrawColor, the unique's accent, and the info-card and float-menu
-// icons (FloatMenuMakerMap sets iconThing to the clicked thing) of a grounded crate come out in
-// that colour instead of the fixed tint. A Harmony postfix on GetIconFor could force the colour
-// instead; the shader swap was chosen as pure data. UMW_Startup.ResolveFloorGraphics logs an error
-// at load for a twinless shader or a mask that did not resolve (ContentFinder is silent on a
-// mistyped maskPath and the shader then samples its default mask), so the smoke test sees both.
+// The swap happens in UniqueMeleeWeapon.DrawAt, not in a Graphic override as in VEF. Graphic also
+// feeds Widgets.GetIconFor (decompile-verified 1.6: it takes the icon material from thing.Graphic),
+// so overriding it shows the crate in the info card, float menu and inventory rows of a grounded
+// weapon; with DrawAt the map alone sees the crate and every icon stays the weapon art with both
+// mask tints through the mix UI shader, as when held. (A first attempt kept the Graphic override and
+// made the crate icon at least keep its tint by drawing it with CutoutComplex, the one shader with
+// a UI twin, over a solid-red mask; superseded, and it fell into the atlas trap below.)
 //
-// The consumer def must also be drawerType RealtimeOnly. Weapons inherit MapMeshOnly from BaseWeapon
-// and are printed into the static map mesh, and Graphic.Print (decompile-verified 1.6) runs the
-// material through TryGetTextureAtlasReplacementInfo: if the crate texture has a tile in any static
-// atlas, the print uses the atlas material instead, with colour one moved into the vertex colour and
-// maskTex replaced by that atlas's mask atlas, which is null when the texture was inserted mask-less.
-// VFEP's boxed-weapon buildings (VFEP_Box_*) use the very same _OnFloor textures as their main
-// graphic, so vanilla atlases them without a mask, and a printed crate would sample CutoutComplex's
-// default black mask and render untinted (the failure seen in 2026-09 testing). Realtime drawing
-// goes Graphic.Draw -> MatAt, never touches the atlas, and costs one DrawMesh per visible grounded
-// weapon. Nothing else about the weapon depends on drawerType: held weapons are drawn by
-// PawnRenderUtility from the graphic directly. ResolveFloorGraphics errors on a non-RealtimeOnly
-// consumer as well.
+// The consumer def must be drawerType RealtimeOnly, for two reasons. DrawAt is the realtime path
+// (Thing.DynamicDrawPhaseAt -> DrawAt) and Print is not overridden, so a printed consumer would
+// print the weapon art. And printing the crate is unusable anyway: Graphic.Print runs the material
+// through TryGetTextureAtlasReplacementInfo, and if the texture has a tile in any static atlas the
+// print uses that atlas material, colour one moved into the vertex colour and maskTex replaced by
+// the atlas's mask atlas (null when the texture was inserted mask-less). VFEP's boxed-weapon
+// buildings (VFEP_Box_*, minifiable, so atlased into the Item group too) use these very _OnFloor
+// textures as their main graphic, so any mask-bearing shader on the crate sampled a black mask and
+// rendered untinted in 2026-09 testing. Realtime drawing goes Graphic.Draw -> MatAt, never touches
+// the atlas, and costs one DrawMesh per visible grounded weapon. Nothing else about the weapon
+// depends on drawerType: held weapons are drawn by PawnRenderUtility from the graphic directly.
+// UMW_Startup.ResolveFloorGraphics errors at load on a consumer that is not RealtimeOnly.
 //
 // Deliberately not named FloorGraphicExtension: VEF's class of that simple name is also present on
 // the same defs, and a shared simple name invites confusion in logs and in duck-typing tools.
