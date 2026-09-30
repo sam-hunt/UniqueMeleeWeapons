@@ -49,7 +49,9 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
 - **Stop hook (`.claude/hooks/sync-mod.sh`):** rebuilds+redeploys after a turn only when
   mod-relevant files changed, logs to `$TMPDIR/umw-build.log`, warns on failure. It is local-only
   (see below) — if it is ever promoted to committed config, move the helper somewhere
-  version-controlled.
+  version-controlled. Its `find` watch list must cover every content root `StageMod` ships (root,
+  any version folder, and the compat roots `Mods/` and `*/Mods/`), or edits under a missed root
+  silently stop redeploying.
 
 **`.claude/` is only partly gitignored.** `.gitignore` carries `.claude/*` followed by
 `!.claude/skills/`, so the skills are tracked and shared while hooks and settings are local
@@ -207,11 +209,29 @@ fails until the next release run.
   a trait-forced body colour). This is the load-bearing trick of the mod — Odyssey's ranged uniques
   are not stuffable and don't need it. **Art rule:** the weapon silhouette must be all red/green
   with **no black** (black means "not painted" and would ignore the material entirely), and the
-  diffuse must stay light/neutral so the multiply yields a clean tint. There are only two channels,
+  diffuse must stay light/neutral so the multiply yields a clean tint. The two tints **stack, they
+  don't mix**: vanilla `CutoutComplex` computes `diffuse × lerp(1, one, r) × lerp(1, two, g)`
+  (fitted to in-game renders, 2026-09), so a texel carrying both red and green (a crossfade, or a
+  hard red|green edge once filtering or mipmaps blend it) renders lighter than the mix, by
+  `t(1−t)(1−one)(1−two)`, worst with two dark tints. Keep red|green transitions hard; black↔tint
+  fades are linear. There are only two channels,
   so a forced body colour *replaces* the material tint — one body-colour trait per weapon, gated by
   its exclusion token; it can still co-occur with a colour-one inlay. A **non-stuffable** unique (the
   VFEP warcasket pair) has no material tint, so its body placeholder is the def's
   `graphicData.colorTwo` (the `DrawColorTwo` fallback), which a forced body colour still replaces.
+- **A mask edge must sit in dark ink or on a pixel-exact colour edge, never along an anti-aliased
+  colour change.** `CutoutComplex` is a per-texel multiply, so a texel on the wrong side of a tint
+  edge (an anti-alias ramp texel, or one the mask spills onto or misses) renders darker or brighter
+  than both neighbours, and the mask's staircase reads as a torn, dashed seam. Ink hides it (dark ×
+  anything stays dark; Odyssey keeps ~80% of its tint edges there). Feathering the mask can't fix
+  it exactly: no single mask value makes a multiply reproduce a blend for every colour, so the fix
+  is in the art. (The artist's 2026-09 warcasket masks are feathered anyway and read clean at
+  in-game zoom; the mix-shader rollout in `TODOs.md` would make that feathering render exactly.)
+  Masks that follow the art rule above are safe by construction; it bites wherever untinted art sits
+  beside tinted art, as on the warcasket pair. An edge that only the mask draws, over flat art,
+  can't speck, and a hard diagonal there shows stair-steps only far beyond in-game zoom.
+  Separately, load-time DXT5 compression stores each 4×4 block as one straight colour ramp, so
+  red, green and black sharing a block come out wrong.
 - **Vanilla melee weapons have no `Name=`, so they can't be `ParentName` targets.**
   `Patches/AddNameToBaseMeleeWeapons.xml` adds one per base weapon we mirror (patches run before
   inheritance resolution; `AttributeAdd` is add-if-missing, so it stacks safely with other mods).
