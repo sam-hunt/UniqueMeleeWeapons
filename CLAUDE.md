@@ -12,11 +12,13 @@ names. Requires Harmony and the Odyssey DLC (a few traits additionally `MayRequi
 
 ### Where documentation lives
 
-**This file holds only cross-cutting rules and rationale.** Per-item values, tuning numbers and
-decompile-verified call paths live in the header comment of the file they describe — every `.cs`
-file, every `WeaponCategoryDef`, and every non-obvious trait/hediff/damage def carries one. When
-adding or changing something, put the *why* there and only add a line here if it constrains work
-in other files. Do not restate def values or call paths here; they drift.
+**This file holds only cross-cutting rules and rationale.** Per-item values, tuning numbers,
+decompile-verified call paths and the history behind a mechanism (what was tried and why it was
+dropped) live in the header comment of the file they describe — every `.cs` file, every
+`WeaponCategoryDef`, and every non-obvious trait/hediff/damage def carries one. When adding or
+changing something, put the *why* there and only add a line here if it constrains work in other
+files. Do not restate def values or call paths here; they drift. Where a bullet below names a
+file, that file's header is the full story and this file is the pointer.
 
 Vanilla reference defs studied for the quest work live in the gitignored, non-deployed
 `Docs/odyssey-reference/`.
@@ -43,28 +45,20 @@ install), falling back to the `Krafs.Rimworld.Ref` NuGet package in CI.
 The repo lives outside the Mods folder; every local build redeploys automatically and atomically.
 
 - **One manifest, one place:** the `_ModFiles` ItemGroup in the `StageMod` target of
-  `Source/1.6/UniqueMeleeWeapons.csproj` — see that target's comments for how it globs and what it
-  excludes. It is generic over folders, so a new `1.7/` or `Sounds/` needs no build change; only a
-  brand-new *file type* does. Local deploy and CI release both call it, so they can't drift.
-- **Asset bundles are committed binaries.**
+  `Source/1.6/UniqueMeleeWeapons.csproj` (its comments cover how it globs and what it excludes).
+  It is generic over folders, so a new `1.7/` or `Sounds/` needs no build change; only a brand-new
+  *file type* does. Local deploy and CI release both call it, so they can't drift.
+- **Asset bundles are committed binaries** (CI has no Unity and stages whatever is committed).
   `1.6/Mods/VanillaFactionsExpandedPirates/AssetBundles/umw_shaders_{win,linux,mac}` carry the mix
   shader (see "Stuffable uniques are double-masked" below); they sit in the VFEP compat root
-  because only the warcasket pair uses it, and `ModAssetBundlesHandler` walks load roots exactly as
-  the Defs loader does, so no bundle is opened without VFEP. CI has no Unity and stages
-  whatever is committed, so they are built locally by `Source/UnityShaders/build.sh win linux mac`
-  from the Windows Unity editor at RimWorld's exact version (2022.3.35f1 for 1.6) with the Linux and
-  Mac build-support modules installed; all three OS bundles cross-compile from Windows, and the
-  game loads only the one whose suffix matches the OS. Rebuild when RimWorld moves Unity version.
-  The `com.unity.modules.assetbundle` dependency in the project's `Packages/manifest.json` is
-  load-bearing: without it the build reports success and the game's `LoadAsset` finds nothing.
-  Bundles are extensionless, so theirs is the one `_ModFiles` glob that can't whitelist by
-  extension (it excludes Unity's `.manifest` sidecars instead). `Source/` never deploys, so the
-  Unity project and its editor script stay out of the mod and out of the C# build.
-- **Stop hook (`.claude/hooks/sync-mod.sh`):** rebuilds+redeploys after a turn only when
-  mod-relevant files changed, logs to `$TMPDIR/umw-build.log`, warns on failure. It is local-only
-  (see below) — if it is ever promoted to committed config, move the helper somewhere
-  version-controlled. Its `find` watch list must cover every content root `StageMod` ships (root,
-  any version folder, and the compat roots `Mods/` and `*/Mods/`), or edits under a missed root
+  because only the warcasket pair uses it and bundles load per active root exactly as Defs do, so
+  no bundle is opened without VFEP. Rebuild all three with `Source/UnityShaders/build.sh` whenever
+  RimWorld moves Unity version; its header and the editor script under `Assets/Editor/` carry the
+  pinned Unity version, the OS build modules and the load-bearing package-manifest entry.
+  `Source/` never deploys, so the Unity project stays out of the mod and the C# build.
+- **Stop hook (`.claude/hooks/sync-mod.sh`):** local-only (see below); rebuilds+redeploys after a
+  turn when mod-relevant files changed and warns on failure. Its header carries the rule that its
+  `find` watch list must cover every content root `StageMod` ships, or edits under a missed root
   silently stop redeploying.
 
 **`.claude/` is only partly gitignored.** `.gitignore` carries `.claude/*` followed by
@@ -94,17 +88,13 @@ pointing at something that no longer exists, and nothing fails until the next re
   content below). `texPath` points at the *folder*, with
   `graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex`.
 - **C#:** root namespace `UniqueMeleeWeapons`; patch classes use a `.Patches` suffix to avoid
-  RimWorld type-name conflicts. All patches are applied by `PatchAll()` in
-  `UniqueMeleeWeaponsMod`, so a `[HarmonyPatch]` class anywhere in the assembly is picked up —
-  with two deliberate exceptions that carry no attribute and are applied conditionally:
-  `ShaderDatabase_LoadShader_Fallback_Patch` from the `Mod` constructor only while VFE Pirates is
-  active (`ModsConfig.IsActive` is final before any `Mod` subclass is constructed, and the active
-  list is fixed for the life of the process), and `PawnRenderUtility_DrawCarriedWeapon_Patch` from
-  `UMW_Startup.Run` only if some `ThingDef` consumes its extension. So installs with no consumer
-  place no patch on the shader loader or the render path (rationale in each header). Which of the
-  two application points fits is set by when the target is first called: the shader loader runs in
-  def `PostLoad`, before `CallAll`, so it cannot wait for `UMW_Startup`.
-- **Patch-timing hazard (other mods' methods):** that `PatchAll()` runs from the `Mod` subclass
+  RimWorld type-name conflicts. `PatchAll()` in `UniqueMeleeWeaponsMod` picks up every
+  `[HarmonyPatch]` class in the assembly. Two patches deliberately carry no attribute and are
+  applied conditionally, so an install with no consumer places no detour on the shader loader or
+  the render path at all; the `Mod` header names them and each patch's header says why, and why it
+  applies where it does (the shader loader runs in def `PostLoad`, before `CallAll`, so it cannot
+  wait for `UMW_Startup`). Don't "tidy" them back into `PatchAll`.
+- **Patch-timing hazard (other mods' methods):** `PatchAll()` runs from the `Mod` subclass
   constructor — BEFORE any defs are loaded. Applying a detour JIT-compiles the target and runs its
   declaring type's static ctor, so a patch targeting ANOTHER MOD's method can permanently break
   that mod when its cctor resolves defs (the BetterTradersGuild v1.1.0 CWTL incident). All current
@@ -114,12 +104,9 @@ pointing at something that no longer exists, and nothing fails until the next re
   except where vanilla already localizes the exact string (reuse the vanilla Keyed key or def label
   rather than duplicating it), and strings that name game content inject the def label as a
   placeholder rather than restating it. `UniqueMeleeWeaponsSettings` is one partial class split per
-  UI section: `Core/UniqueMeleeWeaponsSettings.cs` holds only the window frame, the
-  `ExposeData`/`ResetToDefaults` fan-out and the shared row helpers, while each section owns its
-  fields, scribe entries, defaults, def-writes and draw method in a `Core/Settings/Settings_*.cs`
-  file — so adding a setting is a one-file edit. The step-by-step recipe — including the pattern for
-  a setting that *overrides a def field* (written onto the live def on every play-data load and on
-  window close; XML holds only the shipped default) — is in the header of
+  UI section under `Core/Settings/`, so adding a setting is a one-file edit. The recipe and the
+  patterns to copy (a DLC-only row, a collection-valued setting, a setting that *overrides a def
+  field*, and why a setting that gates an XML patch is restart-to-apply) are in the header of
   `Core/UniqueMeleeWeaponsSettings.cs`.
 - **Keyed files split by purpose:** `UMW_UI.xml` settings strings, `UMW_Combat.xml` in-combat
   floating text, `UMW_Stats.xml` info-card trait-effect lines.
@@ -140,8 +127,8 @@ pointing at something that no longer exists, and nothing fails until the next re
   weapon-gating category `UMW_Guarded`. Membership, trait families, the global exclusion-token
   registry and the per-category rationale live on the `WeaponCategoryDef` files — read the
   relevant one before adding a trait. Single-trait categories are fine (Odyssey ships several);
-  the bar is that each trait be mechanically meaningful — a `UMW_Reach` category was considered for
-  the spear and rejected, since melee has no reach mechanic and its traits would be flavour-only.
+  the bar is that each trait be mechanically meaningful (a `UMW_Reach` category for the spear was
+  rejected: melee has no reach mechanic, so its traits would be flavour-only).
 - **A category gates by weapon; `exclusionTags` only prevent co-rolls.** Use a new category when
   a trait requires a construction feature the weapon may not have (`UMW_Guarded`); use a token
   when traits are alternatives within a family.
@@ -163,18 +150,16 @@ pointing at something that no longer exists, and nothing fails until the next re
   `ignoresAccuracyMaluses` are read only by `Projectile`/`Verb_LaunchProjectile`;
   `marketValueOffset`, `killThought`, the `bonded*` fields and `equippedStatOffsets` are read only
   by bladelink (persona) weapons. All of those are **silently inert** on `CompUniqueWeapon` —
-  never use them. (A patch routing `equippedStatOffsets` live shipped in 1.0.x as NeedlePoint's
-  hit-chance malus and was deliberately retired: it rode vanilla's stat pipeline tens of thousands
-  of calls per frame for that one trait, and a weapon-side stat expresses the same fiction — the
-  NeedlePoint header carries the swap rationale and tuning equivalence.)
+  never use them, and don't patch one live either: a 1.0.x patch routing `equippedStatOffsets`
+  was retired because it rode vanilla's stat pipeline per frame for one trait (the swap and its
+  tuning equivalence are in `WeaponTraitDefs/Pointed/NeedlePoint.xml`).
   What reaches melee natively: `statOffsets`/`statFactors`, `equippedHediffs`, `abilityProps`,
-  `forcedColor`. **Wielder-side effects are expressed as weapon stats first**: canonically a trait
-  is a physical property of the weapon, and Odyssey prices every trait buff/malus as a weapon-thing
-  stat (for ranged uniques even accuracy lives on the weapon), so `equippedHediffs` — the one
-  vanilla-applied wielder-side vehicle (`WeaponTraitWorker`) — stays an unused escape hatch, not a
-  precedented tool. A wielder effect that is a combat *outcome* rather than a stat gets its own
-  mechanic instead (Quilloned's parry — `MeleeParryExtension`). Market value rides
-  `statOffsets`/`statFactors → MarketValue`.
+  `forcedColor`. **Wielder-side effects are expressed as weapon stats first**: a trait is a
+  physical property of the weapon, and Odyssey prices every trait buff/malus as a weapon-thing
+  stat, so `equippedHediffs` — the one vanilla-applied wielder-side vehicle — stays an unused
+  escape hatch, not a precedented tool. A wielder effect that is a combat *outcome* rather than a
+  stat gets its own mechanic instead (Quilloned's parry — `MeleeParryExtension`). Market value
+  rides `statOffsets`/`statFactors → MarketValue`.
 - **Trait stat mods reach any stat of the weapon *thing***, not just combat ones — item-condition
   stats (`MaxHitPoints`, `DeteriorationRate`, `Flammability`) are fair game. Note melee damage and
   armor pen share the single `MeleeWeapon_DamageMultiplier` stat: there is **no** melee AP stat, so
@@ -183,155 +168,125 @@ pointing at something that no longer exists, and nothing fails until the next re
 - **Anything a weapon needs beyond those four fields goes through our own extension layer** — a
   `DefModExtension` on the trait plus a Harmony postfix, so the trait stays an ordinary def and
   vanilla generation/naming/stats keep working. Six exist, each documented in
-  `Source/1.6/Traits/`: `MeleeTraitEffectExtension` (on-hit effects — extra damage, stun, stagger,
-  mental state), `MeleeDamageConversionExtension` (reroute the *base* hit's `DamageDef`),
+  `Source/1.6/Traits/`: `MeleeTraitEffectExtension` (on-hit: extra damage, stun, stagger, mental
+  state), `MeleeDamageConversionExtension` (reroute the *base* hit's `DamageDef`),
   `MeleeToolModExtension` (per-tool damage/AP), `MeleeParryExtension` (defender-side chance to
-  negate an incoming melee blow, with its own battle-log outcome), `ForcedColorTwoExtension`
-  (forced body colour), `ForcedArtExtension` (guaranteed art inscription regardless of quality).
-  Prefer extending one of these over a new mechanism.
+  negate a melee blow, with its own battle-log outcome), `ForcedColorTwoExtension` (forced body
+  colour), `ForcedArtExtension` (guaranteed inscription regardless of quality). Prefer extending
+  one of these over a new mechanism.
 - **An effect outside `statOffsets`/`statFactors` is invisible until you describe it — as *data on
-  the def*, never as text in a renderer.** Vanilla only ever displays those two lists (plus
-  ranged-only fields), so every extension-borne effect, `equippedHediffs` and `abilityProps` would
-  otherwise show a description and a market value with no stated effect. The split is strict:
-  `Traits/TraitEffectSummary.cs` derives one short **unstyled** line per effect and attaches them on
-  every play-data load as a `TraitEffectLinesExtension`; renderers add their own bullets and layout
-  (`Patches/CompUniqueWeapon_TraitStats_Patch.cs` for the info card). **A new on-hit effect subclass,
-  extension or trait mechanism must gain a case in `TraitEffectSummary`**, or it ships undocumented
-  in-game. Lines are *derived from the def, never authored prose*, so a retuned number can't drift
-  from its own summary — keep it that way. Strings live in `Keyed/UMW_Stats.xml`.
-  Two shapes were tried and rejected: patching only the info card fixes one screen and leaves every
-  other consumer to patch its own; appending the lines to `Def.description` reaches all of them but
-  hands each a pre-styled blob, which dumped them into the middle of Unbound's prose paragraph
-  instead of its bulleted effects list.
+  the def*, never as text in a renderer.** Vanilla only ever displays those two lists, so every
+  extension-borne effect, `equippedHediffs` and `abilityProps` would otherwise show a description
+  and a market value with no stated effect. `Traits/TraitEffectSummary.cs` derives one short
+  **unstyled** line per effect *from the def* (never authored prose, so a retuned number can't
+  drift from its own summary — keep it that way) and attaches them on every play-data load as a
+  `TraitEffectLinesExtension`; renderers add their own bullets and layout
+  (`Patches/CompUniqueWeapon_TraitStats_Patch.cs` for the info card). **A new on-hit effect
+  subclass, extension or trait mechanism must gain a case in `TraitEffectSummary`**, or it ships
+  undocumented in-game. Strings live in `Keyed/UMW_Stats.xml`. The summary's header records the two
+  shapes that were tried and rejected (patch the info card alone; append to `description`).
 - **`TraitEffectLinesExtension` is a published cross-mod contract**, like the `stuff_adjective`
-  symbol. Unique Weapons Unbound's trait-picker tooltip finds it by duck-typing — scanning
-  `modExtensions` for a type whose **simple name** is `TraitEffectLinesExtension` and reflecting its
-  public `List<string> lines` field — so neither assembly references the other. Renaming the type or
-  the field compiles clean here and silently empties that tooltip. Its reader is covered by
-  `TraitEffectLinesIntegrationTests` in that repo, which can't see a rename on this side.
+  symbol: Unique Weapons Unbound's trait-picker tooltip finds it by duck-typing — a type whose
+  **simple name** is `TraitEffectLinesExtension` with a public `List<string> lines` field — so
+  neither assembly references the other. Renaming either compiles clean here and silently empties
+  that tooltip; the only test of the reader lives in that repo and can't see a rename on this side.
 - **On-hit `DamageDef` payloads work for free.** `DamageDef.additionalHediffs` and the damage
   workers (`Flame`'s ignition, `EMP`'s stun) are applied source-agnostically by every
   `Thing.TakeDamage`, so an extra-damage effect carrying the right `DamageDef` needs no new C#.
   Reuse a Core `DamageDef` where one fits; clone only when a field must change.
 - **Every weapon def must carry a `CompEquippable`-derived ability comp.** `CompUniqueWeapon.Setup`
   dereferences `CompEquippableAbilityReloadable` with no null check whenever a rolled trait carries
-  `abilityProps`. Only one such comp is allowed per thing, so all 10 unique defs replace their
+  `abilityProps`, and only one such comp is allowed per thing, so all 10 unique defs replace their
   inherited comps wholesale (`<comps Inherit="False">`, uniform across the 10 even where no ability
   can currently roll). **If base-game weapon comps change in a vanilla update, replicate the change
   in all 10 files.** The one sanctioned difference: **a unique mirrors its base's quality**, so the
-  VFEP warcasket pair carries no `CompQuality` (their base has none) and keeps `CompArt` without
-  it, because every unique bears an inscription and only the quality roll would have initialized
-  one; `UniqueMeleeWeapon.PostPostMake` does that for a quality-less def. Vanilla's
-  `CompUniqueWeapon` already null-checks the quality comp, so nothing else needs a guard.
+  quality-less VFEP warcasket pair carries no `CompQuality` but keeps `CompArt`
+  (`UniqueMeleeWeapon.PostPostMake` initializes the inscription a quality roll would have).
 - **An AoE ability's radius lives in two places and must agree, at `X.9`.** The gizmo-hover preview
-  reads `verbProperties.range` (via `VerbProperties.DrawRadiusRing`) and *never* a comp field, so a
-  mismatch draws a ring that lies about the effect. Use `X.9`, not `X.0`: the ring outlines the edge
-  of the discrete cell set inside the radius, so a radius whose set exactly fills its own bounding
-  box draws a **square** (2.9 did), and an exact integer admits a sparse diamond. Both ability defs
-  carry the worked arithmetic; `AbilityDefs/Earthshake.xml` has the fullest version.
+  reads `verbProperties.range` and *never* a comp field, so a mismatch draws a ring that lies about
+  the effect; and `X.0` or the wrong `X.9` are trap values that draw a filled square or a sparse
+  diamond. Both ability defs carry the worked arithmetic; `AbilityDefs/Earthshake.xml` has the
+  fullest version.
 - **Stuffable uniques are double-masked** (`Things/UniqueMeleeWeapon.cs`): mask **red** → colour
   one (the unique accent, supplied by vanilla), mask **green** → colour two (the material tint, or
   a trait-forced body colour). This is the load-bearing trick of the mod — Odyssey's ranged uniques
   are not stuffable and don't need it. **Art rule:** the weapon silhouette must be all red/green
   with **no black** (black means "not painted" and would ignore the material entirely), and the
-  diffuse must stay light/neutral so the multiply yields a clean tint. The uniques draw with
-  vanilla `CutoutComplex`, except the VFEP warcasket pair, which draws with our own
-  `UMW_CutoutComplexMix` (ShaderTypeDefs, bundles and the only two consumers all live in the VFEP
-  compat root; source `Source/UnityShaders/`): vanilla `CutoutComplex` with one change, the two
-  tints **mix**
-  (`diffuse × (r·one + g·two + (1−r−g))`) where vanilla **stacks** them
-  (`diffuse × lerp(1, one, r) × lerp(1, two, g)`, fitted to in-game renders 2026-09), so a texel
-  carrying both red and green (a feathered or anti-aliased red|green edge, or a hard one once
-  filtering or mipmaps blend it) renders the blend the artist painted instead of a product lighter
-  by `t(1−t)(1−one)(1−two)`. Pure red, pure green and black texels are bit-identical to vanilla, so
-  the shader constrains nothing about existing art, and the hard-edged masks of the other uniques
-  gain nothing from it: it first shipped on all ten defs (2026-09) and was scoped back to the
-  feathered warcasket masks so players without VFEP carry no custom shader at all. On the vanilla
-  fallback (next bullet but one) stacking returns, so hard red|green edges stay the safer default
-  for any new art. There are only two channels,
-  so a forced body colour *replaces* the material tint — one body-colour trait per weapon, gated by
-  its exclusion token; it can still co-occur with a colour-one inlay. A **non-stuffable** unique (the
-  VFEP warcasket pair) has no material tint, so its body placeholder is the def's
-  `graphicData.colorTwo` (the `DrawColorTwo` fallback), which a forced body colour still replaces.
-- **The mix shader must fail to vanilla `CutoutComplex`, never `Cutout`.** `ShaderDatabase`'s own
-  fallback for a shader it can't find is plain `Cutout` (no mask, no colour two), it never checks
-  `Shader.isSupported`, and after a mid-session language change the unloaded bundle's destroyed
-  Shader objects stay in its path cache, so the weapons would silently lose their paint on reload.
-  `Patches/ShaderDatabase_LoadShader_Fallback_Patch.cs` fixes all three (cache eviction, bundle +
-  `isSupported` probe, pair-wise rewrite to `Map/CutoutComplex` + `Map/CutoutComplexUI`), and must
-  hook the loader rather than `UMW_Startup`: every ThingDef's graphic and icon material is built
-  before `CallAll`. It is applied only while VFEP is active (see the `PatchAll` exceptions under
-  Naming conventions) and touches nothing unless a call names one of our two paths, so vanilla's,
-  other mods' and third-party tag-carriers' shaders pass through untouched. The two shader paths
-  live in three places that move together: the ShaderTypeDefs,
-  that patch's constants, and the Unity project's asset paths
-  (`Assets/Data/<packageId>/Materials/<path>.shader`; the packageId form, because a Workshop
-  mod's folder name is a numeric id). Third-party weapons carrying our tag keep their own
-  `shaderType` and are untouched.
+  diffuse must stay light/neutral so the multiply yields a clean tint. There are only two
+  channels, so a forced body colour *replaces* the material tint — one body-colour trait per
+  weapon, gated by its exclusion token; it can still co-occur with a colour-one inlay. A
+  **non-stuffable** unique (the VFEP warcasket pair) has no material tint, so its body placeholder
+  is the def's `graphicData.colorTwo`, which a forced body colour still replaces.
+  The uniques draw with vanilla `CutoutComplex`, except the warcasket pair, whose feathered
+  red|green mask edges draw with our `UMW_CutoutComplexMix`: vanilla's shader with the two tints
+  **mixed** instead of **stacked**, bit-identical on pure red, green and black texels. Its
+  ShaderTypeDefs, bundles and only two consumers live in the VFEP compat root (source
+  `Source/UnityShaders/`; the ShaderTypeDef header has the formulas). Hard red|green edges stay
+  the safer default for new art, because the vanilla fallback below stacks again.
+- **The mix shader must fail to vanilla `CutoutComplex`, never `Cutout`** — vanilla's own fallback
+  for a shader it can't find, which drops the mask and colour two.
+  `Patches/ShaderDatabase_LoadShader_Fallback_Patch.cs` is the full rationale: the ways the load
+  fails (including a stale cache after a mid-session language change), why it must hook the loader
+  rather than `UMW_Startup`, and why both the map and UI paths swap together. It is applied only
+  while VFEP is active and touches nothing unless a call names one of our two paths. Those paths
+  live in three places that move together: the ShaderTypeDefs, that patch's constants, and the
+  Unity project's asset paths (`Assets/Data/<packageId>/Materials/<path>.shader` — packageId,
+  because a Workshop mod's folder name is a numeric id).
 - **A mask edge must sit in dark ink or on a pixel-exact colour edge, never along an anti-aliased
   colour change.** `CutoutComplex` is a per-texel multiply, so a texel on the wrong side of a tint
   edge (an anti-alias ramp texel, or one the mask spills onto or misses) renders darker or brighter
-  than both neighbours, and the mask's staircase reads as a torn, dashed seam. Ink hides it (dark ×
-  anything stays dark; Odyssey keeps ~80% of its tint edges there). Feathering the mask can't fix
-  it exactly: no single mask value makes a multiply reproduce a blend for every colour, so the fix
-  is in the art. (That is the tinted|untinted seam class. A feathered red|green edge is different:
-  the mix shader renders it exactly, and the artist's 2026-09 warcasket masks lean on that.)
-  Masks that follow the art rule above are safe by construction; it bites wherever untinted art sits
-  beside tinted art, as on the warcasket pair. An edge that only the mask draws, over flat art,
-  can't speck, and a hard diagonal there shows stair-steps only far beyond in-game zoom.
+  than both neighbours, and the mask's staircase reads as a torn, dashed seam. Ink hides it
+  (Odyssey keeps ~80% of its tint edges there). Feathering the mask can't fix it: no single mask
+  value makes a multiply reproduce a blend for every colour, so the fix is in the art. Masks that
+  follow the art rule above are safe by construction; it bites wherever untinted art sits beside
+  tinted art, as on the warcasket pair. An edge that only the mask draws, over flat art, can't
+  speck. (A feathered red|green edge is a different class: the mix shader renders it exactly.)
   Separately, load-time DXT5 compression stores each 4×4 block as one straight colour ramp, so
   red, green and black sharing a block come out wrong.
 - **Vanilla melee weapons have no `Name=`, so they can't be `ParentName` targets.**
-  `Patches/AddNameToBaseMeleeWeapons.xml` adds one per base weapon we mirror (patches run before
-  inheritance resolution; `AttributeAdd` is add-if-missing, so it stacks safely with other mods).
-  Add an Operation there for each new base weapon, DLC-gated by node existence if it isn't Core.
-  Unique defs then override only their deltas and inherit tools/stats/stuff.
+  `Patches/AddNameToBaseMeleeWeapons.xml` adds one per base weapon we mirror (add-if-missing, so it
+  stacks safely with other mods; DLC-gated by node existence). Add an Operation there for each new
+  base weapon; unique defs then override only their deltas and inherit tools/stats/stuff.
   **A base from a third-party mod also needs that mod in `About.xml` `loadAfter`.**
-  `XmlInheritance.GetBestParentFor` only accepts a parent owned by a mod at or before the child's
-  load order. A node is owned by the mod whose file it came from, and our Name-add doesn't change
-  that. DLCs always load first, so Core/DLC bases are safe. Misordered, the unique logs "Could not
-  find parent node" and still loads, parentless (no tools/stats); we don't guard beyond the vanilla
-  mod-list warning. The smoke test can't catch a missing entry, because it writes its pinned order
-  directly and `loadAfter` never reorders a saved list.
+  Inheritance only accepts a parent owned by a mod at or before the child's load order, and our
+  Name-add doesn't change ownership (DLCs always load first, so Core/DLC bases are safe).
+  Misordered, the unique logs "Could not find parent node" and still loads, parentless (no
+  tools/stats); nothing guards beyond the vanilla mod-list warning, and the smoke test can't catch
+  it because it writes its own pinned order.
 - **Back-reference the base weapon via `<descriptionHyperlinks>`.** Our `UMW_` prefix means the
   base def isn't derivable from the unique's defName, so the explicit link is required.
 - **Nullified *situational* thoughts still render as a grey "0" row** (only memories are dropped at
   `MoodOffset()==0`). So a trait-flipped mood must be **one multi-stage def with a stage-routing
   worker**, not a penalty def plus a `requiredTraits` buff def — the latter shows a duplicate row.
-  Personality exemptions stay declarative (`nullifyingTraits`/`nullifyingGenes`, with `MayRequire`
-  on mod-specific entries) *except* a trait that must flip the sign, which has to route in the
-  worker because nullification zeroes the whole def. See `Traits/ThoughtWorker_BloodStainedWeapon.cs`.
+  Every other personality exemption stays declarative (`nullifyingTraits`/`nullifyingGenes`, with
+  `MayRequire` on mod-specific entries). See `Traits/ThoughtWorker_BloodStainedWeapon.cs`.
 - **Reward pools are split in def space, not by Harmony.** Odyssey's `ThingSetMaker_UniqueWeapon`
-  makes things with no stuff, which both errors on our stuffable weapons and dilutes the ranged pool.
-  Every `*_Unique` weapon carries a `UMW_UniqueMelee` tag; an XPath patch repoints the two
-  class-based vanilla consumers onto `ThingSetMaker_UMWUnique`, and our own pool filters on the tag.
-  Tag-based makers (crates, fishing, map-gen loot) pass a stuff already and keep our weapons.
-  The tag is also how C# asks "is this def one of ours?" (`UniqueWeaponDefs`, which owns the constant
-  and the test — don't re-derive it from a defName prefix); changing it means changing the weapon defs,
-  our pool def and that constant in lockstep. It is additionally a **published opt-in cross-mod
-  contract** (like `stuff_adjective`): a third-party melee unique carrying the tag joins our pool,
-  settings and exclusion machinery wholesale — semantics on `UniqueWeaponDefs.Tag`.
+  makes things with no stuff, which both errors on our stuffable weapons and dilutes the ranged
+  pool. Every `*_Unique` weapon carries a `UMW_UniqueMelee` tag;
+  `Patches/RepointUniqueWeaponPool.xml` repoints the two class-based vanilla consumers onto
+  `ThingSetMaker_UMWUnique`, and our own pool filters on the tag (tag-based makers — crates,
+  fishing, map-gen loot — pass a stuff already).
+  The tag is also how C# asks "is this def one of ours?" (`UniqueWeaponDefs` owns the constant and
+  the test — never re-derive it from a defName prefix) and a **published opt-in cross-mod contract**
+  like `stuff_adjective`: a third-party melee unique carrying it joins our pool, settings and
+  exclusion machinery wholesale. Changing it means changing the weapon defs, our pool def and that
+  constant in lockstep.
 - **A def is kept out of the pools by filtering `ThingSetMakerUtility.CanGenerate`, never by removing
   the def.** That is the one choke point every `ThingSetMaker` funnels through, so the per-weapon
-  settings toggles need a single postfix
-  (`Patches/ThingSetMakerUtility_CanGenerate_Patch.cs`) to cover our pool and every tag-based maker at
-  once (the repointed vanilla consumers exclude our weapons by construction and never route through the
-  utility) — and estimates, "can this maker generate?" checks and saves that already contain the weapon
-  all stay consistent.
+  settings toggles need the single postfix in `Patches/ThingSetMakerUtility_CanGenerate_Patch.cs`,
+  and estimates, "can this maker generate?" checks and saves that already contain the weapon all
+  stay consistent.
 - **Tribal consumers are tech-capped by validator, never by `ThingSetMakerParams.techLevel`.** The
   Warband quest and the tribal trader stock hand out only weapons at or below
-  `UniqueWeaponDefs.TribalTechCap` (Medieval: exactly the pre-VFEP roster), keeping Industrial
-  uniques off tribals. `techLevel` would filter too, but `ThingSetMakerByTotalStatUtility` also
-  weights weapons below the cap and at or below Neolithic ×0.1, so a Medieval cap would make the
-  Neolithic uniques 10× rarer. Use `UniqueWeaponDefs.FitsTribal` as a `validator` (quest, and the
-  quest's `AnyWeaponEnabled` gate) or `maxTechLevelGenerate` (our stock generator). Other pools stay
-  uncapped by decision.
+  `UniqueWeaponDefs.TribalTechCap`. `techLevel` would filter too, but it also down-weights sub-cap
+  Neolithic gear ×0.1, making those uniques 10× rarer. Use `UniqueWeaponDefs.FitsTribal` as a
+  `validator` (quest) or `maxTechLevelGenerate` (our stock generator); the cap/floor rationale sits
+  on the constants in `UniqueWeaponDefs.cs`. Other pools stay uncapped by decision.
 - **Material must be surfaced explicitly**, because a unique name hides the stuff an ordinary label
-  shows. `UniqueMeleeWeapon` adds an inspect-pane line and injects a `stuff_adjective` grammar
-  symbol into name generation. That symbol is also a **dependency-free integration contract** with
-  the companion mod (Unique Weapons Unbound): it publishes the material as that well-known symbol,
-  we supply the grammar; neither mod references the other's code. Don't rename it. See
-  `Patches/NameGenerator_StuffAdjective_Patch.cs`.
+  shows. `UniqueMeleeWeapon` adds an inspect-pane line, and
+  `Patches/NameGenerator_StuffAdjective_Patch.cs` injects a `stuff_adjective` grammar symbol into
+  name generation — also a **dependency-free integration contract** with Unique Weapons Unbound,
+  which publishes the material under that symbol while we supply the grammar. Don't rename it.
 - **Startup def-writes and def caches re-run on every play-data load, not once per process.** A
   mid-session language change reloads all play data in-process and replaces every def instance;
   `[StaticConstructorOnStartup]` never re-runs, so anything it wrote onto defs goes stale. All such
@@ -342,57 +297,44 @@ pointing at something that no longer exists, and nothing fails until the next re
 ### Notable features
 
 - **Warband quest** (`Source/1.6/Quests/`) — a low-tech tribal sibling of Odyssey's
-  `AncientMercenaries` handing out our uniques, using a temporary hidden faction, our reward pool,
-  reused vanilla tribal pawnkinds (no new ones) and a ruined tribal site. Rationale per difference
-  is in `QuestNode_Root_Warband.cs`.
+  `AncientMercenaries` handing out our uniques via a temporary hidden faction, our reward pool,
+  reused vanilla tribal pawnkinds and a ruined tribal site. Rationale per difference is in
+  `QuestNode_Root_Warband.cs`.
 - **Wood-free material rolls** (`Patches/GenStuff_ExcludeWoodStuff_Patch.cs`) — setting-gated,
-  filtering the single choke point every generation path funnels through, def-gated to our weapons.
+  def-gated to our weapons, filtering the single choke point every generation path funnels through.
 - **Trader stock** (`Traders/StockGenerator_UMWUniqueMelee.cs`,
   `Core/Settings/Settings_Traders.cs`) — five default-off toggles put uniques in vanilla traders'
-  stock, in two tech bands that *partition* the roster: the tribal war merchant and shaman carry
-  uniques at or below `UniqueWeaponDefs.TribalTechCap` at Royalty's bladelink rarity (one every
-  other visit), and the outlander settlement, combat supplier caravan and combat supplier trade ship
-  (VFE Pirates' own trader set) carry those at or above `OutlanderTechFloor`, one step higher, at
-  one in five visits. Neither band dilutes the other's pool, so the choice of trader stays
-  meaningful; the bands are balanced separately because they sit in different phases of the game
-  (rationale and the plain-vs-unique rate comparison in the settings header). The outlander rows
-  are shown only while some unique in the roster clears the floor (none does on the base roster;
-  VFEP's warcasket pair does), derived from the tag-built def list rather than a mod check so a
-  future high-tech unique is picked up automatically. Entirely runtime def-writes (a generator instance on the TraderKindDef plus a
-  Sellable→All tradeability flip while any toggle is on); nothing trader-related ships in XML. The
-  two file headers carry the rationale, including why the war merchant's stock scope-bans the
-  ultratech traits and the others don't.
+  stock, entirely through runtime def-writes (nothing trader-related ships in XML). Two tech bands
+  *partition* the roster so the choice of trader stays meaningful: tribal traders carry uniques at
+  or below `UniqueWeaponDefs.TribalTechCap`, outlander ones at or above `OutlanderTechFloor`. The
+  outlander rows appear only while some unique in the roster clears the floor (derived from the
+  tag-built def list, not a mod check). Rates, precedents and the ultratech-trait scoping are in
+  the two headers.
 
 ## Localization
 
 English (Keyed files + def fields) is the source of truth; other languages derive from it via the
 `/translate` skill (`.claude/skills/translate/SKILL.md` — this mod's translation surface, grounding
-domain, and glossary; family-wide process lives in the `l10n/` submodule, see below) and are
-validated deterministically by `python3 Scripts/check-translations.py` (also a CI release gate).
-The DefInjected expected set is the checked-in sidecar `Scripts/expected-injections.json`: a dump
-of every injection point the *live* game sees for this mod — including vanilla-inherited fields
-(tool labels, `labelNounPretty`, `messageDefendersAttacking`) and C#-default comp strings
-(`chargeNoun`, `cooldownGerund`) that never appear in this repo's XML — produced by
-`Scripts/refresh-translation-expectations.py` driving the L10nProbe dev mod (source lives at
-`l10n/probe/`; build/deploy it only from the canonical `~/dev/rimworld-l10n` checkout) through the
-game's own walker. The checker refuses to run against stale expectations (any defName in `Defs/`
-the sidecar has never seen, or label/description text that drifted), so new content forces a regen
-and the regen sees everything the game sees; the release skill regenerates every release, which
-also covers vanilla updates changing inherited text under unchanged defNames. The public language
-roster lives in CONTRIBUTING.md and must move in the same commit as any language change.
+domain and glossary) and are validated deterministically by `python3 Scripts/check-translations.py`
+(also a CI release gate). The DefInjected expected set is the checked-in sidecar
+`Scripts/expected-injections.json`: a dump of every injection point the *live* game sees for this
+mod — including vanilla-inherited fields and C#-default comp strings that never appear in this
+repo's XML — produced by `Scripts/refresh-translation-expectations.py` driving the L10nProbe dev
+mod (source `l10n/probe/`; build/deploy it only from the canonical `~/dev/rimworld-l10n` checkout)
+through the game's own walker. The checker refuses to run against stale expectations (an unseen
+defName, or drifted label/description text), so new content forces a regen; the release skill
+regenerates every release, which also covers vanilla updates changing inherited text. The public
+language roster lives in CONTRIBUTING.md and must move in the same commit as any language change.
 
-- **Shared l10n toolkit (`l10n/` submodule):** the family-wide translation process, per-language
-  mechanics references, cross-language lessons, Workshop conventions, and the checker/refresh
-  script engines live in the `rimworld-l10n` repo, consumed here as the `l10n/` git submodule
-  (canonical working checkout: `~/dev/rimworld-l10n`). `Scripts/check-translations.py` and
-  `Scripts/refresh-translation-expectations.py` are thin per-repo config shims over its engines. If
-  `l10n/` is empty, run `git submodule update --init`. Never edit `l10n/` in place here:
-  mod-independent learnings go upstream in the canonical checkout; mod-specific learnings (this
-  mod's coined weapon-trait/name-grammar vocabulary) go in this repo's skill/glossary. Upstream
-  ships as semver release tags (`vMAJOR.MINOR.PATCH`; a major means this repo's shim or flow needs
-  an edit), and the pin here moves only at release (release skill step 2), at the start of a
-  translation pass, or when a new major lands, never per upstream commit, so `git submodule status`
-  names the pinned tag and a stable repo's log stays free of pin bumps.
+- **Shared l10n toolkit (`l10n/` submodule):** the family-wide process, per-language references,
+  cross-language lessons and the checker/refresh/smoke engines live in the `rimworld-l10n` repo
+  (canonical checkout `~/dev/rimworld-l10n`); the `Scripts/` files are thin per-repo config shims
+  over its engines. If `l10n/` is empty, run `git submodule update --init`. Never edit `l10n/` in
+  place here: mod-independent learnings go upstream in the canonical checkout, mod-specific ones
+  (this mod's coined weapon-trait/name-grammar vocabulary) go in this repo's skill/glossary.
+  Upstream ships semver tags (a major means this repo's shim or flow needs an edit); the pin moves
+  only at release (release skill step 2), at the start of a translation pass, or when a new major
+  lands — never per upstream commit.
 
 **Workshop title coupling:** each language's `UMW_SettingsCategory` Keyed value is the localized
 Steam Workshop title and must equal the title line (line 1) of
@@ -401,48 +343,41 @@ Steam Workshop title and must equal the title line (line 1) of
 
 **Optional-DLC content ships from LoadFolders-gated compat roots**, because MayRequire is honored
 on defs but IGNORED on DefInjected entries, and textures have no node to carry one at all — so the
-load root *is* the gate (`IfModActive`, which is a LoadFolders attribute and unrelated to
-MayRequire). Every well-known content folder is scanned once per active load root
-(`ModContentPack.GetAllFilesForMod` loops `foldersToLoadDescendingOrder`), so gating works for
-Textures exactly as it does for Defs and Languages. There are **two** roots per optional DLC,
-mirroring the ungated `/` + `1.6` split:
+load root *is* the gate (`IfModActive`, a LoadFolders attribute unrelated to MayRequire). Every
+well-known content folder is scanned once per active load root, so gating works for Textures
+exactly as it does for Defs and Languages. There are **two** roots per optional mod, mirroring the
+ungated `/` + `1.6` split:
 
-- `Mods/<Name>/` — version-independent content: **art**. Same reasoning that puts the main
-  `Textures/` tree at the repo root; nesting it under `1.6/` would make a future `1.7/` either
-  duplicate the PNGs or point a version block back at `1.6/`.
+- `Mods/<Name>/` — version-independent content: **art**, for the same reason the main `Textures/`
+  tree is at the repo root (nesting it under `1.6/` would make a future `1.7/` duplicate the PNGs).
 - `1.6/Mods/<Name>/` — version-specific content: `Defs`, and the `Languages` that must sit in the
   same load root as the defs they target.
 
-Currently `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
-Royalty-tech WeaponTraitDefs/ColorDefs; `VanillaFactionsExpandedPirates`, for the two
-non-stuffable warcasket uniques (broadsword, gravity hammer), their art, and the mix shader's two
-ShaderTypeDefs and three OS asset bundles (the pair are its only consumers), warcasket-only via VEF's
-inherited `HeavyWeapon` extension (VEF's inherited `FloorGraphicExtension` is inert on them: only its
-`ThingWithFloorGraphic` reads it and our thingClass replaces that class, so the pair draws as itself
-on the floor like every other unique; the def headers record why a tinted crate was dropped);
-and `VanillaTexturesExpanded` (version root only), a
-Patches-only root that re-poses and re-scales the unique spear to match VTE's redrawn vanilla
-spear (measurements and rationale in that patch's header; the drafted-idle grip nudge rides
-`CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes). The whole root
-is switchable from a default-on Compatibility setting via `PatchOperation_UMWSetting`, which works
-because `Mod` subclasses (and so settings) are created before XML patches apply; any setting that
-gates a patch is therefore restart-to-apply, and its row must say so. Third-party compat uses the same
-shape as DLC compat; gate on the packageId, never `PatchOperationFindMod` (matches by display
-name). `texPath` is **unaffected by which root the art lives in**:
-textures are keyed by their path relative to `Textures/` in one flat per-mod dictionary merged
-across all roots, so both the def's `texPath` and `Graphic_RandomComplex`'s folder enumeration
-(`ContentFinder.GetAllInFolder`) resolve the same either way. A move therefore needs no def edit —
-only the matching `_ModFiles` glob in `StageMod` (a miss deploys nothing and shows pink boxes
-in-game, with no build error).
+Currently `Royalty` (the unique Axe/Warhammer, their art, and their Royalty-tech traits and
+colours); `VanillaFactionsExpandedPirates` (the two non-stuffable warcasket uniques, warcasket-only
+via VEF's inherited `HeavyWeapon` extension, their art, and the mix shader's ShaderTypeDefs and
+bundles — the def headers cover the inherited VEF extensions and the dropped crate graphic); and
+`VanillaTexturesExpanded`
+(version root only: a Patches-only root that re-poses and re-scales the unique spear to match VTE's
+redrawn vanilla spear, measurements in the patch header, with the drafted-idle grip nudge riding
+`CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes). That root is
+switchable from a Compatibility setting via `PatchOperation_UMWSetting`, which works because `Mod`
+subclasses are created before XML patches apply — so **any setting that gates a patch is
+restart-to-apply, and its row must say so**. Third-party compat uses the same shape as DLC compat;
+gate on the packageId, never `PatchOperationFindMod` (matches by display name).
+
+`texPath` is **unaffected by which root the art lives in**: textures are keyed by their path
+relative to `Textures/` in one flat per-mod dictionary merged across all roots, so a move needs no
+def edit — only the matching `_ModFiles` glob in `StageMod` (a miss deploys nothing and shows pink
+boxes in-game, with no build error).
 
 Compat roots must sit beside the well-known folders, never inside one — anything under `1.6/Defs/**`
 or `1.6/Languages/**` loads unconditionally at any depth. A compat root's language files must not
-reuse a main-tree file's language-relative path (the game dedups per mod by that path and silently
-skips one whole file — caught pre-release in 2026-08 when all 9 languages' main-tree
-weapon/trait/colour injections silently failed to load in-game); compat-root files carry a
-`_Royalty` suffix. The checker validates key parity, placeholders, DefInjected legality, load-root placement
-(an entry must live in the same load root as the def it targets), cross-root file-path collisions,
-staleness, and file hygiene.
+reuse a main-tree file's language-relative path: the game dedups per mod by that path and silently
+skips one whole file (caught pre-release in 2026-08, when every language's main-tree injections
+silently failed to load); compat-root files carry a `_Royalty` suffix. The checker validates key
+parity, placeholders, DefInjected legality, load-root placement (an entry must live in the same
+load root as the def it targets), cross-root file-path collisions, staleness, and file hygiene.
 
 ## Debugging
 
@@ -451,4 +386,7 @@ staleness, and file hygiene.
    (WSL: `/mnt/c/Users/*/AppData/LocalLow/Ludeon Studios/RimWorld by Ludeon Studios/Player.log`).
 3. **Logging convention:** `Log.Message("[Unique Melee Weapons] ...")`.
 4. **Inspect the API:** `ilspycmd "/mnt/c/.../RimWorldWin64_Data/Managed/Assembly-CSharp.dll" -t "Namespace.ClassName"`.
-5. **Startup smoke test (pre-release):** `python3 Scripts/integration-smoke-test.py` (game closed) boots UMW with its family siblings (UWU, PWU) on a pinned list, then classifies Player.log errors by origin and fails on anything attributed to UMW or a family seam. Run before every release (wired into the release skill); thin shim over the shared engine in `l10n/smoke/` (born from the BetterTradersGuild v1.1.0 CWTL incident).
+5. **Startup smoke test (pre-release):** `python3 Scripts/integration-smoke-test.py` (game closed)
+   boots UMW with its family siblings (UWU, PWU) on a pinned list, then classifies Player.log
+   errors by origin and fails on anything attributed to UMW or a family seam. Run before every
+   release (wired into the release skill); thin shim over the shared engine in `l10n/smoke/`.

@@ -21,11 +21,16 @@ namespace UniqueMeleeWeapons;
 //  5. draw it in Draw*Section.
 // A whole new section is a new file there plus three one-line calls here (Expose / Reset / Draw).
 //
-// Two patterns to copy rather than re-derive: a row that only means something with a DLC present is
+// Three patterns to copy rather than re-derive: a row that only means something with a DLC present is
 // HIDDEN behind a ModsConfig check rather than disabled, and its stored value is never touched, so it
 // survives a session without that DLC (Settings_Generation.cs — a wholly DLC-specific section
-// early-returns from its Draw*Section instead); and a collection-valued setting scribes with
-// Scribe_Collections, which means it must re-create itself on load (Settings_Weapons.cs).
+// early-returns from its Draw*Section instead); a collection-valued setting scribes with
+// Scribe_Collections, which means it must re-create itself on load (Settings_Weapons.cs); and a
+// setting that OVERRIDES A DEF FIELD leaves the shipped default in the XML and writes the live value
+// onto the def in an Apply* method called from both UMW_Startup.Run (every play-data load, since a
+// reload replaces every def instance) and UniqueMeleeWeaponsMod.WriteSettings (window close), never
+// from the draw code (Settings_Quests.cs, Settings_Abilities.cs). A setting read at XML patch time
+// instead (PatchOperation_UMWSetting) is restart-to-apply and its row must say so (Settings_Compat.cs).
 public partial class UniqueMeleeWeaponsSettings : ModSettings
 {
     // Trailing space each section leaves below itself, so a section that early-returns leaves no gap
