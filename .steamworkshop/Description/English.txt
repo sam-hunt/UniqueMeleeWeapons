@@ -3,14 +3,15 @@ Unique Melee Weapons
 [h1]About[/h1]
 Odyssey introduced 13 unique weapons: rare one-off variants which roll up to 3 random traits (from 42), colors and names, obtained from quests and world loot. Every one of them is a "gun". Melee got nothing.
 
-This mod fills the gap. New unique variants of vanilla neolithic and medieval melee weapons, each stuffable, with their own set of new traits, name rules, and clean double-masked textures.
+This mod fills the gap. New unique variants of vanilla neolithic and medieval melee weapons, stuffable, with their own set of new traits, name rules, and clean double-masked textures. Plus two industrial warcasket uniques with Vanilla Factions Expanded - Pirates.
 
 [hr][/hr]
-[h2]8 Unique Melee Weapons[/h2]
+[h2]8 Unique Melee Weapons (+2 with VFE Pirates)[/h2]
 Unique variants of vanilla knife, gladius, longsword, spear, mace and breach axe, plus axe and warhammer with Royalty. Each inherits its base weapon's tools and stats.
 [list]
 [*][b]Stuffable[/b], unlike Odyssey's ranged uniques, so material stat multipliers apply as normal
 [*][b]5 hand-drawn art variants per weapon[/b], with unique accent color and material/stuff tint rendered together independently
+[*][b]Warcasket broadsword and gravity hammer[/b] with VFE Pirates
 [/list]
 
 [h2]28 New Weapon Traits[/h2]
@@ -53,6 +54,7 @@ Your colony, your rules:
 [*]Disable ultratech traits for lower-tech runs.
 [*]Tune ability cooldowns, radii, duration.
 [*]Adjust or disable warband quest frequency.
+[*]Include rarely in appropriate trader stock (off by default).
 [/list]
 
 [hr][/hr]
@@ -61,6 +63,8 @@ Your colony, your rules:
 [*]Safe to add to existing saves
 [*]Unsafe to remove, but everything can be turned off in mod settings
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: fully integrated and tuned, thematically realized trait costs
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: two warcasket uniques, present only when loaded
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: unique spear matches VTE's redrawn size/rotation
 [*]Melee traits are completely separate from Odyssey's own ranged-only traits, and Royalty's bladelink traits
 [*]Not tested with Combat Extended yet (reports welcome)
 [/list]
@@ -68,15 +72,15 @@ Your colony, your rules:
 [hr][/hr]
 [h1]FAQ[/h1]
 [b]Q: Do I need DLC to use this?[/b]
-A: Yes. Needs Odyssey's unique weapon system. Doesn't need Royalty, but it does unlock extra weapons/traits, per above.
+A: Yes. Needs Odyssey's unique weapon system. Doesn't need Royalty or VFE Pirates, but each unlocks extra weapons or traits, per above.
 
 [b]Q: How do I get the weapons?[/b]
-A: The same way as Odyssey's ranged uniques: Quest rewards, ancient crates, fishing and map-generation loot all roll them. Also the mod's own new warband quest
+A: The same way as Odyssey's ranged uniques: Quest rewards, ancient crates, fishing and map-generation loot all roll them. Also the mod's own new warband quest, and trader stock if enabled in settings.
 
 [b]Q: But they're so rare! And the traits and colors aren't what I want![/b]
 A: Check out [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], all weapons are fully supported.
 
-[b]Q: Was this made using LLMs!?[/b]
+[b]Q: Was this made with LLM assistance?[/b]
 A: Some of the grunt code, and most localizations. I'm a software engineer by trade, and have been writing code for 25 years. All code is manually reviewed and tested; all bug reports and mod-conflicts followed up personally as time and detail allows. All art is either commissioned from humans, hand-authored in Krita, or both.
 
 [h2]Links[/h2]
