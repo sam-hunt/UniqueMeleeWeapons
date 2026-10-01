@@ -45,9 +45,13 @@ in steps 2-3 each get a diff review, and step 6 is the single release gate;
 nothing else asks.
 
 **Promoting an RC with nothing committed since its tag** (`git log
-<rc-tag>..HEAD` is empty): the candidate already validated this exact tree, so
-skip steps 2-5 and go straight to step 6 — say so. Any commit since the RC tag
-means the full run.
+<rc-tag>..HEAD` is empty): the candidate already validated this exact tree, but
+the world may have moved since (an upstream l10n release, a vanilla update
+changing inherited text), so step 2 always runs. If it commits nothing, skip
+steps 3-5 and go straight to step 6 — say so. If it does commit (a pin bump,
+a sidecar or translation change), the tree is no longer the one the candidate
+validated: run the full sequence. Any other commit since the RC tag means the
+full run.
 
 ### 1. Review changes
 
