@@ -70,10 +70,12 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
 **`.claude/` is only partly gitignored.** `.gitignore` carries `.claude/*` followed by
 `!.claude/skills/`, so the skills are tracked and shared while hooks and settings are local
 per-machine. Editing a skill is therefore a committed, team-visible change and must keep in step
-with whatever it automates: `/release`'s step 4 encodes this repo's CHANGELOG layout, and
-`/translate`'s glossary encodes per-language terminology decisions. Changing the thing without
-changing the skill leaves an instruction pointing at something that no longer exists, and nothing
-fails until the next release run.
+with whatever it automates: `/release`'s step 6 encodes this repo's CHANGELOG layout and the
+version scheme (release candidates are `X.Y.Z-rc.N` tags, CHANGELOG-less and Workshop-less, with
+the suffix in `modVersion` and `AssemblyInformationalVersion` only; `release.yml` treats any
+suffixed tag as a prerelease to match), and `/translate`'s glossary encodes per-language
+terminology decisions. Changing the thing without changing the skill leaves an instruction
+pointing at something that no longer exists, and nothing fails until the next release run.
 
 ## Architecture
 
