@@ -1,12 +1,12 @@
 # TODOs
 
-## Fix
+## Before release
 
-- Review player-facing strings
+- Test on linux
+- Review player-facing strings since last release
 
 ## Features
 
-- Mix shader follow-up: confirm the mid-session language-switch reload keeps the unique weapons' masks on Windows (before the fallback patch they dropped to plain Cutout with a `Could not load shader UMW/CutoutComplexMix` warning); get one info-card screenshot of a stuffable unique from a Mac and a Linux tester (their bundles are built and verified but untested in game; a failure falls back to vanilla CutoutComplex and logs a `[Unique Melee Weapons] Shader ...` warning). Spike notes in the gitignored `Docs/shader-spike/HANDOVER.md`.
 - New katana texture for longsword? Explore ideo's stylable axis
 - Explore mace and axe trait roster depth
 - Consider Mod integration

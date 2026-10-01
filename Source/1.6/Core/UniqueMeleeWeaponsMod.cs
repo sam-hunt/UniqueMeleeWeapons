@@ -6,9 +6,11 @@ namespace UniqueMeleeWeapons;
 
 // Mod entry point. Wires up settings and applies all Harmony patches at startup.
 // Add patch classes under the UniqueMeleeWeapons.Patches namespace; PatchAll
-// discovers them automatically via their [HarmonyPatch] attributes. The one exception is
-// PawnRenderUtility_DrawCarriedWeapon_Patch, applied from UMW_Startup.Run only if a def
-// consumes its extension (its header has the rationale); it needs the instance, hence Harmony.
+// discovers them automatically via their [HarmonyPatch] attributes. Two exceptions carry no
+// attribute and are applied conditionally (each header has the rationale):
+// ShaderDatabase_LoadShader_Fallback_Patch, applied here only while VFE Pirates is active, and
+// PawnRenderUtility_DrawCarriedWeapon_Patch, applied from UMW_Startup.Run only if a def consumes
+// its extension. Both need the instance, hence Harmony.
 public class UniqueMeleeWeaponsMod : Mod
 {
     public static UniqueMeleeWeaponsSettings Settings { get; private set; }
@@ -25,6 +27,7 @@ public class UniqueMeleeWeaponsMod : Mod
         Settings = GetSettings<UniqueMeleeWeaponsSettings>();
         Harmony = new Harmony("shunter.uniquemeleeweapons");
         Harmony.PatchAll();
+        Patches.ShaderDatabase_LoadShader_Fallback_Patch.Apply(Harmony);
         Log.Message($"[Unique Melee Weapons] Initialized with {Harmony.GetPatchedMethods().EnumerableCount()} patches.");
     }
 

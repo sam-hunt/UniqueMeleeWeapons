@@ -46,8 +46,11 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
   `Source/1.6/UniqueMeleeWeapons.csproj` — see that target's comments for how it globs and what it
   excludes. It is generic over folders, so a new `1.7/` or `Sounds/` needs no build change; only a
   brand-new *file type* does. Local deploy and CI release both call it, so they can't drift.
-- **Asset bundles are committed binaries.** `1.6/AssetBundles/umw_shaders_{win,linux,mac}` carry
-  the mix shader (see "Stuffable uniques are double-masked" below). CI has no Unity and stages
+- **Asset bundles are committed binaries.**
+  `1.6/Mods/VanillaFactionsExpandedPirates/AssetBundles/umw_shaders_{win,linux,mac}` carry the mix
+  shader (see "Stuffable uniques are double-masked" below); they sit in the VFEP compat root
+  because only the warcasket pair uses it, and `ModAssetBundlesHandler` walks load roots exactly as
+  the Defs loader does, so no bundle is opened without VFEP. CI has no Unity and stages
   whatever is committed, so they are built locally by `Source/UnityShaders/build.sh win linux mac`
   from the Windows Unity editor at RimWorld's exact version (2022.3.35f1 for 1.6) with the Linux and
   Mac build-support modules installed; all three OS bundles cross-compile from Windows, and the
@@ -91,9 +94,14 @@ fails until the next release run.
 - **C#:** root namespace `UniqueMeleeWeapons`; patch classes use a `.Patches` suffix to avoid
   RimWorld type-name conflicts. All patches are applied by `PatchAll()` in
   `UniqueMeleeWeaponsMod`, so a `[HarmonyPatch]` class anywhere in the assembly is picked up —
-  with one deliberate exception: `PawnRenderUtility_DrawCarriedWeapon_Patch` carries no attribute
-  and is applied from `UMW_Startup.Run` only if some `ThingDef` consumes its extension, so
-  installs with no consumer place no patch on the render path (rationale in its header).
+  with two deliberate exceptions that carry no attribute and are applied conditionally:
+  `ShaderDatabase_LoadShader_Fallback_Patch` from the `Mod` constructor only while VFE Pirates is
+  active (`ModsConfig.IsActive` is final before any `Mod` subclass is constructed, and the active
+  list is fixed for the life of the process), and `PawnRenderUtility_DrawCarriedWeapon_Patch` from
+  `UMW_Startup.Run` only if some `ThingDef` consumes its extension. So installs with no consumer
+  place no patch on the shader loader or the render path (rationale in each header). Which of the
+  two application points fits is set by when the target is first called: the shader loader runs in
+  def `PostLoad`, before `CallAll`, so it cannot wait for `UMW_Startup`.
 - **Patch-timing hazard (other mods' methods):** that `PatchAll()` runs from the `Mod` subclass
   constructor — BEFORE any defs are loaded. Applying a detour JIT-compiles the target and runs its
   declaring type's static ctor, so a patch targeting ANOTHER MOD's method can permanently break
@@ -224,16 +232,21 @@ fails until the next release run.
   a trait-forced body colour). This is the load-bearing trick of the mod — Odyssey's ranged uniques
   are not stuffable and don't need it. **Art rule:** the weapon silhouette must be all red/green
   with **no black** (black means "not painted" and would ignore the material entirely), and the
-  diffuse must stay light/neutral so the multiply yields a clean tint. The uniques draw with our
-  own `UMW_CutoutComplexMix` (`Defs/ShaderTypeDefs/`, source `Source/UnityShaders/`, shipped in the
-  asset bundles): vanilla `CutoutComplex` with one change, the two tints **mix**
+  diffuse must stay light/neutral so the multiply yields a clean tint. The uniques draw with
+  vanilla `CutoutComplex`, except the VFEP warcasket pair, which draws with our own
+  `UMW_CutoutComplexMix` (ShaderTypeDefs, bundles and the only two consumers all live in the VFEP
+  compat root; source `Source/UnityShaders/`): vanilla `CutoutComplex` with one change, the two
+  tints **mix**
   (`diffuse × (r·one + g·two + (1−r−g))`) where vanilla **stacks** them
   (`diffuse × lerp(1, one, r) × lerp(1, two, g)`, fitted to in-game renders 2026-09), so a texel
   carrying both red and green (a feathered or anti-aliased red|green edge, or a hard one once
   filtering or mipmaps blend it) renders the blend the artist painted instead of a product lighter
   by `t(1−t)(1−one)(1−two)`. Pure red, pure green and black texels are bit-identical to vanilla, so
-  the shader constrains nothing about existing art. On the vanilla fallback (next bullet but one)
-  stacking returns, so hard red|green edges stay the safer default. There are only two channels,
+  the shader constrains nothing about existing art, and the hard-edged masks of the other uniques
+  gain nothing from it: it first shipped on all ten defs (2026-09) and was scoped back to the
+  feathered warcasket masks so players without VFEP carry no custom shader at all. On the vanilla
+  fallback (next bullet but one) stacking returns, so hard red|green edges stay the safer default
+  for any new art. There are only two channels,
   so a forced body colour *replaces* the material tint — one body-colour trait per weapon, gated by
   its exclusion token; it can still co-occur with a colour-one inlay. A **non-stuffable** unique (the
   VFEP warcasket pair) has no material tint, so its body placeholder is the def's
@@ -245,7 +258,10 @@ fails until the next release run.
   `Patches/ShaderDatabase_LoadShader_Fallback_Patch.cs` fixes all three (cache eviction, bundle +
   `isSupported` probe, pair-wise rewrite to `Map/CutoutComplex` + `Map/CutoutComplexUI`), and must
   hook the loader rather than `UMW_Startup`: every ThingDef's graphic and icon material is built
-  before `CallAll`. The two shader paths live in three places that move together: the ShaderTypeDefs,
+  before `CallAll`. It is applied only while VFEP is active (see the `PatchAll` exceptions under
+  Naming conventions) and touches nothing unless a call names one of our two paths, so vanilla's,
+  other mods' and third-party tag-carriers' shaders pass through untouched. The two shader paths
+  live in three places that move together: the ShaderTypeDefs,
   that patch's constants, and the Unity project's asset paths
   (`Assets/Data/<packageId>/Materials/<path>.shader`; the packageId form, because a Workshop
   mod's folder name is a numeric id). Third-party weapons carrying our tag keep their own
@@ -397,7 +413,8 @@ mirroring the ungated `/` + `1.6` split:
 
 Currently `Royalty`, for the unique Axe/Warhammer ThingDefs, their textures, and their
 Royalty-tech WeaponTraitDefs/ColorDefs; `VanillaFactionsExpandedPirates`, for the two
-non-stuffable warcasket uniques (broadsword, gravity hammer) and their art, warcasket-only via VEF's
+non-stuffable warcasket uniques (broadsword, gravity hammer), their art, and the mix shader's two
+ShaderTypeDefs and three OS asset bundles (the pair are its only consumers), warcasket-only via VEF's
 inherited `HeavyWeapon` extension (VEF's inherited `FloorGraphicExtension` is inert on them: only its
 `ThingWithFloorGraphic` reads it and our thingClass replaces that class, so the pair draws as itself
 on the floor like every other unique; the def headers record why a tinted crate was dropped);

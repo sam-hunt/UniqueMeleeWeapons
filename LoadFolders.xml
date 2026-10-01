@@ -33,7 +33,10 @@
          root: a Patches-only tweak to the unique spear's held pose (see its header). The
          package id must equal UniqueMeleeWeaponsSettings.VtePackageId (Settings_Compat.cs). -->
     <li IfModActive="VanillaExpanded.VTEXE">1.6/Mods/VanillaTexturesExpanded</li>
-    <!-- VFE Pirates: the two warcasket uniques (defs + their art); see either ThingDef's header. -->
+    <!-- VFE Pirates: the two warcasket uniques (defs + their art) and the mix shader they draw
+         with (ShaderTypeDefs + AssetBundles, loaded per root like Defs); see either ThingDef's
+         header. The package id must equal ShaderDatabase_LoadShader_Fallback_Patch.VfepPackageId,
+         which gates that patch on the same condition. -->
     <li IfModActive="OskarPotocki.VFE.Pirates">Mods/VanillaFactionsExpandedPirates</li>
     <li IfModActive="OskarPotocki.VFE.Pirates">1.6/Mods/VanillaFactionsExpandedPirates</li>
   </v1.6>

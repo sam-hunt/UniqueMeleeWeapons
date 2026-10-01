@@ -10,7 +10,7 @@
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Mace</texPath>
       <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
-      <shaderType>UMW_CutoutComplexMix</shaderType> <!-- vanilla CutoutComplex with mixed tints; see Defs/ShaderTypeDefs -->
+      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <generateAllowChance>0</generateAllowChance>
     <possessionCount>0</possessionCount>

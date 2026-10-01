@@ -4,7 +4,7 @@
 //   Unity.exe -batchmode -nographics -quit -projectPath <mirror> -executeMethod UMW.BuildAssetBundles.BuildWindows
 // and writes <project>/Output/<suffix>/umw_shaders_<suffix>. RimWorld's ModAssetBundlesHandler loads
 // only the file whose _win/_mac/_linux suffix matches the running OS, so the three bundles can sit
-// side by side in 1.6/AssetBundles/.
+// side by side in 1.6/Mods/VanillaFactionsExpandedPirates/AssetBundles/.
 //
 // Which graphics APIs get compiled into the bundle is decided by the PlayerSettings of THIS project
 // for the build target, not by anything RimWorld does, so they are set explicitly here rather than

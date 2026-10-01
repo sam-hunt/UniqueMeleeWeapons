@@ -15,6 +15,9 @@
        Not stuffable, so there is no material tint: colour two (the green-masked body) falls through
        UniqueMeleeWeapon.DrawColorTwo to graphicData.colorTwo, which is therefore the body placeholder
        colour, and a ForcedColorTwoExtension trait still replaces it.
+       The mask's red|green edges are feathered, so the pair draws with UMW_CutoutComplexMix (the mix
+       shader; its ShaderTypeDefs and asset bundles live in this compat root and nowhere else, so the
+       other uniques stay on vanilla CutoutComplex).
        Drawn as itself on the floor, like every other unique, not as VFEP's boxed crate: the inherited
        VEF FloorGraphicExtension is inert here, since only VEF's ThingWithFloorGraphic reads it and our
        thingClass replaces that class. A purple-tinted crate was tried and dropped (2026-09): it hid
@@ -30,7 +33,7 @@
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketGravityHammer</texPath>
       <graphicClass>UniqueMeleeWeapons.Graphic_RandomComplex</graphicClass>
-      <shaderType>UMW_CutoutComplexMix</shaderType> <!-- vanilla CutoutComplex with mixed tints; see Defs/ShaderTypeDefs -->
+      <shaderType>UMW_CutoutComplexMix</shaderType> <!-- mixes the two tints for this art's feathered red|green mask edges; see ../ShaderTypeDefs -->
       <colorTwo>(91,94,96)</colorTwo> <!-- #5B5E60 body placeholder; see header -->
     </graphicData>
     <generateAllowChance>0</generateAllowChance>
