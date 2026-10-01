@@ -76,6 +76,17 @@ notes for the shim or flow edit this repo owes before continuing.
   language-relative path and silently skips a duplicate, so a compat-root
   file must never share its path with a main-tree one (checker-enforced; see
   `l10n/process.md`).
+- **Second gated compat root (VFE Pirates):** the two warcasket uniques
+  `UMW_WarcasketBroadsword_Unique`/`UMW_WarcasketGravityHammer_Unique`
+  (`ThingDef`) live under
+  `1.6/Mods/VanillaFactionsExpandedPirates/Languages/<Language>/DefInjected/ThingDef/`,
+  file suffix `_VFEP` (`Weapons_Unique_VFEP.xml`), same dedup rule as the
+  Royalty root. Their sidecar entries include VFEP-inherited tool labels
+  (`point`/`blade`, `head`/`handle`, the same vocabulary as the grounded
+  tool-part rows) and two non-required identifier entries
+  (`modExtensions.0.disableOptionLabelKey`, a Keyed key name, and
+  `modExtensions.0.supportedTraits`, a def name) that are never translated,
+  like `exclusionTags`.
 
 ## This mod's grounding domain
 
@@ -87,7 +98,15 @@ spear, mace, knife, gladius, axe, warhammer), quality tiers, material/stuff
 names, Royalty's ultratech melee weapons for the ultratech-trait
 descriptions, damage/condition terms (EMP, stun, burn, bleeding), and the
 opportunity-site quest vocabulary (ancient mercenaries, bandit camp, item
-stash) this mod's own warband quest models itself on. The vanilla-grounded
+stash) this mod's own warband quest models itself on, the trader vocabulary
+the Traders settings rows build on (trader kinds war merchant / shaman
+merchant / combat supplier are injected at runtime from their own labels,
+but "caravan", "trade ship", "settlement" and the outlander faction name are
+plain text), and the tech-level names (`TechLevel_Medieval`,
+`TechLevel_Industrial`) the same rows use adjectivally. "Warcasket" is NOT
+groundable: VFE Pirates ships English only, so it is a mod-decided term per
+language, recorded in the glossary's pending-native-review section and kept
+consistent across the two ThingDef labels and descriptions. The vanilla-grounded
 answers live in `l10n/languages/<Language>.md`; this mod's coined terms
 (weapon-trait epithets, the WeaponCategoryDef labels, parry/warband/war-party
 vocabulary, ...) live in `glossary/<Language>.md`. All eight shipped

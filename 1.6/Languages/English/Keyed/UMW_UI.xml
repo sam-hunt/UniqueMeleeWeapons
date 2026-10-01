@@ -41,7 +41,12 @@
 
   <!-- Settings: Traders. All toggles default off. Tribal rows: the label is a shared template, {0} is
        the trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
-       vanilla's translation; each description's {0} is the same label in lowercase. -->
+       vanilla's translation; each description's {0} is the same label in lowercase. The label arrives
+       uninflected (nominative): quote the slot or recast the sentence so it sits in nominative rather
+       than relying on it to agree. "medieval" / "industrial" below are vanilla's tech-level names
+       (Keyed TechLevel_Medieval / TechLevel_Industrial): reuse that rendering, inflected as the
+       adjective the sentence needs. They are deliberately plain text, not injected, because the
+       injected form could not agree with "make" / "weapon". -->
   <UMW_TraderStocksUniques>Unique weapons in {0} stock</UMW_TraderStocksUniques>
   <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear.</UMW_TraderStocksUniquesWarMerchantDesc>
   <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear.</UMW_TraderStocksUniquesShamanDesc>
@@ -49,7 +54,10 @@
        base game's roster none is; VFE Pirates' warcasket pair is). The settlement trader kind has no
        def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
        label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
-       label, capitalized in the row label and lowercase in the description. -->
+       label, capitalized in the row label and lowercase in the description. {0} is a whole noun
+       phrase, never an adjective: where "{0} caravan" cannot compound, recast as "caravan ({0})" or a
+       genitive. "Outlander settlement" in the fixed row names the settlement of an outlander faction
+       (Core FactionDef Outlander*; the settlement word is Core Settlement.label). -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in Outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
   <UMW_TraderStocksUniquesOutlanderSettlementDesc>About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
   <UMW_TraderStocksUniquesCaravan>Unique weapons in {0} caravan stock</UMW_TraderStocksUniquesCaravan>
