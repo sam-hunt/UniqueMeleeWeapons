@@ -3,14 +3,15 @@ Armas cuerpo a cuerpo únicas
 [h1]Acerca de[/h1]
 Odyssey introdujo 13 armas únicas: variantes excepcionales y poco frecuentes que sortean hasta 3 rasgos aleatorios (de un total de 42), colores y nombres, obtenidas en misiones y como botín del mundo. Todas y cada una son un "arma de fuego". El cuerpo a cuerpo no recibió nada.
 
-Este mod llena ese vacío. Nuevas variantes únicas de armas cuerpo a cuerpo neolíticas y medievales del juego base, cada una con material variable, con su propio conjunto de rasgos nuevos, reglas de nombres y texturas limpias de doble máscara.
+Este mod llena ese vacío. Nuevas variantes únicas de armas cuerpo a cuerpo neolíticas y medievales del juego base, de material variable, con su propio conjunto de rasgos nuevos, reglas de nombres y texturas limpias de doble máscara. Además, dos armas únicas industriales para ataúd de guerra con Vanilla Factions Expanded - Pirates.
 
 [hr][/hr]
-[h2]8 armas cuerpo a cuerpo únicas[/h2]
+[h2]8 armas cuerpo a cuerpo únicas (+2 con VFE Pirates)[/h2]
 Variantes únicas del cuchillo, el gladius, la espada larga, la lanza, la maza y el hacha zapeadora del juego base, más el hacha y el martillo de guerra con Royalty. Cada una hereda las herramientas y estadísticas de su arma base.
 [list]
 [*][b]Con material variable[/b], a diferencia de las armas únicas a distancia de Odyssey, por lo que los multiplicadores de estadísticas del material se aplican con normalidad
 [*][b]5 variantes artísticas dibujadas a mano por arma[/b], con un color de acento único y el tinte del material representados juntos de forma independiente
+[*][b]Espada ancha y martillo de gravedad para ataúd de guerra[/b] con VFE Pirates
 [/list]
 
 [h2]28 rasgos de arma nuevos[/h2]
@@ -53,6 +54,7 @@ Tu colonia, tus reglas:
 [*]Desactiva los rasgos ultratecnológicos para partidas de tecnología más baja.
 [*]Ajusta los enfriamientos, radios y duración de las habilidades.
 [*]Ajusta o desactiva la frecuencia de la misión de la banda de guerra.
+[*]Incluye las armas, con poca frecuencia, en las existencias de los comerciantes adecuados (desactivado por defecto).
 [/list]
 
 [hr][/hr]
@@ -61,6 +63,8 @@ Tu colonia, tus reglas:
 [*]Seguro añadirlo a partidas guardadas existentes
 [*]No es seguro quitarlo, pero todo puede desactivarse desde los ajustes del mod
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: totalmente integrado y ajustado, con costes de rasgo resueltos con sentido temático
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: dos armas únicas para ataúd de guerra, presentes solo cuando está cargado
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: la lanza única se ajusta al tamaño y la rotación rediseñados de VTE
 [*]Los rasgos cuerpo a cuerpo están completamente separados de los propios rasgos a distancia de Odyssey y de los rasgos de vínculo de Royalty
 [*]Aún no probado con Combat Extended (los informes son bienvenidos)
 [/list]
@@ -68,15 +72,15 @@ Tu colonia, tus reglas:
 [hr][/hr]
 [h1]Preguntas frecuentes[/h1]
 [b]P: ¿Necesito algún DLC para usar esto?[/b]
-R: Sí. Necesita el sistema de armas únicas de Odyssey. No necesita Royalty, pero Royalty desbloquea armas y rasgos adicionales, como se explica más arriba.
+R: Sí. Necesita el sistema de armas únicas de Odyssey. No necesita Royalty ni VFE Pirates, pero cada uno desbloquea armas o rasgos adicionales, como se explica más arriba.
 
 [b]P: ¿Cómo consigo las armas?[/b]
-R: Del mismo modo que las armas únicas a distancia de Odyssey: las recompensas de misiones, las cajas antiguas, la pesca y el botín de generación del mapa pueden darlas. También la propia misión nueva de la banda de guerra del mod.
+R: Del mismo modo que las armas únicas a distancia de Odyssey: las recompensas de misiones, las cajas antiguas, la pesca y el botín de generación del mapa pueden darlas. También la propia misión nueva de la banda de guerra del mod, y las existencias de los comerciantes si se activa en los ajustes.
 
 [b]P: ¡Pero son tan raras! ¡Y los rasgos y los colores no son los que quiero![/b]
 R: Echa un vistazo a [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]; todas las armas son totalmente compatibles.
 
-[b]P: ¿¡Se hizo esto usando LLM!?[/b]
+[b]P: ¿Se hizo esto con ayuda de LLM?[/b]
 R: Parte del código más mecánico, y la mayoría de las localizaciones. Soy ingeniero de software de profesión y llevo 25 años escribiendo código. Todo el código se revisa y se prueba manualmente; todos los informes de errores y los conflictos entre mods se atienden personalmente, según el tiempo y el detalle disponibles. Todo el arte está encargado a artistas humanos, hecho a mano en Krita, o ambas cosas.
 
 [h2]Enlaces[/h2]

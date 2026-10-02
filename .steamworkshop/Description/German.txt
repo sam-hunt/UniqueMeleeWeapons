@@ -3,14 +3,15 @@ Einzigartige Nahkampfwaffen
 [h1]Über die Mod[/h1]
 Odyssey führte 13 einzigartige Waffen ein: seltene Einzelstücke, die bis zu 3 zufällige Merkmale (aus 42), Farben und Namen auswürfeln, erhältlich aus Quests und Beute in der Welt. Jede einzelne davon ist eine "Schusswaffe". Der Nahkampf ging leer aus.
 
-Diese Mod schließt diese Lücke. Neue einzigartige Varianten von neolithischen und mittelalterlichen Nahkampfwaffen des Grundspiels, jede aus Material herstellbar, mit eigenen neuen Merkmalen, Namensregeln und sauberen, doppelt maskierten Texturen.
+Diese Mod schließt diese Lücke. Neue einzigartige Varianten von neolithischen und mittelalterlichen Nahkampfwaffen des Grundspiels, aus Material herstellbar, mit eigenen neuen Merkmalen, Namensregeln und sauberen, doppelt maskierten Texturen. Dazu zwei industrielle Kriegssarg-Uniques mit Vanilla Factions Expanded - Pirates.
 
 [hr][/hr]
-[h2]8 einzigartige Nahkampfwaffen[/h2]
+[h2]8 einzigartige Nahkampfwaffen (+2 mit VFE Pirates)[/h2]
 Einzigartige Varianten von Messer, Gladius, Langschwert, Speer, Streitkolben und Durchbruchsaxt aus dem Grundspiel, dazu Axt und Kriegshammer mit Royalty. Jede erbt Werkzeuge und Statistikwerte ihrer Grundwaffe.
 [list]
 [*][b]Aus Material herstellbar[/b], anders als bei Odysseys einzigartigen Fernkampfwaffen, wodurch Materialmultiplikatoren auf Statistikwerte normal gelten
 [*][b]5 handgezeichnete Grafikvarianten pro Waffe[/b], mit einzigartiger Akzentfarbe und unabhängig gerenderter Materialtönung
+[*][b]Kriegssarg-Breitschwert und -Gravitationshammer[/b] mit VFE Pirates
 [/list]
 
 [h2]28 neue Waffenmerkmale[/h2]
@@ -53,6 +54,7 @@ Deine Kolonie, deine Regeln:
 [*]Deaktiviere hochmoderne Waffenmerkmale für Durchläufe auf niedrigerer Techstufe.
 [*]Passe Abklingzeiten, Radien und Dauer der Fähigkeiten an.
 [*]Passe die Häufigkeit der Kriegerbande-Quest an oder deaktiviere sie.
+[*]Nimm sie sparsam in passenden Händlerbestand auf (standardmäßig aus).
 [/list]
 
 [hr][/hr]
@@ -61,6 +63,8 @@ Deine Kolonie, deine Regeln:
 [*]Kann sicher zu bestehenden Spielständen hinzugefügt werden
 [*]Unsicher zu entfernen, aber alles kann in den Mod-Einstellungen abgeschaltet werden
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]: vollständig integriert und abgestimmt, thematisch umgesetzte Merkmalskosten
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: zwei Kriegssarg-Uniques, nur vorhanden, wenn die Mod geladen ist
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: der einzigartige Speer passt zu Größe und Drehung von VTEs neu gezeichnetem Speer
 [*]Nahkampf-Merkmale sind vollständig getrennt von Odysseys eigenen, reinen Fernkampf-Merkmalen und von Royaltys Persona-Waffenmerkmalen
 [*]Noch nicht mit Combat Extended getestet (Rückmeldungen willkommen)
 [/list]
@@ -68,15 +72,15 @@ Deine Kolonie, deine Regeln:
 [hr][/hr]
 [h1]FAQ[/h1]
 [b]F: Brauche ich DLC, um das hier zu nutzen?[/b]
-A: Ja. Odysseys System für einzigartige Waffen wird benötigt. Royalty wird nicht benötigt, schaltet aber zusätzliche Waffen/Merkmale frei, wie oben beschrieben.
+A: Ja. Odysseys System für einzigartige Waffen wird benötigt. Royalty und VFE Pirates werden nicht benötigt, schalten aber jeweils zusätzliche Waffen oder Merkmale frei, wie oben beschrieben.
 
 [b]F: Wie bekomme ich die Waffen?[/b]
-A: Auf die gleiche Weise wie Odysseys einzigartige Fernkampfwaffen: Questbelohnungen, versiegelte Kisten, sowie Angel- und Kartengenerierungsbeute würfeln sie alle aus. Außerdem die neue, eigene Kriegerbande-Quest dieser Mod.
+A: Auf die gleiche Weise wie Odysseys einzigartige Fernkampfwaffen: Questbelohnungen, versiegelte Kisten, sowie Angel- und Kartengenerierungsbeute würfeln sie alle aus. Außerdem die neue, eigene Kriegerbande-Quest dieser Mod und der Händlerbestand, wenn in den Einstellungen aktiviert.
 
 [b]F: Aber sie sind so selten! Und die Merkmale und Farben sind nicht das, was ich will![/b]
 A: Wirf einen Blick auf [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], alle Waffen werden vollständig unterstützt.
 
-[b]F: Wurde das hier mit LLMs erstellt!?[/b]
+[b]F: Wurde das hier mit LLM-Unterstützung erstellt?[/b]
 A: Ein Teil des einfachen Codes, und die meisten Lokalisierungen. Ich bin von Beruf Softwareentwickler und schreibe seit 25 Jahren Code. Aller Code wird manuell überprüft und getestet; allen Fehlermeldungen und Mod-Konflikten wird persönlich nachgegangen, soweit Zeit und Details es zulassen. Alle Grafiken sind entweder bei Menschen in Auftrag gegeben, von Hand in Krita erstellt, oder beides.
 
 [h2]Links[/h2]
