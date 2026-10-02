@@ -59,7 +59,7 @@
          null-checks the comp and skips its Super roll (decompile-verified), so MarketValue is base plus
          trait offsets. CompArt stays even so: every unique bears an inscription (the eight
          quality-bearing ones get it because the Super roll always clears minQualityForArtistic), and
-         with no CompQuality nothing would call InitializeArt, so UniqueMeleeWeapon.PostPostMake does.
+         with no CompQuality nothing would call InitializeArt, so UniqueMeleeWeapon.PostMake does.
          No minQualityForArtistic: CanShowArt is unconditionally true without a CompQuality. If
          BaseWeapon/BaseMeleeWeapon comps change in a vanilla update, replicate here. -->
     <comps Inherit="False">

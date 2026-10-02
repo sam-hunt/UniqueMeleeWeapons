@@ -15,7 +15,7 @@ namespace UniqueMeleeWeapons;
 //     tale-less description. Deliberately so: an outsider-made reward must not depict the player
 //     colony's deeds. The CanShowArt patch is the backstop should another mod widen that quality
 //     roll below Excellent. A quality-less unique (the VFEP warcasket pair) has no SetQuality to
-//     ride, so UniqueMeleeWeapon.PostPostMake calls InitializeArt with the same Outsider context
+//     ride, so UniqueMeleeWeapon.PostMake calls InitializeArt with the same Outsider context
 //     itself, for every such weapon, trait or no trait; CanShowArt is unconditionally true without
 //     a CompQuality, so the bar never applies there.
 //   • Trait added to an in-world weapon (UWU's customization bench, dev tools, any mod calling

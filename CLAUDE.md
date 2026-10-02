@@ -201,7 +201,7 @@ pointing at something that no longer exists, and nothing fails until the next re
   can currently roll). **If base-game weapon comps change in a vanilla update, replicate the change
   in all 10 files.** The one sanctioned difference: **a unique mirrors its base's quality**, so the
   quality-less VFEP warcasket pair carries no `CompQuality` but keeps `CompArt`
-  (`UniqueMeleeWeapon.PostPostMake` initializes the inscription a quality roll would have).
+  (`UniqueMeleeWeapon.PostMake` initializes the inscription a quality roll would have).
 - **An AoE ability's radius lives in two places and must agree, at `X.9`.** The gizmo-hover preview
   reads `verbProperties.range` and *never* a comp field, so a mismatch draws a ring that lies about
   the effect; and `X.0` or the wrong `X.9` are trap values that draw a filled square or a sparse

@@ -17,12 +17,12 @@ namespace UniqueMeleeWeapons.Patches;
 //
 //   1. Our own generation. CompUniqueWeapon.PostPostMake builds the request
 //      (weapon_type / color / trait_adjective rules + Odyssey's NamerUniqueWeapon
-//      pack) and resolves it here; UniqueMeleeWeapon.PostPostMake has parked the
+//      pack) and resolves it here; UniqueMeleeWeapon.PostMake has parked the
 //      stuff in StuffBeingNamed (only ever set while one of OUR weapons is being
 //      made — vanilla ranged uniques never set it). The request has no
 //      stuff_adjective rule yet, so we add both the rule and the rulepack.
 //
-//   2. A companion tool that re-rolls the name outside PostPostMake (e.g. Unique
+//   2. A companion tool that re-rolls the name outside generation (e.g. Unique
 //      Weapons Unbound's customization dialog). It can't reach StuffBeingNamed, so
 //      by convention it publishes the material itself as a "stuff_adjective" rule on
 //      the request it builds. We detect that rule and add only the rulepack that

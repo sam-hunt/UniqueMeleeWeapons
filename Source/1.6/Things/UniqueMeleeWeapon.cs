@@ -22,46 +22,56 @@ namespace UniqueMeleeWeapons;
 // forced body-colour trait still replaces it.
 public class UniqueMeleeWeapon : ThingWithComps
 {
-    // The stuff of the weapon currently running PostPostMake (trait roll + naming
-    // inside CompUniqueWeapon), exposed for NameGenerator_StuffAdjective_Patch to
+    // The stuff of the weapon currently being made (trait roll + naming inside
+    // CompUniqueWeapon.PostPostMake), exposed for NameGenerator_StuffAdjective_Patch to
     // inject material adjectives into the name grammar. Thing generation is
     // single-threaded, so one static slot (cleared in finally) is safe.
     public static ThingDef StuffBeingNamed { get; private set; }
 
-    public override void PostPostMake()
+    // Generation-time work that must bracket or follow CompUniqueWeapon's trait roll and naming.
+    // Ordering (decompile-verified 1.6): ThingMaker.MakeThing calls SetStuffDirect, PostMake, then
+    // PostPostMake; and ThingWithComps.PostMake creates the comps and runs EVERY COMP'S PostPostMake
+    // inside itself, so by the time base.PostMake() returns here the traits, quality and name are
+    // all final. Nothing of ours belongs in Thing.PostPostMake: through 1.3.0 this work sat there and
+    // ran one step too late — the material slot was still empty while the name was generated, the
+    // hit-point clamp read a stat cache filled before the traits existed, and the inscription call
+    // found the title already written.
+    public override void PostMake()
     {
         StuffBeingNamed = Stuff;
         try
         {
-            base.PostPostMake();
+            base.PostMake();
         }
         finally
         {
             StuffBeingNamed = null;
         }
 
-        // Traits roll inside the base call above, but ThingMaker.MakeThing runs PostMake — which
-        // sets HitPoints from MaxHitPoints — BEFORE PostPostMake. So a trait that factors
-        // MaxHitPoints (UMW_Carbonized's ×0.8) leaves the fresh weapon above its own new maximum,
-        // reading e.g. "100 / 80". Re-clamp now that the trait list exists. No stat-cache concern:
-        // MaxHitPoints is `cacheable`, not `immutable`, so its 10-tick window self-corrects.
+        // Thing.PostMake set HitPoints from MaxHitPoints before the comps existed, so a trait that
+        // factors MaxHitPoints (UMW_Carbonized's ×0.8) leaves the fresh weapon above its own new
+        // maximum, reading e.g. "100 / 80". That first read also filled the stat's 10-tick cache with
+        // the trait-less value (MaxHitPoints reads it with cacheStaleAfterTicks 10), so the property
+        // would still return it here: read the stat uncached instead, which also refreshes the entry.
         if (def.useHitPoints)
         {
-            HitPoints = Mathf.Min(HitPoints, MaxHitPoints);
+            HitPoints = Mathf.Min(HitPoints, Mathf.RoundToInt(this.GetStatValue(StatDefOf.MaxHitPoints)));
         }
 
         // A quality-less def (the VFEP warcasket pair, mirroring their base) never reaches
-        // CompQuality.SetQuality, which is the only caller of CompArt.InitializeArt at generation
-        // (decompile-verified 1.6). Every unique bears an inscription: the quality-bearing eight get
-        // theirs because CompUniqueWeapon.PostPostMake's Super roll always clears
-        // minQualityForArtistic, so give the quality-less ones the same tale-less Outsider
-        // inscription that SetQuality(..., Outsider) would have. Safe to call unconditionally on a
-        // quality-less thing: CanShowArt is true whenever TryGetQuality fails, so this never nulls
-        // the art, and InitializeArtInternal early-outs on an existing title. Runs after the base
-        // call so the trait list exists for anything downstream that scans it (ForcedArtExtension).
-        if (GetComp<CompQuality>() == null)
+        // CompQuality.SetQuality, the only generation-time caller of CompArt.InitializeArt
+        // (decompile-verified 1.6), so it would carry no inscription. The quality-bearing eight get
+        // theirs in CompUniqueWeapon.PostPostMake in this order: SetQuality -> InitializeArt (the
+        // tale-less Outsider inscription, plus a generated art title) and THEN the unique name written
+        // over the title. Mirror that here, after the fact: InitializeArtInternal early-outs on an
+        // existing title, so clear first, initialise, then put the unique name back. CanShowArt is
+        // unconditionally true without a CompQuality, so the art is never nulled.
+        if (GetComp<CompQuality>() == null && GetComp<CompArt>() is { } art)
         {
-            GetComp<CompArt>()?.InitializeArt(ArtGenerationContext.Outsider);
+            string uniqueName = art.Title;
+            art.Clear();
+            art.InitializeArt(ArtGenerationContext.Outsider);
+            art.Title = uniqueName;
         }
     }
 
