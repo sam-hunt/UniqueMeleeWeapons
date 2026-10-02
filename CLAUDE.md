@@ -323,7 +323,10 @@ repo's XML — produced by `Scripts/refresh-translation-expectations.py` driving
 mod (source `l10n/probe/`; build/deploy it only from the canonical `~/dev/rimworld-l10n` checkout)
 through the game's own walker. The checker refuses to run against stale expectations (an unseen
 defName, or drifted label/description text), so new content forces a regen; the release skill
-regenerates every release, which also covers vanilla updates changing inherited text. The public
+regenerates every release, which also covers vanilla updates changing inherited text. **Never
+hand-edit the sidecar — regenerate it.** Its fields mirror the live game, not the XML, and the
+staleness check doesn't cover all of them: a hand-patched `normalized` comp index (`086c554`) passed
+the checker and sat wrong until the next release's regen. The public
 language roster lives in CONTRIBUTING.md and must move in the same commit as any language change.
 
 - **Shared l10n toolkit (`l10n/` submodule):** the family-wide process, per-language references,
