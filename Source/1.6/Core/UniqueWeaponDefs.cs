@@ -75,6 +75,27 @@ public static class UniqueWeaponDefs
 
     private static List<ThingDef> Build()
     {
-        return DefDatabase<ThingDef>.AllDefs.Where(d => IsOurs(d)).OrderBy(d => d.label).ToList();
+        return DefDatabase<ThingDef>.AllDefs.Where(d => IsOurs(d) && LoadedIntact(d)).OrderBy(d => d.label).ToList();
+    }
+
+    // A tagged def that lost its ParentName at XML load arrives with none of the inherited fields: no
+    // category, tools, stats or techLevel (the game logs "Could not find parent node", then resolves
+    // the node as a root and loads it anyway; decompile-verified 1.6). That happens when the base
+    // weapon's mod loads AFTER us, which About.xml's loadAfter only warns about: the VFEP warcasket
+    // pair is the live case, since a player who already had us above VFE Pirates keeps that order
+    // when the pair ships. Vanilla's ThingSetMakerUtility.CanGenerate already rejects a
+    // category-less def, but our own consumers read All directly (the trader stock generator, the
+    // per-weapon settings rows, AnyWeaponEnabled), so the def is dropped here with an error naming
+    // the fix. Logged once per play-data load (Build runs from UMW_Startup.Run).
+    private static bool LoadedIntact(ThingDef def)
+    {
+        if (def.category == ThingCategory.Item)
+        {
+            return true;
+        }
+        Log.Error($"[Unique Melee Weapons] {def.defName} loaded without its base weapon (no category, tools or " +
+                  "stats) and is excluded from every pool and setting. Its base weapon's mod must load before " +
+                  "Unique Melee Weapons: move Unique Melee Weapons below it in the mod list and restart.");
+        return false;
     }
 }
