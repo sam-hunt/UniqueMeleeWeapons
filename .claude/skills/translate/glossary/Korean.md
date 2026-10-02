@@ -85,3 +85,5 @@ plain axe entry's own namer vocabulary (도끼/도살도/도끼날/칼날) — �
 ("crush/shatter") vs 파괴 ("destroy") keep the two nouns clearly separate
 while both read as axe-like weapon names ending in the 斧(부) "axe" root, in
 the same coinage style as the existing 도살도 ("slaughter blade").
+
+2026-10-02 (VFE Pirates warcasket pair, compat root `1.6/Mods/VanillaFactionsExpandedPirates`): 워캐스킷 (warcasket), the family term, taken from the RMK Korean pack (GitHub `RimWorldKorea/RMK`, 65k subscribers) and kept identical across both labels and both descriptions; labels 특제 워캐스킷 대검 / 특제 워캐스킷 중력 망치, following RMK's 워캐스킷 대검 / 워캐스킷 중력 망치 with the usual 특제 prefix. Tool labels reuse this file's grounded rows (칼날 / 칼끝 / 머리 / 손잡이). `namerLabels`, with no gender or marker conventions in Korean: broadsword 대검 / 도신 / 검 / 칼날 (the longsword set with 대검 as the head noun); gravity hammer 망치 / 쇠메 / 머리 / 중력 망치 (머리 for "head" to match the tool label, not the Royalty warhammer's 둔기). Pending native review.

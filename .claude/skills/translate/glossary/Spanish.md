@@ -167,3 +167,15 @@ un-collapsing an adjective vanilla already ships back into its noun; and
 `demoledor` (breaker) is chosen to sit clearly apart from `zapador` while
 still evoking the vanilla description's own "derribar paredes, puertas y
 otras estructuras" (tearing down walls, doors and other structures).
+
+The 2026-10-02 VFE Pirates pass (`1.6/Mods/VanillaFactionsExpandedPirates`, the warcasket
+pair) renders "warcasket" as `ataúd de guerra` (pl. `ataúdes de guerra`), the family term shared
+with the sibling Warcasket mods, taken from Cito2310's Castilian-leaning pack (GitHub
+`Cito2310/translate-project-rimworld`; never the SpanishLatin `sarcotraje`). The labels follow
+that pack's noun and word order, singular on both for parallelism, with `única`/`único` beside the
+head noun as in every other unique label (`espada larga única`), so it cannot read as qualifying the
+ataúd: `espada única para ataúd de guerra` and `martillo de gravedad único para ataúd de guerra`; the pack's `tools.point` = `mango`
+is an error and is replaced by the grounded `punta`. `namerLabels` (bare lowercase nouns, no
+markers) are broadsword = `espada ancha`, `hoja`, `espada`, `filo`, and gravity hammer =
+`martillo`, `mazo`, `cabeza`, `martillo de gravedad`; the pack's `espada` alone is the label noun,
+so `espada ancha` keeps slot 0 distinct from slot 2.

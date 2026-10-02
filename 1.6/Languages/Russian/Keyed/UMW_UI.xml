@@ -58,11 +58,29 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Уникальное оружие в ассортименте «{0}»</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Примерно в половине визитов «{0}» привозит на продажу один экземпляр уникального оружия ближнего боя, а также в любом случае скупает такое оружие. На его товарах никогда не выпадают ультратехнологичные свойства: боевой отряд торгует оружием своей эпохи. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Примерно в половине визитов «{0}» привозит на продажу один экземпляр уникального оружия ближнего боя средневековой или более ранней эпохи, а также в любом случае скупает такое оружие. На его товарах никогда не выпадают ультратехнологичные свойства: боевой отряд торгует оружием своей эпохи. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>Примерно в половине визитов «{0}» привозит на продажу один экземпляр уникального оружия ближнего боя, а также в любом случае скупает такое оружие. На его товарах могут выпадать ультратехнологичные свойства: шаманы торгуют реликвиями, суть которых не до конца понимают. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>Примерно в половине визитов «{0}» привозит на продажу один экземпляр уникального оружия ближнего боя средневековой или более ранней эпохи, а также в любом случае скупает такое оружие. На его товарах могут выпадать ультратехнологичные свойства: шаманы торгуют реликвиями, суть которых не до конца понимают. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesShamanDesc>
+
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>Уникальное оружие в ассортименте поселения чужеземцев</UMW_TraderStocksUniquesOutlanderSettlement>
+
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Примерно в одном из пяти поселений чужеземцев продаётся один экземпляр уникального оружия ближнего боя индустриальной или более поздней эпохи, и там в любом случае скупают такое оружие. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>Уникальное оружие в ассортименте каравана («{0}»)</UMW_TraderStocksUniquesCaravan>
+
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>Примерно один из пяти караванов («{0}») привозит на продажу один экземпляр уникального оружия ближнего боя индустриальной или более поздней эпохи, а также в любом случае скупает такое оружие. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesCaravanDesc>
+
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>Уникальное оружие в ассортименте торговых кораблей («{0}»)</UMW_TraderStocksUniquesShip>
+
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>Примерно один из пяти торговых кораблей («{0}») привозит на продажу один экземпляр уникального оружия ближнего боя индустриальной или более поздней эпохи, а также в любом случае скупает такое оружие. Отключённое оружие здесь никогда не появится.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

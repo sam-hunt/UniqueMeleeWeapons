@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_WarcasketBroadsword_Unique and UMW_WarcasketGravityHammer_Unique are
+       declared in this VFE Pirates compat load root
+       (1.6/Mods/VanillaFactionsExpandedPirates/Defs/) and carry no MayRequire of
+       their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/VanillaFactionsExpandedPirates loads only when VFE
+       Pirates is active) rather than the main
+       1.6/Languages/German/DefInjected/ThingDef/Weapons_Unique.xml, which would
+       error on startup for players without VFE Pirates. Style conventions for
+       these entries are documented in that file's header comment.
+       "Warcasket" = Kriegssarg (m.), a coined family term (no readable German
+       community pack); the compound is hyphenated, as in vanilla's
+       Hightech-Fabrikation. -->
+
+  <!-- EN: unique warcasket broadsword -->
+  <UMW_WarcasketBroadsword_Unique.label>einzigartiges Kriegssarg-Breitschwert</UMW_WarcasketBroadsword_Unique.label>
+
+  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketBroadsword_Unique.description>Ein Kriegssarg-Breitschwert mit den Spuren einer Meisterhand. Keine zwei sind gleich geschmiedet.</UMW_WarcasketBroadsword_Unique.description>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.tools.blade.label>Klinge</UMW_WarcasketBroadsword_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_WarcasketBroadsword_Unique.tools.point.label>Spitze</UMW_WarcasketBroadsword_Unique.tools.point.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>Ladung</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>klingt gerade ab</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: broadsword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>|N|Breitschwert</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>|F|Klinge</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>|N|Schwert</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>|F|Schneide</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
+  <!-- EN: unique warcasket gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.label>einzigartiger Kriegssarg-Gravitationshammer</UMW_WarcasketGravityHammer_Unique.label>
+
+  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Ein Kriegssarg-Gravitationshammer mit den Spuren einer Meisterhand. Keine zwei sind gleich geschmiedet.</UMW_WarcasketGravityHammer_Unique.description>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.tools.head.label>Kopf</UMW_WarcasketGravityHammer_Unique.tools.head.label>
+
+  <!-- EN: handle -->
+  <UMW_WarcasketGravityHammer_Unique.tools.handle.label>Stiel</UMW_WarcasketGravityHammer_Unique.tools.handle.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>Ladung</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>klingt gerade ab</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>|M|Hammer</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: maul -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>|M|Vorschlaghammer</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>|M|Kopf</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>|M|Gravitationshammer</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+</LanguageData>

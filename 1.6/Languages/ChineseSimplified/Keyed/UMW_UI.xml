@@ -57,10 +57,30 @@
        vanilla's translation; each description's {0} is the same label in lowercase. -->
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>{0}库存中的特化武器</UMW_TraderStocksUniques>
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>约半数{0}来访时会携带一件特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存绝不会带有极致科技特性：战帮只经营符合时代的武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesWarMerchantDesc>
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>约半数{0}来访时会携带一件特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存可能带有极致科技特性：萨满商人贩卖的是他们自己也未必理解的遗物。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>约半数{0}来访时会携带一件中世纪或更早时代的特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存绝不会带有极致科技特性：战帮只经营符合时代的武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>约半数{0}来访时会携带一件中世纪或更早时代的特化近战武器出售，无论是否携带出售品，远行队都会收购特化近战武器。其库存可能带有极致科技特性：萨满商人贩卖的是他们自己也未必理解的遗物。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesShamanDesc>
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make (with the
+       base game's roster none is; VFE Pirates' warcasket pair is). The settlement trader kind has no
+       def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
+       label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
+       label, capitalized in the row label and lowercase in the description. {0} is a whole noun
+       phrase, never an adjective: where "{0} caravan" cannot compound, recast as "caravan ({0})" or a
+       genitive. "Outlander settlement" in the fixed row names the settlement of an outlander faction
+       (Core FactionDef Outlander*; the settlement word is Core Settlement.label). -->
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>外来者定居点库存中的特化武器</UMW_TraderStocksUniquesOutlanderSettlement>
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>约五分之一的外来者定居点库存中会有一件工业时代或更晚时代的特化近战武器，无论有无，定居点都会收购特化近战武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>商队（{0}）库存中的特化武器</UMW_TraderStocksUniquesCaravan>
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>约五分之一来访的商队（{0}）会携带一件工业时代或更晚时代的特化近战武器出售，无论是否携带出售品，该商队都会收购特化近战武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>商船（{0}）库存中的特化武器</UMW_TraderStocksUniquesShip>
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>约五分之一的商船（{0}）会携带一件工业时代或更晚时代的特化近战武器出售，无论是否携带出售品，该商船都会收购特化近战武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

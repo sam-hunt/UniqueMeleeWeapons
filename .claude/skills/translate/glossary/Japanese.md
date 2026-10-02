@@ -59,3 +59,13 @@ own ブリーチアックス; ブレイカー is already lexicalized in Japanese
 are likewise mod-decided: 格闘 (melee, Core skill label), 斬る / 刺す / 殴る
 (bladed / pointed / blunt, the Core DamageDef labels), 重量 (heavy), 鍔付き
 (guarded).
+
+2026-10-02 (VFE Pirates warcasket pair, `Weapons_Unique_VFEP.xml`): ウォーキャスケット
+(warcasket; the sibling mods' family term, whose only attestation is rimworld.2game.info's
+tagging, as no Japanese VFEP community pack exists, so effectively coined), used unchanged in
+both labels and both descriptions with no separator, as in vanilla's ペルソナゼウスハンマー.
+ブロードソード (broadsword, coined to parallel vanilla's katakana ロングソード rather than the
+kanji 大剣) and 重力ハンマー (gravity hammer; 重力 as in Odyssey 重力コア). namerLabels, no
+gender markers needed: broadsword = ブロードソード / 刃 / 剣 / 刃先 (the shared longsword/gladius
+blade, sword and edge nouns); gravity hammer = ハンマー / 大槌 / 頭 / 重力ハンマー (the shared
+warhammer hammer and maul nouns, the mace head noun).

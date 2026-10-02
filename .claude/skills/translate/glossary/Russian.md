@@ -36,3 +36,16 @@ pointed / blunt, the ToolCapacityDef adjective family), тяжёлое (heavy),
   official vanilla Core string for the breach axe's head tool) — a
   deliberate divergence from the namerLabels.3 "head" pool item, which
   instead grounds to the file's existing head-namer convention (навершие).
+
+- **`UMW_WarcasketBroadsword_Unique` / `UMW_WarcasketGravityHammer_Unique` (2026-10-02):**
+  "warcasket" → броня мертвеца, the family term taken from the most popular
+  community VFE Pirates translation (OneCodeUnit/VanillaRussianExpanded,
+  Workshop 2732234441); the pack drops "броня" on the weapons and keeps the
+  genitive мертвеца as the qualifier, so labels are уникальный меч мертвеца and
+  уникальный гравитационный молот мертвеца (not coined by us). Tool labels reuse
+  existing grounded rows (лезвие, остриё, боевая часть as in the Royalty
+  warhammer, рукоять). namerLabels (bare nouns with no gender markers, as elsewhere in this
+  language; кувалда is feminine, the rest masculine): broadsword → меч
+  мертвеца, клинок, меч, лезвие; gravity hammer → молот, кувалда, боёк,
+  гравитационный молот мертвеца. The label nouns are reused whole as
+  namerLabels.0 (broadsword) and .3 (gravity hammer) per the research sheet.

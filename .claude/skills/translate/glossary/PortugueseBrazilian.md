@@ -203,3 +203,16 @@ and from the already-spent `invasor`/`destruidor`-family words, evoking the
 def's own "tearing down walls and doors" framing. The other two namer slots
 ground to existing vocabulary: `axe`→`machado` (this table's breach axe row)
 and `head`→`cabeça` (vanilla `MeleeWeapon_BreachAxe.tools.head.label`).
+
+2026-10-02, VFE Pirates compat root (`Weapons_Unique_VFEP.xml`): warcasket is
+**`carcaça de guerra`** (family term, fixed across the Warcasket sibling mods;
+source: RafaelNaymaier's "Tradução Vanilla Expanded PT-BR", GitHub
+`RafaelNaymaier/Traducao-Vanilla-Expanded-PT-BR`, Workshop 3643091941),
+used as a `de` qualifier after the weapon noun with `único` agreeing with the
+head noun: `espada larga única de carcaça de guerra`, `martelo gravitacional
+único de carcaça de guerra` (the pack's `espada larga` / `martelo
+gravitacional` nouns kept; `espada larga` is fine for *broadsword* and does not
+clash with Core's `espada longa` = longsword). Tool labels are the grounded
+`lâmina`/`ponta` and `cabeça`/`cabo`. `namerLabels`, unmarked bare lowercase
+nouns: broadsword `espada larga`, `lâmina`, `espada`, `gume`; gravity hammer
+`martelo`, `marreta`, `cabeça`, `martelo gravitacional`. Pending native review.

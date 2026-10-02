@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_WarcasketBroadsword_Unique and UMW_WarcasketGravityHammer_Unique are declared in this
+       VFE Pirates compat load root (1.6/Mods/VanillaFactionsExpandedPirates/Defs/) and carry no
+       MayRequire of their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/VanillaFactionsExpandedPirates loads only when VFE Pirates is active)
+       rather than the main 1.6/Languages/PortugueseBrazilian/DefInjected/ThingDef/Weapons_Unique.xml, which
+       would error on startup for players without VFE Pirates. Style conventions for
+       these entries are documented in that file's header comment. -->
+
+  <!-- EN: unique warcasket broadsword -->
+  <UMW_WarcasketBroadsword_Unique.label>espada larga única de carcaça de guerra</UMW_WarcasketBroadsword_Unique.label>
+
+  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketBroadsword_Unique.description>Uma espada larga de carcaça de guerra que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_WarcasketBroadsword_Unique.description>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.tools.blade.label>lâmina</UMW_WarcasketBroadsword_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_WarcasketBroadsword_Unique.tools.point.label>ponta</UMW_WarcasketBroadsword_Unique.tools.point.label>
+
+  <!-- EN: broadsword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>espada larga</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>lâmina</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>espada</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>gume</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>carga</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>em recarga</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+
+  <!-- EN: unique warcasket gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.label>martelo gravitacional único de carcaça de guerra</UMW_WarcasketGravityHammer_Unique.label>
+
+  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Um martelo gravitacional de carcaça de guerra que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_WarcasketGravityHammer_Unique.description>
+
+  <!-- EN: handle -->
+  <UMW_WarcasketGravityHammer_Unique.tools.handle.label>cabo</UMW_WarcasketGravityHammer_Unique.tools.handle.label>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.tools.head.label>cabeça</UMW_WarcasketGravityHammer_Unique.tools.head.label>
+
+  <!-- EN: hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>martelo</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: maul -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>marreta</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>cabeça</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>martelo gravitacional</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>carga</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>em recarga</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+</LanguageData>

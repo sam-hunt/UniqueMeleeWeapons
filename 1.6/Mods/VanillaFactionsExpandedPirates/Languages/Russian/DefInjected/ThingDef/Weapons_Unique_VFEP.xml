@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_WarcasketBroadsword_Unique and UMW_WarcasketGravityHammer_Unique are declared in this
+       Vanilla Factions Expanded - Pirates compat load root
+       (1.6/Mods/VanillaFactionsExpandedPirates/Defs/ThingDefs/) and carry no MayRequire of
+       their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/VanillaFactionsExpandedPirates loads only when VFE Pirates is
+       active) rather than the main 1.6/Languages/Russian/DefInjected/ThingDef/Weapons_Unique.xml,
+       which would error on startup for players without VFE Pirates. Style conventions for
+       these entries are documented in that file's header comment. -->
+
+  <!-- EN: unique warcasket broadsword -->
+  <UMW_WarcasketBroadsword_Unique.label>уникальный меч мертвеца</UMW_WarcasketBroadsword_Unique.label>
+
+  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketBroadsword_Unique.description>Меч мертвеца, несущий отпечаток руки мастера. Двух одинаковых не куют.</UMW_WarcasketBroadsword_Unique.description>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.tools.blade.label>лезвие</UMW_WarcasketBroadsword_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_WarcasketBroadsword_Unique.tools.point.label>остриё</UMW_WarcasketBroadsword_Unique.tools.point.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>заряд</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>на перезарядке</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: broadsword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>меч мертвеца</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>клинок</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>меч</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>лезвие</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
+
+  <!-- EN: unique warcasket gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.label>уникальный гравитационный молот мертвеца</UMW_WarcasketGravityHammer_Unique.label>
+
+  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Гравитационный молот мертвеца, несущий отпечаток руки мастера. Двух одинаковых не куют.</UMW_WarcasketGravityHammer_Unique.description>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.tools.head.label>боевая часть</UMW_WarcasketGravityHammer_Unique.tools.head.label>
+
+  <!-- EN: handle -->
+  <UMW_WarcasketGravityHammer_Unique.tools.handle.label>рукоять</UMW_WarcasketGravityHammer_Unique.tools.handle.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>заряд</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>на перезарядке</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>молот</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: maul -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>кувалда</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>боёк</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>гравитационный молот мертвеца</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>
+</LanguageData>

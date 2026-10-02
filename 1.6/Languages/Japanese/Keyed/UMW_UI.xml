@@ -57,10 +57,26 @@
        {0} is the same label. -->
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniques>
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」の来訪のうち約半数で,ユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫に最先端技術級の武器特性が乗ることはありません:襲撃団はその時代の武具を扱っているためです.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesWarMerchantDesc>
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>「{0}」の来訪のうち約半数で,ユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫には最先端技術級の武器特性が乗ることもあります:呪い商は自分でも仕組みを理解しきれていない遺物を扱っています.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫に最先端技術級の武器特性が乗ることはありません:襲撃団はその時代の武具を扱っているためです.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫には最先端技術級の武器特性が乗ることもあります:呪い商は自分でも仕組みを理解しきれていない遺物を扱っています.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesShamanDesc>
+
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The settlement
+       row's text is fixed. The two combat suppliers share one vanilla label ("武器商"), so their templates
+       add a caravan / trade ship qualifier ("キャラバン隊" / "商船"): {0} is that label. -->
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>アウトランダーの入植地の在庫にユニークな武器を含める</UMW_TraderStocksUniquesOutlanderSettlement>
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>アウトランダーの入植地の約5つに1つで,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>キャラバン隊の「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniquesCaravan>
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>キャラバン隊の「{0}」の来訪のうち約5回に1回で,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>商船の「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniquesShip>
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>商船の「{0}」の約5隻に1隻で,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

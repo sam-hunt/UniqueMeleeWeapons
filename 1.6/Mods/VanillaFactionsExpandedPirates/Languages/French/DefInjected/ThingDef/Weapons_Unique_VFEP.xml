@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_WarcasketBroadsword_Unique and UMW_WarcasketGravityHammer_Unique are declared in this
+       VFE Pirates compat load root (1.6/Mods/VanillaFactionsExpandedPirates/Defs/ThingDefs/) and carry no
+       MayRequire of their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/VanillaFactionsExpandedPirates loads only when VFE Pirates is active) rather than
+       the main 1.6/Languages/French/DefInjected/ThingDef/Weapons_Unique.xml, which
+       would error on startup for players without VFE Pirates. Style conventions for
+       these entries are documented in that file's header comment.
+       "Warcasket" is rendered "sarcophage" (m.), the family term shared with the sibling Warcasket
+       mods; the weapon labels are coined (no community text readable): "<weapon> unique de sarcophage",
+       with "unique" kept beside the weapon noun so it cannot read as qualifying the sarcophage. -->
+
+  <!-- EN: unique warcasket broadsword -->
+  <UMW_WarcasketBroadsword_Unique.label>épée large unique de sarcophage</UMW_WarcasketBroadsword_Unique.label>
+
+  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketBroadsword_Unique.description>Une épée large de sarcophage portant la marque de la main d'un maître. Il n'en existe pas deux forgées à l'identique.</UMW_WarcasketBroadsword_Unique.description>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.tools.blade.label>lame</UMW_WarcasketBroadsword_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_WarcasketBroadsword_Unique.tools.point.label>pointe</UMW_WarcasketBroadsword_Unique.tools.point.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>charge</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en recharge</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: broadsword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>épée large</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>lame</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>épée</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>tranchant</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+
+  <!-- EN: unique warcasket gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.label>marteau gravitationnel unique de sarcophage</UMW_WarcasketGravityHammer_Unique.label>
+
+  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Un marteau gravitationnel de sarcophage portant la marque de la main d'un maître. Il n'en existe pas deux forgés à l'identique.</UMW_WarcasketGravityHammer_Unique.description>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.tools.head.label>tête</UMW_WarcasketGravityHammer_Unique.tools.head.label>
+
+  <!-- EN: handle -->
+  <UMW_WarcasketGravityHammer_Unique.tools.handle.label>manche</UMW_WarcasketGravityHammer_Unique.tools.handle.label>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>charge</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>en recharge</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+  <!-- EN: hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>marteau</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: maul -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>mailloche</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>tête</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>marteau gravitationnel</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+</LanguageData>

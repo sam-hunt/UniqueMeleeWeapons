@@ -63,6 +63,18 @@ grounds to the existing `UMW_Axe_Unique` namer's own base term 戰斧; `head`
 grounds to vanilla `MeleeWeapon_BreachAxe.tools.head.label` 斧頭 (not the
 mace/warhammer's 錘頭, since the breach axe's head-tool is an axe head).
 
+VFE Pirates warcasket pair (2026-10-02): 戰棺 (warcasket; family term shared
+with the sibling mods, attested on the combined zh community pack, Workshop
+id 2727638702, whose Traditional files are unreadable, so the file-confirmed
+source is the zh-Hans lineage `q847633684/Vanilla-Expanded-ZH` 战棺). Labels
+戰棺巨劍 / 戰棺重力錘 are derived from that pack's 战棺巨剑 / 战棺重力锤 and
+checked against zh-Hant vocabulary (重力 from Odyssey 重力錨; 錘 from
+Zeushammer/Warhammer rather than the Mace's 錘子), so they are coined for
+zh-Hant, not copied. Tool labels reuse vanilla rows: 劍尖 (point), 劍身 (blade,
+on Knife's 刀身 pattern), 錘頭 / 錘柄. `namerLabels`, no gender or markers in
+zh-Hant: broadsword 巨劍 / 利刃 / 劍 / 劍鋒; gravity hammer 錘 / 巨錘 / 錘頭 /
+重力錘.
+
 ## `traitAdjectives` composition rules
 
 Bare attributive words, no trailing 之 or 的 (official: GoldInlay 黃金/金,

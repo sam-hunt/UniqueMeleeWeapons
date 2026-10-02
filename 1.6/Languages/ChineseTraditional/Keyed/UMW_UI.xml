@@ -58,11 +58,32 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>「{0}」庫存中的獨特武器</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」造訪時，約半數會攜帶一把獨特近戰武器出售，且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。其庫存永遠不會抽到超科技特質：戰幫交易的是符合時代的武器。已停用的武器不會出現。</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」造訪時，約半數會攜帶一把中世紀或更早時期製造的獨特近戰武器出售，且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。其庫存永遠不會抽到超科技特質：戰幫交易的是符合時代的武器。已停用的武器不會出現。</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>「{0}」造訪時，約半數會攜帶一把獨特近戰武器出售，且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。其庫存可能會抽到超科技特質：薩滿販售的是他們自己也不完全理解的文物。已停用的武器不會出現。</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>「{0}」造訪時，約半數會攜帶一把中世紀或更早時期製造的獨特近戰武器出售，且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。其庫存可能會抽到超科技特質：薩滿販售的是他們自己也不完全理解的文物。已停用的武器不會出現。</UMW_TraderStocksUniquesShamanDesc>
+
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The two
+       combat suppliers share one vanilla label (軍火商人 / 軌道軍火商), so their templates add a
+       caravan / trade ship qualifier; {0} is that label, quoted in 「」 in both slots. -->
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>外鄉人據點庫存中的獨特武器</UMW_TraderStocksUniquesOutlanderSettlement>
+
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>約五分之一的外鄉人據點會在庫存中備有一把工業時期或更晚製造的獨特近戰武器，且無論庫存中是否已有獨特武器，該據點都會收購獨特近戰武器。已停用的武器不會出現。</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>「{0}」旅隊庫存中的獨特武器</UMW_TraderStocksUniquesCaravan>
+
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>「{0}」旅隊約有五分之一的造訪會攜帶一把工業時期或更晚製造的獨特近戰武器出售，且無論庫存中是否已有獨特武器，該旅隊都會收購獨特近戰武器。已停用的武器不會出現。</UMW_TraderStocksUniquesCaravanDesc>
+
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>「{0}」商船庫存中的獨特武器</UMW_TraderStocksUniquesShip>
+
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>每五艘「{0}」商船中約有一艘會攜帶一把工業時期或更晚製造的獨特近戰武器出售，且無論庫存中是否已有獨特武器，該商船都會收購獨特近戰武器。已停用的武器不會出現。</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

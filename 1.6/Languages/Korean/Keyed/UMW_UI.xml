@@ -58,11 +58,37 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>{0}의 재고에 있는 고유 무기</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>{0} 방문 중 약 절반은 판매용 고유 근접 무기 하나를 가져오며, 상단은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 이 상단의 재고에는 최첨단 특성이 절대 나오지 않습니다. 습격단은 시대에 맞는 무기만 취급합니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>{0} 방문 중 약 절반은 중세 또는 그 이전 기술로 만든 판매용 고유 근접 무기 하나를 가져오며, 상단은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 이 상단의 재고에는 최첨단 특성이 절대 나오지 않습니다. 습격단은 시대에 맞는 무기만 취급합니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>{0} 방문 중 약 절반은 판매용 고유 근접 무기 하나를 가져오며, 상단은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 이 상단의 재고에는 최첨단 특성도 나올 수 있습니다. 이들은 자신도 완전히 이해하지 못하는 유물을 거래하기 때문입니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>{0} 방문 중 약 절반은 중세 또는 그 이전 기술로 만든 판매용 고유 근접 무기 하나를 가져오며, 상단은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 이 상단의 재고에는 최첨단 특성도 나올 수 있습니다. 이들은 자신도 완전히 이해하지 못하는 유물을 거래하기 때문입니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesShamanDesc>
+
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make (with the
+       base game's roster none is; VFE Pirates' warcasket pair is). The settlement trader kind has no
+       def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
+       label ("combat supplier"), so their templates add a caravan / trade ship qualifier: {0} is that
+       label, capitalized in the row label and lowercase in the description. {0} is a whole noun
+       phrase, never an adjective: where "{0} caravan" cannot compound, recast as "caravan ({0})" or a
+       genitive. "Outlander settlement" in the fixed row names the settlement of an outlander faction
+       (Core FactionDef Outlander*; the settlement word is Core Settlement.label). -->
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>외지인 정착지의 재고에 있는 고유 무기</UMW_TraderStocksUniquesOutlanderSettlement>
+
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>외지인 정착지 중 약 5분의 1은 산업 또는 그 이후 기술로 만든 고유 근접 무기 하나를 판매하며, 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>상단({0})의 재고에 있는 고유 무기</UMW_TraderStocksUniquesCaravan>
+
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>상단({0}) 방문 중 약 5분의 1은 산업 또는 그 이후 기술로 만든 판매용 고유 근접 무기 하나를 가져오며, 상단은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesCaravanDesc>
+
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>궤도 상선({0})의 재고에 있는 고유 무기</UMW_TraderStocksUniquesShip>
+
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>궤도 상선({0}) 중 약 5분의 1은 산업 또는 그 이후 기술로 만든 판매용 고유 근접 무기 하나를 싣고 있으며, 상선은 재고 여부와 상관없이 고유 근접 무기를 매입합니다. 비활성화된 무기는 등장하지 않습니다.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.

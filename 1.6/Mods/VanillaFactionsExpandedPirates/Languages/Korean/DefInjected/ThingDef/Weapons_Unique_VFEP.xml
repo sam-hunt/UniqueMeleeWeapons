@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- UMW_WarcasketBroadsword_Unique and UMW_WarcasketGravityHammer_Unique are declared in this
+       Vanilla Factions Expanded - Pirates compat load root
+       (1.6/Mods/VanillaFactionsExpandedPirates/Defs/ThingDefs/) and carry no MayRequire of
+       their own. MayRequire is honored on defs but IGNORED on
+       DefInjected entries, so these injections live in this LoadFolders-gated
+       compat root (1.6/Mods/VanillaFactionsExpandedPirates loads only when VFE Pirates is active)
+       rather than the main 1.6/Languages/Korean/DefInjected/ThingDef/Weapons_Unique.xml, which
+       would error on startup for players without VFE Pirates. Style conventions for
+       these entries are documented in that file's header comment. -->
+
+  <!-- EN: unique warcasket broadsword -->
+  <UMW_WarcasketBroadsword_Unique.label>특제 워캐스킷 대검</UMW_WarcasketBroadsword_Unique.label>
+
+  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketBroadsword_Unique.description>명장의 손길이 남은 워캐스킷 대검입니다. 똑같이 단련된 것은 하나도 없습니다.</UMW_WarcasketBroadsword_Unique.description>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.tools.blade.label>칼날</UMW_WarcasketBroadsword_Unique.tools.blade.label>
+
+  <!-- EN: point -->
+  <UMW_WarcasketBroadsword_Unique.tools.point.label>칼끝</UMW_WarcasketBroadsword_Unique.tools.point.label>
+
+  <!-- EN: broadsword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>대검</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: blade -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>도신</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: sword -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>검</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: edge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>칼날</UMW_WarcasketBroadsword_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>충전</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>재사용 대기 중</UMW_WarcasketBroadsword_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+
+  <!-- EN: unique warcasket gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.label>특제 워캐스킷 중력 망치</UMW_WarcasketGravityHammer_Unique.label>
+
+  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
+  <UMW_WarcasketGravityHammer_Unique.description>명장의 손길이 남은 워캐스킷 중력 망치입니다. 똑같이 단련된 것은 하나도 없습니다.</UMW_WarcasketGravityHammer_Unique.description>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.tools.head.label>머리</UMW_WarcasketGravityHammer_Unique.tools.head.label>
+
+  <!-- EN: handle -->
+  <UMW_WarcasketGravityHammer_Unique.tools.handle.label>손잡이</UMW_WarcasketGravityHammer_Unique.tools.handle.label>
+
+  <!-- EN: hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>망치</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.0>
+
+  <!-- EN: maul -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>쇠메</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.1>
+
+  <!-- EN: head -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>머리</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.2>
+
+  <!-- EN: gravity hammer -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>중력 망치</UMW_WarcasketGravityHammer_Unique.comps.CompUniqueWeapon.namerLabels.3>
+
+  <!-- EN: charge -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>충전</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.chargeNoun>
+
+  <!-- EN: on cooldown -->
+  <UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>재사용 대기 중</UMW_WarcasketGravityHammer_Unique.comps.CompEquippableAbilityReloadable.cooldownGerund>
+
+</LanguageData>

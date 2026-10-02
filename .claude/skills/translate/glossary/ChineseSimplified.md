@@ -57,3 +57,12 @@ demolition-tool fiction rather than combat). The
 Core skill label), 刃器 / 尖器 / 钝器 (bladed / pointed / blunt — 刃器/钝器
 are established weapon-class terms, 尖器 a coined parallel), 沉重 (heavy),
 护手 (guarded).
+
+2026-10-02 (VFE Pirates compat root, `Weapons_Unique_VFEP.xml`): warcasket =
+战棺, the family term shared with the sibling Warcasket mods, taken from the
+community pack `q847633684/Vanilla-Expanded-ZH` (the Workshop page's 无畏战棺
+prefix deliberately not used). Labels follow that pack's word order with 特化
+in front: 特化战棺巨剑 / 特化战棺重力锤. `namerLabels` (no gender or marker
+conventions in zh): broadsword = 巨剑 / 利刃 / 剑 / 剑锋; gravity hammer = 锤 /
+巨锤 / 锤头 / 重力锤. Tool labels reuse this file's grounded rows for the other
+uniques (剑刃 / 剑尖, 锤头 / 锤柄) rather than the pack's 握柄.

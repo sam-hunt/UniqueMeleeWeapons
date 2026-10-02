@@ -203,3 +203,15 @@ agent nouns distinct from the grounded `|F|Axt` (axe) and vanilla `|M|Kopf`
 `Brecher` (breaker — the plain agent noun from `brechen`, "to break"),
 both masculine and both distinct stems so the two namer slots don't
 collide.
+
+The 2026-10-02 VFE Pirates warcasket pair (`UMW_WarcasketBroadsword_Unique`,
+`UMW_WarcasketGravityHammer_Unique`, in the VFEP compat root) use the coined
+family term `Kriegssarg` (m., pl. Kriegssärge) for "warcasket": the only
+German VFE Pirates pack (Workshop id 2810180496) is stale and unreadable, so
+there is no community source. Labels are hyphenated compounds,
+`einzigartiges Kriegssarg-Breitschwert` and `einzigartiger
+Kriegssarg-Gravitationshammer` (both end in relic-list nouns, Schwert and
+Hammer). The namerLabels are `|N|Breitschwert`, `|F|Klinge`, `|N|Schwert`,
+`|F|Schneide` and `|M|Hammer`, `|M|Vorschlaghammer`, `|M|Kopf`,
+`|M|Gravitationshammer`; tools are Klinge/Spitze and Kopf/Stiel (hafted, as on
+the Royalty warhammer).

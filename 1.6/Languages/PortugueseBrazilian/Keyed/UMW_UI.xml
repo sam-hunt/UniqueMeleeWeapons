@@ -72,11 +72,36 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Armas únicas em estoque: {0}</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas nunca são sorteadas em seu estoque: uma tropa de guerra negocia com armas de sua própria época. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas nunca são sorteadas em seu estoque: uma tropa de guerra negocia com armas de sua própria época. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas podem ser sorteadas em seu estoque: xamãs negociam com relíquias que não compreendem totalmente. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas podem ser sorteadas em seu estoque: xamãs negociam com relíquias que não compreendem totalmente. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShamanDesc>
+
+  <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The
+       settlement row's text is fixed (the trader kind has no def label of its own); the caravan and
+       trade ship rows add a qualifier because the two combat suppliers share one vanilla label:
+       {0} is that label (plural noun phrase, "Comerciantes de combate"), capitalized in the row
+       label and lowercase in the description, so it is quoted inside parentheses rather than
+       agreed. "forasteiro" is the vanilla outlander term (OutlanderCivil/Rough faction labels,
+       "União Forasteira"); medieval / industrial are vanilla's TechLevel names, identical in pt-BR. -->
+  <!-- EN: Unique weapons in Outlander settlement stock -->
+  <UMW_TraderStocksUniquesOutlanderSettlement>Armas únicas em estoque: assentamento forasteiro</UMW_TraderStocksUniquesOutlanderSettlement>
+
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Cerca de um em cada cinco assentamentos forasteiros tem em estoque uma arma corpo a corpo única de fabricação industrial ou mais recente, e compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+
+  <!-- EN: Unique weapons in {0} caravan stock -->
+  <UMW_TraderStocksUniquesCaravan>Armas únicas em estoque: caravana ({0})</UMW_TraderStocksUniquesCaravan>
+
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesCaravanDesc>Cerca de uma em cada cinco visitas de caravana ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesCaravanDesc>
+
+  <!-- EN: Unique weapons in {0} trade ship stock -->
+  <UMW_TraderStocksUniquesShip>Armas únicas em estoque: nave comercial ({0})</UMW_TraderStocksUniquesShip>
+
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
+  <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente à venda, e a nave compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
        (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
