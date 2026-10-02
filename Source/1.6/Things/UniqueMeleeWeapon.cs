@@ -36,8 +36,10 @@ public class UniqueMeleeWeapon : ThingWithComps
     // ran one step too late — the material slot was still empty while the name was generated and
     // the inscription call found the title already written.
     // Hit points are NOT handled here: the Carbonized clamp lives on CompUniqueWeapon.AddTrait
-    // (Patches/CompUniqueWeapon_ClampHitPoints_Patch.cs), which generation also funnels through, so
-    // it covers a trait added to an in-world weapon as well; a copy here would be redundant.
+    // (Patches/CompUniqueWeapon_TraitStatCache_Patch.cs), which generation also funnels through, so
+    // it covers a trait added to an in-world weapon as well; a copy here would be redundant. That
+    // patch also clears the per-thing stat caches a trait invalidates, which is why MaxHitPoints
+    // reads correctly at all: see its header.
     public override void PostMake()
     {
         StuffBeingNamed = Stuff;
@@ -98,6 +100,17 @@ public class UniqueMeleeWeapon : ThingWithComps
         {
             return;
         }
+
+        // Repair for saves made before 1.4.0: Carbonized never lowered a weapon's maximum in play
+        // (the per-thing MaxHitPoints cache held the trait-less value, see
+        // Patches/CompUniqueWeapon_TraitStatCache_Patch.cs), so those weapons were saved at the full
+        // trait-less total and would load reading e.g. "100 / 80" once the cache is right. On load
+        // the first read happens with the traits present, so MaxHitPoints is already correct here.
+        if (def.useHitPoints && HitPoints > MaxHitPoints)
+        {
+            HitPoints = MaxHitPoints;
+        }
+
         for (int i = AllComps.Count - 1; i >= 0; i--)
         {
             if (AllComps[i] is CompBladelinkWeapon bladelink

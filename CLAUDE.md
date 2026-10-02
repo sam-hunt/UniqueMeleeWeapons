@@ -165,6 +165,16 @@ pointing at something that no longer exists, and nothing fails until the next re
   armor pen share the single `MeleeWeapon_DamageMultiplier` stat: there is **no** melee AP stat, so
   raising AP via stats always raises damage. Use `MeleeToolModExtension` for independent per-tool
   changes.
+- **A stat that only weapon traits modify is cached per thing forever.** Vanilla's mutable-stat scan
+  (`StatDef.PopulateMutableStats`) reads a `WeaponTraitDef`'s `equippedStatOffsets` only, never its
+  `statOffsets`/`statFactors`, so a part-less stat nothing else touches is marked immutable and its
+  first per-thing read is final; the info card recomputes and disagrees with the weapon. Today that
+  is `MaxHitPoints`, `Flammability` and `MeleeWeapon_CooldownMultiplier`. `Thing.PostMake` reads
+  `MaxHitPoints` before traits roll, which is how Carbonized shipped with no HP cut from its
+  introduction through 1.4.0-rc.1. `Patches/CompUniqueWeapon_TraitStatCache_Patch.cs` clears the
+  caches of every stat a trait names when it lands (generation and in-world alike) and clamps HP; a
+  trait that touches a new immutable stat needs nothing more, but a new *path* that reads a weapon
+  stat before its traits exist does.
 - **Anything a weapon needs beyond those four fields goes through our own extension layer** — a
   `DefModExtension` on the trait plus a Harmony postfix, so the trait stays an ordinary def and
   vanilla generation/naming/stats keep working. Six exist, each documented in
