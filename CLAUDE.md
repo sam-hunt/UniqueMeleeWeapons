@@ -367,7 +367,11 @@ redrawn vanilla spear, measurements in the patch header, with the drafted-idle g
 switchable from a Compatibility setting via `PatchOperation_UMWSetting`, which works because `Mod`
 subclasses are created before XML patches apply — so **any setting that gates a patch is
 restart-to-apply, and its row must say so**. Third-party compat uses the same shape as DLC compat;
-gate on the packageId, never `PatchOperationFindMod` (matches by display name).
+gate on the packageId, never `PatchOperationFindMod` (matches by display name). **In C#, gate with
+`ModLister.GetActiveModWithIdentifier(id, ignorePostfix: true)`, never `ModsConfig.IsActive`.**
+When a local copy and a Workshop copy of a mod are both installed, the Workshop copy's `PackageId`
+gets a `_steam` suffix; `IfModActive` and `MayRequire` ignore it, `IsActive` matches it literally,
+so the two gates disagree exactly on a developer's machine and the C# side silently stays off.
 
 `texPath` is **unaffected by which root the art lives in**: textures are keyed by their path
 relative to `Textures/` in one flat per-mod dictionary merged across all roots, so a move needs no

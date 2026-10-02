@@ -26,7 +26,10 @@ public partial class UniqueMeleeWeaponsSettings
     public bool matchVteSpear = MatchVteSpearDefault;
     private const bool MatchVteSpearDefault = true;
 
-    // Must equal the IfModActive value on the VanillaTexturesExpanded entry in LoadFolders.xml.
+    // Must equal the IfModActive value on the VanillaTexturesExpanded entry in LoadFolders.xml, and
+    // the row below must gate on the same suffix-ignoring test IfModActive uses (ignorePostfix: true),
+    // or a Workshop copy installed beside a local one hides the row while the root still loads
+    // (CLAUDE.md, Optional-DLC content).
     public const string VtePackageId = "VanillaExpanded.VTEXE";
     private const string UniqueSpearDefName = "UMW_Spear_Unique";
 
@@ -42,7 +45,7 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawCompatSection(Listing_Standard listing)
     {
-        ModMetaData vte = ModLister.GetActiveModWithIdentifier(VtePackageId);
+        ModMetaData vte = ModLister.GetActiveModWithIdentifier(VtePackageId, ignorePostfix: true);
         ThingDef spear = DefDatabase<ThingDef>.GetNamedSilentFail(UniqueSpearDefName);
         if (vte == null || spear == null)
         {

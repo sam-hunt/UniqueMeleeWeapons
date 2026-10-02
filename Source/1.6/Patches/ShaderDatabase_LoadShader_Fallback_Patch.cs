@@ -68,11 +68,16 @@ namespace UniqueMeleeWeapons.Patches;
 // resolves and pairs those exactly as it does for an ordinary CutoutComplex weapon.
 //
 // Patch timing: no [HarmonyPatch] attribute, so PatchAll skips it; Apply runs from the Mod
-// constructor right after PatchAll, gated on ModsConfig.IsActive. That is safe and early
+// constructor right after PatchAll, gated on the mod being active. That is safe and early
 // enough on both counts. The active mod list is fixed for the life of the process (the game
 // restarts to change it) and is already final when Mod subclasses are constructed:
 // LoadedModManager.LoadAllActiveMods runs InitializeMods (which evaluates LoadFolders'
-// IfModActive through the same ModsConfig.IsActive) before CreateModClasses. And the first
+// IfModActive) before CreateModClasses. The gate is the suffix-ignoring
+// ModLister.GetActiveModWithIdentifier(id, ignorePostfix: true), the test IfModActive and
+// MayRequire use, NOT ModsConfig.IsActive: when a local copy and a Workshop copy of the same
+// mod are both installed, the Workshop copy's PackageId carries a "_steam" suffix, which
+// IsActive matches literally, so the compat root would load the shader while this guard
+// silently stayed off (CLAUDE.md, Optional-DLC content). And the first
 // 4-argument LoadShader call for a ShaderTypeDef happens in def PostLoad, well after every Mod
 // constructor. It cannot wait for UMW_Startup.Run like the carried-weapon patch, for the
 // materials-before-CallAll reason above. ShaderDatabase is a vanilla type whose static
@@ -107,7 +112,7 @@ public static class ShaderDatabase_LoadShader_Fallback_Patch
     // when VFE Pirates is not active, since nothing then names our shader paths.
     public static void Apply(Harmony harmony)
     {
-        if (!ModsConfig.IsActive(VfepPackageId))
+        if (ModLister.GetActiveModWithIdentifier(VfepPackageId, ignorePostfix: true) == null)
         {
             return;
         }
