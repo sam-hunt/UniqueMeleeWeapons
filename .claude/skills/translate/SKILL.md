@@ -104,9 +104,13 @@ merchant / combat supplier are injected at runtime from their own labels,
 but "caravan", "trade ship", "settlement" and the outlander faction name are
 plain text), and the tech-level names (`TechLevel_Medieval`,
 `TechLevel_Industrial`) the same rows use adjectivally. "Warcasket" is NOT
-groundable: VFE Pirates ships English only, so it is a mod-decided term per
-language, recorded in the glossary's pending-native-review section and kept
-consistent across the two ThingDef labels and descriptions. The vanilla-grounded
+groundable: VFE Pirates ships English only, so it is a family-decided term per
+language whose canonical record is the sibling Shipcracker Warcasket repo's
+`.claude/skills/translate/glossary/<Language>.md` (fixed there against each
+language's most popular community VFE Pirates pack, or coined where none has
+readable files); reuse it unchanged rather than re-researching, and keep it
+consistent across the two ThingDef labels and descriptions. This mod's own
+glossary records only the two weapon labels built on it. The vanilla-grounded
 answers live in `l10n/languages/<Language>.md`; this mod's coined terms
 (weapon-trait epithets, the WeaponCategoryDef labels, parry/warband/war-party
 vocabulary, ...) live in `glossary/<Language>.md`. All eight shipped
