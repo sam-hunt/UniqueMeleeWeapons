@@ -52,13 +52,24 @@ public class UniqueMeleeWeapon : ThingWithComps
 
         // A quality-less def (the VFEP warcasket pair, mirroring their base) never reaches
         // CompQuality.SetQuality, the only generation-time caller of CompArt.InitializeArt
-        // (decompile-verified 1.6), so it would carry no inscription. The quality-bearing eight get
-        // theirs in CompUniqueWeapon.PostPostMake in this order: SetQuality -> InitializeArt (the
-        // tale-less Outsider inscription, plus a generated art title) and THEN the unique name written
-        // over the title. Mirror that here, after the fact: InitializeArtInternal early-outs on an
-        // existing title, so clear first, initialise, then put the unique name back. CanShowArt is
-        // unconditionally true without a CompQuality, so the art is never nulled.
-        if (GetComp<CompQuality>() == null && GetComp<CompArt>() is { } art)
+        // (decompile-verified 1.6). That is correct by default: an inscription is what Excellent-plus
+        // quality earns (CompProperties_Art.minQualityForArtistic; the quality-bearing eight always
+        // clear it because CompUniqueWeapon's Super roll never lands below Masterwork), and a weapon
+        // with no quality tier has not earned it. So the pair is inscribed only when a rolled trait
+        // guarantees art regardless of quality (ForcedArtExtension, i.e. UMW_Storied); that trait's
+        // AddTrait patch cannot do it during generation, since its spawned-guard is what keeps colony
+        // tales off outsider rewards. Otherwise CompArt is left as vanilla leaves a sub-Excellent
+        // unique: title holding the unique name, no tale, so Active is false and no Art tab, inspect
+        // line or description part appears.
+        // The eight get theirs in CompUniqueWeapon.PostPostMake in this order: SetQuality ->
+        // InitializeArt (the tale-less Outsider inscription, plus a generated art title) and THEN
+        // the unique name written over the title. Mirror that here, after the fact:
+        // InitializeArtInternal early-outs on an existing title, so clear first, initialise, then
+        // put the unique name back. CanShowArt is unconditionally true without a CompQuality, so
+        // the art is never nulled.
+        if (GetComp<CompQuality>() == null
+            && GetComp<CompArt>() is { } art
+            && ForcedArtUtility.HasForcedArtTrait(this))
         {
             string uniqueName = art.Title;
             art.Clear();

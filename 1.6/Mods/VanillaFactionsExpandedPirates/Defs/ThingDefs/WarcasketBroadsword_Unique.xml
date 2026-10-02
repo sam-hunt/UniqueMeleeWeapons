@@ -55,9 +55,12 @@
          BaseMeleeWeapon: Forbiddable, Equippable, Styleable), which carry NO CompQuality: VFEP's
          warcasket weapons have no quality tier, so neither does the unique. CompUniqueWeapon.PostPostMake
          null-checks the comp and skips its Super roll (decompile-verified), so MarketValue is base plus
-         trait offsets. CompArt stays even so: every unique bears an inscription (the eight
-         quality-bearing ones get it because the Super roll always clears minQualityForArtistic), and
-         with no CompQuality nothing would call InitializeArt, so UniqueMeleeWeapon.PostMake does.
+         trait offsets. CompArt stays even so, for UMW_Storied alone: an inscription is what
+         Excellent-plus quality earns (the eight quality-bearing uniques always have one because the
+         Super roll clears minQualityForArtistic), and a quality-less weapon has not earned it, so
+         with no CompQuality nothing calls InitializeArt and UniqueMeleeWeapon.PostMake does so only
+         when a rolled trait carries ForcedArtExtension. Without one the comp sits inactive (title
+         only, no tale), exactly like a sub-Excellent unique, so no Art tab shows.
          No minQualityForArtistic: CanShowArt is unconditionally true without a CompQuality. If
          BaseWeapon/BaseMeleeWeapon comps change in a vanilla update, replicate here. -->
     <comps Inherit="False">
