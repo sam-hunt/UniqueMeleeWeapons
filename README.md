@@ -15,16 +15,16 @@
 
 RimWorld's Odyssey DLC introduced unique weapons — one-off variants with rolled traits, colours and names, found as quest rewards and in ancient caches. But every one of them is a gun. Melee got nothing.
 
-This mod fills the gap. Eight unique melee weapons, each stuffable, each rolling its own traits, art variant, colours and name — so the silver longsword pulled from a warband chief is unlike any other's. Traits are built as physical features of the weapon (serrated edges, flanged heads, barbed points, quillons) rather than unexplained blessings, and each is gated to the weapons that could plausibly carry it.
+This mod fills the gap. Eight unique melee weapons (ten with VFE Pirates), each rolling its own traits, art variant, colours and name — so the silver longsword pulled from a warband chief is unlike any other's. Traits are built as physical features of the weapon (serrated edges, flanged heads, barbed points, quillons) rather than unexplained blessings, and each is gated to the weapons that could plausibly carry it.
 
 ## Features
 
-### Eight Unique Melee Weapons
+### Eight Unique Melee Weapons (+2 with VFE Pirates)
 
-Unique variants of the vanilla knife, gladius, longsword, spear, mace and breach axe, plus the axe and warhammer with Royalty — mirroring Odyssey's `_Unique` convention and inheriting their base weapon's tools and stats.
+Unique variants of the vanilla knife, gladius, longsword, spear, mace and breach axe, plus the axe and warhammer with Royalty and the warcasket broadsword and gravity hammer with VFE Pirates — mirroring Odyssey's `_Unique` convention and inheriting their base weapon's tools and stats.
 
-- **Stuffable**, unlike Odyssey's ranged uniques: a unique weapon is made of a real material, and its material stat multipliers apply as normal
-- **Five hand-drawn art variants per weapon**, double-masked so the unique accent colour and the material tint render independently on the same sprite
+- **Stuffable**, unlike Odyssey's ranged uniques: a unique weapon is made of a real material, and its material stat multipliers apply as normal (the warcasket pair excepted)
+- **Hand-drawn art variants** (five per weapon, three per warcasket), double-masked so the unique accent colour and the material tint render independently on the same sprite
 - **Material surfaced explicitly** on the inspect pane and woven into the generated name, since a unique name hides the stuff an ordinary label would show
 
 ### Twenty-Eight Weapon Traits
@@ -45,9 +45,9 @@ Exclusion tokens keep the rolls coherent: one edge treatment, one head, one fini
 Most of `WeaponTraitDef`'s interesting fields are silently inert on melee weapons — they're read only by projectile or bladelink code. Everything here runs through a purpose-built extension layer so traits stay ordinary defs:
 
 - **On-hit effects** — extra damage, stun, stagger, mental states, bleeding wounds, toxic and sedative buildup
-- **Base-damage conversion** — reroute a hit's damage type (a serrated edge tears ragged wounds; an envenomed point delivers tox)
+- **Base-damage conversion** — reroute a hit's damage type (a serrated edge tears ragged wounds; a needle point seeks the organs; an envenomed point delivers tox)
 - **Per-tool damage and armor penetration**, independently of each other
-- **Wielder-side hediffs** — a needle point's demanding grip, a quilloned guard's parry chance
+- **Parrying** — a quilloned guard gives the wielder a chance to turn aside an incoming melee blow
 - **Forced body colour** — carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red
 
 ### Two Active Abilities
@@ -65,18 +65,24 @@ Built on a temporary hidden faction, reused vanilla tribal pawnkinds, and a ruin
 
 Melee uniques are reserved to their own reward pool rather than diluting Odyssey's ranged one, and Odyssey's own unique-weapon rolls are hardened along the way (its stock maker makes stuffable weapons with no stuff, which errors and forces steel). Tag-based sources — ancient crates, fishing, map-generation loot — pass a material already and include our weapons normally.
 
+### Settings
+
+Toggle weapons individually, disable ultratech traits, tune ability cooldowns and radii, adjust warband quest frequency, keep wood out of material rolls, and opt in to uniques in trader stock (off by default).
+
 ### Mod Compatibility
 
 - **[Unique Weapons Unbound](https://github.com/sam-hunt/UniqueWeaponsUnbound)**: our weapons are fully customizable in UWU's dialog, and material is published through a dependency-free naming contract so custom names read correctly. Neither mod references the other's code
-- **Royalty**: the unique axe and warhammer, the three ultratech traits (monomolecular, plasma-cored, zeus-headed), and the defs only they consume are all def-level `MayRequire`-gated, so they simply never load without Royalty
+- **Royalty**: the unique axe and warhammer, their art, and the three ultratech traits (monomolecular, plasma-cored, zeus-headed) ship from a Royalty-gated load folder, so they simply never load without Royalty
+- **[Vanilla Factions Expanded - Pirates](https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948)**: two warcasket-only uniques, present only when loaded
+- **[Vanilla Textures Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324)**: the unique spear matches VTE's redrawn size and pose (toggleable in settings)
 
 ## Requirements
 
-- **RimWorld 1.6** or later
+- **RimWorld 1.6**
 - **Odyssey DLC** (required — depends on Odyssey's unique weapon system)
 - **Harmony** (auto-download from Steam Workshop if you don't have it)
 
-Royalty is optional; two weapons and three traits unlock with it.
+Royalty is optional; two weapons and three traits unlock with it. VFE Pirates is optional; two warcasket weapons unlock with it.
 
 ## Installation
 
@@ -97,15 +103,15 @@ Subscribe on the Steam Workshop and it will auto-download.
 ## Compatibility
 
 - **Safe to add** to existing saves.
-- **Unsafe to remove** from saves.
+- **Unsafe to remove** from saves, but everything can be turned off in mod settings.
 - Not tested with Combat Extended.
 
 ## Contributing
 
 Bug reports and feature requests welcome on [GitHub Issues](https://github.com/sam-hunt/UniqueMeleeWeapons/issues).
-Please attach any relevant hugslib logs/stack traces/mod lists etc.
+Please attach your Player.log, any stack traces and your mod list.
 
-For development setup, see [CLAUDE.md](CLAUDE.md).
+For translations, see [CONTRIBUTING.md](CONTRIBUTING.md); for development setup, see [CLAUDE.md](CLAUDE.md).
 
 ## Credits
 
