@@ -10,8 +10,9 @@
        Why the brittleness is TWO stats: a weapon's HP is only spent by outdoor deterioration, fire and
        explosions — never by swinging it, and an equipped weapon doesn't deteriorate at all — so the HP
        cut alone would be free. The faster decay is what spends it, and MarketValue's StatPart_Health
-       compounds the loss into the devaluation. Also note UniqueMeleeWeapon.PostMake must re-clamp
-       HitPoints, since traits roll after Thing.PostMake has set HP from the unmodified max.
+       compounds the loss into the devaluation. Also note the HitPoints clamp on CompUniqueWeapon.AddTrait
+       (Patches/CompUniqueWeapon_ClampHitPoints_Patch.cs): traits roll after Thing.PostMake has set HP
+       from the unmodified max, and in-world trait tools add this trait to a full-HP weapon.
        Forces near-black UMW_CarbonBlack onto colour two (the green-masked body, replacing the stuff tint) —
        so "BodyColor", not the colour-one "Color": a charred weapon can still take a Gold/Jade inlay.
        "Appearance" keeps it from also rolling ornamental/ugly — it has its own look.

@@ -33,9 +33,11 @@ public class UniqueMeleeWeapon : ThingWithComps
     // PostPostMake; and ThingWithComps.PostMake creates the comps and runs EVERY COMP'S PostPostMake
     // inside itself, so by the time base.PostMake() returns here the traits, quality and name are
     // all final. Nothing of ours belongs in Thing.PostPostMake: through 1.3.0 this work sat there and
-    // ran one step too late — the material slot was still empty while the name was generated, the
-    // hit-point clamp read a stat cache filled before the traits existed, and the inscription call
-    // found the title already written.
+    // ran one step too late — the material slot was still empty while the name was generated and
+    // the inscription call found the title already written.
+    // Hit points are NOT handled here: the Carbonized clamp lives on CompUniqueWeapon.AddTrait
+    // (Patches/CompUniqueWeapon_ClampHitPoints_Patch.cs), which generation also funnels through, so
+    // it covers a trait added to an in-world weapon as well; a copy here would be redundant.
     public override void PostMake()
     {
         StuffBeingNamed = Stuff;
@@ -46,16 +48,6 @@ public class UniqueMeleeWeapon : ThingWithComps
         finally
         {
             StuffBeingNamed = null;
-        }
-
-        // Thing.PostMake set HitPoints from MaxHitPoints before the comps existed, so a trait that
-        // factors MaxHitPoints (UMW_Carbonized's ×0.8) leaves the fresh weapon above its own new
-        // maximum, reading e.g. "100 / 80". That first read also filled the stat's 10-tick cache with
-        // the trait-less value (MaxHitPoints reads it with cacheStaleAfterTicks 10), so the property
-        // would still return it here: read the stat uncached instead, which also refreshes the entry.
-        if (def.useHitPoints)
-        {
-            HitPoints = Mathf.Min(HitPoints, Mathf.RoundToInt(this.GetStatValue(StatDefOf.MaxHitPoints)));
         }
 
         // A quality-less def (the VFEP warcasket pair, mirroring their base) never reaches
