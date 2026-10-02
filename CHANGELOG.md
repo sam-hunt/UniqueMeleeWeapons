@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Entries are short one-liners ready to paste as Steam Workshop change notes: what changed for the player, no rationale, no def names, no sub-bullets. -->
 
+## [1.4.0] - 2026-10-03
+
+### Added
+
+- VFE Pirates: unique warcasket broadswords and gravity hammers.
+- Optional settings to stock industrial-tech uniques at outlander traders.
+
+### Fixed
+
+- Carbonized now lowers max hit points, including on existing weapons.
+- Studded and Flanged effect lines no longer mention demolish damage.
+
+### Changed
+
+- Warband quest and tribal traders only offer uniques up to medieval tech.
+- Cleaner colour edges on the knife, gladius and longsword art.
+- Translations updated in all nine languages.
+
 ## [1.3.0] - 2026-08-27
 
 ### Added
@@ -102,6 +120,7 @@ Initial release.
 - Translations for Simplified Chinese, French, German, Japanese, Korean, Brazilian
   Portuguese, Russian and Spanish.
 
+[1.4.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.4.0
 [1.3.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.3.0
 [1.2.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.1.0

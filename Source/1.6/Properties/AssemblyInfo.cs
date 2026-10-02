@@ -11,4 +11,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.4.0.0")]
 // Mirrors About.xml <modVersion> verbatim, including any SemVer prerelease suffix
 // (1.4.0-rc.1); the two numeric attributes above can't hold one and stay X.Y.Z.0.
-[assembly: AssemblyInformationalVersion("1.4.0-rc.1")]
+[assembly: AssemblyInformationalVersion("1.4.0")]
