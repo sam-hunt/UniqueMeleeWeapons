@@ -29,7 +29,7 @@ CLAUDE.md localization note).
 Steam has no API for per-language Workshop text, so updated files are pasted
 manually into the Workshop page's edit UI (note Steam's own language names
 differ: schinese, koreana, brazilian, latam, ...). The `release` skill diffs
-`English.txt` against the last release tag and refreshes the translations
+`English.txt` against the last stable release tag and refreshes the translations
 whenever it changed.
 
 All ten language files exist (initial pass 2026-08-18; Traditional Chinese
