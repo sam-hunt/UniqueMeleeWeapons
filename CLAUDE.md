@@ -57,14 +57,16 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
   pinned Unity version, the OS build modules and the load-bearing package-manifest entry.
   `Source/` never deploys, so the Unity project stays out of the mod and the C# build.
 - **Stop hook (`.claude/hooks/sync-mod.sh`):** local-only (see below); rebuilds+redeploys after a
-  turn when mod-relevant files changed and warns on failure. Its header carries the rule that its
+  turn when mod-relevant files changed. On failure it exits 2 with the errors on stderr, which
+  Claude Code feeds back to the agent so the turn continues; a second failure in the same turn
+  (`stop_hook_active`) only warns, so it cannot loop. Its header carries the rule that its
   `find` watch list must cover every content root `StageMod` ships, or edits under a missed root
   silently stop redeploying.
 
 **`.claude/` is only partly gitignored.** `.gitignore` carries `.claude/*` followed by
 `!.claude/skills/`, so the skills are tracked and shared while hooks and settings are local
 per-machine. Editing a skill is therefore a committed, team-visible change and must keep in step
-with whatever it automates: `/release`'s step 6 encodes this repo's CHANGELOG layout and the
+with whatever it automates: `/release`'s step 7 encodes this repo's CHANGELOG layout and the
 version scheme (release candidates are `X.Y.Z-rc.N` tags, CHANGELOG-less and Workshop-less, with
 the suffix in `modVersion` and `AssemblyInformationalVersion` only; `release.yml` treats any
 suffixed tag as a prerelease to match), and `/translate`'s glossary encodes per-language
@@ -94,6 +96,10 @@ pointing at something that no longer exists, and nothing fails until the next re
   the render path at all; the `Mod` header names them and each patch's header says why, and why it
   applies where it does (the shader loader runs in def `PostLoad`, before `CallAll`, so it cannot
   wait for `UMW_Startup`). Don't "tidy" them back into `PatchAll`.
+- **Warnings are build errors.** The csproj sets `TreatWarningsAsErrors`, so every compiler and
+  analyzer warning fails the build, locally, in the Stop hook and in CI. Severities are pinned in
+  `.editorconfig`: `warning` blocks the build, `suggestion` is IDE-only. Fix the code, not the
+  severity, unless the rule is wrong for this domain.
 - **Patch-timing hazard (other mods' methods):** `PatchAll()` runs from the `Mod` subclass
   constructor — BEFORE any defs are loaded. Applying a detour JIT-compiles the target and runs its
   declaring type's static ctor, so a patch targeting ANOTHER MOD's method can permanently break
@@ -354,7 +360,7 @@ language roster lives in CONTRIBUTING.md and must move in the same commit as any
   place here: mod-independent learnings go upstream in the canonical checkout, mod-specific ones
   (this mod's coined weapon-trait/name-grammar vocabulary) go in this repo's skill/glossary.
   Upstream ships semver tags (a major means this repo's shim or flow needs an edit); the pin moves
-  only at release (release skill step 2), at the start of a translation pass, or when a new major
+  only at release (release skill step 3), at the start of a translation pass, or when a new major
   lands — never per upstream commit.
 
 **Workshop title coupling:** each language's `UMW_SettingsCategory` Keyed value is the localized

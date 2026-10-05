@@ -47,9 +47,13 @@ dotnet_code_quality_unused_parameters = all:suggestion
 # Roslynator analyzers (Roslynator.Analyzers package + global `roslynator` CLI).
 # Pinned explicitly so the build and the CLI agree on severity rather than each
 # applying its own defaults. Only the rules we've actually hit are listed; the
-# other ~500 stay at package defaults. Style stays "warnings only" — nothing here
-# fails the build.
-dotnet_diagnostic.RCS1146.severity = warning   # Use conditional access (real win)
+# other ~500 stay at package defaults. The csproj sets TreatWarningsAsErrors, so
+# `warning` here fails the build; `suggestion` is IDE-only.
+# RCS1146 stays a suggestion: it fires on UnityEngine.Object receivers too, where the
+# only compliant rewrite (`?.`) is the one UNT0008 forbids (Unity's overloaded ==
+# treats destroyed objects as null; `?.` bypasses it). At `warning` the two rules
+# would deadlock the build. Never bulk-apply its fixer to Unity-typed receivers.
+dotnet_diagnostic.RCS1146.severity = suggestion   # Use conditional access (real win)
 dotnet_diagnostic.RCS1139.severity = none       # "Add summary element to doc comment" — we don't ship XML docs
 dotnet_diagnostic.RCS1226.severity = none       # "Add paragraph to doc comment" — same
 
