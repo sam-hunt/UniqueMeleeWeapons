@@ -94,7 +94,7 @@
        (MissingFieldException: MSBuildConstants.InvalidPathChars); loading a csproj
        directly bypasses SolutionFile.Parse and works fine. -->
   <ItemGroup>
-    <PackageReference Include="Roslynator.Analyzers" Version="4.*">
+    <PackageReference Include="Roslynator.Analyzers" Version="4.16.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
