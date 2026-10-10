@@ -80,7 +80,35 @@ public class UniqueMeleeWeapon : ThingWithComps
         }
     }
 
-    // Interop guard: strip broken CompBladelinkWeapon grafts left by other mods.
+    // Two load-time repairs, both at PostLoadInit and only ever at load.
+    //
+    // NO STAT MAY BE EVALUATED IN HERE. A stat read (MaxHitPoints, MarketValue, any GetStatValue)
+    // runs every mod's stat patches and StatParts, and a mod that lazily loads its settings on
+    // first use (Mod.GetSettings -> LoadedModManager.ReadModSettings -> Scribe.loader.InitLoading)
+    // then opens a second Scribe session inside the save load. InitLoading sees the mode is not
+    // Inactive, logs "Called InitLoading() but current mode is PostLoadInit" and calls
+    // Scribe.ForceStop, which clears the PostLoadIniter's set while DoAllPostLoadInits is still
+    // foreach-ing it; the next item throws "Collection was modified" and the whole load aborts into
+    // an empty, frozen map (decompile-verified 1.6; GitHub issue #2, 1.4.0 through 1.4.1, where the
+    // hit-point repair below read MaxHitPoints directly). Which mod does the lazy read is beside the
+    // point: the first stat evaluation of the session is whatever reaches it first, and nothing in
+    // vanilla evaluates a stat during PostLoadInit. Stat-dependent work is queued instead
+    // (ClampHitPointsAfterLoad).
+    //
+    // 1. Hit-point repair for saves made before 1.4.0: Carbonized never lowered a weapon's maximum in
+    //    play (the per-thing MaxHitPoints cache held the trait-less value, see
+    //    Patches/CompUniqueWeapon_TraitStatCache_Patch.cs), so those weapons were saved at the full
+    //    trait-less total and would load reading e.g. "100 / 80" once the cache is right. The clamp
+    //    runs from LongEventHandler.ExecuteWhenFinished: a save load is an asynchronous long event
+    //    (Root_Play.Start), so the callback runs on the main thread after FinalizeLoading, with the
+    //    Scribe inactive and a lazy settings read harmless. Not SpawnSetup, which an equipped or
+    //    carried weapon never reaches; not a GameComponent, which would have to walk every thing.
+    //    ExecuteWhenFinished runs its action immediately when no long event is current or the
+    //    current one is not yet displayed, so the callback re-checks the Scribe mode and skips the
+    //    repair rather than evaluate a stat mid-load: the repair is cosmetic and a weapon loaded on
+    //    such a path simply keeps its saved total.
+    //
+    // 2. Interop guard: strip broken CompBladelinkWeapon grafts left by other mods.
     // More Persona Traits' Blade Whisperer save-restore (BladeWhisperer_ExposeData_Patch)
     // re-attaches `new CompBladelinkWeapon()` on load to any thing whose save data has a
     // node named "traits" — meaning every weapon with CompUniqueWeapon, whose trait list
@@ -91,8 +119,8 @@ public class UniqueMeleeWeapon : ThingWithComps
     // The filter is exact: a comp built from any def always has props assigned by
     // InitializeComps, and a genuinely bonded graft loads biocoded=true in base.ExposeData
     // before this runs — so `props == null && !Biocoded` matches only comps that are both
-    // non-functional and hold no player data. Runs at PostLoadInit (the graft happens at
-    // LoadingVars), and only ever at load: in-session grafts are left alone.
+    // non-functional and hold no player data. The graft happens at LoadingVars; in-session grafts
+    // are left alone. Touches no stat, so it stays inline.
     public override void ExposeData()
     {
         base.ExposeData();
@@ -101,14 +129,9 @@ public class UniqueMeleeWeapon : ThingWithComps
             return;
         }
 
-        // Repair for saves made before 1.4.0: Carbonized never lowered a weapon's maximum in play
-        // (the per-thing MaxHitPoints cache held the trait-less value, see
-        // Patches/CompUniqueWeapon_TraitStatCache_Patch.cs), so those weapons were saved at the full
-        // trait-less total and would load reading e.g. "100 / 80" once the cache is right. On load
-        // the first read happens with the traits present, so MaxHitPoints is already correct here.
-        if (def.useHitPoints && HitPoints > MaxHitPoints)
+        if (def.useHitPoints)
         {
-            HitPoints = MaxHitPoints;
+            LongEventHandler.ExecuteWhenFinished(ClampHitPointsAfterLoad);
         }
 
         for (int i = AllComps.Count - 1; i >= 0; i--)
@@ -124,6 +147,21 @@ public class UniqueMeleeWeapon : ThingWithComps
                     + "save-restore misidentifying unique-weapon trait data as its own.",
                     "UMW_StrippedBladelinkGraft".GetHashCode());
             }
+        }
+    }
+
+    // The deferred half of the hit-point repair above. The first MaxHitPoints read of the session
+    // happens here with the traits present, so the stat is already correct; a save's worth of
+    // weapons queues one of these each, and each is a single cached stat read.
+    private void ClampHitPointsAfterLoad()
+    {
+        if (Scribe.mode != LoadSaveMode.Inactive || Destroyed)
+        {
+            return;
+        }
+        if (HitPoints > MaxHitPoints)
+        {
+            HitPoints = MaxHitPoints;
         }
     }
 

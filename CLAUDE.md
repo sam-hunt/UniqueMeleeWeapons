@@ -187,11 +187,16 @@ pointing at something that no longer exists, and nothing fails until the next re
   when it lands (vanilla's own stuff-change idiom; its header has the precedents and why the
   game-wide "mark it mutable" alternative was rejected) and clamps HP; a trait that touches a new
   immutable stat needs nothing more, but a new *path* that reads a weapon stat before its traits
-  exist does. In-world trait edits are deliberately left to Unique Weapons Unbound, which marks
-  every trait-named part-less stat mutable **game-wide**; so before a new trait names a part-less
-  stat, check how hot its readers are, because under UWU that stat loses its per-thing cache for
-  every thing in the game (the current three are read per attack, per fire-spread check, or behind a
-  10-tick cache, so they cost nothing measurable).
+  exist does. **Never evaluate a stat inside `ExposeData` (any mode, including `PostLoadInit`):**
+  a stat read runs every mod's stat patches, and one that lazily loads its settings on first use
+  opens a second Scribe session mid-load, which force-stops the real one and aborts the load
+  (issue #2, 1.4.0 to 1.4.1). Queue stat-dependent load repairs through
+  `LongEventHandler.ExecuteWhenFinished` instead; `Things/UniqueMeleeWeapon.cs` is the pattern,
+  including the guard its callback needs. In-world trait edits are deliberately left to Unique
+  Weapons Unbound, which marks every trait-named part-less stat mutable **game-wide**; so before a
+  new trait names a part-less stat, check how hot its readers are, because under UWU that stat
+  loses its per-thing cache for every thing in the game (the current three are read per attack,
+  per fire-spread check, or behind a 10-tick cache, so they cost nothing measurable).
 - **Anything a weapon needs beyond those four fields goes through our own extension layer** — a
   `DefModExtension` on the trait plus a Harmony postfix, so the trait stays an ordinary def and
   vanilla generation/naming/stats keep working. Six exist, each documented in

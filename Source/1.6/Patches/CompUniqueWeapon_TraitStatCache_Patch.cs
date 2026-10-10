@@ -59,8 +59,8 @@ namespace UniqueMeleeWeapons.Patches;
 // bench does no hit-point handling of its own) is incidental; vanilla's stuff-change precedents
 // rescale proportionally instead, which only differs for a damaged weapon gaining the trait
 // in-world, and was judged not worth modelling for a non-vanilla flow. Weapons saved before this
-// fix sit above their maximum once the cache is correct; UniqueMeleeWeapon.ExposeData clamps those
-// on load.
+// fix sit above their maximum once the cache is correct; UniqueMeleeWeapon.ExposeData queues a
+// clamp for after the load completes (its header has why the read must not happen in ExposeData).
 [HarmonyPatch(typeof(CompUniqueWeapon), nameof(CompUniqueWeapon.AddTrait))]
 public static class CompUniqueWeapon_TraitStatCache_Patch
 {
