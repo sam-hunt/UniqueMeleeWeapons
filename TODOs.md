@@ -1,14 +1,9 @@
 # TODOs
 
-## Before release
-
-- Check the compare link on the v1.4.0 after v1.4.0-rc.n
-  it could not be confirmed from GitHub's docs whether auto-generated notes use the previous prerelease or the previous stable as their base. The workflow comment says prereleases count, from experience. If the first promotion shows v1.3.0...v1.4.0 instead of rc.N...v1.4.0, soften that comment.
-- replicate rc release/ci support across sibling repos
+- Update/Add workshop page images with new VFEP uniques/katanas
 
 ## Features
 
-- New katana texture for longsword? Explore ideo's stylable axis
 - Explore mace and axe trait roster depth
 - Consider Mod integration
   - Alpha Armory? Installed locally
