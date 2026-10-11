@@ -39,10 +39,6 @@
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>Permitir a geração desta arma: {0}. Desative para removê-la de todos os grupos de recompensas e de pilhagem; as outras armas ocupam o lugar dela. Armas já existentes no seu jogo salvo não são afetadas. Alguns mods com geradores de pilhagem próprios podem ignorar esta opção.</UMW_WeaponEnabledDesc>
 
-  <!-- Settings: buttons -->
-  <!-- EN: Reset to defaults -->
-  <UMW_ResetToDefaults>Restaurar padrão</UMW_ResetToDefaults>
-
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "madeira", lowercase). -->
   <!-- EN: Exclude {0} from generated unique weapons -->

@@ -26,9 +26,6 @@
        own custom generator can bypass it (see ThingSetMakerUtility_CanGenerate_Patch.cs). -->
   <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this.</UMW_WeaponEnabledDesc>
 
-  <!-- Settings: buttons -->
-  <UMW_ResetToDefaults>Reset to defaults</UMW_ResetToDefaults>
-
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <UMW_ExcludeWoodStuff>Exclude {0} from generated unique weapons</UMW_ExcludeWoodStuff>

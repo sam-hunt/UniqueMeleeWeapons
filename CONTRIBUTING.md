@@ -46,7 +46,7 @@ native speaker), **Planned** (not started — contributions welcome).
 - Files live under `1.6/Languages/<Language>/` (`Keyed/` and `DefInjected/`),
   mirroring the structure of `1.6/Languages/English/`.
 - Every translated entry carries the current English source in a comment
-  directly above it, e.g. `<!-- EN: Reset to defaults -->` — this is how stale
+  directly above it, e.g. `<!-- EN: Exclude {0} from generated unique weapons -->` — this is how stale
   translations are detected when the English changes.
 - Placeholders (`{0}`, `{1}`, ...) must match the English exactly.
 - Exception: entries for content gated on Royalty live under

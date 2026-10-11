@@ -31,10 +31,6 @@
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>{0} darf generiert werden. Schalte die Option aus, um die Waffe aus jedem Belohnungs- und Beutepool zu entfernen; an ihre Stelle treten die anderen Waffen. Bereits in deinem Speicherstand vorhandene Exemplare bleiben unangetastet. Eigene Beutegeneratoren mancher Mods können das umgehen.</UMW_WeaponEnabledDesc>
 
-  <!-- Settings: buttons -->
-  <!-- EN: Reset to defaults -->
-  <UMW_ResetToDefaults>Auf Standard zurücksetzen</UMW_ResetToDefaults>
-
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <!-- EN: Exclude {0} from generated unique weapons -->

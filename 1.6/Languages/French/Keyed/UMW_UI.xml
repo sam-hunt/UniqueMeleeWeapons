@@ -36,10 +36,6 @@
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}. Désactivez l'option pour la retirer de tous les groupes de récompenses et de butin. Les autres armes prennent alors sa place. Les armes déjà présentes dans votre sauvegarde ne sont pas touchées. Certains mods peuvent contourner cette option avec leur propre générateur de butin.</UMW_WeaponEnabledDesc>
 
-  <!-- Settings: buttons -->
-  <!-- EN: Reset to defaults -->
-  <UMW_ResetToDefaults>Réinitialiser les valeurs par défaut</UMW_ResetToDefaults>
-
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <!-- EN: Exclude {0} from generated unique weapons -->

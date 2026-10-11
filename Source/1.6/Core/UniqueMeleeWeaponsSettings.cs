@@ -103,7 +103,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         listing.End();
         Widgets.EndScrollView();
 
-        if (Widgets.ButtonText(buttonRect, "UMW_ResetToDefaults".Translate()))
+        if (Widgets.ButtonText(buttonRect, "RestoreToDefaultSettings".Translate()))
         {
             ResetToDefaults();
         }

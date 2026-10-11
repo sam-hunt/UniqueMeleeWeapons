@@ -31,10 +31,6 @@
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>{0}(을)를 생성할 수 있게 합니다. 끄면 모든 보상 및 전리품 목록에서 제외되며, 다른 무기가 그 자리를 대신합니다. 세이브에 이미 있는 무기는 그대로 유지됩니다. 일부 MOD의 자체 전리품 생성기는 이 설정을 무시할 수 있습니다.</UMW_WeaponEnabledDesc>
 
-  <!-- Settings: buttons -->
-  <!-- EN: Reset to defaults -->
-  <UMW_ResetToDefaults>기본값 복원</UMW_ResetToDefaults>
-
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <!-- EN: Exclude {0} from generated unique weapons -->
