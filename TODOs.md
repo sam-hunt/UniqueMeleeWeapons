@@ -1,5 +1,7 @@
 # TODOs
 
+- Test earlier revisions of VFEP unique masks since 1.7 rolled DXT5->BC7
+- Rewrite ComplexCutoutMix to GLSL source
 - Update/Add workshop page images with new VFEP uniques/katanas
 
 ## Features
