@@ -11,6 +11,12 @@
 // left to "Auto". A shader missing the API the player runs on is unsupported at load and
 // ShaderDatabase falls back to plain Cutout (no mask, no colour two).
 //
+// On RimWorld 1.7 (Waylith) the Linux bundle's Vulkan variant is what every OS draws with: the
+// engine translates bundle shaders from Vulkan only, and reads them from the adjacent _linux bundle
+// when the OS's own has none. So Vulkan must stay in BuildLinux, and the _linux bundle must ship
+// beside the others even though a 1.6 Windows or Mac game never opens it. The runtime side is in
+// ShaderDatabase_LoadShader_Fallback_Patch's header.
+//
 // Packages/manifest.json must keep com.unity.modules.assetbundle: without that built-in module the
 // build still "succeeds" but writes the bundle without its AssetBundle container object, so the
 // game's LoadAsset(path) finds nothing (the only trace is a log line saying the AssetBundle module

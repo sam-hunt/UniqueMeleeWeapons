@@ -35,6 +35,16 @@ namespace UniqueMeleeWeapons.Patches;
 // Windows) would load a shader Unity cannot run. A masked unique drawn with Cutout shows no
 // colour two, so "the weapon lost its paint" is what the player sees.
 //
+// On RimWorld 1.7 (Waylith; decompile-verified on 1.7.4979, boot-verified the same day) the path
+// differs but the guard is still needed. TryLoadShader first asks DefDatabase<ShaderDef> for the
+// path's last segment, then the mod bundles, and on a miss caches Shader.CreateLateBound(name)
+// rather than Cutout; with no ShaderDef named CutoutComplexMix that draws with the engine default.
+// The stub bundle reader translates a Unity shader from its Vulkan variant only, taking it from
+// the adjacent _linux bundle when the OS's own bundle has none (our _win and _mac do not), and
+// returns a non-null Shader with isSupported false when it cannot, which TryLoadShader caches
+// as-is. Our IsUsable probe catches exactly that case. The `lookup` field, the 4-argument
+// overload and ClearDestroy's unload are unchanged.
+//
 // Two ways the load can fail:
 //  1. Missing or unsupported: the OS bundle is absent (ModAssetBundlesHandler loads only the
 //     _win/_mac/_linux file matching the OS), the shader is not in it, or the compiled
