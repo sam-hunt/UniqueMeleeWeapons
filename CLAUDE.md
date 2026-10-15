@@ -278,7 +278,10 @@ pointing at something that no longer exists, and nothing fails until the next re
   tinted art, as on the warcasket pair. An edge that only the mask draws, over flat art, can't
   speck. (A feathered red|green edge is a different class: the mix shader renders it exactly.)
   Separately, load-time DXT5 compression stores each 4×4 block as one straight colour ramp, so
-  red, green and black sharing a block come out wrong.
+  red, green and black sharing a block come out wrong. That is 1.6: 1.7 compresses to BC7 by
+  default (BC1 disabled; set in `RimWorld.dll`'s bootstrap, 1.7.4979), which splits a block into
+  up to three subsets with their own endpoints, so the artifact shrinks there but does not vanish.
+  Art must still satisfy 1.6.
 - **Vanilla melee weapons have no `Name=`, so they can't be `ParentName` targets.**
   `Patches/AddNameToBaseMeleeWeapons.xml` adds one per base weapon we mirror (add-if-missing, so it
   stacks safely with other mods; DLC-gated by node existence). Add an Operation there for each new
