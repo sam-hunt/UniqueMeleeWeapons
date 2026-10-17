@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Entries are short one-liners ready to paste as Steam Workshop change notes: what changed for the player, no rationale, no def names, no sub-bullets. -->
 
+## [1.5.1] - 2026-10-18
+
+### Changed
+
+- The mod preview image now shows the RimWorld 1.7 badge.
+
 ## [1.5.0] - 2026-10-15
 
 ### Added
@@ -142,6 +148,7 @@ Initial release.
 - Translations for Simplified Chinese, French, German, Japanese, Korean, Brazilian
   Portuguese, Russian and Spanish.
 
+[1.5.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.1
 [1.5.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.0
 [1.4.2]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.4.1
