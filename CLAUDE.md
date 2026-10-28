@@ -50,7 +50,11 @@ The repo lives outside the Mods folder; every local build redeploys automaticall
 - **One manifest, one place:** the `_ModFiles` ItemGroup in the `StageMod` target of
   `Source/1.6/UniqueMeleeWeapons.csproj` (its comments cover how it globs and what it excludes).
   It is generic over folders, so a new `1.7/` or `Sounds/` needs no build change; only a brand-new
-  *file type* does. Local deploy and CI release both call it, so they can't drift.
+  *file type* does. Local deploy and CI release both call it, so they can't drift. After the copy
+  it rewrites every staged `.xml` without its comments (the inline `StripXmlComments` task beside
+  it); the repo files are untouched, and everything that reads XML from disk (the checker, the
+  probe) reads the repo, while the smoke test boots the stripped copy. The Steam upload is this
+  same local deploy, so it ships stripped too.
 - **Asset bundles are committed binaries** (CI has no Unity and stages whatever is committed).
   `1.6/Mods/VanillaFactionsExpandedPirates/AssetBundles/umw_shaders_{win,linux,mac}` carry the mix
   shader (see "Stuffable uniques are double-masked" below); they sit in the VFEP compat root
