@@ -25,7 +25,7 @@ namespace UniqueMeleeWeapons.Patches;
 // convention it already established for a trait's own stat lines (ToLineList(" - ")).
 //
 // Drift after a RimWorld update is cosmetic only. The ranged-only burstShot*/additionalStoppingPower
-// lines vanilla also emits are intentionally dropped — they are inert on a melee weapon (CLAUDE.md),
+// lines vanilla also emits are intentionally dropped — they are inert on a melee weapon (1.6/Defs/CLAUDE.md),
 // so printing them would claim an effect that never fires.
 //
 // Discovered automatically by PatchAll().

@@ -32,7 +32,7 @@ is language-agnostic (any language's title matches regardless of UI
 language, verified 2026-08-12) and the preview thumbnail already carries the
 English name. Each title must equal that language's `UMW_SettingsCategory`
 Keyed value so the in-game settings header matches the Workshop page (see the
-CLAUDE.md localization note).
+1.6/Languages/CLAUDE.md).
 
 Steam has no API for per-language Workshop text, so updated files are pasted
 manually into the Workshop page's edit UI (note Steam's own language names

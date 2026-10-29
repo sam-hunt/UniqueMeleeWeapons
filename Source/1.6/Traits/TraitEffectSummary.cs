@@ -35,7 +35,7 @@ namespace UniqueMeleeWeapons;
 //     its place. Head-weighted's AP correction is invisible without it.
 //   - ForcedColorTwoExtension: cosmetic, and the player is looking at the weapon.
 //   - burstShot*/additionalStoppingPower: read only by the projectile path, so printing them on a
-//     melee weapon would state an effect that never happens (see CLAUDE.md's inert-fields rule).
+//     melee weapon would state an effect that never happens (see 1.6/Defs/CLAUDE.md's inert-fields rule).
 public static class TraitEffectSummary
 {
     // Derives each eligible trait's effect lines and attaches them as a TraitEffectLinesExtension.

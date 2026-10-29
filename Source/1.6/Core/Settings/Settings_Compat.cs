@@ -29,7 +29,7 @@ public partial class UniqueMeleeWeaponsSettings
     // Must equal the IfModActive value on the VanillaTexturesExpanded entry in LoadFolders.xml, and
     // the row below must gate on the same suffix-ignoring test IfModActive uses (ignorePostfix: true),
     // or a Workshop copy installed beside a local one hides the row while the root still loads
-    // (CLAUDE.md, Optional-DLC content).
+    // (1.6/Mods/CLAUDE.md).
     public const string VtePackageId = "VanillaExpanded.VTEXE";
     private const string UniqueSpearDefName = "UMW_Spear_Unique";
 

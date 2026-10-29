@@ -9,7 +9,7 @@
     at quest-start (Beggars-style), marks the instance temporary, sets it hostile to the player, and
     reserves it to the quest. When the quest ends and the site world object is destroyed, FactionManager
     auto-removes the (now unreserved) temporary faction - so there is no permanent footprint and no
-    manual teardown. See the "Warband quest" architecture note in CLAUDE.md.
+    manual teardown. The full rationale is the header of Source/1.6/Quests/QuestNode_Root_Warband.cs.
 
     Modelled on Core's TribeBase (Neolithic, NamerFactionTribal, Tribal backstory) so the generated
     pawns/name read as a low-tech war-party. Relations are deliberately NOT declared here (no

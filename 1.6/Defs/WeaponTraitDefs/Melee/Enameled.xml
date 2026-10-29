@@ -9,7 +9,7 @@
        Carbonized's does.
        Forces the UMW_EnamelPurple tint onto COLOUR TWO (the green-masked body) via
        ForcedColorTwoExtension, not vanilla's colour-one forcedColor — this is the double-mask
-       contract (see CLAUDE.md): a forced body colour REPLACES the material/stuff tint (an enameled
+       contract (see Textures/CLAUDE.md): a forced body colour REPLACES the material/stuff tint (an enameled
        plasteel and an enameled wooden weapon look alike), so it tags "BodyColor" (its own
        one-per-weapon family, shared with BloodStained/Carbonized/Monomolecular/PlasmaCored), NOT
        "Color". Being on a different mask channel from the colour-one inlays, it can legally co-occur

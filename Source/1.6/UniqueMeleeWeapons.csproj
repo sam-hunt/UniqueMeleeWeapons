@@ -109,7 +109,7 @@
            DXT1/DXT5, BC7 via a DX10 header (any DX10 header is read as BC7), or uncompressed,
            used as-is with no load-time recompression) and silently wins over a same-named
            .png, so it is left out by choice. Add a .dds glob to the Textures line if a mask
-           ever needs BC7 or lossless storage (CLAUDE.md, double-masking). The DLL ships
+           ever needs BC7 or lossless storage (Textures/CLAUDE.md). The DLL ships
            without its .pdb. OS junk, editor backups (incl. .kra art sources), dev notes, and
            Source/ never match. -->
 

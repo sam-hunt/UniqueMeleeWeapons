@@ -5,7 +5,7 @@ namespace UniqueMeleeWeapons.Patches;
 
 // Re-runs UMW_Startup on EVERY play-data load, where [StaticConstructorOnStartup] would run it
 // only once per process. This file is the full rationale for that divergence; UMW_Startup and
-// CLAUDE.md carry only pointers here.
+// Source/1.6/CLAUDE.md carry only pointers here.
 //
 // Why the attribute's contract is too weak for us: UMW_Startup's work is all state derived from
 // or written onto the live DefDatabase — a cached list of our weapon defs, settings-driven

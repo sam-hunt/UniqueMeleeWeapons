@@ -3,7 +3,7 @@
 
   <!-- Base-damage target for the UMW_NeedlePoint trait. The DamageConversion postfix reroutes the
        weapon's normal Stab hit to this in place (no extra damage stacked) — see the on-hit-effects
-       note in CLAUDE.md. Faithful clone of Core's Stab (keeps DamageWorker_Stab, Sharp armor, the
+       note in 1.6/Defs/CLAUDE.md. Faithful clone of Core's Stab (keeps DamageWorker_Stab, Sharp armor, the
        vanilla Stab injury hediff, the overkill curve), differing ONLY in
        stabChanceOfForcedInternal 0.6 -> 0.85. That field is the whole mechanic
        (DamageWorker_Stab.ChooseHitPart, decompile-verified, RimWorld 1.6): the worker picks an outside

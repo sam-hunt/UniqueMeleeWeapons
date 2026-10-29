@@ -4,7 +4,7 @@
   <!-- Sedation-buildup hediff carried by the UMW_Opiated coating (UMW_Stab_Tranq's additionalHediffs).
        Accumulates like Core's ToxicBuildup (Pawn_HealthTracker.PostApplyDamage applies additionalHediffs on
        every Thing.TakeDamage; base Hediff.TryMergeWith then merges same-def whole-body hediffs, SUMMING
-       severity) — see the on-hit-effects note in CLAUDE.md.
+       severity) — see the on-hit-effects note in 1.6/Defs/CLAUDE.md.
 
        Why a custom hediff, not vanilla Anesthetic: Anesthetic is authored for the DECAY direction, not
        buildup. Its stage 0 is labelled "wearing off" (reads backwards while severity is climbing toward a

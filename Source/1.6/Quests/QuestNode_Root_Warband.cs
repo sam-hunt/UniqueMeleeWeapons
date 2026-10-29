@@ -24,7 +24,7 @@ namespace UniqueMeleeWeapons;
 //     of an AncientStructure, and our own QuestPart_SpawnWarband (which reads "SettlementRect" and makes
 //     the lord for our temporary faction).
 //
-// See the "Warband quest" architecture note in CLAUDE.md for the full rationale.
+// This header is the full rationale; the root CLAUDE.md feature map only points here.
 public class QuestNode_Root_Warband : QuestNode
 {
     // 30 days, matching AncientMercenaries.

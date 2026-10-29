@@ -12,7 +12,7 @@ namespace UniqueMeleeWeapons.Patches;
 // cannot be used the warcasket uniques fall back to vanilla CutoutComplex, which still applies
 // both mask channels, and never to vanilla's default fallback, plain Cutout, which drops the
 // mask and colour two entirely. This file is the full rationale; the ShaderTypeDefs and
-// CLAUDE.md carry only pointers here.
+// Textures/CLAUDE.md carry only pointers here.
 //
 // Scope: only the two VFE Pirates warcasket uniques draw with the mix shader (their masks have
 // feathered red|green edges, which vanilla's stacked tints render lighter than painted); every
@@ -87,13 +87,13 @@ namespace UniqueMeleeWeapons.Patches;
 // MayRequire use, NOT ModsConfig.IsActive: when a local copy and a Workshop copy of the same
 // mod are both installed, the Workshop copy's PackageId carries a "_steam" suffix, which
 // IsActive matches literally, so the compat root would load the shader while this guard
-// silently stayed off (CLAUDE.md, Optional-DLC content). And the first
+// silently stayed off (1.6/Mods/CLAUDE.md). And the first
 // 4-argument LoadShader call for a ShaderTypeDef happens in def PostLoad, well after every Mod
 // constructor. It cannot wait for UMW_Startup.Run like the carried-weapon patch, for the
 // materials-before-CallAll reason above. ShaderDatabase is a vanilla type whose static
 // initializer only loads vanilla shaders from Resources on the main thread and touches no
 // defs, so triggering it from the constructor is harmless (the foreign-cctor hazard in
-// CLAUDE.md does not apply).
+// Source/1.6/CLAUDE.md does not apply).
 //
 // The probe and warning fire once per load in practice: only UMW_CutoutComplexMix is named by
 // a graphicData.shaderType, so only its ShaderTypeDef.Shader is ever resolved (it names both

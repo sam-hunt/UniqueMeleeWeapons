@@ -4,7 +4,7 @@
   <!-- UMW_Pointed. Point shape — barbs behind the tip that catch on the way out, tearing the wound wider
        as the point is withdrawn. Realised via MeleeDamageConversionExtension rerouting the base Stab hit
        to the bleedier, scar-prone UMW_Stab_Ragged in place (no extra hit stacked, no per-tool damage
-       split) — see the on-hit-effects note in CLAUDE.md. Unlike UMW_Serrated, there is no per-tool
+       split) — see the on-hit-effects note in 1.6/Defs/CLAUDE.md. Unlike UMW_Serrated, there is no per-tool
        damage split here: the spear is a single-tool (Stab-only) weapon, so the ragged bleed/scar tuning
        IS the whole upside, with no cut-side tradeoff to book against it. Shares the "Point" tag with
        ArmorSpike/NeedlePoint (one point-shape trait per weapon), but combines freely with a coating

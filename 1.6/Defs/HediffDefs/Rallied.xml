@@ -17,7 +17,7 @@
        Biotech's Unstoppable gene are vanilla's only two users and both take it to 0 for outright
        immunity; half is the proportionate read for a 2-hour buff on an ordinary human, and it keeps
        "wounds barely slow them" in the ability description literally true of both halves of the
-       payload. Not subject to CLAUDE.md's control-effect budget: that governs stun/stagger effects we
+       payload. Not subject to 1.6/Defs/CLAUDE.md's control-effect budget: that governs stun/stagger effects we
        inflict on others, and this is resistance on our own side, adding nothing to the census. -->
   <HediffDef>
     <defName>UMW_Rallied</defName>

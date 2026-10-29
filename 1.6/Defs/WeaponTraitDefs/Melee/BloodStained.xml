@@ -15,7 +15,7 @@
        forcedColor: the gore reads as the body itself, so it replaces the material tint and tags
        "BodyColor" rather than "Color" — leaving it free to co-roll with a colour-one Gold/Jade inlay.
        Also tags "Appearance": a gore-caked weapon has its own look, so it never also rolls
-       ornamental/ugly. Carries both MarketValue halves per the CLAUDE.md rule — ×0.8 for the gore,
+       ornamental/ugly. Carries both MarketValue halves per the 1.6/Defs/CLAUDE.md rule — ×0.8 for the gore,
        +40 for the panic, half Bell-cast's +80 (weaker proc, humanlike-only). Commonality 0.5 keeps the
        "Appearance" family uniform, as Odyssey's is; at 1.0 it took over half the family's rolls and
        buried the four cosmetics it excludes. canGenerateAlone defaults true: a complete identity. -->

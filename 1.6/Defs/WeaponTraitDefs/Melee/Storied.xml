@@ -12,7 +12,7 @@
          • Art: ForcedArtExtension guarantees an art inscription regardless of quality — the
            recorded lineage is literal CompArt content, with a colony tale preferred when the trait
            is added to an in-world weapon (case table in Source/1.6/Traits/ForcedArtExtension.cs).
-       MarketValue +100 offset: the capability rule (added capability = flat offset, CLAUDE.md) wins
+       MarketValue +100 offset: the capability rule (added capability = flat offset, 1.6/Defs/CLAUDE.md) wins
        over the provenance/finish framing that might otherwise suggest a factor — anchored on
        EMPPulser's +80 (the nearest ability-trait comparable) and bumped above it for the mood passive
        riding alongside the ability.

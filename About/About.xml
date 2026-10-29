@@ -30,7 +30,7 @@
     <li>ludeon.rimworld.anomaly</li>
     <li>ludeon.rimworld.odyssey</li>
     <!-- Optional. The VFE Pirates compat root's uniques inherit from VFEP's defs, which only
-         resolves when VFEP loads first (see CLAUDE.md, the Name= constraint). -->
+         resolves when VFEP loads first (see 1.6/Defs/CLAUDE.md, the Name= constraint). -->
     <li>oskarpotocki.vfe.pirates</li>
   </loadAfter>
 </ModMetaData>

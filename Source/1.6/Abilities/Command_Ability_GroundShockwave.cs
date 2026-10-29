@@ -9,7 +9,7 @@ namespace UniqueMeleeWeapons;
 // Selected per-ability by AbilityDef.gizmoClass (a plain Type field that Ability.GetGizmos feeds to
 // Activator.CreateInstance), so this needs no Harmony patch — see Defs/AbilityDefs/Earthshake.xml.
 //
-// Exists only to keep the hover preview honest, which this repo treats as a rule (see CLAUDE.md): the
+// Exists only to keep the hover preview honest, which this repo treats as a rule (see 1.6/Defs/CLAUDE.md): the
 // burst is flood-filled through conducting ground, so a plain radius ring would promise cells across a
 // gap that the shock never reaches. Vanilla cannot draw that. Command_Ability.GizmoUpdateOnMouseover
 // hands off to VerbProperties.DrawRadiusRing, whose only cell filter is a hardcoded

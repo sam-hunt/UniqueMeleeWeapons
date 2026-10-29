@@ -2,7 +2,7 @@
 <Defs>
 
   <!-- Tranquilizing-stab damage carried by the UMW_Opiated "coating" trait (Envenomed's twin
-       mechanism — see the on-hit-effects note in CLAUDE.md). Dealt as an extra hit by
+       mechanism — see the on-hit-effects note in 1.6/Defs/CLAUDE.md). Dealt as an extra hit by
        MeleeOnHitEffect_ExtraDamage; the sedative buildup is applied source-agnostically by
        Pawn_HealthTracker.PostApplyDamage off DamageDef.additionalHediffs (NOT the projectile path), so it
        works for a melee-sourced DamageInfo — same verified mechanism as UMW_Stab_Tox.

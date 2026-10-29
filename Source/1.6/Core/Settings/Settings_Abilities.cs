@@ -78,7 +78,7 @@ public partial class UniqueMeleeWeaponsSettings
         def.cooldownTicksRange = new IntRange(rounded, rounded);
     }
 
-    // An ability's radius lives in two places that must agree, per CLAUDE.md: verbProperties.range
+    // An ability's radius lives in two places that must agree, per 1.6/Defs/CLAUDE.md: verbProperties.range
     // drives the hover ring (VerbProperties.DrawRadiusRing reads verb.EffectiveRange and never a comp
     // field), and the effect comp's own radius drives what actually happens. Writing only one of them
     // would leave a preview that lies about the burst, so this owns both.

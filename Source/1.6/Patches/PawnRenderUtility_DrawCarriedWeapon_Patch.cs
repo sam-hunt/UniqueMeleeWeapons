@@ -26,7 +26,7 @@ namespace UniqueMeleeWeapons.Patches;
 // Never unpatched: the only in-process reload (a language change) rebuilds the defs identically,
 // so the answer can't change without a restart, and Harmony's Unpatch re-JITs the target for
 // nothing. Run is idempotent, so a static flag suffices. Deferral here is about the decision,
-// not safety - the target is vanilla, so the foreign-cctor timing hazard in CLAUDE.md does not
+// not safety - the target is vanilla, so the foreign-cctor timing hazard in Source/1.6/CLAUDE.md does not
 // apply; do not "tidy" this back into PatchAll.
 //
 // Cost when applied: one modExtensions scan per drafted-idle, on-screen, openly-armed pawn per
