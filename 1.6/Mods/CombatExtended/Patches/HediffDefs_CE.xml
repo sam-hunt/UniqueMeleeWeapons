@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <!-- Combat Extended compat: mirror CE's injury overhaul onto our two ragged wounds.
+  <!-- Combat Extended compat: mirror CE's injury overhaul onto our two ragged wounds, and make
+       the venomous stab a CE venom wound.
 
        CE rewrites Core's Cut and Stab injuries BY DEFNAME (Patches/Core/HediffDefs/
        Hediffs_Local_Injuries.xml, CE 16.7.4.0): the instant-roll HediffCompProperties_Infecter
@@ -25,14 +26,24 @@
        - UMW_Stab_Ragged painPerSeverity 0.0125 -> 0.0175, CE's Stab value. Cut is unchanged in CE,
          so UMW_Cut_Ragged keeps 0.0125.
 
+       UMW_VenomousStab (Envenomed's wound under CE; the def's header has the dose math and why it
+       is a main-tree def) is a parentless clone of Core's Stab like the ragged pair, so it gets
+       the same two Stab mirrors (InfecterCE 0.03/h, pain 0.0175; scar factor stays 1 as CE
+       leaves Stab's) plus the one thing that makes it a venom wound: CE's
+       HediffCompProperties_Venom, numbers verbatim from CE's VenomousScratch / VenomousBite /
+       VenomousArrow (VenomPerSeverity 0.0000134, 10000 to 17500 ticks; CE 16.7.4.0
+       Defs/HediffDefs/Hediffs_CE.xml). The comp is ADDED to the comps list rather than the
+       list replaced, so a vanilla-side comp change on the clone (kept in step with Core's Stab)
+       flows through. The DamageDef side of the reroute is in DamageDefs_CE.xml.
+
        The other on-hit payloads were audited against CE the same session (2026-11-03) and need no
        hediff work: BellCast's StunFor and DeadBlow's StaggerFor bypass the damage-stun path CE
        rewrites (StunHandler.Notify_DamageApplied; StaggerHandler is untouched); BloodStained's
        PanicFlee is a vanilla mental state CE never patches; UMW_SedativeBuildup is ours alone, and
        CE's Pawn_HealthTracker.CheckForStateChange transpiler removes vanilla's random death-on-downed
-       roll, so an Opiated capture is strictly safer under CE. Envenomed and ZeusHeaded ride
-       mechanics CE does overhaul (its wound-borne venom, its Electric armor and re-stun model); the
-       findings sit in WeaponTraits_CE.xml's header beside the PlasmaCored retune. -->
+       roll, so an Opiated capture is strictly safer under CE. ZeusHeaded rides CE's Electric armor
+       and re-stun model and stays as it is, by decision; the reasoning sits in
+       WeaponTraits_CE.xml's header beside the PlasmaCored retune. -->
 
   <!-- UMW_Cut_Ragged: CE's Cut infection model and a scar factor that stays 10x CE's Cut. -->
   <Operation Class="PatchOperationReplace">
@@ -63,6 +74,32 @@
     <xpath>Defs/HediffDef[defName="UMW_Stab_Ragged"]/injuryProps/painPerSeverity</xpath>
     <value>
       <painPerSeverity>0.0175</painPerSeverity>
+    </value>
+  </Operation>
+
+  <!-- UMW_VenomousStab: CE's Stab infection model and pain, then CE's venom comp. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_VenomousStab"]/comps/li[@Class="HediffCompProperties_Infecter"]</xpath>
+    <value>
+      <li Class="CombatExtended.HediffCompProperties_InfecterCE">
+        <infectionChancePerHourUntended>0.03</infectionChancePerHourUntended>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_VenomousStab"]/injuryProps/painPerSeverity</xpath>
+    <value>
+      <painPerSeverity>0.0175</painPerSeverity>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/HediffDef[defName="UMW_VenomousStab"]/comps</xpath>
+    <value>
+      <li Class="CombatExtended.HediffCompProperties_Venom">
+        <VenomPerSeverity>0.0000134</VenomPerSeverity>
+        <MinTicks>10000</MinTicks>
+        <MaxTicks>17500</MaxTicks>
+      </li>
     </value>
   </Operation>
 

@@ -115,4 +115,34 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>Cortado fora</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>facada venenosa</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>uma facada venenosa</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{0} no(a) {1}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>Uma facada que carrega um veneno neurotóxico de ação lenta. O veneno se infiltra no sangue até que o ferimento seja tratado ou cicatrize.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>enfaixado</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>suturado</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>fixado</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>cicatriz de facada</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>Cortado fora</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>Cortado fora</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

@@ -85,4 +85,34 @@
   <!-- EN: {0} in the {1} -->
   <UMW_Stab_Ragged.labelNounPretty>{1}内の{0}</UMW_Stab_Ragged.labelNounPretty>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>毒の刺し傷</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>毒の刺し傷</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>効きの遅い神経毒を帯びた刺し傷です.手当てを受けるか傷が塞がるまで,毒が血中に染み出し続けます.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>包帯</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>縫合</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>セット</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>刺傷痕</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>切り落とされた</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>切り取られた</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{1}内の{0}</UMW_VenomousStab.labelNounPretty>
+
 </LanguageData>

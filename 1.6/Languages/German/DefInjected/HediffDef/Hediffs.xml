@@ -85,4 +85,34 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>Herausgeschnitten</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>vergifteter Stich</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>eine vergiftete Stichwunde</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{0} {1_gender ? am : an der} {lookup: {1}; decline; 6}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>Eine Stichwunde, die ein langsam wirkendes Nervengift in sich trägt. Das Gift sickert ins Blut, bis die Wunde versorgt wird oder verheilt.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>bandagiert</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>vernäht</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>geschient</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>Stichnarbe</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>Abgeschnitten</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>Herausgeschnitten</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

@@ -151,8 +151,8 @@
   <!-- EN: envenomed -->
   <UMW_Envenomed.label>淬毒</UMW_Envenomed.label>
 
-  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
-  <UMW_Envenomed.description>尖端涂有一种缓效的神经毒液，会在被它所伤者体内造成中毒积累。</UMW_Envenomed.description>
+  <!-- EN: The point is coated in a slow neurotoxic venom that poisons those it wounds. -->
+  <UMW_Envenomed.description>尖端涂有一种缓效的神经毒液，会使被它所伤者中毒。</UMW_Envenomed.description>
 
   <!-- EN: envenomed -->
   <UMW_Envenomed.traitAdjectives.0>淬毒</UMW_Envenomed.traitAdjectives.0>

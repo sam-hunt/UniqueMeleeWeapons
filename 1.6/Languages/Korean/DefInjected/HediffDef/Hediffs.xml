@@ -85,4 +85,34 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>잘림</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>독 찔림</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>독 묻은 찔린 상처</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{1}의 {0}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>서서히 퍼지는 신경독이 스며든 찔린 상처입니다. 상처를 치료하거나 아물 때까지 독이 혈액으로 스며듭니다.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>붕대 감음</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>봉합됨</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>접합됨</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>찔린 흉터</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>끊어짐</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>잘림</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

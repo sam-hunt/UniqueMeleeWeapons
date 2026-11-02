@@ -85,4 +85,34 @@
   <!-- EN: {0} in the {1} -->
   <UMW_Stab_Ragged.labelNounPretty>la {0} en {1_gender ? el : la} {1}</UMW_Stab_Ragged.labelNounPretty>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>puñalada venenosa</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>una puñalada venenosa</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>Una puñalada que transporta un veneno neurotóxico de acción lenta. El veneno se filtra en la sangre hasta que se trata la herida o cicatriza.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>vendada</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>suturada</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>estabilizada</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>cicatriz de puñalada</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>Perforado(a)</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>Seccionado(a)</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>la {0} en {1_gender ? el : la} {1}</UMW_VenomousStab.labelNounPretty>
+
 </LanguageData>

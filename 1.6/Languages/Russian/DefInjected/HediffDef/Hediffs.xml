@@ -85,4 +85,34 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>вырезано</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>ядовитая колотая рана</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>ядовитая колотая рана</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{0} {lookup: {1}; Case; 1}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>Колотая рана с медленно действующим нейротоксичным ядом. Яд просачивается в кровь, пока рана не будет обработана или не затянется.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>перевязано</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>зашито</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>обработано</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>шрам от колотой раны</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>отрезано</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>вырезано</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

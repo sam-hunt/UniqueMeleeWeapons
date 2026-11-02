@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The wound UMW_Envenomed's UMW_Stab_Tox leaves UNDER COMBAT EXTENDED. In a vanilla game this
+       def is declared and never applied: UMW_Stab_Tox keeps Core's plain Stab injury plus its
+       ToxicBuildup additionalHediffs, the ScratchToxic parity its header is built on. Under CE
+       the compat root reroutes the DamageDef here and strips the ToxicBuildup
+       (1.6/Mods/CombatExtended/Patches/DamageDefs_CE.xml), and gives this injury CE's
+       CombatExtended.HediffCompProperties_Venom with CE's own numbers plus CE's Stab overhaul
+       (HediffDefs_CE.xml), so the venom becomes wound-borne exactly as CE makes vanilla's
+       ScratchToxic and ToxicBite (its VenomousScratch / VenomousBite, children of Bite) and its
+       own VenomousArrow (a child of Cut): the wound feeds CE's VenomBuildup for 10000 to 17500
+       ticks at VenomPerSeverity x severity / body size x (1 - ToxicResistance) per tick, tending
+       at quality q cuts the rate by (1 - q), permanence stops it, and the injury's own healing
+       does not (the rate is fixed when the wound lands). Dose per proc at the trait's amount 3,
+       body size 1, untended: 0.40 to 0.70 VenomBuildup (lethal at 1), against the vanilla 0.045
+       ToxicBuildup per proc; one tend at quality 0.5 halves it. That is a tenfold dose and
+       deliberate: CE's venom is "tend it or die" (one untended CE venomous arrow is lethal on its
+       own), and a melee venom outside that model would be the one CE players recognise as not
+       CE's. On a mechanoid UMW_Stab_Tox's hediffSolid is Crack, so no venom, as in CE. CE's own
+       venomous weapons carry no hunting gate for a wound-borne venom and neither does this.
+
+       WHY THE DEF LIVES IN THE MAIN TREE and not the CE root, which could even inherit CE's
+       Name="Stab" (ParentName="Stab" is legal there). The translation checker demands every
+       def's injections from the sidecar the L10nProbe dumps on a 1.7 boot, and official CE is
+       1.6-only, so a def declared under the CE root can never enter the sidecar and its
+       translations can never be validated (1.6/Mods/CLAUDE.md). Declared here, the def is always
+       loaded, its strings translate through the normal process, and only its CONSUMER is
+       CE-gated. The cost is one unused injury def in a vanilla game, which nothing lists.
+
+       Clone of Core's Stab injury with every number verbatim (vanilla Stab carries no Name=, the
+       same gotcha as UMW_Stab_Ragged), so the identity is "a stab wound that carries venom" and
+       nothing else: CE's pain and infection overhaul reaches it through the CE-root mirror, the
+       same way it reaches the ragged clones. Keep the numbers in step with Stab_Ragged.xml's base
+       values if Core's Stab ever changes. The permanent label stays "stab scar": the scar is not
+       venomous. -->
+  <HediffDef ParentName="InjuryBase">
+    <defName>UMW_VenomousStab</defName>
+    <label>venomous stab</label>
+    <labelNoun>a venomous stab wound</labelNoun>
+    <description>A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over.</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>stab scar</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <bleedRate>0.06</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Cut off</destroyedLabel>
+      <destroyedOutLabel>Cut out</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+
+</Defs>

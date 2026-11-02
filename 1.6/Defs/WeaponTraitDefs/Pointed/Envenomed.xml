@@ -17,12 +17,14 @@
        whole bullet, inheriting its single armor roll.
        The ScratchToxic parity the payload is built on (UMW_Stab_Tox's header) is vanilla's: Combat
        Extended reroutes vanilla's melee venoms through its own wound-borne venom model and leaves
-       ToxicBuildup only to gas; under CE this trait still applies ToxicBuildup, unported by a decision
-       recorded in 1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml's header and TODOs.md. -->
+       ToxicBuildup only to gas, and the CE root does the same to UMW_Stab_Tox (its injury becomes
+       UMW_VenomousStab, HediffDefs/VenomousStab.xml, which has the dose math). The description
+       therefore names neither mechanic ("poisons those it wounds"); the info card states the one
+       in force, derived from the DamageDef by TraitEffectSummary. -->
   <WeaponTraitDef>
     <defName>UMW_Envenomed</defName>
     <label>envenomed</label>
-    <description>The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds.</description>
+    <description>The point is coated in a slow neurotoxic venom that poisons those it wounds.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Pointed</weaponCategory>
     <exclusionTags>

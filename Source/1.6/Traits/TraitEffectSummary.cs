@@ -223,14 +223,7 @@ public static class TraitEffectSummary
         switch (effect)
         {
             case MeleeOnHitEffect_ExtraDamage extra when extra.def != null:
-                string amount = extra.amount.ToString("0.#");
-                if (extra.ignoreArmor)
-                {
-                    return "UMW_TraitStat_ExtraDamageIgnoreArmor".Translate(amount, extra.def.label).ToString();
-                }
-                return extra.armorPenetration > 0f
-                    ? "UMW_TraitStat_ExtraDamageAP".Translate(amount, extra.def.label, extra.armorPenetration.ToStringPercent()).ToString()
-                    : "UMW_TraitStat_ExtraDamage".Translate(amount, extra.def.label).ToString();
+                return DescribeExtraDamage(extra);
 
             case MeleeOnHitEffect_Stun stun:
                 return "UMW_TraitStat_Stun".Translate(Seconds(stun.ticks)).ToString();
@@ -245,6 +238,46 @@ public static class TraitEffectSummary
             default:
                 return null;
         }
+    }
+
+    // The payload's damage, then what the DamageDef says it leaves behind: every additionalHediffs
+    // entry (vanilla Envenomed's toxic buildup, Opiated's sedative buildup) and, when the injury
+    // itself is a modded wound rather than one of the game's own, that wound (Envenomed under
+    // Combat Extended, where the CE root reroutes UMW_Stab_Tox onto UMW_VenomousStab and the
+    // venom rides the wound's comps instead of an additional hediff). Both clauses come from the
+    // def, so a compat root that rewires the payload rewires the line with it. The game's own
+    // injuries are deliberately not named: "stab" after "toxic stab damage" adds nothing.
+    private static string DescribeExtraDamage(MeleeOnHitEffect_ExtraDamage extra)
+    {
+        string amount = extra.amount.ToString("0.#");
+        string described;
+        if (extra.ignoreArmor)
+        {
+            described = "UMW_TraitStat_ExtraDamageIgnoreArmor".Translate(amount, extra.def.label);
+        }
+        else if (extra.armorPenetration > 0f)
+        {
+            described = "UMW_TraitStat_ExtraDamageAP".Translate(amount, extra.def.label, extra.armorPenetration.ToStringPercent());
+        }
+        else
+        {
+            described = "UMW_TraitStat_ExtraDamage".Translate(amount, extra.def.label);
+        }
+
+        List<DamageDefAdditionalHediff> additional = extra.def.additionalHediffs;
+        if (additional != null && additional.Any(a => a.hediff != null))
+        {
+            string applied = additional.Where(a => a.hediff != null).Select(a => a.hediff.label).ToCommaList(useAnd: true);
+            described = "UMW_TraitStat_ExtraDamageApplies".Translate(described, applied);
+        }
+
+        HediffDef wound = extra.def.hediff;
+        if (wound?.modContentPack != null && !wound.modContentPack.IsOfficialMod)
+        {
+            string noun = wound.labelNoun.NullOrEmpty() ? wound.label : wound.labelNoun;
+            described = "UMW_TraitStat_ExtraDamageWound".Translate(described, noun);
+        }
+        return described;
     }
 
     // Defender-side parry (MeleeParryExtension): one chance line, derived from the same field the

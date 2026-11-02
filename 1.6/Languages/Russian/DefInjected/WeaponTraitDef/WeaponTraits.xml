@@ -151,8 +151,8 @@
   <!-- EN: envenomed -->
   <UMW_Envenomed.label>отравленное</UMW_Envenomed.label>
 
-  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
-  <UMW_Envenomed.description>Остриё покрыто медленно действующим нейротоксичным ядом, вызывающим отравление токсинами у раненых.</UMW_Envenomed.description>
+  <!-- EN: The point is coated in a slow neurotoxic venom that poisons those it wounds. -->
+  <UMW_Envenomed.description>Остриё покрыто медленно действующим нейротоксичным ядом, который отравляет раненых.</UMW_Envenomed.description>
 
   <!-- EN: envenomed -->
   <UMW_Envenomed.traitAdjectives.0>отравленный</UMW_Envenomed.traitAdjectives.0>

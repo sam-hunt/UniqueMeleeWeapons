@@ -32,6 +32,7 @@ finding (upstream) to this mod's own field.
 | armor penetration / bleed rate / move speed | アーマー貫通力 / 出血量 / 移動速度 | | Core Keyed + StatDefs |
 | cut / stab (DamageDef) | 斬る / 刺す | 切創, 刺し傷 (those are the *hediff* labels) | Core DamageDefs vs HediffDefs differ |
 | bandaged / sutured / set / cut off / cut out | 包帯 / 縫合 / セット / 切り落とされた / 切り取られた | | Core `Cut`/`Stab` injury comps |
+| venomous stab (wound, CE) | 毒の刺し傷 | | Wound label; damage label stays 毒の刺突. Permanent label 刺傷痕 is vanilla Stab |
 | toxic buildup | 毒物が蓄積 | | Core `ToxicBuildup` |
 | item stash / bandit camp / ancient mercenaries / sealed crate | 埋蔵品 / 盗賊の野営地 / 古代の傭兵 / 密封されたクレート | | Core sites, Odyssey quest + `AncientSealedCrate` |
 | abandoned settlement / tribesfolk / chief | 放棄された集落 / 蛮族 / 族長 | | Core `AbandonedSettlement`, `TribeRough` |

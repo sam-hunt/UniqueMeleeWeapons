@@ -39,6 +39,14 @@
   <UMW_TraitStat_ExtraDamage>{0} {1} damage</UMW_TraitStat_ExtraDamage>
   <UMW_TraitStat_ExtraDamageAP>{0} {1} damage, {2} armor penetration</UMW_TraitStat_ExtraDamageAP>
   <UMW_TraitStat_ExtraDamageIgnoreArmor>{0} {1} damage, not reduced by armor</UMW_TraitStat_ExtraDamageIgnoreArmor>
+  <!-- What an extra-damage payload leaves behind, derived from its DamageDef and wrapped around
+       the damage clause above, which is {0}. In the first key {1} is a comma list of the hediffs
+       the damage applies on top of the wound (vanilla Envenomed's "toxic buildup", Opiated's
+       "sedative buildup"); in the second it is the injury's own labelNoun, used only when the
+       wound is a modded one rather than one of the game's injuries (under Combat Extended,
+       Envenomed's "a venomous stab wound"). -->
+  <UMW_TraitStat_ExtraDamageApplies>{0}, applies {1}</UMW_TraitStat_ExtraDamageApplies>
+  <UMW_TraitStat_ExtraDamageWound>{0}, leaving {1}</UMW_TraitStat_ExtraDamageWound>
   <UMW_TraitStat_Stun>stun for {0}</UMW_TraitStat_Stun>
   <UMW_TraitStat_Stagger>stagger for {0} ({1} move speed)</UMW_TraitStat_Stagger>
   <UMW_TraitStat_FleshOnly>{0} (flesh only)</UMW_TraitStat_FleshOnly>

@@ -85,4 +85,35 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>被切下</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>毒刺傷</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>毒刺傷</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>一道帶有緩效神經毒液的刺傷。毒液會不斷滲入血液，直到傷口得到治療或自行癒合為止。</UMW_VenomousStab.description>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>{1}內的{0}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>已包紮</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>已縫合</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>已固定</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>刺傷疤痕</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>喪失功能(刺傷)</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>被切下</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

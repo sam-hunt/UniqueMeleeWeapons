@@ -24,10 +24,11 @@ match VTE's redrawn vanilla spear, with the drafted-idle grip nudge riding
 `CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes);
 `CombatExtended` (version root only, Patches-only: the armor-penetration traits retuned to CE's
 penetration model, the Stab clones given CE's layer field, the ragged-wound clones given CE's
-injury overhaul and the plasma-cored proc chance mirrored from CE's plasmasword, with the audit
-of every other on-hit payload in those patch headers; the C# half is the reflection-only hooks
-under `Source/1.6/Patches/CombatExtended/`, whose header is the full account of what CE's verb
-bypasses and why base weapon stats need no work).
+injury overhaul, the plasma-cored proc chance mirrored from CE's plasmasword and the envenomed
+stab rerouted onto CE's wound-borne venom, with the audit of every other on-hit payload and of
+the player-facing wording in those patch headers; the C# half is the reflection-only hooks under
+`Source/1.6/Patches/CombatExtended/`, whose header is the full account of what CE's verb bypasses
+and why base weapon stats need no work).
 
 Rules:
 
@@ -49,3 +50,10 @@ Rules:
   row while the root still loads.
 - A base weapon from a third-party mod needs the `Name=` add in `1.6/Patches/` and the `loadAfter`
   entry (`1.6/Defs/CLAUDE.md`).
+- **A def that only a compat root consumes is still declared in the main tree when the probe
+  cannot boot that root's mod.** The translation checker validates every def's injections against
+  the sidecar the L10nProbe dumps on the local install, and a def declared under a root whose gate
+  no probe boot activates is an error with no fix (official CE is 1.6-only; the install is 1.7).
+  Declare the def in `1.6/Defs/`, keep it vanilla-legal there, and let the root's Patches add the
+  foreign comp and point the consumer at it; `HediffDefs/VenomousStab.xml` is the worked case and
+  says why in its header.

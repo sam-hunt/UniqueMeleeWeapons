@@ -13,7 +13,10 @@
        venom-stab's damage dealt, reduced by the victim's ToxicResistance and larger body size, so it
        matches Bullet_TraitTox / ScratchToxic 1:1. applyAdditionalHediffsIfHuntingForFood=false so a
        poisoned weapon doesn't taint hunted meat. Per-hit rate is tuned on the trait (chance/amount),
-       not here, keeping this def a faithful sibling of the vanilla tox defs. -->
+       not here, keeping this def a faithful sibling of the vanilla tox defs. That sibling status
+       is why Combat Extended's root reroutes it exactly as CE reroutes ScratchToxic: the injury
+       becomes UMW_VenomousStab (HediffDefs/VenomousStab.xml) and the ToxicBuildup entry goes
+       (1.6/Mods/CombatExtended/Patches/DamageDefs_CE.xml). -->
   <DamageDef>
     <defName>UMW_Stab_Tox</defName>
     <label>toxic stab</label>

@@ -61,27 +61,63 @@
          halves from Flame 10 @ 50% to 5 @ 30% on the
          edge (3 @ 20% on the point), so the chance follows it to 0.3 below; the amount already
          equals CE's edge value. The summary line is derived from the def, so the card follows.
-       - ZeusHeaded: nothing patched, by decision, and its vanilla header's self-limiting claim is
-         vanilla-only. CE gives EMP the Electric armor category (no Core apparel or mechanoid
-         carries any, so the 4 lands whole), replaces StunHandler.Notify_DamageApplied so the
-         adaptation window is amount x 45 x body size instead of 2200t and a hit inside it re-stuns
-         with at least 85% probability, and postfixes it with an Electrical hit (AP 9999,
-         ElectricalBurn) worth the EMP amount on a mechanoid and a quarter of it on flesh. So under
-         CE a zeus-headed mace stuns a mechanoid 120t on nearly every hit, continuously at the
-         mace's 114t cooldown, plus 4 electrical damage, and a human takes a 1-point burn per hit.
-         CE's own zeushammer (EMP 5, 100%, 147t cooldown) locks the same way, so ours sits inside
-         CE's envelope; a chance gate restoring the "self-limiting chain" intent is the open item
-         in TODOs.md.
-       - Envenomed: nothing patched, by decision pending in TODOs.md. CE strips ToxicBuildup from
-         vanilla's melee venoms (ScratchToxic, ToxicBite) and routes them through its wound-borne
-         model instead: the injury carries CombatExtended.HediffCompProperties_Venom
-         (VenomPerSeverity 0.0000134 per tick, 10000 to 17500 ticks, cut by tend quality, stopped
-         by permanence) feeding CE's VenomBuildup (lethal at 1, same ladder as ToxicBuildup). Our
-         UMW_Stab_Tox still applies ToxicBuildup through additionalHediffs, which CE leaves intact,
-         so the trait works but is the one melee venom in a CE game not using CE's venom; the
-         faithful port is a UMW venomous stab injury on that DamageDef (a new, translated def) at
-         a per-wound dose of roughly 0.4 to 0.7 buildup untended at body size 1, far above the
-         vanilla 0.045 per proc.
+       - ZeusHeaded: nothing patched, by decision (2026-11-03), and its vanilla header's
+         self-limiting claim is vanilla-only. CE gives EMP the Electric armor category (no Core
+         apparel or mechanoid carries any, so the 4 lands whole), replaces
+         StunHandler.Notify_DamageApplied so the adaptation window is amount x 45 x body size
+         instead of 2200t and a hit inside it re-stuns with at least 85% probability, and
+         postfixes it with an Electrical hit (AP 9999, ElectricalBurn) worth the EMP amount on a
+         mechanoid and a quarter of it on flesh. So under CE a zeus-headed mace stuns a mechanoid
+         120t on nearly every hit, continuously at the mace head's 114t cooldown, plus 4
+         electrical damage, and a human takes a 1-point burn per hit. The open question was a
+         CE-root chance gate restoring the vanilla "one stun, then adaptation" cadence. Decided
+         against, for four reasons. (1) Per hit the trait sits inside CE's own zeushammer envelope
+         (CE's Royalty patch: head EMP 5 at 100% on a 147t cooldown, so a 150t stun re-applied
+         every 147t and 5 electrical per hit; ours is 4, 120t, 114t): CE tuned that lock
+         deliberately for its EMP melee, and a CE player who owns a zeushammer already has it.
+         (2) CE's EMP model is deterministic delivery with probabilistic adaptation; a per-hit
+         proc roll would make this the one EMP source in a CE game that fires at random, the
+         opposite of what this root is for. (3) The self-limiting chain was a property vanilla's
+         adaptation lends every EMP source, not the trait's identity, which is "an electromagnetic
+         discharge on impact" and holds under CE. (4) The trait is already bounded by the Royalty
+         root, commonality 0.5, the allowUltratechTraits setting and the Head token, and its
+         +75 market value is a vanilla-side number CE gives no anchor for (CE does not reprice
+         traits), so it stays. What would reopen it: CE changing the zeushammer to a chance or a
+         smaller amount; mirror that here, as PlasmaCored mirrors the plasmasword.
+       - Envenomed: ported to CE's wound-borne venom (2026-11-03). CE strips ToxicBuildup from
+         vanilla's melee venoms (ScratchToxic, ToxicBite) and routes them through venom-carrying
+         injuries feeding its VenomBuildup; DamageDefs_CE.xml does the same to UMW_Stab_Tox
+         (injury UMW_VenomousStab, ToxicBuildup entry removed) and HediffDefs_CE.xml gives that
+         injury CE's venom comp with CE's numbers. Nothing changes on the trait itself: amount 3
+         at 50%, armor ignored (CE keeps vanilla's IgnoreArmor guard), fleshOnly false (a
+         mechanoid takes a Crack, which carries no venom, so the flesh gate is CE's own). The dose
+         math and the main-tree placement of the def are in 1.6/Defs/HediffDefs/VenomousStab.xml.
+
+       Wording and readouts (audited 2026-11-03; what a CE player reads against what CE does):
+       - The info card follows the reroute by construction: TraitEffectSummary derives the
+         payload clause from the DamageDef, so Envenomed reads "applies toxic buildup" in vanilla
+         and "leaving a venomous stab wound" under CE. The vanilla description was reworded to
+         name neither mechanic ("poisons those it wounds").
+       - Trait descriptions' armor wording (Razored, ArmorSpike, Flanged, Monomolecular) is
+         qualitative and holds in both armor models; no description names a vanilla number.
+       - Payload armor penetration: the UMW_TraitStat_ExtraDamageAP line prints a vanilla
+         fraction, and under CE a non-ambient payload's DamageInfo AP is read in CE's units. No
+         payload carries one today (the coatings ignore armor; EMP and Flame carry 0, and both are
+         ambient under CE anyway), so a future payload with armorPenetration > 0 needs a CE-root
+         value in CE units or the line lies.
+       - Opiated against CE's own Tranquilizer: CE's dart is a flat Consciousness 0.1 for 7500 to
+         15000t at 0.9 severity per damage, i.e. one hit downs for 2 to 4 hours; ours builds over
+         3 to 4 hits and holds the 0.7 downed threshold about 4.8 hours from a full dose. Slower
+         to land, longer to hold, same order of magnitude, and CE's safer downed roll applies to
+         both. Left alone: no CE anchor says ours is off.
+       - BellCast against CE's crit stun: CE removes BluntBase's blunt-stun curves and stuns for
+         25% of a non-Sharp crit's damage x 30t on flesh (a mace head's 15 is about 112t), so
+         BellCast's 120t at 25% on any wounding hit, flesh and mechanoid alike, is the one
+         non-crit blunt stun in a CE game and lands via StunFor, outside CE's re-stun and
+         electrical postfix. Left alone: the same magnitude as CE's own, on a gate CE lacks.
+       - CE's melee tooltip shows Quilloned's parry through Hook 3 and CE's AP readout shows the
+         factor traits; the floors show only in our trait block (the C# header). Nothing else of
+         ours reaches a CE readout.
 
        Royalty traits sit under a PatchOperationConditional on node existence, like
        AddNameToBaseMeleeWeapons.xml does for the Royalty bases, so this root never depends on the

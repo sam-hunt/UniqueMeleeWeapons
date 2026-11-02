@@ -9,13 +9,34 @@
        copies (vanilla Stab has no Name= to inherit from; see each def's header), so CE's patch
        never reaches them; this one does the same thing to them. UMW_Cut_Ragged already sets the
        field in its own def. CE adds nothing else to Cut or Blunt, and our clones already carry
-       armorCategory, which is all the model needs. -->
+       armorCategory, which is all the model needs.
+
+       UMW_Stab_Tox is also rerouted onto CE's venom model, the way CE's own Core patch reroutes
+       ScratchToxic and ToxicBite (Patches/Core/DamageDefs/Damages_LocalInjury.xml, CE 16.7.4.0:
+       set the injury to a venom-carrying wound, remove the ToxicBuildup additionalHediffs entry):
+       the injury becomes UMW_VenomousStab, whose header holds the dose math and the reason the
+       def itself lives in the main tree, and the ToxicBuildup entry goes, because CE leaves
+       ToxicBuildup to gas and fallout. The two operations are kept separate and in CE's order so
+       either reads as the vanilla-CE pair it mirrors. UMW_Stab_Tranq is NOT rerouted:
+       UMW_SedativeBuildup is ours alone and CE has no wound-borne sedative model (its
+       Tranquilizer dart is a flat additionalHediffs entry, the same shape as ours). -->
 
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/DamageDef[defName="UMW_Stab_Deep" or defName="UMW_Stab_Ragged" or defName="UMW_Stab_Tox" or defName="UMW_Stab_Tranq"]</xpath>
     <value>
       <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     </value>
+  </Operation>
+
+  <!-- UMW_Stab_Tox: the venom rides the wound (UMW_VenomousStab), not a ToxicBuildup entry. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/DamageDef[defName="UMW_Stab_Tox"]/hediff</xpath>
+    <value>
+      <hediff>UMW_VenomousStab</hediff>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/DamageDef[defName="UMW_Stab_Tox"]/additionalHediffs/li[hediff="ToxicBuildup"]</xpath>
   </Operation>
 
 </Patch>

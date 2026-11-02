@@ -52,6 +52,18 @@
   <!-- EN: {0} {1} damage, not reduced by armor -->
   <UMW_TraitStat_ExtraDamageIgnoreArmor>{1}ダメージ {0}, アーマーで軽減されない</UMW_TraitStat_ExtraDamageIgnoreArmor>
 
+  <!-- What an extra-damage payload leaves behind, derived from its DamageDef and wrapped around
+       the damage clause above, which is {0}. In the first key {1} is a comma list of the hediffs
+       the damage applies on top of the wound (vanilla Envenomed's "toxic buildup", Opiated's
+       "sedative buildup"); in the second it is the injury's own labelNoun, used only when the
+       wound is a modded one rather than one of the game's injuries (under Combat Extended,
+       Envenomed's "a venomous stab wound"). -->
+  <!-- EN: {0}, applies {1} -->
+  <UMW_TraitStat_ExtraDamageApplies>{0}, 付与: {1}</UMW_TraitStat_ExtraDamageApplies>
+
+  <!-- EN: {0}, leaving {1} -->
+  <UMW_TraitStat_ExtraDamageWound>{0}, {1}を残す</UMW_TraitStat_ExtraDamageWound>
+
   <!-- EN: stun for {0} -->
   <UMW_TraitStat_Stun>{0}スタンさせる</UMW_TraitStat_Stun>
 

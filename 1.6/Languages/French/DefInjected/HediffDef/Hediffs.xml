@@ -96,4 +96,34 @@
   <!-- EN: Cut out -->
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>Sectionné(e)</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
+  <!-- EN: venomous stab -->
+  <UMW_VenomousStab.label>perforation venimeuse</UMW_VenomousStab.label>
+
+  <!-- EN: a venomous stab wound -->
+  <UMW_VenomousStab.labelNoun>une perforation venimeuse</UMW_VenomousStab.labelNoun>
+
+  <!-- EN: {0} in the {1} -->
+  <UMW_VenomousStab.labelNounPretty>une {0} au/à la {1}</UMW_VenomousStab.labelNounPretty>
+
+  <!-- EN: A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over. -->
+  <UMW_VenomousStab.description>Une perforation qui porte un venin neurotoxique lent. Le venin se diffuse dans le sang jusqu'à ce que la blessure soit soignée ou cicatrise.</UMW_VenomousStab.description>
+
+  <!-- EN: bandaged -->
+  <UMW_VenomousStab.comps.0.labelTendedWell>bandée</UMW_VenomousStab.comps.0.labelTendedWell>
+
+  <!-- EN: sutured -->
+  <UMW_VenomousStab.comps.0.labelTendedWellInner>suturée</UMW_VenomousStab.comps.0.labelTendedWellInner>
+
+  <!-- EN: set -->
+  <UMW_VenomousStab.comps.0.labelSolidTendedWell>plâtrée</UMW_VenomousStab.comps.0.labelSolidTendedWell>
+
+  <!-- EN: stab scar -->
+  <UMW_VenomousStab.comps.2.permanentLabel>cicatrice de perforation</UMW_VenomousStab.comps.2.permanentLabel>
+
+  <!-- EN: Cut off -->
+  <UMW_VenomousStab.injuryProps.destroyedLabel>Perforé(e)</UMW_VenomousStab.injuryProps.destroyedLabel>
+
+  <!-- EN: Cut out -->
+  <UMW_VenomousStab.injuryProps.destroyedOutLabel>Sectionné(e)</UMW_VenomousStab.injuryProps.destroyedOutLabel>
+
 </LanguageData>

@@ -151,8 +151,8 @@
   <!-- EN: envenomed -->
   <UMW_Envenomed.label>envenenado</UMW_Envenomed.label>
 
-  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
-  <UMW_Envenomed.description>La punta está recubierta de un veneno neurotóxico de acción lenta que provoca acumulación tóxica en quienes resultan heridos por ella.</UMW_Envenomed.description>
+  <!-- EN: The point is coated in a slow neurotoxic venom that poisons those it wounds. -->
+  <UMW_Envenomed.description>La punta está recubierta de un veneno neurotóxico de acción lenta que envenena a quienes hiere.</UMW_Envenomed.description>
 
   <!-- EN: envenomed -->
   <UMW_Envenomed.traitAdjectives.0>de veneno</UMW_Envenomed.traitAdjectives.0>

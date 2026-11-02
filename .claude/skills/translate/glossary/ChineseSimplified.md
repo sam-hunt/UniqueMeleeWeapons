@@ -66,3 +66,5 @@ in front: 特化战棺巨剑 / 特化战棺重力锤. `namerLabels` (no gender o
 conventions in zh): broadsword = 巨剑 / 利刃 / 剑 / 剑锋; gravity hammer = 锤 /
 巨锤 / 锤头 / 重力锤. Tool labels reuse this file's grounded rows for the other
 uniques (剑刃 / 剑尖, 锤头 / 锤柄) rather than the pack's 握柄.
+
+2026-11 (Combat Extended compat): venomous stab (the `UMW_VenomousStab` wound) = 淬毒刺伤, the trait's 淬毒 plus Core `Stab` 刺伤, kept distinct from the damage label 毒刺伤; its scar reuses Core `Stab` permanentLabel 刺伤疤痕. Info-card joiners: applies {1} = ，附带{1} (hediff 中毒 etc.), leaving {1} = ，造成{1}.

@@ -188,8 +188,8 @@
   <!-- EN: envenomed -->
   <UMW_Envenomed.label>ponta envenenada</UMW_Envenomed.label>
 
-  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
-  <UMW_Envenomed.description>A ponta é revestida de um veneno neurotóxico de ação lenta que causa acúmulo tóxico em quem ela fere.</UMW_Envenomed.description>
+  <!-- EN: The point is coated in a slow neurotoxic venom that poisons those it wounds. -->
+  <UMW_Envenomed.description>A ponta é revestida de um veneno neurotóxico de ação lenta que envenena quem ela fere.</UMW_Envenomed.description>
 
   <!-- EN: envenomed -->
   <UMW_Envenomed.traitAdjectives.0>letal</UMW_Envenomed.traitAdjectives.0>

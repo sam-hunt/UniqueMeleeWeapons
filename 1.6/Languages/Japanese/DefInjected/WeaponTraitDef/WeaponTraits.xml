@@ -151,8 +151,8 @@
   <!-- EN: envenomed -->
   <UMW_Envenomed.label>毒塗り</UMW_Envenomed.label>
 
-  <!-- EN: The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds. -->
-  <UMW_Envenomed.description>先端には効きの遅い神経毒が塗られており,傷つけた相手に毒物の蓄積を引き起こします.</UMW_Envenomed.description>
+  <!-- EN: The point is coated in a slow neurotoxic venom that poisons those it wounds. -->
+  <UMW_Envenomed.description>先端には効きの遅い神経毒が塗られており,傷つけた相手を毒に侵します.</UMW_Envenomed.description>
 
   <!-- EN: envenomed -->
   <UMW_Envenomed.traitAdjectives.0>毒を塗った</UMW_Envenomed.traitAdjectives.0>

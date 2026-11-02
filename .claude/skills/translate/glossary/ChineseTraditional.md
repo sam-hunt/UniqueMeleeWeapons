@@ -41,7 +41,7 @@ inlay, extending official 鑲金; jade=翡翠 per Core), 遠古傭兵 (ancient
 mercenaries — vanilla zh-Hant left the Odyssey quest untranslated; 遠古 wins
 the corpus 416:38 over 古代), 鎮靜劑累積 (sedative buildup; buildup=累積 per
 corpus), 毒刺 / 麻醉刺 (toxic/tranq stab DamageDefs, on vanilla's 毒抓/毒咬
-compounding pattern), 撕裂割傷 / 撕裂刺傷 / 撕裂疤痕 (ragged wounds, from
+compounding pattern), 毒刺傷 (venomous stab wound; vanilla 刺傷 plus 毒, distinct from the 毒刺 damage), 撕裂割傷 / 撕裂刺傷 / 撕裂疤痕 (ragged wounds, from
 vanilla `Crack`=撕裂傷), colour names 血紅 / 碳黑 / 琺瑯紫 / 電漿橙 / 單分子白
 (drop-色 compound pattern per Odyssey 電磁藍/火焰橙; colour names use
 prose-register 電漿 even though the trait label uses 等離子, mirroring

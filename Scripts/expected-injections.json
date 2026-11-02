@@ -1,6 +1,6 @@
 {
   "meta": {
-    "gameBuild": "1.7.4981 rev136",
+    "gameBuild": "1.7.4995 rev309",
     "activeDlcs": [
       "Core",
       "Royalty",
@@ -245,6 +245,47 @@
         "required": true
       },
       "UMW_Stab_Ragged.labelNounPretty": {
+        "english": "{0} in the {1}",
+        "required": true
+      },
+      "UMW_VenomousStab.comps.HediffComp_GetsPermanent.permanentLabel": {
+        "english": "stab scar",
+        "required": true,
+        "normalized": "UMW_VenomousStab.comps.2.permanentLabel"
+      },
+      "UMW_VenomousStab.comps.HediffComp_TendDuration.labelSolidTendedWell": {
+        "english": "set",
+        "normalized": "UMW_VenomousStab.comps.0.labelSolidTendedWell"
+      },
+      "UMW_VenomousStab.comps.HediffComp_TendDuration.labelTendedWell": {
+        "english": "bandaged",
+        "normalized": "UMW_VenomousStab.comps.0.labelTendedWell"
+      },
+      "UMW_VenomousStab.comps.HediffComp_TendDuration.labelTendedWellInner": {
+        "english": "sutured",
+        "normalized": "UMW_VenomousStab.comps.0.labelTendedWellInner"
+      },
+      "UMW_VenomousStab.description": {
+        "english": "A stab wound carrying a slow neurotoxic venom. The venom seeps into the blood until the wound is tended or heals over.",
+        "required": true
+      },
+      "UMW_VenomousStab.injuryProps.destroyedLabel": {
+        "english": "Cut off",
+        "required": true
+      },
+      "UMW_VenomousStab.injuryProps.destroyedOutLabel": {
+        "english": "Cut out",
+        "required": true
+      },
+      "UMW_VenomousStab.label": {
+        "english": "venomous stab",
+        "required": true
+      },
+      "UMW_VenomousStab.labelNoun": {
+        "english": "a venomous stab wound",
+        "required": true
+      },
+      "UMW_VenomousStab.labelNounPretty": {
         "english": "{0} in the {1}",
         "required": true
       }
@@ -1082,7 +1123,7 @@
         "required": true
       },
       "UMW_Envenomed.description": {
-        "english": "The point is coated in a slow neurotoxic venom which causes toxic buildup in those it wounds.",
+        "english": "The point is coated in a slow neurotoxic venom that poisons those it wounds.",
         "required": true
       },
       "UMW_Envenomed.exclusionTags": {
