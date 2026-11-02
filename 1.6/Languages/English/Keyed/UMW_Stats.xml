@@ -12,6 +12,10 @@
   <UMW_TraitStat_ToolDamage>{0} damage</UMW_TraitStat_ToolDamage>
   <UMW_TraitStat_ToolArmorPenetration>{0} armor penetration</UMW_TraitStat_ToolArmorPenetration>
   <UMW_TraitStat_Minimum>min. {0}</UMW_TraitStat_Minimum>
+  <!-- Quality-scaled floor (MeleeToolMod.armorPenetrationQualityFloor): {0} is the floor at normal
+       quality; the weapon's own quality multiplies it the way it multiplies any tool's listed
+       armor penetration. -->
+  <UMW_TraitStat_QualityMinimum>min. {0} at normal quality, rising with quality</UMW_TraitStat_QualityMinimum>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. The

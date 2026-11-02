@@ -125,6 +125,14 @@ public static class TraitEffectSummary
                 lines.Add("UMW_TraitStat_ToolArmorPenetration".Translate(scope).CapitalizeFirst() + " "
                     + "UMW_TraitStat_Minimum".Translate(mod.armorPenetrationFloor.ToStringPercent()));
             }
+            // The quality floor is stated at Normal, the unit the def is written in; the per-weapon
+            // figure is quality-scaled at swing time (Verb_MeleeAttack_ToolMods_Patch), which the
+            // line says in words rather than printing a number that changes per instance.
+            if (mod.armorPenetrationQualityFloor >= 0f)
+            {
+                lines.Add("UMW_TraitStat_ToolArmorPenetration".Translate(scope).CapitalizeFirst() + " "
+                    + "UMW_TraitStat_QualityMinimum".Translate(mod.armorPenetrationQualityFloor.ToStringPercent()));
+            }
         }
     }
 

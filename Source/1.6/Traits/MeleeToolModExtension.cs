@@ -32,10 +32,23 @@ public class MeleeToolMod
     // Multiplies the matched tool's melee damage (1 = no change).
     public float damageFactor = 1f;
 
-    // Raises the matched tool's armor penetration to at least this value (-1 = no floor).
+    // Raises the matched tool's armor penetration to at least this value (-1 = no floor). A FLAT
+    // floor, compared against the fully quality- and stuff-scaled value: a rescue baseline that
+    // lifts a poor roll and leaves a fine one alone (Razored, ArmorSpike, Flanged).
     public float armorPenetrationFloor = -1f;
 
-    // Multiplies the matched tool's armor penetration (1 = no change). Applied before the floor.
+    // Raises the matched tool's armor penetration to at least this value TIMES the weapon's quality
+    // factor for MeleeWeapon_DamageMultiplier (-1 = no floor). Stated in Normal-quality units: this
+    // is how vanilla scales a tool's own explicit <armorPenetration> (VerbProperties.
+    // AdjustedArmorPenetration multiplies it by that stat), so a value copied from a vanilla tool
+    // makes the trait "this tool's edge at this weapon's quality" (Monomolecular's 0.9 is the
+    // monosword's). Only the stat's quality part is used, never the weapon's live stat value, which
+    // would fold in co-rolled traits' factors (HeadWeighted's x1.3 exists to cancel exactly that AP
+    // side effect) and has no stuff part anyway. A weapon without CompQuality counts as Normal.
+    // Where both floors are set the higher result wins.
+    public float armorPenetrationQualityFloor = -1f;
+
+    // Multiplies the matched tool's armor penetration (1 = no change). Applied before the floors.
     public float armorPenetrationFactor = 1f;
 
     // True when this entry has no capacity filter (applies to every tool).

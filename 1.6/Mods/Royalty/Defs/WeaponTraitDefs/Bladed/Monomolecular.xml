@@ -6,10 +6,23 @@
        (see LoadFolders.xml; the same gate the Axe/Warhammer uniques use) together with its
        UMW_MonoWhite ColorDef — the trait only rolls when the DLC that owns the tech is present.
        No MayRequire needed - the folder only loads when Royalty is active, and its DefInjected
-       sibling can't gate any other way. Realises "ignores armor" via
-       MeleeToolModExtension, which floors the Cut AND Stab tools' armor penetration to 0.97 (the only
-       trait that raises a base hit's AP without also raising its damage — AP is wasted on unarmored
-       targets but devastating vs plate/mechs). Flashy, so rarer (commonality 0.5). Forces the
+       sibling can't gate any other way.
+       INTENT: "this unique has a monosword's edge." Realised via MeleeToolModExtension's QUALITY
+       floor on the Cut AND Stab tools: 0.9 is the monosword's own tool armorPenetration (Royalty
+       MeleeUltratech.xml, both edge and point), and vanilla scales an explicit tool AP by the
+       weapon's MeleeWeapon_DamageMultiplier quality factor, so the floor is multiplied by the same
+       factor at swing time (Verb_MeleeAttack_ToolMods_Patch): 0.9 Normal, 0.99 Good, 1.31
+       Masterwork, 1.49 Legendary, exactly a monosword of that quality. Uniques roll Masterwork or
+       better (QualityGenerator.Super), so in play this reads 1.31 to 1.49 and outclasses every
+       vanilla armor value outright. HISTORY: shipped through 1.x as a FLAT floor of 0.97, "slightly
+       worse than the monosword's 0.99", which quoted a Good monosword without saying so; being
+       flat and applied after quality scaling (no unique's own Cut/Stab AP reaches it: a Legendary
+       plasteel longsword edge computes to ~0.63, a Legendary spear point ~0.83), every roll sat at
+       0.97 regardless of quality. Replaced 2026-11 so quality matters for the premium trait and the
+       def holds the monosword's literal value rather than a hand-tuned number; the Combat Extended
+       root patches the CE-unit equivalents (18 / 25 mm RHA) onto this same entry. The only trait
+       that raises a base hit's AP without also raising its damage — AP is wasted on unarmored
+       targets but devastating vs plate/mechs. Flashy, so rarer (commonality 0.5). Forces the
        pure-white UMW_MonoWhite onto COLOUR TWO (the body) via ForcedColorTwoExtension, so it tags
        BodyColor (its own one-per-weapon family) — being on a different mask channel than the
        Color-tagged inlays, it can co-occur with a Gold/Jade inlay. The Edge tag keeps it mutually
@@ -41,7 +54,8 @@
               <li>Cut</li>
               <li>Stab</li>
             </capacities>
-            <armorPenetrationFloor>0.97</armorPenetrationFloor> <!-- Slightly worse than royalty's monosword's 0.99 -->
+            <armorPenetrationQualityFloor>0.9</armorPenetrationQualityFloor> <!-- the monosword's tool AP at Normal; quality-scaled at swing time, see header -->
+
           </li>
         </mods>
       </li>
