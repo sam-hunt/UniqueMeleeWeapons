@@ -136,9 +136,16 @@
          about 0.01 buildup per hit) while rerouting the melee venoms (ScratchToxic, ToxicBite)
          onto wounds; the two precedents UMW_Stab_Tox claimed 1:1 parity with diverge under CE,
          and the port followed the melee branch, whose dose per proc (0.4 to 0.7 VenomBuildup)
-         is about 50x CE's ToxRounds anchor. Recorded as the tension behind Q13 in the spec; the
-         ranged branch (keep ToxicBuildup, cut severityPerDamageDealt) is the one-operation
-         alternative if it is ever reopened.
+         is about 50x CE's ToxRounds anchor. DECIDED 2026-11-03 (spec Q13): the venom branch
+         stays. ToxRounds stays on ToxicBuildup because CE has no venomous gunshot injury to
+         route a bullet onto; every venom CE could put on a wound, it did, its own arrow
+         included, so the shortcut is not a balance anchor for melee. Per wound our 3-damage
+         stab doses about a quarter of CE's venomous arrow (around 11 damage, lethal alone
+         untended), and the counterplay (tend quality, ToxicResistance) is CE's own. The ranged
+         branch would make the trait cosmetic under CE (a long fight reaches ToxicBuildup's
+         first stage and stops). Reopened only by CE rerouting ToxRounds onto a wound or
+         changing its venom comp numbers; the ranged branch (keep ToxicBuildup, cut
+         severityPerDamageDealt) remains the one-operation alternative.
        - CE's melee tooltip shows Quilloned's parry through Hook 3 and CE's AP readout shows the
          factor traits; the floors show only in our trait block (the C# header). Nothing else of
          ours reaches a CE readout.
