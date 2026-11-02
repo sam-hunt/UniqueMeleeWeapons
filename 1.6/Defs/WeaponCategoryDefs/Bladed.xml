@@ -2,8 +2,9 @@
 <Defs>
 
   <!-- Mechanism category — weapon has a Cut tool. Two trait families. "Edge" traits reshape the cut
-       itself: Razored/Monomolecular floor the blade's armor penetration (Razored also nudges its
-       damage), while Serrated reroutes the cut to a bleedier, scar-prone ragged wound. The "Core" token
+       itself: Razored multiplies the blade's armor penetration (and nudges its damage), Monomolecular
+       floors it at a monosword's for the weapon's quality, while Serrated reroutes the cut to a
+       bleedier, scar-prone ragged wound. The "Core" token
        gates what the blade's core releases into the wound — currently only the Royalty-gated
        UMW_PlasmaCored's plasma burn; like Pointed's "Coating" it keeps any future infusion exclusive.
        Serrated additionally tags the cross-category "Ragged" token shared with Pointed's Barbed —

@@ -17,10 +17,11 @@
        MeleeWeapon_DamageMultiplier rider, which would buff a longsword's edge cuts too, which a
        point trait has no business doing.
        - armorPenetrationFactor x1.3 = PiercingArrows, Odyssey's "bodkin-tipped arrows" — its own
-         needle-point fiction and the named anchor. A FACTOR, not a floor, on purpose: the floor is
-         ArmorSpike's identity (a guaranteed baseline that rescues poor quality/soft stuff), while a
-         factor sharpens what quality provides (masterwork plasteel spear ~0.84, earned, vs the
-         knife's honest 0.26).
+         needle-point fiction and the named anchor. A FACTOR, not a floor, on purpose: the
+         quality floor is ArmorSpike's identity (a guaranteed baseline that behaves like an
+         explicit tool AP of its own, regardless of the weapon's base or stuff), while a factor
+         sharpens what the weapon already has (Masterwork plasteel spear ~0.94, earned, vs a
+         Masterwork steel knife's honest 0.37).
        - damageFactor x0.95: a needle cuts a narrow channel (cf. Counterweighted's x0.95 coupled
          cost); also the governor on the lethality stack, since a forced-internal strike already
          delivers 115% of rolled damage split 75% outer / 40% organ.

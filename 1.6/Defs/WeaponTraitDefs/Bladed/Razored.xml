@@ -2,10 +2,19 @@
 <Defs>
 
   <!-- UMW_Bladed. Edge — the reliable common staple: a keen edge that bites a little harder (+10% Cut
-       damage) and drives cleanly through light armor (Cut AP floored to 0.45). Realised via
+       damage) and drives cleanly through light armor (Cut AP x1.3). Realised via
        MeleeToolModExtension on the Cut tool only, so the bonus is the blade's, not the point's. No proc
        and no forced colour — the dependable "+X" tier the trait spread otherwise lacks. The Edge tag keeps
-       it mutually exclusive with Serrated/Monomolecular. -->
+       it mutually exclusive with Serrated/Monomolecular.
+       WHY A FACTOR (2026-11). Shipped through 1.x as a FLAT floor of 0.45, sized as "about x1.3 on a
+       Normal steel longsword edge (0.345)". But a unique never rolls below Masterwork
+       (QualityGenerator.Super), and a default tool's AP is its damage x0.015, so it scales with quality
+       AND stuff: a Masterwork steel longsword edge already computes to 0.55, a Legendary plasteel one to
+       0.69, and the floor added nothing on any longsword, on the warcasket broadsword, or on Legendary
+       premium-stuff gladii and axes, while the card still promised "min. 45%". A factor keeps the
+       recorded x1.3 design point, scales with the weapon instead of against it, and can never go dead;
+       the knife's outsized lift under the floor (0.29 to 0.45 at Masterwork) was a side effect, not the
+       design. The guaranteed-baseline identity belongs to ArmorSpike and Flanged (quality floors). -->
   <WeaponTraitDef>
     <defName>UMW_Razored</defName>
     <label>razored</label>
@@ -16,7 +25,7 @@
       <li>Edge</li>
     </exclusionTags>
     <statOffsets>
-      <MarketValue>50</MarketValue> <!-- PiercingRounds +40 prices the AP floor alone (= Flanged); +10 for the ×1.1 Cut damage on top -->
+      <MarketValue>50</MarketValue> <!-- PiercingRounds +40 prices the AP bonus alone (= Flanged); +10 for the ×1.1 Cut damage on top -->
     </statOffsets>
     <traitAdjectives>
       <li>razored</li>
@@ -31,7 +40,7 @@
               <li>Cut</li>
             </capacities>
             <damageFactor>1.1</damageFactor>
-            <armorPenetrationFloor>0.45</armorPenetrationFloor>
+            <armorPenetrationFactor>1.3</armorPenetrationFactor> <!-- the old 0.45 floor's longsword equivalence; see header -->
           </li>
         </mods>
       </li>

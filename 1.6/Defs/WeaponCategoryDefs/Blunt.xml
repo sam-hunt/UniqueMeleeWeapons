@@ -16,8 +16,8 @@
            stun (now UMW_BellCast) and whose heavy-head stat profile duplicated UMW_Heavy/HeadWeighted.)
          • "Ability" — one active per weapon (Odyssey's ability-trait convention): UMW_Piledriver
            here; the same token on UMW_Melee's UMW_Storied keeps a weapon to a single gizmo.
-       Untagged pure stat mods (co-roll freely, per the token policy): UMW_Flanged (Blunt-tool AP
-       floor — cracking, not piercing) and UMW_Studded (Blunt-tool damage factor). -->
+       Untagged pure stat mods (co-roll freely, per the token policy): UMW_Flanged (quality-scaled
+       Blunt-tool AP floor — cracking, not piercing) and UMW_Studded (Blunt-tool damage factor). -->
   <WeaponCategoryDef>
     <defName>UMW_Blunt</defName>
     <label>blunt</label>

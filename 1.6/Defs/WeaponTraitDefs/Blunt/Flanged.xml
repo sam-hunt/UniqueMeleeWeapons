@@ -4,8 +4,20 @@
   <!-- UMW_Blunt. Pure stat mod, untagged (no exclusionTags — nothing to gate; stacks freely with any
        Head/SwingProfile pick). Flanges (or a studded/ridged head) concentrate the blow's force into a
        narrow ridge that cracks plate rather than punching through it — a distinct mechanism from
-       UMW_ArmorSpike's Stab-tool piercing, so it floors deliberately lower: 0.45 vs ArmorSpike's 0.8. No
-       damage change, no extra hit — the head shape alone raises the Blunt tool's floor.
+       UMW_ArmorSpike's Stab-tool piercing, so it floors deliberately lower: 0.45 vs ArmorSpike's 0.6
+       (both in Normal-quality units on the same ladder as UMW_Monomolecular's 0.9). No damage change,
+       no extra hit — the head shape alone raises the Blunt tool's floor.
+       WHY QUALITY-SCALED (2026-11). The floor is MeleeToolModExtension's QUALITY floor, multiplied at
+       swing time by the weapon's MeleeWeapon_DamageMultiplier quality factor, the way vanilla scales
+       an explicit tool AP. The 1.x FLAT 0.45 assumed uniques span the quality range; they never roll
+       below Masterwork (QualityGenerator.Super), and a default tool's AP is its damage x0.015, so a
+       Masterwork steel warhammer head (0.43) already brushed the floor and uranium or jade heads
+       (x1.5 blunt damage) cleared it outright: the trait was dead or near-dead on half its rolls.
+       Scaled, a Masterwork steel mace head goes 0.34 to 0.65 and a warhammer 0.43 to 0.65, past every
+       vanilla blunt rating (flak vest 0.36, recon 0.40, marine 0.45, cataphract 0.50). It stays dead
+       on uranium and jade warhammers (own 0.65 to 0.74), accepted: those heads already out-pierce
+       every vanilla blunt rating, and the cases are rare. Modded armor with higher blunt ratings
+       makes the floor matter there again rather than breaking anything.
        Also matches Demolish (the breach axe, the only Demolish tool in the game) and
        VFEP_GravityHammerAttack (MayRequire VFE Pirates; VFEP's warcasket gravity hammer, whose only
        other tool is a Poke handle), so on those weapons the mod lands on the head the description
@@ -38,7 +50,7 @@
               <li>Demolish</li> <!-- breach axe -->
               <li MayRequire="OskarPotocki.VFE.Pirates">VFEP_GravityHammerAttack</li> <!-- VFEP gravity hammer -->
             </alsoMatches>
-            <armorPenetrationFloor>0.45</armorPenetrationFloor>
+            <armorPenetrationQualityFloor>0.45</armorPenetrationQualityFloor> <!-- Normal-quality units; see header -->
           </li>
         </mods>
       </li>

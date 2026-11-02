@@ -34,7 +34,10 @@ public class MeleeToolMod
 
     // Raises the matched tool's armor penetration to at least this value (-1 = no floor). A FLAT
     // floor, compared against the fully quality- and stuff-scaled value: a rescue baseline that
-    // lifts a poor roll and leaves a fine one alone (Razored, ArmorSpike, Flanged).
+    // lifts a poor roll and leaves a fine one alone. No shipped trait uses it since 2026-11: a unique
+    // never rolls below Masterwork, so a flat floor sized against Normal-quality bases was dead on the
+    // heavier weapons (see Razored/ArmorSpike/Flanged headers). Kept for third-party traits built on
+    // this extension and for the CE compat root's patches, which remove AP fields by name.
     public float armorPenetrationFloor = -1f;
 
     // Raises the matched tool's armor penetration to at least this value TIMES the weapon's quality

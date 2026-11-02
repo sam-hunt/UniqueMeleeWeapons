@@ -2,16 +2,23 @@
 <Defs>
 
   <!-- UMW_Pointed. Point shape — a reinforced spike that punches through heavy armor. Realised
-       via MeleeToolModExtension flooring the Stab tool's armor penetration to 0.6 (no extra hit, no damage
-       change — the point itself just punches through). Sizing: vanilla ships exactly two explicit melee
-       tool APs — the spear point at 0.50 (the dedicated anti-armor weapon) and the monosword at 0.90 (the
-       ultratech pinnacle, mirrored by UMW_Monomolecular's 0.9 floor); everything else defaults to
-       0.015*power (0.20-0.35). 0.6 sits just above the spear and leaves clear air below mono grade; the
-       original 0.8 was nearly mono-grade on a commonality-1, +40 MV trait (2026-07 balance pass). On the
-       spear itself the floor only rescues poor quality/soft stuff (its point scales past 0.6 on its own at
-       high quality); on knife/gladius/longsword (base 0.20-0.35) it is the real upgrade. Distinct from
+       via MeleeToolModExtension's QUALITY floor on the Stab tool: 0.6 in Normal-quality units,
+       multiplied at swing time by the weapon's MeleeWeapon_DamageMultiplier quality factor, which is
+       exactly how vanilla scales a tool's own explicit <armorPenetration> (no extra hit, no damage
+       change — the point itself just punches through). So the spike sits on vanilla's explicit-AP
+       ladder: spear point 0.50 (the dedicated anti-armor weapon), this 0.60, monosword 0.90
+       (UMW_Monomolecular's quality floor); every other tool defaults to 0.015 x damage (0.20-0.35 at
+       Normal). 0.6 sits just above the spear and leaves clear air below mono grade; the original 0.8
+       was nearly mono-grade on a commonality-1, +40 MV trait (2026-07 balance pass).
+       WHY QUALITY-SCALED (2026-11). Shipped through 1.x as a FLAT 0.6, which assumed uniques span the
+       quality range. They never roll below Masterwork (QualityGenerator.Super), and a spear point's
+       own 0.5 scales to 0.72 Masterwork / 0.82 Legendary, so on the Pointed flagship the trait was
+       dead on every roll, and dead on Legendary premium-stuff longswords too. Scaled, it is 0.87
+       Masterwork / 0.99 Legendary: a uniform +20% on the spear, the real upgrade on knife, gladius
+       and longsword, and never below the weapon's own AP at any roll (worst case a Legendary obsidian
+       longsword point, 0.80). Distinct from
        NeedlePoint, whose deep-stab conversion seeks internal organs with only a mild damage+AP rider and
-       a hit-chance cost; the shared "Point" tag keeps the point shapes mutually exclusive. -->
+       a cooldown cost; the shared "Point" tag keeps the point shapes mutually exclusive. -->
   <WeaponTraitDef>
     <defName>UMW_ArmorSpike</defName>
     <label>armor spike</label>
@@ -36,7 +43,7 @@
             <capacities>
               <li>Stab</li>
             </capacities>
-            <armorPenetrationFloor>0.6</armorPenetrationFloor>
+            <armorPenetrationQualityFloor>0.6</armorPenetrationQualityFloor> <!-- Normal-quality units, between the spear's 0.5 and the monosword's 0.9; see header -->
           </li>
         </mods>
       </li>

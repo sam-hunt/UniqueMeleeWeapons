@@ -3,10 +3,10 @@
 
   <!-- Mechanism category — weapon has a Stab tool. Two independent trait families ride the thrust;
        token registry:
-         • "Point" — the point's shape/construction, one per weapon: ArmorSpike (floors the Stab
-           tool's armor penetration), NeedlePoint (coupled damage/armor-pen buff at a slight
-           hit-chance cost), Barbed (reroutes the base Stab to the bleedier, scar-prone
-           UMW_Stab_Ragged).
+         • "Point" — the point's shape/construction, one per weapon: ArmorSpike (quality-scaled
+           floor on the Stab tool's armor penetration), NeedlePoint (organ-seeking deep stab with a
+           mild damage/armor-pen rider at a cooldown cost), Barbed (reroutes the base Stab to the
+           bleedier, scar-prone UMW_Stab_Ragged).
          • "Coating" — what the point is dressed with, one per weapon: Envenomed (ToxicBuildup
            venom; additionally tags "Color" because it forces the green tint, so it can't co-occur
            with a Gold/Jade inlay) or Opiated (sedative capture coating; deliberately forces

@@ -20,9 +20,10 @@
        plasteel longsword edge computes to ~0.63, a Legendary spear point ~0.83), every roll sat at
        0.97 regardless of quality. Replaced 2026-11 so quality matters for the premium trait and the
        def holds the monosword's literal value rather than a hand-tuned number; the Combat Extended
-       root patches the CE-unit equivalents (18 / 25 mm RHA) onto this same entry. The only trait
-       that raises a base hit's AP without also raising its damage — AP is wasted on unarmored
-       targets but devastating vs plate/mechs. Flashy, so rarer (commonality 0.5). Forces the
+       root patches the CE-unit equivalents (18 / 25 mm RHA) onto this same entry. Pure AP, no
+       damage change — AP is wasted on unarmored targets but devastating vs plate/mechs; the top rung
+       of the ladder ArmorSpike (0.6) and Flanged (0.45) sit on. Flashy, so rarer (commonality 0.5).
+       Forces the
        pure-white UMW_MonoWhite onto COLOUR TWO (the body) via ForcedColorTwoExtension, so it tags
        BodyColor (its own one-per-weapon family) — being on a different mask channel than the
        Color-tagged inlays, it can co-occur with a Gold/Jade inlay. The Edge tag keeps it mutually
