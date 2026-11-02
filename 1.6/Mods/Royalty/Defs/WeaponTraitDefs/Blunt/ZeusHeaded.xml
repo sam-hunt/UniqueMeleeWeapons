@@ -13,7 +13,10 @@
        Thing.TakeDamage on a spawned pawn reaches Pawn_HealthTracker.PreApplyDamage → stunner.Notify_DamageApplied,
        the same path Odyssey's EMPRounds extraDamages rides — so no new C#. No chance gate: EMP's own
        stunAdaptationTicks (2200t) self-limits a chain (first hit stuns + starts adaptation; later hits read
-       "Adapted" until it lapses), exactly like the ranged version. Rarer (commonality 0.5, matching
+       "Adapted" until it lapses), exactly like the ranged version. That self-limit is vanilla's: Combat
+       Extended replaces the stun handler's adaptation and adds an electrical injury to every EMP hit, so
+       under CE the chain does not self-limit (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml's
+       header has the numbers; the chance gate is an open item). Rarer (commonality 0.5, matching
        UMW_Monomolecular). Shares the "Head" token with UMW_BellCast/UMW_DeadBlow: all are the blunt head's
        on-hit incapacitation effect (kinetic stun vs electromagnetic stun vs stagger), so a weapon gets
        at most one. Forces the

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Combat Extended compat: mirror CE's injury overhaul onto our two ragged wounds.
+
+       CE rewrites Core's Cut and Stab injuries BY DEFNAME (Patches/Core/HediffDefs/
+       Hediffs_Local_Injuries.xml, CE 16.7.4.0): the instant-roll HediffCompProperties_Infecter
+       becomes CombatExtended.HediffCompProperties_InfecterCE (a per-hour-untended chance that
+       scales with wound severity, triples on an inner part, and is divided by tend quality cubed,
+       the mechanism every CE injury shares), Cut's scar factor drops to 0.75, and Stab's
+       painPerSeverity rises to 0.0175. UMW_Cut_Ragged and UMW_Stab_Ragged are parentless clones of
+       those two (their headers: Core's Cut and Stab carry no Name= to inherit from), so CE's patch
+       never reaches them; without this file a ragged wound would be the only injury in a CE game
+       still rolling vanilla's instant infection, and a ragged stab would hurt LESS than CE's clean
+       one. CE's Stabilize comp needs no mirror: CE adds it to @Name="InjuryBase", which both clones
+       inherit, and list nodes merge. Bleed rates need none either: CE leaves Cut and Stab at 0.06,
+       so the clones' 0.12 stays the 2x the traits are built on (bleeding as a whole is far deadlier
+       under CE through its body-part bleed multipliers, which hit clean and ragged wounds alike).
+
+       - Infection: CE's own Cut (0.015/h) and Stab (0.03/h) rates, verbatim. The vanilla clones keep
+         Core's 0.15 untouched because infection is not part of the ragged identity; same here.
+       - UMW_Cut_Ragged scar factor 10 -> 7.5: the identity is "scars ten times the clean wound",
+         and the clean cut is 0.75 under CE. UMW_Stab_Ragged stays at 10 because CE leaves Stab's
+         factor at 1.
+       - UMW_Stab_Ragged painPerSeverity 0.0125 -> 0.0175, CE's Stab value. Cut is unchanged in CE,
+         so UMW_Cut_Ragged keeps 0.0125.
+
+       The other on-hit payloads were audited against CE the same session (2026-11-03) and need no
+       hediff work: BellCast's StunFor and DeadBlow's StaggerFor bypass the damage-stun path CE
+       rewrites (StunHandler.Notify_DamageApplied; StaggerHandler is untouched); BloodStained's
+       PanicFlee is a vanilla mental state CE never patches; UMW_SedativeBuildup is ours alone, and
+       CE's Pawn_HealthTracker.CheckForStateChange transpiler removes vanilla's random death-on-downed
+       roll, so an Opiated capture is strictly safer under CE. Envenomed and ZeusHeaded ride
+       mechanics CE does overhaul (its wound-borne venom, its Electric armor and re-stun model); the
+       findings sit in WeaponTraits_CE.xml's header beside the PlasmaCored retune. -->
+
+  <!-- UMW_Cut_Ragged: CE's Cut infection model and a scar factor that stays 10x CE's Cut. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_Cut_Ragged"]/comps/li[@Class="HediffCompProperties_Infecter"]</xpath>
+    <value>
+      <li Class="CombatExtended.HediffCompProperties_InfecterCE">
+        <infectionChancePerHourUntended>0.015</infectionChancePerHourUntended>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_Cut_Ragged"]/comps/li[@Class="HediffCompProperties_GetsPermanent"]/becomePermanentChanceFactor</xpath>
+    <value>
+      <becomePermanentChanceFactor>7.5</becomePermanentChanceFactor>
+    </value>
+  </Operation>
+
+  <!-- UMW_Stab_Ragged: CE's Stab infection model and pain. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_Stab_Ragged"]/comps/li[@Class="HediffCompProperties_Infecter"]</xpath>
+    <value>
+      <li Class="CombatExtended.HediffCompProperties_InfecterCE">
+        <infectionChancePerHourUntended>0.03</infectionChancePerHourUntended>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/HediffDef[defName="UMW_Stab_Ragged"]/injuryProps/painPerSeverity</xpath>
+    <value>
+      <painPerSeverity>0.0175</painPerSeverity>
+    </value>
+  </Operation>
+
+</Patch>

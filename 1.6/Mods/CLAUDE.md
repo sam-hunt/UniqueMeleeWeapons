@@ -23,9 +23,11 @@ bundles; the def headers cover the inherited VEF extensions and the dropped crat
 match VTE's redrawn vanilla spear, with the drafted-idle grip nudge riding
 `CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes);
 `CombatExtended` (version root only, Patches-only: the armor-penetration traits retuned to CE's
-penetration model and the Stab clones given CE's layer field; the C# half is the reflection-only
-hooks under `Source/1.6/Patches/CombatExtended/`, whose header is the full account of what CE's
-verb bypasses and why base weapon stats need no work).
+penetration model, the Stab clones given CE's layer field, the ragged-wound clones given CE's
+injury overhaul and the plasma-cored proc chance mirrored from CE's plasmasword, with the audit
+of every other on-hit payload in those patch headers; the C# half is the reflection-only hooks
+under `Source/1.6/Patches/CombatExtended/`, whose header is the full account of what CE's verb
+bypasses and why base weapon stats need no work).
 
 Rules:
 

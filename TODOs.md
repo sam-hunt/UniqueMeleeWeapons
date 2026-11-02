@@ -5,6 +5,15 @@
 - Rewrite ComplexCutoutMix to GLSL source
 - Update/Add workshop page images with new VFEP uniques/katanas
 - Test CE compat in-game (checklist: `Docs/Specs/Combat-Extended-Compat.md` §7)
+- Decide the two CE on-hit items left open by the 2026-11-03 status-effect audit (findings in
+  `1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml`'s header, numbers in the spec §2.11):
+  - Envenomed under CE: port to CE's wound-borne venom (a `UMW_VenomousStab` injury on
+    `UMW_Stab_Tox` carrying CE's `HediffCompProperties_Venom`, ToxicBuildup dropped; a new
+    translated def, roughly a tenfold dose per proc), or keep ToxicBuildup as the one melee venom
+    outside CE's model.
+  - ZeusHeaded under CE: add a CE-root `chance` gate on the EMP payload (CE's re-stun model makes
+    the 100% proc a continuous mechanoid stun-lock), or accept it as inside CE's own zeushammer
+    envelope.
 - fix ragged seams in `1PreviewWorkshop.png`, notes in `Docs/Research/preview-halo-seams/NOTES.md`
 
 ## Features

@@ -84,7 +84,12 @@ a trait. C#-side mechanics are in `Source/1.6/CLAUDE.md`.
 - **On-hit `DamageDef` payloads work for free.** `DamageDef.additionalHediffs` and the damage
   workers (`Flame`'s ignition, `EMP`'s stun) are applied source-agnostically by every
   `Thing.TakeDamage`, so an extra-damage effect carrying the right `DamageDef` needs no new C#.
-  Reuse a Core `DamageDef` where one fits; clone only when a field must change.
+  Reuse a Core `DamageDef` where one fits; clone only when a field must change. **Two CE traps
+  ride on that:** Combat Extended rewrites several of those source-agnostic mechanics (the
+  damage-stun handler, melee venom, fire, EMP's armor category) and patches Core's injury hediffs
+  *by defName*, so a cloned Core injury or damage def silently misses CE's overhaul. A new on-hit
+  payload or clone needs a CE audit, mirrored in the CE root's patch files
+  (`1.6/Mods/CombatExtended/Patches/`, whose headers hold the current audit).
 - Anything beyond the four native fields goes through one of the six `DefModExtension`s in
   `Source/1.6/Traits/`, and **every new effect mechanism must gain a `TraitEffectSummary` case** or
   it ships with no stated effect in-game (`Source/1.6/CLAUDE.md`).

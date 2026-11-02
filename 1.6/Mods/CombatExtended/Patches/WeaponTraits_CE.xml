@@ -50,6 +50,39 @@
        Bulk factors, the precedent). Bulk carries a StatPart, so it is never per-thing immutable,
        and its readers are inventory events, not ticks.
 
+       On-hit payloads (audited 2026-11-03 against CE 16.7.4.0; the C# hook delivers them, this
+       is what CE does to them once delivered; the ragged-wound mirrors are in HediffDefs_CE.xml):
+       - PlasmaCored: Flame is "ambient" under CE (DamageDefExtensionCE on Core's Flame), so
+         ArmorUtilityCE ignores the payload's AP and scales the 5 by one minus the summed Heat armor
+         over the part (CE flak 0.25, power armor 0.5), floored: 2 to 3 points. The ignition is
+         untouched (DamageWorker_Flame still attaches fire), but burning is roughly twice as
+         damaging under CE (Fire.DoFireDamage's constant doubled and scaled by body size; Burn pain
+         0.01875 -> 0.025, InfecterCE 0.07/h, scar x1.5). CE retuned the plasmasword our trait
+         halves from Flame 10 @ 50% to 5 @ 30% on the
+         edge (3 @ 20% on the point), so the chance follows it to 0.3 below; the amount already
+         equals CE's edge value. The summary line is derived from the def, so the card follows.
+       - ZeusHeaded: nothing patched, by decision, and its vanilla header's self-limiting claim is
+         vanilla-only. CE gives EMP the Electric armor category (no Core apparel or mechanoid
+         carries any, so the 4 lands whole), replaces StunHandler.Notify_DamageApplied so the
+         adaptation window is amount x 45 x body size instead of 2200t and a hit inside it re-stuns
+         with at least 85% probability, and postfixes it with an Electrical hit (AP 9999,
+         ElectricalBurn) worth the EMP amount on a mechanoid and a quarter of it on flesh. So under
+         CE a zeus-headed mace stuns a mechanoid 120t on nearly every hit, continuously at the
+         mace's 114t cooldown, plus 4 electrical damage, and a human takes a 1-point burn per hit.
+         CE's own zeushammer (EMP 5, 100%, 147t cooldown) locks the same way, so ours sits inside
+         CE's envelope; a chance gate restoring the "self-limiting chain" intent is the open item
+         in TODOs.md.
+       - Envenomed: nothing patched, by decision pending in TODOs.md. CE strips ToxicBuildup from
+         vanilla's melee venoms (ScratchToxic, ToxicBite) and routes them through its wound-borne
+         model instead: the injury carries CombatExtended.HediffCompProperties_Venom
+         (VenomPerSeverity 0.0000134 per tick, 10000 to 17500 ticks, cut by tend quality, stopped
+         by permanence) feeding CE's VenomBuildup (lethal at 1, same ladder as ToxicBuildup). Our
+         UMW_Stab_Tox still applies ToxicBuildup through additionalHediffs, which CE leaves intact,
+         so the trait works but is the one melee venom in a CE game not using CE's venom; the
+         faithful port is a UMW venomous stab injury on that DamageDef (a new, translated def) at
+         a per-wound dose of roughly 0.4 to 0.7 buildup untended at body size 1, far above the
+         vanilla 0.045 per proc.
+
        Royalty traits sit under a PatchOperationConditional on node existence, like
        AddNameToBaseMeleeWeapons.xml does for the Royalty bases, so this root never depends on the
        Royalty root being present. The statFactors additions are conditional on the node existing
@@ -133,6 +166,17 @@
     <value>
       <Bulk>1.3</Bulk>
     </value>
+  </Operation>
+
+  <!-- PlasmaCored (Royalty root): Flame proc 50% -> 30%, CE's plasmasword edge chance. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_PlasmaCored"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_PlasmaCored"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeTraitEffectExtension"]/onHitEffects/li[def="Flame"]/chance</xpath>
+      <value>
+        <chance>0.3</chance>
+      </value>
+    </match>
   </Operation>
 
   <!-- Monomolecular (Royalty root): Cut+Stab quality floor 0.9 -> Cut 18 / Stab 25 mm RHA at

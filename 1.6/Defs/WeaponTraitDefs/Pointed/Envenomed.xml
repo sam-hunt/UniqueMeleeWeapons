@@ -14,7 +14,11 @@
        armorPenetration 0.3 double-counted armor (payload re-rolled it) and surfaced in the info card as
        the coating itself piercing armor, which read as nonsense (2026-07 balance pass). Same rationale
        on UMW_Opiated. Odyssey's ToxRounds needs no equivalent because damageDefOverride converts the
-       whole bullet, inheriting its single armor roll. -->
+       whole bullet, inheriting its single armor roll.
+       The ScratchToxic parity the payload is built on (UMW_Stab_Tox's header) is vanilla's: Combat
+       Extended reroutes vanilla's melee venoms through its own wound-borne venom model and leaves
+       ToxicBuildup only to gas; under CE this trait still applies ToxicBuildup, unported by a decision
+       recorded in 1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml's header and TODOs.md. -->
   <WeaponTraitDef>
     <defName>UMW_Envenomed</defName>
     <label>envenomed</label>

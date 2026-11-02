@@ -9,6 +9,8 @@
        other way. MeleeOnHitEffect_ExtraDamage stacks a Core "Flame" hit at half the
        plasmasword's own extraMeleeDamages numbers (ours 5 @ 50% vs its 10 @ 50% — one trait on a lesser
        weapon, not a persona blade; AP 0 is Flame's own default, so Heat armor legitimately blunts it).
+       Combat Extended retunes that plasmasword to 5 @ 30%, so the CE root moves the chance to 0.3
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml, which also records what CE does to Flame).
        Ignition comes free: DamageWorker_Flame.Apply attaches fire on any direct, non-deflected
        Thing.TakeDamage (chance scaled by the victim's Flammability via ChanceToAttachFireFromEvent) —
        the same source-agnostic pattern as Envenomed's ToxicBuildup and ZeusHeaded's EMP stun, no new C#.
