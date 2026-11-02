@@ -15,7 +15,7 @@ prerelease whose zip can be tried on another machine without building from
 source. They never go to the Steam Workshop and get no `CHANGELOG.md` section.
 Otherwise an RC is held to the same bar as a stable release (it should be what
 would ship), so it runs every step below except the changelog and the
-Workshop paste. SemVer orders `1.3.0 < 1.4.0-rc.1 < 1.4.0-rc.2 < 1.4.0`, so
+Workshop publish (step 9). SemVer orders `1.3.0 < 1.4.0-rc.1 < 1.4.0-rc.2 < 1.4.0`, so
 candidates sit between stable versions without disturbing them.
 
 `$ARGUMENTS` is optional and resolved at step 7, where the version is first
@@ -241,15 +241,94 @@ No further questions unless something is unexpected:
   commit list, and attaches `UniqueMeleeWeapons-v<version>.zip`. Point the
   user at the release page for the zip, and remind them it's publicly
   downloadable but must not be uploaded to the Workshop.
-- **Stable:** also show the changelog notes for the user to copy into the
-  **Steam Workshop** description. The **GitHub** release notes need no paste:
-  the tag-triggered workflow lifts this version's `CHANGELOG.md` section into
-  the release body itself (and hard-fails the release if the section is
-  missing), so the changelog entry written at step 7 is the release body. List
-  every `.steamworkshop/Description/` file changed since the last stable tag
-  (`git diff --name-only <last-stable-tag> -- .steamworkshop/Description/`),
-  not only those step 4 just touched: an earlier RC may already have committed
-  them, and the Workshop page has seen none of it. Remind the user to paste
-  each listed title and description into the Workshop page's per-language edit
-  UI (Steam's own language names differ: schinese, koreana, brazilian, latam,
-  ...).
+- **Stable:** the **GitHub** release notes need no paste: the tag-triggered
+  workflow lifts this version's `CHANGELOG.md` section into the release body
+  itself (and hard-fails the release if the section is missing), so the
+  changelog entry written at step 7 is the release body. Continue with step 9.
+
+### 9. Publish to the Steam Workshop (stable only)
+
+Nothing here is automated: Steam has no API for per-language text, page
+images live outside the repo, and the upload itself runs from the game. Walk
+the user through the hand-offs below in order and wait at each one.
+
+- **Upload from the game.** In the mod list, select Unique Melee Weapons, then
+  Advanced... > Upload to Steam Workshop. This uploads the local deploy that
+  step 8 just rebuilt; in one go it sets the content folder, the tags ("Mod"
+  plus every supported version from `About.xml`) and the preview, which it
+  always takes from `About/Preview.png`.
+  - **First release:** the game writes the new item's id to
+    `About/PublishedFileId.txt` of the *deployed* copy
+    (`Mods/UniqueMeleeWeapons/`), which the next build overwrites. Copy it into
+    the repo's `About/` and commit it as
+    `chore(about): Track the Workshop PublishedFileId`; the staging manifest
+    ships it, so every later upload updates this item instead of creating
+    another. Check the item's visibility on its page straight away and keep it
+    hidden until the rest of this step is on the page.
+  - **Which game client:** the 1.6 client, or the 1.7 client with its
+    "Build asset pack" box unticked; the two send the same bytes (the mod
+    folder verbatim, tags from `About.xml`), and that is what the CI zip and
+    the smoke test saw. Ticked, the 1.7 uploader bakes an `Assets.zip` of
+    BC7 textures into the root of every load folder its `<v1.7>` block names
+    that has `Textures/` or `Sounds/`, writing it into the *deployed* copy
+    (the next build removes it, so a later upload rebakes rather than reusing
+    a stale pack) and ships a Workshop item that differs from the tested
+    deploy. "Don't upload source textures" must stay unticked while 1.6 is
+    in `supportedVersions`: 1.6 ignores the pack and would ship with no art.
+- **Change notes:** show the changelog notes from step 7 for the user to paste
+  into the Workshop change notes of this upload.
+- **Title and description per language:** list every
+  `.steamworkshop/Description/` file changed since the last stable tag
+  (`git diff --name-only <last-stable-tag> -- .steamworkshop/Description/`;
+  on the first release, every file), not only those step 4 just touched: an
+  earlier RC may already have committed them, and the Workshop page has seen
+  none of it. Remind the user to paste each listed title and description into
+  the page's per-language edit UI (Steam's own language names differ:
+  schinese, koreana, brazilian, latam, ...).
+- **Page images:** the gallery lives in `.steamworkshop/Images/`. The user
+  uploads new or changed ones through the page's images and videos UI; list
+  any changed since the
+  last stable tag (`git diff --name-only <last-stable-tag> --
+  .steamworkshop/Images/`). Steam rejects gallery images of 2 MB or more and
+  takes no video files, so a gameplay clip goes up as a GIF cut to fit:
+  ffmpeg ships with Krita on the Windows side
+  (`.../steamapps/common/Krita/krita/bin/ffmpeg.exe`), and lowering frame
+  rate, scale and palette with Bayer dithering is what gets a few seconds of
+  combat under the limit:
+  ```bash
+  ffmpeg -i Clip.mp4 -lavfi "fps=8,scale=iw*0.75:-2:flags=lanczos,split[a][b];[a]palettegen=max_colors=48:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle" -loop 0 Clip.gif
+  ```
+- **Animated preview** (only when `.steamworkshop/Preview.gif` exists; skip
+  silently otherwise). The mod list loads `About/Preview.png` through Unity's
+  `LoadImage`, which decodes only PNG and JPG, so a GIF shipped under that name
+  draws nothing in-game. The Workshop preview is a separate Steam call from the
+  content upload, so the page gets the GIF through a preview-only SteamCMD
+  update *after* the in-game upload, which always resets the preview to the
+  static PNG. This bullet therefore repeats on every stable release.
+  - Steam rejects previews of 1 MB or more; check the file first:
+    ```bash
+    stat -c %s .steamworkshop/Preview.gif   # must be below 1048576
+    ```
+  - Write the update manifest (only the keys present are changed; omitting
+    `contentfolder` leaves the uploaded content alone):
+    ```bash
+    printf '"workshopitem"\n{\n    "appid" "294100"\n    "publishedfileid" "%s"\n    "previewfile" "%s"\n}\n' \
+      "$(cat About/PublishedFileId.txt)" "$PWD/.steamworkshop/Preview.gif" \
+      > "${TMPDIR:-/tmp}/UniqueMeleeWeapons-preview.vdf"
+    ```
+  - The user runs SteamCMD themselves in a separate terminal (the login
+    prompts for a Steam Guard code, and some reports say it signs the desktop
+    client out, so the game should be closed by now anyway):
+    ```bash
+    ~/steamcmd/steamcmd.sh +login <steam-account> +workshop_build_item "${TMPDIR:-/tmp}/UniqueMeleeWeapons-preview.vdf" +quit
+    ```
+    If `~/steamcmd/steamcmd.sh` is missing, it is the Linux build from Valve
+    (`sudo apt install lib32gcc-s1`, then
+    `mkdir -p ~/steamcmd && curl -sqL https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -zxf - -C ~/steamcmd`);
+    the first run self-updates and takes a minute.
+  - Verify on the page: the thumbnail animates, and the tags still read "Mod"
+    plus the supported versions. SteamCMD cannot set tags and has left them
+    alone so far; if they are ever gone, upload from the game again (which
+    restores them and the static preview), report it, and rerun the SteamCMD
+    update to see whether it repeats.
+- **First release:** set the item public once everything above is on the page.
