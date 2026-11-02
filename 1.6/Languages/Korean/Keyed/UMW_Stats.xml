@@ -62,7 +62,7 @@
   <UMW_TraitStat_ExtraDamageApplies>{0}, 적용: {1}</UMW_TraitStat_ExtraDamageApplies>
 
   <!-- EN: {0}, leaving {1} -->
-  <UMW_TraitStat_ExtraDamageWound>{0}, 남기는 상처: {1}</UMW_TraitStat_ExtraDamageWound>
+  <UMW_TraitStat_ExtraDamageWound>{0}, 남기는 것: {1}</UMW_TraitStat_ExtraDamageWound>
 
   <!-- EN: stun for {0} -->
   <UMW_TraitStat_Stun>{0}간 기절</UMW_TraitStat_Stun>

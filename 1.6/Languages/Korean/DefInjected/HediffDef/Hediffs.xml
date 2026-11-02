@@ -86,10 +86,10 @@
   <UMW_Stab_Ragged.injuryProps.destroyedOutLabel>잘림</UMW_Stab_Ragged.injuryProps.destroyedOutLabel>
 
   <!-- EN: venomous stab -->
-  <UMW_VenomousStab.label>독 찔림</UMW_VenomousStab.label>
+  <UMW_VenomousStab.label>찔림 (독)</UMW_VenomousStab.label>
 
   <!-- EN: a venomous stab wound -->
-  <UMW_VenomousStab.labelNoun>독 묻은 찔린 상처</UMW_VenomousStab.labelNoun>
+  <UMW_VenomousStab.labelNoun>독이 묻은 찔린 상처</UMW_VenomousStab.labelNoun>
 
   <!-- EN: {0} in the {1} -->
   <UMW_VenomousStab.labelNounPretty>{1}의 {0}</UMW_VenomousStab.labelNounPretty>
