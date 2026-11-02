@@ -13,13 +13,28 @@ namespace UniqueMeleeWeapons.Patches;
 // CompUniqueWeapon makes natural attacks and non-unique weapons no-ops. This mirrors how
 // vanilla Verb already reaches trait data off the verb (the burstShotSpeedMultiplier
 // loop). Discovered automatically by PatchAll() in UniqueMeleeWeaponsMod.
+//
+// The body lives in MeleeOnHitTraitResolver so the Combat Extended hook on CE's sibling verb
+// (Patches/CombatExtended/CombatExtended_MeleePatches.cs) runs the identical logic off a plain
+// Verb: CE's verb is not a Verb_MeleeAttackDamage, so this patch never fires during a CE swing.
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "ApplyMeleeDamageToTarget")]
 public static class Verb_MeleeAttackDamage_OnHitTraits_Patch
 {
     public static void Postfix(Verb_MeleeAttackDamage __instance, LocalTargetInfo target, DamageWorker.DamageResult __result)
     {
+        MeleeOnHitTraitResolver.Fire(__instance, target, __result);
+    }
+}
+
+// The shared on-hit body: given the verb that swung, its target and the resolved result, rolls
+// every on-hit effect of every trait on the verb's unique weapon. Reads nothing beyond the Verb
+// base class, so it serves vanilla's damage verb and CE's alike.
+internal static class MeleeOnHitTraitResolver
+{
+    internal static void Fire(Verb verb, LocalTargetInfo target, DamageWorker.DamageResult result)
+    {
         // Only on a hit that actually wounded a living, spawned pawn — deflected/missed blows do nothing.
-        if (__result?.wounded != true)
+        if (result?.wounded != true)
         {
             return;
         }
@@ -28,14 +43,14 @@ public static class Verb_MeleeAttackDamage_OnHitTraits_Patch
             return;
         }
 
-        ThingWithComps weapon = __instance.EquipmentSource;
+        ThingWithComps weapon = verb.EquipmentSource;
         CompUniqueWeapon comp = weapon?.GetComp<CompUniqueWeapon>();
         if (comp == null)
         {
             return;
         }
 
-        Pawn attacker = __instance.CasterPawn;
+        Pawn attacker = verb.CasterPawn;
         var traits = comp.TraitsListForReading;
         for (int i = 0; i < traits.Count; i++)
         {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Combat Extended compat: mirror the one field CE adds to vanilla Stab onto our Stab clones.
+       CE's armor model (ArmorUtilityCE, rerouted into DamageWorker_AddInjury by a call-site
+       transpiler) runs a Sharp hit through every apparel layer outermost first, and CE patches
+       Core's Stab BY DEFNAME with harmAllLayersUntilOutside=true so a stab that gets through keeps
+       harming the layers beneath. Our four Stab clones (Deep, Ragged, Tox, Tranq) are parentless
+       copies (vanilla Stab has no Name= to inherit from; see each def's header), so CE's patch
+       never reaches them; this one does the same thing to them. UMW_Cut_Ragged already sets the
+       field in its own def. CE adds nothing else to Cut or Blunt, and our clones already carry
+       armorCategory, which is all the model needs. -->
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/DamageDef[defName="UMW_Stab_Deep" or defName="UMW_Stab_Ragged" or defName="UMW_Stab_Tox" or defName="UMW_Stab_Tranq"]</xpath>
+    <value>
+      <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    </value>
+  </Operation>
+
+</Patch>

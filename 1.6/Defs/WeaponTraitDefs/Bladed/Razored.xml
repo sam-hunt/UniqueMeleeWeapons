@@ -14,7 +14,9 @@
        premium-stuff gladii and axes, while the card still promised "min. 45%". A factor keeps the
        recorded x1.3 design point, scales with the weapon instead of against it, and can never go dead;
        the knife's outsized lift under the floor (0.29 to 0.45 at Masterwork) was a side effect, not the
-       design. The guaranteed-baseline identity belongs to ArmorSpike and Flanged (quality floors). -->
+       design. The guaranteed-baseline identity belongs to ArmorSpike and Flanged (quality floors).
+       Under Combat Extended the Cut AP factor becomes a weapon-wide MeleePenetrationFactor
+       x1.25 (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_Razored</defName>
     <label>razored</label>

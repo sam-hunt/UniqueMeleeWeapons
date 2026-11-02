@@ -46,7 +46,9 @@
        Odyssey's cooldown-priced coupled cost (x1.5 there, on a far larger buff).
        MV 70: PiercingArrows prices the +30% AP alone at 40; the organ-seeking premium sits it
        below ParalyticArrows' 80 / HollowPoint's 85, discounted for the cooldown and damage
-       costs. -->
+       costs.
+       Under Combat Extended the Stab AP factor becomes a weapon-wide MeleePenetrationFactor
+       x1.3 (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_NeedlePoint</defName>
     <label>needle point</label>

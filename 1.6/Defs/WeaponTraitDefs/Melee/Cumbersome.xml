@@ -4,7 +4,9 @@
   <!-- UMW_Melee. Weight — heavier, slower swing. Re-pointed port of Odyssey's Ranged
        "Cumbersome" (deltas noted inline). The description blames bulk, NOT balance: balance is
        the Heavy category's SwingProfile axis (see Heavy.xml), and a Weight trait claiming it made
-       the legal Cumbersome+Counterweighted co-roll read as a contradiction. -->
+       the legal Cumbersome+Counterweighted co-roll read as a contradiction.
+       Under Combat Extended the Mass factor is mirrored onto CE's Bulk
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_Cumbersome</defName>
     <label>cumbersome</label>

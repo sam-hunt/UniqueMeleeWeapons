@@ -18,7 +18,9 @@
        and longsword, and never below the weapon's own AP at any roll (worst case a Legendary obsidian
        longsword point, 0.80). Distinct from
        NeedlePoint, whose deep-stab conversion seeks internal organs with only a mild damage+AP rider and
-       a cooldown cost; the shared "Point" tag keeps the point shapes mutually exclusive. -->
+       a cooldown cost; the shared "Point" tag keeps the point shapes mutually exclusive.
+       Under Combat Extended the floor is restated in CE units, 3 mm RHA at Normal
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_ArmorSpike</defName>
     <label>armor spike</label>

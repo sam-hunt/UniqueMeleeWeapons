@@ -104,7 +104,7 @@ Subscribe on the Steam Workshop and it will auto-download.
 
 - **Safe to add** to existing saves.
 - **Unsafe to remove** from saves, but everything can be turned off in mod settings.
-- Not tested with Combat Extended.
+- Combat Extended: supported.
 
 ## Contributing
 

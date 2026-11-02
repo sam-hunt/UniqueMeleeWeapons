@@ -21,7 +21,11 @@ via VEF's inherited `HeavyWeapon` extension, their art, and the mix shader's Sha
 bundles; the def headers cover the inherited VEF extensions and the dropped crate graphic);
 `VanillaTexturesExpanded` (version root only: a Patches-only root re-posing the unique spear to
 match VTE's redrawn vanilla spear, with the drafted-idle grip nudge riding
-`CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes).
+`CarriedWeaponOffsetExtension`, our only def hook for a pose vanilla hard-codes);
+`CombatExtended` (version root only, Patches-only: the armor-penetration traits retuned to CE's
+penetration model and the Stab clones given CE's layer field; the C# half is the reflection-only
+hooks under `Source/1.6/Patches/CombatExtended/`, whose header is the full account of what CE's
+verb bypasses and why base weapon stats need no work).
 
 Rules:
 
@@ -36,7 +40,8 @@ Rules:
   subclasses are created before XML patches apply.
 - **Package ids live in several places that must agree:** the `IfModActive` value in
   `LoadFolders.xml`, the C# gate constant beside the feature it enables (`VtePackageId` in
-  `Settings_Compat.cs`, `VfepPackageId` in `ShaderDatabase_LoadShader_Fallback_Patch.cs`), and the
+  `Settings_Compat.cs`, `VfepPackageId` in `ShaderDatabase_LoadShader_Fallback_Patch.cs`,
+  `CePackageId` in `Patches/CombatExtended/CombatExtended_MeleePatches.cs`), and the
   `loadAfter` entry in `About.xml` when our defs inherit from that mod's. Gate C# with
   `ignorePostfix: true` (root `CLAUDE.md`), or a Workshop copy beside a local one hides the setting
   row while the root still loads.

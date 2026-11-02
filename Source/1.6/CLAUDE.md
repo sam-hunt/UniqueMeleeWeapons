@@ -6,18 +6,26 @@ errors, localization, mod detection, the published contracts) are in the root `C
 
 ## Patching
 
-- `PatchAll()` in `Core/UniqueMeleeWeaponsMod.cs` picks up every `[HarmonyPatch]` class. Two patches
-  deliberately carry no attribute and are applied conditionally, so an install with no consumer
-  places no detour at all: `ShaderDatabase_LoadShader_Fallback_Patch` (from the Mod ctor while VFEP
-  is active, because the shader loader runs in def `PostLoad`, before `CallAll`) and
+- `PatchAll()` in `Core/UniqueMeleeWeaponsMod.cs` picks up every `[HarmonyPatch]` class. Three
+  patch files deliberately carry no attribute and are applied conditionally, so an install with no
+  consumer places no detour at all: `ShaderDatabase_LoadShader_Fallback_Patch` (from the Mod ctor
+  while VFEP is active, because the shader loader runs in def `PostLoad`, before `CallAll`),
   `PawnRenderUtility_DrawCarriedWeapon_Patch` (from `UMW_Startup.Run`, only if a def consumes its
-  extension). Their headers say why; don't "tidy" them back into `PatchAll`.
+  extension) and `CombatExtended/CombatExtended_MeleePatches.cs` (from `UMW_Startup.Run`, only
+  while CE is active). Their headers say why; don't "tidy" them back into `PatchAll`.
 - **Patch-timing hazard (foreign targets):** `PatchAll()` runs from the `Mod` ctor, before any defs
   load. Applying a detour JIT-compiles the target and runs its declaring type's static ctor, so a
   patch on ANOTHER MOD's method can permanently break that mod when its cctor resolves defs (the
-  BetterTradersGuild v1.1.0 CWTL incident). Every current target is vanilla. Before adding a
-  foreign-target patch, defer it until after defs load; worked example: BetterTradersGuild's
+  BetterTradersGuild v1.1.0 CWTL incident). The only foreign targets are the Combat Extended hooks,
+  which follow the rule: resolved by name from `UMW_Startup.Run` (after every mod's static ctor),
+  a miss logs once and degrades, and any def they cache is re-resolved on every load. Copy that
+  shape for the next foreign target; worked example also in BetterTradersGuild's
   `Core/DeferredModPatches.cs`.
+- **The vanilla melee verb and CE's are siblings, not parent and child.** A patch on
+  `Verb_MeleeAttackDamage` never fires during a Combat Extended swing. A new melee trait mechanism
+  that needs a verb hook needs both: put the body in a shared resolver (the on-hit and conversion
+  patches are the pattern) and add the CE target in the CE file, or the trait ships inert under
+  CE while its info-card line still promises the effect.
 - **A def is kept out of the pools by filtering `ThingSetMakerUtility.CanGenerate`, never by
   removing the def.** It is the one choke point every `ThingSetMaker` funnels through, so the
   per-weapon toggles need only `Patches/ThingSetMakerUtility_CanGenerate_Patch.cs`, and estimates,

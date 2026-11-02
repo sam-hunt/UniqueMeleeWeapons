@@ -7,7 +7,10 @@
        AP traits), so MeleeToolModExtension multiplies AP back down by 1/1.3 on every tool, leaving the
        damage boost but a neutral AP.
        GOTCHA: the 0.7692 factor is 1/1.3 — if the MeleeWeapon_DamageMultiplier below changes, update the
-       factor to match (1 / newMultiplier). -->
+       factor to match (1 / newMultiplier).
+       Under Combat Extended the extension is removed outright: CE's penetration never reads
+       MeleeWeapon_DamageMultiplier, so there is nothing to cancel
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_HeadWeighted</defName>
     <label>head-weighted</label>

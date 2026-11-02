@@ -4,7 +4,7 @@
 - Test earlier revisions of VFEP unique masks since 1.7 rolled DXT5->BC7
 - Rewrite ComplexCutoutMix to GLSL source
 - Update/Add workshop page images with new VFEP uniques/katanas
-- Add CE support
+- Test CE compat in-game (checklist: `Docs/Specs/Combat-Extended-Compat.md` §7)
 - fix ragged seams in `1PreviewWorkshop.png`, notes in `Docs/Research/preview-halo-seams/NOTES.md`
 
 ## Features

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Combat Extended (CETeam.CombatExtended) compat: retunes the armor-penetration and mass
+       traits to CE's model. Loaded only from the CE root (LoadFolders.xml), so nothing here runs
+       without CE. The C# half, Source/1.6/Patches/CombatExtended/CombatExtended_MeleePatches.cs,
+       carries the full account of why CE's verb bypasses the vanilla trait patches; this header
+       covers only the def-level choices.
+
+       Why the AP traits move. CE never calls VerbProperties.AdjustedArmorPenetration, the getter
+       our per-tool armorPenetrationFactor / armorPenetrationQualityFloor fields hook; penetration
+       comes from each ToolCE's own sharp (mm RHA) and blunt (MPa) numbers, multiplied by the
+       weapon's MeleePenetrationFactor stat (CE's Stats_Weapons_Melee.xml: Weapon category, default
+       1, StatPart_Quality 0.65 Awful to 1.5 Legendary, plus CE's stuff factors: plasteel 1.25,
+       uranium 1.3, obsidian 1.15, wood 0.5). That stat is read with GetStatValue on the equipment,
+       so a trait statFactors entry reaches it exactly like MeleeWeapon_DamageMultiplier does, shows
+       in CE's own AP readout and prints as a vanilla stat line, all with no C#. Each trait keeps
+       the shape its vanilla identity settled (its own header): a "+X on what the blade has" trait
+       is a factor, weapon-wide here because the stat is; a "guaranteed baseline" trait is a floor
+       stated at Normal quality and scaled by CE's quality ladder, in CE units, through the
+       ceArmorPenetration*QualityFloor fields the C# hook reads. The vanilla fields are STRIPPED,
+       not left beside the CE ones: TraitEffectSummary derives the info-card lines from them, and
+       under CE those lines would promise a vanilla percentage the game never applies.
+
+       The numbers, against CE's ladder (sharp, mm RHA: knife 0.32 to 0.42, gladius 0.43 to 0.48,
+       longsword edge 0.72 and point 2.0, spear 2.25, axe 1.57, monosword 18 edge / 25 point,
+       plasma sword 24 to 32; blunt, MPa: mace head 5.625, breach axe 3.375, warhammer 11.25.
+       Armor, sharp: flak vest 8, recon 16, marine 20, cataphract 28):
+       - Razored x1.25, a plasteel's worth and a mid-ladder step; slightly under the vanilla x1.3
+         because it now also reaches the point and handle. A steel longsword edge becomes an
+         untraited plasteel one and still fails a flak vest.
+       - NeedlePoint x1.3, the vanilla number carried over.
+       - ArmorSpike: Stab floor 3 mm RHA, just above the spear point's 2.25 as vanilla's 0.6 sits
+         just above its 0.5, and far below a monosword.
+       - Flanged: Blunt floor 8 MPa, a mace head lifted toward warhammer territory; dead on the
+         warhammer itself, as vanilla's is on uranium and jade heads, accepted.
+       - Monomolecular: the monosword's two tools verbatim, Cut 18 / Stab 25. The one vanilla entry
+         covering both capacities becomes two, because CE's edge and point differ (25x and 12.5x a
+         longsword's, so no single factor could be both) and a MeleeToolMod holds one sharp floor.
+         At Masterwork (x1.35) that is 24.3 / 33.8: the edge beats marine and fails cataphract,
+         the point beats cataphract. Legendary (x1.5): 27 / 37.5.
+       - HeadWeighted loses its whole MeleeToolModExtension: its 1/1.3 AP factor exists only to
+         cancel MeleeWeapon_DamageMultiplier's vanilla AP side effect, and under CE that stat does
+         not touch penetration at all.
+       The ArmorSpike and Flanged numbers are ladder-derived, not play-tested; tune here and keep
+       this comment current.
+
+       Bulk: CE's inventory stat, inherited from each base through ParentName. Lightweight and
+       Cumbersome mirror their Mass factors onto it (CE's own Odyssey patch gives the barrel traits
+       Bulk factors, the precedent). Bulk carries a StatPart, so it is never per-thing immutable,
+       and its readers are inventory events, not ticks.
+
+       Royalty traits sit under a PatchOperationConditional on node existence, like
+       AddNameToBaseMeleeWeapons.xml does for the Royalty bases, so this root never depends on the
+       Royalty root being present. The statFactors additions are conditional on the node existing
+       so a future vanilla-side statFactors entry cannot produce a duplicate node. -->
+
+  <!-- Razored: Cut AP x1.3 -> weapon-wide MeleePenetrationFactor x1.25. The Cut damageFactor stays. -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Razored"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]/mods/li/armorPenetrationFactor</xpath>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Razored"]/statFactors</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Razored"]/statFactors</xpath>
+      <value>
+        <MeleePenetrationFactor>1.25</MeleePenetrationFactor>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Razored"]</xpath>
+      <value>
+        <statFactors>
+          <MeleePenetrationFactor>1.25</MeleePenetrationFactor>
+        </statFactors>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- NeedlePoint: Stab AP x1.3 -> weapon-wide MeleePenetrationFactor x1.3. The Stab damageFactor
+       and the UMW_Stab_Deep conversion stay (the conversion needs the C# hook). -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_NeedlePoint"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]/mods/li/armorPenetrationFactor</xpath>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_NeedlePoint"]/statFactors</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_NeedlePoint"]/statFactors</xpath>
+      <value>
+        <MeleePenetrationFactor>1.3</MeleePenetrationFactor>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_NeedlePoint"]</xpath>
+      <value>
+        <statFactors>
+          <MeleePenetrationFactor>1.3</MeleePenetrationFactor>
+        </statFactors>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- ArmorSpike: Stab quality floor 0.6 -> 3 mm RHA at Normal, CE-quality-scaled. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_ArmorSpike"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]/mods/li/armorPenetrationQualityFloor</xpath>
+    <value>
+      <ceArmorPenetrationSharpQualityFloor>3</ceArmorPenetrationSharpQualityFloor>
+    </value>
+  </Operation>
+
+  <!-- Flanged: Blunt quality floor 0.45 -> 8 MPa at Normal, CE-quality-scaled. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Flanged"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]/mods/li/armorPenetrationQualityFloor</xpath>
+    <value>
+      <ceArmorPenetrationBluntQualityFloor>8</ceArmorPenetrationBluntQualityFloor>
+    </value>
+  </Operation>
+
+  <!-- HeadWeighted: the AP-cancel factor has nothing to cancel under CE; drop the extension. -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_HeadWeighted"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]</xpath>
+  </Operation>
+
+  <!-- Lightweight / Cumbersome: Bulk factors mirroring their Mass factors. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Lightweight"]/statFactors</xpath>
+    <value>
+      <Bulk>0.7</Bulk>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Cumbersome"]/statFactors</xpath>
+    <value>
+      <Bulk>1.3</Bulk>
+    </value>
+  </Operation>
+
+  <!-- Monomolecular (Royalty root): Cut+Stab quality floor 0.9 -> Cut 18 / Stab 25 mm RHA at
+       Normal, as two entries. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_Monomolecular"]</xpath>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Monomolecular"]/modExtensions/li[@Class="UniqueMeleeWeapons.MeleeToolModExtension"]/mods</xpath>
+      <value>
+        <mods>
+          <li>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <ceArmorPenetrationSharpQualityFloor>18</ceArmorPenetrationSharpQualityFloor>
+          </li>
+          <li>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <ceArmorPenetrationSharpQualityFloor>25</ceArmorPenetrationSharpQualityFloor>
+          </li>
+        </mods>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

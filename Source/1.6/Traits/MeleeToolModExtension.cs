@@ -54,6 +54,19 @@ public class MeleeToolMod
     // Multiplies the matched tool's armor penetration (1 = no change). Applied before the floors.
     public float armorPenetrationFactor = 1f;
 
+    // The quality floor again, in Combat Extended's units: sharp penetration in mm RHA and blunt in
+    // MPa, each stated at Normal quality and multiplied at swing time by the quality factor of CE's
+    // MeleePenetrationFactor (the stat CE scales every ToolCE penetration by), read through the
+    // same abstract StatRequest as the vanilla floor so stuff and health stay out of it. -1 = none.
+    // Set only by the CE compat root's trait patch (1.6/Mods/CombatExtended/Patches/
+    // WeaponTraits_CE.xml), read only by the CE hooks (Patches/CombatExtended/) and by
+    // TraitEffectSummary's CE-unit line; vanilla never scales a tool by these, so without CE they
+    // stay -1 and nothing changes. Two fields rather than one because CE keeps sharp and blunt
+    // penetration as separate numbers on every tool, and a Cut/Stab entry needs the sharp one
+    // while a Blunt entry needs the other.
+    public float ceArmorPenetrationSharpQualityFloor = -1f;
+    public float ceArmorPenetrationBluntQualityFloor = -1f;
+
     // True when this entry has no capacity filter (applies to every tool).
     public bool AppliesToAllTools => capacities == null || capacities.Count == 0;
 

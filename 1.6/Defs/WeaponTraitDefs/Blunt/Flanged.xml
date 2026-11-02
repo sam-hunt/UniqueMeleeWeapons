@@ -24,7 +24,9 @@
        talks about rather than on the handle or nothing. Both are BluntBase damages, so they sit in
        alsoMatches: the info-card line names only "blunt", and on every other weapon the entry is
        equivalent to Blunt alone.
-       Priced at parity with Odyssey's ranged PiercingRounds (+40). -->
+       Priced at parity with Odyssey's ranged PiercingRounds (+40).
+       Under Combat Extended the floor is restated in CE units, 8 MPa at Normal
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_Flanged</defName>
     <label>flanged</label>

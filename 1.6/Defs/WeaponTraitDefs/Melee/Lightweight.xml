@@ -3,7 +3,9 @@
 
   <!-- UMW_Melee. Weight — lighter, quicker swing. The universal alone-able trait
        (canGenerateAlone defaults true); its adjectives guarantee every weapon can be named.
-       Re-pointed port of Odyssey's Ranged "Lightweight" (deltas noted inline). -->
+       Re-pointed port of Odyssey's Ranged "Lightweight" (deltas noted inline).
+       Under Combat Extended the Mass factor is mirrored onto CE's Bulk
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>
     <defName>UMW_Lightweight</defName>
     <label>lightweight</label>

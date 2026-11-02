@@ -133,6 +133,18 @@ public static class TraitEffectSummary
                 lines.Add("UMW_TraitStat_ToolArmorPenetration".Translate(scope).CapitalizeFirst() + " "
                     + "UMW_TraitStat_QualityMinimum".Translate(mod.armorPenetrationQualityFloor.ToStringPercent()));
             }
+            // The Combat Extended floors, in CE's units. Only the CE compat root's patch sets them,
+            // so these lines appear exactly when the hook that applies them exists.
+            if (mod.ceArmorPenetrationSharpQualityFloor >= 0f)
+            {
+                lines.Add("UMW_TraitStat_ToolArmorPenetration".Translate(scope).CapitalizeFirst() + " "
+                    + "UMW_TraitStat_QualityMinimumSharpCE".Translate(mod.ceArmorPenetrationSharpQualityFloor.ToString("0.##")));
+            }
+            if (mod.ceArmorPenetrationBluntQualityFloor >= 0f)
+            {
+                lines.Add("UMW_TraitStat_ToolArmorPenetration".Translate(scope).CapitalizeFirst() + " "
+                    + "UMW_TraitStat_QualityMinimumBluntCE".Translate(mod.ceArmorPenetrationBluntQualityFloor.ToString("0.##")));
+            }
         }
     }
 

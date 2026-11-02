@@ -19,6 +19,10 @@
 
   <!-- EN: min. {0} at normal quality, rising with quality -->
   <UMW_TraitStat_QualityMinimum>最低{0}（一般品质），随品质提升而提高</UMW_TraitStat_QualityMinimum>
+  <!-- EN: min. {0} mm RHA at normal quality, rising with quality -->
+  <UMW_TraitStat_QualityMinimumSharpCE>最低{0}mm RHA（一般品质），随品质提升而提高</UMW_TraitStat_QualityMinimumSharpCE>
+  <!-- EN: min. {0} MPa at normal quality, rising with quality -->
+  <UMW_TraitStat_QualityMinimumBluntCE>最低{0}MPa（一般品质），随品质提升而提高</UMW_TraitStat_QualityMinimumBluntCE>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. -->

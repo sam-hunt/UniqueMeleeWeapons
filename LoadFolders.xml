@@ -39,6 +39,10 @@
          which gates that patch on the same condition. -->
     <li IfModActive="OskarPotocki.VFE.Pirates">Mods/VanillaFactionsExpandedPirates</li>
     <li IfModActive="OskarPotocki.VFE.Pirates">1.6/Mods/VanillaFactionsExpandedPirates</li>
+    <!-- Combat Extended: a Patches-only root retuning the armor-penetration, mass and Stab-clone
+         defs to CE's model (each file's header); the C# half is gated on the same package id,
+         which must equal CombatExtendedCompat.CePackageId (Patches/CombatExtended/). No art root. -->
+    <li IfModActive="CETeam.CombatExtended">1.6/Mods/CombatExtended</li>
   </v1.6>
   <v1.7>
     <!-- 1.7 runs the 1.6 tree unchanged: the Waylith CLR maps every UnityEngine
@@ -52,5 +56,6 @@
     <li IfModActive="VanillaExpanded.VTEXE">1.6/Mods/VanillaTexturesExpanded</li>
     <li IfModActive="OskarPotocki.VFE.Pirates">Mods/VanillaFactionsExpandedPirates</li>
     <li IfModActive="OskarPotocki.VFE.Pirates">1.6/Mods/VanillaFactionsExpandedPirates</li>
+    <li IfModActive="CETeam.CombatExtended">1.6/Mods/CombatExtended</li>
   </v1.7>
 </loadFolders>

@@ -19,12 +19,25 @@ namespace UniqueMeleeWeapons.Patches;
 // attack (animals/mechs/fists bail first), and non-unique weapons fail the CompUniqueWeapon check.
 // When nothing matches we return the original enumerable unchanged (no wrapper, no allocation); only an
 // actual conversion-traited weapon pays for the wrapping iterator. Discovered by PatchAll().
+//
+// The body lives in MeleeDamageConversionResolver so the Combat Extended hook on CE's sibling verb
+// (Patches/CombatExtended/CombatExtended_MeleePatches.cs) rebuilds CE's DamageInfos identically:
+// CE's verb is not a Verb_MeleeAttackDamage, so this patch never fires during a CE swing.
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply")]
 public static class Verb_MeleeAttackDamage_DamageConversion_Patch
 {
     public static IEnumerable<DamageInfo> Postfix(IEnumerable<DamageInfo> values, Verb_MeleeAttackDamage __instance)
     {
-        ThingWithComps weapon = __instance.EquipmentSource;
+        return MeleeDamageConversionResolver.Apply(values, __instance.EquipmentSource);
+    }
+}
+
+// The shared conversion body: returns values unchanged (same instance) unless the weapon is a
+// unique carrying a conversion trait, in which case a wrapping iterator reroutes each matching hit.
+internal static class MeleeDamageConversionResolver
+{
+    internal static IEnumerable<DamageInfo> Apply(IEnumerable<DamageInfo> values, ThingWithComps weapon)
+    {
         if (weapon == null)
         {
             return values;
