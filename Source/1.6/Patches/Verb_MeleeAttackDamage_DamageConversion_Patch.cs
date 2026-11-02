@@ -93,17 +93,15 @@ internal static class MeleeDamageConversionResolver
         return null;
     }
 
-    // Rebuilds src with a new DamageDef. DamageInfo has no
-    // SetDef, so we reconstruct, mirroring exactly the fields the melee verb populated.
+    // Copies src with a new DamageDef. The copy constructor carries every field the verb set
+    // (hit part, body region, weapon body-part group, linked hediff, tool, angle, quality, the
+    // ignore-armor and propagation flags), so a field vanilla or CE starts setting tomorrow is
+    // kept without a change here; Def has a public setter. Earlier builds reconstructed through
+    // the long constructor plus four setters, which silently dropped any flag outside that list.
     private static DamageInfo Reroute(DamageInfo src, DamageDef to)
     {
-        var di = new DamageInfo(to, src.Amount, src.ArmorPenetrationInt, src.Angle, src.Instigator,
-            src.HitPart, src.Weapon, src.Category, src.IntendedTarget, src.InstigatorGuilty,
-            src.SpawnFilth, src.WeaponQuality, src.CheckForJobOverride);
-        di.SetBodyRegion(src.Height, src.Depth);
-        di.SetWeaponBodyPartGroup(src.WeaponBodyPartGroup);
-        di.SetWeaponHediff(src.WeaponLinkedHediff);
-        di.SetTool(src.Tool);
+        DamageInfo di = new DamageInfo(src);
+        di.Def = to;
         return di;
     }
 }

@@ -22,19 +22,23 @@ public static class Verb_MeleeAttackDamage_OnHitTraits_Patch
 {
     public static void Postfix(Verb_MeleeAttackDamage __instance, LocalTargetInfo target, DamageWorker.DamageResult __result)
     {
-        MeleeOnHitTraitResolver.Fire(__instance, target, __result);
+        MeleeOnHitTraitResolver.Fire(__instance, target, __result?.wounded == true);
     }
 }
 
-// The shared on-hit body: given the verb that swung, its target and the resolved result, rolls
-// every on-hit effect of every trait on the verb's unique weapon. Reads nothing beyond the Verb
-// base class, so it serves vanilla's damage verb and CE's alike.
+// The shared on-hit body: given the verb that swung, its target and whether the swing wounded,
+// rolls every on-hit effect of every trait on the verb's unique weapon. Reads nothing beyond the
+// Verb base class, so it serves vanilla's damage verb and CE's alike. The caller decides
+// `wounded` because the two verbs report it differently: vanilla returns the one DamageResult of
+// the one blow, so its `wounded` flag is the answer; CE returns the LAST entry's result of a
+// multi-entry swing (its blunt crit appends a Stun entry whose result is never `wounded`) with
+// only `totalDamageDealt` summed, so the CE hook reads the sum instead.
 internal static class MeleeOnHitTraitResolver
 {
-    internal static void Fire(Verb verb, LocalTargetInfo target, DamageWorker.DamageResult result)
+    internal static void Fire(Verb verb, LocalTargetInfo target, bool wounded)
     {
         // Only on a hit that actually wounded a living, spawned pawn — deflected/missed blows do nothing.
-        if (result?.wounded != true)
+        if (!wounded)
         {
             return;
         }

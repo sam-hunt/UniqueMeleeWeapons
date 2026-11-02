@@ -27,8 +27,16 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 //
 // THE HOOKS, each a postfix on Verb_MeleeAttackCE:
 //   1. ApplyMeleeDamageToTarget(LocalTargetInfo): on-hit effects, the vanilla body verbatim via
-//      MeleeOnHitTraitResolver. CE returns the last TakeDamage result, so `wounded` is per-hit
-//      as in vanilla (whose verb also returns the last result).
+//      MeleeOnHitTraitResolver. CE's swing is a LIST of DamageInfos and the method returns the
+//      LAST entry's DamageResult with only totalDamageDealt summed across entries; on a blunt crit
+//      against flesh (and every blunt surprise attack, which CE forces to crit) the last entry is
+//      CE's appended Stun, whose worker deals no hit points, so that result's `wounded` is false
+//      even though the blow wounded. Reading `wounded` alone left every on-hit trait inert on
+//      roughly 40 to 60% of mace and warhammer head hits (found 2026-11-03 review). The hook
+//      therefore treats the swing as wounding when `wounded` OR the summed damage is positive;
+//      DamageWorker_AddInjury sets the two together, and Stun adds 0, so the sum is the same
+//      answer vanilla's flag gives. Consequence worth knowing: BellCast now also procs on CE's
+//      crits, where its StunFor and CE's crit stun take the longer duration, never the sum.
 //   2. DamageInfosToApply(LocalTargetInfo, bool): damage conversion, the vanilla passthrough via
 //      MeleeDamageConversionResolver. CE's armorPenetration rides ArmorPenetrationInt unchanged,
 //      so a Sharp-to-Sharp swap keeps the right CE number. Known limit: CE's own internal-hit roll
@@ -207,7 +215,9 @@ public static class CombatExtendedCompat
     // Hook 1.
     public static void OnHitPostfix(Verb __instance, LocalTargetInfo target, DamageWorker.DamageResult __result)
     {
-        MeleeOnHitTraitResolver.Fire(__instance, target, __result);
+        // Summed damage, not the last entry's flag: see hook 1 in the header.
+        bool wounded = __result != null && (__result.wounded || __result.totalDamageDealt > 0f);
+        MeleeOnHitTraitResolver.Fire(__instance, target, wounded);
     }
 
     // Hook 2 (passthrough).
