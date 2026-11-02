@@ -4,8 +4,8 @@
   <!-- Warcasket broadsword. VFE Pirates (compat load root, see LoadFolders.xml: exists only with VFEP
        active, so no MayRequire). Industrial, not stuffable, and
        quality-less like its VFEP base (see the comps note).
-       Tools: Stab point + Cut blade, slow 2.6-2.8s swings, so it takes the longsword's five
-       categories (Melee, Bladed, Pointed, Heavy, Guarded).
+       Tools: Stab point + Cut blade, slow 2.6-2.8s swings (vanilla; CE retunes them to 2.4 and
+       3.35s), so it takes the longsword's five categories (Melee, Bladed, Pointed, Heavy, Guarded).
        Warcasket-only: the inherited VEF HeavyWeapon extension makes VEF's CanEquip postfix refuse any
        pawn without a warcasket, which is wanted. Pawn generation can't hand one out
        (generateAllowChance 0); the Warband quest and tribal traders are kept off it by

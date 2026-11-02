@@ -5,8 +5,8 @@
        active, so no MayRequire). Industrial, not stuffable, and
        quality-less like its VFEP base (see the comps note).
        Tools: a VFEP_GravityHammerAttack head (Blunt damage plus VEF's 3-cell push-back) and
-       a Poke handle, slow 3s swing, so it takes the warhammer's three categories (Melee, Blunt,
-       Heavy). Studded and Flanged list the head's capacity explicitly (see their headers); no trait
+       a Poke handle, slow 3s swing (vanilla; CE retunes it to 5.73s), so it takes the warhammer's
+       three categories (Melee, Blunt, Heavy). Studded and Flanged list the head's capacity explicitly (see their headers); no trait
        converts Blunt damage, so the push-back survives every roll.
        Warcasket-only: the inherited VEF HeavyWeapon extension makes VEF's CanEquip postfix refuse any
        pawn without a warcasket, which is wanted. Pawn generation can't hand one out

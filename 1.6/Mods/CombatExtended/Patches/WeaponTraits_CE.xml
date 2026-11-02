@@ -104,7 +104,13 @@
          fraction, and under CE a non-ambient payload's DamageInfo AP is read in CE's units. No
          payload carries one today (the coatings ignore armor; EMP and Flame carry 0, and both are
          ambient under CE anyway), so a future payload with armorPenetration > 0 needs a CE-root
-         value in CE units or the line lies.
+         value in CE units or the line lies. Worse than a lying line: a Sharp-category payload
+         that neither ignores armor nor carries a CE-unit AP is DEFLECTED by CE against any
+         armor at all (ArmorUtilityCE.TryPenetrateArmor deflects Sharp whenever armor > pen, and
+         pen 0 counts as full pass-through only on a hit that was not deflected), and because
+         our hook runs after CE has nulled LastAttackVerb the deflection logs "[CE] Deflection
+         ... has null verb, overriding AP" per hit. A new Sharp payload must set ignoreArmor or
+         ship a CE-root AP.
        - Opiated against CE's own Tranquilizer: CE's dart is a flat Consciousness 0.1 for 7500 to
          15000t at 0.9 severity per damage, i.e. one hit downs for 2 to 4 hours; ours builds over
          3 to 4 hits and holds the 0.7 downed threshold about 4.8 hours from a full dose. Slower
@@ -114,7 +120,25 @@
          25% of a non-Sharp crit's damage x 30t on flesh (a mace head's 15 is about 112t), so
          BellCast's 120t at 25% on any wounding hit, flesh and mechanoid alike, is the one
          non-crit blunt stun in a CE game and lands via StunFor, outside CE's re-stun and
-         electrical postfix. Left alone: the same magnitude as CE's own, on a gate CE lacks.
+         electrical postfix. Left alone: the same magnitude as CE's own, on a gate CE lacks. On
+         a CE crit both can roll; StunFor keeps the longer of the two, never the sum (the C#
+         header's hook 1 explains why on-hit traits fire on CE crits at all).
+       - Tool labels under CE, in non-English games (known, accepted 2026-11-03): CE renames two
+         inherited tools, the spear's point to "head" (and adds a second shaft, key shaft-1) and
+         the warcasket broadsword's blade to "edge", so our DefInjected keys for the old labels
+         stop resolving (one aggregated translation warning in the log) and those three tools
+         show their English labels on the info card. A CE-root DefInjected file would fix the
+         card but cannot be validated: the checker demands every injection from the sidecar the
+         probe dumps on a 1.7 boot, which can never load CE (1.6/Mods/CLAUDE.md). Revisit when
+         official CE runs on 1.7 and the probe can boot it.
+       - Envenomed against CE's own unique-trait precedent: CE's Odyssey patch keeps ToxRounds
+         on ToxicBuildup (extraDamages Bullet_TraitTox 2, severityPerDamageDealt cut to 0.005,
+         about 0.01 buildup per hit) while rerouting the melee venoms (ScratchToxic, ToxicBite)
+         onto wounds; the two precedents UMW_Stab_Tox claimed 1:1 parity with diverge under CE,
+         and the port followed the melee branch, whose dose per proc (0.4 to 0.7 VenomBuildup)
+         is about 50x CE's ToxRounds anchor. Recorded as the tension behind Q13 in the spec; the
+         ranged branch (keep ToxicBuildup, cut severityPerDamageDealt) is the one-operation
+         alternative if it is ever reopened.
        - CE's melee tooltip shows Quilloned's parry through Hook 3 and CE's AP readout shows the
          factor traits; the floors show only in our trait block (the C# header). Nothing else of
          ours reaches a CE readout.
@@ -191,17 +215,39 @@
   </Operation>
 
   <!-- Lightweight / Cumbersome: Bulk factors mirroring their Mass factors. -->
-  <Operation Class="PatchOperationAdd">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/WeaponTraitDef[defName="UMW_Lightweight"]/statFactors</xpath>
-    <value>
-      <Bulk>0.7</Bulk>
-    </value>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Lightweight"]/statFactors</xpath>
+      <value>
+        <Bulk>0.7</Bulk>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Lightweight"]</xpath>
+      <value>
+        <statFactors>
+          <Bulk>0.7</Bulk>
+        </statFactors>
+      </value>
+    </nomatch>
   </Operation>
-  <Operation Class="PatchOperationAdd">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/WeaponTraitDef[defName="UMW_Cumbersome"]/statFactors</xpath>
-    <value>
-      <Bulk>1.3</Bulk>
-    </value>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Cumbersome"]/statFactors</xpath>
+      <value>
+        <Bulk>1.3</Bulk>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_Cumbersome"]</xpath>
+      <value>
+        <statFactors>
+          <Bulk>1.3</Bulk>
+        </statFactors>
+      </value>
+    </nomatch>
   </Operation>
 
   <!-- PlasmaCored (Royalty root): Flame proc 50% -> 30%, CE's plasmasword edge chance. -->

@@ -5,6 +5,12 @@
 - Rewrite ComplexCutoutMix to GLSL source
 - Update/Add workshop page images with new VFEP uniques/katanas
 - Test CE compat in-game (checklist: `Docs/Specs/Combat-Extended-Compat.md` §7)
+- CE, non-English games: ship DefInjected for the tools CE relabels (spear head and shaft-1,
+  warcasket broadsword edge) once the probe can boot official CE on 1.7; today they show in
+  English (`1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml` header, "Tool labels under CE")
+- Decide whether Envenomed under CE should follow CE's ToxRounds precedent (ToxicBuildup kept,
+  severity cut) instead of the melee venom-wound branch it ships on; the dose gap is about 50x
+  (spec Q13, `WeaponTraits_CE.xml` header)
 - fix ragged seams in `1PreviewWorkshop.png`, notes in `Docs/Research/preview-halo-seams/NOTES.md`
 
 ## Features

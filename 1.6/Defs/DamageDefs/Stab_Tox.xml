@@ -16,7 +16,11 @@
        not here, keeping this def a faithful sibling of the vanilla tox defs. That sibling status
        is why Combat Extended's root reroutes it exactly as CE reroutes ScratchToxic: the injury
        becomes UMW_VenomousStab (HediffDefs/VenomousStab.xml) and the ToxicBuildup entry goes
-       (1.6/Mods/CombatExtended/Patches/DamageDefs_CE.xml). -->
+       (1.6/Mods/CombatExtended/Patches/DamageDefs_CE.xml). Note the two vanilla siblings part
+       ways under CE: CE reroutes the melee ones (ScratchToxic, ToxicBite) onto venom wounds but
+       keeps Bullet_TraitTox on ToxicBuildup at a fifth of the severity, so the "1:1" above is a
+       vanilla statement and the CE port follows the melee branch (why, and the dose gap, in
+       WeaponTraits_CE.xml's header). -->
   <DamageDef>
     <defName>UMW_Stab_Tox</defName>
     <label>toxic stab</label>

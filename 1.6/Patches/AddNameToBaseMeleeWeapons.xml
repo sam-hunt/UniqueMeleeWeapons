@@ -10,91 +10,117 @@
        uniques) instead of re-implementing them — no drift if vanilla rebalances.
 
        Patches are applied before XML-inheritance resolution (LoadedModManager: ApplyPatches ->
-       ParseAndProcessXML), so the Name is in place when ParentName resolves. PatchOperationAttributeAdd
-       is add-if-missing (skips nodes that already have the attribute), so this is a no-op for any
-       weapon another mod has already named — safe to stack. Add one Operation per base weapon.
+       ParseAndProcessXML), so the Name is in place when ParentName resolves.
 
-       The Axe and Warhammer are Royalty weapons; the mod itself requires only Odyssey. We gate those
-       two in PatchOperationConditional on the node's existence (rather than PatchOperationFindMod, so
-       it tracks the actual weapon, not a mod name) so they're skipped cleanly — no "could not find
-       node" error — when Royalty isn't loaded. Their unique defs are MayRequire-gated to match.
+       Every operation is a PatchOperationConditional whose xpath also requires not(@Name), with
+       the AttributeAdd as its match. Two reasons, both verified on the 1.7 decompile (2026-11-03):
+       PatchOperationAttributeAdd returns FALSE when every matched node already carries the
+       attribute (it is add-if-missing per node, but reports failure if it added nothing), so a
+       bare op would log "patch operation failed" the day another mod or vanilla names one of
+       these defs; and the Royalty and VFEP bases are absent without their mod, which must skip
+       cleanly rather than error. Gating on the node (not PatchOperationFindMod) tracks the actual
+       weapon, not a mod name. If another mod names a base with a DIFFERENT value, our
+       ParentName no longer resolves; that is a load-order conflict to settle with that mod, not
+       something this patch can paper over. Add one Operation per base weapon.
 
-       The VFE Pirates warcasket broadsword and gravity hammer are gated the same way. Their unique
-       defs live in the VFEP compat load root, so they only exist when the Name does. This patch
-       stays in the ungated main Patches alongside every other base-weapon Name-add. -->
+       The Axe and Warhammer are Royalty weapons; the mod itself requires only Odyssey. Their
+       unique defs live in the Royalty compat load root (LoadFolders.xml), so they only exist when
+       the Name does. The VFE Pirates warcasket broadsword and gravity hammer are the same shape,
+       from the VFEP compat root. This patch stays in the ungated main Patches alongside every
+       other base-weapon Name-add. Combat Extended's own patches on these bases target their
+       children (tools, statBases, weaponTags, stuff) and never the def node, so the Name attribute
+       survives in any load order (1.6/Mods/CLAUDE.md). -->
 
   <!-- Core weapons (always present). -->
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_LongSword"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_LongSword</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_LongSword" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_LongSword" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_LongSword</value>
+    </match>
   </Operation>
 
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Knife"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_Knife</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Knife" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Knife" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Knife</value>
+    </match>
   </Operation>
 
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_Spear</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Spear</value>
+    </match>
   </Operation>
 
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Mace"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_Mace</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Mace" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Mace" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Mace</value>
+    </match>
   </Operation>
 
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Gladius"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_Gladius</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Gladius" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Gladius" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_Gladius</value>
+    </match>
   </Operation>
 
-  <Operation Class="PatchOperationAttributeAdd">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_BreachAxe"]</xpath>
-    <attribute>Name</attribute>
-    <value>MeleeWeapon_BreachAxe</value>
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_BreachAxe" and not(@Name)]</xpath>
+    <match Class="PatchOperationAttributeAdd">
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_BreachAxe" and not(@Name)]</xpath>
+      <attribute>Name</attribute>
+      <value>MeleeWeapon_BreachAxe</value>
+    </match>
   </Operation>
 
-  <!-- Royalty weapons (gated on existence). Note <match> is itself the nested operation
+  <!-- Royalty weapons (absent without the DLC). Note <match> is itself the nested operation
        (PatchOperationConditional.match is a PatchOperation field) — the Class= goes on the
        <match> tag directly, not on an <Operation> wrapped inside it. -->
   <Operation Class="PatchOperationConditional">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe" and not(@Name)]</xpath>
     <match Class="PatchOperationAttributeAdd">
-      <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Axe" and not(@Name)]</xpath>
       <attribute>Name</attribute>
       <value>MeleeWeapon_Axe</value>
     </match>
   </Operation>
 
   <Operation Class="PatchOperationConditional">
-    <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer" and not(@Name)]</xpath>
     <match Class="PatchOperationAttributeAdd">
-      <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+      <xpath>Defs/ThingDef[defName="MeleeWeapon_Warhammer" and not(@Name)]</xpath>
       <attribute>Name</attribute>
       <value>MeleeWeapon_Warhammer</value>
     </match>
   </Operation>
 
-  <!-- VFE Pirates warcasket weapons (gated on existence, as above). -->
+  <!-- VFE Pirates warcasket weapons (absent without the mod). -->
   <Operation Class="PatchOperationConditional">
-    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword"]</xpath>
+    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword" and not(@Name)]</xpath>
     <match Class="PatchOperationAttributeAdd">
-      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword"]</xpath>
+      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword" and not(@Name)]</xpath>
       <attribute>Name</attribute>
       <value>VFEP_WarcasketMeleeWeapon_Broadsword</value>
     </match>
   </Operation>
 
   <Operation Class="PatchOperationConditional">
-    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer"]</xpath>
+    <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer" and not(@Name)]</xpath>
     <match Class="PatchOperationAttributeAdd">
-      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer"]</xpath>
+      <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer" and not(@Name)]</xpath>
       <attribute>Name</attribute>
       <value>VFEP_WarcasketMeleeWeapon_GravityHammer</value>
     </match>
