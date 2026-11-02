@@ -81,6 +81,7 @@ public class QuestNode_Root_Warband : QuestNode
         {
             leader.equipment.DestroyAllEquipment();
             leader.equipment.AddEquipment(weapon);
+            DropApparelRefusingWeapon(leader, weapon);
         }
 
         // 4. Band from the faction's Combat pawnGroupMaker at points/2 (floored to the faction's minimum).
@@ -145,5 +146,37 @@ public class QuestNode_Root_Warband : QuestNode
         faction.temporary = true;
         Find.FactionManager.Add(faction);
         return faction;
+    }
+
+    // Handing the weapon in AFTER GeneratePawn bypasses the gear-time check that keeps a worn item
+    // and the primary compatible. Vanilla has none to bypass (its shield belt only refuses ranged
+    // verbs, Apparel.AllowVerbCast), but Combat Extended gives the tribal chief a melee shield half
+    // the time and its Apparel_Shield.AllowVerbCast refuses EVERY verb unless the primary carries
+    // CE_OneHandedWeapon, which the unique longsword, spear, breach axe and warhammer do not; CE's
+    // own guard (Harmony_PawnGenerator_GenerateGearFor destroys the shield) ran before we swapped
+    // the weapon. Left alone, the quest's centrepiece could not swing at all (found 2026-11-03
+    // review). So ask each worn item, through the vanilla virtual, whether it allows the weapon's
+    // verbs, and destroy any that refuses: the weapon is the point of the quest, the apparel is
+    // not. Mod-agnostic by construction; in a vanilla game nothing refuses a melee verb.
+    private static void DropApparelRefusingWeapon(Pawn pawn, ThingWithComps weapon)
+    {
+        List<Verb> verbs = weapon.GetComp<CompEquippable>()?.AllVerbs;
+        if (verbs == null || pawn.apparel == null)
+        {
+            return;
+        }
+        for (int i = pawn.apparel.WornApparel.Count - 1; i >= 0; i--)
+        {
+            Apparel apparel = pawn.apparel.WornApparel[i];
+            for (int j = 0; j < verbs.Count; j++)
+            {
+                if (!apparel.AllowVerbCast(verbs[j]))
+                {
+                    pawn.apparel.Remove(apparel);
+                    apparel.Destroy();
+                    break;
+                }
+            }
+        }
     }
 }
