@@ -38,8 +38,9 @@ derived from absent data; colour table added). Left over:
   "(not active)" suffix, the held-on last-trait row, click-and-drag painting across the def rows
   and past a group header, the def rows' tooltips showing the weapon or trait block in yellow, the
   coloured names in the earthshake and VTE tooltips; the 2026-11-03 grids: medium-font group
-  headers on their light band with the box centred, the two-column weapon cells with their coloured
-  mask icons at a sample accent plus steel tint and dimmed when off, the three-column trait cells,
-  a clamped held-on trait label and its full-text tip, the rule under each section header, and the
-  warcasket pair's icon with VFE Pirates loaded): the rework was built and smoke-tested, not
+  headers with the box centred, the two-column weapon cells with their wide mask icons at the gold
+  inlay over steel and dimmed when off, the three-column trait cells, a clamped held-on trait label
+  and the suffix line at the end of its tooltip, every ungrouped section's rows and sliders sitting
+  one step under their header with the box not clipped, and the warcasket pair's icon at the same
+  footprint as the rest with VFE Pirates loaded): the rework was built and smoke-tested, not
   eyeballed.

@@ -33,6 +33,6 @@ public partial class UniqueMeleeWeaponsSettings
         // The ultratech-traits toggle that lived here through 1.x is now the Royalty group header of
         // the Traits section (Settings_Traits.cs migrates a saved "off").
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 }

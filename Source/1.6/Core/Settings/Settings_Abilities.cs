@@ -193,6 +193,6 @@ public partial class UniqueMeleeWeaponsSettings
             ralliedDurationHours, RalliedDurationHoursDefault,
             min: 1f, max: 24f, step: 1f, format: "0");
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 }

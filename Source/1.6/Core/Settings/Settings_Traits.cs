@@ -28,8 +28,8 @@ namespace UniqueMeleeWeapons;
 // load and window close.
 public partial class UniqueMeleeWeaponsSettings
 {
-    // Trait labels are short and carry no icon, so three columns fit where the weapons take two;
-    // the cells keep the small font and the plain row height.
+    // Trait labels are short and carry no icon, so three columns fit where the weapons take two,
+    // at the plain row height.
     private const int TraitColumns = 3;
 
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a
@@ -160,7 +160,7 @@ public partial class UniqueMeleeWeaponsSettings
             DrawTraitGroup(listing, integration, traits.Where(integration.OwnsTrait).ToList());
         }
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 
     private void DrawTraitGroup(Listing_Standard listing, ModIntegration integration, List<WeaponTraitDef> members)
@@ -169,7 +169,7 @@ public partial class UniqueMeleeWeaponsSettings
         {
             return;
         }
-        DrawDefGrid(listing, members, TraitColumns, Text.LineHeight, GameFont.Small, DrawTraitCell);
+        DrawDefGrid(listing, members, TraitColumns, Text.LineHeight, DrawTraitCell);
         listing.Gap(GroupGap);
     }
 

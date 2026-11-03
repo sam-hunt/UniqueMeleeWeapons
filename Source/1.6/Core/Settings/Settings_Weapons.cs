@@ -16,15 +16,14 @@ namespace UniqueMeleeWeapons;
 // visible, disabled and labelled with the requirement, while the mod is missing and its defs cannot
 // draw a row of their own (the family's "Grouped def rows" pattern; this file is its reference).
 //
-// Under each header the weapons sit in a two-column grid of taller, medium-font cells, each led by
-// the weapon's coloured icon (SettingsWeaponIcon), so a roster that runs to dozens of entries with
-// every integration active scans as a picture gallery rather than a column of text.
+// Under each header the weapons sit in a two-column grid of taller cells, each led by the weapon's
+// coloured icon (SettingsWeaponIcon), so a roster that runs to dozens of entries with every
+// integration active scans as a picture gallery rather than a column of text.
 public partial class UniqueMeleeWeaponsSettings
 {
     private const int WeaponColumns = 2;
-    private const GameFont WeaponRowFont = GameFont.Medium;
 
-    // Tall enough for a 34px icon beside the medium-font label.
+    // Tall enough for a 34px icon slot beside the small-font label.
     private const float WeaponRowHeight = 36f;
 
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a weapon
@@ -92,7 +91,7 @@ public partial class UniqueMeleeWeaponsSettings
             DrawWeaponGroup(listing, integration, UniqueWeaponDefs.All.Where(integration.OwnsWeapon).ToList());
         }
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 
     private void DrawWeaponGroup(Listing_Standard listing, ModIntegration integration, List<ThingDef> members)
@@ -101,7 +100,7 @@ public partial class UniqueMeleeWeaponsSettings
         {
             return;
         }
-        DrawDefGrid(listing, members, WeaponColumns, WeaponRowHeight, WeaponRowFont, DrawWeaponCell);
+        DrawDefGrid(listing, members, WeaponColumns, WeaponRowHeight, DrawWeaponCell);
         listing.Gap(GroupGap);
     }
 

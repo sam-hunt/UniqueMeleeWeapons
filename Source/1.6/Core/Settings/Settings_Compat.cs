@@ -68,6 +68,6 @@ public partial class UniqueMeleeWeaponsSettings
             "UMW_MatchVteSpearDesc".Translate(spear.label, vteName).Resolve(),
             ref matchVteSpear);
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 }

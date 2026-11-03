@@ -52,6 +52,6 @@ public partial class UniqueMeleeWeaponsSettings
             min: 0f, max: 2f, step: 0.05f, format: "0.00",
             annotateAt: 1f, annotationLabel: UMW_QuestDefOf.BanditGang?.label);
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 }

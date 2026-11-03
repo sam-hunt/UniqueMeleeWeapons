@@ -12,6 +12,10 @@ public static class UMW_DefOf
     // to decide whether the wielder's primary weapon carries it.
     public static WeaponTraitDef UMW_BloodStained;
 
+    // The gold-inlay Melee trait, read by SettingsWeaponIcon for the accent colour its forcedColor
+    // names, so the settings icons show the inlay a weapon can actually roll.
+    public static WeaponTraitDef UMW_GoldInlay;
+
     // The storied Melee trait — looked up by ThoughtWorker_StoriedWeapon
     // to decide whether the wielder's primary weapon carries it.
     public static WeaponTraitDef UMW_Storied;

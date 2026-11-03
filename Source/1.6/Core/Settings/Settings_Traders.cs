@@ -201,7 +201,7 @@ public partial class UniqueMeleeWeaponsSettings
         // the caravan/trade-ship qualifier in ours.
         if (!UniqueWeaponDefs.All.Any(UniqueWeaponDefs.FitsOutlander))
         {
-            listing.Gap(SectionGap);
+            EndSection(listing);
             return;
         }
         if (DefDatabase<TraderKindDef>.GetNamedSilentFail(OutlanderSettlementDefName) != null)
@@ -228,6 +228,6 @@ public partial class UniqueMeleeWeaponsSettings
                 "UMW_TraderStocksUniquesShipDesc".Translate(ship.label));
         }
 
-        listing.Gap(SectionGap);
+        EndSection(listing);
     }
 }

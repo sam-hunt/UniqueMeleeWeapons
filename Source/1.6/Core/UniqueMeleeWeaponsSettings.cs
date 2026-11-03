@@ -51,27 +51,32 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // behind rather than a double gap between its neighbours.
     private const float SectionGap = 18f;
 
-    // Two indent steps under a section header: the group header (a mod or DLC's name) sits one step in
-    // and its member rows one more, so the groups read as sub-blocks of the section. Both are taken off
-    // the row's LEFT edge (ToggleRow's `indent`), never via Listing.Indent: that only moves curX and
-    // leaves ColumnWidth alone, so an indented CheckboxLabeled row overflows the listing by the indent
-    // and its box, drawn at the row's right edge, is clipped by the scroll view.
-    private const float GroupHeaderIndent = 24f;
-    private const float GroupRowIndent = 48f;
+    // Two indent steps: every section's body sits one step under its header (SectionHeader indents
+    // the listing itself, EndSection outdents it), and the member rows of a grouped section sit one
+    // more under their group header (a mod or DLC's name), so the groups read as sub-blocks. The
+    // section step is applied through Listing.Indent PLUS a matching ColumnWidth cut: Indent alone
+    // only moves curX and leaves ColumnWidth alone, so an indented CheckboxLabeled row would overflow
+    // the listing by the indent and its box, drawn at the row's right edge, would be clipped by the
+    // scroll view. The group step is taken off the grid row's left edge (DrawDefGrid).
+    private const float SectionIndent = 24f;
+    private const float GroupRowIndent = 24f;
 
     // Extra space below each group's last member row, so groups read as blocks.
     private const float GroupGap = 8f;
 
     // Group headers draw one font step above their member rows (Medium over Small; vanilla has no
-    // intermediate size) on a full-width light band, so a long list scans by its owners.
+    // intermediate size), so a long list scans by its owners.
     private const GameFont GroupHeaderFont = GameFont.Medium;
 
     // The def grids (DrawDefGrid): members fill columns top to bottom, like a newspaper, so an
     // alphabetical list still reads downwards. Space between the columns.
     private const float ColumnGutter = 16f;
 
-    // The gap between a cell's icon and its label, and how far a cell's icon fades while its
-    // row is off or locked, so the eye can skim the enabled set.
+    // A cell's icon slot is this many times wider than the row is tall: the weapon art lies
+    // horizontal across its square texture, so a square slot would leave the blade a sliver.
+    // Then the gap between the slot and the label, and how far the icon fades while its row is
+    // off or locked, so the eye can skim the enabled set.
+    private const float IconSlotAspect = 2f;
     private const float IconLabelGap = 6f;
     private const float DisabledIconAlpha = 0.35f;
 
@@ -153,14 +158,24 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         }
     }
 
-    // Top-level section heading (medium font), e.g. "Weapons", ruled off beneath: the group headers
-    // under it share its font, so the rule is what keeps the two levels apart.
+    // Top-level section heading (medium font), e.g. "Weapons". Indents the listing for the section's
+    // body; every section ends with EndSection, on every return path after its header.
     private static void SectionHeader(Listing_Standard listing, string label)
     {
         Text.Font = GameFont.Medium;
         listing.Label(label);
         Text.Font = GameFont.Small;
-        listing.GapLine(8f);
+        listing.Gap(6f);
+        listing.Indent(SectionIndent);
+        listing.ColumnWidth -= SectionIndent;
+    }
+
+    // Undoes SectionHeader's indent and leaves the trailing section gap.
+    private static void EndSection(Listing_Standard listing)
+    {
+        listing.ColumnWidth += SectionIndent;
+        listing.Outdent(SectionIndent);
+        listing.Gap(SectionGap);
     }
 
     // One checkbox row in the family's model. `forced` is null for a live row; false for a row a
@@ -180,29 +195,29 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // generated def lists opt in, the handful of standalone toggles do not. A forced row never takes
     // part (CheckboxLabeled skips its click handling when disabled), so a held-on row stays held.
     private static void ToggleRow(Listing_Standard listing, string label, string tooltip, ref bool value,
-        bool? forced = null, float indent = 0f, bool paintable = false)
+        bool? forced = null, bool paintable = false)
     {
         TipSignal? tip = tooltip.NullOrEmpty() ? null : new TipSignal(tooltip);
-        ToggleRow(listing, label, tip, ref value, forced, indent, paintable);
+        ToggleRow(listing, label, tip, ref value, forced, paintable);
     }
 
     // The same row with a TipSignal, for a tooltip that is built lazily: the def rows render a def's
     // description and effect lines into theirs, which TooltipHandler then only asks for while the row
     // is actually hovered (a Func<string> TipSignal), rather than every row every frame.
     private static void ToggleRow(Listing_Standard listing, string label, TipSignal? tooltip, ref bool value,
-        bool? forced = null, float indent = 0f, bool paintable = false)
+        bool? forced = null, bool paintable = false)
     {
         Rect row = listing.GetRect(Text.LineHeight);
-        row.xMin += indent;
         ToggleCell(row, label, tooltip, ref value, forced, paintable);
         listing.Gap(listing.verticalSpacing);
     }
 
     // The row's body, in any rect: the unit a grid cell and a full-width row share. `drawIcon`, if
-    // given, gets a square of the cell's height at its left edge (and whether the cell shows on, so
-    // it can dim) and the label and box take the rest. The three parts are Widgets.CheckboxLabeled's
-    // own primitives in its order (Label, ToggleInvisibleDraggable, CheckboxDraw) rather than that
-    // call, because the hit rect must stay the WHOLE cell while the label starts after the icon:
+    // given, gets a slot of the cell's height and IconSlotAspect times that wide at its left edge
+    // (and whether the cell shows on, so it can dim) and the label and box take the rest. The three
+    // parts are Widgets.CheckboxLabeled's own primitives in its order (Label,
+    // ToggleInvisibleDraggable, CheckboxDraw) rather than that call, because the hit rect must stay
+    // the WHOLE cell while the label starts after the icon:
     // through CheckboxLabeled the icon would be dead to a click and to a paint drag running down
     // the icon column. The label is clamped to the space before the box with an ellipsis rather
     // than wrapped (a wrapped line would spill into the row beneath). A row's own tooltip is
@@ -222,8 +237,9 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         Rect labelRect = cell;
         if (drawIcon != null)
         {
-            drawIcon(new Rect(cell.x, cell.y, cell.height, cell.height).ContractedBy(1f), shownValue);
-            labelRect.xMin += cell.height + IconLabelGap;
+            float slotWidth = cell.height * IconSlotAspect;
+            drawIcon(new Rect(cell.x, cell.y, slotWidth, cell.height).ContractedBy(1f), shownValue);
+            labelRect.xMin += slotWidth + IconLabelGap;
         }
         labelRect.xMax -= CheckboxSize;
         string shownLabel = label.IndexOf('<') >= 0 ? label : Text.ClampTextWithEllipsis(labelRect, label);
@@ -253,16 +269,14 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     }
 
     // Lays a group's member rows out in `columns` columns under its header, every cell `rowHeight`
-    // tall and drawn in `font`, members running down each column before the next (so column one
-    // holds the first ceil(n / columns) members). Each grid row is one listing rect, so the listing's
-    // own height tracking and the scroll view stay correct, and the paint drag crosses cells in
-    // whichever direction the mouse moves.
+    // tall, members running down each column before the next (so column one holds the first
+    // ceil(n / columns) members). Each grid row is one listing rect, so the listing's own height
+    // tracking and the scroll view stay correct, and the paint drag crosses cells in whichever
+    // direction the mouse moves.
     private static void DrawDefGrid<T>(Listing_Standard listing, IReadOnlyList<T> members, int columns,
-        float rowHeight, GameFont font, Action<Rect, T> drawCell)
+        float rowHeight, Action<Rect, T> drawCell)
     {
         int rows = (members.Count + columns - 1) / columns;
-        GameFont prevFont = Text.Font;
-        Text.Font = font;
         for (int row = 0; row < rows; row++)
         {
             Rect rowRect = listing.GetRect(rowHeight);
@@ -280,7 +294,6 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             }
             listing.Gap(listing.verticalSpacing);
         }
-        Text.Font = prevFont;
     }
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
@@ -297,7 +310,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // beneath; painting stays a per-row brush, and bulk changes stay a deliberate click.
     //
     // While the mod is missing there are no members, so the derived state is off, which is exactly the
-    // forced-off value the family rule wants; the row is then drawn through the locked ToggleRow path
+    // forced-off value the family rule wants; the row is then drawn through the locked ToggleCell path
     // (CheckboxMulti has no disabled parameter) with the "(not active)" suffix, which with the name as
     // the label is the family's "(requires X)" in the one form that does not repeat X, and nothing
     // beneath. A mod that IS active but owns no loaded member (a stale table entry) draws nothing:
@@ -313,13 +326,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             return false;
         }
 
-        // The band spans the row's full width (the member grids below split theirs), in the header
-        // font, with the light highlight under the mouseover one so a hovered header still lifts.
+        // The header spans the row's full width (the member grids below split theirs).
         GameFont prevFont = Text.Font;
         Text.Font = GroupHeaderFont;
         Rect row = listing.GetRect(Text.LineHeight);
-        row.xMin += GroupHeaderIndent;
-        Widgets.DrawLightHighlight(row);
 
         if (!integration.IsActive)
         {
