@@ -198,8 +198,8 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // `paintable` turns on vanilla's click-and-drag painting (Widgets.CheckboxLabeled's own parameter,
     // the Animals tab's behaviour): a drag that starts on a paintable row sets every paintable row it
     // crosses to the same value, with the brush shown at the cursor, until the button is released.
-    // The paint state is one static in Widgets, so it carries across sections and groups; the long
-    // generated def lists opt in, the handful of standalone toggles do not. A forced row never takes
+    // The paint state is one static in Widgets, so it carries across sections and groups; the def
+    // lists and the Generation and Traders toggles opt in, the rest do not. A forced row never takes
     // part (CheckboxLabeled skips its click handling when disabled), so a held-on row stays held.
     private static void ToggleRow(Listing_Standard listing, string label, string tooltip, ref bool value,
         bool? forced = null, bool paintable = false)

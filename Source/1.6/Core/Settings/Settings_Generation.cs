@@ -25,10 +25,10 @@ public partial class UniqueMeleeWeaponsSettings
     {
         SectionHeader(listing, "UMW_SettingsGeneration".Translate());
 
-        listing.CheckboxLabeled(
-            "UMW_ExcludeWoodStuff".Translate(ThingDefOf.WoodLog.label),
-            ref excludeWoodStuff,
-            "UMW_ExcludeWoodStuffDesc".Translate(UMW_DefOf.MeleeWeapon_LongSword.label));
+        ToggleRow(listing,
+            "UMW_ExcludeWoodStuff".Translate(ThingDefOf.WoodLog.label).Resolve(),
+            "UMW_ExcludeWoodStuffDesc".Translate(UMW_DefOf.MeleeWeapon_LongSword.label).Resolve(),
+            ref excludeWoodStuff, paintable: true);
 
         // The ultratech-traits toggle that lived here through 1.x is now the Royalty group header of
         // the Traits section (Settings_Traits.cs migrates a saved "off").

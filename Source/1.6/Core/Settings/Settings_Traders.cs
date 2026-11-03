@@ -178,18 +178,18 @@ public partial class UniqueMeleeWeaponsSettings
         TraderKindDef warMerchant = DefDatabase<TraderKindDef>.GetNamedSilentFail(WarMerchantDefName);
         if (warMerchant != null)
         {
-            listing.CheckboxLabeled(
-                "UMW_TraderStocksUniques".Translate(warMerchant.LabelCap),
-                ref warMerchantStocksUniques,
-                "UMW_TraderStocksUniquesWarMerchantDesc".Translate(warMerchant.label));
+            ToggleRow(listing,
+                "UMW_TraderStocksUniques".Translate(warMerchant.LabelCap).Resolve(),
+                "UMW_TraderStocksUniquesWarMerchantDesc".Translate(warMerchant.label).Resolve(),
+                ref warMerchantStocksUniques, paintable: true);
         }
         TraderKindDef shaman = DefDatabase<TraderKindDef>.GetNamedSilentFail(ShamanDefName);
         if (shaman != null)
         {
-            listing.CheckboxLabeled(
-                "UMW_TraderStocksUniques".Translate(shaman.LabelCap),
-                ref shamanStocksUniques,
-                "UMW_TraderStocksUniquesShamanDesc".Translate(shaman.label));
+            ToggleRow(listing,
+                "UMW_TraderStocksUniques".Translate(shaman.LabelCap).Resolve(),
+                "UMW_TraderStocksUniquesShamanDesc".Translate(shaman.label).Resolve(),
+                ref shamanStocksUniques, paintable: true);
         }
 
         // Outlander rows only while some unique clears the floor (see class header): a data-derived
@@ -206,26 +206,26 @@ public partial class UniqueMeleeWeaponsSettings
         }
         if (DefDatabase<TraderKindDef>.GetNamedSilentFail(OutlanderSettlementDefName) != null)
         {
-            listing.CheckboxLabeled(
-                "UMW_TraderStocksUniquesOutlanderSettlement".Translate(),
-                ref outlanderSettlementStocksUniques,
-                "UMW_TraderStocksUniquesOutlanderSettlementDesc".Translate());
+            ToggleRow(listing,
+                "UMW_TraderStocksUniquesOutlanderSettlement".Translate().Resolve(),
+                "UMW_TraderStocksUniquesOutlanderSettlementDesc".Translate().Resolve(),
+                ref outlanderSettlementStocksUniques, paintable: true);
         }
         TraderKindDef caravan = DefDatabase<TraderKindDef>.GetNamedSilentFail(CombatSupplierCaravanDefName);
         if (caravan != null)
         {
-            listing.CheckboxLabeled(
-                "UMW_TraderStocksUniquesCaravan".Translate(caravan.LabelCap),
-                ref combatSupplierCaravanStocksUniques,
-                "UMW_TraderStocksUniquesCaravanDesc".Translate(caravan.label));
+            ToggleRow(listing,
+                "UMW_TraderStocksUniquesCaravan".Translate(caravan.LabelCap).Resolve(),
+                "UMW_TraderStocksUniquesCaravanDesc".Translate(caravan.label).Resolve(),
+                ref combatSupplierCaravanStocksUniques, paintable: true);
         }
         TraderKindDef ship = DefDatabase<TraderKindDef>.GetNamedSilentFail(CombatSupplierShipDefName);
         if (ship != null)
         {
-            listing.CheckboxLabeled(
-                "UMW_TraderStocksUniquesShip".Translate(ship.LabelCap),
-                ref combatSupplierShipStocksUniques,
-                "UMW_TraderStocksUniquesShipDesc".Translate(ship.label));
+            ToggleRow(listing,
+                "UMW_TraderStocksUniquesShip".Translate(ship.LabelCap).Resolve(),
+                "UMW_TraderStocksUniquesShipDesc".Translate(ship.label).Resolve(),
+                ref combatSupplierShipStocksUniques, paintable: true);
         }
 
         EndSection(listing);
