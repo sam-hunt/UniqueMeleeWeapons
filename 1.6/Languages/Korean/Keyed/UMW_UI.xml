@@ -157,7 +157,7 @@
        spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
        neither is restated here. Deliberately says nothing about performance. -->
   <!-- EN: Match the {0} to {1} -->
-  <UMW_MatchVteSpear>{0}을 {1}에 맞추기</UMW_MatchVteSpear>
+  <UMW_MatchVteSpear>{0}(을)를 {1}에 맞추기</UMW_MatchVteSpear>
 
   <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
   <UMW_MatchVteSpearDesc>{1}에서는 바닐라 창을 대각선으로, 더 길게 그립니다. 이 옵션을 켜면 {0}도 소집된 인물의 손에서 이에 맞춰 회전하고 커집니다. 순수하게 겉모습만 바뀌며, 다시 시작한 뒤에 적용됩니다.</UMW_MatchVteSpearDesc>
