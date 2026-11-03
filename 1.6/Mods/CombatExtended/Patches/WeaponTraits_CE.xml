@@ -47,8 +47,10 @@
 
        Bulk: CE's inventory stat, inherited from each base through ParentName. Lightweight and
        Cumbersome mirror their Mass factors onto it (CE's own Odyssey patch gives the barrel traits
-       Bulk factors, the precedent). Bulk carries a StatPart, so it is never per-thing immutable,
-       and its readers are inventory events, not ticks.
+       Bulk factors, the precedent), and so does LeadLined (Royalty root, 1.1). The eltex pair's
+       psychic stats need nothing: CE patches no part of the gear-stat path (audited 2026-11-03).
+       Bulk carries a StatPart, so it is never per-thing immutable, and its readers are inventory
+       events, not ticks.
 
        On-hit payloads (audited 2026-11-03 against CE 16.7.4.0; the C# hook delivers them, this
        is what CE does to them once delivered; the ragged-wound mirrors are in HediffDefs_CE.xml):
@@ -80,7 +82,7 @@
          opposite of what this root is for. (3) The self-limiting chain was a property vanilla's
          adaptation lends every EMP source, not the trait's identity, which is "an electromagnetic
          discharge on impact" and holds under CE. (4) The trait is already bounded by the Royalty
-         root, commonality 0.5, the allowUltratechTraits setting and the Head token, and its
+         root, commonality 0.5, the war merchant's ultratech ban and the Head token, and its
          +75 market value is a vanilla-side number CE gives no anchor for (CE does not reprice
          traits), so it stays. What would reopen it: CE changing the zeushammer to a chance or a
          smaller amount; mirror that here, as PlasmaCored mirrors the plasmasword.
@@ -255,6 +257,29 @@
         </statFactors>
       </value>
     </nomatch>
+  </Operation>
+
+  <!-- LeadLined (Royalty root): Bulk factor mirroring its Mass factor, inside the node-existence
+       conditional every Royalty-root op carries. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/WeaponTraitDef[defName="UMW_LeadLined"]</xpath>
+    <match Class="PatchOperationConditional">
+      <xpath>Defs/WeaponTraitDef[defName="UMW_LeadLined"]/statFactors</xpath>
+      <match Class="PatchOperationAdd">
+        <xpath>Defs/WeaponTraitDef[defName="UMW_LeadLined"]/statFactors</xpath>
+        <value>
+          <Bulk>1.1</Bulk>
+        </value>
+      </match>
+      <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/WeaponTraitDef[defName="UMW_LeadLined"]</xpath>
+        <value>
+          <statFactors>
+            <Bulk>1.1</Bulk>
+          </statFactors>
+        </value>
+      </nomatch>
+    </match>
   </Operation>
 
   <!-- PlasmaCored (Royalty root): Flame proc 50% -> 30%, CE's plasmasword edge chance. -->

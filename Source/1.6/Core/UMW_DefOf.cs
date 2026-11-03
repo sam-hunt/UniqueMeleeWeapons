@@ -38,14 +38,18 @@ public static class UMW_DefOf
     public static AbilityDef UMW_RallyingCry;
     public static HediffDef UMW_Rallied;
 
-    // The three Royalty-tech traits, looked up by CompUniqueWeapon_DisabledTraits_Patch for the war
-    // merchant's scoped ban (ModIntegrations.Royalty lists the same three by defName for the settings
-    // window's Royalty trait group). Each def is itself MayRequire-gated
-    // on Royalty, so the DefOf fields carry the matching attribute: without the DLC the defs never
-    // enter the DefDatabase and these stay null (which the patch treats as "nothing to exclude").
+    // The five Royalty-root ultratech traits, looked up by CompUniqueWeapon_DisabledTraits_Patch for
+    // the war merchant's scoped ban (ModIntegrations.Royalty lists these five plus the period-neutral
+    // UMW_LeadLined by defName for the settings window's Royalty trait group). Each def ships from
+    // the Royalty-gated compat root, so the DefOf fields carry the matching attribute: without the
+    // DLC the defs never enter the DefDatabase and these stay null (which the patch treats as
+    // "nothing to exclude"). The eltex pair counts as ultratech because every vanilla eltex item is
+    // techLevel Ultra; the trait headers have the reasoning.
     [MayRequireRoyalty] public static WeaponTraitDef UMW_Monomolecular;
     [MayRequireRoyalty] public static WeaponTraitDef UMW_PlasmaCored;
     [MayRequireRoyalty] public static WeaponTraitDef UMW_ZeusHeaded;
+    [MayRequireRoyalty] public static WeaponTraitDef UMW_EltexPlated;
+    [MayRequireRoyalty] public static WeaponTraitDef UMW_EltexFitted;
 
     // Core's longsword, referenced for its LABEL only: the exclude-wood setting's description names
     // a wooden longsword as its example reward, and injecting the def label keeps that example in

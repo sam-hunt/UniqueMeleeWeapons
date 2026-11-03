@@ -27,7 +27,7 @@ Unique variants of the vanilla knife, gladius, longsword, spear, mace and breach
 - **Hand-drawn art variants** (five per weapon, three per warcasket), double-masked so the unique accent colour and the material tint render independently on the same sprite
 - **Material surfaced explicitly** on the inspect pane and woven into the generated name, since a unique name hides the stuff an ordinary label would show
 
-### Twenty-Eight Weapon Traits
+### Thirty-One Weapon Traits
 
 Traits roll from six categories, gated by what the weapon physically is — a spear can be barbed but not flanged, a mace can be bell-cast but not razored.
 
@@ -36,9 +36,9 @@ Traits roll from six categories, gated by what the weapon physically is — a sp
 - **Blunt** — flanged, studded, bell-cast, dead-blow, zeus-headed, piledriver
 - **Heavy** — head-weighted, counterweighted
 - **Guarded** — quilloned (weapons with a real hand guard only)
-- **Universal** — ornamental, ugly, lightweight, cumbersome, gold inlay, jade inlay, blood-stained, carbonized, enameled, storied
+- **Universal** — ornamental, ugly, lightweight, cumbersome, gold inlay, jade inlay, blood-stained, carbonized, enameled, storied, eltex-plated, eltex-fitted, lead-lined
 
-Exclusion tokens keep the rolls coherent: one edge treatment, one head, one finish, one active ability, one body colour per weapon.
+Exclusion tokens keep the rolls coherent: one edge treatment, one head, one finish, one active ability, one body colour, one psychic lining per weapon.
 
 ### Effects That Actually Work On Melee
 
@@ -48,7 +48,8 @@ Most of `WeaponTraitDef`'s interesting fields are silently inert on melee weapon
 - **Base-damage conversion** — reroute a hit's damage type (a serrated edge tears ragged wounds; a needle point seeks the organs; an envenomed point delivers tox)
 - **Per-tool damage and armor penetration**, independently of each other
 - **Parrying** — a quilloned guard gives the wielder a chance to turn aside an incoming melee blow
-- **Forced body colour** — carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red
+- **Forced body colour** — carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex pale
+- **Wielder psychic stats** — eltex plating and fittings raise psychic sensitivity, neural heat limit and recovery through the same gear routing Royalty's eltex apparel uses; a lead lining dulls sensitivity instead
 
 ### Two Active Abilities
 
@@ -67,12 +68,12 @@ Melee uniques are reserved to their own reward pool rather than diluting Odyssey
 
 ### Settings
 
-Toggle weapons individually, disable ultratech traits, tune ability cooldowns and radii, adjust warband quest frequency, keep wood out of material rolls, and opt in to uniques in trader stock (off by default).
+Toggle weapons and traits individually, tune ability cooldowns and radii, adjust warband quest frequency, keep wood out of material rolls, and opt in to uniques in trader stock (off by default).
 
 ### Mod Compatibility
 
 - **[Unique Weapons Unbound](https://github.com/sam-hunt/UniqueWeaponsUnbound)**: our weapons are fully customizable in UWU's dialog, and material is published through a dependency-free naming contract so custom names read correctly. Neither mod references the other's code
-- **Royalty**: the unique axe and warhammer, their art, and the three ultratech traits (monomolecular, plasma-cored, zeus-headed) ship from a Royalty-gated load folder, so they simply never load without Royalty
+- **Royalty**: the unique axe and warhammer, their art, the five ultratech traits (monomolecular, plasma-cored, zeus-headed, eltex-plated, eltex-fitted) and the lead-lined malus ship from a Royalty-gated load folder, so they simply never load without Royalty
 - **[Vanilla Factions Expanded - Pirates](https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948)**: two warcasket-only uniques, present only when loaded
 - **[Vanilla Textures Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324)**: the unique spear matches VTE's redrawn size and pose (toggleable in settings)
 
@@ -82,7 +83,7 @@ Toggle weapons individually, disable ultratech traits, tune ability cooldowns an
 - **Odyssey DLC** (required — depends on Odyssey's unique weapon system)
 - **Harmony** (auto-download from Steam Workshop if you don't have it)
 
-Royalty is optional; two weapons and three traits unlock with it. VFE Pirates is optional; two warcasket weapons unlock with it.
+Royalty is optional; two weapons and six traits unlock with it. VFE Pirates is optional; two warcasket weapons unlock with it.
 
 ## Installation
 

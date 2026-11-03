@@ -154,14 +154,19 @@ public static class ModIntegrations
         UniqueMeleeWeaponsMod.ContentPack.PackageId, null, null, plain: true,
         groupDescKey: "UMW_OwnTraitsGroupDesc");
 
-    // Royalty: the 1.6/Mods/Royalty root (the unique axe and warhammer, the three ultratech traits).
-    // The trait list is also what the war merchant's scoped ban and the legacy allowUltratechTraits
-    // migration name (Patches/CompUniqueWeapon_DisabledTraits_Patch.cs, Settings_Traits.cs). Colour
-    // hand-picked over the ExpansionDef's badge fill, a dull khaki.
+    // Royalty: the 1.6/Mods/Royalty root (the unique axe and warhammer, six traits: five ultratech
+    // plus the period-neutral lead-lined). The war merchant's scoped ban names the five by DefOf
+    // (Patches/CompUniqueWeapon_DisabledTraits_Patch.cs); the legacy allowUltratechTraits migration
+    // takes this whole list, lead-lined included (Settings_Traits.cs). Colour hand-picked over the
+    // ExpansionDef's badge fill, a dull khaki.
     public static readonly ModIntegration Royalty = ModIntegration.Expansion(
         ModContentPack.RoyaltyModPackageId, pickedColor: ColorLibrary.Gold,
         weaponDefNames: new[] { "UMW_Axe_Unique", "UMW_Warhammer_Unique" },
-        traitDefNames: new[] { "UMW_Monomolecular", "UMW_PlasmaCored", "UMW_ZeusHeaded" });
+        traitDefNames: new[]
+        {
+            "UMW_Monomolecular", "UMW_PlasmaCored", "UMW_ZeusHeaded",
+            "UMW_EltexPlated", "UMW_EltexFitted", "UMW_LeadLined",
+        });
 
     // Odyssey is a hard dependency, so its group is always drawn and never locked. It owns the six
     // traits that are melee ports of its own ranged ones (1.6/Defs/WeaponTraitDefs/Melee/, the ones

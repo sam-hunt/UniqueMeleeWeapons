@@ -69,8 +69,9 @@ a trait. C#-side mechanics are in `Source/1.6/CLAUDE.md`.
   weapon under "Relevant gear". So a trait `statOffsets` entry on one of those weapon stats reaches
   the wielder with no hediff, no patch and no summary case (Anomaly's bioferrite stuff already does
   this). A full assembly scan found no other pawn-side read of a weapon-thing stat
-  (`MeleeHitChance` has none, so Needle-point's malus stays a weapon stat). The worked case, with
-  its quality-scaling and cache caveats, is the eltex-plated spec in `Docs/Specs/` until it ships.
+  (`MeleeHitChance` has none, so Needle-point's malus stays a weapon stat). The worked cases,
+  with their quality-scaling and cache caveats, are the three trait headers in the Royalty root's
+  `WeaponTraitDefs/Melee/`.
 - **Trait stat mods reach any stat of the weapon *thing***, not just combat ones: item-condition
   stats (`MaxHitPoints`, `DeteriorationRate`, `Flammability`) are fair game. Melee damage and armor
   penetration share the single `MeleeWeapon_DamageMultiplier` stat (there is **no** melee AP stat),

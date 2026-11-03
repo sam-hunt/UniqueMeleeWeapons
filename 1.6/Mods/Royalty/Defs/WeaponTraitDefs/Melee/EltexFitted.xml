@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Color. The grip, guard and pommel are fitted in eltex: the accent half of the eltex
+       pair, mirroring Anomaly's bioferrite stuff (sensitivity factor plus neural heat limit) where
+       UMW_EltexPlated mirrors the eltex garments. Named for the fittings the accent mask actually
+       paints, in the zeus-headed / plasma-cored furniture register (chosen over eltex-threaded,
+       -veined and -filigreed). INTENT: "a weapon whose furniture amplifies a psycaster."
+       Routing: Core's PsychicSensitivity carries StatPart_GearStatFactor and PsychicEntropyMax a
+       StatPart_GearStatOffset, both with includeWeapon, reading the primary weapon's
+       PsychicSensitivityFactor / PsychicEntropyMaxOffset as weapon-thing stats; CompUniqueWeapon's
+       GetStatFactor / GetStatOffset hand them this trait's statFactors / statOffsets and the pawn's
+       breakdown lists the weapon under "Relevant gear". No hediff, no patch, no TraitEffectSummary
+       case. Neither stat has a quality part, so both values are flat across qualities (the
+       warcasket pair included).
+       Anchors: bioferrite's normal-quality pair (x1.10, +8), with the heat limit rounded up to +10;
+       MarketValue +100, a step under Plated's +120 (added capability is an offset). On a weapon that
+       also rolls Plated the factor multiplies the summed offsets (vanilla's gear stacking), the
+       intended full-set reward, still under the eltex staff (Plated's header has the ceiling).
+       Double-edged by construction: amplified sensitivity raises exposure to psychic drones and
+       lances, which is why the pair carries no malus.
+       Tokens: Color only. It forces UMW_EltexShade onto colour one via vanilla forcedColor, so it is
+       an alternative to the Gold/Jade inlays, Envenomed and ZeusHeaded, and to UMW_LeadLined, which
+       also carries Color. It deliberately does NOT carry Eltex: it must co-roll with Plated (body
+       channel), and Color already excludes it from the lining.
+       Root: eltex is Royalty canon and every vanilla eltex item is techLevel Ultra, so the def lives
+       in the Royalty compat root (the folder is the gate, no MayRequire) and the war merchant's
+       scoped ultratech ban in Patches/CompUniqueWeapon_DisabledTraits_Patch.cs names it. VPE's
+       medieval eltex weapons are not followed. canGenerateAlone true, a real effect; commonality
+       0.35, Plated's, rather than the trio's 0.5: two eltex traits at 0.5 would roughly double eltex
+       presence against Monomolecular, PlasmaCored and ZeusHeaded. -->
+  <WeaponTraitDef>
+    <defName>UMW_EltexFitted</defName>
+    <label>eltex-fitted</label>
+    <description>The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity.</description>
+    <commonality>0.35</commonality>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Color</li>
+    </exclusionTags>
+    <forcedColor>UMW_EltexShade</forcedColor>
+    <statOffsets>
+      <PsychicEntropyMaxOffset>10</PsychicEntropyMaxOffset> <!-- not quality-scaled; bioferrite normal is +8 -->
+      <MarketValue>100</MarketValue> <!-- a step under Plated's +120 -->
+    </statOffsets>
+    <statFactors>
+      <PsychicSensitivityFactor>1.1</PsychicSensitivityFactor> <!-- not quality-scaled; bioferrite normal is x1.10 -->
+    </statFactors>
+    <traitAdjectives>
+      <li>eltex-fitted</li>
+      <li>eltex-furnished</li>
+      <li>resonant</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

@@ -29,12 +29,17 @@
        UMW_Enameled (beauty), and UMW_Storied (mood passive + the Rallying Cry ability). Token
        registry for the tokens rooted here (tokens are global across categories):
          • "Color" (colour-one accent, red mask): Gold/Jade inlays; cross-category members
-           Envenomed (Pointed) and ZeusHeaded (Blunt) force colour-one tints.
+           Envenomed (Pointed) and ZeusHeaded (Blunt) force colour-one tints; cross-root members
+           EltexFitted and LeadLined (Royalty root, Melee).
          • "BodyColor" (colour-two body, green mask — replaces the stuff tint): BloodStained,
-           Carbonized, Enameled; cross-category members Monomolecular and PlasmaCored (Bladed).
+           Carbonized, Enameled; cross-category members Monomolecular and PlasmaCored (Bladed);
+           cross-root member EltexPlated (Royalty root, Melee).
          • "Appearance" (a weapon gets one look): Ornamental, Ugly, BloodStained, Carbonized,
-           Enameled.
+           Enameled; cross-root member EltexPlated (Royalty root).
          • "Weight": Lightweight, Cumbersome.
+         • "Eltex" (the weapon's answer to psychic alloy, resonant plating or inert lining; the
+           fittings are an accent that co-rolls with plating and is excluded from lining through
+           Color): EltexPlated, LeadLined (both Royalty root).
          • "Ability" (one active/gizmo per weapon): Storied; cross-category member Piledriver
            (Blunt). -->
   <WeaponCategoryDef>

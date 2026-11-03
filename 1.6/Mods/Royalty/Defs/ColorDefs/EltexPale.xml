@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Pale eltex mint. Forced BODY colour (colour two / green mask) for UMW_EltexPlated via
+       ForcedColorTwoExtension, so it replaces the stuff tint. Sampled from Vanilla Psycasts
+       Expanded's eltex art, whose palette is deliberate and recurs across EltexSword, EltexDagger,
+       EltexMace and the Eltex resource texture: body #AED1CD, highlight #CDE9E5, shadow #6C9688.
+       This is the body mid-tone, following UMW_PlasmaOrange's precedent of sampling the main blade
+       colour; the green-mask multiply over the light diffuse darkens it slightly, so it lands near
+       VPE's body on the lit areas and the diffuse's own shading supplies the shadow. (Vanilla
+       Royalty's eltex art is bundled on 1.7 and could not be sampled; it is a mint, not the
+       "white-blue" the requesting comment remembered.) Paired with the darker UMW_EltexShade on the
+       accent so a weapon that rolls both eltex traits keeps a two-tone read instead of flat mint.
+       Self-contained like UMW_MonoWhite: Weapon colorType, randomlyPickable=false so it never
+       enters the random weapon-colour pool. Lives in the Royalty compat load root beside its sole
+       consumer; no MayRequire needed, the folder only loads when Royalty is active. -->
+  <ColorDef>
+    <defName>UMW_EltexPale</defName>
+    <label>eltex pale</label>
+    <colorType>Weapon</colorType>
+    <color>(174, 209, 205)</color>
+    <randomlyPickable>false</randomlyPickable>
+  </ColorDef>
+
+</Defs>

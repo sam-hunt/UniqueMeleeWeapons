@@ -53,6 +53,14 @@
         "english": "carbon black",
         "required": true
       },
+      "UMW_EltexPale.label": {
+        "english": "eltex pale",
+        "required": true
+      },
+      "UMW_EltexShade.label": {
+        "english": "eltex shade",
+        "required": true
+      },
       "UMW_EnamelPurple.label": {
         "english": "enamel purple",
         "required": true
@@ -1098,6 +1106,54 @@
         "isCollection": true,
         "required": true
       },
+      "UMW_EltexFitted.description": {
+        "english": "The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity.",
+        "required": true
+      },
+      "UMW_EltexFitted.exclusionTags": {
+        "english": [
+          "Color"
+        ],
+        "isCollection": true
+      },
+      "UMW_EltexFitted.label": {
+        "english": "eltex-fitted",
+        "required": true
+      },
+      "UMW_EltexFitted.traitAdjectives": {
+        "english": [
+          "eltex-fitted",
+          "eltex-furnished",
+          "resonant"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_EltexPlated.description": {
+        "english": "The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat.",
+        "required": true
+      },
+      "UMW_EltexPlated.exclusionTags": {
+        "english": [
+          "BodyColor",
+          "Appearance",
+          "Eltex"
+        ],
+        "isCollection": true
+      },
+      "UMW_EltexPlated.label": {
+        "english": "eltex-plated",
+        "required": true
+      },
+      "UMW_EltexPlated.traitAdjectives": {
+        "english": [
+          "eltex-plated",
+          "pale-sheened",
+          "resonant"
+        ],
+        "isCollection": true,
+        "required": true
+      },
       "UMW_Enameled.description": {
         "english": "A vitreous enamel has been fired and fused over the body of this weapon, glazing it in a deep, glossy violet. Traders will pay more for it.",
         "required": true
@@ -1226,6 +1282,30 @@
       "UMW_JadeInlay.traitAdjectives": {
         "english": [
           "jade"
+        ],
+        "isCollection": true,
+        "required": true
+      },
+      "UMW_LeadLined.description": {
+        "english": "The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing.",
+        "required": true
+      },
+      "UMW_LeadLined.exclusionTags": {
+        "english": [
+          "Color",
+          "Eltex"
+        ],
+        "isCollection": true
+      },
+      "UMW_LeadLined.label": {
+        "english": "lead-lined",
+        "required": true
+      },
+      "UMW_LeadLined.traitAdjectives": {
+        "english": [
+          "lead-lined",
+          "leaden",
+          "deadened"
         ],
         "isCollection": true,
         "required": true

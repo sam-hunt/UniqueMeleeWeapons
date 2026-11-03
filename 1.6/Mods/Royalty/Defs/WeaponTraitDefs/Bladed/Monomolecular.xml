@@ -27,8 +27,10 @@
        pure-white UMW_MonoWhite onto COLOUR TWO (the body) via ForcedColorTwoExtension, so it tags
        BodyColor (its own one-per-weapon family) — being on a different mask channel than the
        Color-tagged inlays, it can co-occur with a Gold/Jade inlay. The Edge tag keeps it mutually
-       exclusive with Razored/Serrated. Additionally suppressed by the allowUltratechTraits setting,
-       which medieval-only runs turn off (Patches/CompUniqueWeapon_UltratechTraits_Patch.cs).
+       exclusive with Razored/Serrated. Kept out of the war merchant's stock by the scoped ultratech
+       ban in Patches/CompUniqueWeapon_DisabledTraits_Patch.cs, which names it with the other
+       Royalty-root ultratech traits (the 1.x allowUltratechTraits toggle became the per-trait
+       disables in the Traits settings section).
        Under Combat Extended the floor is restated as the monosword's CE tools, Cut 18 / Stab
        25 mm RHA at Normal (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml). -->
   <WeaponTraitDef>

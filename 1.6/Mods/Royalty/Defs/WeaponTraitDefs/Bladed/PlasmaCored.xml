@@ -23,8 +23,10 @@
        already keeps it off Monomolecular's white blade). Colour one stays free, so it can co-occur with
        a Gold/Jade inlay. The Core tag — its own one-infusion-per-blade family, mirroring Pointed's
        Coating — deliberately isn't Edge, so it can co-roll with Serrated/Razored: a serrated plasma
-       blade is legal. Additionally suppressed by the allowUltratechTraits setting, which
-       medieval-only runs turn off (Patches/CompUniqueWeapon_UltratechTraits_Patch.cs). -->
+       blade is legal. Kept out of the war merchant's stock by the scoped ultratech ban in
+       Patches/CompUniqueWeapon_DisabledTraits_Patch.cs, which names it with the other Royalty-root
+       ultratech traits (the 1.x allowUltratechTraits toggle became the per-trait disables in the
+       Traits settings section). -->
   <WeaponTraitDef>
     <defName>UMW_PlasmaCored</defName>
     <label>plasma-cored</label>

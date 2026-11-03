@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. BodyColor + Appearance + Eltex. The body is plated in eltex, Royalty's psychically
+       resonant alloy, the way every Royalty eltex garment is. First of the eltex trio (with
+       UMW_EltexFitted and UMW_LeadLined, both in this folder), which splits the four weapon-routed
+       psychic stats by canon: Plated mirrors the eltex garments (sensitivity offset plus neural heat
+       recovery), Fitted mirrors Anomaly's bioferrite stuff (sensitivity factor plus heat limit).
+       INTENT: "a fighting weapon that does part of an eltex garment's job."
+       Routing: Core's PsychicSensitivity and PsychicEntropyRecoveryRate carry StatPart_GearStatOffset
+       with includeWeapon, which reads the primary weapon's PsychicSensitivityOffset /
+       PsychicEntropyRecoveryRateOffset as a weapon-thing stat, so CompUniqueWeapon.GetStatOffset
+       hands it this trait's statOffsets and the pawn's breakdown lists the weapon under "Relevant
+       gear". No hediff, no patch, no TraitEffectSummary case: vanilla renders the lines on the trait
+       card. The new weapon-stat caches are cleared on landing by
+       Patches/CompUniqueWeapon_TraitStatCache_Patch.cs, as for every trait-named stat.
+       Scaling: the sensitivity offset is QUALITY-SCALED by the stat's own StatPart_Quality (as eltex
+       apparel is), so 0.20 is the Good value: 0.10 Awful, 0.30 Legendary. The recovery offset has no
+       quality part and is flat. The quality-less VFEP warcasket pair reads as Normal (x0.83, so
+       +0.166), accepted.
+       Anchors: sensitivity at the eltex robe's +0.20; recovery between the eltex vest's +0.033 and
+       the helmet's +0.066; MarketValue +120 at the Monomolecular premium tier (added capability is an
+       offset). A legendary Plated + Fitted weapon lands at about +0.43 equivalent sensitivity, under
+       the eltex staff's +0.50, so a weapon that also fights never out-focuses the focus item.
+       Double-edged by construction: sensitivity raises exposure to psychic drones, shock and insanity
+       lances and soothe/insanity events, which is why the eltex pair needs no malus.
+       Tokens: BodyColor (it forces UMW_EltexPale onto colour two via ForcedColorTwoExtension, so it
+       replaces the stuff tint and excludes the other body finishes), Appearance (as the body finishes
+       carry it), and Eltex so a plated weapon is never also lead-lined. Fitted sits on the accent
+       channel and deliberately lacks Eltex, so the two co-roll: the full-set reward.
+       Root: eltex is Royalty canon and every vanilla eltex item is techLevel Ultra, so the def lives
+       in the Royalty compat root (the folder is the gate, no MayRequire) and the war merchant's
+       scoped ultratech ban in Patches/CompUniqueWeapon_DisabledTraits_Patch.cs names it. Vanilla
+       Psycasts Expanded's medieval eltex weapons are VPE's canon, not followed; nothing here needs
+       VPE. canGenerateAlone true, a real effect like the Royalty trio; commonality 0.35 rather than the
+       trio's 0.5 because the eltex pair is two traits (Fitted's header). -->
+  <WeaponTraitDef>
+    <defName>UMW_EltexPlated</defName>
+    <label>eltex-plated</label>
+    <description>The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat.</description>
+    <commonality>0.35</commonality>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>BodyColor</li>
+      <li>Appearance</li>
+      <li>Eltex</li>
+    </exclusionTags>
+    <statOffsets>
+      <PsychicSensitivityOffset>0.20</PsychicSensitivityOffset> <!-- Good-quality value; quality-scaled by the stat's own part -->
+      <PsychicEntropyRecoveryRateOffset>0.05</PsychicEntropyRecoveryRateOffset> <!-- not quality-scaled -->
+      <MarketValue>120</MarketValue> <!-- premium tier, cf. Monomolecular +120 -->
+    </statOffsets>
+    <traitAdjectives>
+      <li>eltex-plated</li>
+      <li>pale-sheened</li>
+      <li>resonant</li>
+    </traitAdjectives>
+    <modExtensions>
+      <li Class="UniqueMeleeWeapons.ForcedColorTwoExtension">
+        <color>UMW_EltexPale</color>
+      </li>
+    </modExtensions>
+  </WeaponTraitDef>
+
+</Defs>

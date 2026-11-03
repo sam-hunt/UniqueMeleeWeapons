@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- UMW_Melee. Color + Eltex. The tang and fittings are lined with lead, a psychically inert
+       lining: the eltex pair's mirror, and the first wielder-side malus that is still a weapon stat.
+       INTENT: "a weapon that deadens its wielder's psychic sensitivity, for better and for worse."
+       Routing: Core's PsychicSensitivity carries StatPart_GearStatFactor with includeWeapon, which
+       reads the primary weapon's PsychicSensitivityFactor as a weapon-thing stat;
+       CompUniqueWeapon.GetStatFactor hands it this trait's statFactors and the pawn's breakdown
+       lists the weapon under "Relevant gear". No hediff, no patch, no TraitEffectSummary case.
+       Mass, cooldown and market value are ordinary weapon stats, as on UMW_Cumbersome. Not
+       quality-scaled: the factor has no quality part, so every value here is flat.
+       Two-sided by design: the x0.9 that weakens a psycaster is also a shield against psychic
+       drones, shock and insanity lances and soothe/insanity events, and the description admits it.
+       Anchors: mass x1.1 and cooldown x1.05 sit under Cumbersome's x1.3 / x1.15 (the weight is a
+       side effect of the lining); MarketValue x0.9 follows the MV rule (devaluation is a factor),
+       a lighter touch than Ugly's and Cumbersome's x0.8 because the effect cuts both ways. Under
+       Combat Extended the Mass factor is mirrored onto CE's Bulk
+       (1.6/Mods/CombatExtended/Patches/WeaponTraits_CE.xml).
+       Tokens: Color (it forces Odyssey's UniqueWeapon_Gray onto colour one via vanilla forcedColor,
+       so it excludes the inlays, Envenomed, ZeusHeaded and UMW_EltexFitted) and Eltex (so a plated
+       weapon is never also lead-lined). NO Weight token: the lining is not the Weight axis, and a
+       light blade with a leaden grip reads fine (Lightweight 0.7 x 1.1 nets 0.77 mass; Cumbersome
+       1.3 x 1.1 nets 1.43, acceptable).
+       Colour: UniqueWeapon_Gray (100, 100, 100) reused by decision rather than a sixth ColorDef;
+       it is in Odyssey's random accent pool, so a plain weapon can roll the same grey and the trait
+       line is the tell, as for every stat-only trait. UniqueWeapon_Black was rejected as reading
+       like Carbon black.
+       Root: the factor would work without Royalty (drones and lances are Core), but it is only
+       legible beside the psychic system, and keeping it out of the ungated tree leaves Royalty-less
+       games with the core pool's negative skew unchanged. Period-neutral, so the war merchant's
+       ultratech ban does not name it. canGenerateAlone false with a MarketValue factor, the
+       project's malus signal (Ugly, Cumbersome); commonality 0.5, the Royalty root's rarer tier, so
+       it stays a surprise rather than a tax. -->
+  <WeaponTraitDef>
+    <defName>UMW_LeadLined</defName>
+    <label>lead-lined</label>
+    <description>The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing.</description>
+    <commonality>0.5</commonality>
+    <canGenerateAlone>false</canGenerateAlone>
+    <weaponCategory>UMW_Melee</weaponCategory>
+    <exclusionTags>
+      <li>Color</li>
+      <li>Eltex</li>
+    </exclusionTags>
+    <forcedColor>UniqueWeapon_Gray</forcedColor> <!-- Odyssey's (100, 100, 100); no new ColorDef -->
+    <statFactors>
+      <PsychicSensitivityFactor>0.9</PsychicSensitivityFactor> <!-- the malus, and a shield against drones and lances -->
+      <Mass>1.1</Mass> <!-- Cumbersome 1.3; the CE root mirrors it onto Bulk -->
+      <MeleeWeapon_CooldownMultiplier>1.05</MeleeWeapon_CooldownMultiplier> <!-- Cumbersome 1.15 -->
+      <MarketValue>0.9</MarketValue> <!-- devaluation is a factor (MV rule); Ugly/Cumbersome 0.8 -->
+    </statFactors>
+    <traitAdjectives>
+      <li>lead-lined</li>
+      <li>leaden</li>
+      <li>deadened</li>
+    </traitAdjectives>
+  </WeaponTraitDef>
+
+</Defs>

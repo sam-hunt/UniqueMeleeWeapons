@@ -32,7 +32,7 @@ namespace UniqueMeleeWeapons;
 // AllowedStuffsFor patch applies for free, and quality needs no handling here because
 // CompUniqueWeapon.PostPostMake forces its own Super roll on every unique.
 //
-// allowUltratechTraits=false (the war merchant instance) keeps the three Royalty-tech traits out
+// allowUltratechTraits=false (the war merchant instance) keeps the Royalty-root ultratech traits out
 // of the trait roll for weapons THIS generator makes, via the scoped veto in
 // CompUniqueWeapon_DisabledTraits_Patch — the trait never enters the candidate set, so another
 // trait rolls in its place and no generate-and-discard retry is needed.
@@ -46,7 +46,7 @@ namespace UniqueMeleeWeapons;
 // below keeps the vanilla cap-only buy side, so an outlander trader still buys a medieval unique.
 public class StockGenerator_UMWUniqueMelee : StockGenerator
 {
-    // Whether weapons generated here may roll the Royalty-tech traits (see class header). The
+    // Whether weapons generated here may roll the Royalty-root ultratech traits (see class header). The
     // per-trait settings veto still applies on top: a trait switched off there is off everywhere.
     public bool allowUltratechTraits = true;
 

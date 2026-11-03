@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Dark eltex green. Forced ACCENT colour (colour one / red mask) for UMW_EltexFitted via vanilla
+       forcedColor. Sampled from Vanilla Psycasts Expanded's eltex art: the shadow tone #6C9688 of
+       the palette that recurs across its eltex weapons and the Eltex resource texture (body
+       #AED1CD, highlight #CDE9E5; UMW_EltexPale has the sampling notes). The darker of the two
+       eltex tones goes on the fittings because fittings read as the worked, unpolished part, and
+       a weapon that rolls both eltex traits then keeps a two-tone read (pale body, dark fittings)
+       instead of rendering flat mint. Self-contained like UMW_MonoWhite: Weapon colorType,
+       randomlyPickable=false so it never enters the random weapon-colour pool. Lives in the
+       Royalty compat load root beside its sole consumer; no MayRequire needed, the folder only
+       loads when Royalty is active. -->
+  <ColorDef>
+    <defName>UMW_EltexShade</defName>
+    <label>eltex shade</label>
+    <colorType>Weapon</colorType>
+    <color>(108, 150, 136)</color>
+    <randomlyPickable>false</randomlyPickable>
+  </ColorDef>
+
+</Defs>

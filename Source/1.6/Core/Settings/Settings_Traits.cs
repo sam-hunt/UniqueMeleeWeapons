@@ -47,8 +47,10 @@ public partial class UniqueMeleeWeaponsSettings
         disabledTraits ??= new HashSet<string>();
 
         // One-way migration of the retired allowUltratechTraits toggle (a single bool, default on,
-        // through 1.x): a saved "off" becomes the Royalty three in this set. Read only, never
-        // written back, so the key disappears from the config on the next save.
+        // through 1.x): a saved "off" becomes the whole Royalty trait group in this set, the five
+        // ultratech traits and the period-neutral lead-lined alike, by decision (no special handling
+        // for a retired key; the row re-enables it). Read only, never written back, so the key
+        // disappears from the config on the next save.
         if (Scribe.mode == LoadSaveMode.LoadingVars)
         {
             bool legacyAllowUltratech = true;

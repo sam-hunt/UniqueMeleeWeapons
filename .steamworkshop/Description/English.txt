@@ -14,8 +14,8 @@ Unique variants of vanilla knife, gladius, longsword, spear, mace and breach axe
 [*][b]Warcasket broadsword and gravity hammer[/b] with VFE Pirates
 [/list]
 
-[h2]28 New Weapon Traits[/h2]
-Traits roll from 6 new categories, gated by what the weapon physically is. A spear can be barbed but not flanged; a mace can be bell-cast but not razored. Psychic blessings on the wielder remain the domain of persona-bond weapons.
+[h2]31 New Weapon Traits[/h2]
+Traits roll from 6 new categories, gated by what the weapon physically is. A spear can be barbed but not flanged; a mace can be bell-cast but not razored. Unexplained psychic blessings on the wielder remain the domain of persona-bond weapons; eltex plating reaches the wielder the same way Royalty's own eltex gear does.
 [list]
 [*][b]Bladed:[/b] razored, serrated, monomolecular*, plasma-cored*
 [*][b]Pointed:[/b] needle point, armor spike, barbed, envenomed, opiated
@@ -23,7 +23,7 @@ Traits roll from 6 new categories, gated by what the weapon physically is. A spe
 [*][b]Heavy:[/b] head-weighted, counterweighted
 [*][b]Guarded:[/b] quilloned (for weapons with a real hand guard)
 [*][b]Universal (vanilla):[/b] ornamental, ugly, lightweight, cumbersome, gold inlay, jade inlay
-[*][b]Universal (new):[/b] blood-stained, carbonized, enameled, storied
+[*][b]Universal (new):[/b] blood-stained, carbonized, enameled, storied, eltex-plated*, eltex-fitted*, lead-lined*
 [/list]
 [i]*requires Royalty DLC[/i]
 
@@ -33,8 +33,8 @@ Most interesting unique-weapon trait fields don't work for melee; the game only 
 [*][b]On-hit effects:[/b] extra damage, stuns, staggers, mental breaks, bleeding wounds, toxic and sedative buildup
 [*][b]Damage types rerouted:[/b] a serrated edge tears ragged wounds, an envenomed point delivers tox
 [*][b]Armor penetration tuned separately from damage[/b] (typically vanilla couples these), and also per tool
-[*][b]Wielder-side effects:[/b] a needle point's difficulty to land, a quilloned guard's chance to parry
-[*][b]Forced body color:[/b] carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red
+[*][b]Wielder-side effects:[/b] a needle point's difficulty to land, a quilloned guard's chance to parry, eltex plating and fittings that raise psychic sensitivity and neural heat limit and recovery (or a lead lining that dulls them)
+[*][b]Forced body color:[/b] carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex pale
 [/list]
 
 [h2]New Active Abilities[/h2]
@@ -51,7 +51,7 @@ A low-tech parallel to Odyssey's ancient mercenaries quest. A roving tribal war 
 Your colony, your rules:
 [list]
 [*]Toggle weapons individually if you don't like any.
-[*]Disable ultratech traits for lower-tech runs.
+[*]Toggle traits individually, say the ultratech ones for lower-tech runs.
 [*]Tune ability cooldowns, radii, duration.
 [*]Adjust or disable warband quest frequency.
 [*]Include rarely in appropriate trader stock (off by default).
