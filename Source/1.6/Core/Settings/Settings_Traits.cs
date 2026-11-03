@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace UniqueMeleeWeapons;
@@ -27,6 +28,10 @@ namespace UniqueMeleeWeapons;
 // load and window close.
 public partial class UniqueMeleeWeaponsSettings
 {
+    // Trait labels are short and carry no icon, so three columns fit where the weapons take two;
+    // the cells keep the small font and the plain row height.
+    private const int TraitColumns = 3;
+
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a
     // trait added later is on without a settings migration. Keyed by defName so the stored value
     // survives a session with the def absent (the Royalty three without Royalty).
@@ -137,8 +142,8 @@ public partial class UniqueMeleeWeaponsSettings
     }
 
     // Under one group header per owner: Core first (everything no integration claims), then each
-    // integration's group. Every trait row is indented the same, whichever group it is in, and the
-    // rows are paintable (click and drag to set a run of them; ToggleRow).
+    // integration's group. Every trait cell is indented the same, whichever group it is in, and the
+    // cells are paintable (click and drag to set a run of them; ToggleCell).
     private void DrawTraitsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsTraits".Translate());
@@ -164,10 +169,7 @@ public partial class UniqueMeleeWeaponsSettings
         {
             return;
         }
-        foreach (WeaponTraitDef trait in members)
-        {
-            DrawTraitRow(listing, trait);
-        }
+        DrawDefGrid(listing, members, TraitColumns, Text.LineHeight, GameFont.Small, DrawTraitCell);
         listing.Gap(GroupGap);
     }
 
@@ -177,20 +179,25 @@ public partial class UniqueMeleeWeaponsSettings
     // suffixed with that weapon's name. The tooltip leads with the trait itself, rendered exactly as
     // its block on a weapon's info card (label, description, effect lines, stat lines; the one
     // renderer in CompUniqueWeapon_TraitStats_Patch), then the setting's explanation; built lazily,
-    // only while hovered (the TipSignal overload of ToggleRow).
-    private void DrawTraitRow(Listing_Standard listing, WeaponTraitDef trait)
+    // only while hovered (ToggleCell's TipSignal). A held-on label with its suffix can outrun a
+    // three-column cell, where ToggleCell clamps it, so the tooltip of a held-on row ends with the
+    // same suffix, which also tells the player why its box is greyed.
+    private void DrawTraitCell(Rect cell, WeaponTraitDef trait)
     {
         bool enabled = !IsTraitDisabled(trait);
         bool wasEnabled = enabled;
         string label = trait.LabelCap;
         bool? forced = null;
+        string heldOnNote = null;
         if (enabled && StrandedBy(trait) is ThingDef stranded)
         {
-            label += "UMW_LastTraitSuffix".Translate(stranded.label);
+            string suffix = "UMW_LastTraitSuffix".Translate(stranded.label);
+            label += suffix;
+            heldOnNote = suffix.Trim();
             forced = true;
         }
-        TipSignal tooltip = new TipSignal(() => TraitTooltip(trait), trait.GetHashCode());
-        ToggleRow(listing, label, tooltip, ref enabled, forced, indent: GroupRowIndent, paintable: true);
+        TipSignal tooltip = new TipSignal(() => TraitTooltip(trait, heldOnNote), trait.GetHashCode());
+        ToggleCell(cell, label, tooltip, ref enabled, forced, paintable: true);
         if (enabled != wasEnabled)
         {
             SetTraitEnabled(trait, enabled);
@@ -199,10 +206,11 @@ public partial class UniqueMeleeWeaponsSettings
 
     // Resolve() keeps the block's yellow label: adding a TaggedString to the string would yield a
     // TaggedString, and its implicit conversion back to string strips every tag.
-    private static string TraitTooltip(WeaponTraitDef trait)
+    private static string TraitTooltip(WeaponTraitDef trait, string heldOnNote)
     {
-        return Patches.CompUniqueWeapon_TraitStats_Patch.TraitBlock(trait) + "\n\n"
+        string tooltip = Patches.CompUniqueWeapon_TraitStats_Patch.TraitBlock(trait) + "\n\n"
             + "UMW_TraitEnabledDesc".Translate(trait.label).Resolve();
+        return heldOnNote == null ? tooltip : tooltip + "\n\n" + heldOnNote;
     }
 
     // Also the group header's bulk setter. Disabling is refused for a trait some weapon needs, so a

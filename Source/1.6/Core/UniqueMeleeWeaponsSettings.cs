@@ -62,6 +62,19 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // Extra space below each group's last member row, so groups read as blocks.
     private const float GroupGap = 8f;
 
+    // Group headers draw one font step above their member rows (Medium over Small; vanilla has no
+    // intermediate size) on a full-width light band, so a long list scans by its owners.
+    private const GameFont GroupHeaderFont = GameFont.Medium;
+
+    // The def grids (DrawDefGrid): members fill columns top to bottom, like a newspaper, so an
+    // alphabetical list still reads downwards. Space between the columns.
+    private const float ColumnGutter = 16f;
+
+    // The gap between a cell's icon and its label, and how far a cell's icon fades while its
+    // row is off or locked, so the eye can skim the enabled set.
+    private const float IconLabelGap = 6f;
+    private const float DisabledIconAlpha = 0.35f;
+
     // Vanilla's checkbox edge, the size CheckboxLabeled draws its box at.
     private const float CheckboxSize = 24f;
 
@@ -140,13 +153,14 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         }
     }
 
-    // Top-level section heading (medium font), e.g. "Weapons".
+    // Top-level section heading (medium font), e.g. "Weapons", ruled off beneath: the group headers
+    // under it share its font, so the rule is what keeps the two levels apart.
     private static void SectionHeader(Listing_Standard listing, string label)
     {
         Text.Font = GameFont.Medium;
         listing.Label(label);
         Text.Font = GameFont.Small;
-        listing.Gap(6f);
+        listing.GapLine(8f);
     }
 
     // One checkbox row in the family's model. `forced` is null for a live row; false for a row a
@@ -180,22 +194,93 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     {
         Rect row = listing.GetRect(Text.LineHeight);
         row.xMin += indent;
-        Widgets.DrawHighlightIfMouseover(row);
+        ToggleCell(row, label, tooltip, ref value, forced, paintable);
+        listing.Gap(listing.verticalSpacing);
+    }
+
+    // The row's body, in any rect: the unit a grid cell and a full-width row share. `drawIcon`, if
+    // given, gets a square of the cell's height at its left edge (and whether the cell shows on, so
+    // it can dim) and the label and box take the rest. The three parts are Widgets.CheckboxLabeled's
+    // own primitives in its order (Label, ToggleInvisibleDraggable, CheckboxDraw) rather than that
+    // call, because the hit rect must stay the WHOLE cell while the label starts after the icon:
+    // through CheckboxLabeled the icon would be dead to a click and to a paint drag running down
+    // the icon column. The label is clamped to the space before the box with an ellipsis rather
+    // than wrapped (a wrapped line would spill into the row beneath). A row's own tooltip is
+    // expected to lead with the label (the def rows do), so a clamped label is tipped in full only
+    // when the row has no tooltip. A label carrying a colour tag is never clamped: the clamp cuts
+    // the raw string and could leave a half tag on screen (only the locked group header passes
+    // one, full width).
+    private static void ToggleCell(Rect cell, string label, TipSignal? tooltip, ref bool value,
+        bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null)
+    {
+        Widgets.DrawHighlightIfMouseover(cell);
         if (tooltip is TipSignal tip)
         {
-            TooltipHandler.TipRegion(row, tip);
+            TooltipHandler.TipRegion(cell, tip);
         }
+        bool shownValue = forced ?? value;
+        Rect labelRect = cell;
+        if (drawIcon != null)
+        {
+            drawIcon(new Rect(cell.x, cell.y, cell.height, cell.height).ContractedBy(1f), shownValue);
+            labelRect.xMin += cell.height + IconLabelGap;
+        }
+        labelRect.xMax -= CheckboxSize;
+        string shownLabel = label.IndexOf('<') >= 0 ? label : Text.ClampTextWithEllipsis(labelRect, label);
+        if (shownLabel != label && tooltip == null)
+        {
+            TooltipHandler.TipRegion(cell, new TipSignal(label, label.GetHashCode()));
+        }
+
+        TextAnchor prevAnchor = Text.Anchor;
+        Text.Anchor = TextAnchor.MiddleLeft;
+        float boxX = cell.xMax - CheckboxSize;
+        float boxY = cell.y + (cell.height - CheckboxSize) / 2f;
         if (forced is bool shown)
         {
             GUI.color = Widgets.InactiveColor;
-            Widgets.CheckboxLabeled(row, label, ref shown, disabled: true);
+            Widgets.Label(labelRect, shownLabel);
+            Widgets.CheckboxDraw(boxX, boxY, shown, disabled: true);
             GUI.color = Color.white;
         }
         else
         {
-            Widgets.CheckboxLabeled(row, label, ref value, paintable: paintable);
+            Widgets.Label(labelRect, shownLabel);
+            Widgets.ToggleInvisibleDraggable(cell, ref value, doMouseoverSound: true, paintable);
+            Widgets.CheckboxDraw(boxX, boxY, value, disabled: false);
         }
-        listing.Gap(listing.verticalSpacing);
+        Text.Anchor = prevAnchor;
+    }
+
+    // Lays a group's member rows out in `columns` columns under its header, every cell `rowHeight`
+    // tall and drawn in `font`, members running down each column before the next (so column one
+    // holds the first ceil(n / columns) members). Each grid row is one listing rect, so the listing's
+    // own height tracking and the scroll view stay correct, and the paint drag crosses cells in
+    // whichever direction the mouse moves.
+    private static void DrawDefGrid<T>(Listing_Standard listing, IReadOnlyList<T> members, int columns,
+        float rowHeight, GameFont font, Action<Rect, T> drawCell)
+    {
+        int rows = (members.Count + columns - 1) / columns;
+        GameFont prevFont = Text.Font;
+        Text.Font = font;
+        for (int row = 0; row < rows; row++)
+        {
+            Rect rowRect = listing.GetRect(rowHeight);
+            rowRect.xMin += GroupRowIndent;
+            float cellWidth = (rowRect.width - ColumnGutter * (columns - 1)) / columns;
+            for (int column = 0; column < columns; column++)
+            {
+                int index = column * rows + row;
+                if (index >= members.Count)
+                {
+                    break;
+                }
+                Rect cell = new Rect(rowRect.x + column * (cellWidth + ColumnGutter), rowRect.y, cellWidth, rowHeight);
+                drawCell(cell, members[index]);
+            }
+            listing.Gap(listing.verticalSpacing);
+        }
+        Text.Font = prevFont;
     }
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
@@ -223,15 +308,26 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         string name = integration.ColoredName;
         string tooltip = "UMW_IntegrationGroupDesc".Translate(name).Resolve();
 
+        if (integration.IsActive && members.Count == 0)
+        {
+            return false;
+        }
+
+        // The band spans the row's full width (the member grids below split theirs), in the header
+        // font, with the light highlight under the mouseover one so a hovered header still lifts.
+        GameFont prevFont = Text.Font;
+        Text.Font = GroupHeaderFont;
+        Rect row = listing.GetRect(Text.LineHeight);
+        row.xMin += GroupHeaderIndent;
+        Widgets.DrawLightHighlight(row);
+
         if (!integration.IsActive)
         {
             bool off = false;
-            ToggleRow(listing, name + "UMW_NotActiveSuffix".Translate().Resolve(), tooltip, ref off, forced: false,
-                indent: GroupHeaderIndent);
-            return false;
-        }
-        if (members.Count == 0)
-        {
+            ToggleCell(row, name + "UMW_NotActiveSuffix".Translate().Resolve(), new TipSignal(tooltip), ref off,
+                forced: false);
+            listing.Gap(listing.verticalSpacing);
+            Text.Font = prevFont;
             return false;
         }
 
@@ -240,8 +336,6 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             : enabledCount == 0 ? MultiCheckboxState.Off
             : MultiCheckboxState.Partial;
 
-        Rect row = listing.GetRect(Text.LineHeight);
-        row.xMin += GroupHeaderIndent;
         Widgets.DrawHighlightIfMouseover(row);
         TooltipHandler.TipRegion(row, tooltip);
         Rect labelRect = new Rect(row.x, row.y, row.width - CheckboxSize, row.height);
@@ -250,7 +344,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         Widgets.Label(labelRect, name);
         Text.Anchor = prevAnchor;
 
-        Rect boxRect = new Rect(row.xMax - CheckboxSize, row.y, CheckboxSize, CheckboxSize);
+        Rect boxRect = new Rect(row.xMax - CheckboxSize, row.y + (row.height - CheckboxSize) / 2f, CheckboxSize, CheckboxSize);
         MultiCheckboxState newState = Widgets.CheckboxMulti(boxRect, state);
         // Same binary cycle CheckboxMulti applies to a click on the box (on or partial to off, off to
         // on), same sounds.
@@ -270,6 +364,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             }
         }
         listing.Gap(listing.verticalSpacing);
+        Text.Font = prevFont;
         return true;
     }
 

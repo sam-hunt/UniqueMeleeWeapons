@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace UniqueMeleeWeapons;
@@ -14,8 +15,18 @@ namespace UniqueMeleeWeapons;
 // or DLC owns (ModIntegrations) sit under a tri-state group header for that mod, which is what stays
 // visible, disabled and labelled with the requirement, while the mod is missing and its defs cannot
 // draw a row of their own (the family's "Grouped def rows" pattern; this file is its reference).
+//
+// Under each header the weapons sit in a two-column grid of taller, medium-font cells, each led by
+// the weapon's coloured icon (SettingsWeaponIcon), so a roster that runs to dozens of entries with
+// every integration active scans as a picture gallery rather than a column of text.
 public partial class UniqueMeleeWeaponsSettings
 {
+    private const int WeaponColumns = 2;
+    private const GameFont WeaponRowFont = GameFont.Medium;
+
+    // Tall enough for a 34px icon beside the medium-font label.
+    private const float WeaponRowHeight = 36f;
+
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a weapon
     // that appears later is on without a settings migration. Keyed by defName rather than by ThingDef so
     // the stored value survives a session with the def absent.
@@ -64,8 +75,8 @@ public partial class UniqueMeleeWeaponsSettings
 
     // One checkbox per weapon we own, labelled with the weapon's own (already localized) def label,
     // under one group header per owner: Core first (everything no integration claims), then each
-    // integration's group. Every weapon row is indented the same, whichever group it is in, and the
-    // rows are paintable (click and drag to set a run of them; ToggleRow).
+    // integration's group. Every weapon cell is indented the same, whichever group it is in, and the
+    // cells are paintable (click and drag to set a run of them; ToggleCell).
     private void DrawWeaponsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsWeapons".Translate());
@@ -90,10 +101,7 @@ public partial class UniqueMeleeWeaponsSettings
         {
             return;
         }
-        foreach (ThingDef weapon in members)
-        {
-            DrawWeaponRow(listing, weapon);
-        }
+        DrawDefGrid(listing, members, WeaponColumns, WeaponRowHeight, WeaponRowFont, DrawWeaponCell);
         listing.Gap(GroupGap);
     }
 
@@ -101,13 +109,15 @@ public partial class UniqueMeleeWeaponsSettings
     // local written back only on an actual change; that keeps the set free of entries for weapons the
     // player never touched. The tooltip leads with the weapon itself (its own label and description,
     // the same text as its info card) so the player knows what they are switching off, then the
-    // setting's explanation; built lazily, only while hovered (the TipSignal overload of ToggleRow).
-    private void DrawWeaponRow(Listing_Standard listing, ThingDef weapon)
+    // setting's explanation; built lazily, only while hovered (ToggleCell's TipSignal). The icon
+    // fades while the weapon is off.
+    private void DrawWeaponCell(Rect cell, ThingDef weapon)
     {
         bool enabled = !IsWeaponDisabled(weapon);
         bool wasEnabled = enabled;
         TipSignal tooltip = new TipSignal(() => WeaponTooltip(weapon), weapon.GetHashCode());
-        ToggleRow(listing, weapon.LabelCap, tooltip, ref enabled, indent: GroupRowIndent, paintable: true);
+        ToggleCell(cell, weapon.LabelCap, tooltip, ref enabled, paintable: true,
+            drawIcon: (iconRect, on) => SettingsWeaponIcon.Draw(iconRect, weapon, on ? 1f : DisabledIconAlpha));
         if (enabled != wasEnabled)
         {
             SetWeaponEnabled(weapon, enabled);
