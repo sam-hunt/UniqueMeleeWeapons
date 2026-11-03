@@ -120,18 +120,22 @@
   <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
   <UMW_TraderStocksUniquesShipDesc>En torno a una de cada cinco naves comerciales ({0}) lleva un arma cuerpo a cuerpo única de factura industrial o posterior a la venta, y la nave compra armas cuerpo a cuerpo únicas de todos modos. Las armas desactivadas nunca aparecen.</UMW_TraderStocksUniquesShipDesc>
 
-  <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
-       (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
-       The unit word is part of the template, so hour- and day-based cooldowns are separate keys.
-       Spanish puts the property first and reaches {0} through "de", which needs no agreement. -->
-  <!-- EN: {0} cooldown: {1} hours -->
-  <UMW_AbilityCooldownHours>Enfriamiento de {0}: {1} horas</UMW_AbilityCooldownHours>
+  <!-- Settings: Abilities. Each ability is a subsection headed by its own icon and name (from its
+       def, already localized), with its description as the header's tooltip, so the slider rows
+       beneath name only the property: in the first three, {0} is the slider's current value. The
+       unit word is part of the template, so hour- and day-based cooldowns are separate keys. The
+       fourth row tunes a different def from the ability above it (the rallied buff), so it keeps the
+       subject: {0} is that hediff's def label, capitalized; {1} is the value.
+       Spanish puts the fourth row's property first and reaches {0} through "de", which needs no
+       agreement. -->
+  <!-- EN: Cooldown: {0} hours -->
+  <UMW_CooldownHours>Enfriamiento: {0} horas</UMW_CooldownHours>
 
-  <!-- EN: {0} cooldown: {1} days -->
-  <UMW_AbilityCooldownDays>Enfriamiento de {0}: {1} días</UMW_AbilityCooldownDays>
+  <!-- EN: Cooldown: {0} days -->
+  <UMW_CooldownDays>Enfriamiento: {0} días</UMW_CooldownDays>
 
-  <!-- EN: {0} radius: {1} cells -->
-  <UMW_AbilityRadius>Radio de {0}: {1} casillas</UMW_AbilityRadius>
+  <!-- EN: Radius: {0} cells -->
+  <UMW_RadiusCells>Radio: {0} casillas</UMW_RadiusCells>
 
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>Duración de {0}: {1} horas</UMW_HediffDurationHours>
@@ -152,12 +156,18 @@
   <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
   <UMW_RalliedDurationDesc>Cuánto dura el efecto arengado, que reduce a la mitad el dolor y el tiempo de tambaleo. Quien estuviera dormido es despertado en su lugar, y se lo toma a mal.</UMW_RalliedDurationDesc>
 
-  <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
-       faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
-       mercenaries, bandit camps, item stashes) are vanilla content names, taken here from the
-       official localization. -->
-  <!-- EN: {0} quest commonality: {1} -->
-  <UMW_QuestWeight>Frecuencia de la misión de {0}: {1}</UMW_QuestWeight>
+  <!-- Settings: Quests. The warband quest is a subsection headed by its camp's world-map icon and
+       the warband faction's def label (already localized). The first string is that header's
+       tooltip, describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do
+       not inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
+       official localization. The second is the slider row's label; {0} is the slider's current
+       value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
+       vanilla content names too. Taken here from the official localization. -->
+  <!-- EN: An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}. -->
+  <UMW_WarbandQuestDesc>Una misión de sitio de oportunidad: una banda de guerra tribal atrincherada en un asentamiento abandonado, liderada por un jefe que porta un arma cuerpo a cuerpo única. Captura o mata al jefe para quedártela. La versión de baja tecnología de la misión de mercenarios antiguos de {0}.</UMW_WarbandQuestDesc>
+
+  <!-- EN: Commonality: {0} -->
+  <UMW_QuestCommonality>Frecuencia de la misión: {0}</UMW_QuestCommonality>
 
   <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
   <UMW_WarbandQuestWeightDesc>Con qué frecuencia se ofrece la misión de la banda de guerra frente a las demás misiones de sitios de oportunidad (mercenarios antiguos, campamentos de bandidos, alijos de objetos...). Más alto = se ofrece más a menudo. Con 0 se desactiva.</UMW_WarbandQuestWeightDesc>

@@ -110,7 +110,8 @@ public partial class UniqueMeleeWeaponsSettings
     // player never touched. The tooltip leads with the weapon itself (its own label and description,
     // the same text as its info card) so the player knows what they are switching off, then the
     // setting's explanation; built lazily, only while hovered (ToggleCell's TipSignal). The icon
-    // fades while the weapon is off.
+    // fades while the weapon is off. The (i) after the label opens the weapon's info card at its
+    // default stuff and normal quality (ToggleCell's infoCard), for the stats the tooltip leaves out.
     private void DrawWeaponCell(Rect cell, ThingDef weapon)
     {
         bool enabled = !IsWeaponDisabled(weapon);
@@ -118,7 +119,7 @@ public partial class UniqueMeleeWeaponsSettings
         TipSignal tooltip = new TipSignal(() => WeaponTooltip(weapon), weapon.GetHashCode());
         ToggleCell(cell, weapon.LabelCap, tooltip, ref enabled, paintable: true,
             drawIcon: (iconRect, on) => SettingsWeaponIcon.Draw(iconRect, weapon, on ? 1f : DisabledIconAlpha),
-            boxLeft: true);
+            boxLeft: true, infoCard: weapon);
         if (enabled != wasEnabled)
         {
             SetWeaponEnabled(weapon, enabled);

@@ -112,17 +112,20 @@
   <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
   <UMW_TraderStocksUniquesShipDesc>约五分之一的商船（{0}）会携带一件工业时代或更晚时代的特化近战武器出售，无论是否携带出售品，该商船都会收购特化近战武器。已关闭的武器不会出现在此处。</UMW_TraderStocksUniquesShipDesc>
 
-  <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
-       (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
-       The unit word is part of the template, so hour- and day-based cooldowns are separate keys. -->
-  <!-- EN: {0} cooldown: {1} hours -->
-  <UMW_AbilityCooldownHours>{0}冷却时间：{1}小时</UMW_AbilityCooldownHours>
+  <!-- Settings: Abilities. Each ability is a subsection headed by its own icon and name (from its
+       def, already localized), with its description as the header's tooltip, so the slider rows
+       beneath name only the property: in the first three, {0} is the slider's current value. The
+       unit word is part of the template, so hour- and day-based cooldowns are separate keys. The
+       fourth row tunes a different def from the ability above it (the rallied buff), so it keeps the
+       subject: {0} is that hediff's def label, capitalized; {1} is the value. -->
+  <!-- EN: Cooldown: {0} hours -->
+  <UMW_CooldownHours>冷却时间：{0}小时</UMW_CooldownHours>
 
-  <!-- EN: {0} cooldown: {1} days -->
-  <UMW_AbilityCooldownDays>{0}冷却时间：{1}天</UMW_AbilityCooldownDays>
+  <!-- EN: Cooldown: {0} days -->
+  <UMW_CooldownDays>冷却时间：{0}天</UMW_CooldownDays>
 
-  <!-- EN: {0} radius: {1} cells -->
-  <UMW_AbilityRadius>{0}半径：{1}格</UMW_AbilityRadius>
+  <!-- EN: Radius: {0} cells -->
+  <UMW_RadiusCells>半径：{0}格</UMW_RadiusCells>
 
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}持续时间：{1}小时</UMW_HediffDurationHours>
@@ -143,12 +146,18 @@
   <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
   <UMW_RalliedDurationDesc>士气大振效果的持续时间，可使疼痛和脚步被打乱的时间减半。睡着的人不会受到鼓舞，而是被吵醒，并为此心生不满。</UMW_RalliedDurationDesc>
 
-  <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
-       faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
-       mercenaries, bandit camps, item stashes) are vanilla content names; translate them to match
-       the official localization. -->
-  <!-- EN: {0} quest commonality: {1} -->
-  <UMW_QuestWeight>{0}任务出现频率：{1}</UMW_QuestWeight>
+  <!-- Settings: Quests. The warband quest is a subsection headed by its camp's world-map icon and
+       the warband faction's def label (already localized). The first string is that header's
+       tooltip, describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do
+       not inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
+       official localization. The second is the slider row's label; {0} is the slider's current
+       value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
+       vanilla content names too. -->
+  <!-- EN: An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}. -->
+  <UMW_WarbandQuestDesc>一项地点任务：一支部落战团盘踞在废弃的聚落中，由一名携带特化近战武器的酋长率领。俘获或击杀酋长即可夺取该武器。这是{0}中古代雇佣兵任务的低科技对应版本。</UMW_WarbandQuestDesc>
+
+  <!-- EN: Commonality: {0} -->
+  <UMW_QuestCommonality>出现频率：{0}</UMW_QuestCommonality>
 
   <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
   <UMW_WarbandQuestWeightDesc>战团任务相对于其他同类地点任务（古代雇佣兵、匪徒营地、物品藏匿点……）出现的频率。数值越高，出现越频繁。设为0则禁用该任务。</UMW_WarbandQuestWeightDesc>

@@ -41,17 +41,28 @@ public partial class UniqueMeleeWeaponsSettings
         // bottom bar renders it. There is no vanilla Keyed key for it (the tab is a MainButtonDef).
         SectionHeader(listing, MainButtonDefOf.Quests.LabelCap);
 
+        // The quest's subsection (SubsectionHeader): named after the warband faction, as the quest
+        // itself is, with the camp's world-map icon (the site part's expanding icon, what the player
+        // sees on the map) and a Keyed description of the quest as the tooltip. The site part's own
+        // description is one line about the camp, not the quest, and the quest's description is a
+        // grammar with placeholders, so neither can stand in. The Keyed text names the ancient
+        // mercenaries quest's DLC, injected coloured (family rule 6).
+        SubsectionHeader(listing, UMW_QuestDefOf.UMW_Warband.LabelCap,
+            UMW_QuestDefOf.UMW_WarbandCamp?.ExpandingIconTexture,
+            HeaderTip(UMW_QuestDefOf.UMW_Warband.LabelCap,
+                "UMW_WarbandQuestDesc".Translate(ModIntegrations.Odyssey.ColoredName).Resolve()));
+
         // Annotated at 1.0, which is AncientMercenaries' own rootSelectionWeight: our quest shares the
         // opportunity-site giver pool with it, so that mark is the reference point for "as often as the
         // vanilla one". The name comes from that quest's site-part def (see UMW_QuestDefOf.BanditGang)
         // so it is the same localized string the world map shows, not a second copy of it here.
         warbandQuestWeight = SliderRow(
-            listing, "UMW_QuestWeight", "UMW_WarbandQuestWeightDesc",
-            UMW_QuestDefOf.UMW_Warband.LabelCap,
+            listing, "UMW_QuestCommonality", "UMW_WarbandQuestWeightDesc", null,
             warbandQuestWeight, WarbandQuestWeightDefault,
             min: 0f, max: 2f, step: 0.05f, format: "0.00",
             annotateAt: 1f, annotationLabel: UMW_QuestDefOf.BanditGang?.label);
 
+        EndSubsection(listing);
         EndSection(listing);
     }
 }

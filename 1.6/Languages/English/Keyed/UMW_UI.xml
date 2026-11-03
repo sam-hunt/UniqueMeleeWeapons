@@ -92,12 +92,15 @@
   <UMW_TraderStocksUniquesShip>Unique weapons in {0} trade ship stock</UMW_TraderStocksUniquesShip>
   <UMW_TraderStocksUniquesShipDesc>About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesShipDesc>
 
-  <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
-       (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
-       The unit word is part of the template, so hour- and day-based cooldowns are separate keys. -->
-  <UMW_AbilityCooldownHours>{0} cooldown: {1} hours</UMW_AbilityCooldownHours>
-  <UMW_AbilityCooldownDays>{0} cooldown: {1} days</UMW_AbilityCooldownDays>
-  <UMW_AbilityRadius>{0} radius: {1} cells</UMW_AbilityRadius>
+  <!-- Settings: Abilities. Each ability is a subsection headed by its own icon and name (from its
+       def, already localized), with its description as the header's tooltip, so the slider rows
+       beneath name only the property: in the first three, {0} is the slider's current value. The
+       unit word is part of the template, so hour- and day-based cooldowns are separate keys. The
+       fourth row tunes a different def from the ability above it (the rallied buff), so it keeps the
+       subject: {0} is that hediff's def label, capitalized; {1} is the value. -->
+  <UMW_CooldownHours>Cooldown: {0} hours</UMW_CooldownHours>
+  <UMW_CooldownDays>Cooldown: {0} days</UMW_CooldownDays>
+  <UMW_RadiusCells>Radius: {0} cells</UMW_RadiusCells>
   <UMW_HediffDurationHours>{0} duration: {1} hours</UMW_HediffDurationHours>
 
   <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
@@ -107,11 +110,15 @@
   <UMW_RallyingCryRadiusDesc>How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers.</UMW_RallyingCryRadiusDesc>
   <UMW_RalliedDurationDesc>How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it.</UMW_RalliedDurationDesc>
 
-  <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
-       faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
-       mercenaries, bandit camps, item stashes) are vanilla content names; translate them to match
-       the official localization. -->
-  <UMW_QuestWeight>{0} quest commonality: {1}</UMW_QuestWeight>
+  <!-- Settings: Quests. The warband quest is a subsection headed by its camp's world-map icon and
+       the warband faction's def label (already localized). The first string is that header's
+       tooltip, describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do
+       not inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
+       official localization. The second is the slider row's label; {0} is the slider's current
+       value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
+       vanilla content names too. -->
+  <UMW_WarbandQuestDesc>An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}.</UMW_WarbandQuestDesc>
+  <UMW_QuestCommonality>Commonality: {0}</UMW_QuestCommonality>
   <UMW_WarbandQuestWeightDesc>How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it.</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle

@@ -132,21 +132,24 @@
   <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
   <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente à venda, e a nave compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShipDesc>
 
-  <!-- Settings: Abilities. Slider labels are shared templates: {0} is the subject's own def label
-       (an ability, a hediff, or the warband faction), capitalized; {1} is the slider's current value.
-       The unit word is part of the template, so hour- and day-based cooldowns are separate keys.
-       Portuguese keeps {0} first, as English does, and follows it with a colon. Reaching the label
-       through a preposition would want a contracted article ("o tempo de recarga do tremor"), and the
-       label's gender is unknowable here while nothing in the language worker fuses "de" with an
-       article for us. Naming the subject first sidesteps that entirely. -->
-  <!-- EN: {0} cooldown: {1} hours -->
-  <UMW_AbilityCooldownHours>{0}: tempo de recarga de {1} horas</UMW_AbilityCooldownHours>
+  <!-- Settings: Abilities. Each ability is a subsection headed by its own icon and name (from its
+       def, already localized), with its description as the header's tooltip, so the slider rows
+       beneath name only the property: in the first three, {0} is the slider's current value. The
+       unit word is part of the template, so hour- and day-based cooldowns are separate keys. The
+       fourth row tunes a different def from the ability above it (the rallied buff), so it keeps the
+       subject: {0} is that hediff's def label, capitalized; {1} is the value.
+       Portuguese keeps the fourth row's {0} first, as English does, and follows it with a colon.
+       Reaching the label through a preposition would want a contracted article ("a duração do
+       ânimo"), and the label's gender is unknowable here while nothing in the language worker fuses
+       "de" with an article for us. Naming the subject first sidesteps that entirely. -->
+  <!-- EN: Cooldown: {0} hours -->
+  <UMW_CooldownHours>Tempo de recarga: {0} horas</UMW_CooldownHours>
 
-  <!-- EN: {0} cooldown: {1} days -->
-  <UMW_AbilityCooldownDays>{0}: tempo de recarga de {1} dias</UMW_AbilityCooldownDays>
+  <!-- EN: Cooldown: {0} days -->
+  <UMW_CooldownDays>Tempo de recarga: {0} dias</UMW_CooldownDays>
 
-  <!-- EN: {0} radius: {1} cells -->
-  <UMW_AbilityRadius>{0}: raio de {1} células</UMW_AbilityRadius>
+  <!-- EN: Radius: {0} cells -->
+  <UMW_RadiusCells>Raio: {0} células</UMW_RadiusCells>
 
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}: duração de {1} horas</UMW_HediffDurationHours>
@@ -167,13 +170,19 @@
   <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
   <UMW_RalliedDurationDesc>Quanto tempo o efeito do grito dura, reduzindo à metade a dor e o tempo de cambaleio. Quem está dormindo acorda em vez de recebê-lo, e não gosta nada disso.</UMW_RalliedDurationDesc>
 
-  <!-- Settings: Quests. The slider label reuses the shared template pattern: {0} is the warband
-       faction's def label (capitalized), {1} the value. The desc's quest examples (ancient
-       mercenaries, bandit camps, item stashes) are vanilla content names, taken here from the
-       official localization (Odyssey's questSubjectRules, Core's BanditCamp and ItemStash
-       SitePartDefs). -->
-  <!-- EN: {0} quest commonality: {1} -->
-  <UMW_QuestWeight>{0}: frequência de missão de {1}</UMW_QuestWeight>
+  <!-- Settings: Quests. The warband quest is a subsection headed by its camp's world-map icon and
+       the warband faction's def label (already localized). The first string is that header's
+       tooltip, describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do
+       not inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
+       official localization. The second is the slider row's label; {0} is the slider's current
+       value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
+       vanilla content names too. Taken here from the official localization (Odyssey's
+       questSubjectRules, Core's BanditCamp and ItemStash SitePartDefs). -->
+  <!-- EN: An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}. -->
+  <UMW_WarbandQuestDesc>Uma missão de local de oportunidade: um bando de guerra tribal entrincheirado em um assentamento abandonado, liderado por um chefe que carrega uma arma corpo a corpo única. Capture ou mate o chefe para ficar com ela. A versão de baixa tecnologia da missão dos mercenários antigos presente em {0}.</UMW_WarbandQuestDesc>
+
+  <!-- EN: Commonality: {0} -->
+  <UMW_QuestCommonality>Frequência de missão: {0}</UMW_QuestCommonality>
 
   <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
   <UMW_WarbandQuestWeightDesc>Com que frequência a missão do bando de guerra é oferecida frente às outras missões de locais de oportunidade (mercenários antigos, acampamentos de bandidos, esconderijos de itens...). Mais alto = oferecida mais vezes. Com 0, a missão fica desativada.</UMW_WarbandQuestWeightDesc>

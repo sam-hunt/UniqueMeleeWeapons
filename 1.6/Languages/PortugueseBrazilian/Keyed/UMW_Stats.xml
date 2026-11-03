@@ -6,6 +6,9 @@
        trailing period and no markup, and they start lowercase where the English does, matching
        vanilla's own lowercase stat labels. -->
 
+  <!-- EN: Effect -->
+  <UMW_TraitStat_Effect>Efeito</UMW_TraitStat_Effect>
+
   <!-- Per-tool damage / armor penetration. {0} is a tool capacity ("corte", "corte e punhalada", from
        Core's ToolCapacityDef labels) or the UMW_TraitStat_AllTools word when the trait modifies every
        tool. A capacity noun would want "de" ("dano de corte") but the all-tools word must not have it

@@ -150,49 +150,54 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
+    // One subsection per ability (SubsectionHeader: its gizmo icon, its name, its description as the
+    // tooltip), the rows beneath it, so a row's label names only the property ("Cooldown: 12 hours");
+    // the Rallied hediff's row keeps its own name, being a different def from the ability above it.
     private void DrawAbilitiesSection(Listing_Standard listing)
     {
         // Vanilla already localizes this exact word (Core Keyed <Abilities>), so reuse it
         // rather than shipping a duplicate key translators would have to do twice.
         SectionHeader(listing, "Abilities".Translate());
 
-        // Slider labels are shared templates ("{0} cooldown: {1} hours") fed the subject's own
-        // def label, so the ability/hediff name in each row tracks its def's translation.
+        AbilityDef earthshake = UMW_DefOf.UMW_Earthshake;
+        SubsectionHeader(listing, earthshake.LabelCap, earthshake.uiIcon, HeaderTip(earthshake.LabelCap, earthshake.description));
+
         // The description names Odyssey's EMP pulser as the default's reference, so the DLC's name is
         // injected coloured (family rule 6, passing mentions included).
         earthshakeCooldownHours = SliderRow(
-            listing, "UMW_AbilityCooldownHours", "UMW_EarthshakeCooldownDesc",
-            UMW_DefOf.UMW_Earthshake.LabelCap,
+            listing, "UMW_CooldownHours", "UMW_EarthshakeCooldownDesc", null,
             earthshakeCooldownHours, EarthshakeCooldownHoursDefault,
             min: 0f, max: 24f, step: 1f, format: "0",
             descArg: ModIntegrations.Odyssey.ColoredName);
 
         earthshakeRadius = SliderRow(
-            listing, "UMW_AbilityRadius", "UMW_EarthshakeRadiusDesc",
-            UMW_DefOf.UMW_Earthshake.LabelCap,
+            listing, "UMW_RadiusCells", "UMW_EarthshakeRadiusDesc", null,
             earthshakeRadius, EarthshakeRadiusDefault,
             min: 1.9f, max: 12.9f, step: 1f, format: "0.0");
 
-        listing.Gap(6f);
+        EndSubsection(listing);
+
+        AbilityDef rallyingCry = UMW_DefOf.UMW_RallyingCry;
+        SubsectionHeader(listing, rallyingCry.LabelCap, rallyingCry.uiIcon, HeaderTip(rallyingCry.LabelCap, rallyingCry.description));
 
         rallyingCryCooldownDays = SliderRow(
-            listing, "UMW_AbilityCooldownDays", "UMW_RallyingCryCooldownDesc",
-            UMW_DefOf.UMW_RallyingCry.LabelCap,
+            listing, "UMW_CooldownDays", "UMW_RallyingCryCooldownDesc", null,
             rallyingCryCooldownDays, RallyingCryCooldownDaysDefault,
             min: 1f, max: 15f, step: 0.5f, format: "0.#");
 
         rallyingCryRadius = SliderRow(
-            listing, "UMW_AbilityRadius", "UMW_RallyingCryRadiusDesc",
-            UMW_DefOf.UMW_RallyingCry.LabelCap,
+            listing, "UMW_RadiusCells", "UMW_RallyingCryRadiusDesc", null,
             rallyingCryRadius, RallyingCryRadiusDefault,
             min: 1.9f, max: 12.9f, step: 1f, format: "0.0");
 
+        // The hediff's own label as the subject, so the row tracks that def's translation.
         ralliedDurationHours = SliderRow(
             listing, "UMW_HediffDurationHours", "UMW_RalliedDurationDesc",
             UMW_DefOf.UMW_Rallied.LabelCap,
             ralliedDurationHours, RalliedDurationHoursDefault,
             min: 1f, max: 24f, step: 1f, format: "0");
 
+        EndSubsection(listing);
         EndSection(listing);
     }
 }

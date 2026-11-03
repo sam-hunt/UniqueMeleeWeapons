@@ -6,6 +6,11 @@
        matching the format vanilla uses for a trait's own statOffsets/statFactors. Keep them short —
        the entry lists up to three traits at once. -->
 
+  <!-- Info card of a trait on its own (the (i) on a settings trait row): each effect line is a row
+       labelled with this word, the line being the row's value
+       (Patches/Def_SpecialDisplayStats_WeaponTrait_Patch.cs). Singular: one row per effect. -->
+  <UMW_TraitStat_Effect>Effect</UMW_TraitStat_Effect>
+
   <!-- Per-tool damage / armor penetration. {0} is a tool capacity ("cut", "cut and stab") or the
        UMW_TraitStat_AllTools word when the trait modifies every tool. -->
   <UMW_TraitStat_AllTools>melee</UMW_TraitStat_AllTools>

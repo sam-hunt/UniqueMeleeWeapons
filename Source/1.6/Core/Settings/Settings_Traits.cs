@@ -185,7 +185,9 @@ public partial class UniqueMeleeWeaponsSettings
     // renderer in CompUniqueWeapon_TraitStats_Patch), then the setting's explanation; built lazily,
     // only while hovered (ToggleCell's TipSignal). A held-on label with its suffix can outrun a
     // three-column cell, where ToggleCell clamps it, so the tooltip of a held-on row ends with the
-    // same suffix, which also tells the player why its box is greyed.
+    // same suffix, which also tells the player why its box is greyed. The (i) after the label opens
+    // the trait's info card (ToggleCell's infoCard), which Patches/Def_SpecialDisplayStats_WeaponTrait_Patch
+    // fills with the trait's stat and effect rows, each hoverable for the stat's own explanation.
     private void DrawTraitCell(Rect cell, WeaponTraitDef trait)
     {
         bool enabled = !IsTraitDisabled(trait);
@@ -201,7 +203,7 @@ public partial class UniqueMeleeWeaponsSettings
             forced = true;
         }
         TipSignal tooltip = new TipSignal(() => TraitTooltip(trait, heldOnNote), trait.GetHashCode());
-        ToggleCell(cell, label, tooltip, ref enabled, forced, paintable: true, boxLeft: true);
+        ToggleCell(cell, label, tooltip, ref enabled, forced, paintable: true, boxLeft: true, infoCard: trait);
         if (enabled != wasEnabled)
         {
             SetTraitEnabled(trait, enabled);
