@@ -107,10 +107,10 @@ public partial class UniqueMeleeWeaponsSettings
 
     // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is a
     // local written back only on an actual change; that keeps the set free of entries for weapons the
-    // player never touched. The tooltip leads with the weapon itself (its own label and description,
-    // the same text as its info card) so the player knows what they are switching off, then the
-    // setting's explanation; built lazily, only while hovered (ToggleCell's TipSignal). The icon
-    // fades while the weapon is off.
+    // player never touched. The tooltip leads with what the checkbox does, then the weapon itself (its
+    // own label and description, the same text as its info card) so the player knows what they are
+    // switching off; built lazily, only while hovered (ToggleCell's TipSignal). The icon fades while
+    // the weapon is off.
     private void DrawWeaponCell(Rect cell, ThingDef weapon)
     {
         bool enabled = !IsWeaponDisabled(weapon);
@@ -125,13 +125,14 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
-    // Label in the info card's yellow, description, blank line, then what the checkbox does. Resolve()
-    // keeps the colour: adding a TaggedString to the string would yield a TaggedString, and its
-    // implicit conversion back to string strips every tag.
+    // What the checkbox does, its injected weapon name in the info card's yellow, blank line, then the
+    // label in that yellow and the description. Resolve() keeps the colour: adding a TaggedString to
+    // the string would yield a TaggedString, and its implicit conversion back to string strips every
+    // tag.
     private static string WeaponTooltip(ThingDef weapon)
     {
-        return weapon.LabelCap.Colorize(ColorLibrary.Yellow) + "\n" + weapon.description + "\n\n"
-            + "UMW_WeaponEnabledDesc".Translate(weapon.label).Resolve();
+        return "UMW_WeaponEnabledDesc".Translate(weapon.label.Colorize(ColorLibrary.Yellow)).Resolve() + "\n\n"
+            + weapon.LabelCap.Colorize(ColorLibrary.Yellow) + "\n" + weapon.description;
     }
 
     // Also the group header's bulk setter.
