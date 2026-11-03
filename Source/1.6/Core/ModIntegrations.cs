@@ -45,29 +45,35 @@ public sealed class ModIntegration
     private readonly bool isExpansion;
     private readonly string fallbackNameKey;
     private readonly Color? pickedColor;
+    private readonly bool plain;
 
     private ModIntegration(string packageId, bool isExpansion, string fallbackNameKey, Color? pickedColor,
-        string[] weaponDefNames, string[] traitDefNames, string groupDescKey)
+        bool plain, string[] weaponDefNames, string[] traitDefNames, string groupDescKey)
     {
         this.packageId = packageId;
         this.isExpansion = isExpansion;
         this.fallbackNameKey = fallbackNameKey;
         this.pickedColor = pickedColor;
+        this.plain = plain;
         this.weaponDefNames = weaponDefNames ?? Array.Empty<string>();
         this.traitDefNames = traitDefNames ?? Array.Empty<string>();
         this.groupDescKey = groupDescKey ?? "UMW_IntegrationGroupDesc";
     }
 
-    public static ModIntegration Expansion(string packageId, Color? pickedColor = null,
+    // `plain` keeps the name in the window's default text colour, with no colour tag at all (the
+    // headers that are not an optional integration: Core, and this mod itself); it overrides the
+    // ExpansionDef colour an expansion would otherwise fall back to.
+    public static ModIntegration Expansion(string packageId, Color? pickedColor = null, bool plain = false,
         string[] weaponDefNames = null, string[] traitDefNames = null, string groupDescKey = null)
     {
-        return new ModIntegration(packageId, true, null, pickedColor, weaponDefNames, traitDefNames, groupDescKey);
+        return new ModIntegration(packageId, true, null, pickedColor, plain, weaponDefNames, traitDefNames,
+            groupDescKey);
     }
 
-    public static ModIntegration Mod(string packageId, string fallbackNameKey, Color color,
+    public static ModIntegration Mod(string packageId, string fallbackNameKey, Color? color, bool plain = false,
         string[] weaponDefNames = null, string[] traitDefNames = null, string groupDescKey = null)
     {
-        return new ModIntegration(packageId, false, fallbackNameKey, color, weaponDefNames, traitDefNames,
+        return new ModIntegration(packageId, false, fallbackNameKey, color, plain, weaponDefNames, traitDefNames,
             groupDescKey);
     }
 
@@ -112,13 +118,14 @@ public sealed class ModIntegration
         }
     }
 
-    public Color Color => pickedColor ?? ExpansionDef?.primaryColor ?? Color.white;
+    // Null for a plain integration: its name takes the default text colour, untagged.
+    public Color? Color => plain ? null : pickedColor ?? ExpansionDef?.primaryColor ?? UnityEngine.Color.white;
 
-    // The name with its colour tag, as a resolved string. Callers pass it as a Keyed argument and
-    // must keep the result a TaggedString they Resolve(), or a string they Colorize last: the
-    // implicit TaggedString-to-string conversion is RawText.StripTags() and drops the tag (family
-    // "Engine traps").
-    public string ColoredName => Name.Colorize(Color);
+    // The name with its colour tag, as a resolved string (the bare name for a plain integration).
+    // Callers pass it as a Keyed argument and must keep the result a TaggedString they Resolve(), or
+    // a string they Colorize last: the implicit TaggedString-to-string conversion is
+    // RawText.StripTags() and drops the tag (family "Engine traps").
+    public string ColoredName => Color is Color color ? Name.Colorize(color) : Name;
 
     public bool OwnsWeapon(Def def) => def != null && Array.IndexOf(weaponDefNames, def.defName) >= 0;
 
@@ -130,20 +137,21 @@ public static class ModIntegrations
     // The base game, as the group header every WEAPON with no optional dependency sits under (they
     // are unique variants of Core's weapons, as Royalty's are of Royalty's), so every def row has the
     // same indentation whether or not it has one. Owns no listed defs: its members are whatever no
-    // other integration claims, which also catches a third-party tagged unique. Always active. Colour
-    // hand-picked (its ExpansionDef has none).
+    // other integration claims, which also catches a third-party tagged unique. Always active. Plain:
+    // it is not an optional integration, so its name takes the default text colour (a colour per
+    // header was tried and read as too many; the family table records both plain names).
     public static readonly ModIntegration Core = ModIntegration.Expansion(
-        ModContentPack.CoreModPackageId, pickedColor: ColorLibrary.LightBrown);
+        ModContentPack.CoreModPackageId, plain: true);
 
     // This mod itself, as the group header the TRAITS of our own design sit under (Core ships no
     // weapon trait, so "Core" would mislabel them): like Core it owns no listed defs and takes
     // whatever no other integration claims. The name is our About.xml's through the same ModLister
     // lookup the optional mods use (always installed, so the Keyed fallback is never needed), the
     // packageId our own content pack's (set before anything can touch this class: the Mod ctor
-    // stores it before GetSettings runs ExposeData). Colour hand-picked: the bright yellow of the
-    // Workshop preview art, the mod's visual identity (the family table has the entry).
+    // stores it before GetSettings runs ExposeData). Plain, like Core: a yellow from the preview art
+    // was tried and, beside Odyssey's and Royalty's colours, made the section read as too many.
     public static readonly ModIntegration Self = ModIntegration.Mod(
-        UniqueMeleeWeaponsMod.ContentPack.PackageId, null, ColorLibrary.Yellow,
+        UniqueMeleeWeaponsMod.ContentPack.PackageId, null, null, plain: true,
         groupDescKey: "UMW_OwnTraitsGroupDesc");
 
     // Royalty: the 1.6/Mods/Royalty root (the unique axe and warhammer, the three ultratech traits).

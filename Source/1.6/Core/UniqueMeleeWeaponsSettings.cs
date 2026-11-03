@@ -330,9 +330,9 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     }
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
-    // def rows" pattern). Its label is the owner's coloured name with how many rows the group holds
-    // inside the same colour ("Royalty (3)"): the section header above it already says whether these
-    // are weapons or traits. The count is the loaded members while the owner is active and
+    // def rows" pattern). Its label is the owner's name with how many rows the group holds, both in
+    // the owner's colour if it has one ("Royalty (3)"; Core and this mod itself are plain): the
+    // section header above it already says whether these are weapons or traits. The count is the loaded members while the owner is active and
     // `listedCount`, its static def list's length in ModIntegrations, while it is not, so a player
     // without the mod still sees how much it would add although no row can be drawn. The box is a
     // pure derivation of the members, never separate state: on when every member is enabled, off when
@@ -358,8 +358,13 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     {
         string tooltip = integration.groupDescKey.Translate(integration.ColoredName).Resolve();
         int count = integration.IsActive ? members.Count : listedCount;
-        // Colorize last, over the resolved string: the count joins the name's colour.
-        string name = (integration.Name + "UMW_GroupCountSuffix".Translate(count).Resolve()).Colorize(integration.Color);
+        // Colorize last, over the resolved string: the count joins the name's colour (none for a plain
+        // owner, whose header stays in the default text colour).
+        string name = integration.Name + "UMW_GroupCountSuffix".Translate(count).Resolve();
+        if (integration.Color is Color color)
+        {
+            name = name.Colorize(color);
+        }
 
         if (integration.IsActive && members.Count == 0)
         {
