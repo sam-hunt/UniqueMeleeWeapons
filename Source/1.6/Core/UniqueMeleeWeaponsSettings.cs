@@ -61,12 +61,19 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     private const float SectionIndent = 24f;
     private const float GroupRowIndent = 24f;
 
-    // Extra space below each group's last member row, so groups read as blocks.
-    private const float GroupGap = 8f;
+    // Extra space below each group's last member row, so groups read as blocks (it is also what
+    // separates the next group's header from the block above), and below a group header, so its
+    // members don't crowd it.
+    private const float GroupGap = 10f;
+    private const float GroupHeaderBottomGap = 1f;
 
     // Group headers draw one font step above their member rows (Medium over Small; vanilla has no
     // intermediate size), so a long list scans by its owners.
     private const GameFont GroupHeaderFont = GameFont.Medium;
+
+    // A group header's box-to-name gap: a few pixels wider than a cell's, because at the header's
+    // larger font the cell gap leaves the name crowding its box.
+    private const float GroupHeaderBoxGap = CellGap + 2f;
 
     // The def grids (DrawDefGrid): members fill columns top to bottom, like a newspaper, so an
     // alphabetical list still reads downwards. Space between the columns.
@@ -229,8 +236,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // label (the def rows do), so a clamped label is tipped in full only when the row has no
     // tooltip. A label carrying a colour tag is never clamped: the clamp cuts the raw string and
     // could leave a half tag on screen (only the locked group header passes one, full width).
+    // `boxGap` is the space between a leading box and what follows it (the group header widens it).
     private static void ToggleCell(Rect cell, string label, TipSignal? tooltip, ref bool value,
-        bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null, bool boxLeft = false)
+        bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null, bool boxLeft = false,
+        float boxGap = CellGap)
     {
         Widgets.DrawHighlightIfMouseover(cell);
         if (tooltip is TipSignal tip)
@@ -243,7 +252,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         if (boxLeft)
         {
             boxX = cell.x;
-            labelRect.xMin += CheckboxSize + CellGap;
+            labelRect.xMin += CheckboxSize + boxGap;
         }
         else
         {
@@ -349,8 +358,8 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         {
             bool off = false;
             ToggleCell(row, name + "UMW_NotActiveSuffix".Translate().Resolve(), new TipSignal(tooltip), ref off,
-                forced: false, boxLeft: true);
-            listing.Gap(listing.verticalSpacing);
+                forced: false, boxLeft: true, boxGap: GroupHeaderBoxGap);
+            listing.Gap(listing.verticalSpacing + GroupHeaderBottomGap);
             Text.Font = prevFont;
             return false;
         }
@@ -364,7 +373,8 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         Widgets.DrawHighlightIfMouseover(row);
         TooltipHandler.TipRegion(row, tooltip);
         Rect boxRect = new Rect(row.x, row.y + (row.height - CheckboxSize) / 2f, CheckboxSize, CheckboxSize);
-        Rect labelRect = new Rect(boxRect.xMax + CellGap, row.y, row.width - CheckboxSize - CellGap, row.height);
+        Rect labelRect = new Rect(boxRect.xMax + GroupHeaderBoxGap, row.y, row.width - CheckboxSize - GroupHeaderBoxGap,
+            row.height);
         TextAnchor prevAnchor = Text.Anchor;
         Text.Anchor = TextAnchor.MiddleLeft;
         Widgets.Label(labelRect, name);
@@ -388,7 +398,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
                 setEnabled(member, enabled);
             }
         }
-        listing.Gap(listing.verticalSpacing);
+        listing.Gap(listing.verticalSpacing + GroupHeaderBottomGap);
         Text.Font = prevFont;
         return true;
     }
