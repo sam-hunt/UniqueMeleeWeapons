@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated,
+       UMW_EltexFitted and UMW_LeadLined are declared in this
        Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
@@ -66,5 +67,50 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>感電の</UMW_ZeusHeaded.traitAdjectives.3>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>エルテックスプレート</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>本体は淡い光沢の下で,サイキックに共鳴する合金エルテックスによって覆われています.使用者の精神感応性を研ぎ澄まし,ニューラルヒートを放散させます.</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>エルテックス張りの</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>淡い光沢の</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>共鳴する</UMW_EltexPlated.traitAdjectives.2>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>エルテックス金具</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>グリップ,ガード,柄頭にはエルテックスが取り付けられ,暗い色に削り出されたまま磨かれていません.使用者のニューラルヒートの限界を広げ,精神感応性を増幅します.</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>エルテックス金具の</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>エルテックスをあしらった</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>共鳴する</UMW_EltexFitted.traitAdjectives.2>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>鉛張り</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>茎と金具には鉛が張られており,使用者の精神感応性を鈍らせます.それが利点にも欠点にもなります.張られた鉛は重量を増やし,振りを遅くします.</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>鉛張りの</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>鉛の</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>鈍った</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

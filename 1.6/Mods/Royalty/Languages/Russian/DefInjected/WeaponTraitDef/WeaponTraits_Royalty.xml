@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
-       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated,
+       UMW_EltexFitted and UMW_LeadLined are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/ and its Melee/ folder) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
        LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
@@ -66,5 +67,53 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>шокирующий</UMW_ZeusHeaded.traitAdjectives.3>
+
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>обшивка из эльтекса</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>Корпус обшит эльтексом, психически резонирующим сплавом, и покрыт бледным глянцем. Он обостряет психочувствительность владельца и рассеивает нейроперегрев.</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>обшитый эльтексом</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>бледно-блестящий</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>резонирующий</UMW_EltexPlated.traitAdjectives.2>
+
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>отделка из эльтекса</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>Рукоять, гарда и навершие отделаны эльтексом, тёмным и неполированным. Он расширяет порог нейроперегрева владельца и усиливает его психочувствительность.</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>отделанный эльтексом</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>оснащённый эльтексом</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>резонирующий</UMW_EltexFitted.traitAdjectives.2>
+
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>свинцовая подкладка</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>Хвостовик и фурнитура подбиты свинцом, который приглушает психочувствительность владельца, и к лучшему, и к худшему. Подкладка добавляет вес и замедляет взмах.</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>подбитый свинцом</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>свинцовый</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>приглушённый</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

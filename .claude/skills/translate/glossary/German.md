@@ -196,6 +196,13 @@ skill label), `Schnitt` / `Stich` / `Wucht` (bladed / pointed / blunt, the
 Core DamageDef labels), `schwer` (heavy), `bewehrt` (guarded, matching the
 `-bewehrt` pattern of the Quilloned family).
 
+The Royalty-root Melee trait trio coins `eltexplattiert` (eltex-plated), `eltexbeschlagen`
+(eltex-fitted, after the `-bewehrt`/`-beschlagen` pattern) with adjective `eltexbesetzt`,
+`bleiverkleidet` (lead-lined; `bleiern`, `abgestumpft`) and the colours `eltexblass` /
+`eltexdunkel`; Eltex per vanilla `Eltex-Stab`, mental Sensibilität / Neuralhitze(limit)
+per Core/Royalty. Pommel/tang/lead have no vanilla de term: `Knauf`, `Angel`, `Blei`
+(ordinary words, pending native review).
+
 The 2026-08-23 breach axe (`UMW_BreachAxe_Unique`) namerLabels coin two
 agent nouns distinct from the grounded `|F|Axt` (axe) and vanilla `|M|Kopf`
 (head) slots: `Durchbrecher` (breacher — agent noun from `durchbrechen`,

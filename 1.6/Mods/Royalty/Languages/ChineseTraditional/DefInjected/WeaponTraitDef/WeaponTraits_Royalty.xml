@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
-       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated,
+       UMW_EltexFitted and UMW_LeadLined are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/ and its Melee/ subfolder) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
        LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
@@ -66,5 +67,52 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>暈眩</UMW_ZeusHeaded.traitAdjectives.3>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>心靈鍍層</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>整個器身鍍有心靈聚合物，一種能與心靈共鳴的合金，表面泛著淡淡的光澤。它提升使用者的心靈敏感度，並消散神經熱。</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>心靈鍍層</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>淡輝</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>共鳴</UMW_EltexPlated.traitAdjectives.2>
+
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>心靈配件</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>握柄、護手與柄頭都配有心靈聚合物，切削成暗色且未經拋光。它擴大使用者的神經熱極限，並增幅其心靈敏感度。</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>心靈配件</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>心靈鑲飾</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>共鳴</UMW_EltexFitted.traitAdjectives.2>
+
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>鉛內襯</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>刀莖與配件內襯著鉛，會鈍化使用者的心靈敏感度，有利也有弊。內襯增加了重量，也拖慢了揮擊。</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>鉛襯</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>鉛質</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>沉寂</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

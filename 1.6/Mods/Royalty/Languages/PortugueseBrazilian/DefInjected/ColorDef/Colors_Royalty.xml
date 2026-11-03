@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_PlasmaOrange and UMW_MonoWhite are declared in this Royalty compat load
+  <!-- UMW_PlasmaOrange, UMW_MonoWhite, UMW_EltexPale and UMW_EltexShade are declared in this Royalty compat load
        root (1.6/Mods/Royalty/Defs/ColorDefs/) and carry no MayRequire of their own. MayRequire is honored on defs but IGNORED on
        DefInjected entries, so these injections live in this LoadFolders-gated
        compat root (1.6/Mods/Royalty loads only when Royalty is active) rather than
@@ -15,5 +15,12 @@
 
   <!-- EN: plasma orange -->
   <UMW_PlasmaOrange.label>laranja plasma</UMW_PlasmaOrange.label>
+
+
+  <!-- EN: eltex pale -->
+  <UMW_EltexPale.label>eltex pálido</UMW_EltexPale.label>
+
+  <!-- EN: eltex shade -->
+  <UMW_EltexShade.label>eltex sombra</UMW_EltexShade.label>
 
 </LanguageData>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated, UMW_EltexFitted and UMW_LeadLined are declared in this
        Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
@@ -66,5 +66,53 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>faiscante</UMW_ZeusHeaded.traitAdjectives.3>
+
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>placas de eltex</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>O corpo é revestido de eltex, uma liga com ressonância psíquica, sob um brilho pálido. Ela aguça a sensibilidade psíquica do portador e dissipa o calor neural.</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>eltex</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>cintilante</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>ressonante</UMW_EltexPlated.traitAdjectives.2>
+
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>ferragens de eltex</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>A empunhadura, a guarda e o pomo recebem ferragens de eltex, lapidadas em tom escuro e deixadas sem polimento. Ela amplia o limite de calor neural do portador e amplifica sua sensibilidade psíquica.</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>eltex</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>vibrante</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>ressonante</UMW_EltexFitted.traitAdjectives.2>
+
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>forro de chumbo</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>A espiga e as ferragens são forradas de chumbo, que amortece a sensibilidade psíquica do portador, para o bem e para o mal. O forro acrescenta peso e deixa o golpe mais lento.</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>isolante</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>grave</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>inerte</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

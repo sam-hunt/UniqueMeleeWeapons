@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated,
+       UMW_EltexFitted and UMW_LeadLined are declared in this
        Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
@@ -66,5 +67,53 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>de décharge</UMW_ZeusHeaded.traitAdjectives.3>
+
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>à placage d'eltex</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>Le corps est plaqué d'eltex, un alliage à résonance psychique, sous un éclat pâle. Il aiguise la sensibilité psychique de l'utilisateur et évacue l'échauffement neuronal.</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>à placage d'eltex</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>à éclat pâle</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>de résonance</UMW_EltexPlated.traitAdjectives.2>
+
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>à garnitures d'eltex</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>La poignée, la garde et le pommeau sont garnis d'eltex taillé sombre et laissé non poli. Il élargit la limite d'échauffement neuronal de l'utilisateur et amplifie sa sensibilité psychique.</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>à garnitures d'eltex</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>à montures d'eltex</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>de résonance</UMW_EltexFitted.traitAdjectives.2>
+
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>à doublure de plomb</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>La soie et les garnitures sont doublées de plomb, qui amortit la sensibilité psychique de l'utilisateur, pour le meilleur et pour le pire. La doublure ajoute du poids et ralentit le coup.</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>à doublure de plomb</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>de plomb</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>d'étouffement</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

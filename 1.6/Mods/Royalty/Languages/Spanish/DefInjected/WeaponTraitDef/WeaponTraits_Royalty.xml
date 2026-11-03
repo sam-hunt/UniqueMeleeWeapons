@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!-- UMW_ZeusHeaded, UMW_PlasmaCored and UMW_Monomolecular are declared in this
-       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/) and carry
+  <!-- UMW_ZeusHeaded, UMW_PlasmaCored, UMW_Monomolecular, UMW_EltexPlated, UMW_EltexFitted
+       and UMW_LeadLined are declared in this
+       Royalty compat load root (1.6/Mods/Royalty/Defs/WeaponTraitDefs/, the last three under Melee/) and carry
        no MayRequire of their own. MayRequire is honored on defs but
        IGNORED on DefInjected entries, so these injections live in this
        LoadFolders-gated compat root (1.6/Mods/Royalty loads only when Royalty is
@@ -66,5 +67,53 @@
 
   <!-- EN: shocking -->
   <UMW_ZeusHeaded.traitAdjectives.3>de descarga</UMW_ZeusHeaded.traitAdjectives.3>
+
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.label>chapa de éltex</UMW_EltexPlated.label>
+
+  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
+  <UMW_EltexPlated.description>El cuerpo está chapado en éltex, una aleación de resonancia psíquica, bajo un brillo pálido. Agudiza la sensibilidad psíquica de quien la empuña y disipa el calentamiento neural.</UMW_EltexPlated.description>
+
+  <!-- EN: eltex-plated -->
+  <UMW_EltexPlated.traitAdjectives.0>de chapa de éltex</UMW_EltexPlated.traitAdjectives.0>
+
+  <!-- EN: pale-sheened -->
+  <UMW_EltexPlated.traitAdjectives.1>de brillo pálido</UMW_EltexPlated.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexPlated.traitAdjectives.2>resonante</UMW_EltexPlated.traitAdjectives.2>
+
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.label>guarnición de éltex</UMW_EltexFitted.label>
+
+  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
+  <UMW_EltexFitted.description>La empuñadura, la guarda y el pomo están guarnecidos de éltex, tallado oscuro y sin pulir. Amplía el límite de calentamiento neural de quien la empuña y potencia su sensibilidad psíquica.</UMW_EltexFitted.description>
+
+  <!-- EN: eltex-fitted -->
+  <UMW_EltexFitted.traitAdjectives.0>de guarnición de éltex</UMW_EltexFitted.traitAdjectives.0>
+
+  <!-- EN: eltex-furnished -->
+  <UMW_EltexFitted.traitAdjectives.1>de herrajes de éltex</UMW_EltexFitted.traitAdjectives.1>
+
+  <!-- EN: resonant -->
+  <UMW_EltexFitted.traitAdjectives.2>resonante</UMW_EltexFitted.traitAdjectives.2>
+
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.label>forro de plomo</UMW_LeadLined.label>
+
+  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
+  <UMW_LeadLined.description>La espiga y los herrajes están forrados de plomo, que apaga la sensibilidad psíquica de quien la empuña, para bien y para mal. El forro añade peso y ralentiza el golpe.</UMW_LeadLined.description>
+
+  <!-- EN: lead-lined -->
+  <UMW_LeadLined.traitAdjectives.0>de forro de plomo</UMW_LeadLined.traitAdjectives.0>
+
+  <!-- EN: leaden -->
+  <UMW_LeadLined.traitAdjectives.1>de plomo</UMW_LeadLined.traitAdjectives.1>
+
+  <!-- EN: deadened -->
+  <UMW_LeadLined.traitAdjectives.2>de sensibilidad apagada</UMW_LeadLined.traitAdjectives.2>
 
 </LanguageData>

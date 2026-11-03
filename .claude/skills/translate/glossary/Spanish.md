@@ -151,8 +151,9 @@ lines, `sacudida telúrica` (earthshake), `arenga` (rallying cry) /
 party), `guerrero tribal` / `saqueador tribal`, `machete` (cleaver,
 vanilla-attested), `mazo` (maul), `lanzón` (lance), `pica` (pike),
 `garrote` (bludgeon), and the colours `rojo sangre` / `negro carbón` /
-`púrpura esmalte` / `blanco mono-molecular` / `naranja plasma` (patterned
-on Odyssey's `azul hielo` / `naranja fuego`). The 2026-07-30
+`púrpura esmalte` / `blanco mono-molecular` / `naranja plasma` / `éltex tenue` / `éltex sombra` (eltex pale / shade; invariant, vanilla spells `éltex`) (patterned
+on Odyssey's `azul hielo` / `naranja fuego`). The Royalty melee traits are `chapa de éltex` (eltex-plated), `guarnición de éltex` (eltex-fitted) and
+`forro de plomo` (lead-lined), noun phrases like `núcleo de plasma`, with invariant `de ...` adjectives plus `resonante`; grip/guard/pommel/tang are `empuñadura`/`guarda`/`pomo`/`espiga`. The 2026-07-30
 WeaponCategoryDef labels are likewise mod-decided: `cuerpo a cuerpo`
 (melee, Core skill label), `cortante` / `punzante` / `contundente` (bladed
 / pointed / blunt), `pesado` (heavy), `con guarda` (guarded, matching the

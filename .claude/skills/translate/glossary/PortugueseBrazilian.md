@@ -187,7 +187,7 @@ drum-and-bugle marching band; Core attests `bando de invasores`),
 namer noun), `azagaia` (lance), `clava` (bludgeon only — mace stays
 `maça`), `cutelo` (cleaver), `marreta` (maul), and the colours `vermelho
 sangue` / `preto carvão` / `roxo esmalte` / `branco monomolecular` /
-`laranja plasma` (patterned on Odyssey's `azul gelo` / `laranja fogo`).
+`laranja plasma` (patterned on Odyssey's `azul gelo` / `laranja fogo`), plus the Royalty eltex traits `placas de eltex` (eltex-plated), `ferragens de eltex` (eltex-fitted, `pomo` for pommel and `espiga` for tang are ungrounded in vanilla), `forro de chumbo` (lead-lined) with invariant adjectives (`eltex` as bare noun-adjective like vanilla `capacete eltex`, `ressonante`, `isolante`, `inerte`), and the colours `eltex pálido` / `eltex sombra`.
 The 2026-07-30 WeaponCategoryDef labels are likewise mod-decided: `corpo a
 corpo` (melee, Core skill label), `cortante` / `perfurante` /
 `contundente` (bladed / pointed / blunt — `perfurante` over the

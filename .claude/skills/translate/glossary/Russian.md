@@ -49,3 +49,14 @@ pointed / blunt, the ToolCapacityDef adjective family), тяжёлое (heavy),
   мертвеца, клинок, меч, лезвие; gravity hammer → молот, кувалда, боёк,
   гравитационный молот мертвеца. The label nouns are reused whole as
   namerLabels.0 (broadsword) and .3 (gravity hammer) per the research sheet.
+
+- **Eltex Royalty traits and colours (2026-11-04):** eltex → эльтекс (Royalty
+  `Apparel_PsyfocusHelmet` etc.; genitive эльтекса). Labels are noun phrases:
+  eltex-plated → обшивка из эльтекса, eltex-fitted → отделка из эльтекса,
+  lead-lined → свинцовая подкладка (lead → свинец, ordinary word). Adjectives
+  stay nominative masculine (обшитый эльтексом, отделанный эльтексом, подбитый
+  свинцом, резонирующий). Colours: eltex pale → бледный эльтекс, eltex shade
+  → тень эльтекса. Psychic sensitivity → психочувствительность, neural heat
+  limit → порог нейроперегрева (Core/Royalty). Grip/guard/pommel/tang have no
+  vanilla ru term: рукоять, гарда and навершие reuse this glossary, хвостовик
+  is ungrounded.
