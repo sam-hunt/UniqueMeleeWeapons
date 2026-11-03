@@ -96,7 +96,8 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawWeaponGroup(Listing_Standard listing, ModIntegration integration, List<ThingDef> members)
     {
-        if (!DrawGroupHeader(listing, integration, members, w => !IsWeaponDisabled((ThingDef)w), SetWeaponEnabled))
+        if (!DrawGroupHeader(listing, integration, members, integration.weaponDefNames.Length,
+            w => !IsWeaponDisabled((ThingDef)w), SetWeaponEnabled))
         {
             return;
         }

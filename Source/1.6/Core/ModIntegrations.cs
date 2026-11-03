@@ -17,7 +17,9 @@ namespace UniqueMeleeWeapons;
 // matching 1.6/Mods/<Name>/ root (1.6/Mods/CLAUDE.md, "Package ids live in several places that must
 // agree"); a def listed here but absent while its mod is active simply draws no row, so a stale
 // entry fails soft. A def under a compat root that is NOT listed here falls into the ungrouped rows
-// of its section, which is wrong only cosmetically.
+// of its section, which is wrong only cosmetically. The list lengths are also the counts a group
+// header shows while its mod is missing (DrawGroupHeader), so a stale or missing entry miscounts
+// there, again only cosmetically.
 //
 // Names and colours follow the family's settings rules (RimworldModTemplate,
 // Source/<version>/Settings/CLAUDE.md, "Mod and DLC colours"). A DLC's name comes from its

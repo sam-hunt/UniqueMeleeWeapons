@@ -21,17 +21,21 @@
   <UMW_SameAsSuffix> (same as {0})</UMW_SameAsSuffix>
   <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
        to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
-       installed or not enabled, so the greyed header reads "Royalty (not active)". {0} in the second
+       installed or not enabled, so the greyed header reads "Royalty (3) (not active)". {0} in the second
        is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
        the last trait that weapon could roll first, so the box is held on. -->
   <UMW_NotActiveSuffix> (not active)</UMW_NotActiveSuffix>
   <UMW_LastTraitSuffix> (last trait for {0})</UMW_LastTraitSuffix>
 
   <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
-       adds sit under a header that is just that mod or DLC's name (coloured, no extra text), with a
-       three-state box that switches the whole group. This is the header's tooltip; {0} is that name,
+       adds sit under a header that is just that mod or DLC's name and its row count (coloured, no
+       extra text), with a three-state box that switches the whole group. The first string is the
+       count, with a leading space, appended to the name in the name's colour so the header reads
+       "Royalty (3)"; {0} is how many weapons or traits this mod adds for that mod or DLC in that
+       section, shown even while it is not active. The second is the header's tooltip; {0} is the name,
        injected already coloured: do not inflect it. The last sentence describes click-and-drag
        painting over the checkbox rows beneath the header. -->
+  <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_IntegrationGroupDesc>
   <!-- Fallback display names, used only while the mod is not installed at all (an installed mod
        supplies its own name from its About.xml, and a DLC's comes from the game). Proper nouns: keep

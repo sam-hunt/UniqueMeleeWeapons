@@ -237,9 +237,14 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // tooltip. A label carrying a colour tag is never clamped: the clamp cuts the raw string and
     // could leave a half tag on screen (only the locked group header passes one, full width).
     // `boxGap` is the space between a leading box and what follows it (the group header widens it).
+    // `lockedNote`, drawn straight after the label only while the row is locked, escapes the locked
+    // tint: GUI.color multiplies every glyph, colour tags included, so a note inside `label` would
+    // dim with it. It is a separate Widgets.Label placed at the label's measured width (Text.CalcSize
+    // skips colour tags, RimWorld's styles being rich text), and is never clamped (only the locked
+    // group header passes one, full width).
     private static void ToggleCell(Rect cell, string label, TipSignal? tooltip, ref bool value,
         bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null, bool boxLeft = false,
-        float boxGap = CellGap)
+        float boxGap = CellGap, string lockedNote = null)
     {
         Widgets.DrawHighlightIfMouseover(cell);
         if (tooltip is TipSignal tip)
@@ -280,6 +285,12 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             Widgets.Label(labelRect, shownLabel);
             Widgets.CheckboxDraw(boxX, boxY, shown, disabled: true);
             GUI.color = Color.white;
+            if (!lockedNote.NullOrEmpty())
+            {
+                Rect noteRect = labelRect;
+                noteRect.xMin += Text.CalcSize(shownLabel).x;
+                Widgets.Label(noteRect, lockedNote);
+            }
         }
         else
         {
@@ -319,11 +330,14 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     }
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
-    // def rows" pattern). Its label is the owner's bare coloured name: the section header above it
-    // already says whether these are weapons or traits. The box is a pure derivation of the members,
-    // never separate state: on when every member is enabled, off when none, partial otherwise, and a
-    // click (on the box, which leads the row like its members' boxes lead their cells, or, like
-    // CheckboxLabeled, anywhere on the row) writes every member through
+    // def rows" pattern). Its label is the owner's coloured name with how many rows the group holds
+    // inside the same colour ("Royalty (3)"): the section header above it already says whether these
+    // are weapons or traits. The count is the loaded members while the owner is active and
+    // `listedCount`, its static def list's length in ModIntegrations, while it is not, so a player
+    // without the mod still sees how much it would add although no row can be drawn. The box is a
+    // pure derivation of the members, never separate state: on when every member is enabled, off when
+    // none, partial otherwise, and a click (on the box, which leads the row like its members' boxes
+    // lead their cells, or, like CheckboxLabeled, anywhere on the row) writes every member through
     // `setEnabled`, which may refuse (a trait some weapon needs), so the header is allowed to land
     // partial. Returns whether the caller should draw the member rows beneath it.
     //
@@ -336,13 +350,16 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // forced-off value the family rule wants; the row is then drawn through the locked ToggleCell path
     // (CheckboxMulti has no disabled parameter) with the "(not active)" suffix, which with the name as
     // the label is the family's "(requires X)" in the one form that does not repeat X, and nothing
-    // beneath. A mod that IS active but owns no loaded member (a stale table entry) draws nothing:
+    // beneath. The suffix is ToggleCell's lockedNote, in vanilla's readable warning red at full
+    // strength while the name and box grey out, so the reason the group is empty stands out. A mod that IS active but owns no loaded member (a stale table entry) draws nothing:
     // that is a data-derived row, and there is nothing to group.
     private static bool DrawGroupHeader(Listing_Standard listing, ModIntegration integration,
-        IReadOnlyList<Def> members, Func<Def, bool> isEnabled, Action<Def, bool> setEnabled)
+        IReadOnlyList<Def> members, int listedCount, Func<Def, bool> isEnabled, Action<Def, bool> setEnabled)
     {
-        string name = integration.ColoredName;
-        string tooltip = "UMW_IntegrationGroupDesc".Translate(name).Resolve();
+        string tooltip = "UMW_IntegrationGroupDesc".Translate(integration.ColoredName).Resolve();
+        int count = integration.IsActive ? members.Count : listedCount;
+        // Colorize last, over the resolved string: the count joins the name's colour.
+        string name = (integration.Name + "UMW_GroupCountSuffix".Translate(count).Resolve()).Colorize(integration.Color);
 
         if (integration.IsActive && members.Count == 0)
         {
@@ -357,8 +374,9 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         if (!integration.IsActive)
         {
             bool off = false;
-            ToggleCell(row, name + "UMW_NotActiveSuffix".Translate().Resolve(), new TipSignal(tooltip), ref off,
-                forced: false, boxLeft: true, boxGap: GroupHeaderBoxGap);
+            ToggleCell(row, name, new TipSignal(tooltip), ref off, forced: false, boxLeft: true,
+                boxGap: GroupHeaderBoxGap,
+                lockedNote: "UMW_NotActiveSuffix".Translate().Resolve().Colorize(ColorLibrary.RedReadable));
             listing.Gap(listing.verticalSpacing + GroupHeaderBottomGap);
             Text.Font = prevFont;
             return false;

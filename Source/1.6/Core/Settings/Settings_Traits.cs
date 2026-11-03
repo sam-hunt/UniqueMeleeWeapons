@@ -165,7 +165,8 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawTraitGroup(Listing_Standard listing, ModIntegration integration, List<WeaponTraitDef> members)
     {
-        if (!DrawGroupHeader(listing, integration, members, t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
+        if (!DrawGroupHeader(listing, integration, members, integration.traitDefNames.Length,
+            t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
         {
             return;
         }
