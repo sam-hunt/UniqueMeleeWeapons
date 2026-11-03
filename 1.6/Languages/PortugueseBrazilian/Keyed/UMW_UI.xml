@@ -12,6 +12,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>Armas</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>Características</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Geração</UMW_SettingsGeneration>
 
@@ -32,12 +35,44 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> (igual a {0})</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in the
+       second is a weapon's def label (lowercase): the row is a trait held on because it is the last
+       trait that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix> (requer {0})</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix> (última característica para {0})</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. {0} is an optional mod or DLC's name, injected already coloured: do not
+       inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>Armas de {0}</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>Características de {0}</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>Tudo de {0} nesta seção. A caixa alterna o grupo inteiro de uma vez; uma caixa meio preenchida indica que algumas linhas estão desativadas.</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase), whose
        gender varies (machado único / espada longa única) and which nothing inflects for us, so the
        Portuguese never agrees with {0}: it names the subject as "esta arma" once and keeps every later
        reference on that feminine noun. -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>Permitir a geração desta arma: {0}. Desative para removê-la de todos os grupos de recompensas e de pilhagem; as outras armas ocupam o lugar dela. Armas já existentes no seu jogo salvo não são afetadas. Alguns mods com geradores de pilhagem próprios podem ignorar esta opção.</UMW_WeaponEnabledDesc>
+
+  <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>Permitir que a característica {0} seja sorteada em armas únicas recém-criadas. Desative para tirá-la do sorteio; as outras características ocupam o lugar dela. Armas que já a possuem a mantêm.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "madeira", lowercase). -->
@@ -50,15 +85,6 @@
        {0} de madeira" needs no gender agreement. -->
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>Armas únicas sorteiam um material válido ao acaso. Com esta opção ativada, a madeira nunca é sorteada, para que uma recompensa duramente conquistada nunca chegue na forma de {0} de madeira.</UMW_ExcludeWoodStuffDesc>
-
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, núcleo de plasma,
-       cabeça de zeus. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>Permitir características de arma ultratecnológicas</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>Três características usam o arsenal ultratecnológico de Royalty: {0}, {1} e {2}. Desative para mantê-las fora do sorteio em partidas medievais ou de baixa tecnologia. As outras características não são afetadas, e as armas que já receberam uma delas a mantêm.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("Comerciantes de guerra", "Comerciantes xamãs" -
@@ -118,8 +144,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}: duração de {1} horas</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>Tempo de descanso entre dois tremores de terra. O valor padrão corresponde ao pulsador PEM de Odyssey. Com 0, o tempo de recarga é removido.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>Tempo de descanso entre dois tremores de terra. O valor padrão corresponde ao pulsador PEM de {0}. Com 0, o tempo de recarga é removido.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>Alcance da onda de choque atordoante. Paredes não a detêm; vãos sem piso, sim. Ela não distingue amigos de inimigos: um raio maior também atinge seus próprios colonos.</UMW_EarthshakeRadiusDesc>

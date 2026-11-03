@@ -9,6 +9,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>武器</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>特性</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>生成</UMW_SettingsGeneration>
 
@@ -27,6 +30,32 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix>（与“{0}”相同）</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it. {0} in the second is a weapon's
+       def label (lowercase): the trait is held on because it is the last one that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix>（需要{0}）</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix>（“{0}”的最后一项特性）</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. {0} is a mod or DLC name, injected already coloured: do not inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>{0}武器</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>{0}特性</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>本部分中来自{0}的全部内容。该复选框可一次性开关整个分组；半选状态表示其中部分条目已关闭。</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names: proper nouns, kept exactly as published. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>允许生成“{0}”。关闭后，它会从所有奖励和战利品池中移除，其余武器会顶替它的位置。存档中已有的武器不受影响。部分模组自带的战利品生成器可能会绕过此设置。</UMW_WeaponEnabledDesc>
@@ -40,13 +69,9 @@
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>特化武器会从符合条件的材料中随机抽取。开启后，木材永远不会被抽中，来之不易的奖励就不会是一把木制“{0}”。</UMW_ExcludeWoodStuffDesc>
 
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>允许极致科技武器特性</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>三项特性使用了“皇权”的极致科技装备：“{0}”、“{1}”和“{2}”。关闭后它们不再参与抽取，适合中世纪或低科技的游戏流程。其余特性不受影响，已抽到的武器会保留该特性。</UMW_AllowUltratechTraitsDesc>
+  <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>允许“{0}”出现在新制作的特化武器上。关闭后它将不再参与抽取，由其他特性顶替。已携带该特性的武器会保留它。</UMW_TraitEnabledDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized (“War merchant”, “Shaman merchant”), so it tracks
@@ -93,8 +118,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}持续时间：{1}小时</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>两次撼地之间的休整时间。默认值与奥德赛的“EMP脉冲发生器”一致。设为0则没有冷却时间。</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>两次撼地之间的休整时间。默认值与{0}的“EMP脉冲发生器”一致。设为0则没有冷却时间。</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>击晕冲击波能波及的范围。墙壁无法阻挡它，但没有地面的裂隙可以。它不分敌我：半径越大，殃及的自家殖民者也越多。</UMW_EarthshakeRadiusDesc>

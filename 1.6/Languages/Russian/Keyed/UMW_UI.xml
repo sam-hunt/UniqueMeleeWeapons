@@ -9,6 +9,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>Оружие</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>Свойства</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Генерация</UMW_SettingsGeneration>
 
@@ -27,9 +30,41 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> (как у «{0}»)</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in the
+       second is a weapon's def label (lowercase): the row is a trait held on because it is the last
+       trait that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix> (требуется {0})</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix> (последнее свойство оружия «{0}»)</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. {0} is an optional mod or DLC's name, injected already coloured: do not
+       inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>{0}: оружие</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>{0}: свойства</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>{0}: всё, что относится к этому разделу. Флажок переключает всю группу сразу; частично заполненный флажок означает, что часть строк отключена.</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>Разрешить генерацию «{0}». Отключите, чтобы убрать его из всех пулов наград и добычи: его место займут остальные виды оружия. Оружие, уже существующее в сохранении, не изменится. У некоторых модов свои генераторы добычи, которые могут обойти эту настройку.</UMW_WeaponEnabledDesc>
+
+  <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>Разрешить выпадение свойства «{0}» на новом уникальном оружии. Отключите, чтобы исключить его из розыгрыша: его место займут другие свойства. Оружие, которое уже имеет это свойство, сохраняет его.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -39,14 +74,6 @@
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>Уникальное оружие создаётся из случайного подходящего материала. Если это включено, дерево никогда не выпадает, поэтому с трудом добытая награда не окажется деревянным «{0}».</UMW_ExcludeWoodStuffDesc>
-
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>Разрешить ультратехнологичные свойства оружия</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>Три свойства используют ультратехнологичный арсенал Royalty: «{0}», «{1}» и «{2}». Отключите, чтобы исключить их из розыгрыша для средневековых или низкотехнологичных прохождений. Остальные свойства не затрагиваются, а оружие, уже получившее одно из них, сохраняет его.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
@@ -93,8 +120,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>Длительность «{0}»: {1} ч.</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>Время восстановления между сотрясениями земли. Значение по умолчанию совпадает с перезарядкой ЭМИ-импульсера из Odyssey. 0 отключает перезарядку.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>Время восстановления между сотрясениями земли. Значение по умолчанию совпадает с перезарядкой ЭМИ-импульсера из дополнения {0}. 0 отключает перезарядку.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>Радиус действия оглушающей ударной волны. Она проходит сквозь стены, но не через провалы без пола. Волна бьёт без разбора: чем шире радиус, тем больше достаётся и вашим колонистам.</UMW_EarthshakeRadiusDesc>

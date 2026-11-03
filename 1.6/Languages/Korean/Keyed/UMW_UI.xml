@@ -9,6 +9,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>무기</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>특성</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>생성</UMW_SettingsGeneration>
 
@@ -27,6 +30,32 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> ({0}(와)과 동일)</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it. {0} in the second is a weapon's
+       def label (lowercase): the trait is held on because it is the last one that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix> ({0} 필요)</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix> ({0}의 마지막 특성)</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. {0} is a mod or DLC name, injected already coloured: do not inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>{0} 무기</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>{0} 특성</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>이 섹션에 있는 {0} 관련 항목 전체입니다. 체크 상자 하나로 그룹 전체를 한 번에 켜고 끌 수 있으며, 반쯤 채워진 상자는 일부 항목이 꺼져 있다는 뜻입니다.</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names: proper nouns, kept exactly as published. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>{0}(을)를 생성할 수 있게 합니다. 끄면 모든 보상 및 전리품 목록에서 제외되며, 다른 무기가 그 자리를 대신합니다. 세이브에 이미 있는 무기는 그대로 유지됩니다. 일부 MOD의 자체 전리품 생성기는 이 설정을 무시할 수 있습니다.</UMW_WeaponEnabledDesc>
@@ -40,13 +69,9 @@
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>고유 무기는 조건을 만족하는 재료 중에서 무작위로 뽑힙니다. 이 설정을 켜면 나무는 절대 뽑히지 않으므로, 힘들게 얻은 보상이 나무로 만든 {0}(으)로 나오는 일이 없습니다.</UMW_ExcludeWoodStuffDesc>
 
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>최첨단 기술의 무기 특성 허용</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>세 가지 특성이 Royalty의 최첨단 기술을 사용합니다: {0}, {1}, {2}. 끄면 이 특성들이 추첨에서 제외되며, 중세나 저기술 플레이에 알맞습니다. 다른 특성은 영향받지 않으며, 이미 이 특성을 얻은 무기는 그대로 유지됩니다.</UMW_AllowUltratechTraitsDesc>
+  <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>새로 만들어지는 고유 무기에서 {0}(이)가 나올 수 있게 합니다. 끄면 추첨에서 제외되며, 다른 특성이 그 자리를 대신합니다. 이미 이 특성을 가진 무기는 그대로 유지됩니다.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
@@ -101,8 +126,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>{0}의 지속시간: {1}시간</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>지진 강타 사이의 휴식 시간입니다. 기본값은 Odyssey의 펄스 방출기와 같습니다. 0으로 설정하면 재사용 대기시간이 없어집니다.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>지진 강타 사이의 휴식 시간입니다. 기본값은 {0}의 펄스 방출기와 같습니다. 0으로 설정하면 재사용 대기시간이 없어집니다.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>기절시키는 충격파가 닿는 범위입니다. 벽은 막지 못하지만, 바닥이 없는 빈 곳은 막습니다. 이 충격은 대상을 가리지 않으므로, 범위가 넓을수록 정착민도 더 많이 휘말립니다.</UMW_EarthshakeRadiusDesc>
@@ -134,6 +160,6 @@
   <UMW_MatchVteSpear>{0}을 {1}에 맞추기</UMW_MatchVteSpear>
 
   <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
-  <UMW_MatchVteSpearDesc>{1}은(는) 바닐라 창을 대각선으로, 더 길게 그립니다. 이 옵션을 켜면 {0}도 소집된 인물의 손에서 이에 맞춰 회전하고 커집니다. 순수하게 겉모습만 바뀌며, 다시 시작한 뒤에 적용됩니다.</UMW_MatchVteSpearDesc>
+  <UMW_MatchVteSpearDesc>{1}에서는 바닐라 창을 대각선으로, 더 길게 그립니다. 이 옵션을 켜면 {0}도 소집된 인물의 손에서 이에 맞춰 회전하고 커집니다. 순수하게 겉모습만 바뀌며, 다시 시작한 뒤에 적용됩니다.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

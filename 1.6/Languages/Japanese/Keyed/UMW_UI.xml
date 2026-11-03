@@ -9,6 +9,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>武器</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>特性</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>生成</UMW_SettingsGeneration>
 
@@ -27,9 +30,41 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix>(「{0}」と同じ)</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in the
+       second is a weapon's def label (lowercase): the row is a trait held on because it is the last
+       trait that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix>({0}が必要)</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix>(「{0}」の最後の特性)</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. {0} is an optional mod or DLC's name, injected already coloured: do not
+       inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>{0}の武器</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>{0}の特性</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>このセクションにある{0}由来のものすべてです.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>「{0}」の生成を許可します.オフにすると全ての報酬プールと戦利品プールから除外され,他の武器がその枠を埋めます.セーブデータに既に存在するものはそのまま残ります.MODによっては独自の戦利品生成処理でこの設定が無視される場合があります.</UMW_WeaponEnabledDesc>
+
+  <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>新しく作られるユニークな武器に「{0}」が付くことを許可します.オフにすると抽選から除外され,他の特性がその枠を埋めます.既にこの特性を持つ武器はそのまま保持します.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -39,14 +74,6 @@
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>ユニークな武器は,条件を満たす材料の中から無作為に抽選されます.オンにすると木材が抽選から除外されるため,苦労して手に入れた報酬が木製の「{0}」になることはありません.</UMW_ExcludeWoodStuffDesc>
-
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>最先端の技術力による武器特性を許可する</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>3つの特性はRoyaltyの最先端技術級の装備を使用します:「{0}」,「{1}」,「{2}」.オフにするとこれらは抽選に加わりません.中世限定や低技術レベルでのプレイを想定した設定です.他の特性には影響せず,既に引いている武器はその特性を保持します.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label ("武器屋", "呪い商" per Core's own translation); each description's
@@ -89,8 +116,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>「{0}」の持続時間: {1}時間</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>地響きを起こしてから次に起こせるようになるまでの間隔です.初期値はOdysseyの「EMPパルサー」に合わせてあります.0に設定するとクールダウンはなくなります.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>地響きを起こしてから次に起こせるようになるまでの間隔です.初期値は{0}の「EMPパルサー」に合わせてあります.0に設定するとクールダウンはなくなります.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>スタンさせる衝撃波が届く範囲です.壁では止まりませんが,床のない隙間は越えられません.この衝撃は敵味方を区別しないため,半径を広げるほど自分の入植者も巻き込まれます.</UMW_EarthshakeRadiusDesc>

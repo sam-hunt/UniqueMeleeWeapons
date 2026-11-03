@@ -11,6 +11,9 @@
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>Armas</UMW_SettingsWeapons>
 
+  <!-- EN: Traits -->
+  <UMW_SettingsTraits>Rasgos</UMW_SettingsTraits>
+
   <!-- EN: Generation -->
   <UMW_SettingsGeneration>Generación</UMW_SettingsGeneration>
 
@@ -29,11 +32,44 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> (igual que {0})</UMW_SameAsSuffix>
 
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in
+       the second is a weapon's def label (lowercase): the row is a trait held on because it is the last
+       trait that weapon could roll first. -->
+  <!-- EN:  (requires {0}) -->
+  <UMW_RequiresSuffix> (requiere {0})</UMW_RequiresSuffix>
+
+  <!-- EN:  (last trait for {0}) -->
+  <UMW_LastTraitSuffix> (último rasgo para {0})</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC adds
+       sit under a header naming it, with a three-state box that switches the whole group. {0} is that
+       mod or DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: {0} weapons -->
+  <UMW_IntegrationWeapons>Armas de {0}</UMW_IntegrationWeapons>
+
+  <!-- EN: {0} traits -->
+  <UMW_IntegrationTraits>Rasgos de {0}</UMW_IntegrationTraits>
+
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
+  <UMW_IntegrationGroupDesc>Todo lo de {0} en esta sección. La casilla activa o desactiva el grupo entero de una vez; una casilla a medias significa que algunas de sus filas están desactivadas.</UMW_IntegrationGroupDesc>
+
+  <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept as published. -->
+  <!-- EN: Vanilla Factions Expanded - Pirates -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+
+  <!-- EN: Vanilla Textures Expanded -->
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
+
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase), whose
        gender varies (hacha única / gladius único), so the Spanish keeps every later reference on the
        neutral noun "el arma" instead of agreeing with {0}. -->
   <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
   <UMW_WeaponEnabledDesc>Permite que se genere {0}. Desactiva la opción para retirar el arma de todo grupo de recompensas y de botín; las demás armas ocupan su lugar. Las que ya tengas en tu partida quedan intactas. Los generadores de botín de algunos mods pueden saltarse esto.</UMW_WeaponEnabledDesc>
+
+  <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; {0} is that label (lowercase). -->
+  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
+  <UMW_TraitEnabledDesc>Permite que el rasgo {0} salga en la tirada de las armas únicas recién creadas. Desactiva la opción para mantenerlo fuera de la tirada; los demás rasgos ocupan su lugar. Las armas que ya lo tengan lo conservan.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -45,14 +81,6 @@
        madera" needs no gender agreement. -->
   <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
   <UMW_ExcludeWoodStuffDesc>Las armas únicas obtienen un material aleatorio entre los válidos. Con esta opción activada, la madera nunca sale en la tirada, así que una recompensa ganada con esfuerzo nunca llega en forma de {0} de madera.</UMW_ExcludeWoodStuffDesc>
-
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): mono-molecular, núcleo de plasma, cabeza de Zeus. -->
-  <!-- EN: Allow ultratech weapon traits -->
-  <UMW_AllowUltratechTraits>Permitir rasgos de arma ultratecnológicos</UMW_AllowUltratechTraits>
-
-  <!-- EN: Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it. -->
-  <UMW_AllowUltratechTraitsDesc>Tres rasgos usan el arsenal ultratecnológico de Royalty: {0}, {1} y {2}. Desactiva la opción para mantenerlos fuera de la tirada en partidas medievales o de baja tecnología. Los demás rasgos no se ven afectados; las armas que ya hayan obtenido uno lo conservan.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
@@ -102,8 +130,9 @@
   <!-- EN: {0} duration: {1} hours -->
   <UMW_HediffDurationHours>Duración de {0}: {1} horas</UMW_HediffDurationHours>
 
-  <!-- EN: Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>Tiempo de reposo entre sacudidas telúricas. El valor por defecto coincide con el pulso PEM de Odyssey. Con 0 no hay enfriamiento.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
+  <UMW_EarthshakeCooldownDesc>Tiempo de reposo entre sacudidas telúricas. El valor por defecto coincide con el pulso PEM de {0}. Con 0 no hay enfriamiento.</UMW_EarthshakeCooldownDesc>
 
   <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
   <UMW_EarthshakeRadiusDesc>Alcance de la onda de choque aturdidora. Los muros no la detienen; los huecos sin suelo sí. No distingue entre amigos y enemigos: un radio mayor alcanza también a tus propios colonos.</UMW_EarthshakeRadiusDesc>
