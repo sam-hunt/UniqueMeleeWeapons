@@ -44,7 +44,7 @@ Rules:
 - **Package ids live in several places that must agree:** the `IfModActive` value in
   `LoadFolders.xml`, the C# gate constant beside the feature it enables (`VtePackageId` in
   `Settings_Compat.cs`, `VfepPackageId` in `ShaderDatabase_LoadShader_Fallback_Patch.cs`,
-  `CePackageId` in `Patches/CombatExtended/CombatExtended_MeleePatches.cs`), the
+  `CePackageId` in `Patches/CombatExtended/CombatExtendedCompat.cs`), the
   `loadAfter` entry in `About.xml` when our defs inherit from that mod's, and the settings
   window's integration table (`Source/1.6/Core/ModIntegrations.cs`), which also lists by defName
   the weapons and traits each root ships so their settings rows can group under that mod's name

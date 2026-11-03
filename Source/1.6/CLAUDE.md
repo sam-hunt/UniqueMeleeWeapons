@@ -11,8 +11,9 @@ errors, localization, mod detection, the published contracts) are in the root `C
   consumer places no detour at all: `ShaderDatabase_LoadShader_Fallback_Patch` (from the Mod ctor
   while VFEP is active, because the shader loader runs in def `PostLoad`, before `CallAll`),
   `PawnRenderUtility_DrawCarriedWeapon_Patch` (from `UMW_Startup.Run`, only if a def consumes its
-  extension) and `CombatExtended/CombatExtended_MeleePatches.cs` (from `UMW_Startup.Run`, only
-  while CE is active). Their headers say why; don't "tidy" them back into `PatchAll`.
+  extension) and the Combat Extended hooks under `Patches/CombatExtended/` (from `UMW_Startup.Run`,
+  only while CE is active; `CombatExtendedCompat.cs` owns the lifecycle, one file per hook beside
+  it). Their headers say why; don't "tidy" them back into `PatchAll`.
 - **Patch-timing hazard (foreign targets):** `PatchAll()` runs from the `Mod` ctor, before any defs
   load. Applying a detour JIT-compiles the target and runs its declaring type's static ctor, so a
   patch on ANOTHER MOD's method can permanently break that mod when its cctor resolves defs (the
@@ -24,8 +25,10 @@ errors, localization, mod detection, the published contracts) are in the root `C
 - **The vanilla melee verb and CE's are siblings, not parent and child.** A patch on
   `Verb_MeleeAttackDamage` never fires during a Combat Extended swing. A new melee trait mechanism
   that needs a verb hook needs both: put the body in a shared resolver (the on-hit and conversion
-  patches are the pattern) and add the CE target in the CE file, or the trait ships inert under
-  CE while its info-card line still promises the effect.
+  patches are the pattern) and add a sibling `Verb_MeleeAttackCE_*_Patch.cs` under
+  `Patches/CombatExtended/` wired into `CombatExtendedCompat` (its header lists the three members
+  a hook file exposes), or the trait ships inert under CE while its info-card line still promises
+  the effect.
 - **A def is kept out of the pools by filtering `ThingSetMakerUtility.CanGenerate`, never by
   removing the def.** It is the one choke point every `ThingSetMaker` funnels through, so the
   per-weapon toggles need only `Patches/ThingSetMakerUtility_CanGenerate_Patch.cs`, and estimates,

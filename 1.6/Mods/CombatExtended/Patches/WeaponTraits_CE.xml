@@ -3,9 +3,9 @@
 
   <!-- Combat Extended (CETeam.CombatExtended) compat: retunes the armor-penetration and mass
        traits to CE's model. Loaded only from the CE root (LoadFolders.xml), so nothing here runs
-       without CE. The C# half, Source/1.6/Patches/CombatExtended/CombatExtended_MeleePatches.cs,
-       carries the full account of why CE's verb bypasses the vanilla trait patches; this header
-       covers only the def-level choices.
+       without CE. The C# half, Source/1.6/Patches/CombatExtended/ (CombatExtendedCompat.cs plus
+       one file per hook), carries the full account of why CE's verb bypasses the vanilla trait
+       patches; this header covers only the def-level choices.
 
        Why the AP traits move. CE never calls VerbProperties.AdjustedArmorPenetration, the getter
        our per-tool armorPenetrationFactor / armorPenetrationQualityFloor fields hook; penetration

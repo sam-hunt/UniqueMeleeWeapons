@@ -15,7 +15,7 @@ namespace UniqueMeleeWeapons.Patches;
 // loop). Discovered automatically by PatchAll() in UniqueMeleeWeaponsMod.
 //
 // The body lives in MeleeOnHitTraitResolver so the Combat Extended hook on CE's sibling verb
-// (Patches/CombatExtended/CombatExtended_MeleePatches.cs) runs the identical logic off a plain
+// (Patches/CombatExtended/Verb_MeleeAttackCE_OnHitTraits_Patch.cs) runs the identical logic off a plain
 // Verb: CE's verb is not a Verb_MeleeAttackDamage, so this patch never fires during a CE swing.
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "ApplyMeleeDamageToTarget")]
 public static class Verb_MeleeAttackDamage_OnHitTraits_Patch

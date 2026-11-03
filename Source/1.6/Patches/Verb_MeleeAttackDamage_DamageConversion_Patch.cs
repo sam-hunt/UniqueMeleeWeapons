@@ -21,7 +21,7 @@ namespace UniqueMeleeWeapons.Patches;
 // actual conversion-traited weapon pays for the wrapping iterator. Discovered by PatchAll().
 //
 // The body lives in MeleeDamageConversionResolver so the Combat Extended hook on CE's sibling verb
-// (Patches/CombatExtended/CombatExtended_MeleePatches.cs) rebuilds CE's DamageInfos identically:
+// (Patches/CombatExtended/Verb_MeleeAttackCE_DamageConversion_Patch.cs) rebuilds CE's DamageInfos identically:
 // CE's verb is not a Verb_MeleeAttackDamage, so this patch never fires during a CE swing.
 [HarmonyPatch(typeof(Verb_MeleeAttackDamage), "DamageInfosToApply")]
 public static class Verb_MeleeAttackDamage_DamageConversion_Patch
