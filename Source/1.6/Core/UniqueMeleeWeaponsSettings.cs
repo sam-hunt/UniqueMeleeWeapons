@@ -74,10 +74,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
 
     // A cell's icon slot is this many times wider than the row is tall: the weapon art lies
     // horizontal across its square texture, so a square slot would leave the blade a sliver.
-    // Then the gap between the slot and the label, and how far the icon fades while its row is
-    // off or locked, so the eye can skim the enabled set.
+    // Then the gap between a cell's parts (box, icon slot, label), and how far the icon fades
+    // while its row is off or locked, so the eye can skim the enabled set.
     private const float IconSlotAspect = 2f;
-    private const float IconLabelGap = 6f;
+    private const float CellGap = 6f;
     private const float DisabledIconAlpha = 0.35f;
 
     // Vanilla's checkbox edge, the size CheckboxLabeled draws its box at.
@@ -212,21 +212,25 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         listing.Gap(listing.verticalSpacing);
     }
 
-    // The row's body, in any rect: the unit a grid cell and a full-width row share. `drawIcon`, if
-    // given, gets a slot of the cell's height and IconSlotAspect times that wide at its left edge
-    // (and whether the cell shows on, so it can dim) and the label and box take the rest. The three
-    // parts are Widgets.CheckboxLabeled's own primitives in its order (Label,
-    // ToggleInvisibleDraggable, CheckboxDraw) rather than that call, because the hit rect must stay
-    // the WHOLE cell while the label starts after the icon:
-    // through CheckboxLabeled the icon would be dead to a click and to a paint drag running down
-    // the icon column. The label is clamped to the space before the box with an ellipsis rather
-    // than wrapped (a wrapped line would spill into the row beneath). A row's own tooltip is
-    // expected to lead with the label (the def rows do), so a clamped label is tipped in full only
-    // when the row has no tooltip. A label carrying a colour tag is never clamped: the clamp cuts
-    // the raw string and could leave a half tag on screen (only the locked group header passes
-    // one, full width).
+    // The row's body, in any rect: the unit a grid cell and a full-width row share. The box sits
+    // at the cell's right edge, where Widgets.CheckboxLabeled puts it, unless `boxLeft`, which puts
+    // it first: the grid cells and group headers pass that, because in a multi-column grid a box at
+    // the right edge of one cell sits flush against the next column's icon and label and reads as
+    // theirs, while at the left edge it leads its own cell's icon and label (and a group header's
+    // box then sits one indent step left of its members', a tree). `drawIcon`, if given, gets a
+    // slot of the cell's height and IconSlotAspect times that wide, after the box when the box
+    // leads and at the cell's left edge otherwise (and whether the cell shows on, so it can dim),
+    // and the label takes the rest. The three parts are Widgets.CheckboxLabeled's own primitives
+    // in its order (Label, ToggleInvisibleDraggable, CheckboxDraw) rather than that call, because
+    // the hit rect must stay the WHOLE cell while the label starts after the icon: through
+    // CheckboxLabeled the icon would be dead to a click and to a paint drag running down the icon
+    // column. The label is clamped to its space with an ellipsis rather than wrapped (a wrapped
+    // line would spill into the row beneath). A row's own tooltip is expected to lead with the
+    // label (the def rows do), so a clamped label is tipped in full only when the row has no
+    // tooltip. A label carrying a colour tag is never clamped: the clamp cuts the raw string and
+    // could leave a half tag on screen (only the locked group header passes one, full width).
     private static void ToggleCell(Rect cell, string label, TipSignal? tooltip, ref bool value,
-        bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null)
+        bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null, bool boxLeft = false)
     {
         Widgets.DrawHighlightIfMouseover(cell);
         if (tooltip is TipSignal tip)
@@ -235,13 +239,23 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         }
         bool shownValue = forced ?? value;
         Rect labelRect = cell;
+        float boxX;
+        if (boxLeft)
+        {
+            boxX = cell.x;
+            labelRect.xMin += CheckboxSize + CellGap;
+        }
+        else
+        {
+            boxX = cell.xMax - CheckboxSize;
+            labelRect.xMax -= CheckboxSize;
+        }
         if (drawIcon != null)
         {
             float slotWidth = cell.height * IconSlotAspect;
-            drawIcon(new Rect(cell.x, cell.y, slotWidth, cell.height).ContractedBy(1f), shownValue);
-            labelRect.xMin += slotWidth + IconLabelGap;
+            drawIcon(new Rect(labelRect.x, cell.y, slotWidth, cell.height).ContractedBy(1f), shownValue);
+            labelRect.xMin += slotWidth + CellGap;
         }
-        labelRect.xMax -= CheckboxSize;
         string shownLabel = label.IndexOf('<') >= 0 ? label : Text.ClampTextWithEllipsis(labelRect, label);
         if (shownLabel != label && tooltip == null)
         {
@@ -250,7 +264,6 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
 
         TextAnchor prevAnchor = Text.Anchor;
         Text.Anchor = TextAnchor.MiddleLeft;
-        float boxX = cell.xMax - CheckboxSize;
         float boxY = cell.y + (cell.height - CheckboxSize) / 2f;
         if (forced is bool shown)
         {
@@ -300,7 +313,8 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // def rows" pattern). Its label is the owner's bare coloured name: the section header above it
     // already says whether these are weapons or traits. The box is a pure derivation of the members,
     // never separate state: on when every member is enabled, off when none, partial otherwise, and a
-    // click (on the box or, like CheckboxLabeled, anywhere on the row) writes every member through
+    // click (on the box, which leads the row like its members' boxes lead their cells, or, like
+    // CheckboxLabeled, anywhere on the row) writes every member through
     // `setEnabled`, which may refuse (a trait some weapon needs), so the header is allowed to land
     // partial. Returns whether the caller should draw the member rows beneath it.
     //
@@ -335,7 +349,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         {
             bool off = false;
             ToggleCell(row, name + "UMW_NotActiveSuffix".Translate().Resolve(), new TipSignal(tooltip), ref off,
-                forced: false);
+                forced: false, boxLeft: true);
             listing.Gap(listing.verticalSpacing);
             Text.Font = prevFont;
             return false;
@@ -346,15 +360,16 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             : enabledCount == 0 ? MultiCheckboxState.Off
             : MultiCheckboxState.Partial;
 
+        // Box first, like the member cells beneath it (ToggleCell's boxLeft).
         Widgets.DrawHighlightIfMouseover(row);
         TooltipHandler.TipRegion(row, tooltip);
-        Rect labelRect = new Rect(row.x, row.y, row.width - CheckboxSize, row.height);
+        Rect boxRect = new Rect(row.x, row.y + (row.height - CheckboxSize) / 2f, CheckboxSize, CheckboxSize);
+        Rect labelRect = new Rect(boxRect.xMax + CellGap, row.y, row.width - CheckboxSize - CellGap, row.height);
         TextAnchor prevAnchor = Text.Anchor;
         Text.Anchor = TextAnchor.MiddleLeft;
         Widgets.Label(labelRect, name);
         Text.Anchor = prevAnchor;
 
-        Rect boxRect = new Rect(row.xMax - CheckboxSize, row.y + (row.height - CheckboxSize) / 2f, CheckboxSize, CheckboxSize);
         MultiCheckboxState newState = Widgets.CheckboxMulti(boxRect, state);
         // Same binary cycle CheckboxMulti applies to a click on the box (on or partial to off, off to
         // on), same sounds.

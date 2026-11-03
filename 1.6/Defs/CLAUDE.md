@@ -117,6 +117,11 @@ a trait. C#-side mechanics are in `Source/1.6/CLAUDE.md`.
   Every `*_Unique` weapon carries the `UMW_UniqueMelee` tag (a published contract, root
   `CLAUDE.md`); `1.6/Patches/RepointUniqueWeaponPool.xml` repoints the two class-based vanilla
   consumers onto `ThingSetMaker_UMWUnique`, and our own pool filters on the tag.
+- **A weapon's UI icon is sized and turned by its own `uiIconScale` and `uiIconAngle`, nowhere
+  else.** The settings gallery draws every weapon at the def's `GenUI.IconDrawScale` (which folds
+  `drawSize` in) like any inventory slot, with no per-weapon table of its own. Art that does not
+  span its texture, inherits a `drawSize` above 1, or lies diagonal needs those two fields tuned on
+  the def from the art's measured extent; the warcasket pair's headers are the worked example.
 
 ## Other def traps
 

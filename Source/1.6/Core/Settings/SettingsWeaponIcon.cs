@@ -36,11 +36,16 @@ namespace UniqueMeleeWeapons;
 // randomlyPickable; decompile-verified 1.7), hashed from the defName so it is stable across
 // sessions.
 //
-// Scale: the def's own GenUI.IconDrawScale is NOT used as-is, because it folds in the world
-// drawSize (the warcasket pair inherit 1.7 from VFE Pirates against vanilla melee's 1.2
-// uiIconScale) and drew them far larger than the rest. Every icon is instead drawn at IconScale
-// for a def at the vanilla longsword's draw scale, and the others normalised by the ratio of
-// theirs to it, which brings the pair down to the same footprint from the same def data.
+// Scale: every icon is drawn at IconScale times the def's own GenUI.IconDrawScale, the multiplier
+// Widgets.ThingIcon applies in every square icon box in the game (uiIconScale times the drawSize
+// fold-in). That multiplier is each author's normaliser for art that does not span its texture
+// (vanilla's knife is 1.6, its gladius and mace 1.2, the rest 1), so honouring it is what makes
+// the gallery read evenly. An earlier version divided by it instead, to pull the warcasket pair
+// down from the 1.7 drawSize they inherit from VFE Pirates, and so shrank the knife 2.5x and grew
+// the breach axe in the same stroke; the pair's own defs now cancel that drawSize through
+// uiIconScale and turn their diagonal art horizontal through uiIconAngle (their headers carry the
+// measurements), so they take the same path as every other weapon, and a third-party weapon that
+// joins the roster is drawn at whatever its author tuned for the inventory.
 //
 // The cache is keyed by defName and holds the def instance it was built from: a play-data reload
 // replaces every def (and its uiIconMaterial) in place, so an entry built from an older instance
@@ -50,11 +55,13 @@ public static class SettingsWeaponIcon
 {
     private static readonly Dictionary<string, (ThingDef def, Material mat)> cache = new();
 
-    // The draw scale of a weapon at the vanilla longsword's draw scale. The slot is IconSlotAspect
-    // (2) times wider than tall and the texture is square, so DrawTextureFitted sizes it by the
-    // slot's height and this scale then stretches the horizontal art out across the slot's width;
-    // the art's own transparent margin keeps the blade inside the row.
-    private const float IconScale = 1.6f;
+    // The draw scale of a weapon whose art spans its texture (IconDrawScale 1, the longsword). The
+    // slot is IconSlotAspect (2) times wider than tall and the texture is square, so
+    // DrawTextureFitted sizes it by the slot's height and this scale then stretches the horizontal
+    // art out across the slot's width: at 1.7 a full-span blade runs about 85% of the slot, and the
+    // tallest-headed art in the roster (the breach axe, 0.65 of its texture tall) just fills the
+    // slot's height without crossing into the row beneath.
+    private const float IconScale = 1.7f;
 
     // Draws the weapon's icon fitted into `rect` at the given alpha (the row dims it while the
     // weapon is off). Falls back to Widgets.ThingIcon, which tints the whole icon with the stuff
@@ -65,7 +72,7 @@ public static class SettingsWeaponIcon
         {
             return;
         }
-        float scale = IconScale * GenUI.IconDrawScale(UMW_DefOf.MeleeWeapon_LongSword) / GenUI.IconDrawScale(weapon);
+        float scale = IconScale * GenUI.IconDrawScale(weapon);
         Material mat = MaterialFor(weapon);
         if (mat == null)
         {

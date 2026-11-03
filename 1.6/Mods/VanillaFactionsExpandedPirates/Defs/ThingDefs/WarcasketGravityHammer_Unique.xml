@@ -24,7 +24,16 @@
        the unique's art and colours on the ground, and it needed a draw path of its own (a Graphic
        override feeds the UI icons too, and the print path swaps in the static-atlas material, which
        VFEP_Box_* atlases mask-less) to carry a boxed-cargo fiction that fits VFEP's
-       construction-built weapons, not reward-only uniques. -->
+       construction-built weapons, not reward-only uniques.
+       UI icon (uiIconScale, uiIconAngle): the art lies at 45 degrees, grip bottom-left, like VFEP's
+       own warcasket art, so the in-world hold angle it inherits is right, and the UI icon is turned
+       45 degrees clockwise to lie horizontal and point right like every other melee icon (the
+       inventory, trade and settings rows). The base's drawSize 1.7 would also draw the icon 1.7x
+       and cropped in every square icon box (GenUI.IconDrawScale folds drawSize in; the same
+       cancellation as the VTE spear patch), so uiIconScale is 1 / (1.7 x L), L the art's length
+       along its axis as a fraction of the texture (alpha > 40, A variant; B and C within 3 percent):
+       L = 1.06, so 0.56. The settings gallery (SettingsWeaponIcon) draws the icon through the same
+       scale and angle, which is why it needs nothing of its own for this pair. -->
   <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_GravityHammer">
     <defName>UMW_WarcasketGravityHammer_Unique</defName>
     <label>unique warcasket gravity hammer</label>
@@ -36,6 +45,8 @@
       <shaderType>UMW_CutoutComplexMix</shaderType> <!-- mixes the two tints for this art's feathered red|green mask edges; see ../ShaderTypeDefs -->
       <colorTwo>(91,94,96)</colorTwo> <!-- #5B5E60 body placeholder; see header -->
     </graphicData>
+    <uiIconScale>0.56</uiIconScale>
+    <uiIconAngle>45</uiIconAngle>
     <generateAllowChance>0</generateAllowChance>
     <possessionCount>0</possessionCount>
     <tradeability>Sellable</tradeability>

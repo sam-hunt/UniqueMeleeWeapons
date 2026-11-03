@@ -197,7 +197,7 @@ public partial class UniqueMeleeWeaponsSettings
             forced = true;
         }
         TipSignal tooltip = new TipSignal(() => TraitTooltip(trait, heldOnNote), trait.GetHashCode());
-        ToggleCell(cell, label, tooltip, ref enabled, forced, paintable: true);
+        ToggleCell(cell, label, tooltip, ref enabled, forced, paintable: true, boxLeft: true);
         if (enabled != wasEnabled)
         {
             SetTraitEnabled(trait, enabled);

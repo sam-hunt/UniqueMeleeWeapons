@@ -16,9 +16,9 @@ namespace UniqueMeleeWeapons;
 // visible, disabled and labelled with the requirement, while the mod is missing and its defs cannot
 // draw a row of their own (the family's "Grouped def rows" pattern; this file is its reference).
 //
-// Under each header the weapons sit in a two-column grid of taller cells, each led by the weapon's
-// coloured icon (SettingsWeaponIcon), so a roster that runs to dozens of entries with every
-// integration active scans as a picture gallery rather than a column of text.
+// Under each header the weapons sit in a two-column grid of taller cells, each its box, then the
+// weapon's coloured icon (SettingsWeaponIcon), then its label, so a roster that runs to dozens of
+// entries with every integration active scans as a picture gallery rather than a column of text.
 public partial class UniqueMeleeWeaponsSettings
 {
     private const int WeaponColumns = 2;
@@ -116,7 +116,8 @@ public partial class UniqueMeleeWeaponsSettings
         bool wasEnabled = enabled;
         TipSignal tooltip = new TipSignal(() => WeaponTooltip(weapon), weapon.GetHashCode());
         ToggleCell(cell, weapon.LabelCap, tooltip, ref enabled, paintable: true,
-            drawIcon: (iconRect, on) => SettingsWeaponIcon.Draw(iconRect, weapon, on ? 1f : DisabledIconAlpha));
+            drawIcon: (iconRect, on) => SettingsWeaponIcon.Draw(iconRect, weapon, on ? 1f : DisabledIconAlpha),
+            boxLeft: true);
         if (enabled != wasEnabled)
         {
             SetWeaponEnabled(weapon, enabled);
