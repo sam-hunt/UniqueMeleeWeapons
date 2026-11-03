@@ -62,37 +62,39 @@ public partial class UniqueMeleeWeaponsSettings
         ThingSetMakerUtility.Reset();
     }
 
-    // One checkbox per weapon we own, labelled with the weapon's own (already localized) def label:
-    // the ungrouped ones first, then each integration's group.
+    // One checkbox per weapon we own, labelled with the weapon's own (already localized) def label,
+    // under one group header per owner: Core first (everything no integration claims), then each
+    // integration's group. Every weapon row is indented the same, whichever group it is in.
     private void DrawWeaponsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsWeapons".Translate());
 
-        foreach (ThingDef weapon in UniqueWeaponDefs.All.Where(w => ModIntegrations.OwnerOfWeapon(w) == null))
-        {
-            DrawWeaponRow(listing, weapon);
-        }
+        DrawWeaponGroup(listing, ModIntegrations.Core,
+            UniqueWeaponDefs.All.Where(w => ModIntegrations.OwnerOfWeapon(w) == null).ToList());
         foreach (ModIntegration integration in ModIntegrations.Grouped)
         {
             if (integration.weaponDefNames.Length == 0)
             {
                 continue;
             }
-            List<ThingDef> members = UniqueWeaponDefs.All.Where(integration.OwnsWeapon).ToList();
-            if (!DrawGroupHeader(listing, integration, "UMW_IntegrationWeapons", members,
-                    w => !IsWeaponDisabled((ThingDef)w), SetWeaponEnabled))
-            {
-                continue;
-            }
-            listing.Indent(GroupIndent);
-            foreach (ThingDef weapon in members)
-            {
-                DrawWeaponRow(listing, weapon);
-            }
-            listing.Outdent(GroupIndent);
+            DrawWeaponGroup(listing, integration, UniqueWeaponDefs.All.Where(integration.OwnsWeapon).ToList());
         }
 
         listing.Gap(SectionGap);
+    }
+
+    private void DrawWeaponGroup(Listing_Standard listing, ModIntegration integration, List<ThingDef> members)
+    {
+        if (!DrawGroupHeader(listing, integration, "UMW_IntegrationWeapons", members,
+                w => !IsWeaponDisabled((ThingDef)w), SetWeaponEnabled))
+        {
+            return;
+        }
+        foreach (ThingDef weapon in members)
+        {
+            DrawWeaponRow(listing, weapon);
+        }
+        listing.Gap(GroupGap);
     }
 
     // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is a
@@ -102,7 +104,8 @@ public partial class UniqueMeleeWeaponsSettings
     {
         bool enabled = !IsWeaponDisabled(weapon);
         bool wasEnabled = enabled;
-        ToggleRow(listing, weapon.LabelCap, "UMW_WeaponEnabledDesc".Translate(weapon.label), ref enabled);
+        ToggleRow(listing, weapon.LabelCap, "UMW_WeaponEnabledDesc".Translate(weapon.label), ref enabled,
+            indent: GroupIndent);
         if (enabled != wasEnabled)
         {
             SetWeaponEnabled(weapon, enabled);

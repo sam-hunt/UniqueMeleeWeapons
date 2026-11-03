@@ -51,8 +51,14 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // behind rather than a double gap between its neighbours.
     private const float SectionGap = 18f;
 
-    // Indent of the member rows under a group header.
+    // Indent of the member rows under a group header, taken off the row's LEFT edge (ToggleRow's
+    // `indent`), never via Listing.Indent: that only moves curX and leaves ColumnWidth alone, so an
+    // indented CheckboxLabeled row overflows the listing by the indent and its box, drawn at the row's
+    // right edge, is clipped by the scroll view.
     private const float GroupIndent = 24f;
+
+    // Extra space below each group's last member row, so groups read as blocks.
+    private const float GroupGap = 8f;
 
     // Vanilla's checkbox edge, the size CheckboxLabeled draws its box at.
     private const float CheckboxSize = 24f;
@@ -151,9 +157,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // `label` and `tooltip` are plain strings: a caller injecting a coloured name must Resolve() its
     // TaggedString first, or the implicit conversion strips the tag.
     private static void ToggleRow(Listing_Standard listing, string label, string tooltip, ref bool value,
-        bool? forced = null)
+        bool? forced = null, float indent = 0f)
     {
         Rect row = listing.GetRect(Text.LineHeight);
+        row.xMin += indent;
         Widgets.DrawHighlightIfMouseover(row);
         if (!tooltip.NullOrEmpty())
         {

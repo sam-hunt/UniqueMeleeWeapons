@@ -20,9 +20,12 @@ namespace UniqueMeleeWeapons;
 // of its section, which is wrong only cosmetically.
 //
 // Names and colours follow the family's settings rules (RimworldModTemplate,
-// Source/<version>/Settings/CLAUDE.md, "Mod and DLC colours"). A DLC's name and colour come from its
+// Source/<version>/Settings/CLAUDE.md, "Mod and DLC colours"). A DLC's name comes from its
 // ExpansionDef: Core ships every ExpansionDef whether or not the DLC is owned, so the lookup resolves
-// with the DLC absent and the label is vanilla-localized. A mod's name comes from its About.xml when
+// with the DLC absent and the label is vanilla-localized. The lookup is our own, case-insensitive
+// one: ModLister.GetExpansionWithIdentifier compares linkedMod ("Ludeon.RimWorld.Royalty") to its
+// argument exactly, so the lowercase packageId constants ModContentPack publishes never match it
+// (decompile-verified, RimWorld 1.7). A mod's name comes from its About.xml when
 // it is installed (active or not) and from a Keyed fallback when it is not installed at all, since
 // nothing else in the game then knows the name. Activity is the suffix-ignoring ModLister test the
 // root CLAUDE.md mandates, never ModsConfig.IsActive; for a DLC it is the same test on its packageId.
@@ -61,7 +64,24 @@ public sealed class ModIntegration
 
     public bool IsActive => ModLister.GetActiveModWithIdentifier(packageId, ignorePostfix: true) != null;
 
-    private ExpansionDef ExpansionDef => isExpansion ? ModLister.GetExpansionWithIdentifier(packageId) : null;
+    private ExpansionDef ExpansionDef
+    {
+        get
+        {
+            if (!isExpansion)
+            {
+                return null;
+            }
+            foreach (ExpansionDef expansion in ModLister.AllExpansions)
+            {
+                if (string.Equals(expansion.linkedMod, packageId, StringComparison.OrdinalIgnoreCase))
+                {
+                    return expansion;
+                }
+            }
+            return null;
+        }
+    }
 
     // The plain, uncoloured display name. Coloured() is what settings text should inject.
     public string Name
@@ -92,11 +112,19 @@ public sealed class ModIntegration
 
 public static class ModIntegrations
 {
+    // The base game, as the group header every def with no optional dependency sits under, so every
+    // def row has the same indentation whether or not it has one. Owns no listed defs: its members
+    // are whatever no other integration claims, which also catches a third-party tagged unique.
+    // Always active. Colour hand-picked (its ExpansionDef has none).
+    public static readonly ModIntegration Core = ModIntegration.Expansion(
+        ModContentPack.CoreModPackageId, pickedColor: ColorLibrary.LightBrown);
+
     // Royalty: the 1.6/Mods/Royalty root (the unique axe and warhammer, the three ultratech traits).
     // The trait list is also what the war merchant's scoped ban and the legacy allowUltratechTraits
-    // migration name (Patches/CompUniqueWeapon_DisabledTraits_Patch.cs, Settings_Traits.cs).
+    // migration name (Patches/CompUniqueWeapon_DisabledTraits_Patch.cs, Settings_Traits.cs). Colour
+    // hand-picked over the ExpansionDef's badge fill, a dull khaki.
     public static readonly ModIntegration Royalty = ModIntegration.Expansion(
-        ModContentPack.RoyaltyModPackageId,
+        ModContentPack.RoyaltyModPackageId, pickedColor: ColorLibrary.Gold,
         weaponDefNames: new[] { "UMW_Axe_Unique", "UMW_Warhammer_Unique" },
         traitDefNames: new[] { "UMW_Monomolecular", "UMW_PlasmaCored", "UMW_ZeusHeaded" });
 

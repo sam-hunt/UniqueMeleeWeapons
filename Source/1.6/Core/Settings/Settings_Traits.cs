@@ -136,36 +136,39 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
+    // Under one group header per owner: Core first (everything no integration claims), then each
+    // integration's group. Every trait row is indented the same, whichever group it is in.
     private void DrawTraitsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsTraits".Translate());
 
         List<WeaponTraitDef> traits = OurTraits();
-        foreach (WeaponTraitDef trait in traits.Where(t => ModIntegrations.OwnerOfTrait(t) == null))
-        {
-            DrawTraitRow(listing, trait);
-        }
+        DrawTraitGroup(listing, ModIntegrations.Core,
+            traits.Where(t => ModIntegrations.OwnerOfTrait(t) == null).ToList());
         foreach (ModIntegration integration in ModIntegrations.Grouped)
         {
             if (integration.traitDefNames.Length == 0)
             {
                 continue;
             }
-            List<WeaponTraitDef> members = traits.Where(integration.OwnsTrait).ToList();
-            if (!DrawGroupHeader(listing, integration, "UMW_IntegrationTraits", members,
-                    t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
-            {
-                continue;
-            }
-            listing.Indent(GroupIndent);
-            foreach (WeaponTraitDef trait in members)
-            {
-                DrawTraitRow(listing, trait);
-            }
-            listing.Outdent(GroupIndent);
+            DrawTraitGroup(listing, integration, traits.Where(integration.OwnsTrait).ToList());
         }
 
         listing.Gap(SectionGap);
+    }
+
+    private void DrawTraitGroup(Listing_Standard listing, ModIntegration integration, List<WeaponTraitDef> members)
+    {
+        if (!DrawGroupHeader(listing, integration, "UMW_IntegrationTraits", members,
+                t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
+        {
+            return;
+        }
+        foreach (WeaponTraitDef trait in members)
+        {
+            DrawTraitRow(listing, trait);
+        }
+        listing.Gap(GroupGap);
     }
 
     // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is
@@ -183,7 +186,8 @@ public partial class UniqueMeleeWeaponsSettings
             label += "UMW_LastTraitSuffix".Translate(stranded.label);
             forced = true;
         }
-        ToggleRow(listing, label, "UMW_TraitEnabledDesc".Translate(trait.label), ref enabled, forced);
+        ToggleRow(listing, label, "UMW_TraitEnabledDesc".Translate(trait.label), ref enabled, forced,
+            indent: GroupIndent);
         if (enabled != wasEnabled)
         {
             SetTraitEnabled(trait, enabled);
