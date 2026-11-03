@@ -360,14 +360,21 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
 
     // A subsection inside a section: a named block of tuning rows for one def (an ability), headed
     // by IconHeader in the group-header font's place, its rows one indent step further in like a
-    // group's member rows, so a section of several reads as a tree. Every subsection ends with
-    // EndSubsection, which leaves a little more room below than a group does, so consecutive
-    // subsections with their tall icons read apart.
+    // group's member rows, so a section of several reads as a tree. The header itself sits only half
+    // the section's indent in (SubsectionHeaderOutdent), so its tall icon reads as heading the rows
+    // rather than as one of them; the rows keep the full section-plus-group indent. Every subsection
+    // ends with EndSubsection, which leaves a little more room below than a group does, so
+    // consecutive subsections with their tall icons read apart.
     private const float SubsectionGap = GroupGap + 4f;
+    private const float SubsectionHeaderOutdent = SectionIndent / 2f;
 
     private static void SubsectionHeader(Listing_Standard listing, string label, Texture2D icon, string tooltip)
     {
+        listing.Outdent(SubsectionHeaderOutdent);
+        listing.ColumnWidth += SubsectionHeaderOutdent;
         IconHeader(listing, label, icon, tooltip);
+        listing.ColumnWidth -= SubsectionHeaderOutdent;
+        listing.Indent(SubsectionHeaderOutdent);
         listing.Indent(GroupRowIndent);
         listing.ColumnWidth -= GroupRowIndent;
     }
