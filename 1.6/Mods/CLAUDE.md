@@ -44,8 +44,11 @@ Rules:
 - **Package ids live in several places that must agree:** the `IfModActive` value in
   `LoadFolders.xml`, the C# gate constant beside the feature it enables (`VtePackageId` in
   `Settings_Compat.cs`, `VfepPackageId` in `ShaderDatabase_LoadShader_Fallback_Patch.cs`,
-  `CePackageId` in `Patches/CombatExtended/CombatExtended_MeleePatches.cs`), and the
-  `loadAfter` entry in `About.xml` when our defs inherit from that mod's. Gate C# with
+  `CePackageId` in `Patches/CombatExtended/CombatExtended_MeleePatches.cs`), the
+  `loadAfter` entry in `About.xml` when our defs inherit from that mod's, and the settings
+  window's integration table (`Source/1.6/Core/ModIntegrations.cs`), which also lists by defName
+  the weapons and traits each root ships so their settings rows can group under that mod's name
+  while the mod is missing: a def added to a root is added there too, or its row lands ungrouped. Gate C# with
   `ignorePostfix: true` (root `CLAUDE.md`), or a Workshop copy beside a local one hides the setting
   row while the root still loads.
 - A base weapon from a third-party mod needs the `Name=` add in `1.6/Patches/` and the `loadAfter`

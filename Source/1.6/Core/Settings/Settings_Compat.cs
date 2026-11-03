@@ -3,10 +3,15 @@ using Verse;
 
 namespace UniqueMeleeWeapons;
 
-// "Compatibility" settings section: opt-outs for the gated compat roots in LoadFolders.xml. The
-// whole section is specific to third-party mods, so it early-returns when none of them is active
-// (the wholly-DLC-specific pattern from the frame file's header); stored values are never touched,
-// so a toggle survives a session without its mod.
+// "Compatibility" settings section: opt-outs for the gated compat roots in LoadFolders.xml.
+//
+// The whole section HIDES when none of its mods is active, which is the sanctioned exception to the
+// family rule that a gated row stays visible (RimworldModTemplate, Source/<version>/Settings/CLAUDE.md,
+// rule 1): that rule exists so a player can discover content an integration would add, and a row
+// here only tunes a correction to the other mod's own content. A player without VTE learns nothing
+// they could want from a greyed "match the spear to VTE" row. Stored values are never touched, so a
+// toggle survives a session without its mod. Content-offering gated rows (the Royalty and VFE
+// Pirates groups in the Weapons and Traits sections) do stay visible.
 //
 // One row today: matchVteSpear, default ON, governing the Vanilla Textures Expanded spear compat
 // (1.6/Mods/VanillaTexturesExpanded/Patches/Spear_Unique_VTE.xml, header there). It is read at XML
@@ -27,9 +32,9 @@ public partial class UniqueMeleeWeaponsSettings
     private const bool MatchVteSpearDefault = true;
 
     // Must equal the IfModActive value on the VanillaTexturesExpanded entry in LoadFolders.xml, and
-    // the row below must gate on the same suffix-ignoring test IfModActive uses (ignorePostfix: true),
-    // or a Workshop copy installed beside a local one hides the row while the root still loads
-    // (1.6/Mods/CLAUDE.md).
+    // the row below must gate on the same suffix-ignoring test IfModActive uses (ignorePostfix: true,
+    // via ModIntegrations.VanillaTexturesExpanded), or a Workshop copy installed beside a local one
+    // hides the row while the root still loads (1.6/Mods/CLAUDE.md).
     public const string VtePackageId = "VanillaExpanded.VTEXE";
     private const string UniqueSpearDefName = "UMW_Spear_Unique";
 
@@ -45,9 +50,8 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawCompatSection(Listing_Standard listing)
     {
-        ModMetaData vte = ModLister.GetActiveModWithIdentifier(VtePackageId, ignorePostfix: true);
         ThingDef spear = DefDatabase<ThingDef>.GetNamedSilentFail(UniqueSpearDefName);
-        if (vte == null || spear == null)
+        if (!ModIntegrations.VanillaTexturesExpanded.IsActive || spear == null)
         {
             return;
         }
@@ -55,11 +59,14 @@ public partial class UniqueMeleeWeaponsSettings
         SectionHeader(listing, "UMW_SettingsCompat".Translate());
 
         // Both names are injected, not restated: the spear's from its def label so it follows the
-        // active language, the mod's from its About.xml so a rename upstream shows through.
-        listing.CheckboxLabeled(
-            "UMW_MatchVteSpear".Translate(spear.label, vte.Name),
-            ref matchVteSpear,
-            "UMW_MatchVteSpearDesc".Translate(spear.label, vte.Name));
+        // active language, the mod's from its About.xml (via ModIntegrations, which also colours it) so
+        // a rename upstream shows through. Resolve() keeps the colour tag; the implicit conversion to
+        // string would strip it (ModIntegration.ColoredName).
+        string vteName = ModIntegrations.VanillaTexturesExpanded.ColoredName;
+        ToggleRow(listing,
+            "UMW_MatchVteSpear".Translate(spear.label, vteName).Resolve(),
+            "UMW_MatchVteSpearDesc".Translate(spear.label, vteName).Resolve(),
+            ref matchVteSpear);
 
         listing.Gap(SectionGap);
     }

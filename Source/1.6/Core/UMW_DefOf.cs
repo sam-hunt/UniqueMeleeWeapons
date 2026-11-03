@@ -34,8 +34,9 @@ public static class UMW_DefOf
     public static AbilityDef UMW_RallyingCry;
     public static HediffDef UMW_Rallied;
 
-    // The three Royalty-tech traits, looked up by CompUniqueWeapon_UltratechTraits_Patch so the
-    // allowUltratechTraits setting can keep them out of the roll. Each def is itself MayRequire-gated
+    // The three Royalty-tech traits, looked up by CompUniqueWeapon_DisabledTraits_Patch for the war
+    // merchant's scoped ban (ModIntegrations.Royalty lists the same three by defName for the settings
+    // window's Royalty trait group). Each def is itself MayRequire-gated
     // on Royalty, so the DefOf fields carry the matching attribute: without the DLC the defs never
     // enter the DefDatabase and these stay null (which the patch treats as "nothing to exclude").
     [MayRequireRoyalty] public static WeaponTraitDef UMW_Monomolecular;

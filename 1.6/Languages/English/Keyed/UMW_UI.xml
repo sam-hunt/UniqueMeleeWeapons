@@ -9,6 +9,7 @@
        quests main-tab button's def label (MainButtonDefOf.Quests), so both arrive pre-translated in
        every language and must not be duplicated in this file. -->
   <UMW_SettingsWeapons>Weapons</UMW_SettingsWeapons>
+  <UMW_SettingsTraits>Traits</UMW_SettingsTraits>
   <UMW_SettingsGeneration>Generation</UMW_SettingsGeneration>
   <UMW_SettingsTraders>Traders</UMW_SettingsTraders>
   <UMW_SettingsCompat>Compatibility</UMW_SettingsCompat>
@@ -18,6 +19,26 @@
   <UMW_DefaultSuffix> (default)</UMW_DefaultSuffix>
   <!-- {0} is another piece of content the current value matches, named from its own def label. -->
   <UMW_SameAsSuffix> (same as {0})</UMW_SameAsSuffix>
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
+       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. It is
+       shown on a group header only while that mod or DLC is missing. {0} in the second is a weapon's
+       def label (lowercase): the row is a trait that cannot be turned off because it is the last
+       trait that weapon could roll first, so the box is held on. -->
+  <UMW_RequiresSuffix> (requires {0})</UMW_RequiresSuffix>
+  <UMW_LastTraitSuffix> (last trait for {0})</UMW_LastTraitSuffix>
+
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
+       adds sit under a header naming it, with a three-state box that switches the whole group. {0}
+       is that mod or DLC's name, injected already coloured: do not inflect it. The header stays
+       visible while the mod is missing, greyed, with UMW_RequiresSuffix appended. -->
+  <UMW_IntegrationWeapons>{0} weapons</UMW_IntegrationWeapons>
+  <UMW_IntegrationTraits>{0} traits</UMW_IntegrationTraits>
+  <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off.</UMW_IntegrationGroupDesc>
+  <!-- Fallback display names, used only while the mod is not installed at all (an installed mod
+       supplies its own name from its About.xml, and a DLC's comes from the game). Proper nouns: keep
+       them exactly as the mod publishes them, in every language. -->
+  <UMW_ModNameVfePirates>Vanilla Factions Expanded - Pirates</UMW_ModNameVfePirates>
+  <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon, labelled from the weapon's own def label; the row list
        is generated, so this is the only string it needs. {0} is that label (lowercase).
@@ -26,15 +47,15 @@
        own custom generator can bypass it (see ThingSetMakerUtility_CanGenerate_Patch.cs). -->
   <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this.</UMW_WeaponEnabledDesc>
 
+  <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; the row list
+       is generated, so this is the only string it needs. {0} is that label (lowercase). -->
+  <UMW_TraitEnabledDesc>Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it.</UMW_TraitEnabledDesc>
+
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
   <UMW_ExcludeWoodStuff>Exclude {0} from generated unique weapons</UMW_ExcludeWoodStuff>
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
   <UMW_ExcludeWoodStuffDesc>Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}.</UMW_ExcludeWoodStuffDesc>
-  <!-- Shown only when Royalty is active; the traits it governs need that DLC.
-       {0}, {1}, {2} are the three trait labels (lowercase): monomolecular, plasma-cored, zeus-headed. -->
-  <UMW_AllowUltratechTraits>Allow ultratech weapon traits</UMW_AllowUltratechTraits>
-  <UMW_AllowUltratechTraitsDesc>Three traits use Royalty's ultratech kit: {0}, {1} and {2}. Turn off to keep them out of the roll, for medieval or low-tech runs. Other traits are unaffected; weapons that already rolled one keep it.</UMW_AllowUltratechTraitsDesc>
 
   <!-- Settings: Traders. All toggles default off. Tribal rows: the label is a shared template, {0} is
        the trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
@@ -70,7 +91,8 @@
   <UMW_AbilityRadius>{0} radius: {1} cells</UMW_AbilityRadius>
   <UMW_HediffDurationHours>{0} duration: {1} hours</UMW_HediffDurationHours>
 
-  <UMW_EarthshakeCooldownDesc>Rest time between earthshakes. The default matches Odyssey's EMP pulser. 0 removes the cooldown.</UMW_EarthshakeCooldownDesc>
+  <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
+  <UMW_EarthshakeCooldownDesc>Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown.</UMW_EarthshakeCooldownDesc>
   <UMW_EarthshakeRadiusDesc>Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too.</UMW_EarthshakeRadiusDesc>
   <UMW_RallyingCryCooldownDesc>Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight.</UMW_RallyingCryCooldownDesc>
   <UMW_RallyingCryRadiusDesc>How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers.</UMW_RallyingCryRadiusDesc>
@@ -85,8 +107,9 @@
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
-       spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected so
-       neither is restated here. Deliberately says nothing about performance. -->
+       spear's def label (lowercase); {1} is that mod's display name from its About.xml, injected
+       already coloured, so neither is restated here and {1} must not be inflected. Deliberately says
+       nothing about performance. -->
   <UMW_MatchVteSpear>Match the {0} to {1}</UMW_MatchVteSpear>
   <UMW_MatchVteSpearDesc>{1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart.</UMW_MatchVteSpearDesc>
 

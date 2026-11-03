@@ -42,6 +42,7 @@ public class UniqueMeleeWeaponsMod : Mod
     {
         base.WriteSettings();
         Settings.ApplyWeaponAvailability();
+        Settings.ApplyTraitAvailability();
         Settings.ApplyWarbandQuestWeight();
         Settings.ApplyAbilityTuning();
         Settings.ApplyTraderStock();

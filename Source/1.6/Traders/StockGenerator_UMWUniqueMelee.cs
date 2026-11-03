@@ -34,7 +34,7 @@ namespace UniqueMeleeWeapons;
 //
 // allowUltratechTraits=false (the war merchant instance) keeps the three Royalty-tech traits out
 // of the trait roll for weapons THIS generator makes, via the scoped veto in
-// CompUniqueWeapon_UltratechTraits_Patch — the trait never enters the candidate set, so another
+// CompUniqueWeapon_DisabledTraits_Patch — the trait never enters the candidate set, so another
 // trait rolls in its place and no generate-and-discard retry is needed.
 //
 // Candidates are also banded by tech level: capped at maxTechLevelGenerate, mirroring vanilla
@@ -47,7 +47,7 @@ namespace UniqueMeleeWeapons;
 public class StockGenerator_UMWUniqueMelee : StockGenerator
 {
     // Whether weapons generated here may roll the Royalty-tech traits (see class header). The
-    // global allowUltratechTraits setting still applies on top: off there means off everywhere.
+    // per-trait settings veto still applies on top: a trait switched off there is off everywhere.
     public bool allowUltratechTraits = true;
 
     // Lowest weapon techLevel this instance stocks (see class header). Undefined (the enum's zero)
@@ -82,12 +82,12 @@ public class StockGenerator_UMWUniqueMelee : StockGenerator
             Thing thing;
             try
             {
-                CompUniqueWeapon_UltratechTraits_Patch.banUltratechScope = !allowUltratechTraits;
+                CompUniqueWeapon_DisabledTraits_Patch.banUltratechScope = !allowUltratechTraits;
                 thing = ThingMaker.MakeThing(def, stuff);
             }
             finally
             {
-                CompUniqueWeapon_UltratechTraits_Patch.banUltratechScope = false;
+                CompUniqueWeapon_DisabledTraits_Patch.banUltratechScope = false;
             }
             yield return thing;
         }

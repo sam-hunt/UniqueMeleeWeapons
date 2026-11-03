@@ -158,11 +158,14 @@ public partial class UniqueMeleeWeaponsSettings
 
         // Slider labels are shared templates ("{0} cooldown: {1} hours") fed the subject's own
         // def label, so the ability/hediff name in each row tracks its def's translation.
+        // The description names Odyssey's EMP pulser as the default's reference, so the DLC's name is
+        // injected coloured (family rule 6, passing mentions included).
         earthshakeCooldownHours = SliderRow(
             listing, "UMW_AbilityCooldownHours", "UMW_EarthshakeCooldownDesc",
             UMW_DefOf.UMW_Earthshake.LabelCap,
             earthshakeCooldownHours, EarthshakeCooldownHoursDefault,
-            min: 0f, max: 24f, step: 1f, format: "0");
+            min: 0f, max: 24f, step: 1f, format: "0",
+            descArg: ModIntegrations.Odyssey.ColoredName);
 
         earthshakeRadius = SliderRow(
             listing, "UMW_AbilityRadius", "UMW_EarthshakeRadiusDesc",

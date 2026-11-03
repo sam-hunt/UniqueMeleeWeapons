@@ -192,7 +192,10 @@ public partial class UniqueMeleeWeaponsSettings
                 "UMW_TraderStocksUniquesShamanDesc".Translate(shaman.label));
         }
 
-        // Outlander rows only while some unique clears the floor (see class header). The settlement
+        // Outlander rows only while some unique clears the floor (see class header): a data-derived
+        // hide, the family rules' sanctioned exception to showing gated rows disabled, because the
+        // precondition is "any industrial-or-later unique", which any third-party tagged unique can
+        // meet, so no single mod name could label a greyed row. The settlement
         // trader kind has no def label (vanilla shows the settlement's faction instead), so its row
         // is a fixed string; the two combat suppliers share one vanilla label and are told apart by
         // the caravan/trade-ship qualifier in ours.

@@ -9,9 +9,11 @@ namespace UniqueMeleeWeapons;
 // "Weapons" settings section: a per-weapon opt-out from every generation and reward pool. The gate
 // itself is Patches/ThingSetMakerUtility_CanGenerate_Patch.cs.
 //
-// Rows are generated from UniqueWeaponDefs.All rather than hand-written, so the section needs no
-// ModsConfig gate of its own — a MayRequire-gated def is absent without its DLC, so the Royalty pair's
-// rows appear exactly when those defs do, and a weapon added later gets its row for free.
+// Rows are generated from UniqueWeaponDefs.All rather than hand-written: a weapon added later gets its
+// row for free, and a weapon whose compat root did not load is simply absent. The rows an optional mod
+// or DLC owns (ModIntegrations) sit under a tri-state group header for that mod, which is what stays
+// visible, disabled and labelled with the requirement, while the mod is missing and its defs cannot
+// draw a row of their own (the family's "Grouped def rows" pattern; this file is its reference).
 public partial class UniqueMeleeWeaponsSettings
 {
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a weapon
@@ -60,37 +62,63 @@ public partial class UniqueMeleeWeaponsSettings
         ThingSetMakerUtility.Reset();
     }
 
-    // One checkbox per weapon we own, labelled with the weapon's own (already localized) def label.
-    //
-    // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is a
-    // local written back only on an actual change; that keeps the set free of entries for weapons the
-    // player never touched.
+    // One checkbox per weapon we own, labelled with the weapon's own (already localized) def label:
+    // the ungrouped ones first, then each integration's group.
     private void DrawWeaponsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsWeapons".Translate());
 
-        foreach (ThingDef weapon in UniqueWeaponDefs.All)
+        foreach (ThingDef weapon in UniqueWeaponDefs.All.Where(w => ModIntegrations.OwnerOfWeapon(w) == null))
         {
-            bool enabled = !IsWeaponDisabled(weapon);
-            bool wasEnabled = enabled;
-            listing.CheckboxLabeled(
-                weapon.LabelCap,
-                ref enabled,
-                "UMW_WeaponEnabledDesc".Translate(weapon.label));
-            if (enabled == wasEnabled)
+            DrawWeaponRow(listing, weapon);
+        }
+        foreach (ModIntegration integration in ModIntegrations.Grouped)
+        {
+            if (integration.weaponDefNames.Length == 0)
             {
                 continue;
             }
-            if (enabled)
+            List<ThingDef> members = UniqueWeaponDefs.All.Where(integration.OwnsWeapon).ToList();
+            if (!DrawGroupHeader(listing, integration, "UMW_IntegrationWeapons", members,
+                    w => !IsWeaponDisabled((ThingDef)w), SetWeaponEnabled))
             {
-                disabledWeapons.Remove(weapon.defName);
+                continue;
             }
-            else
+            listing.Indent(GroupIndent);
+            foreach (ThingDef weapon in members)
             {
-                disabledWeapons.Add(weapon.defName);
+                DrawWeaponRow(listing, weapon);
             }
+            listing.Outdent(GroupIndent);
         }
 
         listing.Gap(SectionGap);
+    }
+
+    // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is a
+    // local written back only on an actual change; that keeps the set free of entries for weapons the
+    // player never touched.
+    private void DrawWeaponRow(Listing_Standard listing, ThingDef weapon)
+    {
+        bool enabled = !IsWeaponDisabled(weapon);
+        bool wasEnabled = enabled;
+        ToggleRow(listing, weapon.LabelCap, "UMW_WeaponEnabledDesc".Translate(weapon.label), ref enabled);
+        if (enabled != wasEnabled)
+        {
+            SetWeaponEnabled(weapon, enabled);
+        }
+    }
+
+    // Also the group header's bulk setter.
+    private void SetWeaponEnabled(Def weapon, bool enabled)
+    {
+        if (enabled)
+        {
+            disabledWeapons.Remove(weapon.defName);
+        }
+        else
+        {
+            disabledWeapons.Add(weapon.defName);
+        }
     }
 }

@@ -92,11 +92,15 @@ errors, localization, mod detection, the published contracts) are in the root `C
 ## Settings
 
 `UniqueMeleeWeaponsSettings` is one partial class split per UI section under `Core/Settings/`, so
-a setting is a one-file edit. The recipe and the patterns to copy (a DLC-only row, a
-collection-valued setting, a setting that overrides a def field, and why a setting that gates an
-XML patch through `Core/PatchOperation_UMWSetting.cs` is restart-to-apply and its row must say so)
-are in the header of `Core/UniqueMeleeWeaponsSettings.cs`. The family-wide settings-window rules
-live in the template (`~/dev/RimworldModTemplate`, `Source/<version>/Settings/CLAUDE.md`); open
-findings against them are listed in `TODOs.md`. Trader stock is entirely runtime def-writes from
+a setting is a one-file edit. The recipe and the patterns to copy (a gated row, a grouped block of
+def rows, a collection-valued setting, a setting that overrides a def field, and why a setting that
+gates an XML patch through `Core/PatchOperation_UMWSetting.cs` is restart-to-apply and its row must
+say so) are in the header of `Core/UniqueMeleeWeaponsSettings.cs`. The family-wide settings-window
+rules live in the template (`~/dev/RimworldModTemplate`, `Source/<version>/Settings/CLAUDE.md`);
+this mod is the reference implementation of its grouped-rows pattern, and `Core/ModIntegrations.cs`
+is the one place an optional mod's name, colour, activity and owned defs are looked up. The
+per-trait opt-out is a `CanAddTrait` veto, never a commonality write, and must leave every unique
+weapon one enabled first-pick trait or vanilla's naming errors on an empty adjective list
+(`Core/Settings/Settings_Traits.cs` header). Trader stock is entirely runtime def-writes from
 `Core/Settings/Settings_Traders.cs` and `Traders/StockGenerator_UMWUniqueMelee.cs`; nothing
 trader-related ships in XML.
