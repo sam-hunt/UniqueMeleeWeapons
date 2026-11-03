@@ -53,6 +53,10 @@
   <UMW_GroupCountSuffix>（{0}）</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>本區段中來自{0}的所有內容。核取方塊可一次切換整個群組；半選狀態表示其中部分項目已關閉。在下方的項目上按住並拖曳，可一次切換多個。</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>{0}原創的特質，均為本模組自行設計。核取方塊可一次切換整個群組；半選狀態表示其中部分項目已關閉。在下方的項目上按住並拖曳，可一次切換多個。</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>{0}賦予其獨特遠程武器的特質，在此有對應的近戰版本。核取方塊可一次切換整個群組；半選狀態表示其中部分項目已關閉。在下方的項目上按住並拖曳，可一次切換多個。</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names: proper nouns, kept exactly as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

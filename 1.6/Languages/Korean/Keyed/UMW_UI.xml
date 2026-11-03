@@ -53,6 +53,10 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>이 섹션에 있는 {0} 관련 항목 전체입니다. 체크 상자 하나로 그룹 전체를 한 번에 켜고 끌 수 있으며, 반쯤 채워진 상자는 일부 항목이 꺼져 있다는 뜻입니다. 아래 행들을 클릭한 채 드래그하면 여러 항목을 한 번에 바꿀 수 있습니다.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>{0}만의 고유한 특성으로, 직접 설계한 것들입니다. 체크 상자 하나로 그룹 전체를 한 번에 켜고 끌 수 있으며, 반쯤 채워진 상자는 일부 항목이 꺼져 있다는 뜻입니다. 아래 행들을 클릭한 채 드래그하면 여러 항목을 한 번에 바꿀 수 있습니다.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>{0}에서 특제 원거리 무기에 부여하는 특성의 근접 무기 버전입니다. 체크 상자 하나로 그룹 전체를 한 번에 켜고 끌 수 있으며, 반쯤 채워진 상자는 일부 항목이 꺼져 있다는 뜻입니다. 아래 행들을 클릭한 채 드래그하면 여러 항목을 한 번에 바꿀 수 있습니다.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names: proper nouns, kept exactly as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

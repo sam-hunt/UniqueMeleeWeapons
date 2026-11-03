@@ -12,10 +12,12 @@ namespace UniqueMeleeWeapons;
 // zero hands the roll a null trait, and vanilla's ConfigErrors rejects a commonality of zero).
 //
 // Rows are generated from every WeaponTraitDef this mod's ContentPack shipped (every compat root
-// shares it), ungrouped ones first and then one group per optional-content owner from
-// ModIntegrations, so the Royalty three sit under a "Royalty traits" header that shows disabled,
-// with the requirement, while Royalty is absent. That header replaced the old allowUltratechTraits
-// toggle; ExposeTraitSettings migrates a saved "off" into this set once.
+// shares it), under one group header per owner from ModIntegrations: our own designs first under
+// this mod's name (the unclaimed rest; Core ships no weapon trait, so unlike the Weapons section
+// there is no Core group), then the six melee ports of Odyssey's ranged traits under Odyssey, then
+// the Royalty three under a header that shows disabled, with the requirement, while Royalty is
+// absent. That header replaced the old allowUltratechTraits toggle; ExposeTraitSettings migrates a
+// saved "off" into this set once.
 //
 // A weapon with no traits is broken, not merely plain: CompUniqueWeapon.PostPostMake names it from
 // a RandomElement over its traits' adjectives, which errors on an empty list and leaves a null in
@@ -141,15 +143,16 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
-    // Under one group header per owner: Core first (everything no integration claims), then each
-    // integration's group. Every trait cell is indented the same, whichever group it is in, and the
-    // cells are paintable (click and drag to set a run of them; ToggleCell).
+    // Under one group header per owner: this mod first (everything no integration claims: our own
+    // designs), then each integration's group that owns traits (Odyssey's ports, Royalty's three).
+    // Every trait cell is indented the same, whichever group it is in, and the cells are paintable
+    // (click and drag to set a run of them; ToggleCell).
     private void DrawTraitsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsTraits".Translate());
 
         List<WeaponTraitDef> traits = OurTraits();
-        DrawTraitGroup(listing, ModIntegrations.Core,
+        DrawTraitGroup(listing, ModIntegrations.Self,
             traits.Where(t => ModIntegrations.OwnerOfTrait(t) == null).ToList());
         foreach (ModIntegration integration in ModIntegrations.Grouped)
         {

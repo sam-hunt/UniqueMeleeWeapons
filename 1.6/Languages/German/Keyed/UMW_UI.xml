@@ -53,6 +53,10 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>Alles aus {0} in diesem Abschnitt. Das Kästchen schaltet die ganze Gruppe auf einmal um; ein halb gefülltes Kästchen bedeutet, dass einige ihrer Zeilen ausgeschaltet sind. Klicke und ziehe über die Zeilen darunter, um mehrere auf einmal umzuschalten.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>Eigene Merkmale von {0}, vom Mod selbst entworfen. Das Kästchen schaltet die ganze Gruppe auf einmal um; ein halb gefülltes Kästchen bedeutet, dass einige ihrer Zeilen ausgeschaltet sind. Klicke und ziehe über die Zeilen darunter, um mehrere auf einmal umzuschalten.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>Nahkampf-Gegenstücke zu den Merkmalen, die {0} seinen einzigartigen Fernkampfwaffen gibt. Das Kästchen schaltet die ganze Gruppe auf einmal um; ein halb gefülltes Kästchen bedeutet, dass einige ihrer Zeilen ausgeschaltet sind. Klicke und ziehe über die Zeilen darunter, um mehrere auf einmal umzuschalten.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

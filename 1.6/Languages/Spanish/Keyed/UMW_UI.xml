@@ -55,6 +55,10 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>Todo lo de {0} en esta sección. La casilla activa o desactiva el grupo entero de una vez; una casilla a medias significa que algunas de sus filas están desactivadas. Haz clic y arrastra sobre las filas de abajo para cambiar varias a la vez.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>Rasgos originales de {0}, de diseño propio. La casilla activa o desactiva el grupo entero de una vez; una casilla a medias significa que algunas de sus filas están desactivadas. Haz clic y arrastra sobre las filas de abajo para cambiar varias a la vez.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>Equivalentes cuerpo a cuerpo de los rasgos que {0} da a sus armas a distancia únicas. La casilla activa o desactiva el grupo entero de una vez; una casilla a medias significa que algunas de sus filas están desactivadas. Haz clic y arrastra sobre las filas de abajo para cambiar varias a la vez.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

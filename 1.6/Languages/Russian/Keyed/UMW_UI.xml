@@ -53,6 +53,10 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>{0}: всё, что относится к этому разделу. Флажок переключает всю группу сразу; частично заполненный флажок означает, что часть строк отключена. Нажмите и проведите по строкам ниже, чтобы переключить сразу несколько.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>Собственные свойства {0}, разработанные самим модом. Флажок переключает всю группу сразу; частично заполненный флажок означает, что часть строк отключена. Нажмите и проведите по строкам ниже, чтобы переключить сразу несколько.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>Аналоги для ближнего боя тех свойств, которые {0} даёт своему уникальному стрелковому оружию. Флажок переключает всю группу сразу; частично заполненный флажок означает, что часть строк отключена. Нажмите и проведите по строкам ниже, чтобы переключить сразу несколько.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

@@ -53,6 +53,10 @@
   <UMW_GroupCountSuffix>({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
   <UMW_IntegrationGroupDesc>このセクションにある{0}由来のものすべてです.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OwnTraitsGroupDesc>{0}オリジナルの特性で,独自に設計されたものです.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_OdysseyTraitsGroupDesc>{0}がユニーク遠距離武器に与える特性の近接版です.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->

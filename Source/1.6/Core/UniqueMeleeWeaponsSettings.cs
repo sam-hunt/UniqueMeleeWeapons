@@ -356,7 +356,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     private static bool DrawGroupHeader(Listing_Standard listing, ModIntegration integration,
         IReadOnlyList<Def> members, int listedCount, Func<Def, bool> isEnabled, Action<Def, bool> setEnabled)
     {
-        string tooltip = "UMW_IntegrationGroupDesc".Translate(integration.ColoredName).Resolve();
+        string tooltip = integration.groupDescKey.Translate(integration.ColoredName).Resolve();
         int count = integration.IsActive ? members.Count : listedCount;
         // Colorize last, over the resolved string: the count joins the name's colour.
         string name = (integration.Name + "UMW_GroupCountSuffix".Translate(count).Resolve()).Colorize(integration.Color);

@@ -37,12 +37,17 @@ public sealed class ModIntegration
     public readonly string[] weaponDefNames;
     public readonly string[] traitDefNames;
 
+    // The Keyed key of the group header's tooltip, with the coloured name as {0}. The default
+    // ("everything from X in this section") is right for an owner whose rows ARE its content; an
+    // owner the rows are only named after, or that is this mod itself, overrides it.
+    public readonly string groupDescKey;
+
     private readonly bool isExpansion;
     private readonly string fallbackNameKey;
     private readonly Color? pickedColor;
 
     private ModIntegration(string packageId, bool isExpansion, string fallbackNameKey, Color? pickedColor,
-        string[] weaponDefNames, string[] traitDefNames)
+        string[] weaponDefNames, string[] traitDefNames, string groupDescKey)
     {
         this.packageId = packageId;
         this.isExpansion = isExpansion;
@@ -50,18 +55,20 @@ public sealed class ModIntegration
         this.pickedColor = pickedColor;
         this.weaponDefNames = weaponDefNames ?? Array.Empty<string>();
         this.traitDefNames = traitDefNames ?? Array.Empty<string>();
+        this.groupDescKey = groupDescKey ?? "UMW_IntegrationGroupDesc";
     }
 
     public static ModIntegration Expansion(string packageId, Color? pickedColor = null,
-        string[] weaponDefNames = null, string[] traitDefNames = null)
+        string[] weaponDefNames = null, string[] traitDefNames = null, string groupDescKey = null)
     {
-        return new ModIntegration(packageId, true, null, pickedColor, weaponDefNames, traitDefNames);
+        return new ModIntegration(packageId, true, null, pickedColor, weaponDefNames, traitDefNames, groupDescKey);
     }
 
     public static ModIntegration Mod(string packageId, string fallbackNameKey, Color color,
-        string[] weaponDefNames = null, string[] traitDefNames = null)
+        string[] weaponDefNames = null, string[] traitDefNames = null, string groupDescKey = null)
     {
-        return new ModIntegration(packageId, false, fallbackNameKey, color, weaponDefNames, traitDefNames);
+        return new ModIntegration(packageId, false, fallbackNameKey, color, weaponDefNames, traitDefNames,
+            groupDescKey);
     }
 
     public bool IsActive => ModLister.GetActiveModWithIdentifier(packageId, ignorePostfix: true) != null;
@@ -95,7 +102,13 @@ public sealed class ModIntegration
                 return expansion.label;
             }
             ModMetaData installed = ModLister.GetModWithIdentifier(packageId, ignorePostfix: true);
-            return installed?.Name ?? fallbackNameKey.Translate().Resolve();
+            if (installed != null)
+            {
+                return installed.Name;
+            }
+            // No fallback key means this mod itself (ModIntegrations.Self), which is always installed;
+            // the ContentPack name is the same About.xml name, kept as a belt-and-braces default.
+            return fallbackNameKey != null ? fallbackNameKey.Translate().Resolve() : UniqueMeleeWeaponsMod.ContentPack.Name;
         }
     }
 
@@ -114,12 +127,24 @@ public sealed class ModIntegration
 
 public static class ModIntegrations
 {
-    // The base game, as the group header every def with no optional dependency sits under, so every
-    // def row has the same indentation whether or not it has one. Owns no listed defs: its members
-    // are whatever no other integration claims, which also catches a third-party tagged unique.
-    // Always active. Colour hand-picked (its ExpansionDef has none).
+    // The base game, as the group header every WEAPON with no optional dependency sits under (they
+    // are unique variants of Core's weapons, as Royalty's are of Royalty's), so every def row has the
+    // same indentation whether or not it has one. Owns no listed defs: its members are whatever no
+    // other integration claims, which also catches a third-party tagged unique. Always active. Colour
+    // hand-picked (its ExpansionDef has none).
     public static readonly ModIntegration Core = ModIntegration.Expansion(
         ModContentPack.CoreModPackageId, pickedColor: ColorLibrary.LightBrown);
+
+    // This mod itself, as the group header the TRAITS of our own design sit under (Core ships no
+    // weapon trait, so "Core" would mislabel them): like Core it owns no listed defs and takes
+    // whatever no other integration claims. The name is our About.xml's through the same ModLister
+    // lookup the optional mods use (always installed, so the Keyed fallback is never needed), the
+    // packageId our own content pack's (set before anything can touch this class: the Mod ctor
+    // stores it before GetSettings runs ExposeData). Colour hand-picked: the bright yellow of the
+    // Workshop preview art, the mod's visual identity (the family table has the entry).
+    public static readonly ModIntegration Self = ModIntegration.Mod(
+        UniqueMeleeWeaponsMod.ContentPack.PackageId, null, ColorLibrary.Yellow,
+        groupDescKey: "UMW_OwnTraitsGroupDesc");
 
     // Royalty: the 1.6/Mods/Royalty root (the unique axe and warhammer, the three ultratech traits).
     // The trait list is also what the war merchant's scoped ban and the legacy allowUltratechTraits
@@ -130,10 +155,17 @@ public static class ModIntegrations
         weaponDefNames: new[] { "UMW_Axe_Unique", "UMW_Warhammer_Unique" },
         traitDefNames: new[] { "UMW_Monomolecular", "UMW_PlasmaCored", "UMW_ZeusHeaded" });
 
-    // Odyssey is a hard dependency, listed only for its name and colour in passing mentions
-    // (the earthshake cooldown tooltip). Its ExpansionDef colour is white, hence the hand pick.
+    // Odyssey is a hard dependency, so its group is always drawn and never locked. It owns the six
+    // traits that are melee ports of its own ranged ones (1.6/Defs/WeaponTraitDefs/Melee/, the ones
+    // whose header says "port of Odyssey's"), which the Traits section groups under its name so the
+    // player can tell them from our designs; the group tooltip says they are ports, not Odyssey's
+    // content. Also the name and colour for passing mentions (the earthshake cooldown tooltip). Its
+    // ExpansionDef colour is white, hence the hand pick.
     public static readonly ModIntegration Odyssey = ModIntegration.Expansion(
-        ModContentPack.OdysseyModPackageId, pickedColor: ColorLibrary.LightPurple);
+        ModContentPack.OdysseyModPackageId, pickedColor: ColorLibrary.LightPurple,
+        traitDefNames: new[] { "UMW_Cumbersome", "UMW_GoldInlay", "UMW_JadeInlay", "UMW_Lightweight",
+            "UMW_Ornamental", "UMW_Ugly" },
+        groupDescKey: "UMW_OdysseyTraitsGroupDesc");
 
     // VFE Pirates: the 1.6/Mods/VanillaFactionsExpandedPirates root (the two warcasket uniques).
     public static readonly ModIntegration VfePirates = ModIntegration.Mod(
@@ -147,8 +179,9 @@ public static class ModIntegrations
     public static readonly ModIntegration VanillaTexturesExpanded = ModIntegration.Mod(
         UniqueMeleeWeaponsSettings.VtePackageId, "UMW_ModNameVte", ColorLibrary.LightOrange);
 
-    // The integrations that own def rows, in the order their groups are drawn.
-    public static readonly IReadOnlyList<ModIntegration> Grouped = new[] { Royalty, VfePirates };
+    // The integrations that own def rows, in the order their groups are drawn; a section skips the
+    // ones that own nothing of its kind (Odyssey owns traits only).
+    public static readonly IReadOnlyList<ModIntegration> Grouped = new[] { Odyssey, Royalty, VfePirates };
 
     public static ModIntegration OwnerOfWeapon(Def def)
     {

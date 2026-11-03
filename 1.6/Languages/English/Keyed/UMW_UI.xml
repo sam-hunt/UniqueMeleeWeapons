@@ -27,16 +27,23 @@
   <UMW_NotActiveSuffix> (not active)</UMW_NotActiveSuffix>
   <UMW_LastTraitSuffix> (last trait for {0})</UMW_LastTraitSuffix>
 
-  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
-       adds sit under a header that is just that mod or DLC's name and its row count (coloured, no
-       extra text), with a three-state box that switches the whole group. The first string is the
-       count, with a leading space, appended to the name in the name's colour so the header reads
-       "Royalty (3)"; {0} is how many weapons or traits this mod adds for that mod or DLC in that
-       section, shown even while it is not active. The second is the header's tooltip; {0} is the name,
-       injected already coloured: do not inflect it. The last sentence describes click-and-drag
-       painting over the checkbox rows beneath the header. -->
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows sit under headers that are
+       just an owner's name and its row count (coloured, no extra text), with a three-state box that
+       switches the whole group. The first string is the count, with a leading space, appended to the
+       name in the name's colour so the header reads "Royalty (3)"; {0} is how many weapons or traits
+       of that group there are in that section, shown even while its mod or DLC is not active. The
+       other three are header tooltips; {0} is the owner's name, injected already coloured: do not
+       inflect it. They share their last two sentences, which describe the box and click-and-drag
+       painting over the checkbox rows beneath the header; keep those identical across the three. The
+       first tooltip is for an optional mod or DLC whose rows are its own content. The second is for
+       the Traits group headed by this mod's own name, holding the traits of its own design. The
+       third is for the Traits group headed by Odyssey, holding melee counterparts of the traits
+       Odyssey gives its own unique ranged weapons: they are this mod's traits, named and tuned after
+       Odyssey's, not Odyssey's content. -->
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_IntegrationGroupDesc>
+  <UMW_OwnTraitsGroupDesc>Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_OwnTraitsGroupDesc>
+  <UMW_OdysseyTraitsGroupDesc>Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_OdysseyTraitsGroupDesc>
   <!-- Fallback display names, used only while the mod is not installed at all (an installed mod
        supplies its own name from its About.xml, and a DLC's comes from the game). Proper nouns: keep
        them exactly as the mod publishes them, in every language. -->
