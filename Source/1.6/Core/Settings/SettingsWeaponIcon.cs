@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -27,14 +26,16 @@ namespace UniqueMeleeWeapons;
 // broke for some players on RimWorld 1.7's engine while never reproducing locally; its fix
 // (UWU e4008b3) was to draw through Widgets.ThingIcon, the path this file stays on.
 //
-// Colour one on a stuffable weapon is the gold inlay (UMW_GoldInlay's forcedColor, the same
-// ColorDef the trait forces in play), over colour two as the stuff tint its default material
-// gives it (what Widgets.ThingIcon shows for any stuffable item): a gold-inlaid steel blade, the
-// one look every stuffable unique can roll. A stuff-less unique (the warcasket pair) keeps the
-// body colour its def declares, since ResolveIcon already put that into the request, and takes a
-// deterministic accent from the pool CompUniqueWeapon rolls from (ColorType.Weapon,
-// randomlyPickable; decompile-verified 1.7), hashed from the defName so it is stable across
-// sessions.
+// Colour one is the gold inlay on every weapon (UMW_GoldInlay's forcedColor, the same ColorDef
+// the trait forces in play; the trait sits on the universal UMW_Melee category, so it is the one
+// look every unique can roll). Colour two on a stuffable weapon is the stuff tint its default
+// material gives it (what Widgets.ThingIcon shows for any stuffable item), a gold-inlaid steel
+// blade; a stuff-less unique (the warcasket pair) keeps the body colour its def declares, since
+// ResolveIcon already put that into the request. The gold is also what the row's fade works on:
+// the accent dims to a brown over the window while the weapon is off and lifts back to gold when
+// it is on, a change the eye catches at a glance, which is why the pair no longer takes an accent
+// of its own (an earlier version hashed one from the defName out of the ColorType.Weapon pool, and
+// a blue or green accent fading to a darker blue or green read as no change at all).
 //
 // Scale: every icon is drawn at IconScale times the def's own GenUI.IconDrawScale, the multiplier
 // Widgets.ThingIcon applies in every square icon box in the game (uiIconScale times the drawSize
@@ -98,37 +99,14 @@ public static class SettingsWeaponIcon
         Material mat = null;
         if (weapon.uiIconMaterial != null && MaterialPool.TryGetRequestForMat(weapon.uiIconMaterial, out MaterialRequest request))
         {
+            request.color = UMW_DefOf.UMW_GoldInlay.forcedColor?.color ?? Color.white;
             if (weapon.MadeFromStuff)
             {
-                request.color = UMW_DefOf.UMW_GoldInlay.forcedColor?.color ?? Color.white;
                 request.colorTwo = weapon.GetColorForStuff(GenStuff.DefaultStuffFor(weapon));
-            }
-            else
-            {
-                request.color = AccentFor(weapon);
             }
             mat = MaterialPool.MatFrom(request);
         }
         cache[weapon.defName] = (weapon, mat);
         return mat;
-    }
-
-    // Sorted by defName before hashing so the pick does not depend on def load order.
-    private static Color AccentFor(ThingDef weapon)
-    {
-        List<ColorDef> pool = DefDatabase<ColorDef>.AllDefs
-            .Where(c => c.colorType == ColorType.Weapon && c.randomlyPickable)
-            .OrderBy(c => c.defName)
-            .ToList();
-        if (pool.Count == 0)
-        {
-            return Color.white;
-        }
-        int index = GenText.StableStringHash(weapon.defName) % pool.Count;
-        if (index < 0)
-        {
-            index += pool.Count;
-        }
-        return pool[index].color;
     }
 }
