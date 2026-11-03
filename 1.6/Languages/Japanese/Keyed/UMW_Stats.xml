@@ -3,10 +3,6 @@
 
   <!-- Info card: per-trait effect lines under vanilla's "Weapon traits" entry, one " - ..." line
        each. Keep them short — the entry lists up to three traits at once. -->
-
-  <!-- EN: Effect -->
-  <UMW_TraitStat_Effect>効果</UMW_TraitStat_Effect>
-
   <!-- Per-tool damage / armor penetration. {0} is a tool capacity ("cut", "cut and stab") or the
        UMW_TraitStat_AllTools word when the trait modifies every tool. -->
   <!-- EN: melee -->

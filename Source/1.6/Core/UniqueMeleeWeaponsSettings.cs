@@ -46,11 +46,10 @@ namespace UniqueMeleeWeapons;
 // (Settings_Quests.cs, Settings_Abilities.cs); and a setting read at XML patch time instead
 // (PatchOperation_UMWSetting) is restart-to-apply and its row must say so (Settings_Compat.cs).
 //
-// Two layout patterns beyond the rows: tuning rows for ONE def (an ability, the quest) sit under a
-// SubsectionHeader carrying that def's icon, name and description, so the rows name only the property
-// (Settings_Abilities.cs, Settings_Quests.cs); and a def row carries vanilla's (i) info-card button
-// after its label (ToggleCell's infoCard), the one clickable thing allowed inside a clickable row,
-// with the row's toggle held off under it.
+// One layout pattern beyond the rows: tuning rows for ONE def sit under a header carrying that def's
+// icon, name and description (IconHeader), so the rows name only the property: a subsection inside a
+// section when the section holds several such defs (the abilities, Settings_Abilities.cs), the
+// section header itself when the section is that one def's (the warband quest, Settings_Quests.cs).
 public partial class UniqueMeleeWeaponsSettings : ModSettings
 {
     // Trailing space each section leaves below itself, so a section that early-returns leaves no gap
@@ -93,10 +92,8 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     private const float CellGap = 6f;
     private const float DisabledIconAlpha = 0.35f;
 
-    // Vanilla's checkbox edge, the size CheckboxLabeled draws its box at, and the edge of its (i)
-    // info-card button (InfoCardButtonWorker's fixed rect).
+    // Vanilla's checkbox edge, the size CheckboxLabeled draws its box at.
     private const float CheckboxSize = 24f;
-    private const float InfoButtonSize = 24f;
 
     // Presentation state for the scroll view, deliberately not scribed.
     private Vector2 scrollPosition;
@@ -174,13 +171,22 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     }
 
     // Top-level section heading (medium font), e.g. "Weapons". Indents the listing for the section's
-    // body; every section ends with EndSection, on every return path after its header.
-    private static void SectionHeader(Listing_Standard listing, string label)
+    // body; every section ends with EndSection, on every return path after its header. A section
+    // that is one def's own (the warband quest) passes that def's icon and description and gets an
+    // IconHeader instead of the plain label.
+    private static void SectionHeader(Listing_Standard listing, string label, Texture2D icon = null, string tooltip = null)
     {
-        Text.Font = GameFont.Medium;
-        listing.Label(label);
-        Text.Font = GameFont.Small;
-        listing.Gap(6f);
+        if (icon != null)
+        {
+            IconHeader(listing, label, icon, tooltip);
+        }
+        else
+        {
+            Text.Font = GameFont.Medium;
+            listing.Label(label);
+            Text.Font = GameFont.Small;
+            listing.Gap(6f);
+        }
         listing.Indent(SectionIndent);
         listing.ColumnWidth -= SectionIndent;
     }
@@ -251,17 +257,15 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // skips colour tags, RimWorld's styles being rich text), and is never clamped (only the locked
     // group header passes one, full width).
     //
-    // `infoCard`, if given, is the def whose vanilla info card a small (i) button straight after the
-    // label opens (Widgets.InfoCardButton, the bill and inspect panes' button; a stuffable ThingDef
-    // opens at its default stuff, the card's own "Show materials" button then lets the player pick
-    // another). A button inside a clickable row is a nested target, so the row's toggle is held off
-    // while the mouse is over the button: a click there only opens the card, and a paint drag
-    // passing over it leaves that cell for the drag's remaining travel across it. The button is
-    // drawn in either state, since a locked row's def is still worth reading, and the label's space
-    // is cut by the button's width first so the button never leaves the cell.
+    // No (i) info-card button after the label, although every row is a def: tried and dropped. A
+    // trait's card is bare (vanilla never opens one) and the row tooltip already renders the trait's
+    // whole info-card block, and a weapon's def card throws from the main menu, where the settings
+    // window is usually opened (StatWorker.ShouldShowFor dereferences Find.IdeoManager, which only
+    // exists inside a game; decompile-verified, RimWorld 1.7). A button that only works in play
+    // would need hiding outside it, and a nested button inside a toggle row read as clutter anyway.
     private static void ToggleCell(Rect cell, string label, TipSignal? tooltip, ref bool value,
         bool? forced = null, bool paintable = false, Action<Rect, bool> drawIcon = null, bool boxLeft = false,
-        float boxGap = CellGap, string lockedNote = null, Def infoCard = null)
+        float boxGap = CellGap, string lockedNote = null)
     {
         Widgets.DrawHighlightIfMouseover(cell);
         if (tooltip is TipSignal tip)
@@ -287,22 +291,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             drawIcon(new Rect(labelRect.x, cell.y, slotWidth, cell.height).ContractedBy(1f), shownValue);
             labelRect.xMin += slotWidth + CellGap;
         }
-        if (infoCard != null)
-        {
-            labelRect.xMax -= InfoButtonSize + CellGap;
-        }
         string shownLabel = label.IndexOf('<') >= 0 ? label : Text.ClampTextWithEllipsis(labelRect, label);
         if (shownLabel != label && tooltip == null)
         {
             TooltipHandler.TipRegion(cell, new TipSignal(label, label.GetHashCode()));
-        }
-
-        Rect infoRect = Rect.zero;
-        if (infoCard != null)
-        {
-            float labelWidth = Mathf.Min(Text.CalcSize(shownLabel).x, labelRect.width);
-            infoRect = new Rect(labelRect.x + labelWidth + CellGap, cell.y + (cell.height - InfoButtonSize) / 2f,
-                InfoButtonSize, InfoButtonSize);
         }
 
         TextAnchor prevAnchor = Text.Anchor;
@@ -324,57 +316,35 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         else
         {
             Widgets.Label(labelRect, shownLabel);
-            if (infoCard == null || !Mouse.IsOver(infoRect))
-            {
-                Widgets.ToggleInvisibleDraggable(cell, ref value, doMouseoverSound: true, paintable);
-            }
+            Widgets.ToggleInvisibleDraggable(cell, ref value, doMouseoverSound: true, paintable);
             Widgets.CheckboxDraw(boxX, boxY, value, disabled: false);
         }
         Text.Anchor = prevAnchor;
-        if (infoCard != null)
-        {
-            InfoButton(infoRect, infoCard);
-        }
     }
 
-    // Vanilla's info-card button for a def, the stuffable ThingDef overload picked for a weapon so
-    // its stats are those of a real material rather than of no material at all (what the Def overload
-    // gives a stuffable def). The card reports normal quality, as every def card does; a unique
-    // weapon's real quality is rolled per instance, so the card is the design, not a specimen.
-    private static void InfoButton(Rect rect, Def def)
-    {
-        if (def is ThingDef thingDef && thingDef.MadeFromStuff)
-        {
-            Widgets.InfoCardButton(rect.x, rect.y, thingDef, GenStuff.DefaultStuffFor(thingDef));
-        }
-        else
-        {
-            Widgets.InfoCardButton(rect.x, rect.y, def);
-        }
-    }
+    // A header led by a def's icon: the def's name in the medium font after a square icon slot as
+    // tall as the header, taller than a line of text so a 64-pixel gizmo or world-map icon keeps its
+    // detail (a missing icon leaves no empty slot), with the def's description as a tooltip over the
+    // icon and the label's text, not the whole row. Shared by the top-level section a single def
+    // owns (the warband quest, SectionHeader) and the subsections inside a section (the abilities,
+    // SubsectionHeader), so the two read alike. The margin under the icon is a touch wider than a
+    // plain header's, so the larger icon does not crowd the first row.
+    private const float IconHeaderHeight = 40f;
+    private const float IconHeaderIconGap = 8f;
+    private const float IconHeaderBottomGap = GroupHeaderBottomGap + 2f;
 
-    // A subsection inside a section: a named block of tuning rows for one def (an ability, the
-    // warband quest), headed by the def's icon and name in the group-header font with the def's
-    // description as the header's tooltip, its rows one indent step further in like a group's member
-    // rows, so a section of several reads as a tree. The icon slot is a square the header's height,
-    // taller than a line of text so a 64-pixel gizmo icon keeps its detail; a missing icon leaves no
-    // empty slot. The tooltip covers the icon and the label's text, not the whole row. Every
-    // subsection ends with EndSubsection.
-    private const float SubsectionHeaderHeight = 32f;
-    private const float SubsectionIconGap = 8f;
-
-    private static void SubsectionHeader(Listing_Standard listing, string label, Texture2D icon, string tooltip)
+    private static void IconHeader(Listing_Standard listing, string label, Texture2D icon, string tooltip)
     {
-        Rect rect = listing.GetRect(SubsectionHeaderHeight);
+        Rect rect = listing.GetRect(IconHeaderHeight);
         float left = rect.xMin;
         if (icon != null && icon != BaseContent.BadTex)
         {
-            GUI.DrawTexture(rect.LeftPartPixels(SubsectionHeaderHeight), icon);
-            rect.xMin += SubsectionHeaderHeight + SubsectionIconGap;
+            GUI.DrawTexture(rect.LeftPartPixels(IconHeaderHeight), icon);
+            rect.xMin += IconHeaderHeight + IconHeaderIconGap;
         }
         GameFont prevFont = Text.Font;
         TextAnchor prevAnchor = Text.Anchor;
-        Text.Font = GroupHeaderFont;
+        Text.Font = GameFont.Medium;
         Text.Anchor = TextAnchor.MiddleLeft;
         Widgets.Label(rect, label);
         if (!tooltip.NullOrEmpty())
@@ -385,7 +355,19 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         }
         Text.Anchor = prevAnchor;
         Text.Font = prevFont;
-        listing.Gap(listing.verticalSpacing + GroupHeaderBottomGap);
+        listing.Gap(listing.verticalSpacing + IconHeaderBottomGap);
+    }
+
+    // A subsection inside a section: a named block of tuning rows for one def (an ability), headed
+    // by IconHeader in the group-header font's place, its rows one indent step further in like a
+    // group's member rows, so a section of several reads as a tree. Every subsection ends with
+    // EndSubsection, which leaves a little more room below than a group does, so consecutive
+    // subsections with their tall icons read apart.
+    private const float SubsectionGap = GroupGap + 4f;
+
+    private static void SubsectionHeader(Listing_Standard listing, string label, Texture2D icon, string tooltip)
+    {
+        IconHeader(listing, label, icon, tooltip);
         listing.Indent(GroupRowIndent);
         listing.ColumnWidth -= GroupRowIndent;
     }
@@ -394,7 +376,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     {
         listing.ColumnWidth += GroupRowIndent;
         listing.Outdent(GroupRowIndent);
-        listing.Gap(GroupGap);
+        listing.Gap(SubsectionGap);
     }
 
     // A subsection header's tooltip: the def's name in the info card's yellow, then its description,

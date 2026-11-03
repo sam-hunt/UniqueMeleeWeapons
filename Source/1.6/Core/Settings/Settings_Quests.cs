@@ -34,23 +34,19 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
+    // The section is the one quest's own, so its header is the quest's (SectionHeader's icon form):
+    // "Warband quest" after the warband faction's label, as the quest itself is named, with the
+    // camp's world-map icon (the site part's expanding icon, what the player sees on the map) and a
+    // Keyed description of the quest as the tooltip. The site part's own description is one line
+    // about the camp, not the quest, and the quest's description is a grammar with placeholders, so
+    // neither can stand in. The Keyed text names the ancient mercenaries quest's DLC, injected
+    // coloured (family rule 6). A second quest would turn this back into a "Quests" section of
+    // subsections (Settings_Abilities.cs is the shape).
     private void DrawQuestsSection(Listing_Standard listing)
     {
-        // Same vanilla-reuse rule as the Abilities header: the quests main-tab button's def label
-        // is the localized word "quests" in every language, capitalized by LabelCap exactly as the
-        // bottom bar renders it. There is no vanilla Keyed key for it (the tab is a MainButtonDef).
-        SectionHeader(listing, MainButtonDefOf.Quests.LabelCap);
-
-        // The quest's subsection (SubsectionHeader): named after the warband faction, as the quest
-        // itself is, with the camp's world-map icon (the site part's expanding icon, what the player
-        // sees on the map) and a Keyed description of the quest as the tooltip. The site part's own
-        // description is one line about the camp, not the quest, and the quest's description is a
-        // grammar with placeholders, so neither can stand in. The Keyed text names the ancient
-        // mercenaries quest's DLC, injected coloured (family rule 6).
-        SubsectionHeader(listing, UMW_QuestDefOf.UMW_Warband.LabelCap,
-            UMW_QuestDefOf.UMW_WarbandCamp?.ExpandingIconTexture,
-            HeaderTip(UMW_QuestDefOf.UMW_Warband.LabelCap,
-                "UMW_WarbandQuestDesc".Translate(ModIntegrations.Odyssey.ColoredName).Resolve()));
+        string label = "UMW_SettingsQuestSection".Translate(UMW_QuestDefOf.UMW_Warband.LabelCap);
+        SectionHeader(listing, label, UMW_QuestDefOf.UMW_WarbandCamp?.ExpandingIconTexture,
+            HeaderTip(label, "UMW_WarbandQuestDesc".Translate(ModIntegrations.Odyssey.ColoredName).Resolve()));
 
         // Annotated at 1.0, which is AncientMercenaries' own rootSelectionWeight: our quest shares the
         // opportunity-site giver pool with it, so that mark is the reference point for "as often as the
@@ -62,7 +58,6 @@ public partial class UniqueMeleeWeaponsSettings
             min: 0f, max: 2f, step: 0.05f, format: "0.00",
             annotateAt: 1f, annotationLabel: UMW_QuestDefOf.BanditGang?.label);
 
-        EndSubsection(listing);
         EndSection(listing);
     }
 }

@@ -5,7 +5,11 @@
   <!-- EN: Unique Melee Weapons -->
   <UMW_SettingsCategory>Einzigartige Nahkampfwaffen</UMW_SettingsCategory>
 
-  <!-- Settings: section headers. -->
+  <!-- Settings: section headers. "Trait abilities" heads the tuning of the abilities some weapon
+       traits grant (the word "trait" as in weapon trait, the same word as the Traits header). The
+       quest section's header is "{0} quest" with {0} the warband faction's def label, capitalized
+       and already localized, so it reads "Warband quest"; phrase it so the injected name needs no
+       inflection. -->
   <!-- EN: Weapons -->
   <UMW_SettingsWeapons>Waffen</UMW_SettingsWeapons>
 
@@ -17,6 +21,12 @@
 
   <!-- EN: Traders -->
   <UMW_SettingsTraders>Händler</UMW_SettingsTraders>
+
+  <!-- EN: Trait abilities -->
+  <UMW_SettingsTraitAbilities>Merkmalsfähigkeiten</UMW_SettingsTraitAbilities>
+
+  <!-- EN: {0} quest -->
+  <UMW_SettingsQuestSection>{0}-Quest</UMW_SettingsQuestSection>
 
   <!-- EN: Compatibility -->
   <UMW_SettingsCompat>Kompatibilität</UMW_SettingsCompat>
@@ -120,12 +130,17 @@
   <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
   <UMW_TraderStocksUniquesShipDesc>Etwa jedes fünfte Handelsschiff ({0}) führt eine einzigartige Nahkampfwaffe industrieller oder späterer Fertigung zum Verkauf mit, und das Schiff kauft ohnehin einzigartige Nahkampfwaffen an. Deaktivierte Waffen tauchen nie auf.</UMW_TraderStocksUniquesShipDesc>
 
-  <!-- Settings: Abilities. Each ability is a subsection headed by its own icon and name (from its
-       def, already localized), with its description as the header's tooltip, so the slider rows
-       beneath name only the property: in the first three, {0} is the slider's current value. The
-       unit word is part of the template, so hour- and day-based cooldowns are separate keys. The
-       fourth row tunes a different def from the ability above it (the rallied buff), so it keeps the
-       subject: {0} is that hediff's def label, capitalized; {1} is the value. -->
+  <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
+       its def, already localized) followed by the first string, which names in parentheses the
+       weapon trait that grants it ("Earthshake (Piledriver)"); it has a leading space and {0} is
+       that trait's def label, capitalized and already localized. The ability's description is the
+       header's tooltip, so the slider rows beneath name only the property: in the next three, {0}
+       is the slider's current value. The unit word is part of the template, so hour- and day-based
+       cooldowns are separate keys. The last row tunes a different def from the ability above it
+       (the rallied buff), so it keeps the subject: {0} is that hediff's def label, capitalized; {1}
+       is the value. -->
+  <!-- EN:  ({0}) -->
+  <UMW_TraitAbilitySuffix> ({0})</UMW_TraitAbilitySuffix>
   <!-- EN: Cooldown: {0} hours -->
   <UMW_CooldownHours>Abklingzeit: {0} Stunden</UMW_CooldownHours>
 
@@ -154,10 +169,10 @@
   <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
   <UMW_RalliedDurationDesc>Wie lange die Wirkung 'angespornt' anhält; sie halbiert Schmerz und Taumelzeit. Schlafende werden stattdessen geweckt und nehmen es übel.</UMW_RalliedDurationDesc>
 
-  <!-- Settings: Quests. The warband quest is a subsection headed by its camp's world-map icon and
-       the warband faction's def label (already localized). The first string is that header's
-       tooltip, describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do
-       not inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
+  <!-- Settings: Warband quest. The section is headed by the camp's world-map icon and the
+       UMW_SettingsQuestSection header above. The first string is that header's tooltip,
+       describing the quest; {0} is the Odyssey DLC's name, injected already coloured: do not
+       inflect it. "Ancient mercenaries" is the vanilla quest's name; translate it to match the
        official localization. The second is the slider row's label; {0} is the slider's current
        value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
        vanilla content names too. -->

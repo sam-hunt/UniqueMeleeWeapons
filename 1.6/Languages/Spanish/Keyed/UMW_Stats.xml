@@ -4,10 +4,6 @@
   <!-- Info card: per-trait effect lines under vanilla's "Rasgos del arma" entry, one " - ..." line
        each. Keep them short: the entry lists up to three traits at once. Fragments take no trailing
        period and no markup. -->
-
-  <!-- EN: Effect -->
-  <UMW_TraitStat_Effect>Efecto</UMW_TraitStat_Effect>
-
   <!-- Per-tool damage / armor penetration. {0} is a tool capacity ("corte", "corte y puñalada") or the
        UMW_TraitStat_AllTools word when the trait modifies every tool. Core's capacity labels are not
        all nouns ("contundente" is an adjective), so {0} is parenthesized rather than reached through

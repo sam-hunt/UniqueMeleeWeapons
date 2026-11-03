@@ -1,3 +1,4 @@
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -150,17 +151,16 @@ public partial class UniqueMeleeWeaponsSettings
         }
     }
 
-    // One subsection per ability (SubsectionHeader: its gizmo icon, its name, its description as the
-    // tooltip), the rows beneath it, so a row's label names only the property ("Cooldown: 12 hours");
-    // the Rallied hediff's row keeps its own name, being a different def from the ability above it.
+    // One subsection per ability (SubsectionHeader: its gizmo icon, its name suffixed with the trait
+    // that grants it, its description as the tooltip), the rows beneath it, so a row's label names
+    // only the property ("Cooldown: 12 hours"); the Rallied hediff's row keeps its own name, being a
+    // different def from the ability above it.
     private void DrawAbilitiesSection(Listing_Standard listing)
     {
-        // Vanilla already localizes this exact word (Core Keyed <Abilities>), so reuse it
-        // rather than shipping a duplicate key translators would have to do twice.
-        SectionHeader(listing, "Abilities".Translate());
+        SectionHeader(listing, "UMW_SettingsTraitAbilities".Translate());
 
         AbilityDef earthshake = UMW_DefOf.UMW_Earthshake;
-        SubsectionHeader(listing, earthshake.LabelCap, earthshake.uiIcon, HeaderTip(earthshake.LabelCap, earthshake.description));
+        SubsectionHeader(listing, AbilityHeader(earthshake), earthshake.uiIcon, HeaderTip(earthshake.LabelCap, earthshake.description));
 
         // The description names Odyssey's EMP pulser as the default's reference, so the DLC's name is
         // injected coloured (family rule 6, passing mentions included).
@@ -178,7 +178,7 @@ public partial class UniqueMeleeWeaponsSettings
         EndSubsection(listing);
 
         AbilityDef rallyingCry = UMW_DefOf.UMW_RallyingCry;
-        SubsectionHeader(listing, rallyingCry.LabelCap, rallyingCry.uiIcon, HeaderTip(rallyingCry.LabelCap, rallyingCry.description));
+        SubsectionHeader(listing, AbilityHeader(rallyingCry), rallyingCry.uiIcon, HeaderTip(rallyingCry.LabelCap, rallyingCry.description));
 
         rallyingCryCooldownDays = SliderRow(
             listing, "UMW_CooldownDays", "UMW_RallyingCryCooldownDesc", null,
@@ -199,5 +199,16 @@ public partial class UniqueMeleeWeaponsSettings
 
         EndSubsection(listing);
         EndSection(listing);
+    }
+
+    // The subsection's name: the ability, then in parentheses the trait that grants it, so the
+    // player can find the ability's row from the trait they know. The trait is found from the
+    // roster rather than named here (a trait's abilityProps is the one place vanilla links the two),
+    // so an ability re-homed onto another trait keeps a true header; an ability no trait grants shows
+    // bare.
+    private static string AbilityHeader(AbilityDef ability)
+    {
+        WeaponTraitDef trait = DefDatabase<WeaponTraitDef>.AllDefs.FirstOrDefault(t => t.abilityProps?.abilityDef == ability);
+        return trait == null ? ability.LabelCap : ability.LabelCap + "UMW_TraitAbilitySuffix".Translate(trait.LabelCap);
     }
 }
