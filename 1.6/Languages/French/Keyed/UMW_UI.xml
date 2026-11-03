@@ -32,27 +32,24 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> (identique à {0})</UMW_SameAsSuffix>
 
-  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
-       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in
-       the second is a weapon's def label (lowercase): the row is a trait held on because it is the last
-       trait that weapon could roll first. -->
-  <!-- EN:  (requires {0}) -->
-  <UMW_RequiresSuffix> (nécessite {0})</UMW_RequiresSuffix>
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
+       to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
+       installed or not enabled, so the greyed header reads "Royalty (not active)". {0} in the second
+       is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
+       the last trait that weapon could roll first, so the box is held on. -->
+  <!-- EN:  (not active) -->
+  <UMW_NotActiveSuffix> (inactif)</UMW_NotActiveSuffix>
 
   <!-- EN:  (last trait for {0}) -->
   <UMW_LastTraitSuffix> (dernier trait pour {0})</UMW_LastTraitSuffix>
 
-  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC adds
-       sit under a header naming it, with a three-state box that switches the whole group. {0} is that
-       mod or DLC's name, injected already coloured: do not inflect it. -->
-  <!-- EN: {0} weapons -->
-  <UMW_IntegrationWeapons>Armes : {0}</UMW_IntegrationWeapons>
-
-  <!-- EN: {0} traits -->
-  <UMW_IntegrationTraits>Traits : {0}</UMW_IntegrationTraits>
-
-  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
-  <UMW_IntegrationGroupDesc>Tout ce qui vient de {0} dans cette section. La case bascule tout le groupe d'un coup ; une case à moitié remplie signifie que certaines de ses lignes sont désactivées.</UMW_IntegrationGroupDesc>
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
+       adds sit under a header that is just that mod or DLC's name (coloured, no extra text), with a
+       three-state box that switches the whole group. This is the header's tooltip; {0} is that name,
+       injected already coloured: do not inflect it. The last sentence describes click-and-drag
+       painting over the checkbox rows beneath the header. -->
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_IntegrationGroupDesc>Tout ce qui vient de {0} dans cette section. La case bascule tout le groupe d'un coup ; une case à moitié remplie signifie que certaines de ses lignes sont désactivées. Cliquez et faites glisser sur les lignes ci-dessous pour en basculer plusieurs à la fois.</UMW_IntegrationGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->
@@ -65,8 +62,8 @@
        gender varies (hache unique / glaive unique) and which is absent from the vanilla WordInfo gender
        tables, so {0_gender} would silently default to masculine. The French therefore never agrees with
        {0}: it keeps every later reference on "l'arme" and puts no article in front of the placeholder. -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
-  <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}. Désactivez l'option pour la retirer de tous les groupes de récompenses et de butin. Les autres armes prennent alors sa place. Les armes déjà présentes dans votre sauvegarde ne sont pas touchées. Certains mods peuvent contourner cette option avec leur propre générateur de butin.</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. -->
+  <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}. Désactivez l'option pour la retirer de tous les groupes de récompenses et de butin. Les autres armes prennent alors sa place. Les armes déjà présentes dans votre sauvegarde ne sont pas touchées.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; {0} is that label (lowercase). -->
   <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->

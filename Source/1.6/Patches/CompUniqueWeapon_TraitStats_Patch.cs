@@ -9,7 +9,10 @@ namespace UniqueMeleeWeapons.Patches;
 
 // Draws each trait's effect lines into vanilla's "Weapon traits" info-card entry — the info card's
 // renderer for the TraitEffectLinesExtension that TraitEffectSummary attaches at startup. It derives
-// nothing itself; the companion mod's trait-picker tooltip draws the same lines its own way.
+// nothing itself; the companion mod's trait-picker tooltip draws the same lines its own way. The
+// per-trait block is public (TraitBlock) so the settings window's trait-row tooltip shows a trait
+// exactly as the info card does (Core/Settings/Settings_Traits.cs); keep the two from diverging by
+// changing the block here, never by rendering a second copy there.
 //
 // CompUniqueWeapon.SpecialDisplayStats builds ONE StatDrawEntry whose hover report is a pre-rendered
 // string: per trait, a yellow label, the description, then its statOffsets and statFactors. The entry
@@ -81,27 +84,40 @@ public static class CompUniqueWeapon_TraitStats_Patch
 
         for (int i = 0; i < traits.Count; i++)
         {
-            WeaponTraitDef trait = traits[i];
-            sb.AppendLine(trait.LabelCap.Colorize(ColorLibrary.Yellow));
-            sb.AppendLine(trait.description);
-
-            List<string> lines = EffectLines(trait);
-            if (lines != null)
-            {
-                foreach (string line in lines)
-                {
-                    sb.AppendLine(" - " + line);
-                }
-            }
-            AppendStatModifiers(sb, trait.statOffsets, ToStringNumberSense.Offset, 0f);
-            AppendStatModifiers(sb, trait.statFactors, ToStringNumberSense.Factor, 1f);
-
+            AppendTraitBlock(sb, traits[i]);
             if (i < traits.Count - 1)
             {
                 sb.AppendLine();
             }
         }
         return sb.ToString();
+    }
+
+    // One trait as the info card shows it: yellow label, description, effect lines, then its
+    // non-neutral stat offsets and factors, one per line with vanilla's " - " prefix. No trailing
+    // newline, so a caller can place it in a larger text.
+    public static string TraitBlock(WeaponTraitDef trait)
+    {
+        var sb = new StringBuilder();
+        AppendTraitBlock(sb, trait);
+        return sb.ToString().TrimEnd();
+    }
+
+    private static void AppendTraitBlock(StringBuilder sb, WeaponTraitDef trait)
+    {
+        sb.AppendLine(trait.LabelCap.Colorize(ColorLibrary.Yellow));
+        sb.AppendLine(trait.description);
+
+        List<string> lines = EffectLines(trait);
+        if (lines != null)
+        {
+            foreach (string line in lines)
+            {
+                sb.AppendLine(" - " + line);
+            }
+        }
+        AppendStatModifiers(sb, trait.statOffsets, ToStringNumberSense.Offset, 0f);
+        AppendStatModifiers(sb, trait.statFactors, ToStringNumberSense.Factor, 1f);
     }
 
     // Vanilla prints every entry in the list; skipping no-op values keeps a trait that carries a

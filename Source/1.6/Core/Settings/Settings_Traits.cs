@@ -137,7 +137,8 @@ public partial class UniqueMeleeWeaponsSettings
     }
 
     // Under one group header per owner: Core first (everything no integration claims), then each
-    // integration's group. Every trait row is indented the same, whichever group it is in.
+    // integration's group. Every trait row is indented the same, whichever group it is in, and the
+    // rows are paintable (click and drag to set a run of them; ToggleRow).
     private void DrawTraitsSection(Listing_Standard listing)
     {
         SectionHeader(listing, "UMW_SettingsTraits".Translate());
@@ -159,8 +160,7 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawTraitGroup(Listing_Standard listing, ModIntegration integration, List<WeaponTraitDef> members)
     {
-        if (!DrawGroupHeader(listing, integration, "UMW_IntegrationTraits", members,
-                t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
+        if (!DrawGroupHeader(listing, integration, members, t => !IsTraitDisabled((WeaponTraitDef)t), SetTraitEnabled))
         {
             return;
         }
@@ -174,7 +174,10 @@ public partial class UniqueMeleeWeaponsSettings
     // The checkbox reads as "enabled" while the stored set holds the DISABLED ones, so the ref bool is
     // a local written back only on an actual change; that keeps the set free of entries for traits the
     // player never touched. A trait that is the last first-pick candidate for some weapon is held on,
-    // suffixed with that weapon's name.
+    // suffixed with that weapon's name. The tooltip leads with the trait itself, rendered exactly as
+    // its block on a weapon's info card (label, description, effect lines, stat lines; the one
+    // renderer in CompUniqueWeapon_TraitStats_Patch), then the setting's explanation; built lazily,
+    // only while hovered (the TipSignal overload of ToggleRow).
     private void DrawTraitRow(Listing_Standard listing, WeaponTraitDef trait)
     {
         bool enabled = !IsTraitDisabled(trait);
@@ -186,12 +189,20 @@ public partial class UniqueMeleeWeaponsSettings
             label += "UMW_LastTraitSuffix".Translate(stranded.label);
             forced = true;
         }
-        ToggleRow(listing, label, "UMW_TraitEnabledDesc".Translate(trait.label), ref enabled, forced,
-            indent: GroupIndent);
+        TipSignal tooltip = new TipSignal(() => TraitTooltip(trait), trait.GetHashCode());
+        ToggleRow(listing, label, tooltip, ref enabled, forced, indent: GroupRowIndent, paintable: true);
         if (enabled != wasEnabled)
         {
             SetTraitEnabled(trait, enabled);
         }
+    }
+
+    // Resolve() keeps the block's yellow label: adding a TaggedString to the string would yield a
+    // TaggedString, and its implicit conversion back to string strips every tag.
+    private static string TraitTooltip(WeaponTraitDef trait)
+    {
+        return Patches.CompUniqueWeapon_TraitStats_Patch.TraitBlock(trait) + "\n\n"
+            + "UMW_TraitEnabledDesc".Translate(trait.label).Resolve();
     }
 
     // Also the group header's bulk setter. Disabling is refused for a trait some weapon needs, so a

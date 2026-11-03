@@ -33,6 +33,9 @@ The 2026-10-22 family audit's findings were settled on 2026-11-03 (family rules 
 template: a gated row hides only when it tunes a compat shim for the other mod's own content or is
 derived from absent data; colour table added). Left over:
 
-- **In-game check of the reworked window** (grouped Weapons and Traits sections, the Royalty and VFE
-  Pirates headers with and without those mods loaded, the held-on last-trait row, the coloured names
-  in the earthshake and VTE tooltips): the rework was built and smoke-tested, not eyeballed.
+- **In-game check of the reworked window** (grouped Weapons and Traits sections with their two-step
+  indent, the bare-name Royalty and VFE Pirates headers with and without those mods loaded and the
+  "(not active)" suffix, the held-on last-trait row, click-and-drag painting across the def rows
+  and past a group header, the def rows' tooltips showing the weapon or trait block in yellow, the
+  coloured names in the earthshake and VTE tooltips): the rework was built and smoke-tested, not
+  eyeballed.

@@ -19,21 +19,20 @@
   <UMW_DefaultSuffix> (default)</UMW_DefaultSuffix>
   <!-- {0} is another piece of content the current value matches, named from its own def label. -->
   <UMW_SameAsSuffix> (same as {0})</UMW_SameAsSuffix>
-  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
-       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. It is
-       shown on a group header only while that mod or DLC is missing. {0} in the second is a weapon's
-       def label (lowercase): the row is a trait that cannot be turned off because it is the last
-       trait that weapon could roll first, so the box is held on. -->
-  <UMW_RequiresSuffix> (requires {0})</UMW_RequiresSuffix>
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
+       to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
+       installed or not enabled, so the greyed header reads "Royalty (not active)". {0} in the second
+       is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
+       the last trait that weapon could roll first, so the box is held on. -->
+  <UMW_NotActiveSuffix> (not active)</UMW_NotActiveSuffix>
   <UMW_LastTraitSuffix> (last trait for {0})</UMW_LastTraitSuffix>
 
   <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
-       adds sit under a header naming it, with a three-state box that switches the whole group. {0}
-       is that mod or DLC's name, injected already coloured: do not inflect it. The header stays
-       visible while the mod is missing, greyed, with UMW_RequiresSuffix appended. -->
-  <UMW_IntegrationWeapons>{0} weapons</UMW_IntegrationWeapons>
-  <UMW_IntegrationTraits>{0} traits</UMW_IntegrationTraits>
-  <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off.</UMW_IntegrationGroupDesc>
+       adds sit under a header that is just that mod or DLC's name (coloured, no extra text), with a
+       three-state box that switches the whole group. This is the header's tooltip; {0} is that name,
+       injected already coloured: do not inflect it. The last sentence describes click-and-drag
+       painting over the checkbox rows beneath the header. -->
+  <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_IntegrationGroupDesc>
   <!-- Fallback display names, used only while the mod is not installed at all (an installed mod
        supplies its own name from its About.xml, and a DLC's comes from the game). Proper nouns: keep
        them exactly as the mod publishes them, in every language. -->
@@ -41,14 +40,13 @@
   <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon, labelled from the weapon's own def label; the row list
-       is generated, so this is the only string it needs. {0} is that label (lowercase).
-       The closing caveat is deliberate, not filler: the gate covers every pool that asks
-       ThingSetMakerUtility, which is all shipped content, but a third-party mod rolling loot through its
-       own custom generator can bypass it (see ThingSetMakerUtility_CanGenerate_Patch.cs). -->
-  <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this.</UMW_WeaponEnabledDesc>
+       is generated, so this is the only string it needs. {0} is that label (lowercase). In the tooltip
+       it follows the weapon's own label and description, after a blank line. -->
+  <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; the row list
-       is generated, so this is the only string it needs. {0} is that label (lowercase). -->
+       is generated, so this is the only string it needs. {0} is that label (lowercase). In the tooltip
+       it follows the trait's own label, description and effect lines, after a blank line. -->
   <UMW_TraitEnabledDesc>Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->

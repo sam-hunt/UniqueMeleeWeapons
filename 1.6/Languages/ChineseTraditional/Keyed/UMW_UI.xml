@@ -30,24 +30,24 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix>（與「{0}」相同）</UMW_SameAsSuffix>
 
-  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
-       mod or DLC name, injected already coloured: do not inflect it. {0} in the second is a weapon's
-       def label (lowercase): the trait is held on because it is the last one that weapon could roll first. -->
-  <!-- EN:  (requires {0}) -->
-  <UMW_RequiresSuffix>（需要{0}）</UMW_RequiresSuffix>
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
+       to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
+       installed or not enabled, so the greyed header reads "Royalty (not active)". {0} in the second
+       is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
+       the last trait that weapon could roll first, so the box is held on. -->
+  <!-- EN:  (not active) -->
+  <UMW_NotActiveSuffix>（未安裝或未啟用）</UMW_NotActiveSuffix>
 
   <!-- EN:  (last trait for {0}) -->
   <UMW_LastTraitSuffix>（「{0}」的最後一項特質）</UMW_LastTraitSuffix>
 
-  <!-- Settings: grouped rows. {0} is a mod or DLC name, injected already coloured: do not inflect it. -->
-  <!-- EN: {0} weapons -->
-  <UMW_IntegrationWeapons>{0}武器</UMW_IntegrationWeapons>
-
-  <!-- EN: {0} traits -->
-  <UMW_IntegrationTraits>{0}特質</UMW_IntegrationTraits>
-
-  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
-  <UMW_IntegrationGroupDesc>本區段中來自{0}的所有內容。核取方塊可一次切換整個群組；半選狀態表示其中部分項目已關閉。</UMW_IntegrationGroupDesc>
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
+       adds sit under a header that is just that mod or DLC's name (coloured, no extra text), with a
+       three-state box that switches the whole group. This is the header's tooltip; {0} is that name,
+       injected already coloured: do not inflect it. The last sentence describes click-and-drag
+       painting over the checkbox rows beneath the header. -->
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_IntegrationGroupDesc>本區段中來自{0}的所有內容。核取方塊可一次切換整個群組；半選狀態表示其中部分項目已關閉。在下方的項目上按住並拖曳，可一次切換多個。</UMW_IntegrationGroupDesc>
 
   <!-- Fallback display names: proper nouns, kept exactly as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->
@@ -57,8 +57,8 @@
   <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
-  <UMW_WeaponEnabledDesc>允許生成「{0}」。關閉後會將其從所有獎勵與戰利品池中移除，改由其他武器頂替。存檔中已有的武器不受影響。部分模組自身的戰利品產生器可能會繞過此設定。</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. -->
+  <UMW_WeaponEnabledDesc>允許生成「{0}」。關閉後會將其從所有獎勵與戰利品池中移除，改由其他武器頂替。存檔中已有的武器不受影響。</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->

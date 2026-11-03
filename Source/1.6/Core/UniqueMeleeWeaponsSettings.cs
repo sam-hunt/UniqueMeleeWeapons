@@ -51,11 +51,13 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // behind rather than a double gap between its neighbours.
     private const float SectionGap = 18f;
 
-    // Indent of the member rows under a group header, taken off the row's LEFT edge (ToggleRow's
-    // `indent`), never via Listing.Indent: that only moves curX and leaves ColumnWidth alone, so an
-    // indented CheckboxLabeled row overflows the listing by the indent and its box, drawn at the row's
-    // right edge, is clipped by the scroll view.
-    private const float GroupIndent = 24f;
+    // Two indent steps under a section header: the group header (a mod or DLC's name) sits one step in
+    // and its member rows one more, so the groups read as sub-blocks of the section. Both are taken off
+    // the row's LEFT edge (ToggleRow's `indent`), never via Listing.Indent: that only moves curX and
+    // leaves ColumnWidth alone, so an indented CheckboxLabeled row overflows the listing by the indent
+    // and its box, drawn at the row's right edge, is clipped by the scroll view.
+    private const float GroupHeaderIndent = 24f;
+    private const float GroupRowIndent = 48f;
 
     // Extra space below each group's last member row, so groups read as blocks.
     private const float GroupGap = 8f;
@@ -156,15 +158,32 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // height and spacing match Listing_Standard.CheckboxLabeled, so the two can sit in one list.
     // `label` and `tooltip` are plain strings: a caller injecting a coloured name must Resolve() its
     // TaggedString first, or the implicit conversion strips the tag.
+    //
+    // `paintable` turns on vanilla's click-and-drag painting (Widgets.CheckboxLabeled's own parameter,
+    // the Animals tab's behaviour): a drag that starts on a paintable row sets every paintable row it
+    // crosses to the same value, with the brush shown at the cursor, until the button is released.
+    // The paint state is one static in Widgets, so it carries across sections and groups; the long
+    // generated def lists opt in, the handful of standalone toggles do not. A forced row never takes
+    // part (CheckboxLabeled skips its click handling when disabled), so a held-on row stays held.
     private static void ToggleRow(Listing_Standard listing, string label, string tooltip, ref bool value,
-        bool? forced = null, float indent = 0f)
+        bool? forced = null, float indent = 0f, bool paintable = false)
+    {
+        TipSignal? tip = tooltip.NullOrEmpty() ? null : new TipSignal(tooltip);
+        ToggleRow(listing, label, tip, ref value, forced, indent, paintable);
+    }
+
+    // The same row with a TipSignal, for a tooltip that is built lazily: the def rows render a def's
+    // description and effect lines into theirs, which TooltipHandler then only asks for while the row
+    // is actually hovered (a Func<string> TipSignal), rather than every row every frame.
+    private static void ToggleRow(Listing_Standard listing, string label, TipSignal? tooltip, ref bool value,
+        bool? forced = null, float indent = 0f, bool paintable = false)
     {
         Rect row = listing.GetRect(Text.LineHeight);
         row.xMin += indent;
         Widgets.DrawHighlightIfMouseover(row);
-        if (!tooltip.NullOrEmpty())
+        if (tooltip is TipSignal tip)
         {
-            TooltipHandler.TipRegion(row, tooltip);
+            TooltipHandler.TipRegion(row, tip);
         }
         if (forced is bool shown)
         {
@@ -174,34 +193,41 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         }
         else
         {
-            Widgets.CheckboxLabeled(row, label, ref value);
+            Widgets.CheckboxLabeled(row, label, ref value, paintable: paintable);
         }
         listing.Gap(listing.verticalSpacing);
     }
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
-    // def rows" pattern). The box is a pure derivation of the members, never separate state: on when
-    // every member is enabled, off when none, partial otherwise, and a click (on the box or, like
-    // CheckboxLabeled, anywhere on the row) writes every member through `setEnabled`, which may refuse
-    // (a trait some weapon needs), so the header is allowed to land partial. Returns whether the
-    // caller should draw the member rows beneath it.
+    // def rows" pattern). Its label is the owner's bare coloured name: the section header above it
+    // already says whether these are weapons or traits. The box is a pure derivation of the members,
+    // never separate state: on when every member is enabled, off when none, partial otherwise, and a
+    // click (on the box or, like CheckboxLabeled, anywhere on the row) writes every member through
+    // `setEnabled`, which may refuse (a trait some weapon needs), so the header is allowed to land
+    // partial. Returns whether the caller should draw the member rows beneath it.
+    //
+    // The header is deliberately NOT paintable, although the member rows are: a paint drag that
+    // crosses a header on its way down a list would otherwise switch that whole group, including rows
+    // the drag never reached. The drag passes over the header without effect and resumes on the rows
+    // beneath; painting stays a per-row brush, and bulk changes stay a deliberate click.
     //
     // While the mod is missing there are no members, so the derived state is off, which is exactly the
     // forced-off value the family rule wants; the row is then drawn through the locked ToggleRow path
-    // (CheckboxMulti has no disabled parameter) with the "(requires X)" suffix, and nothing beneath.
-    // A mod that IS active but owns no loaded member (a stale table entry) draws nothing: that is a
-    // data-derived row, and there is nothing to group.
-    private static bool DrawGroupHeader(Listing_Standard listing, ModIntegration integration, string labelKey,
+    // (CheckboxMulti has no disabled parameter) with the "(not active)" suffix, which with the name as
+    // the label is the family's "(requires X)" in the one form that does not repeat X, and nothing
+    // beneath. A mod that IS active but owns no loaded member (a stale table entry) draws nothing:
+    // that is a data-derived row, and there is nothing to group.
+    private static bool DrawGroupHeader(Listing_Standard listing, ModIntegration integration,
         IReadOnlyList<Def> members, Func<Def, bool> isEnabled, Action<Def, bool> setEnabled)
     {
         string name = integration.ColoredName;
-        string label = labelKey.Translate(name).Resolve();
         string tooltip = "UMW_IntegrationGroupDesc".Translate(name).Resolve();
 
         if (!integration.IsActive)
         {
             bool off = false;
-            ToggleRow(listing, label + "UMW_RequiresSuffix".Translate(name).Resolve(), tooltip, ref off, forced: false);
+            ToggleRow(listing, name + "UMW_NotActiveSuffix".Translate().Resolve(), tooltip, ref off, forced: false,
+                indent: GroupHeaderIndent);
             return false;
         }
         if (members.Count == 0)
@@ -215,12 +241,13 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             : MultiCheckboxState.Partial;
 
         Rect row = listing.GetRect(Text.LineHeight);
+        row.xMin += GroupHeaderIndent;
         Widgets.DrawHighlightIfMouseover(row);
         TooltipHandler.TipRegion(row, tooltip);
         Rect labelRect = new Rect(row.x, row.y, row.width - CheckboxSize, row.height);
         TextAnchor prevAnchor = Text.Anchor;
         Text.Anchor = TextAnchor.MiddleLeft;
-        Widgets.Label(labelRect, label);
+        Widgets.Label(labelRect, name);
         Text.Anchor = prevAnchor;
 
         Rect boxRect = new Rect(row.xMax - CheckboxSize, row.y, CheckboxSize, CheckboxSize);

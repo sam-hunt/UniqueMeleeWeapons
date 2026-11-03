@@ -30,27 +30,24 @@
   <!-- EN:  (same as {0}) -->
   <UMW_SameAsSuffix> (wie {0})</UMW_SameAsSuffix>
 
-  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. {0} in the first is a
-       mod or DLC name, injected already coloured: do not inflect it, recast around it instead. {0} in
-       the second is a weapon's def label (lowercase): the row is a trait held on because it is the last
-       trait that weapon could roll first. -->
-  <!-- EN:  (requires {0}) -->
-  <UMW_RequiresSuffix> (benötigt {0})</UMW_RequiresSuffix>
+  <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
+       to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
+       installed or not enabled, so the greyed header reads "Royalty (not active)". {0} in the second
+       is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
+       the last trait that weapon could roll first, so the box is held on. -->
+  <!-- EN:  (not active) -->
+  <UMW_NotActiveSuffix> (nicht aktiv)</UMW_NotActiveSuffix>
 
   <!-- EN:  (last trait for {0}) -->
   <UMW_LastTraitSuffix> (letztes Merkmal für {0})</UMW_LastTraitSuffix>
 
-  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC adds
-       sit under a header naming it, with a three-state box that switches the whole group. {0} is that
-       mod or DLC's name, injected already coloured: do not inflect it. -->
-  <!-- EN: {0} weapons -->
-  <UMW_IntegrationWeapons>Waffen aus {0}</UMW_IntegrationWeapons>
-
-  <!-- EN: {0} traits -->
-  <UMW_IntegrationTraits>Merkmale aus {0}</UMW_IntegrationTraits>
-
-  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. -->
-  <UMW_IntegrationGroupDesc>Alles aus {0} in diesem Abschnitt. Das Kästchen schaltet die ganze Gruppe auf einmal um; ein halb gefülltes Kästchen bedeutet, dass einige ihrer Zeilen ausgeschaltet sind.</UMW_IntegrationGroupDesc>
+  <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
+       adds sit under a header that is just that mod or DLC's name (coloured, no extra text), with a
+       three-state box that switches the whole group. This is the header's tooltip; {0} is that name,
+       injected already coloured: do not inflect it. The last sentence describes click-and-drag
+       painting over the checkbox rows beneath the header. -->
+  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
+  <UMW_IntegrationGroupDesc>Alles aus {0} in diesem Abschnitt. Das Kästchen schaltet die ganze Gruppe auf einmal um; ein halb gefülltes Kästchen bedeutet, dass einige ihrer Zeilen ausgeschaltet sind. Klicke und ziehe über die Zeilen darunter, um mehrere auf einmal umzuschalten.</UMW_IntegrationGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept as published. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->
@@ -60,8 +57,8 @@
   <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. Some mods' own loot generators may bypass this. -->
-  <UMW_WeaponEnabledDesc>{0} darf generiert werden. Schalte die Option aus, um die Waffe aus jedem Belohnungs- und Beutepool zu entfernen; an ihre Stelle treten die anderen Waffen. Bereits in deinem Speicherstand vorhandene Exemplare bleiben unangetastet. Eigene Beutegeneratoren mancher Mods können das umgehen.</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. -->
+  <UMW_WeaponEnabledDesc>{0} darf generiert werden. Schalte die Option aus, um die Waffe aus jedem Belohnungs- und Beutepool zu entfernen; an ihre Stelle treten die anderen Waffen. Bereits in deinem Speicherstand vorhandene Exemplare bleiben unangetastet.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; {0} is that label (lowercase). -->
   <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
