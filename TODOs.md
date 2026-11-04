@@ -4,8 +4,9 @@
 - **Review/rewrite eltex trio descriptions for Vanilla-parity idiomacity**
 - **Tighten up mod settings tooltips** many feel too long or overly repetitive when tacked onto every line-item
 - **Test eltex traits** (mostly lead-lined): the checklist is `Docs/Specs/Eltex-Plated-Trait.md` §7.
-  Headline items: both card lines and the pawn's "Relevant gear" breakdown per trait, Plated's
-  value moving with quality
+  Headline items: both card lines and the pawn's "Relevant gear" breakdown per trait (the offset
+  lines ride a new vanilla gate patch since 2026-11-04; eyeball Plated's with no eltex apparel worn),
+  Plated's value moving with quality
 - **Full review of new English** text since last release
 - **Upload recompressed gallery images** to the Workshop page
 - **Test CE compat in-game** (checklist: `Docs/Specs/Combat-Extended-Compat.md` §7), update English workshop description

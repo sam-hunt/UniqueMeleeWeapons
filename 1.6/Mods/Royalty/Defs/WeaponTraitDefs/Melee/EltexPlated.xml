@@ -11,17 +11,22 @@
        with includeWeapon, which reads the primary weapon's PsychicSensitivityOffset /
        PsychicEntropyRecoveryRateOffset as a weapon-thing stat, so CompUniqueWeapon.GetStatOffset
        hands it this trait's statOffsets and the pawn's breakdown lists the weapon under "Relevant
-       gear". No hediff, no patch, no TraitEffectSummary case: vanilla renders the lines on the trait
-       card. The new weapon-stat caches are cleared on landing by
+       gear": for an OFFSET that line needs Patches/StatPart_GearStatOffset_WeaponRelevantGear_Patch.cs,
+       because vanilla's gate tests a weapon by equippedStatOffsets alone and would otherwise add
+       the value with no line (its header). No hediff, no TraitEffectSummary case: vanilla renders
+       the lines on the trait card. The new weapon-stat caches are cleared on landing by
        Patches/CompUniqueWeapon_TraitStatCache_Patch.cs, as for every trait-named stat.
        Scaling: the sensitivity offset is QUALITY-SCALED by the stat's own StatPart_Quality (as eltex
        apparel is), so 0.20 is the Good value: 0.10 Awful, 0.30 Legendary. The recovery offset has no
        quality part and is flat. The quality-less VFEP warcasket pair reads as Normal (x0.83, so
-       +0.166), accepted.
+       +0.166), accepted. The trait card prints the Good value as written here; the quality-scaled
+       actual shows in one place only, the pawn's "Relevant gear" line (the weapon stats are
+       showIfUndefined false, so the weapon's own card has no row for them).
        Anchors: sensitivity at the eltex robe's +0.20; recovery between the eltex vest's +0.033 and
        the helmet's +0.066; MarketValue +120 at the Monomolecular premium tier (added capability is an
        offset). A legendary Plated + Fitted weapon lands at about +0.43 equivalent sensitivity, under
-       the eltex staff's +0.50, so a weapon that also fights never out-focuses the focus item.
+       a legendary eltex staff's +0.75 (its offset carries the same quality part; +0.50 is the good
+       staff), so a weapon that also fights never out-focuses the focus item at any quality.
        Double-edged by construction: sensitivity raises exposure to psychic drones, shock and insanity
        lances and soothe/insanity events, which is why the eltex pair needs no malus.
        Tokens: BodyColor (it forces UMW_EltexPale onto colour two via ForcedColorTwoExtension, so it

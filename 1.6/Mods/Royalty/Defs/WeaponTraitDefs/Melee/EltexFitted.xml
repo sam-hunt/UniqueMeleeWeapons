@@ -10,9 +10,10 @@
        StatPart_GearStatOffset, both with includeWeapon, reading the primary weapon's
        PsychicSensitivityFactor / PsychicEntropyMaxOffset as weapon-thing stats; CompUniqueWeapon's
        GetStatFactor / GetStatOffset hand them this trait's statFactors / statOffsets and the pawn's
-       breakdown lists the weapon under "Relevant gear". No hediff, no patch, no TraitEffectSummary
-       case. Neither stat has a quality part, so both values are flat across qualities (the
-       warcasket pair included).
+       breakdown lists the weapon under "Relevant gear" (the heat-limit OFFSET line needs
+       Patches/StatPart_GearStatOffset_WeaponRelevantGear_Patch.cs to open vanilla's gate; the factor
+       line never did). No hediff, no TraitEffectSummary case. Neither stat has a quality part, so
+       both values are flat across qualities (the warcasket pair included).
        Anchors: bioferrite's normal-quality pair (x1.10, +8), with the heat limit rounded up to +10;
        MarketValue +100, a step under Plated's +120 (added capability is an offset). On a weapon that
        also rolls Plated the factor multiplies the summed offsets (vanilla's gear stacking), the
