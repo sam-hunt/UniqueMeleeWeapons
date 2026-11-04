@@ -62,9 +62,11 @@ public partial class UniqueMeleeWeaponsSettings
         // active language, the mod's from its About.xml (via ModIntegrations, which also colours it) so
         // a rename upstream shows through. Resolve() keeps the colour tag; the implicit conversion to
         // string would strip it (ModIntegration.ColoredName).
+        // The restart suffix rides the label (the family rule: a restart-to-apply row says so where an
+        // unhovered eye reads it), the tooltip says it again in a sentence.
         string vteName = ModIntegrations.VanillaTexturesExpanded.ColoredName;
         ToggleRow(listing,
-            "UMW_MatchVteSpear".Translate(spear.label, vteName).Resolve(),
+            "UMW_MatchVteSpear".Translate(spear.label, vteName).Resolve() + "UMW_RequiresRestartSuffix".Translate().Resolve(),
             "UMW_MatchVteSpearDesc".Translate(spear.label, vteName).Resolve(),
             ref matchVteSpear);
 

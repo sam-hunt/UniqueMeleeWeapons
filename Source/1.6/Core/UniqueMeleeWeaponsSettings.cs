@@ -423,7 +423,7 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
 
     // The tri-state header of a group of def rows an optional mod or DLC owns (the family's "Grouped
     // def rows" pattern). Its label is the owner's name with how many rows the group holds, both in
-    // the owner's colour if it has one ("Royalty (3)"; Core and this mod itself are plain): the
+    // the owner's colour if it has one ("Royalty (6)"; Core and this mod itself are plain): the
     // section header above it already says whether these are weapons or traits. The count is the loaded members while the owner is active and
     // `listedCount`, its static def list's length in ModIntegrations, while it is not, so a player
     // without the mod still sees how much it would add although no row can be drawn. The box is a
@@ -474,7 +474,10 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
             ToggleCell(row, name, new TipSignal(tooltip), ref off, forced: false, boxLeft: true,
                 boxGap: GroupHeaderBoxGap,
                 lockedNote: "UMW_NotActiveSuffix".Translate().Resolve().Colorize(ColorLibrary.RedReadable));
-            listing.Gap(listing.verticalSpacing + GroupHeaderBottomGap);
+            // The locked header is its group's last row, so it takes the block gap its members would
+            // have left (the caller skips its own GroupGap on this return); without it two locked
+            // headers in a row (no Royalty, no VFE Pirates) crowd each other.
+            listing.Gap(listing.verticalSpacing + GroupGap);
             Text.Font = prevFont;
             return false;
         }

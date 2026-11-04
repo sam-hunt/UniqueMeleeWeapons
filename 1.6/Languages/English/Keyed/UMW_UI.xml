@@ -24,16 +24,18 @@
   <UMW_SameAsSuffix> (same as {0})</UMW_SameAsSuffix>
   <!-- Checkbox-row suffixes, at most one per row, each with a leading space. The first is appended
        to a group header (which is the bare name of a mod or DLC) only while that mod or DLC is not
-       installed or not enabled, so the greyed header reads "Royalty (3) (not active)". {0} in the second
+       installed or not enabled, so the greyed header reads "Royalty (6) (not active)". {0} in the second
        is a weapon's def label (lowercase): the row is a trait that cannot be turned off because it is
-       the last trait that weapon could roll first, so the box is held on. -->
+       the last trait that weapon could roll first, so the box is held on. The third follows the label
+       of a toggle that is only read when the game loads (the Compatibility row). -->
   <UMW_NotActiveSuffix> (not active)</UMW_NotActiveSuffix>
   <UMW_LastTraitSuffix> (last trait for {0})</UMW_LastTraitSuffix>
+  <UMW_RequiresRestartSuffix> (requires restart)</UMW_RequiresRestartSuffix>
 
   <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows sit under headers that are
        just an owner's name and its row count (coloured, no extra text), with a three-state box that
        switches the whole group. The first string is the count, with a leading space, appended to the
-       name in the name's colour so the header reads "Royalty (3)"; {0} is how many weapons or traits
+       name in the name's colour so the header reads "Royalty (6)"; {0} is how many weapons or traits
        of that group there are in that section, shown even while its mod or DLC is not active. The
        other three are header tooltips; {0} is the owner's name, injected already coloured: do not
        inflect it. They share their last two sentences, which describe the box and click-and-drag

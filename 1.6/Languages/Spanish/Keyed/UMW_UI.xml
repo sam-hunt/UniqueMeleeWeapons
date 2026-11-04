@@ -51,6 +51,9 @@
   <!-- EN:  (last trait for {0}) -->
   <UMW_LastTraitSuffix> (último rasgo para {0})</UMW_LastTraitSuffix>
 
+  <!-- EN:  (requires restart) -->
+  <UMW_RequiresRestartSuffix> (requiere reinicio)</UMW_RequiresRestartSuffix>
+
   <!-- Settings: grouped rows. In the Weapons and Traits sections, the rows an optional mod or DLC
        adds sit under a header that is just that mod or DLC's name and its row count (coloured, no
        extra text), with a three-state box that switches the whole group. The first string is the
