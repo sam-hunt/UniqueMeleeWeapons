@@ -21,8 +21,10 @@ public static class UMW_Startup
         // warband quest gate) from the fresh DefDatabase, so the cached instances — and the
         // rows' label sort order — follow the active language.
         UniqueWeaponDefs.Rebuild();
-        // Needs the trait and weapon defs: undoes a hand-edited config that would leave a weapon with
-        // no trait to roll first (Settings_Traits.cs).
+        // The per-weapon first-pick candidates (Settings_Traits.cs), derived once per load for the
+        // window's held-on rows and the war merchant's ban guard; then the backstop that undoes a
+        // hand-edited config which would leave a weapon with no trait to roll first.
+        UniqueMeleeWeaponsSettings.RebuildFirstPickCache();
         UniqueMeleeWeaponsMod.Settings.ApplyTraitAvailability();
         UniqueMeleeWeaponsMod.Settings.ApplyWarbandQuestWeight();
         UniqueMeleeWeaponsMod.Settings.ApplyAbilityTuning();

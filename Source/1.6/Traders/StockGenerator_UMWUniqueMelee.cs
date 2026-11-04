@@ -35,7 +35,10 @@ namespace UniqueMeleeWeapons;
 // allowUltratechTraits=false (the war merchant instance) keeps the Royalty-root ultratech traits out
 // of the trait roll for weapons THIS generator makes, via the scoped veto in
 // CompUniqueWeapon_DisabledTraits_Patch — the trait never enters the candidate set, so another
-// trait rolls in its place and no generate-and-discard retry is needed.
+// trait rolls in its place and no generate-and-discard retry is needed. The ban is skipped for a
+// weapon whose only enabled first-pick traits are ultratech (CanBanUltratechFor), since an empty
+// first pick breaks the weapon's naming; the settings window holds the last first pick on but
+// does not know about this scoped ban.
 //
 // Candidates are also banded by tech level: capped at maxTechLevelGenerate, mirroring vanilla
 // StockGenerator_MiscItems (StockGenerator declares the field but its base never applies it), and
@@ -82,7 +85,8 @@ public class StockGenerator_UMWUniqueMelee : StockGenerator
             Thing thing;
             try
             {
-                CompUniqueWeapon_DisabledTraits_Patch.banUltratechScope = !allowUltratechTraits;
+                CompUniqueWeapon_DisabledTraits_Patch.banUltratechScope = !allowUltratechTraits
+                    && CompUniqueWeapon_DisabledTraits_Patch.CanBanUltratechFor(def);
                 thing = ThingMaker.MakeThing(def, stuff);
             }
             finally

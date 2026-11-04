@@ -1,6 +1,7 @@
 using System;
 using HarmonyLib;
 using RimWorld;
+using Verse;
 
 namespace UniqueMeleeWeapons.Patches;
 
@@ -31,7 +32,12 @@ namespace UniqueMeleeWeapons.Patches;
 // banUltratechScope is raised by StockGenerator_UMWUniqueMelee around ThingMaker.MakeThing so the
 // war merchant's stock never rolls the ultratech five while the shaman's still can. The flag works
 // because InitializeTraits runs synchronously inside MakeThing (PostPostMake); it is [ThreadStatic]
-// so a generation on a worker thread can never leak the ban into another thread's roll.
+// so a generation on a worker thread can never leak the ban into another thread's roll. The
+// generator asks CanBanUltratechFor first: the settings window keeps every weapon one enabled
+// first-pick trait, but it does not model this scoped ban, so a player who disabled every first
+// pick of a weapon except an ultratech one would otherwise hand the war merchant's roll an empty
+// candidate set and vanilla's namer an empty adjective list. For that weapon the ban is skipped
+// for the roll (an ultratech trait at a war merchant over a naming error).
 [HarmonyPatch(typeof(CompUniqueWeapon), nameof(CompUniqueWeapon.CanAddTrait))]
 public static class CompUniqueWeapon_DisabledTraits_Patch
 {
@@ -48,6 +54,12 @@ public static class CompUniqueWeapon_DisabledTraits_Patch
         {
             __result = false;
         }
+    }
+
+    // Whether raising the ban for a roll of `def` leaves it a first pick (class header).
+    internal static bool CanBanUltratechFor(ThingDef def)
+    {
+        return UniqueMeleeWeaponsMod.Settings?.HasEnabledFirstPick(def, IsUltratechTrait) != false;
     }
 
     private static bool IsUltratechTrait(WeaponTraitDef trait)

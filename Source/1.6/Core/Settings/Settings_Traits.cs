@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -15,7 +16,7 @@ namespace UniqueMeleeWeapons;
 // shares it), under one group header per owner from ModIntegrations: our own designs first under
 // this mod's name (the unclaimed rest; Core ships no weapon trait, so unlike the Weapons section
 // there is no Core group), then the six melee ports of Odyssey's ranged traits under Odyssey, then
-// the Royalty three under a header that shows disabled, with the requirement, while Royalty is
+// the Royalty six under a header that shows disabled, with the requirement, while Royalty is
 // absent. That header replaced the old allowUltratechTraits toggle; ExposeTraitSettings migrates a
 // saved "off" into this set once.
 //
@@ -27,7 +28,13 @@ namespace UniqueMeleeWeapons;
 // trait across its categories. The window enforces it by holding the last such trait on (the
 // family's "forced on" row state, suffixed with the weapon it is keeping alive), and
 // ApplyTraitAvailability re-enables what a hand-edited config would strand, at every play-data
-// load and window close.
+// load and window close. Both read the first-pick cache below, never the DefDatabase directly.
+//
+// One roll-time veto the window cannot see: the war merchant's scoped ultratech ban
+// (Patches/CompUniqueWeapon_DisabledTraits_Patch.cs). A player who disables every first pick of a
+// weapon but an ultratech one satisfies the invariant here and would still hand that merchant's
+// roll an empty set, so the generator asks HasEnabledFirstPick with the ban as an extra veto and
+// lifts the ban for that one roll when the answer is no.
 public partial class UniqueMeleeWeaponsSettings
 {
     // Trait labels are short and carry no icon, so three columns fit where the weapons take two,
@@ -36,7 +43,7 @@ public partial class UniqueMeleeWeaponsSettings
 
     // Stores the defNames the player switched OFF, so the empty default means "all enabled" and a
     // trait added later is on without a settings migration. Keyed by defName so the stored value
-    // survives a session with the def absent (the Royalty three without Royalty).
+    // survives a session with the def absent (the Royalty six without Royalty).
     public HashSet<string> disabledTraits = new HashSet<string>();
 
     private void ExposeTraitSettings()
@@ -85,44 +92,26 @@ public partial class UniqueMeleeWeaponsSettings
             .ToList();
     }
 
-    // The first unique weapon whose first pick would have NO enabled candidate left were `trait`
-    // disabled too, or null if disabling it is safe. Only canGenerateAlone traits count, because only
-    // they can be a first pick. Every ThingDef with the comp is checked, not just ours: a third-party
-    // unique listing our categories rolls from the same candidates.
-    private ThingDef StrandedBy(WeaponTraitDef trait)
+    // The first-pick candidates of every unique weapon: each ThingDef carrying CompUniqueWeapon (not
+    // just ours: a third-party unique listing our categories rolls from the same candidates) with
+    // the canGenerateAlone traits across its categories, the only traits the roll's FIRST pick can
+    // take. Derived from the DefDatabase once per play-data load, from UMW_Startup.Run, on the same
+    // cadence as UniqueWeaponDefs (an in-process reload replaces every def instance), never per
+    // draw: StrandedBy used to run this derivation for every drawn trait cell on every frame, a
+    // full ThingDef scan each, which a large mod list turns into visible stutter while the window
+    // is open. Against the cache the window's checks are a few short list walks. Replaced whole on
+    // rebuild (a generation on a worker thread may be reading it through HasEnabledFirstPick).
+    private static List<FirstPickSet> firstPickSets = new List<FirstPickSet>();
+
+    private sealed class FirstPickSet
     {
-        if (!trait.canGenerateAlone)
-        {
-            return null;
-        }
-        foreach (ThingDef weapon in DefDatabase<ThingDef>.AllDefs)
-        {
-            CompProperties_UniqueWeapon props = weapon.GetCompProperties<CompProperties_UniqueWeapon>();
-            if (props?.weaponCategories == null || !props.weaponCategories.Contains(trait.weaponCategory))
-            {
-                continue;
-            }
-            bool otherSurvivor = DefDatabase<WeaponTraitDef>.AllDefs.Any(t =>
-                t != trait && t.canGenerateAlone && !IsTraitDisabled(t)
-                && props.weaponCategories.Contains(t.weaponCategory));
-            if (!otherSurvivor)
-            {
-                return weapon;
-            }
-        }
-        return null;
+        public ThingDef weapon;
+        public List<WeaponTraitDef> candidates;
     }
 
-    // Backstop for the window's held-on rows: a config edited by hand (or a trait roster change
-    // between versions) can strand a weapon, so re-enable every disabled first-pick candidate of a
-    // stranded weapon's categories and say so. Idempotent; safe outside a game. Called from
-    // UMW_Startup.Run (after defs load) and UniqueMeleeWeaponsMod.WriteSettings.
-    public void ApplyTraitAvailability()
+    public static void RebuildFirstPickCache()
     {
-        if (disabledTraits.Count == 0)
-        {
-            return;
-        }
+        List<FirstPickSet> sets = new List<FirstPickSet>();
         foreach (ThingDef weapon in DefDatabase<ThingDef>.AllDefs)
         {
             CompProperties_UniqueWeapon props = weapon.GetCompProperties<CompProperties_UniqueWeapon>();
@@ -130,18 +119,92 @@ public partial class UniqueMeleeWeaponsSettings
             {
                 continue;
             }
-            List<WeaponTraitDef> firstPicks = DefDatabase<WeaponTraitDef>.AllDefs
-                .Where(t => t.canGenerateAlone && props.weaponCategories.Contains(t.weaponCategory))
-                .ToList();
-            if (firstPicks.Count == 0 || firstPicks.Any(t => !IsTraitDisabled(t)))
+            sets.Add(new FirstPickSet
+            {
+                weapon = weapon,
+                candidates = DefDatabase<WeaponTraitDef>.AllDefs
+                    .Where(t => t.canGenerateAlone && props.weaponCategories.Contains(t.weaponCategory))
+                    .ToList(),
+            });
+        }
+        firstPickSets = sets;
+    }
+
+    // The first unique weapon whose first pick would have NO enabled candidate left were `trait`
+    // disabled too, or null if disabling it is safe.
+    private ThingDef StrandedBy(WeaponTraitDef trait)
+    {
+        if (!trait.canGenerateAlone)
+        {
+            return null;
+        }
+        foreach (FirstPickSet set in firstPickSets)
+        {
+            if (!set.candidates.Contains(trait))
             {
                 continue;
             }
-            foreach (WeaponTraitDef trait in firstPicks)
+            bool otherSurvivor = false;
+            foreach (WeaponTraitDef other in set.candidates)
+            {
+                if (other != trait && !IsTraitDisabled(other))
+                {
+                    otherSurvivor = true;
+                    break;
+                }
+            }
+            if (!otherSurvivor)
+            {
+                return set.weapon;
+            }
+        }
+        return null;
+    }
+
+    // Whether `weapon` still has a first-pick candidate that is neither disabled here nor vetoed by
+    // `alsoVetoed` (a roll-time veto the window does not model; the war merchant's ultratech ban).
+    // True for a weapon the cache does not know: nothing here to guard.
+    public bool HasEnabledFirstPick(ThingDef weapon, Func<WeaponTraitDef, bool> alsoVetoed)
+    {
+        foreach (FirstPickSet set in firstPickSets)
+        {
+            if (set.weapon != weapon)
+            {
+                continue;
+            }
+            foreach (WeaponTraitDef trait in set.candidates)
+            {
+                if (!IsTraitDisabled(trait) && !alsoVetoed(trait))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    // Backstop for the window's held-on rows: a config edited by hand (or a trait roster change
+    // between versions) can strand a weapon, so re-enable every disabled first-pick candidate of a
+    // stranded weapon's categories and say so. Idempotent; safe outside a game. Called from
+    // UMW_Startup.Run (after RebuildFirstPickCache) and UniqueMeleeWeaponsMod.WriteSettings.
+    public void ApplyTraitAvailability()
+    {
+        if (disabledTraits.Count == 0)
+        {
+            return;
+        }
+        foreach (FirstPickSet set in firstPickSets)
+        {
+            if (set.candidates.Count == 0 || set.candidates.Any(t => !IsTraitDisabled(t)))
+            {
+                continue;
+            }
+            foreach (WeaponTraitDef trait in set.candidates)
             {
                 disabledTraits.Remove(trait.defName);
             }
-            Log.Warning($"[Unique Melee Weapons] Every trait {weapon.defName} could roll first was disabled in settings; re-enabled them so it can still be named.");
+            Log.Warning($"[Unique Melee Weapons] Every trait {set.weapon.defName} could roll first was disabled in settings; re-enabled them so it can still be named.");
         }
     }
 
