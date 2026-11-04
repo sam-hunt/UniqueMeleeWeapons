@@ -32,6 +32,15 @@
   <!-- EN: Compatibility -->
   <UMW_SettingsCompat>Compatibilidade</UMW_SettingsCompat>
 
+  <!-- EN: Which unique weapons can be generated. A weapon turned off leaves every reward and loot pool, and the others fill its place; weapons already in your save are untouched. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsWeaponsDesc>Quais armas únicas podem ser geradas. Uma arma desativada sai de todos os grupos de recompensas e de pilhagem, e as outras ocupam o lugar dela. Armas já existentes no seu jogo salvo não são afetadas. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsWeaponsDesc>
+
+  <!-- EN: Which traits can roll on newly made unique weapons. A trait turned off leaves the roll, and others fill its place; weapons that already carry it keep it. The last trait a weapon could roll first is held on. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsTraitsDesc>Quais características podem ser sorteadas em armas únicas recém-criadas. Uma característica desativada sai do sorteio, e as outras ocupam o lugar dela. Armas que já a possuem a mantêm. A última característica que uma arma poderia sortear primeiro permanece ativada. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsTraitsDesc>
+
+  <!-- EN: Unique melee weapons in trader stock, all off by default. A trader that can stock them also buys them, whether or not its stocking is on. Weapons turned off in the Weapons section never appear. -->
+  <UMW_SettingsTradersDesc>Armas corpo a corpo únicas no estoque dos comerciantes, todas desativadas por padrão. Um comerciante que pode estocá-las também as compra, estando o estoque ligado ou não. Armas desativadas na seção Armas nunca aparecem.</UMW_SettingsTradersDesc>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -67,12 +76,12 @@
        painting over the checkbox rows beneath the header. -->
   <!-- EN:  ({0}) -->
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
-  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_IntegrationGroupDesc>Tudo de {0} nesta seção. A caixa alterna o grupo inteiro de uma vez; uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas abaixo para alternar várias de uma vez.</UMW_IntegrationGroupDesc>
-  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_OwnTraitsGroupDesc>Características originais de {0}, de design próprio. A caixa alterna o grupo inteiro de uma vez; uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas abaixo para alternar várias de uma vez.</UMW_OwnTraitsGroupDesc>
-  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_OdysseyTraitsGroupDesc>Equivalentes corpo a corpo das características que {0} dá às suas armas à distância únicas. A caixa alterna o grupo inteiro de uma vez; uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas abaixo para alternar várias de uma vez.</UMW_OdysseyTraitsGroupDesc>
+  <!-- EN: Everything from {0} in this section. -->
+  <UMW_IntegrationGroupDesc>Tudo de {0} nesta seção.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. -->
+  <UMW_OwnTraitsGroupDesc>Características originais de {0}, de design próprio.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. -->
+  <UMW_OdysseyTraitsGroupDesc>Equivalentes corpo a corpo das características que {0} dá às suas armas à distância únicas.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->
@@ -85,12 +94,12 @@
        gender varies (machado único / espada longa única) and which nothing inflects for us, so the
        Portuguese never agrees with {0}: it names the subject as "esta arma" once and keeps every later
        reference on that feminine noun. -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. -->
-  <UMW_WeaponEnabledDesc>Permitir a geração desta arma: {0}. Desative para removê-la de todos os grupos de recompensas e de pilhagem; as outras armas ocupam o lugar dela. Armas já existentes no seu jogo salvo não são afetadas.</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. -->
+  <UMW_WeaponEnabledDesc>Permitir a geração desta arma: {0}.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
-  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
-  <UMW_TraitEnabledDesc>Permitir que a característica {0} seja sorteada em armas únicas recém-criadas. Desative para tirá-la do sorteio; as outras características ocupam o lugar dela. Armas que já a possuem a mantêm.</UMW_TraitEnabledDesc>
+  <!-- EN: Allow {0} to roll on newly made unique weapons. -->
+  <UMW_TraitEnabledDesc>Permitir que a característica {0} seja sorteada em armas únicas recém-criadas.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "madeira", lowercase). -->
@@ -112,11 +121,11 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Armas únicas em estoque: {0}</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas nunca são sorteadas em seu estoque: uma tropa de guerra negocia com armas de sua própria época. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits never roll on its stock: a war party deals in period arms. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga. Características ultratecnológicas nunca são sorteadas em seu estoque: uma tropa de guerra negocia com armas de sua própria época.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Características ultratecnológicas podem ser sorteadas em seu estoque: xamãs negociam com relíquias que não compreendem totalmente. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. -->
+  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga. Características ultratecnológicas podem ser sorteadas em seu estoque: xamãs negociam com relíquias que não compreendem totalmente.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The
        settlement row's text is fixed (the trader kind has no def label of its own); the caravan and
@@ -128,20 +137,20 @@
   <!-- EN: Unique weapons in Outlander settlement stock -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Armas únicas em estoque: assentamento forasteiro</UMW_TraderStocksUniquesOutlanderSettlement>
 
-  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Cerca de um em cada cinco assentamentos forasteiros tem em estoque uma arma corpo a corpo única de fabricação industrial ou mais recente, e compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Cerca de um em cada cinco assentamentos forasteiros tem em estoque uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
 
   <!-- EN: Unique weapons in {0} caravan stock -->
   <UMW_TraderStocksUniquesCaravan>Armas únicas em estoque: caravana ({0})</UMW_TraderStocksUniquesCaravan>
 
-  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesCaravanDesc>Cerca de uma em cada cinco visitas de caravana ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente à venda, e a caravana compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesCaravanDesc>Cerca de uma em cada cinco visitas de caravana ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesCaravanDesc>
 
   <!-- EN: Unique weapons in {0} trade ship stock -->
   <UMW_TraderStocksUniquesShip>Armas únicas em estoque: nave comercial ({0})</UMW_TraderStocksUniquesShip>
 
-  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente à venda, e a nave compra armas corpo a corpo únicas de qualquer forma. Armas desativadas nunca aparecem.</UMW_TraderStocksUniquesShipDesc>
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
        its def, already localized) followed by the first string, which names in parentheses the

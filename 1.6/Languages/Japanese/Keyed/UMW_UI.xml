@@ -31,6 +31,15 @@
   <!-- EN: Compatibility -->
   <UMW_SettingsCompat>互換性</UMW_SettingsCompat>
 
+  <!-- EN: Which unique weapons can be generated. A weapon turned off leaves every reward and loot pool, and the others fill its place; weapons already in your save are untouched. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsWeaponsDesc>生成されうるユニークな武器を選びます.オフにした武器は全ての報酬プールと戦利品プールから除外され,他の武器がその枠を埋めます.セーブデータに既に存在するものはそのまま残ります.グループのチェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_SettingsWeaponsDesc>
+
+  <!-- EN: Which traits can roll on newly made unique weapons. A trait turned off leaves the roll, and others fill its place; weapons that already carry it keep it. The last trait a weapon could roll first is held on. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsTraitsDesc>新しく作られるユニークな武器に付く可能性のある特性を選びます.オフにした特性は抽選から除外され,他の特性がその枠を埋めます.既にその特性を持つ武器はそのまま保持します.ある武器が最初に抽選しうる最後の特性は,オンのまま固定されます.グループのチェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_SettingsTraitsDesc>
+
+  <!-- EN: Unique melee weapons in trader stock, all off by default. A trader that can stock them also buys them, whether or not its stocking is on. Weapons turned off in the Weapons section never appear. -->
+  <UMW_SettingsTradersDesc>商人の在庫に並ぶユニークな近接武器です.すべて初期設定ではオフです.それらを在庫に並べられる商人は,在庫の設定がオンかどうかに関わらず買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_SettingsTradersDesc>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <!-- EN:  (default) -->
@@ -64,12 +73,12 @@
        painting over the checkbox rows beneath the header. -->
   <!-- EN:  ({0}) -->
   <UMW_GroupCountSuffix>({0})</UMW_GroupCountSuffix>
-  <!-- EN: Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_IntegrationGroupDesc>このセクションにある{0}由来のものすべてです.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_IntegrationGroupDesc>
-  <!-- EN: Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_OwnTraitsGroupDesc>{0}オリジナルの特性で,独自に設計されたものです.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_OwnTraitsGroupDesc>
-  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once. -->
-  <UMW_OdysseyTraitsGroupDesc>{0}がユニーク遠距離武器に与える特性の近接版です.チェックボックスでグループ全体を一括で切り替えます.一部だけチェックされている場合は,一部の項目がオフであることを示します.下の行をクリックしたままドラッグすると,複数を一度に切り替えられます.</UMW_OdysseyTraitsGroupDesc>
+  <!-- EN: Everything from {0} in this section. -->
+  <UMW_IntegrationGroupDesc>このセクションにある{0}由来のものすべてです.</UMW_IntegrationGroupDesc>
+  <!-- EN: Traits original to {0}, of its own design. -->
+  <UMW_OwnTraitsGroupDesc>{0}オリジナルの特性で,独自に設計されたものです.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. -->
+  <UMW_OdysseyTraitsGroupDesc>{0}がユニーク遠距離武器に与える特性の近接版です.</UMW_OdysseyTraitsGroupDesc>
 
   <!-- Fallback display names, used only while the mod is not installed. Proper nouns: kept verbatim. -->
   <!-- EN: Vanilla Factions Expanded - Pirates -->
@@ -79,12 +88,12 @@
   <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon. {0} is the weapon's own def label (lowercase). -->
-  <!-- EN: Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched. -->
-  <UMW_WeaponEnabledDesc>「{0}」の生成を許可します.オフにすると全ての報酬プールと戦利品プールから除外され,他の武器がその枠を埋めます.セーブデータに既に存在するものはそのまま残ります.</UMW_WeaponEnabledDesc>
+  <!-- EN: Allow {0} to be generated. -->
+  <UMW_WeaponEnabledDesc>「{0}」の生成を許可します.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
-  <!-- EN: Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it. -->
-  <UMW_TraitEnabledDesc>新しく作られるユニークな武器に「{0}」が付くことを許可します.オフにすると抽選から除外され,他の特性がその枠を埋めます.既にこの特性を持つ武器はそのまま保持します.</UMW_TraitEnabledDesc>
+  <!-- EN: Allow {0} to roll on newly made unique weapons. -->
+  <UMW_TraitEnabledDesc>新しく作られるユニークな武器に「{0}」が付くことを許可します.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -100,26 +109,26 @@
        {0} is the same label. -->
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniques>
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫に最先端技術級の武器特性が乗ることはありません:襲撃団はその時代の武具を扱っているためです.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesWarMerchantDesc>
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShamanDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.その在庫には最先端技術級の武器特性が乗ることもあります:呪い商は自分でも仕組みを理解しきれていない遺物を扱っています.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits never roll on its stock: a war party deals in period arms. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ並びます.その在庫に最先端技術級の武器特性が乗ることはありません:襲撃団はその時代の武具を扱っているためです.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. -->
+  <UMW_TraderStocksUniquesShamanDesc>「{0}」の来訪のうち約半数で,中世以前の時代に作られたユニークな近接武器が1つ並びます.その在庫には最先端技術級の武器特性が乗ることもあります:呪い商は自分でも仕組みを理解しきれていない遺物を扱っています.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The settlement
        row's text is fixed. The two combat suppliers share one vanilla label ("武器商"), so their templates
        add a caravan / trade ship qualifier ("キャラバン隊" / "商船"): {0} is that label. -->
   <!-- EN: Unique weapons in Outlander settlement stock -->
   <UMW_TraderStocksUniquesOutlanderSettlement>アウトランダーの入植地の在庫にユニークな武器を含める</UMW_TraderStocksUniquesOutlanderSettlement>
-  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>アウトランダーの入植地の約5つに1つで,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>アウトランダーの入植地の約5つに1つで,産業革命以降の時代に作られたユニークな近接武器が1つ並びます.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
   <!-- EN: Unique weapons in {0} caravan stock -->
   <UMW_TraderStocksUniquesCaravan>キャラバン隊の「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniquesCaravan>
-  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesCaravanDesc>キャラバン隊の「{0}」の来訪のうち約5回に1回で,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesCaravanDesc>キャラバン隊の「{0}」の来訪のうち約5回に1回で,産業革命以降の時代に作られたユニークな近接武器が1つ並びます.</UMW_TraderStocksUniquesCaravanDesc>
   <!-- EN: Unique weapons in {0} trade ship stock -->
   <UMW_TraderStocksUniquesShip>商船の「{0}」の在庫にユニークな武器を含める</UMW_TraderStocksUniquesShip>
-  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear. -->
-  <UMW_TraderStocksUniquesShipDesc>商船の「{0}」の約5隻に1隻で,産業革命以降の時代に作られたユニークな近接武器が1つ販売品として並びます.また,在庫の有無に関わらずユニークな近接武器を買い取ります.「武器」の項でオフにした武器は登場しません.</UMW_TraderStocksUniquesShipDesc>
+  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make. -->
+  <UMW_TraderStocksUniquesShipDesc>商船の「{0}」の約5隻に1隻で,産業革命以降の時代に作られたユニークな近接武器が1つ並びます.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
        its def, already localized) followed by the first string, which names in parentheses the
