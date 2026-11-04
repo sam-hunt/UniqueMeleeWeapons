@@ -76,6 +76,7 @@ Toggle weapons and traits individually, tune ability cooldowns and radii, adjust
 - **Royalty**: the unique axe and warhammer, their art, the five ultratech traits (monomolecular, plasma-cored, zeus-headed, eltex-plated, eltex-fitted) and the lead-lined malus ship from a Royalty-gated load folder, so they simply never load without Royalty
 - **[Vanilla Factions Expanded - Pirates](https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948)**: two warcasket-only uniques, present only when loaded
 - **[Vanilla Textures Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324)**: the unique spear matches VTE's redrawn size and pose (toggleable in settings)
+- **[Combat Extended](https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044)**: supported. The armor-penetration traits are retuned to CE's penetration model from a CE-gated load folder, and the on-hit, parry and damage-conversion traits hook CE's melee verb at runtime, with no reference to CE's assembly
 
 ## Requirements
 
@@ -105,7 +106,7 @@ Subscribe on the Steam Workshop and it will auto-download.
 
 - **Safe to add** to existing saves.
 - **Unsafe to remove** from saves, but everything can be turned off in mod settings.
-- Combat Extended: supported.
+- **Combat Extended**: supported (see Mod Compatibility above).
 
 ## Contributing
 

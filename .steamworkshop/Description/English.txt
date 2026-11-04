@@ -66,7 +66,7 @@ Your colony, your rules:
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: two warcasket uniques, present only when loaded
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: unique spear matches VTE's redrawn size/rotation
 [*]Melee traits are completely separate from Odyssey's own ranged-only traits, and Royalty's bladelink traits
-[*]Not tested with Combat Extended yet (reports welcome)
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044]Combat Extended[/url]: supported. Armor-penetration traits are retuned to CE's penetration model, and every on-hit, parry and damage-conversion trait fires on CE's melee
 [/list]
 
 [hr][/hr]
