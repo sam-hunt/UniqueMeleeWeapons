@@ -16,7 +16,7 @@
        consumer; no MayRequire needed, the folder only loads when Royalty is active. -->
   <ColorDef>
     <defName>UMW_EltexPale</defName>
-    <label>eltex pale</label>
+    <label>eltex mint</label>
     <colorType>Weapon</colorType>
     <color>(174, 209, 205)</color>
     <randomlyPickable>false</randomlyPickable>

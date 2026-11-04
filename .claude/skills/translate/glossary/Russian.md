@@ -55,8 +55,13 @@ pointed / blunt, the ToolCapacityDef adjective family), тяжёлое (heavy),
   eltex-plated → обшивка из эльтекса, eltex-fitted → отделка из эльтекса,
   lead-lined → свинцовая подкладка (lead → свинец, ordinary word). Adjectives
   stay nominative masculine (обшитый эльтексом, отделанный эльтексом, подбитый
-  свинцом, резонирующий). Colours: eltex pale → бледный эльтекс, eltex shade
-  → тень эльтекса. Psychic sensitivity → психочувствительность, neural heat
-  limit → порог нейроперегрева (Core/Royalty). Grip/guard/pommel/tang have no
-  vanilla ru term: рукоять, гарда and навершие reuse this glossary, хвостовик
-  is ungrounded.
+  свинцом, резонирующий). Colours: eltex mint → эльтексово-мятный, eltex
+  green → эльтексово-зелёный (the плазменно-оранжевый compound shape;
+  эльтексово- is our derivation, vanilla never adjectivizes эльтекс).
+  Psychic sensitivity → психочувствительность, neural heat → нейроперегрев,
+  neural heat limit → порог нейроперегрева (stat labels). Descriptions
+  mirror vanilla: psychic focusing material → материал для пси-концентрации
+  (Royalty eltex apparel «поддерживающие пси-концентрацию»), «усиливают
+  психочувствительность ... рассеивают нейроперегрев» (eltex apparel),
+  suppresses → подавляет (`PsychicSensitivityDownMinor`). Grip → рукоять
+  (this glossary); fittings → фурнитура (ordinary word, no vanilla term).

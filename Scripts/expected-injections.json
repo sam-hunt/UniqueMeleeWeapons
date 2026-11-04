@@ -1,6 +1,6 @@
 {
   "meta": {
-    "gameBuild": "1.7.4995 rev309",
+    "gameBuild": "1.7.4998 rev1299",
     "activeDlcs": [
       "Core",
       "Royalty",
@@ -54,11 +54,11 @@
         "required": true
       },
       "UMW_EltexPale.label": {
-        "english": "eltex pale",
+        "english": "eltex mint",
         "required": true
       },
       "UMW_EltexShade.label": {
-        "english": "eltex shade",
+        "english": "eltex green",
         "required": true
       },
       "UMW_EnamelPurple.label": {
@@ -1107,7 +1107,7 @@
         "required": true
       },
       "UMW_EltexFitted.description": {
-        "english": "The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity.",
+        "english": "The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit.",
         "required": true
       },
       "UMW_EltexFitted.exclusionTags": {
@@ -1130,7 +1130,7 @@
         "required": true
       },
       "UMW_EltexPlated.description": {
-        "english": "The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat.",
+        "english": "The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat.",
         "required": true
       },
       "UMW_EltexPlated.exclusionTags": {
@@ -1287,7 +1287,7 @@
         "required": true
       },
       "UMW_LeadLined.description": {
-        "english": "The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing.",
+        "english": "The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing.",
         "required": true
       },
       "UMW_LeadLined.exclusionTags": {

@@ -48,7 +48,7 @@ Most of `WeaponTraitDef`'s interesting fields are silently inert on melee weapon
 - **Base-damage conversion** — reroute a hit's damage type (a serrated edge tears ragged wounds; a needle point seeks the organs; an envenomed point delivers tox)
 - **Per-tool damage and armor penetration**, independently of each other
 - **Parrying** — a quilloned guard gives the wielder a chance to turn aside an incoming melee blow
-- **Forced body colour** — carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex pale
+- **Forced body colour** — carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex mint
 - **Wielder psychic stats** — eltex plating and fittings raise psychic sensitivity, neural heat limit and recovery through the same gear routing Royalty's eltex apparel uses; a lead lining dulls sensitivity instead
 
 ### Two Active Abilities

@@ -13,7 +13,7 @@
        loads when Royalty is active. -->
   <ColorDef>
     <defName>UMW_EltexShade</defName>
-    <label>eltex shade</label>
+    <label>eltex green</label>
     <colorType>Weapon</colorType>
     <color>(108, 150, 136)</color>
     <randomlyPickable>false</randomlyPickable>

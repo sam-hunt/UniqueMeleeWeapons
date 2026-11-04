@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. Color. The grip, guard and pommel are fitted in eltex: the accent half of the eltex
+  <!-- UMW_Melee. Color. The grip and fittings are made of dark eltex: the accent half of the eltex
        pair, mirroring Anomaly's bioferrite stuff (sensitivity factor plus neural heat limit) where
        UMW_EltexPlated mirrors the eltex garments. Named for the fittings the accent mask actually
        paints, in the zeus-headed / plasma-cored furniture register (chosen over eltex-threaded,
@@ -32,7 +32,7 @@
   <WeaponTraitDef>
     <defName>UMW_EltexFitted</defName>
     <label>eltex-fitted</label>
-    <description>The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity.</description>
+    <description>The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit.</description>
     <commonality>0.35</commonality>
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>

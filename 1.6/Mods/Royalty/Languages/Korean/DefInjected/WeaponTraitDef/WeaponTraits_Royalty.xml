@@ -72,8 +72,8 @@
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.label>엘텍스 도금</UMW_EltexPlated.label>
 
-  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
-  <UMW_EltexPlated.description>창백한 광택 아래, 몸체에 정신적으로 공명하는 합금인 엘텍스를 입혔습니다. 사용자의 정신 감응력을 높이고 신경열을 흘려 보냅니다.</UMW_EltexPlated.description>
+  <!-- EN: The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat. -->
+  <UMW_EltexPlated.description>몸체가 연한 색의 엘텍스로 도금되어 있습니다. 초집중 능력자를 위한 이 특수 재질은 사용자의 정신 감응력을 높이고 신경열을 빠르게 안정시켜 줍니다.</UMW_EltexPlated.description>
 
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.traitAdjectives.0>엘텍스 도금</UMW_EltexPlated.traitAdjectives.0>
@@ -88,8 +88,8 @@
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.label>엘텍스 장착</UMW_EltexFitted.label>
 
-  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
-  <UMW_EltexFitted.description>손잡이, 가드, 자루 끝에 엘텍스를 맞춰 끼웠으며, 어둡게 깎아 광을 내지 않았습니다. 사용자의 신경열 한계를 넓히고 정신 감응력을 증폭합니다.</UMW_EltexFitted.description>
+  <!-- EN: The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit. -->
+  <UMW_EltexFitted.description>손잡이와 부속은 광을 내지 않은 어두운 엘텍스로 만들어졌습니다. 사용자의 정신 감응력을 높이고 신경열 한계를 늘려 줍니다.</UMW_EltexFitted.description>
 
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.traitAdjectives.0>엘텍스 장착</UMW_EltexFitted.traitAdjectives.0>
@@ -104,8 +104,8 @@
   <!-- EN: lead-lined -->
   <UMW_LeadLined.label>납 라이닝</UMW_LeadLined.label>
 
-  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
-  <UMW_LeadLined.description>슴베와 부속에 납을 덧대어 사용자의 정신 감응력을 무디게 합니다. 득이 될 때도, 해가 될 때도 있습니다. 덧댄 납이 무게를 더해 휘두르는 속도를 늦춥니다.</UMW_LeadLined.description>
+  <!-- EN: The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing. -->
+  <UMW_LeadLined.description>손잡이에 납을 덧대어 사용자의 정신 감응력을 억제합니다. 늘어난 무게 때문에 휘두르는 속도가 느려집니다.</UMW_LeadLined.description>
 
   <!-- EN: lead-lined -->
   <UMW_LeadLined.traitAdjectives.0>납 라이닝</UMW_LeadLined.traitAdjectives.0>

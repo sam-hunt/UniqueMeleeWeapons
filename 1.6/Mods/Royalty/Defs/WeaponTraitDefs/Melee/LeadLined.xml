@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. Color + Eltex. The tang and fittings are lined with lead, a psychically inert
+  <!-- UMW_Melee. Color + Eltex. The grip is lined with lead, a psychically inert
        lining: the eltex pair's mirror, and the first wielder-side malus that is still a weapon stat.
        INTENT: "a weapon that deadens its wielder's psychic sensitivity, for better and for worse."
        Routing: Core's PsychicSensitivity carries StatPart_GearStatFactor with includeWeapon, which
@@ -11,7 +11,8 @@
        Mass, cooldown and market value are ordinary weapon stats, as on UMW_Cumbersome. Not
        quality-scaled: the factor has no quality part, so every value here is flat.
        Two-sided by design: the x0.9 that weakens a psycaster is also a shield against psychic
-       drones, shock and insanity lances and soothe/insanity events, and the description admits it.
+       drones, shock and insanity lances and soothe/insanity events. The description states only the
+       suppression, as vanilla's psychic quiet does; the sensitivity stat tooltip explains the two sides.
        Anchors: mass x1.1 and cooldown x1.05 sit under Cumbersome's x1.3 / x1.15 (the weight is a
        side effect of the lining); MarketValue x0.9 follows the MV rule (devaluation is a factor),
        a lighter touch than Ugly's and Cumbersome's x0.8 because the effect cuts both ways. Under
@@ -35,7 +36,7 @@
   <WeaponTraitDef>
     <defName>UMW_LeadLined</defName>
     <label>lead-lined</label>
-    <description>The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing.</description>
+    <description>The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing.</description>
     <commonality>0.5</commonality>
     <canGenerateAlone>false</canGenerateAlone>
     <weaponCategory>UMW_Melee</weaponCategory>

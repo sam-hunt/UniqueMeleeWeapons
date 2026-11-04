@@ -74,7 +74,9 @@ warhammer hammer and maul nouns, the mace head noun).
 2026-11 (Royalty melee traits, `WeaponTraits_Royalty.xml`): エルテックスプレート (eltex-plated),
 エルテックス金具 (eltex-fitted), 鉛張り (lead-lined; 鉛 is the ordinary word, vanilla has no lead
 material), following the ゼウスヘッド / プラズマコア "material + part" label precedent. Vanilla terms
-reused: エルテックス (Royalty eltex gear labels), 精神感応性 (`PsychicSensitivity`), ニューラルヒートの限界
-(`RoyaltyTips.EltexGear`), グリップ (Core gun tools). 柄頭 (pommel) and 茎 (tang) are not in vanilla
-ja, ordinary sword terms. Colours (katakana compounds like 単分子ホワイト): エルテックスペール /
-エルテックスシェード.
+reused: エルテックス (Royalty eltex gear labels), 精神感応性 (`PsychicSensitivity`), ニューラルヒートリミット
+(`PsychicEntropyMax` stat label, not the `RoyaltyTips.EltexGear` prose ニューラルヒートの限界), グリップ (Core gun
+tools). Descriptions mirror vanilla: サイフォーカスに適した…素材 and 精神感応性を高め,ニューラルヒートの放熱に効果的です
+(Royalty `Apparel_PsyfocusShirt`/`Vest`/`Robe`), 精神感応性を…抑えます (`PsychicSensitivityDownMinor`).
+金具 (fittings) is the ordinary word, as in the label. Colours (katakana compounds like 単分子ホワイト):
+エルテックスミント (eltex mint) / エルテックスグリーン (eltex green).

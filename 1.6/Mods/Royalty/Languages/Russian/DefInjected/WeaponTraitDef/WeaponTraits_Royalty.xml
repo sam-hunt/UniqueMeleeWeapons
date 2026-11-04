@@ -72,8 +72,8 @@
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.label>обшивка из эльтекса</UMW_EltexPlated.label>
 
-  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
-  <UMW_EltexPlated.description>Корпус обшит эльтексом, психически резонирующим сплавом, и покрыт бледным глянцем. Он обостряет психочувствительность владельца и рассеивает нейроперегрев.</UMW_EltexPlated.description>
+  <!-- EN: The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat. -->
+  <UMW_EltexPlated.description>Корпус обшит бледным эльтексом. Этот материал для пси-концентрации усиливает психочувствительность владельца и помогает рассеивать нейроперегрев.</UMW_EltexPlated.description>
 
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.traitAdjectives.0>обшитый эльтексом</UMW_EltexPlated.traitAdjectives.0>
@@ -88,8 +88,8 @@
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.label>отделка из эльтекса</UMW_EltexFitted.label>
 
-  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
-  <UMW_EltexFitted.description>Рукоять, гарда и навершие отделаны эльтексом, тёмным и неполированным. Он расширяет порог нейроперегрева владельца и усиливает его психочувствительность.</UMW_EltexFitted.description>
+  <!-- EN: The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit. -->
+  <UMW_EltexFitted.description>Рукоять и фурнитура выполнены из тёмного неполированного эльтекса. Они усиливают психочувствительность владельца и повышают его порог нейроперегрева.</UMW_EltexFitted.description>
 
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.traitAdjectives.0>отделанный эльтексом</UMW_EltexFitted.traitAdjectives.0>
@@ -104,8 +104,8 @@
   <!-- EN: lead-lined -->
   <UMW_LeadLined.label>свинцовая подкладка</UMW_LeadLined.label>
 
-  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
-  <UMW_LeadLined.description>Хвостовик и фурнитура подбиты свинцом, который приглушает психочувствительность владельца, и к лучшему, и к худшему. Подкладка добавляет вес и замедляет взмах.</UMW_LeadLined.description>
+  <!-- EN: The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing. -->
+  <UMW_LeadLined.description>Рукоять подбита свинцом, который подавляет психочувствительность владельца. Дополнительный вес замедляет взмах.</UMW_LeadLined.description>
 
   <!-- EN: lead-lined -->
   <UMW_LeadLined.traitAdjectives.0>подбитый свинцом</UMW_LeadLined.traitAdjectives.0>

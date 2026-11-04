@@ -71,8 +71,8 @@
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.label>灵质镀层</UMW_EltexPlated.label>
 
-  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
-  <UMW_EltexPlated.description>器身镀有一层灵质，一种能与心灵共鸣的合金，表面泛着淡淡的光泽。它能提升使用者的心灵敏感度，并消散心灵熵。</UMW_EltexPlated.description>
+  <!-- EN: The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat. -->
+  <UMW_EltexPlated.description>器身镀有一层浅色灵质。这种心灵聚合物能增加使用者的心灵敏感度，并帮助驱散心灵熵。</UMW_EltexPlated.description>
 
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.traitAdjectives.0>灵质镀面</UMW_EltexPlated.traitAdjectives.0>
@@ -87,8 +87,8 @@
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.label>灵质配件</UMW_EltexFitted.label>
 
-  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
-  <UMW_EltexFitted.description>握柄、护手与柄头均以灵质镶配，切成暗色，未经打磨。它能扩大使用者的心灵熵阈值，并增强其心灵敏感度。</UMW_EltexFitted.description>
+  <!-- EN: The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit. -->
+  <UMW_EltexFitted.description>握柄与配件由未经打磨的暗色灵质制成。它们能增加使用者的心灵敏感度，并提高其心灵熵阈值。</UMW_EltexFitted.description>
 
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.traitAdjectives.0>灵质镶配</UMW_EltexFitted.traitAdjectives.0>
@@ -103,8 +103,8 @@
   <!-- EN: lead-lined -->
   <UMW_LeadLined.label>铅内衬</UMW_LeadLined.label>
 
-  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
-  <UMW_LeadLined.description>刀茎与配件内衬着铅，会钝化使用者的心灵敏感度，利弊兼具。衬层增加了重量，也拖慢了挥击。</UMW_LeadLined.description>
+  <!-- EN: The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing. -->
+  <UMW_LeadLined.description>握柄内衬着铅，会抑制使用者的心灵敏感度。额外的重量拖慢了挥击。</UMW_LeadLined.description>
 
   <!-- EN: lead-lined -->
   <UMW_LeadLined.traitAdjectives.0>铅衬</UMW_LeadLined.traitAdjectives.0>

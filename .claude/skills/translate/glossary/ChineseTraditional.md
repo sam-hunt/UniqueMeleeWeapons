@@ -49,7 +49,7 @@ vanilla's own label/prose split). Ultratech trait labels: 單分子刃 /
 等離子內芯 / 宙斯錘頭 (label register follows 等離子劍; descriptions use
 電漿). "Thunderous" is deliberately split: 雷霆 (ZeusHeaded, Zeus's bolt) vs
 雷鳴 (Piledriver, from the official Namer's badass list).
-Royalty eltex traits: eltex = 心靈 (vanilla `Apparel_EltexSkullcap` 心靈頭套, `RoyaltyTips.EltexGear`); labels 心靈鍍層 / 心靈配件 / 鉛內襯 (noun-phrase form like 單分子刃); 握柄 (Core handle) / 護手 / 柄頭 (pommel) / 刀莖 (tang) are coined, no vanilla part word; colours 心靈淡青 / 心靈深青 (teal, drop-色).
+Royalty eltex traits: eltex = 心靈 (vanilla `Apparel_EltexSkullcap` 心靈頭套, `RoyaltyTips.EltexGear`); labels 心靈鍍層 / 心靈配件 / 鉛內襯 (noun-phrase form like 單分子刃); eltex as a substance noun in prose = 心靈聚合物 (`Apparel_PsyfocusRobe`/`Shirt`/`Vest`); psychic focusing material = 心靈聚焦材料 (`MeleeWeapon_PsyfocusStaff`); dissipate neural heat 驅散神經熱 (`Apparel_EltexSkullcap`); suppresses 抑制 (`PsychicSensitivityDownMinor`); neural heat limit 神經熱極限 (`PsychicEntropyMax`). 握柄 (Core handle), 配件 (fittings, ordinary word); colours 心靈薄荷綠 / 心靈綠 (drop-色; 綠 from Core `Structure_Green` 綠色, 薄荷綠 the ordinary word, unattested in vanilla).
 WeaponCategoryDef labels: 格鬥 (melee, Core skill label), 刃器 / 尖器 / 鈍器
 (bladed / pointed / blunt), 沉重 (heavy), 護手 (guarded). Faction pawns:
 戰士 (EN "warrior", not 部落民 — that renders EN "tribesfolk" only).

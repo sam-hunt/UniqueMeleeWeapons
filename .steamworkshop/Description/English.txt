@@ -34,7 +34,7 @@ Most interesting unique-weapon trait fields don't work for melee; the game only 
 [*][b]Damage types rerouted:[/b] a serrated edge tears ragged wounds, an envenomed point delivers tox
 [*][b]Armor penetration tuned separately from damage[/b] (typically vanilla couples these), and also per tool
 [*][b]Wielder-side effects:[/b] a needle point's difficulty to land, a quilloned guard's chance to parry, eltex plating and fittings that raise psychic sensitivity and neural heat limit and recovery (or a lead lining that dulls them)
-[*][b]Forced body color:[/b] carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex pale
+[*][b]Forced body color:[/b] carbonized black, enamel violet, monomolecular white, plasma orange, dried-blood red, eltex mint
 [/list]
 
 [h2]New Active Abilities[/h2]

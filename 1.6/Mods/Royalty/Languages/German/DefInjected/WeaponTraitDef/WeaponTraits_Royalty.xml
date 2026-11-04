@@ -72,8 +72,8 @@
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.label>eltexplattiert</UMW_EltexPlated.label>
 
-  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
-  <UMW_EltexPlated.description>Der Körper ist unter einem blassen Schimmer mit Eltex plattiert, einer mental resonanten Legierung. Die Beschichtung schärft die mentale Sensibilität des Trägers und leitet Neuralhitze ab.</UMW_EltexPlated.description>
+  <!-- EN: The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat. -->
+  <UMW_EltexPlated.description>Der Körper ist mit blassem Eltex plattiert. Das Material zur mentalen Fokussierung verbessert die mentale Sensibilität und Neuralhitzerückgangsrate des Trägers.</UMW_EltexPlated.description>
 
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.traitAdjectives.0>eltexplattiert</UMW_EltexPlated.traitAdjectives.0>
@@ -88,8 +88,8 @@
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.label>eltexbeschlagen</UMW_EltexFitted.label>
 
-  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
-  <UMW_EltexFitted.description>Griff, Parierstange und Knauf sind mit Eltex beschlagen, dunkel geschliffen und unpoliert. Der Beschlag erweitert das Neuralhitzelimit des Trägers und verstärkt dessen mentale Sensibilität.</UMW_EltexFitted.description>
+  <!-- EN: The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit. -->
+  <UMW_EltexFitted.description>Griff und Beschläge sind aus dunklem, unpoliertem Eltex gefertigt. Sie verbessern die mentale Sensibilität des Trägers und erhöhen sein Neuralhitzelimit.</UMW_EltexFitted.description>
 
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.traitAdjectives.0>eltexbeschlagen</UMW_EltexFitted.traitAdjectives.0>
@@ -104,8 +104,8 @@
   <!-- EN: lead-lined -->
   <UMW_LeadLined.label>bleiverkleidet</UMW_LeadLined.label>
 
-  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
-  <UMW_LeadLined.description>Angel und Beschläge sind mit Blei ausgekleidet, das die mentale Sensibilität des Trägers dämpft, im Guten wie im Schlechten. Die Auskleidung erhöht das Gewicht und verlangsamt den Schwung.</UMW_LeadLined.description>
+  <!-- EN: The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing. -->
+  <UMW_LeadLined.description>Der Griff ist mit Blei ausgekleidet, das die mentale Sensibilität des Trägers unterdrückt. Das zusätzliche Gewicht verlangsamt den Schwung.</UMW_LeadLined.description>
 
   <!-- EN: lead-lined -->
   <UMW_LeadLined.traitAdjectives.0>bleiverkleidet</UMW_LeadLined.traitAdjectives.0>

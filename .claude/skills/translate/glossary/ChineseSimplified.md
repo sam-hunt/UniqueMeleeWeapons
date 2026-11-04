@@ -27,9 +27,13 @@ to Unique Melee Weapons' weapon domain. RimWorld's language folder is
 eltex 灵质 / psychic sensitivity 心灵敏感度 / neural heat 心灵熵 (limit 心灵熵阈值)
 are Royalty-verbatim. Labels follow the 单分子刃 compound-noun precedent:
 eltex-plated 灵质镀层, eltex-fitted 灵质配件, lead-lined 铅内衬 (lead 铅,
-ordinary word). Parts: grip 握柄 (Core), guard 护手 (category label), pommel 柄头
-and tang 刀茎 (ordinary words, not in vanilla). Colours: eltex pale 灵质淡色,
-eltex shade 灵质暗色.
+ordinary word). Descriptions (2026-11 rewrite) reuse Royalty: psychic focusing material
+心灵聚合物 (`Apparel_PsyfocusRobe`/`Shirt`/`Vest`), enhance psychic sensitivity
+增加心灵敏感度, dissipate neural heat 驱散心灵熵 (`Apparel_EltexSkullcap`),
+suppresses 抑制 (`PsychicSensitivityDownMinor`). Parts: grip 握柄 (Core),
+fittings 配件 (ordinary word). Colours: eltex mint 灵质薄荷绿, eltex green
+灵质绿 (绿 from Core `Structure_Green`; 薄荷绿 the ordinary word, unattested
+in vanilla).
 
 ## `traitAdjectives` composition rules
 

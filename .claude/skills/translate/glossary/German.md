@@ -198,10 +198,11 @@ Core DamageDef labels), `schwer` (heavy), `bewehrt` (guarded, matching the
 
 The Royalty-root Melee trait trio coins `eltexplattiert` (eltex-plated), `eltexbeschlagen`
 (eltex-fitted, after the `-bewehrt`/`-beschlagen` pattern) with adjective `eltexbesetzt`,
-`bleiverkleidet` (lead-lined; `bleiern`, `abgestumpft`) and the colours `eltexblass` /
-`eltexdunkel`; Eltex per vanilla `Eltex-Stab`, mental Sensibilität / Neuralhitze(limit)
-per Core/Royalty. Pommel/tang/lead have no vanilla de term: `Knauf`, `Angel`, `Blei`
-(ordinary words, pending native review).
+`bleiverkleidet` (lead-lined; `bleiern`, `abgestumpft`) and the colours `eltexmint` /
+`eltexgrün`; Eltex per vanilla `Eltex-Stab`, `Material zur mentalen Fokussierung`, mentale
+Sensibilität, `Neuralhitzerückgangsrate` (vanilla's rendering of "dissipate neural heat"),
+`Neuralhitzelimit` and `unterdrückt` (psychic quiet) per Core/Royalty. `Griff`/`Beschläge`
+for grip/fittings; lead has no vanilla de term: `Blei` (ordinary word, pending native review).
 
 The 2026-08-23 breach axe (`UMW_BreachAxe_Unique`) namerLabels coin two
 agent nouns distinct from the grounded `|F|Axt` (axe) and vanilla `|M|Kopf`

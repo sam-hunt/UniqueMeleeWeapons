@@ -72,8 +72,8 @@
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.label>chapa de éltex</UMW_EltexPlated.label>
 
-  <!-- EN: The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat. -->
-  <UMW_EltexPlated.description>El cuerpo está chapado en éltex, una aleación de resonancia psíquica, bajo un brillo pálido. Agudiza la sensibilidad psíquica de quien la empuña y disipa el calentamiento neural.</UMW_EltexPlated.description>
+  <!-- EN: The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat. -->
+  <UMW_EltexPlated.description>El cuerpo está chapado en éltex pálido. Este material de enfoque psíquico mejora la sensibilidad psíquica del usuario y ayuda a disipar el calentamiento neural.</UMW_EltexPlated.description>
 
   <!-- EN: eltex-plated -->
   <UMW_EltexPlated.traitAdjectives.0>de chapa de éltex</UMW_EltexPlated.traitAdjectives.0>
@@ -88,8 +88,8 @@
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.label>guarnición de éltex</UMW_EltexFitted.label>
 
-  <!-- EN: The grip, guard and pommel are fitted in eltex, cut dark and left unpolished. It widens the wielder's neural heat limit and amplifies their psychic sensitivity. -->
-  <UMW_EltexFitted.description>La empuñadura, la guarda y el pomo están guarnecidos de éltex, tallado oscuro y sin pulir. Amplía el límite de calentamiento neural de quien la empuña y potencia su sensibilidad psíquica.</UMW_EltexFitted.description>
+  <!-- EN: The grip and fittings are made of dark, unpolished eltex. They enhance the wielder's psychic sensitivity and increase their neural heat limit. -->
+  <UMW_EltexFitted.description>La empuñadura y los herrajes son de éltex oscuro y sin pulir. Mejoran la sensibilidad psíquica del usuario y aumentan su límite de calentamiento neural.</UMW_EltexFitted.description>
 
   <!-- EN: eltex-fitted -->
   <UMW_EltexFitted.traitAdjectives.0>de guarnición de éltex</UMW_EltexFitted.traitAdjectives.0>
@@ -104,8 +104,8 @@
   <!-- EN: lead-lined -->
   <UMW_LeadLined.label>forro de plomo</UMW_LeadLined.label>
 
-  <!-- EN: The tang and fittings are lined with lead, which deadens the wielder's psychic sensitivity for better and for worse. The lining adds weight and slows the swing. -->
-  <UMW_LeadLined.description>La espiga y los herrajes están forrados de plomo, que apaga la sensibilidad psíquica de quien la empuña, para bien y para mal. El forro añade peso y ralentiza el golpe.</UMW_LeadLined.description>
+  <!-- EN: The grip is lined with lead, which suppresses the wielder's psychic sensitivity. The extra weight slows the swing. -->
+  <UMW_LeadLined.description>La empuñadura está forrada de plomo, que suprime la sensibilidad psíquica del usuario. El peso añadido ralentiza el golpe.</UMW_LeadLined.description>
 
   <!-- EN: lead-lined -->
   <UMW_LeadLined.traitAdjectives.0>de forro de plomo</UMW_LeadLined.traitAdjectives.0>

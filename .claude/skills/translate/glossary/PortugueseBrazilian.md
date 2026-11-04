@@ -187,7 +187,7 @@ drum-and-bugle marching band; Core attests `bando de invasores`),
 namer noun), `azagaia` (lance), `clava` (bludgeon only — mace stays
 `maça`), `cutelo` (cleaver), `marreta` (maul), and the colours `vermelho
 sangue` / `preto carvão` / `roxo esmalte` / `branco monomolecular` /
-`laranja plasma` (patterned on Odyssey's `azul gelo` / `laranja fogo`), plus the Royalty eltex traits `placas de eltex` (eltex-plated), `ferragens de eltex` (eltex-fitted, `pomo` for pommel and `espiga` for tang are ungrounded in vanilla), `forro de chumbo` (lead-lined) with invariant adjectives (`eltex` as bare noun-adjective like vanilla `capacete eltex`, `ressonante`, `isolante`, `inerte`), and the colours `eltex pálido` / `eltex sombra`.
+`laranja plasma` (patterned on Odyssey's `azul gelo` / `laranja fogo`), plus the Royalty eltex traits `placas de eltex` (eltex-plated), `ferragens de eltex` (eltex-fitted; `empunhadura` for grip, `ferragens` for fittings), `forro de chumbo` (lead-lined) with invariant adjectives (`eltex` as bare noun-adjective like vanilla `capacete eltex`, `ressonante`, `isolante`, `inerte`), and the colours `verde-menta eltex` / `verde eltex` (eltex mint / eltex green). The eltex descriptions reuse Royalty's apparel wording: `material de concentração psíquica`, `aumenta a sensibilidade psíquica ... e ajuda a dissipar o calor neural` (`Apparel_PsyfocusShirt`/`Vest`/`Robe`), `limite de calor neural` (`PsychicEntropyMax`), and `diminui a sensibilidade psíquica do usuário` (`PsychicSensitivityDownMinor`, whose vanilla `sensividade` typo is not copied).
 The 2026-07-30 WeaponCategoryDef labels are likewise mod-decided: `corpo a
 corpo` (melee, Core skill label), `cortante` / `perfurante` /
 `contundente` (bladed / pointed / blunt — `perfurante` over the

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- UMW_Melee. BodyColor + Appearance + Eltex. The body is plated in eltex, Royalty's psychically
-       resonant alloy, the way every Royalty eltex garment is. First of the eltex trio (with
+  <!-- UMW_Melee. BodyColor + Appearance + Eltex. The body is plated in pale eltex, Royalty's psychic
+       focusing material, the way every Royalty eltex garment is. First of the eltex trio (with
        UMW_EltexFitted and UMW_LeadLined, both in this folder), which splits the four weapon-routed
        psychic stats by canon: Plated mirrors the eltex garments (sensitivity offset plus neural heat
        recovery), Fitted mirrors Anomaly's bioferrite stuff (sensitivity factor plus heat limit).
@@ -37,7 +37,7 @@
   <WeaponTraitDef>
     <defName>UMW_EltexPlated</defName>
     <label>eltex-plated</label>
-    <description>The body is plated in eltex, a psychically resonant alloy, under a pale sheen. It sharpens the wielder's psychic sensitivity and bleeds away neural heat.</description>
+    <description>The body is plated in pale eltex. The psychic focusing material enhances the wielder's psychic sensitivity and helps dissipate neural heat.</description>
     <commonality>0.35</commonality>
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>
