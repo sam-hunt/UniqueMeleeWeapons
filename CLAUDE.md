@@ -88,8 +88,11 @@ The repo lives outside the Mods folder; every local Release build redeploys atom
   where vanilla already localizes the exact string (reuse the vanilla key or def label); a string
   that names game content injects the def label as a placeholder. Keyed files split by purpose:
   `UMW_UI.xml` settings, `UMW_Combat.xml` floating combat text, `UMW_Stats.xml` info-card lines.
-- **No em dashes in player-facing text** (def labels and descriptions, `Keyed/`, `About.xml`);
-  reflow the sentence. Guidance files, code comments and def comments are unaffected.
+- **Player-facing text follows `l10n/languages/English.md`** (def labels and descriptions,
+  `Keyed/`, `About.xml`, `.steamworkshop/`): read it before writing or changing any. Its
+  mechanical rules (no dashes, semicolons, "Whether" openers or parenthetical asides) are
+  checked by `Scripts/check-translations.py` as `[player text]` warnings, which `--strict` turns
+  into release errors. Guidance files, code comments and def comments are unaffected.
 - **Gate on packageId, never on display name.** XML: `IfModActive` / `MayRequire`, never
   `PatchOperationFindMod`. C#: `ModLister.GetActiveModWithIdentifier(id, ignorePostfix: true)`,
   never `ModsConfig.IsActive`. A Workshop copy installed beside a local one gets a `_steam` suffix
