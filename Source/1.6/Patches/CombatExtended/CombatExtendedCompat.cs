@@ -42,9 +42,11 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // GUARDS. Nothing happens unless CE is active (packageId gate, ignorePostfix so a Workshop copy
 // beside a local one still matches). Every target is resolved by name; a miss logs ONE warning,
 // leaves that hook unapplied and vetoes the traits that depend on it from future rolls (below),
-// so a CE refactor degrades to "those traits do not roll" rather than a startup error. The whole
-// apply is in try/catch. Patches are applied once per process (Harmony would dedupe by id, but
-// the flag keeps a reload from repeating the warning); the StatDef references the parry and
+// so a CE refactor degrades to "those traits do not roll" rather than a startup error. Each
+// hook's apply runs in its own try/catch (TryHook), so a throw inside one marks only THAT hook
+// missing and the hooks that did apply keep their traits rolling; only a failure outside any hook
+// (the type lookup itself) marks all four. Patches are applied once per process (Harmony would
+// dedupe by id, but the flag keeps a reload from repeating the warning); the StatDef references the parry and
 // floor hooks hold are re-resolved on EVERY Run, because a mid-session language change replaces
 // every def instance and a reference cached at first apply would then compare unequal forever
 // (Quilloned silently inert after a language switch). No assembly reference to
@@ -57,7 +59,9 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // CompUniqueWeapon.CanAddTrait, applied ONLY on a miss so the golden path carries no extra postfix
 // on trait generation, vetoes by extension rather than defName (a future trait inherits the right
 // behaviour); each hook's Vetoes names its extension. Weapons that already carry a vetoed trait
-// keep it, inert, as today under CE without these files.
+// keep it, inert, as today under CE without these files. A hook with two patches (the
+// penetration floor) that throws on its second is marked missing with its first in place:
+// conservative on purpose, its traits stop rolling while existing ones keep the half that landed.
 //
 // Vanilla patches stay as they are: both verbs can coexist in one game (a mod's maneuver naming
 // RimWorld.Verb_MeleeAttackDamage outright escapes CE's swap), and a swing executes exactly one
@@ -125,11 +129,30 @@ public static class CombatExtendedCompat
             return;
         }
         Harmony harmony = UniqueMeleeWeaponsMod.Harmony;
-        int count = Verb_MeleeAttackCE_OnHitTraits_Patch.TryApply(verbType, harmony)
-            + Verb_MeleeAttackCE_DamageConversion_Patch.TryApply(verbType, harmony)
-            + Verb_MeleeAttackCE_Parry_Patch.TryApply(verbType, harmony)
-            + Verb_MeleeAttackCE_PenetrationFloor_Patch.TryApply(verbType, harmony);
+        int count = TryHook("on-hit", () => Verb_MeleeAttackCE_OnHitTraits_Patch.TryApply(verbType, harmony),
+                () => Verb_MeleeAttackCE_OnHitTraits_Patch.Missing = true)
+            + TryHook("damage conversion", () => Verb_MeleeAttackCE_DamageConversion_Patch.TryApply(verbType, harmony),
+                () => Verb_MeleeAttackCE_DamageConversion_Patch.Missing = true)
+            + TryHook("parry", () => Verb_MeleeAttackCE_Parry_Patch.TryApply(verbType, harmony),
+                () => Verb_MeleeAttackCE_Parry_Patch.Missing = true)
+            + TryHook("penetration floor", () => Verb_MeleeAttackCE_PenetrationFloor_Patch.TryApply(verbType, harmony),
+                () => Verb_MeleeAttackCE_PenetrationFloor_Patch.Missing = true);
         Log.Message($"[Unique Melee Weapons] Combat Extended detected; applied {count} melee trait hooks to {VerbTypeName}.");
+    }
+
+    // One hook's apply in isolation (GUARDS in the header): a throw marks only this hook missing.
+    private static int TryHook(string name, Func<int> apply, Action markMissing)
+    {
+        try
+        {
+            return apply();
+        }
+        catch (Exception e)
+        {
+            Log.Warning(LogPrefix + "its " + name + " hook could not be applied; the trait effects that depend on it stay inert. " + e);
+            markMissing();
+            return 0;
+        }
     }
 
     // Degraded mode: applied only when some lookup missed.

@@ -19,8 +19,12 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // read through an abstract StatRequest (def + quality; no stuff, no thing), exactly as the vanilla
 // floor uses MeleeWeapon_DamageMultiplier's. The getters feed the hit, the Sharp crit doubling
 // (applied after the getter) and the Sharp-deflected-into-Blunt path (LastAttackVerb), so two
-// patches cover every read. CE's info card reads ToolCE fields directly and never shows the
-// floor; our trait block does (TraitEffectSummary's CE-unit line).
+// patches cover every read that decides penetration. One read is NOT through the getters: CE's
+// DamageInfosToApply compares the raw ToolCE.armorPenetrationSharp field against the target's
+// sharp armor to decide its own forced-internal hit, so a floored edge never unlocks that path
+// against armor above its raw value (vanilla's DamageWorker_Stab part choice still rolls). Minor
+// and accepted. CE's info card reads ToolCE fields directly and never shows the floor; our
+// trait block does (TraitEffectSummary's CE-unit line).
 //
 // THE STAT. MeleePenetrationFactor is re-resolved on every play-data load (ResolveStat, from
 // CombatExtendedCompat.Run): a mid-session language change replaces every def instance, and a

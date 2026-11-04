@@ -23,6 +23,14 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // logging a hit with no damage after CE's own parry resolution has already run; CE's parry
 // (block, weapon damage, riposte, log line) is the better outcome anyway.
 //
+// WHAT CE GATES AROUND THIS NUMBER. The roll only happens when CE's CanDoParry admits the
+// defender (humanlike or a race CE's RacePropertiesExtensionCE marks canParry, working
+// manipulation, not stunned, not in a social fight) and its ParryTracker has no parry cooldown
+// registered for them (every parry registers one for the weapon's cooldown), so in sustained
+// melee the effective uplift sits below the trait's nominal chance, and a non-parrying race gets
+// none. Those are CE's rules for every parry, not something this hook changes; a tester seeing
+// fewer Quilloned parries than the card promises is seeing the cooldown.
+//
 // DECIDED: the bonus also applies when a worn shield is CE's parry item, because the chance is
 // one number from this helper and the item only decides what absorbs the blow; Quilloned rolls
 // on the gladius, a one-hander, and skipping behind a shield would punish the one weapon the
@@ -60,10 +68,12 @@ internal static class Verb_MeleeAttackCE_Parry_Patch
         return 1;
     }
 
-    // __0 is CE's first parameter: for the parry and tooltip calls, the pawn being attacked.
-    public static void Postfix(ref float __result, Pawn __0, StatDef stat)
+    // __0 is CE's first parameter: for the parry and tooltip calls, the pawn being attacked; __1 the
+    // attacker. CE returns 0 before computing anything when either is null, so the bonus is skipped
+    // too rather than added onto an early return (unreachable from CE's call sites, made explicit).
+    public static void Postfix(ref float __result, Pawn __0, Pawn __1, StatDef stat)
     {
-        if (stat != parryStat || __0 == null)
+        if (stat != parryStat || __0 == null || __1 == null)
         {
             return;
         }
