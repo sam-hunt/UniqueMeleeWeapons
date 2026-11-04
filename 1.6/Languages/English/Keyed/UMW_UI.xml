@@ -17,6 +17,15 @@
   <UMW_SettingsQuestSection>{0} quest</UMW_SettingsQuestSection>
   <UMW_SettingsCompat>Compatibility</UMW_SettingsCompat>
 
+  <!-- Settings: section header tooltips, on the Weapons, Traits and Traders headers. Each says ONCE
+       what every row beneath it does, so the rows' own tooltips can stay short: what a toggle does
+       and what it leaves alone, then (Weapons and Traits) the group box and click-and-drag painting
+       over the checkbox rows. "Weapons section" in the third names the UMW_SettingsWeapons header
+       above: use the same word. -->
+  <UMW_SettingsWeaponsDesc>Which unique weapons can be generated. A weapon turned off leaves every reward and loot pool, and the others fill its place; weapons already in your save are untouched. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once.</UMW_SettingsWeaponsDesc>
+  <UMW_SettingsTraitsDesc>Which traits can roll on newly made unique weapons. A trait turned off leaves the roll, and others fill its place; weapons that already carry it keep it. The last trait a weapon could roll first is held on. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once.</UMW_SettingsTraitsDesc>
+  <UMW_SettingsTradersDesc>Unique melee weapons in trader stock, all off by default. A trader that can stock them also buys them, whether or not its stocking is on. Weapons turned off in the Weapons section never appear.</UMW_SettingsTradersDesc>
+
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
   <UMW_DefaultSuffix> (default)</UMW_DefaultSuffix>
@@ -37,18 +46,17 @@
        switches the whole group. The first string is the count, with a leading space, appended to the
        name in the name's colour so the header reads "Royalty (6)"; {0} is how many weapons or traits
        of that group there are in that section, shown even while its mod or DLC is not active. The
-       other three are header tooltips; {0} is the owner's name, injected already coloured: do not
-       inflect it. They share their last two sentences, which describe the box and click-and-drag
-       painting over the checkbox rows beneath the header; keep those identical across the three. The
-       first tooltip is for an optional mod or DLC whose rows are its own content. The second is for
-       the Traits group headed by this mod's own name, holding the traits of its own design. The
-       third is for the Traits group headed by Odyssey, holding melee counterparts of the traits
-       Odyssey gives its own unique ranged weapons: they are this mod's traits, named and tuned after
-       Odyssey's, not Odyssey's content. -->
+       other three are header tooltips, one sentence each saying only what the group is (the box and
+       drag-painting are explained once, on the section header's tooltip above); {0} is the owner's
+       name, injected already coloured: do not inflect it. The first is for an optional mod or DLC
+       whose rows are its own content. The second is for the Traits group headed by this mod's own
+       name, holding the traits of its own design. The third is for the Traits group headed by
+       Odyssey, holding melee counterparts of the traits Odyssey gives its own unique ranged weapons:
+       they are this mod's traits, named and tuned after Odyssey's, not Odyssey's content. -->
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
-  <UMW_IntegrationGroupDesc>Everything from {0} in this section. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_IntegrationGroupDesc>
-  <UMW_OwnTraitsGroupDesc>Traits original to {0}, of its own design. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_OwnTraitsGroupDesc>
-  <UMW_OdysseyTraitsGroupDesc>Melee counterparts of the traits {0} gives its unique ranged weapons. The box switches the whole group at once; a half-filled box means some of its rows are off. Click and drag across the rows below to switch several at once.</UMW_OdysseyTraitsGroupDesc>
+  <UMW_IntegrationGroupDesc>Everything from {0} in this section.</UMW_IntegrationGroupDesc>
+  <UMW_OwnTraitsGroupDesc>Traits original to {0}, of its own design.</UMW_OwnTraitsGroupDesc>
+  <UMW_OdysseyTraitsGroupDesc>Melee counterparts of the traits {0} gives its unique ranged weapons.</UMW_OdysseyTraitsGroupDesc>
   <!-- Fallback display names, used only while the mod is not installed at all (an installed mod
        supplies its own name from its About.xml, and a DLC's comes from the game). Proper nouns: keep
        them exactly as the mod publishes them, in every language. -->
@@ -56,14 +64,16 @@
   <UMW_ModNameVte>Vanilla Textures Expanded</UMW_ModNameVte>
 
   <!-- Settings: Weapons. One checkbox per weapon, labelled from the weapon's own def label; the row list
-       is generated, so this is the only string it needs. {0} is that label (lowercase). In the tooltip
-       it follows the weapon's own label and description, after a blank line. -->
-  <UMW_WeaponEnabledDesc>Allow {0} to be generated. Turn off to remove it from every reward and loot pool; the other weapons fill its place. Weapons already in your save are untouched.</UMW_WeaponEnabledDesc>
+       is generated, so this is the only string it needs. {0} is that label (lowercase). One sentence:
+       it leads the tooltip, and the weapon's own label and description follow after a blank line
+       (what turning a weapon off does is on the section header's tooltip). -->
+  <UMW_WeaponEnabledDesc>Allow {0} to be generated.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; the row list
-       is generated, so this is the only string it needs. {0} is that label (lowercase). In the tooltip
-       it follows the trait's own label, description and effect lines, after a blank line. -->
-  <UMW_TraitEnabledDesc>Allow {0} to roll on newly made unique weapons. Turn off to keep it out of the roll; other traits fill its place. Weapons that already carry it keep it.</UMW_TraitEnabledDesc>
+       is generated, so this is the only string it needs. {0} is that label (lowercase). One sentence:
+       it leads the tooltip, and the trait's own label, description and effect lines follow after a
+       blank line (what turning a trait off does is on the section header's tooltip). -->
+  <UMW_TraitEnabledDesc>Allow {0} to roll on newly made unique weapons.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -71,7 +81,9 @@
   <!-- {0} is the vanilla longsword's item label (lowercase), named as the example reward. -->
   <UMW_ExcludeWoodStuffDesc>Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}.</UMW_ExcludeWoodStuffDesc>
 
-  <!-- Settings: Traders. All toggles default off. Tribal rows: the label is a shared template, {0} is
+  <!-- Settings: Traders. All toggles default off; that, the buy side and the disabled-weapons rule
+       are said once on the section header's tooltip, so each row's description names only its own
+       odds, tech band and trait rule. Tribal rows: the label is a shared template, {0} is
        the trader kind's own def label, capitalized ("War merchant", "Shaman merchant"), so it tracks
        vanilla's translation; each description's {0} is the same label in lowercase. The label arrives
        uninflected (nominative): quote the slot or recast the sentence so it sits in nominative rather
@@ -80,8 +92,8 @@
        adjective the sentence needs. They are deliberately plain text, not injected, because the
        injected form could not agree with "make" / "weapon". -->
   <UMW_TraderStocksUniques>Unique weapons in {0} stock</UMW_TraderStocksUniques>
-  <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits never roll on its stock: a war party deals in period arms. Disabled weapons never appear.</UMW_TraderStocksUniquesWarMerchantDesc>
-  <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon of medieval or older make for sale, and the caravan buys unique melee weapons either way. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. Disabled weapons never appear.</UMW_TraderStocksUniquesShamanDesc>
+  <UMW_TraderStocksUniquesWarMerchantDesc>About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits never roll on its stock: a war party deals in period arms.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <UMW_TraderStocksUniquesShamanDesc>About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand.</UMW_TraderStocksUniquesShamanDesc>
   <!-- Outlander rows, shown only while some unique weapon is of industrial or later make (with the
        base game's roster none is; VFE Pirates' warcasket pair is). The settlement trader kind has no
        def label of its own, so that row's text is fixed. The two combat suppliers share one vanilla
@@ -91,11 +103,11 @@
        genitive. "Outlander settlement" in the fixed row names the settlement of an outlander faction
        (Core FactionDef Outlander*; the settlement word is Core Settlement.label). -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Unique weapons in Outlander settlement stock</UMW_TraderStocksUniquesOutlanderSettlement>
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>About one in five outlander settlements stocks one unique melee weapon of industrial or later make, and it buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>About one in five outlander settlements stocks one unique melee weapon of industrial or later make.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
   <UMW_TraderStocksUniquesCaravan>Unique weapons in {0} caravan stock</UMW_TraderStocksUniquesCaravan>
-  <UMW_TraderStocksUniquesCaravanDesc>About one in five {0} caravan visits brings one unique melee weapon of industrial or later make for sale, and the caravan buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesCaravanDesc>
+  <UMW_TraderStocksUniquesCaravanDesc>About one in five {0} caravan visits brings one unique melee weapon of industrial or later make.</UMW_TraderStocksUniquesCaravanDesc>
   <UMW_TraderStocksUniquesShip>Unique weapons in {0} trade ship stock</UMW_TraderStocksUniquesShip>
-  <UMW_TraderStocksUniquesShipDesc>About one in five {0} trade ships carries one unique melee weapon of industrial or later make for sale, and the ship buys unique melee weapons either way. Disabled weapons never appear.</UMW_TraderStocksUniquesShipDesc>
+  <UMW_TraderStocksUniquesShipDesc>About one in five {0} trade ships carries one unique melee weapon of industrial or later make.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
        its def, already localized) followed by the first string, which names in parentheses the

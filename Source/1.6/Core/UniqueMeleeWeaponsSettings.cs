@@ -173,7 +173,9 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
     // Top-level section heading (medium font), e.g. "Weapons". Indents the listing for the section's
     // body; every section ends with EndSection, on every return path after its header. A section
     // that is one def's own (the warband quest) passes that def's icon and description and gets an
-    // IconHeader instead of the plain label.
+    // IconHeader instead of the plain label. The tooltip, when a section has one, is where the
+    // mechanics shared by every row beneath live (what a toggle does, the group box, drag-painting),
+    // said once here rather than on every row; it sits on the label's own width, like IconHeader's.
     private static void SectionHeader(Listing_Standard listing, string label, Texture2D icon = null, string tooltip = null)
     {
         if (icon != null)
@@ -183,9 +185,16 @@ public partial class UniqueMeleeWeaponsSettings : ModSettings
         else
         {
             Text.Font = GameFont.Medium;
-            listing.Label(label);
+            Rect rect = listing.GetRect(Text.LineHeight);
+            Widgets.Label(rect, label);
+            if (!tooltip.NullOrEmpty())
+            {
+                Rect tipRect = rect.LeftPartPixels(Text.CalcSize(label).x);
+                Widgets.DrawHighlightIfMouseover(tipRect);
+                TooltipHandler.TipRegion(tipRect, tooltip);
+            }
             Text.Font = GameFont.Small;
-            listing.Gap(6f);
+            listing.Gap(listing.verticalSpacing + 6f);
         }
         listing.Indent(SectionIndent);
         listing.ColumnWidth -= SectionIndent;

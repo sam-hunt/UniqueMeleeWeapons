@@ -171,7 +171,7 @@ public partial class UniqueMeleeWeaponsSettings
 
     private void DrawTradersSection(Listing_Standard listing)
     {
-        SectionHeader(listing, "UMW_SettingsTraders".Translate());
+        SectionHeader(listing, "UMW_SettingsTraders".Translate(), tooltip: "UMW_SettingsTradersDesc".Translate());
 
         // Rows are labelled with the traders' own def labels, so they track vanilla's translation;
         // a trader another mod removed gets no row (same absence the def-write tolerates above).

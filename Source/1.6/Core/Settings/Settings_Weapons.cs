@@ -78,7 +78,7 @@ public partial class UniqueMeleeWeaponsSettings
     // cells are paintable (click and drag to set a run of them; ToggleCell).
     private void DrawWeaponsSection(Listing_Standard listing)
     {
-        SectionHeader(listing, "UMW_SettingsWeapons".Translate());
+        SectionHeader(listing, "UMW_SettingsWeapons".Translate(), tooltip: "UMW_SettingsWeaponsDesc".Translate());
 
         DrawWeaponGroup(listing, ModIntegrations.Core,
             UniqueWeaponDefs.All.Where(w => ModIntegrations.OwnerOfWeapon(w) == null).ToList());

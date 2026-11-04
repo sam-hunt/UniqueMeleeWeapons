@@ -214,7 +214,7 @@ public partial class UniqueMeleeWeaponsSettings
     // (click and drag to set a run of them; ToggleCell).
     private void DrawTraitsSection(Listing_Standard listing)
     {
-        SectionHeader(listing, "UMW_SettingsTraits".Translate());
+        SectionHeader(listing, "UMW_SettingsTraits".Translate(), tooltip: "UMW_SettingsTraitsDesc".Translate());
 
         List<WeaponTraitDef> traits = OurTraits();
         DrawTraitGroup(listing, ModIntegrations.Self,
