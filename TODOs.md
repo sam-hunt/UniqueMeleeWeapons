@@ -2,15 +2,18 @@
 
 - **Test mod settings without royalty/pirates** integration content sections should collapse but still look good
 - **Review/rewrite eltex trio descriptions for Vanilla-parity idiomacity**
-- **Tighten up mod settings tooltips** many feel too long or overly repetitive when tacked onto every line-item
 - **Test eltex traits** (mostly lead-lined): the checklist is `Docs/Specs/Eltex-Plated-Trait.md` §7.
   Headline items: both card lines and the pawn's "Relevant gear" breakdown per trait (the offset
   lines ride a new vanilla gate patch since 2026-11-04; eyeball Plated's with no eltex apparel worn),
   Plated's value moving with quality
 - **Full review of new English** text since last release
 - **Upload recompressed gallery images** to the Workshop page
-- **Test CE compat in-game** (checklist: `Docs/Specs/Combat-Extended-Compat.md` §7), update English workshop description
 - **Update/Add workshop images** with new VFEP uniques/katanas/CE/Eltex traits
+- **Changelog notes for the next release** (from the 2026-11-04 save-safety review; both apply to
+  weapons and configs already in a save): the armor-penetration retune lands on existing weapons at
+  load, a buff everywhere except Razored knives, which lose some AP; a previously-off "allow
+  ultratech traits" toggle becomes six disabled rows in the new Traits section, lead-lined included,
+  re-enable there.
 - **Reply to the eltex Workshop commenter** (Simplified Chinese): trait(s) yes, eltex cost not here (UWU's domain).
   English draft in the spec §8.
 
