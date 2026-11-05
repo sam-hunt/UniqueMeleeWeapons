@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Entries are short one-liners ready to paste as Steam Workshop change notes: what changed for the player, no rationale, no def names, no sub-bullets. -->
 
+## [1.6.0] - 2026-11-06
+
+### Added
+
+- Combat Extended support.
+- Royalty: eltex-plated, eltex-fitted and lead-lined traits, plus two eltex colors.
+- Per-trait toggles in the mod settings.
+
+### Changed
+
+- Reorganized settings window, with icon grids grouped by mod.
+- Armor penetration retuned for Armor Spike, Flanged, Razored and Monomolecular, existing weapons included. Razored knives lose a little.
+- If ultratech traits were turned off, those six traits, lead-lined included, start off in the new Traits section.
+- Plainer descriptions in every language, closer to the base game.
+
 ## [1.5.1] - 2026-10-18
 
 ### Changed
@@ -148,6 +163,7 @@ Initial release.
 - Translations for Simplified Chinese, French, German, Japanese, Korean, Brazilian
   Portuguese, Russian and Spanish.
 
+[1.6.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.6.0
 [1.5.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.1
 [1.5.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.0
 [1.4.2]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.4.2
