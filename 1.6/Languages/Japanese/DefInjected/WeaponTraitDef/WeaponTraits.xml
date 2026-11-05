@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>杭打ちヘッド</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>ヘッドは杭打ち機のような構造になっています.使用者は地面を打って衝撃波を起こし,周囲の者をスタンさせることができます.衝撃波は敵にも味方にも及びますが,身構えている使用者は影響を受けません.一度使うと,機構が元に戻るまでしばらく時間がかかります.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>ヘッドは杭打ち機のような構造になっています.使用者は地面に打ち込んで周囲の者をスタンさせることができますが,一度使うと機構が元に戻るまで時間がかかります.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>杭打ちの</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>由緒ある</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>この武器には名前と来歴があり,歴代の持ち主の武勲は今も語り継がれています.使用者は武器を高く掲げて鼓舞の叫びを上げ,その姿を見た味方を奮い立たせることができます.一度使うと,再び叫びを上げられるようになるまで数日かかります.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>この武器には名前と来歴があり,歴代の持ち主の武勲は今も語り継がれています.使用者はこの武器で近くの味方を奮い立たせることができますが,使えるのは数日に一度だけです.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>由緒ある</UMW_Storied.traitAdjectives.0>

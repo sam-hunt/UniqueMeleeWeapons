@@ -329,8 +329,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>bate-estacas</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>A cabeça é construída como um bate-estacas. Com ela, o usuário pode golpear o chão e lançar uma onda de choque que atordoa aliados e inimigos. O próprio usuário fica firme e não é afetado. Após o uso, o mecanismo demora um tempo para se rearmar.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>A cabeça é construída como um bate-estacas. O usuário pode cravá-la no chão para atordoar quem está ao redor, mas o mecanismo precisa de tempo para se rearmar após cada uso.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>trepidante</UMW_Piledriver.traitAdjectives.0>
@@ -405,8 +405,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>linhagem de renome</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>Esta arma tem nome e história, e os feitos de quem a carregou são lembrados. O usuário pode erguê-la e dar um grito de guerra que encoraja os aliados que a veem. Depois, leva dias até poder dar o grito de novo.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>Esta arma tem nome e história, e os feitos de quem a carregou são lembrados. O usuário pode usá-la para reunir os aliados próximos, mas só uma vez a cada poucos dias.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>célebre</UMW_Storied.traitAdjectives.0>

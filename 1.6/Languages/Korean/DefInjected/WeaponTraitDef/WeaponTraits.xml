@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>항타기</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>타격부가 항타기로 만들어져 있습니다. 사용자는 땅을 내리찍어 충격파를 일으키고, 주변의 적과 아군을 가리지 않고 기절시킬 수 있습니다. 사용자 자신은 단단히 버티고 있어 영향을 받지 않습니다. 사용 후 재충전 시간이 필요합니다.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>타격부가 항타기로 만들어져 있습니다. 사용자는 이것을 땅에 박아 주변의 대상을 기절시킬 수 있지만, 사용할 때마다 장치가 다시 준비될 때까지 시간이 필요합니다.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>내리찍는</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>유서 있는</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>이름과 내력이 있는 무기입니다. 이 무기를 들었던 이들의 무훈은 지금도 전해집니다. 사용자는 외침으로 아군을 결집시킬 수 있으며, 그 모습을 본 아군은 마음을 다잡습니다. 한 번 사용하면 며칠이 지나야 다시 외칠 수 있습니다.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>이름과 내력이 있는 무기입니다. 이 무기를 들었던 이들의 무훈은 지금도 전해집니다. 사용자는 이 무기로 근처의 아군을 결집시킬 수 있지만, 며칠에 한 번만 가능합니다.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>유서 있는</UMW_Storied.traitAdjectives.0>

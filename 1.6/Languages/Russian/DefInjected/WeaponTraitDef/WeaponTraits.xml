@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>копёр</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>Боевая часть устроена как копёр. Владелец может со всей силы ударить им о землю, и по ней пройдёт оглушающая ударная волна. Она задевает и друзей, и врагов, но не самого владельца. После использования механизм какое-то время взводится заново.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>Боевая часть устроена как копёр. Владелец может вогнать его в землю и оглушить всех вокруг, но после каждого использования механизму нужно время, чтобы взвестись заново.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>копровый</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>прославленное</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>У этого оружия есть имя и история, и деяния тех, кто носил его, не забыты. Владелец может поднять его над головой и издать боевой клич, который придаст сил всем союзникам, кто его видит. После этого издать клич снова можно лишь через несколько дней.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>У этого оружия есть имя и история, и деяния тех, кто носил его, не забыты. Владелец может с его помощью сплотить ближайших союзников, но лишь раз в несколько дней.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>прославленный</UMW_Storied.traitAdjectives.0>

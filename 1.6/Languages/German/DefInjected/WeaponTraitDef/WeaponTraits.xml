@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>Rammkopf</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>Der Kopf ist als Ramme gebaut. Der Träger kann die volle Masse der Waffe in den Boden schmettern und eine betäubende Schockwelle durch die Erde schicken. Sie trifft Freund und Feind gleichermaßen, nur der Träger selbst steht fest und bleibt verschont. Nach dem Gebrauch braucht der Mechanismus einige Zeit, bis er wieder bereit ist.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>Der Kopf ist als Ramme gebaut. Der Träger kann ihn in den Boden treiben und so alle in der Nähe betäuben, doch nach jedem Einsatz braucht der Mechanismus Zeit, bis er wieder bereit ist.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>rammend</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>geschichtsträchtig</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>Diese Waffe hat einen Namen und eine Geschichte, und die Taten derer, die sie trugen, sind nicht vergessen. Der Träger kann sie zu einem Schlachtruf hoch erheben und so alle Verbündeten in Sichtweite anspornen. Danach dauert es Tage, bis er den Ruf erneut ausstoßen kann.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>Diese Waffe hat einen Namen und eine Geschichte, und die Taten derer, die sie trugen, sind nicht vergessen. Der Träger kann damit nahe Verbündete anspornen, aber nur alle paar Tage einmal.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>geschichtsträchtig</UMW_Storied.traitAdjectives.0>

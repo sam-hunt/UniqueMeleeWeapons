@@ -311,8 +311,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>marteau-pilon</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>La tête est construite comme un marteau-pilon. L'utilisateur peut frapper le sol de tout le poids de l'arme et envoyer une onde de choc étourdissante dans la terre. Elle étourdit amis comme ennemis, mais l'utilisateur, qui s'y est préparé, est épargné. Après usage, le mécanisme met un certain temps à se réarmer.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>La tête est construite comme un marteau-pilon. L'utilisateur peut l'enfoncer dans le sol pour étourdir ceux qui l'entourent, mais le mécanisme a besoin de temps pour se réarmer après chaque usage.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>à marteau-pilon</UMW_Piledriver.traitAdjectives.0>
@@ -387,8 +387,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>de renom</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>Cette arme a un nom et une histoire, et l'on se souvient des exploits de ceux qui l'ont portée. L'utilisateur peut la lever bien haut et pousser un cri de ralliement, ce qui donne du courage aux alliés qui la voient. Après usage, il faut plusieurs jours avant de pouvoir pousser ce cri à nouveau.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>Cette arme a un nom et une histoire, et l'on se souvient des exploits de ceux qui l'ont portée. L'utilisateur peut s'en servir pour rallier les alliés proches, mais seulement à plusieurs jours d'intervalle.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>de renom</UMW_Storied.traitAdjectives.0>

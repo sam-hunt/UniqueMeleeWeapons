@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>martinete</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
-  <UMW_Piledriver.description>La cabeza está construida como un martinete. El usuario puede descargar toda la masa del arma contra el suelo y lanzar una onda de choque aturdidora a través de la tierra. La onda aturde por igual a amigos y enemigos, pero no al usuario, que tiene los pies bien plantados. Una vez usado, el mecanismo tarda un tiempo en rearmarse.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use. -->
+  <UMW_Piledriver.description>La cabeza está construida como un martinete. El usuario puede clavarla en el suelo para aturdir a quienes lo rodean, pero el mecanismo necesita tiempo para rearmarse tras cada uso.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>de martinete</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>de renombre</UMW_Storied.label>
 
-  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
-  <UMW_Storied.description>Esta arma tiene nombre e historia, y se recuerdan las hazañas de quienes la portaron. El usuario puede alzarla para lanzar una arenga que infunde valor a los aliados que lo ven. Una vez usada, pasan días antes de que pueda lanzarse otra arenga.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days. -->
+  <UMW_Storied.description>Esta arma tiene nombre e historia, y se recuerdan las hazañas de quienes la portaron. El usuario puede usarla para arengar a los aliados cercanos, pero solo una vez cada pocos días.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>de renombre</UMW_Storied.traitAdjectives.0>
