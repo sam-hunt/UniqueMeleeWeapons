@@ -14,8 +14,8 @@ Des variantes uniques du couteau, du glaive, de l'épée longue, de la lance, de
 [*][b]Épée large et marteau gravitationnel de warcasket[/b] avec VFE Pirates
 [/list]
 
-[h2]28 nouveaux traits d'arme[/h2]
-Les traits sont tirés parmi 6 nouvelles catégories, déterminées par la nature physique de l'arme. Une lance peut être barbelée mais pas à ailettes ; une masse peut être fondue en cloche mais pas au fil de rasoir. Les bénédictions psychiques sur l'utilisateur restent l'apanage des armes liées à l'âme de leur porteur.
+[h2]31 nouveaux traits d'arme[/h2]
+Les traits sont tirés parmi 6 nouvelles catégories, déterminées par la nature physique de l'arme. Une lance peut être barbelée mais pas à ailettes ; une masse peut être fondue en cloche mais pas au fil de rasoir. Les bénédictions psychiques inexpliquées sur l'utilisateur restent l'apanage des armes liées à l'âme de leur porteur ; le placage d'eltex atteint l'utilisateur de la même façon que l'équipement en eltex de Royalty.
 [list]
 [*][b]Coupant :[/b] fil de rasoir, à dents de scie, mono-moléculaire*, à cœur de plasma*
 [*][b]Perçant :[/b] pointe d'aiguille, pointe perforante, barbelé, empoisonné, opiacé
@@ -23,7 +23,7 @@ Les traits sont tirés parmi 6 nouvelles catégories, déterminées par la natur
 [*][b]Lourd :[/b] à tête lourde, à contrepoids
 [*][b]À garde :[/b] à quillons (pour les armes dotées d'une véritable garde)
 [*][b]Universel (jeu de base) :[/b] ornemental, laid, léger, encombrant, incrusté d'or, incrusté de jade
-[*][b]Universel (nouveau) :[/b] taché de sang, carbonisé, émaillé, de renom
+[*][b]Universel (nouveau) :[/b] taché de sang, carbonisé, émaillé, de renom, à placage d'eltex*, à garnitures d'eltex*, à doublure de plomb*
 [/list]
 [i]*nécessite le DLC Royalty[/i]
 
@@ -33,8 +33,8 @@ La plupart des champs de trait intéressants des armes uniques ne fonctionnent p
 [*][b]Effets à l'impact :[/b] dégâts supplémentaires, étourdissements, titubations, effondrements mentaux, plaies saignantes, accumulation toxique et de sédatif
 [*][b]Types de dégâts redirigés :[/b] un fil à dents de scie ouvre des plaies déchiquetées, une pointe empoisonnée inflige des dégâts toxiques
 [*][b]Pénétration d'armure réglée indépendamment des dégâts[/b] (le jeu de base les lie généralement), et aussi par outil
-[*][b]Effets côté utilisateur :[/b] la difficulté à placer un coup avec une pointe d'aiguille, la chance de parer avec une garde à quillons
-[*][b]Couleur du corps imposée :[/b] noir carbone, violet émail, blanc mono-moléculaire, orange plasma, rouge sang
+[*][b]Effets côté utilisateur :[/b] la difficulté à placer un coup avec une pointe d'aiguille, la chance de parer avec une garde à quillons, un placage et des garnitures d'eltex qui augmentent la sensibilité psychique ainsi que la limite et la récupération de l'échauffement neuronal (ou une doublure de plomb qui les amoindrit)
+[*][b]Couleur du corps imposée :[/b] noir carbone, violet émail, blanc mono-moléculaire, orange plasma, rouge sang, menthe eltex
 [/list]
 
 [h2]Nouvelles capacités actives[/h2]
@@ -51,7 +51,7 @@ Un pendant à basse technologie de la quête des mercenaires anciens d'Odyssey. 
 Votre colonie, vos règles :
 [list]
 [*]Désactivez chaque arme individuellement si l'une d'elles ne vous convient pas.
-[*]Désactivez les traits ultratechnologiques pour les parties de plus basse technologie.
+[*]Désactivez chaque trait individuellement, par exemple les traits ultratechnologiques pour les parties de plus basse technologie.
 [*]Réglez les temps de recharge, les rayons et les durées des capacités.
 [*]Ajustez ou désactivez la fréquence de la quête de la bande de guerre.
 [*]Incluez-les rarement dans le stock des commerçants appropriés (désactivé par défaut).
@@ -66,7 +66,7 @@ Votre colonie, vos règles :
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url] : deux armes uniques de warcasket, présentes uniquement lorsque le mod est chargé
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url] : la lance unique s'accorde à la taille et à la rotation redessinées de VTE
 [*]Les traits de mêlée sont totalement distincts des traits à distance propres à Odyssey et des traits à lien de lame de Royalty
-[*]Pas encore testé avec Combat Extended (retours bienvenus)
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044]Combat Extended[/url] : pris en charge. Les traits de pénétration d'armure sont réajustés au modèle de pénétration de CE, et chaque trait d'impact, de parade et de conversion de dégâts fonctionne avec la mêlée de CE
 [/list]
 
 [hr][/hr]
@@ -79,9 +79,6 @@ R : De la même façon que les armes uniques à distance d'Odyssey : récompense
 
 [b]Q : Mais elles sont tellement rares ! Et les traits et les couleurs ne sont pas ceux que je veux ![/b]
 R : Jetez un œil à [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], toutes les armes y sont entièrement prises en charge.
-
-[b]Q : Ce mod a-t-il été réalisé avec l'assistance de LLM ?[/b]
-R : Une partie du code de base, oui, ainsi que la plupart des localisations. Je suis ingénieur logiciel de métier et j'écris du code depuis 25 ans. Tout le code est relu et testé manuellement ; tous les rapports de bug et les conflits de mods sont suivis personnellement, dans la mesure du temps et des détails disponibles. Tous les visuels sont soit commandés à des artistes humains, soit réalisés à la main dans Krita, soit les deux.
 
 [h2]Liens[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Code source, rapports de bug, demandes de fonctionnalités, etc.

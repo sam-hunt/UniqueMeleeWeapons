@@ -14,8 +14,8 @@ Variantes únicas del cuchillo, el gladius, la espada larga, la lanza, la maza y
 [*][b]Espada ancha y martillo de gravedad para ataúd de guerra[/b] con VFE Pirates
 [/list]
 
-[h2]28 rasgos de arma nuevos[/h2]
-Los rasgos se sortean entre 6 categorías nuevas, condicionadas por lo que el arma es físicamente. Una lanza puede ser con lengüetas pero no de aletas; una maza puede ser fundida en campana pero no de filo de navaja. Las bendiciones psíquicas sobre el usuario siguen siendo terreno de las armas vinculadas a una persona.
+[h2]31 rasgos de arma nuevos[/h2]
+Los rasgos se sortean entre 6 categorías nuevas, condicionadas por lo que el arma es físicamente. Una lanza puede ser con lengüetas pero no de aletas; una maza puede ser fundida en campana pero no de filo de navaja. Las bendiciones psíquicas inexplicables sobre el usuario siguen siendo terreno de las armas vinculadas a una persona; el chapado de éltex llega al usuario del mismo modo que el equipo de éltex del propio Royalty.
 [list]
 [*][b]Cortante:[/b] filo de navaja, serrado, mono-molecular*, núcleo de plasma*
 [*][b]Punzante:[/b] punta de aguja, pico perforante, con lengüetas, envenenado, opiáceo
@@ -23,7 +23,7 @@ Los rasgos se sortean entre 6 categorías nuevas, condicionadas por lo que el ar
 [*][b]Pesado:[/b] de cabeza pesada, contrapesado
 [*][b]Con guarda:[/b] con gavilanes (para armas con una guarda de mano auténtica)
 [*][b]Universal (del juego base):[/b] ornamental, feo, ligero, torpe, incrustación de oro, incrustación de jade
-[*][b]Universal (nuevo):[/b] manchado de sangre, carbonizado, esmaltado, de renombre
+[*][b]Universal (nuevo):[/b] manchado de sangre, carbonizado, esmaltado, de renombre, chapa de éltex*, guarnición de éltex*, forro de plomo*
 [/list]
 [i]*requiere el DLC Royalty[/i]
 
@@ -33,8 +33,8 @@ La mayoría de los campos de rasgo más interesantes de las armas únicas no fun
 [*][b]Efectos al golpear:[/b] daño extra, aturdimientos, tambaleos, colapsos mentales, heridas sangrantes, acumulación tóxica y de sedante
 [*][b]Tipos de daño redirigidos:[/b] un filo serrado desgarra heridas irregulares, una punta envenenada inflige tóxico
 [*][b]Penetración de armadura ajustada por separado del daño[/b] (normalmente el juego base los acopla), y también por herramienta
-[*][b]Efectos sobre el usuario:[/b] la dificultad de acertar de una punta de aguja, la probabilidad de desviar de una guarda con gavilanes
-[*][b]Color de cuerpo forzado:[/b] negro carbón, púrpura esmalte, blanco mono-molecular, naranja plasma, rojo sangre
+[*][b]Efectos sobre el usuario:[/b] la dificultad de acertar de una punta de aguja, la probabilidad de desviar de una guarda con gavilanes, el chapado y los herrajes de éltex que aumentan la sensibilidad psíquica y el límite y la recuperación del calentamiento neural (o un forro de plomo que los reduce)
+[*][b]Color de cuerpo forzado:[/b] negro carbón, púrpura esmalte, blanco mono-molecular, naranja plasma, rojo sangre, menta éltex
 [/list]
 
 [h2]Nuevas habilidades activas[/h2]
@@ -51,7 +51,7 @@ Un paralelismo de baja tecnología a la misión de los mercenarios antiguos de O
 Tu colonia, tus reglas:
 [list]
 [*]Activa o desactiva armas individualmente si alguna no te convence.
-[*]Desactiva los rasgos ultratecnológicos para partidas de tecnología más baja.
+[*]Activa o desactiva los rasgos individualmente, por ejemplo los ultratecnológicos para partidas de tecnología más baja.
 [*]Ajusta los enfriamientos, radios y duración de las habilidades.
 [*]Ajusta o desactiva la frecuencia de la misión de la banda de guerra.
 [*]Incluye las armas, con poca frecuencia, en las existencias de los comerciantes adecuados (desactivado por defecto).
@@ -66,7 +66,7 @@ Tu colonia, tus reglas:
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: dos armas únicas para ataúd de guerra, presentes solo cuando está cargado
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: la lanza única se ajusta al tamaño y la rotación rediseñados de VTE
 [*]Los rasgos cuerpo a cuerpo están completamente separados de los propios rasgos a distancia de Odyssey y de los rasgos de vínculo de Royalty
-[*]Aún no probado con Combat Extended (los informes son bienvenidos)
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044]Combat Extended[/url]: compatible. Los rasgos de penetración de armadura se reajustan al modelo de penetración de CE, y todos los rasgos de golpe, de desvío y de conversión de daño funcionan con el cuerpo a cuerpo de CE
 [/list]
 
 [hr][/hr]
@@ -79,9 +79,6 @@ R: Del mismo modo que las armas únicas a distancia de Odyssey: las recompensas 
 
 [b]P: ¡Pero son tan raras! ¡Y los rasgos y los colores no son los que quiero![/b]
 R: Echa un vistazo a [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url]; todas las armas son totalmente compatibles.
-
-[b]P: ¿Se hizo esto con ayuda de LLM?[/b]
-R: Parte del código más mecánico, y la mayoría de las localizaciones. Soy ingeniero de software de profesión y llevo 25 años escribiendo código. Todo el código se revisa y se prueba manualmente; todos los informes de errores y los conflictos entre mods se atienden personalmente, según el tiempo y el detalle disponibles. Todo el arte está encargado a artistas humanos, hecho a mano en Krita, o ambas cosas.
 
 [h2]Enlaces[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Código fuente, informes de errores, solicitudes de funciones, etc.

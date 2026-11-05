@@ -14,8 +14,8 @@ Einzigartige Varianten von Messer, Gladius, Langschwert, Speer, Streitkolben und
 [*][b]Kriegssarg-Breitschwert und -Gravitationshammer[/b] mit VFE Pirates
 [/list]
 
-[h2]28 neue Waffenmerkmale[/h2]
-Merkmale werden aus 6 neuen Kategorien gewürfelt, abhängig davon, was die Waffe physisch ist. Ein Speer kann Widerhaken tragen, aber nicht gerippt sein; ein Streitkolben kann glockengegossen sein, aber nicht rasierscharf. Psychische Segnungen des Trägers bleiben die Domäne von Persona-Waffen.
+[h2]31 neue Waffenmerkmale[/h2]
+Merkmale werden aus 6 neuen Kategorien gewürfelt, abhängig davon, was die Waffe physisch ist. Ein Speer kann Widerhaken tragen, aber nicht gerippt sein; ein Streitkolben kann glockengegossen sein, aber nicht rasierscharf. Unerklärte psychische Segnungen des Trägers bleiben die Domäne von Persona-Waffen; Eltex-Plattierung erreicht den Träger auf dieselbe Weise wie Royaltys eigene Eltex-Ausrüstung.
 [list]
 [*][b]Schnitt:[/b] rasierscharf, gezahnt, monomolekular*, plasmaumhüllt*
 [*][b]Stich:[/b] Nadelspitze, Panzerdorn, Widerhaken, vergiftet, opiatbeschichtet
@@ -23,7 +23,7 @@ Merkmale werden aus 6 neuen Kategorien gewürfelt, abhängig davon, was die Waff
 [*][b]Schwer:[/b] kopfschwer, Gegengewicht
 [*][b]Bewehrt:[/b] Parierstangen (für Waffen mit einem echten Handschutz)
 [*][b]Universal (Grundspiel):[/b] verziert, hässlich, leicht, unhandlich, vergoldet, jadeverziert
-[*][b]Universal (neu):[/b] blutbefleckt, karbonisiert, emailliert, geschichtsträchtig
+[*][b]Universal (neu):[/b] blutbefleckt, karbonisiert, emailliert, geschichtsträchtig, eltexplattiert*, eltexbeschlagen*, bleiverkleidet*
 [/list]
 [i]*erfordert Royalty-DLC[/i]
 
@@ -33,8 +33,8 @@ Die interessantesten Felder von Waffenmerkmalen für einzigartige Waffen funktio
 [*][b]Treffereffekte:[/b] zusätzlicher Schaden, Betäubung, Taumeln, mentale Zusammenbrüche, blutende Wunden, Vergiftung und Sedierung
 [*][b]Umgeleitete Schadensarten:[/b] eine gezahnte Schneide reißt ausgefranste Wunden, eine vergiftete Spitze verursacht Vergiftung
 [*][b]Rüstungsdurchdringung getrennt vom Schaden abgestimmt[/b] (im Grundspiel normalerweise gekoppelt), auch pro Werkzeug
-[*][b]Effekte auf Seiten des Trägers:[/b] die Trefferschwierigkeit einer Nadelspitze, die Parierchance eines Parierstangen-Handschutzes
-[*][b]Erzwungene Körperfarbe:[/b] karbonschwarz, emailviolett, monomolekularweiß, plasmaorange, blutrot
+[*][b]Effekte auf Seiten des Trägers:[/b] die Trefferschwierigkeit einer Nadelspitze, die Parierchance eines Parierstangen-Handschutzes, Eltex-Plattierung und -Beschläge, die mentale Sensibilität und Neuralhitzelimit samt Erholung erhöhen (oder eine Bleiverkleidung, die sie dämpft)
+[*][b]Erzwungene Körperfarbe:[/b] karbonschwarz, emailviolett, monomolekularweiß, plasmaorange, blutrot, eltexmint
 [/list]
 
 [h2]Neue aktive Fähigkeiten[/h2]
@@ -51,7 +51,7 @@ Ein Pendant für niedrige Techstufen zu Odysseys Quest der antiken Söldner. Ein
 Deine Kolonie, deine Regeln:
 [list]
 [*]Schalte einzelne Waffen ab, wenn dir eine nicht gefällt.
-[*]Deaktiviere hochmoderne Waffenmerkmale für Durchläufe auf niedrigerer Techstufe.
+[*]Schalte Merkmale einzeln ab, etwa die hochmodernen für Durchläufe auf niedrigerer Techstufe.
 [*]Passe Abklingzeiten, Radien und Dauer der Fähigkeiten an.
 [*]Passe die Häufigkeit der Kriegerbande-Quest an oder deaktiviere sie.
 [*]Nimm sie sparsam in passenden Händlerbestand auf (standardmäßig aus).
@@ -66,7 +66,7 @@ Deine Kolonie, deine Regeln:
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url]: zwei Kriegssarg-Uniques, nur vorhanden, wenn die Mod geladen ist
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url]: der einzigartige Speer passt zu Größe und Drehung von VTEs neu gezeichnetem Speer
 [*]Nahkampf-Merkmale sind vollständig getrennt von Odysseys eigenen, reinen Fernkampf-Merkmalen und von Royaltys Persona-Waffenmerkmalen
-[*]Noch nicht mit Combat Extended getestet (Rückmeldungen willkommen)
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044]Combat Extended[/url]: unterstützt. Merkmale zur Rüstungsdurchdringung sind auf CEs Durchdringungsmodell abgestimmt, und jedes Treffer-, Parier- und Schadensumwandlungs-Merkmal greift bei CEs Nahkampf
 [/list]
 
 [hr][/hr]
@@ -79,9 +79,6 @@ A: Auf die gleiche Weise wie Odysseys einzigartige Fernkampfwaffen: Questbelohnu
 
 [b]F: Aber sie sind so selten! Und die Merkmale und Farben sind nicht das, was ich will![/b]
 A: Wirf einen Blick auf [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url], alle Waffen werden vollständig unterstützt.
-
-[b]F: Wurde das hier mit LLM-Unterstützung erstellt?[/b]
-A: Ein Teil des einfachen Codes, und die meisten Lokalisierungen. Ich bin von Beruf Softwareentwickler und schreibe seit 25 Jahren Code. Aller Code wird manuell überprüft und getestet; allen Fehlermeldungen und Mod-Konflikten wird persönlich nachgegangen, soweit Zeit und Details es zulassen. Alle Grafiken sind entweder bei Menschen in Auftrag gegeben, von Hand in Krita erstellt, oder beides.
 
 [h2]Links[/h2]
 [url=https://github.com/sam-hunt/UniqueMeleeWeapons]GitHub[/url] - Quellcode, Fehlerberichte, Feature-Wünsche usw.
