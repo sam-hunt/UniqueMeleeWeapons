@@ -3,7 +3,7 @@ Armes de mêlée uniques
 [h1]À propos[/h1]
 Odyssey a introduit 13 armes uniques : de rares variantes générées une seule fois, qui tirent au hasard jusqu'à 3 traits (parmi 42), des couleurs et des noms, obtenues via des quêtes et le butin du monde. Chacune d'entre elles est une « arme à feu ». La mêlée, elle, n'a rien reçu.
 
-Ce mod comble cette lacune. De nouvelles variantes uniques des armes de mêlée néolithiques et médiévales du jeu de base, fabricables en matériau, avec leur propre ensemble de nouveaux traits, de règles de nommage et de textures à double masque soignées. Sans oublier deux armes uniques de sarcophage de facture industrielle avec Vanilla Factions Expanded - Pirates.
+Ce mod comble cette lacune. De nouvelles variantes uniques des armes de mêlée néolithiques et médiévales du jeu de base, fabricables en matériau, avec leur propre ensemble de nouveaux traits, de règles de nommage et de textures à double masque soignées. Sans oublier deux armes uniques de warcasket de facture industrielle avec Vanilla Factions Expanded - Pirates.
 
 [hr][/hr]
 [h2]8 armes de mêlée uniques (+2 avec VFE Pirates)[/h2]
@@ -11,7 +11,7 @@ Des variantes uniques du couteau, du glaive, de l'épée longue, de la lance, de
 [list]
 [*][b]Fabricable en matériau[/b], contrairement aux armes uniques à distance d'Odyssey, si bien que les multiplicateurs de statistiques liés au matériau s'appliquent normalement
 [*][b]5 variantes artistiques dessinées à la main par arme[/b], avec une couleur d'accent unique et une teinte de matériau rendues simultanément mais indépendamment l'une de l'autre
-[*][b]Épée large et marteau gravitationnel de sarcophage[/b] avec VFE Pirates
+[*][b]Épée large et marteau gravitationnel de warcasket[/b] avec VFE Pirates
 [/list]
 
 [h2]28 nouveaux traits d'arme[/h2]
@@ -63,7 +63,7 @@ Votre colonie, vos règles :
 [*]Peut être ajouté sans risque à une sauvegarde existante
 [*]Ne pas retirer sans précaution, mais tout peut être désactivé dans les paramètres du mod
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3707263149]Unique Weapons Unbound[/url] : entièrement intégré et équilibré, avec des coûts de trait pensés selon leur thème
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url] : deux armes uniques de sarcophage, présentes uniquement lorsque le mod est chargé
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723801948]Vanilla Factions Expanded - Pirates[/url] : deux armes uniques de warcasket, présentes uniquement lorsque le mod est chargé
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2016436324]Vanilla Textures Expanded[/url] : la lance unique s'accorde à la taille et à la rotation redessinées de VTE
 [*]Les traits de mêlée sont totalement distincts des traits à distance propres à Odyssey et des traits à lien de lame de Royalty
 [*]Pas encore testé avec Combat Extended (retours bienvenus)

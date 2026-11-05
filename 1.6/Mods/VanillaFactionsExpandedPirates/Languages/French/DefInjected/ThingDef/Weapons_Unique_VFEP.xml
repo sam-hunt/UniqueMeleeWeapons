@@ -9,15 +9,17 @@
        the main 1.6/Languages/French/DefInjected/ThingDef/Weapons_Unique.xml, which
        would error on startup for players without VFE Pirates. Style conventions for
        these entries are documented in that file's header comment.
-       "Warcasket" is rendered "sarcophage" (m.), the family term shared with the sibling Warcasket
-       mods; the weapon labels are coined (no community text readable): "<weapon> unique de sarcophage",
-       with "unique" kept beside the weapon noun so it cannot read as qualifying the sarcophage. -->
+       "Warcasket" stays untranslated, masculine, as a "de warcasket" modifier: the family's native
+       ruling (l10n/languages/French.md, VFE Pirates warcasket domain; Shipcracker Warcasket PR #1),
+       which replaced the earlier coined "sarcophage" on 2026-11-06. The weapon labels are coined
+       (no community text readable): "<weapon> unique de warcasket", with "unique" kept beside the
+       weapon noun so it cannot read as qualifying the warcasket. -->
 
   <!-- EN: unique warcasket broadsword -->
-  <UMW_WarcasketBroadsword_Unique.label>épée large unique de sarcophage</UMW_WarcasketBroadsword_Unique.label>
+  <UMW_WarcasketBroadsword_Unique.label>épée large unique de warcasket</UMW_WarcasketBroadsword_Unique.label>
 
   <!-- EN: A warcasket broadsword with customized parts. -->
-  <UMW_WarcasketBroadsword_Unique.description>Une épée large de sarcophage avec des pièces personnalisées.</UMW_WarcasketBroadsword_Unique.description>
+  <UMW_WarcasketBroadsword_Unique.description>Une épée large de warcasket avec des pièces personnalisées.</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>lame</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -45,10 +47,10 @@
 
 
   <!-- EN: unique warcasket gravity hammer -->
-  <UMW_WarcasketGravityHammer_Unique.label>marteau gravitationnel unique de sarcophage</UMW_WarcasketGravityHammer_Unique.label>
+  <UMW_WarcasketGravityHammer_Unique.label>marteau gravitationnel unique de warcasket</UMW_WarcasketGravityHammer_Unique.label>
 
   <!-- EN: A warcasket gravity hammer with customized parts. -->
-  <UMW_WarcasketGravityHammer_Unique.description>Un marteau gravitationnel de sarcophage avec des pièces personnalisées.</UMW_WarcasketGravityHammer_Unique.description>
+  <UMW_WarcasketGravityHammer_Unique.description>Un marteau gravitationnel de warcasket avec des pièces personnalisées.</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: head -->
   <UMW_WarcasketGravityHammer_Unique.tools.head.label>tête</UMW_WarcasketGravityHammer_Unique.tools.head.label>
