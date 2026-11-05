@@ -1,6 +1,6 @@
 {
   "meta": {
-    "gameBuild": "1.7.4998 rev1299",
+    "gameBuild": "1.7.5000 rev1275",
     "activeDlcs": [
       "Core",
       "Royalty",
@@ -1436,7 +1436,7 @@
         "required": true
       },
       "UMW_Piledriver.description": {
-        "english": "The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset.",
+        "english": "The head is built as a piledriver. The wielder can drive it into the ground to stun those around them, but the mechanism needs time to reset after each use.",
         "required": true
       },
       "UMW_Piledriver.exclusionTags": {
@@ -1565,7 +1565,7 @@
         "required": true
       },
       "UMW_Storied.description": {
-        "english": "This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again.",
+        "english": "This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days.",
         "required": true
       },
       "UMW_Storied.exclusionTags": {

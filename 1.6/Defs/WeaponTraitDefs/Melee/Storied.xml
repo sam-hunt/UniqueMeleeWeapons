@@ -22,7 +22,7 @@
   <WeaponTraitDef>
     <defName>UMW_Storied</defName>
     <label>storied</label>
-    <description>This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again.</description>
+    <description>This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can use it to rally nearby allies, but only once every few days.</description>
     <commonality>0.5</commonality>
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>
