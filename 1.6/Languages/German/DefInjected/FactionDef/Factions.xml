@@ -4,8 +4,8 @@
   <!-- EN: warband -->
   <UMW_Warband.label>Kriegerbande</UMW_Warband.label>
 
-  <!-- EN: A roving company of fighters who live by the raid, preying on settlements and travellers across the land. -->
-  <UMW_Warband.description>Ein umherziehender Trupp von Kämpfern, der von Raubzügen lebt und Siedlungen und Reisende im ganzen Land heimsucht.</UMW_Warband.description>
+  <!-- EN: A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them. -->
+  <UMW_Warband.description>Eine umherziehende Bande von Stammeskriegern, die von Raubzügen lebt und die Siedlungen und Reisenden in ihrer Umgebung heimsucht.</UMW_Warband.description>
 
   <!-- EN: warrior -->
   <UMW_Warband.pawnSingular>Krieger</UMW_Warband.pawnSingular>

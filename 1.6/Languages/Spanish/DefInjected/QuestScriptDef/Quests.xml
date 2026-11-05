@@ -38,7 +38,7 @@
   </UMW_OpportunitySite_Warband.questNameRules.rulesStrings>
 
   <!-- EN:
-    <li>questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travellers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]</li>
+    <li>questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travelers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]</li>
     <li>location(atLandmark==true)->The warriors are hiding out in an abandoned settlement at [landmarkName].</li>
     <li>location(atLandmark==false)->The warriors are hiding out in an abandoned settlement.</li>
   -->

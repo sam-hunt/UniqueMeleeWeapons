@@ -13,8 +13,8 @@
   <!-- EN: unique warcasket broadsword -->
   <UMW_WarcasketBroadsword_Unique.label>espada larga única de carcaça de guerra</UMW_WarcasketBroadsword_Unique.label>
 
-  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketBroadsword_Unique.description>Uma espada larga de carcaça de guerra que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_WarcasketBroadsword_Unique.description>
+  <!-- EN: A warcasket broadsword with customized parts. -->
+  <UMW_WarcasketBroadsword_Unique.description>Uma espada larga de carcaça de guerra com peças personalizadas.</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>lâmina</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warcasket gravity hammer -->
   <UMW_WarcasketGravityHammer_Unique.label>martelo gravitacional único de carcaça de guerra</UMW_WarcasketGravityHammer_Unique.label>
 
-  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketGravityHammer_Unique.description>Um martelo gravitacional de carcaça de guerra que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_WarcasketGravityHammer_Unique.description>
+  <!-- EN: A warcasket gravity hammer with customized parts. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Um martelo gravitacional de carcaça de guerra com peças personalizadas.</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: handle -->
   <UMW_WarcasketGravityHammer_Unique.tools.handle.label>cabo</UMW_WarcasketGravityHammer_Unique.tools.handle.label>

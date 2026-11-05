@@ -35,8 +35,8 @@
   <!-- EN: rallied -->
   <UMW_Rallied.label>士気高揚</UMW_Rallied.label>
 
-  <!-- EN: Stirred by the rallying cry of a storied weapon's bearer. For a time, wounds barely register, and a hit does little to break their stride. -->
-  <UMW_Rallied.description>由緒ある武器の持ち主が上げた鼓舞の叫びに心を動かされています.しばらくの間は傷をほとんど感じず,被弾しても足並みが乱れにくくなります.</UMW_Rallied.description>
+  <!-- EN: Stirred by a rallying cry. For a time, pain is dulled and staggering blows are quickly shaken off. -->
+  <UMW_Rallied.description>鼓舞の叫びで士気が高まっています.しばらくの間は痛みが和らぎ,よろめいてもすぐに立ち直ります.</UMW_Rallied.description>
 
 
   <!-- EN: sedative buildup -->

@@ -73,8 +73,8 @@
   <!-- EN: bell-cast -->
   <UMW_BellCast.label>cabeça de sino</UMW_BellCast.label>
 
-  <!-- EN: The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target. -->
-  <UMW_BellCast.description>A cabeça é fundida em peça única, como um sino. Um golpe limpo propaga uma ressonância pela armadura e pelo osso, atordoando o alvo por um instante.</UMW_BellCast.description>
+  <!-- EN: The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target. -->
+  <UMW_BellCast.description>A cabeça é fundida em peça única, como um sino. Um golpe limpo ressoa pela armadura e pelo osso, atordoando o alvo por um instante.</UMW_BellCast.description>
 
   <!-- EN: bell-cast -->
   <UMW_BellCast.traitAdjectives.0>ressoante</UMW_BellCast.traitAdjectives.0>
@@ -89,8 +89,8 @@
   <!-- EN: blood-stained -->
   <UMW_BloodStained.label>manchas de sangue</UMW_BloodStained.label>
 
-  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it. -->
-  <UMW_BloodStained.description>Esta arma está coberta por camadas de sangue escuro e seco. Sua visão pode fazer as pessoas que ela fere fugirem em pânico, mas carregar algo tão macabro pesa sobre todos, exceto os mais endurecidos. Comerciantes pagarão menos por ela.</UMW_BloodStained.description>
+  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it. -->
+  <UMW_BloodStained.description>Esta arma está coberta por camadas de sangue escuro e seco. Quem for ferido por ela pode entrar em pânico e fugir ao vê-la. Carregar algo tão macabro incomoda a maioria das pessoas, mas algumas sentem prazer nisso. Comerciantes pagarão menos por ela.</UMW_BloodStained.description>
 
   <!-- EN: blood-stained -->
   <UMW_BloodStained.traitAdjectives.0>carmesim</UMW_BloodStained.traitAdjectives.0>
@@ -108,8 +108,8 @@
   <!-- EN: carbonized -->
   <UMW_Carbonized.label>superfície carbonizada</UMW_Carbonized.label>
 
-  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly. -->
-  <UMW_Carbonized.description>Esta arma passou pelo fogo. Sua superfície carbonizada foi endurecida pelo calor, e o que já queimou não queima de novo com facilidade. Essa superfície endurecida golpeia com mais força do que deveria, mas o corpo chamuscado é frágil e se deteriora rápido.</UMW_Carbonized.description>
+  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster. -->
+  <UMW_Carbonized.description>Esta arma passou pelo fogo. A superfície carbonizada foi endurecida pelo calor e não queimará de novo com facilidade. A arma golpeia com um pouco mais de força que o normal, mas o material chamuscado é frágil e se desgasta mais rápido.</UMW_Carbonized.description>
 
   <!-- EN: carbonized -->
   <UMW_Carbonized.traitAdjectives.0>fumegante</UMW_Carbonized.traitAdjectives.0>
@@ -127,8 +127,8 @@
   <!-- EN: counterweighted -->
   <UMW_Counterweighted.label>contrapeso</UMW_Counterweighted.label>
 
-  <!-- EN: A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
-  <UMW_Counterweighted.description>Um contrapeso domina o peso da arma, que se recupera mais rápido entre os golpes ao custo de uma leve perda de potência.</UMW_Counterweighted.description>
+  <!-- EN: A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
+  <UMW_Counterweighted.description>Um contrapeso equilibra o peso da arma, que se recupera mais rápido entre os golpes ao custo de uma leve perda de potência.</UMW_Counterweighted.description>
 
   <!-- EN: balanced -->
   <UMW_Counterweighted.traitAdjectives.0>estável</UMW_Counterweighted.traitAdjectives.0>
@@ -140,8 +140,8 @@
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.label>desajeitado</UMW_Cumbersome.label>
 
-  <!-- EN: This weapon is bulky and overbuilt, slowing its swing. -->
-  <UMW_Cumbersome.description>Esta arma é volumosa e superdimensionada, tornando seus golpes mais lentos.</UMW_Cumbersome.description>
+  <!-- EN: This weapon is unwieldy to use, making it slower to swing. -->
+  <UMW_Cumbersome.description>Esta arma é difícil de manusear, tornando os golpes mais lentos.</UMW_Cumbersome.description>
 
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.traitAdjectives.0>intratável</UMW_Cumbersome.traitAdjectives.0>
@@ -156,8 +156,8 @@
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.label>cabeça sem rebote</UMW_DeadBlow.label>
 
-  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them. -->
-  <UMW_DeadBlow.description>A cabeça oca é preenchida com granalha solta que se lança para a frente no impacto e descarrega todo o ímpeto do golpe no alvo, sem o menor rebote. Alvos atingidos vacilam e cambaleiam, mesmo quando o golpe não os derruba.</UMW_DeadBlow.description>
+  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, so none of the blow's force bounces back. Targets it strikes will stagger, even when the blow does not drop them. -->
+  <UMW_DeadBlow.description>A cabeça oca é cheia de granalha solta, que avança no impacto e impede que o golpe ricocheteie. Os alvos atingidos cambalearão mesmo quando o golpe não os derrubar.</UMW_DeadBlow.description>
 
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.traitAdjectives.0>contundente</UMW_DeadBlow.traitAdjectives.0>
@@ -207,8 +207,8 @@
   <!-- EN: flanged -->
   <UMW_Flanged.label>aletas</UMW_Flanged.label>
 
-  <!-- EN: Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it. -->
-  <UMW_Flanged.description>Aletas percorrem a cabeça em relevo e concentram a força do golpe em uma aresta estreita que trinca as placas de armadura em vez de apenas amassá-las.</UMW_Flanged.description>
+  <!-- EN: The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it. -->
+  <UMW_Flanged.description>A cabeça tem aletas em relevo que concentram a força do golpe em uma aresta estreita e trincam as placas de armadura em vez de amassá-las.</UMW_Flanged.description>
 
   <!-- EN: flanged -->
   <UMW_Flanged.traitAdjectives.0>implacável</UMW_Flanged.traitAdjectives.0>
@@ -236,8 +236,8 @@
   <!-- EN: head-weighted -->
   <UMW_HeadWeighted.label>cabeça pesada</UMW_HeadWeighted.label>
 
-  <!-- EN: Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover. -->
-  <UMW_HeadWeighted.description>A massa é concentrada na extremidade que golpeia, de modo que cada golpe cai com força devastadora, embora a arma demore mais para se recuperar.</UMW_HeadWeighted.description>
+  <!-- EN: The weight is gathered toward the striking end, so each swing lands harder but is slower to recover. -->
+  <UMW_HeadWeighted.description>Com o peso concentrado na extremidade de impacto, cada golpe acerta com mais força, mas a arma demora mais para se recuperar.</UMW_HeadWeighted.description>
 
   <!-- EN: devastating -->
   <UMW_HeadWeighted.traitAdjectives.0>formidável</UMW_HeadWeighted.traitAdjectives.0>
@@ -278,8 +278,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>ponta de agulha</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
-  <UMW_NeedlePoint.description>Afinada até virar uma agulha fina, a ponta penetra fundo, abaixo do osso e do músculo, em busca dos órgãos internos. Acertá-la com limpeza exige estocadas mais lentas e deliberadas.</UMW_NeedlePoint.description>
+  <!-- EN: The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts. -->
+  <UMW_NeedlePoint.description>A ponta é afiada até ficar como uma agulha, que desliza entre osso e músculo até os órgãos por baixo. Para acertar com precisão, as estocadas precisam ser mais lentas e cuidadosas.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>filiforme</UMW_NeedlePoint.traitAdjectives.0>
@@ -329,8 +329,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>bate-estacas</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset. -->
-  <UMW_Piledriver.description>A cabeça é construída como um bate-estacas. Sob comando, toda a massa da arma pode ser desferida contra o chão, lançando uma onda de choque atordoante pela terra. O tremor não faz distinção: atordoa amigos e inimigos por igual, mas o usuário, bem firmado, é poupado. Depois de usado, o mecanismo leva tempo para se rearmar.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
+  <UMW_Piledriver.description>A cabeça é construída como um bate-estacas. Com ela, o usuário pode golpear o chão e lançar uma onda de choque que atordoa aliados e inimigos. O próprio usuário fica firme e não é afetado. Após o uso, o mecanismo demora um tempo para se rearmar.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>trepidante</UMW_Piledriver.traitAdjectives.0>
@@ -405,8 +405,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>linhagem de renome</UMW_Storied.label>
 
-  <!-- EN: This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days. -->
-  <UMW_Storied.description>Esta arma carrega uma linhagem registrada de portadores com nome e de feitos lembrados. O usuário pode erguê-la em um grito de guerra: os aliados que a veem se enrijecem e, por um tempo, as feridas quase não os retardam. Um momento assim só pode ser invocado uma vez a cada poucos dias.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
+  <UMW_Storied.description>Esta arma tem nome e história, e os feitos de quem a carregou são lembrados. O usuário pode erguê-la e dar um grito de guerra que encoraja os aliados que a veem. Depois, leva dias até poder dar o grito de novo.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>célebre</UMW_Storied.traitAdjectives.0>

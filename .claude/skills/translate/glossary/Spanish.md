@@ -180,3 +180,10 @@ is an error and is replaced by the grounded `punta`. `namerLabels` (bare lowerca
 markers) are broadsword = `espada ancha`, `hoja`, `espada`, `filo`, and gravity hammer =
 `martillo`, `mazo`, `cabeza`, `martillo de gravedad`; the pack's `espada` alone is the label noun,
 so `espada ancha` keeps slot 0 distinct from slot 2.
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: "Un/Una <arma> con partes personalizadas." Cumbersome: "Esta arma es difícil de manejar, lo que la hace más lenta para golpear." (Odyssey's sentence, aim clause swapped).
+- Toggles: "Si está activado, ... Si está desactivado, ..." (Core `CommandAutoRearmDesc`). Tech bands "de nivel tecnológico medieval o inferior / industrial o superior". Drafted = "personaje reclutado". Piledriver closes "Una vez usado, el mecanismo tarda un tiempo en rearmarse." (Odyssey EMPPulser shape).
+- Trader rows put "un" before the injected label ("las visitas de un {0}", "caravanas de un {0}"): every label that can land there is masculine in vanilla (mercader de armas, mercader chamanista, comerciante de armas). Traits sit on weapons: "Sus armas nunca tendrán rasgos ultratecnológicos.", never "en sus existencias".
+- Stagger = "tambaleo" (noun) / "el tambaleo que causan los golpes dura poco"; rallied = "arenga / arengado"; "efecto de la arenga" for the duration row. Group box = "activa o desactiva el grupo entero. Si está marcada a medias, ...".

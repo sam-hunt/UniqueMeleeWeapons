@@ -216,3 +216,10 @@ clash with Core's `espada longa` = longsword). Tool labels are the grounded
 `lâmina`/`ponta` and `cabeça`/`cabo`. `namerLabels`, unmarked bare lowercase
 nouns: broadsword `espada larga`, `lâmina`, `espada`, `gume`; gravity hammer
 `martelo`, `marreta`, `cabeça`, `martelo gravitacional`. Pending native review.
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: "Um/Uma <arma> com peças personalizadas." Cumbersome: "Esta arma é difícil de manusear, tornando os golpes mais lentos."
+- Abilities in third person indicative ("Golpeia", "Ergue"), matching Odyssey's weapon-trait abilities ("Emite", "Lança") rather than Royalty's imperatives.
+- Tech bands "com nível de tecnologia medieval ou inferior / industrial ou superior" (avoids stacking "de nível de"). Drafted = "colono alistado" (`CommandDraftLabel` Alistar). "newly generated" = "recém-geradas". Toggles "Quando ativado, ... Quando desativado, ...".
+- Stagger uses the verb "cambalear" (Odyssey "farão o alvo cambalear"), never the noun "cambaleio". Rallied stays "enardecido" (tied to the hediff label). Carbonized's body = "o material chamuscado" (never "o corpo", which reads as a corpse).

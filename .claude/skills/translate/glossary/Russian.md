@@ -65,3 +65,10 @@ pointed / blunt, the ToolCapacityDef adjective family), тяжёлое (heavy),
   психочувствительность ... рассеивают нейроперегрев» (eltex apparel),
   suppresses → подавляет (`PsychicSensitivityDownMinor`). Grip → рукоять
   (this glossary); fittings → фурнитура (ordinary word, no vanilla term).
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: "<Существительное> с индивидуальными деталями." Cumbersome: "Это оружие неудобно использовать, что замедляет замах."
+- Settings: "поселенцы" (Core, 147 hits) never "колонисты"; "появляться в игре" for generated (not "генерироваться"); drafted = "персонаж в боевом режиме" (`CommandToggleDraftDesc`); "Частота: {0}" (`FrequencyColumnLabel`); item stashes "схроны"; toggles "Если включено, ... Если выключено, ...".
+- Tech bands are a separate sentence to avoid a five-genitive chain: "Его технологический уровень будет не выше средневекового / не ниже индустриального." Ultratech = "ультратехнологичные свойства".
+- Material agreement with an injected label: "{0} из дерева" (never "деревянный {0}"). Stagger = "замедление от ударов" (settings, hediff) / "пошатнётся" (Dead Blow); rallied = "воодушевление / воодушевятся"; "take heart" and "steels" deliberately differ ("воспрянут духом" / "придаст сил").

@@ -4,14 +4,14 @@
   <!-- EN: earthshake -->
   <UMW_Earthshake.label>сотрясение земли</UMW_Earthshake.label>
 
-  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing. -->
-  <UMW_Earthshake.description>Обрушить всю массу оружия на землю, послав сквозь неё оглушающую ударную волну. Волна проходит под стенами и оглушает как друзей, так и врагов; на ногах остаётся лишь сам владелец, успевший упереться в землю.</UMW_Earthshake.description>
+  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. The shock will pass under walls and stun friend and foe alike. Only the braced wielder keeps their footing. -->
+  <UMW_Earthshake.description>Со всего размаху ударить оружием о землю, чтобы по ней прошла оглушающая ударная волна. Волна пройдёт под стенами и оглушит и друзей, и врагов. Устоит на ногах только сам владелец, который крепко упирается в землю.</UMW_Earthshake.description>
 
 
   <!-- EN: rallying cry -->
   <UMW_RallyingCry.label>боевой клич</UMW_RallyingCry.label>
 
-  <!-- EN: Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them. -->
-  <UMW_RallyingCry.description>Высоко поднять оружие и издать боевой клич. Союзники, увидевшие это, воодушевляются, и какое-то время раны почти не замедляют их.</UMW_RallyingCry.description>
+  <!-- EN: Raise the weapon high and shout. Allies who see it will take heart, and for a time wounds will barely slow them. -->
+  <UMW_RallyingCry.description>Высоко поднять оружие и издать боевой клич. Союзники, которые это увидят, воспрянут духом, и какое-то время раны почти не будут их замедлять.</UMW_RallyingCry.description>
 
 </LanguageData>

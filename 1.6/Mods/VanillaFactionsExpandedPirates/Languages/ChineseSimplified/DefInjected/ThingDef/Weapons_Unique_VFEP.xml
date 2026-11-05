@@ -14,8 +14,8 @@
   <!-- EN: unique warcasket broadsword -->
   <UMW_WarcasketBroadsword_Unique.label>特化战棺巨剑</UMW_WarcasketBroadsword_Unique.label>
 
-  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketBroadsword_Unique.description>一把烙有大师印记的战棺巨剑。没有任何两件锻造得一模一样。</UMW_WarcasketBroadsword_Unique.description>
+  <!-- EN: A warcasket broadsword with customized parts. -->
+  <UMW_WarcasketBroadsword_Unique.description>一把配有定制部件的战棺巨剑。</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>剑刃</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warcasket gravity hammer -->
   <UMW_WarcasketGravityHammer_Unique.label>特化战棺重力锤</UMW_WarcasketGravityHammer_Unique.label>
 
-  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketGravityHammer_Unique.description>一把烙有大师印记的战棺重力锤。没有任何两件锻造得一模一样。</UMW_WarcasketGravityHammer_Unique.description>
+  <!-- EN: A warcasket gravity hammer with customized parts. -->
+  <UMW_WarcasketGravityHammer_Unique.description>一把配有定制部件的战棺重力锤。</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: head -->
   <UMW_WarcasketGravityHammer_Unique.tools.head.label>锤头</UMW_WarcasketGravityHammer_Unique.tools.head.label>

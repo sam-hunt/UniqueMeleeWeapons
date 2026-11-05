@@ -4,8 +4,8 @@
   <!-- EN: unique breach axe -->
   <UMW_BreachAxe_Unique.label>特化破墙斧</UMW_BreachAxe_Unique.label>
 
-  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_BreachAxe_Unique.description>一把烙有大师印记的破墙斧。没有任何两件锻造得一模一样。</UMW_BreachAxe_Unique.description>
+  <!-- EN: A breach axe with customized parts. -->
+  <UMW_BreachAxe_Unique.description>一把配有定制部件的破墙斧。</UMW_BreachAxe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_BreachAxe_Unique.tools.handle.label>握柄</UMW_BreachAxe_Unique.tools.handle.label>
@@ -35,8 +35,8 @@
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>特化短剑</UMW_Gladius_Unique.label>
 
-  <!-- EN: A gladius bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Gladius_Unique.description>一把烙有大师印记的短剑。没有任何两件锻造得一模一样。</UMW_Gladius_Unique.description>
+  <!-- EN: A gladius with customized parts. -->
+  <UMW_Gladius_Unique.description>一把配有定制部件的短剑。</UMW_Gladius_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Gladius_Unique.tools.handle.label>剑柄</UMW_Gladius_Unique.tools.handle.label>
@@ -69,8 +69,8 @@
   <!-- EN: unique knife -->
   <UMW_Knife_Unique.label>特化匕首</UMW_Knife_Unique.label>
 
-  <!-- EN: A knife honed by a master's hand. No two are forged alike. -->
-  <UMW_Knife_Unique.description>一把经大师之手磨砺的匕首。没有任何两件锻造得一模一样。</UMW_Knife_Unique.description>
+  <!-- EN: A knife with customized parts. -->
+  <UMW_Knife_Unique.description>一把配有定制部件的匕首。</UMW_Knife_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Knife_Unique.tools.handle.label>柄</UMW_Knife_Unique.tools.handle.label>
@@ -103,8 +103,8 @@
   <!-- EN: unique longsword -->
   <UMW_LongSword_Unique.label>特化长剑</UMW_LongSword_Unique.label>
 
-  <!-- EN: A longsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_LongSword_Unique.description>一把烙有大师印记的长剑。没有任何两件锻造得一模一样。</UMW_LongSword_Unique.description>
+  <!-- EN: A longsword with customized parts. -->
+  <UMW_LongSword_Unique.description>一把配有定制部件的长剑。</UMW_LongSword_Unique.description>
 
   <!-- EN: handle -->
   <UMW_LongSword_Unique.tools.handle.label>剑柄</UMW_LongSword_Unique.tools.handle.label>
@@ -137,8 +137,8 @@
   <!-- EN: unique mace -->
   <UMW_Mace_Unique.label>特化钉头锤</UMW_Mace_Unique.label>
 
-  <!-- EN: A mace bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Mace_Unique.description>一把烙有大师印记的钉头锤。没有任何两件锻造得一模一样。</UMW_Mace_Unique.description>
+  <!-- EN: A mace with customized parts. -->
+  <UMW_Mace_Unique.description>一把配有定制部件的钉头锤。</UMW_Mace_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Mace_Unique.tools.handle.label>锤柄</UMW_Mace_Unique.tools.handle.label>
@@ -168,8 +168,8 @@
   <!-- EN: unique spear -->
   <UMW_Spear_Unique.label>特化长矛</UMW_Spear_Unique.label>
 
-  <!-- EN: A spear bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Spear_Unique.description>一杆烙有大师印记的长矛。没有任何两件锻造得一模一样。</UMW_Spear_Unique.description>
+  <!-- EN: A spear with customized parts. -->
+  <UMW_Spear_Unique.description>一杆配有定制部件的长矛。</UMW_Spear_Unique.description>
 
   <!-- EN: shaft -->
   <UMW_Spear_Unique.tools.shaft.label>杆</UMW_Spear_Unique.tools.shaft.label>

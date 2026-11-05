@@ -16,8 +16,8 @@
   <!-- EN: unique warcasket broadsword -->
   <UMW_WarcasketBroadsword_Unique.label>épée large unique de sarcophage</UMW_WarcasketBroadsword_Unique.label>
 
-  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketBroadsword_Unique.description>Une épée large de sarcophage portant la marque de la main d'un maître. Il n'en existe pas deux forgées à l'identique.</UMW_WarcasketBroadsword_Unique.description>
+  <!-- EN: A warcasket broadsword with customized parts. -->
+  <UMW_WarcasketBroadsword_Unique.description>Une épée large de sarcophage avec des pièces personnalisées.</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>lame</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -47,8 +47,8 @@
   <!-- EN: unique warcasket gravity hammer -->
   <UMW_WarcasketGravityHammer_Unique.label>marteau gravitationnel unique de sarcophage</UMW_WarcasketGravityHammer_Unique.label>
 
-  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketGravityHammer_Unique.description>Un marteau gravitationnel de sarcophage portant la marque de la main d'un maître. Il n'en existe pas deux forgés à l'identique.</UMW_WarcasketGravityHammer_Unique.description>
+  <!-- EN: A warcasket gravity hammer with customized parts. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Un marteau gravitationnel de sarcophage avec des pièces personnalisées.</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: head -->
   <UMW_WarcasketGravityHammer_Unique.tools.head.label>tête</UMW_WarcasketGravityHammer_Unique.tools.head.label>

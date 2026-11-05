@@ -13,8 +13,8 @@
   <!-- EN: unique axe -->
   <UMW_Axe_Unique.label>ユニークな戦斧</UMW_Axe_Unique.label>
 
-  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Axe_Unique.description>名工の手による痕跡を宿した戦斧です.同じものは二つとして鍛えられていません.</UMW_Axe_Unique.description>
+  <!-- EN: An axe with customized parts. -->
+  <UMW_Axe_Unique.description>カスタマイズされた部品を持つ戦斧です.</UMW_Axe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Axe_Unique.tools.handle.label>柄</UMW_Axe_Unique.tools.handle.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warhammer -->
   <UMW_Warhammer_Unique.label>ユニークなウォーハンマー</UMW_Warhammer_Unique.label>
 
-  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Warhammer_Unique.description>名工の手による痕跡を宿したウォーハンマーです.同じものは二つとして鍛えられていません.</UMW_Warhammer_Unique.description>
+  <!-- EN: A warhammer with customized parts. -->
+  <UMW_Warhammer_Unique.description>カスタマイズされた部品を持つウォーハンマーです.</UMW_Warhammer_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Warhammer_Unique.tools.handle.label>柄</UMW_Warhammer_Unique.tools.handle.label>

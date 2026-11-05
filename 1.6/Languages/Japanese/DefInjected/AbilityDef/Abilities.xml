@@ -4,14 +4,14 @@
   <!-- EN: earthshake -->
   <UMW_Earthshake.label>地響き</UMW_Earthshake.label>
 
-  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing. -->
-  <UMW_Earthshake.description>武器の全質量を地面に叩き込み,大地を伝わってスタンさせる衝撃波を送り出します.衝撃は壁の下をくぐり抜け,味方も敵も同様にスタンさせます.身構えている使用者だけが足を取られずに済みます.</UMW_Earthshake.description>
+  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. The shock will pass under walls and stun friend and foe alike. Only the braced wielder keeps their footing. -->
+  <UMW_Earthshake.description>武器の重さを乗せて地面を打ち,大地を伝わる衝撃波で周囲の者をスタンさせます.衝撃波は壁の下も通り抜け,敵にも味方にも及びます.身構えている使用者だけは体勢を崩しません.</UMW_Earthshake.description>
 
 
   <!-- EN: rallying cry -->
   <UMW_RallyingCry.label>鼓舞の叫び</UMW_RallyingCry.label>
 
-  <!-- EN: Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them. -->
-  <UMW_RallyingCry.description>武器を高く掲げて叫びます.それを目にした味方は気を引き締め,しばらくの間は傷を負ってもほとんど動きが鈍りません.</UMW_RallyingCry.description>
+  <!-- EN: Raise the weapon high and shout. Allies who see it will take heart, and for a time wounds will barely slow them. -->
+  <UMW_RallyingCry.description>武器を高く掲げて叫びます.叫ぶ姿を見た味方は勇気づけられ,しばらくの間は傷を負ってもほとんど動きが鈍らなくなります.</UMW_RallyingCry.description>
 
 </LanguageData>

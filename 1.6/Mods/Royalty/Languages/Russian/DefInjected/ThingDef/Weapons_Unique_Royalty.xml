@@ -13,8 +13,8 @@
   <!-- EN: unique axe -->
   <UMW_Axe_Unique.label>уникальный топор</UMW_Axe_Unique.label>
 
-  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Axe_Unique.description>Топор, несущий отпечаток руки мастера. Двух одинаковых не куют.</UMW_Axe_Unique.description>
+  <!-- EN: An axe with customized parts. -->
+  <UMW_Axe_Unique.description>Топор с индивидуальными деталями.</UMW_Axe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Axe_Unique.tools.handle.label>рукоять</UMW_Axe_Unique.tools.handle.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warhammer -->
   <UMW_Warhammer_Unique.label>уникальный молот</UMW_Warhammer_Unique.label>
 
-  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Warhammer_Unique.description>Боевой молот, несущий отпечаток руки мастера. Двух одинаковых не куют.</UMW_Warhammer_Unique.description>
+  <!-- EN: A warhammer with customized parts. -->
+  <UMW_Warhammer_Unique.description>Молот с индивидуальными деталями.</UMW_Warhammer_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Warhammer_Unique.tools.handle.label>рукоять</UMW_Warhammer_Unique.tools.handle.label>

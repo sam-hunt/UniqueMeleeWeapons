@@ -4,8 +4,8 @@
   <!-- EN: warband -->
   <UMW_Warband.label>전사단</UMW_Warband.label>
 
-  <!-- EN: A roving company of fighters who live by the raid, preying on settlements and travellers across the land. -->
-  <UMW_Warband.description>습격으로 살아가며 각지의 정착지와 여행자를 노리고 떠돌아다니는 전사 집단입니다.</UMW_Warband.description>
+  <!-- EN: A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them. -->
+  <UMW_Warband.description>약탈로 먹고살며 주변의 정착지와 여행자를 노리는 떠돌이 부족 전사 무리입니다.</UMW_Warband.description>
 
   <!-- EN: warrior -->
   <UMW_Warband.pawnSingular>전사</UMW_Warband.pawnSingular>

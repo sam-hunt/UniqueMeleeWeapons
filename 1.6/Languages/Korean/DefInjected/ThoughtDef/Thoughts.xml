@@ -10,8 +10,8 @@
   <!-- EN: blood-stained weapon -->
   <UMW_BloodStainedWeapon.stages.1.label>피에 젖은 무기</UMW_BloodStainedWeapon.stages.1.label>
 
-  <!-- EN: I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me to the core. -->
-  <UMW_BloodStainedWeapon.stages.1.description>굳은 피가 엉긴 무기를 들고 다니고 있어. 그 냄새며, 이 무기가 해온 일을 떠올리면 뼛속까지 짜릿해져.</UMW_BloodStainedWeapon.stages.1.description>
+  <!-- EN: I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me. -->
+  <UMW_BloodStainedWeapon.stages.1.description>굳은 피가 엉긴 무기를 들고 다니고 있어. 피 냄새를 맡으며 이 무기가 해 온 일을 떠올리면 짜릿해.</UMW_BloodStainedWeapon.stages.1.description>
 
 
   <!-- EN: storied weapon -->

@@ -4,8 +4,8 @@
   <!-- EN: warband -->
   <UMW_Warband.label>bande de guerre</UMW_Warband.label>
 
-  <!-- EN: A roving company of fighters who live by the raid, preying on settlements and travellers across the land. -->
-  <UMW_Warband.description>Une compagnie errante de combattants qui vivent du pillage et s'en prennent aux colonies et aux voyageurs à travers la région.</UMW_Warband.description>
+  <!-- EN: A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them. -->
+  <UMW_Warband.description>Une bande errante de combattants tribaux qui vivent du pillage et s'en prennent aux colonies et aux voyageurs des environs.</UMW_Warband.description>
 
   <!-- EN: warrior -->
   <UMW_Warband.pawnSingular>guerrier</UMW_Warband.pawnSingular>

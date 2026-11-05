@@ -14,8 +14,8 @@
   <!-- EN: unique warcasket broadsword -->
   <UMW_WarcasketBroadsword_Unique.label>ユニークなウォーキャスケットブロードソード</UMW_WarcasketBroadsword_Unique.label>
 
-  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketBroadsword_Unique.description>名工の手による痕跡を宿したウォーキャスケットブロードソードです.同じものは二つとして鍛えられていません.</UMW_WarcasketBroadsword_Unique.description>
+  <!-- EN: A warcasket broadsword with customized parts. -->
+  <UMW_WarcasketBroadsword_Unique.description>カスタマイズされた部品を持つウォーキャスケットブロードソードです.</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>刃</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -45,8 +45,8 @@
   <!-- EN: unique warcasket gravity hammer -->
   <UMW_WarcasketGravityHammer_Unique.label>ユニークなウォーキャスケット重力ハンマー</UMW_WarcasketGravityHammer_Unique.label>
 
-  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketGravityHammer_Unique.description>名工の手による痕跡を宿したウォーキャスケット重力ハンマーです.同じものは二つとして鍛えられていません.</UMW_WarcasketGravityHammer_Unique.description>
+  <!-- EN: A warcasket gravity hammer with customized parts. -->
+  <UMW_WarcasketGravityHammer_Unique.description>カスタマイズされた部品を持つウォーキャスケット重力ハンマーです.</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: head -->
   <UMW_WarcasketGravityHammer_Unique.tools.head.label>頭</UMW_WarcasketGravityHammer_Unique.tools.head.label>

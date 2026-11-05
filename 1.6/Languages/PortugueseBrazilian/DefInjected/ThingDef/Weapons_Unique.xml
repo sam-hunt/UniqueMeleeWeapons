@@ -17,8 +17,8 @@
   <!-- EN: unique breach axe -->
   <UMW_BreachAxe_Unique.label>machado de irrupção único</UMW_BreachAxe_Unique.label>
 
-  <!-- EN: A breach axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_BreachAxe_Unique.description>Um machado de irrupção que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_BreachAxe_Unique.description>
+  <!-- EN: A breach axe with customized parts. -->
+  <UMW_BreachAxe_Unique.description>Um machado de irrupção com peças personalizadas.</UMW_BreachAxe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_BreachAxe_Unique.tools.handle.label>cabo</UMW_BreachAxe_Unique.tools.handle.label>
@@ -48,8 +48,8 @@
   <!-- EN: unique gladius -->
   <UMW_Gladius_Unique.label>gládio único</UMW_Gladius_Unique.label>
 
-  <!-- EN: A gladius bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Gladius_Unique.description>Um gládio que traz as marcas da mão de um mestre. Não existem dois forjados iguais.</UMW_Gladius_Unique.description>
+  <!-- EN: A gladius with customized parts. -->
+  <UMW_Gladius_Unique.description>Um gládio com peças personalizadas.</UMW_Gladius_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Gladius_Unique.tools.handle.label>cabo</UMW_Gladius_Unique.tools.handle.label>
@@ -82,8 +82,8 @@
   <!-- EN: unique knife -->
   <UMW_Knife_Unique.label>faca única</UMW_Knife_Unique.label>
 
-  <!-- EN: A knife honed by a master's hand. No two are forged alike. -->
-  <UMW_Knife_Unique.description>Uma faca afiada pela mão de um mestre. Não existem duas forjadas iguais.</UMW_Knife_Unique.description>
+  <!-- EN: A knife with customized parts. -->
+  <UMW_Knife_Unique.description>Uma faca com peças personalizadas.</UMW_Knife_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Knife_Unique.tools.handle.label>cabo</UMW_Knife_Unique.tools.handle.label>
@@ -116,8 +116,8 @@
   <!-- EN: unique longsword -->
   <UMW_LongSword_Unique.label>espada longa única</UMW_LongSword_Unique.label>
 
-  <!-- EN: A longsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_LongSword_Unique.description>Uma espada longa que traz as marcas da mão de um mestre. Não existem duas forjadas iguais.</UMW_LongSword_Unique.description>
+  <!-- EN: A longsword with customized parts. -->
+  <UMW_LongSword_Unique.description>Uma espada longa com peças personalizadas.</UMW_LongSword_Unique.description>
 
   <!-- EN: handle -->
   <UMW_LongSword_Unique.tools.handle.label>cabo</UMW_LongSword_Unique.tools.handle.label>
@@ -150,8 +150,8 @@
   <!-- EN: unique mace -->
   <UMW_Mace_Unique.label>maça única</UMW_Mace_Unique.label>
 
-  <!-- EN: A mace bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Mace_Unique.description>Uma maça que traz as marcas da mão de um mestre. Não existem duas forjadas iguais.</UMW_Mace_Unique.description>
+  <!-- EN: A mace with customized parts. -->
+  <UMW_Mace_Unique.description>Uma maça com peças personalizadas.</UMW_Mace_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Mace_Unique.tools.handle.label>cabo</UMW_Mace_Unique.tools.handle.label>
@@ -181,8 +181,8 @@
   <!-- EN: unique spear -->
   <UMW_Spear_Unique.label>lança única</UMW_Spear_Unique.label>
 
-  <!-- EN: A spear bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Spear_Unique.description>Uma lança que traz as marcas da mão de um mestre. Não existem duas forjadas iguais.</UMW_Spear_Unique.description>
+  <!-- EN: A spear with customized parts. -->
+  <UMW_Spear_Unique.description>Uma lança com peças personalizadas.</UMW_Spear_Unique.description>
 
   <!-- EN: shaft -->
   <UMW_Spear_Unique.tools.shaft.label>eixo</UMW_Spear_Unique.tools.shaft.label>

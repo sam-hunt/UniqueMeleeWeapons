@@ -13,8 +13,8 @@
   <!-- EN: unique axe -->
   <UMW_Axe_Unique.label>hacha única</UMW_Axe_Unique.label>
 
-  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Axe_Unique.description>Un hacha con las marcas de una mano maestra. No se forjan dos iguales.</UMW_Axe_Unique.description>
+  <!-- EN: An axe with customized parts. -->
+  <UMW_Axe_Unique.description>Un hacha con partes personalizadas.</UMW_Axe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Axe_Unique.tools.handle.label>empuñadura</UMW_Axe_Unique.tools.handle.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warhammer -->
   <UMW_Warhammer_Unique.label>martillo de guerra único</UMW_Warhammer_Unique.label>
 
-  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Warhammer_Unique.description>Un martillo de guerra con las marcas de una mano maestra. No se forjan dos iguales.</UMW_Warhammer_Unique.description>
+  <!-- EN: A warhammer with customized parts. -->
+  <UMW_Warhammer_Unique.description>Un martillo de guerra con partes personalizadas.</UMW_Warhammer_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Warhammer_Unique.tools.handle.label>empuñadura</UMW_Warhammer_Unique.tools.handle.label>

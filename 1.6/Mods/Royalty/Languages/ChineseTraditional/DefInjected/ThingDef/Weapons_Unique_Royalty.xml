@@ -13,8 +13,8 @@
   <!-- EN: unique axe -->
   <UMW_Axe_Unique.label>獨特戰斧</UMW_Axe_Unique.label>
 
-  <!-- EN: An axe bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Axe_Unique.description>一把烙有大師印記的戰斧。沒有任何兩件鍛造得一模一樣。</UMW_Axe_Unique.description>
+  <!-- EN: An axe with customized parts. -->
+  <UMW_Axe_Unique.description>具有定制部件的戰斧。</UMW_Axe_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Axe_Unique.tools.handle.label>斧柄</UMW_Axe_Unique.tools.handle.label>
@@ -44,8 +44,8 @@
   <!-- EN: unique warhammer -->
   <UMW_Warhammer_Unique.label>獨特戰錘</UMW_Warhammer_Unique.label>
 
-  <!-- EN: A warhammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_Warhammer_Unique.description>一柄烙有大師印記的戰錘。沒有任何兩件鍛造得一模一樣。</UMW_Warhammer_Unique.description>
+  <!-- EN: A warhammer with customized parts. -->
+  <UMW_Warhammer_Unique.description>具有定制部件的戰錘。</UMW_Warhammer_Unique.description>
 
   <!-- EN: handle -->
   <UMW_Warhammer_Unique.tools.handle.label>錘柄</UMW_Warhammer_Unique.tools.handle.label>

@@ -36,8 +36,8 @@
   <!-- EN: bell-cast -->
   <UMW_BellCast.label>鐘鋳ヘッド</UMW_BellCast.label>
 
-  <!-- EN: The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target. -->
-  <UMW_BellCast.description>ヘッドは鐘のように中実で鋳造されています.きれいに決まった一撃は装甲と骨に共鳴を響かせ,ターゲットを短時間スタンさせます.</UMW_BellCast.description>
+  <!-- EN: The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target. -->
+  <UMW_BellCast.description>ヘッドは鐘と同じ製法で鋳造されており,中まで金属が詰まっています.きれいに決まった一撃は装甲と骨に響き渡り,ターゲットを短時間スタンさせます.</UMW_BellCast.description>
 
   <!-- EN: bell-cast -->
   <UMW_BellCast.traitAdjectives.0>鐘鋳の</UMW_BellCast.traitAdjectives.0>
@@ -52,8 +52,8 @@
   <!-- EN: blood-stained -->
   <UMW_BloodStained.label>血染め</UMW_BloodStained.label>
 
-  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it. -->
-  <UMW_BloodStained.description>この武器には黒ずんだ乾いた血が何層にも固まりついています.これで傷つけられた者は,その姿を見てパニックになり逃げ出すことがあります.ただし,これほど陰惨な物を持ち歩くのは,神経の太い者を除いて誰にとっても心の負担になります.貿易商は低い価格でこれを買い取ります.</UMW_BloodStained.description>
+  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it. -->
+  <UMW_BloodStained.description>この武器には黒ずんだ乾いた血が何層にもこびりついています.これで傷つけられた者は,その姿を見てパニックになり逃げ出すことがあります.これほど陰惨な物を持ち歩くのは大抵の人にとって心の負担になりますが,それを喜ぶ者もわずかにいます.貿易商は低い価格でこれを買い取ります.</UMW_BloodStained.description>
 
   <!-- EN: blood-stained -->
   <UMW_BloodStained.traitAdjectives.0>血染めの</UMW_BloodStained.traitAdjectives.0>
@@ -71,8 +71,8 @@
   <!-- EN: carbonized -->
   <UMW_Carbonized.label>炭化</UMW_Carbonized.label>
 
-  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly. -->
-  <UMW_Carbonized.description>この武器は炎をくぐり抜けています.焦げた表面は熱によって硬化しており,既に焼けたものは再び燃えにくくなっています.硬化した表面は見た目以上に強く打ち込めますが,焼け焦げた本体は脆く,風雨にも耐えられません.</UMW_Carbonized.description>
+  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster. -->
+  <UMW_Carbonized.description>この武器は火にさらされたことがあります.焦げた表面は熱で硬化しており,再び燃えにくくなっています.通常より少しだけ強く打ち込めますが,焼け焦げた本体は脆く,劣化が早くなります.</UMW_Carbonized.description>
 
   <!-- EN: carbonized -->
   <UMW_Carbonized.traitAdjectives.0>炭化した</UMW_Carbonized.traitAdjectives.0>
@@ -90,8 +90,8 @@
   <!-- EN: counterweighted -->
   <UMW_Counterweighted.label>カウンターウェイト</UMW_Counterweighted.label>
 
-  <!-- EN: A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
-  <UMW_Counterweighted.description>カウンターウェイトが重さを抑え,威力をわずかに犠牲にする代わりに,振りと振りの間の立て直しが速くなります.</UMW_Counterweighted.description>
+  <!-- EN: A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
+  <UMW_Counterweighted.description>カウンターウェイトが重さの釣り合いを取っているため,威力がわずかに下がる代わりに,振った後の立て直しが速くなります.</UMW_Counterweighted.description>
 
   <!-- EN: balanced -->
   <UMW_Counterweighted.traitAdjectives.0>均衡の取れた</UMW_Counterweighted.traitAdjectives.0>
@@ -103,8 +103,8 @@
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.label>扱いにくい</UMW_Cumbersome.label>
 
-  <!-- EN: This weapon is bulky and overbuilt, slowing its swing. -->
-  <UMW_Cumbersome.description>この武器はかさばり,作りが過剰なため,振りが遅くなります.</UMW_Cumbersome.description>
+  <!-- EN: This weapon is unwieldy to use, making it slower to swing. -->
+  <UMW_Cumbersome.description>この武器は扱いが難しく,振りが遅くなります.</UMW_Cumbersome.description>
 
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.traitAdjectives.0>扱いにくい</UMW_Cumbersome.traitAdjectives.0>
@@ -119,8 +119,8 @@
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.label>無反発ヘッド</UMW_DeadBlow.label>
 
-  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them. -->
-  <UMW_DeadBlow.description>中空のヘッドには細かい粒が詰められており,衝撃の瞬間に前方へ押し寄せて,一撃の運動量をそのままターゲットに叩き込み,跳ね返りを一切残しません.打たれたターゲットは,その一撃で倒れなくてもよろめき,足をふらつかせます.</UMW_DeadBlow.description>
+  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, so none of the blow's force bounces back. Targets it strikes will stagger, even when the blow does not drop them. -->
+  <UMW_DeadBlow.description>中空のヘッドには細かい粒が詰められています.粒は衝撃の瞬間に前方へ押し寄せるため,打撃の力が跳ね返ることはありません.打たれたターゲットは,その一撃で倒れなくてもよろめきます.</UMW_DeadBlow.description>
 
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.traitAdjectives.0>無反発の</UMW_DeadBlow.traitAdjectives.0>
@@ -170,8 +170,8 @@
   <!-- EN: flanged -->
   <UMW_Flanged.label>稜付きヘッド</UMW_Flanged.label>
 
-  <!-- EN: Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it. -->
-  <UMW_Flanged.description>ヘッドには稜が幾筋も立っており,打撃の力を狭い稜線に集中させて,装甲板を凹ませるだけでなく叩き割ります.</UMW_Flanged.description>
+  <!-- EN: The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it. -->
+  <UMW_Flanged.description>ヘッドには何枚もの突縁が付いています.打撃の力が細い縁に集中するため,装甲板はへこむのではなく割れます.</UMW_Flanged.description>
 
   <!-- EN: flanged -->
   <UMW_Flanged.traitAdjectives.0>稜付きの</UMW_Flanged.traitAdjectives.0>
@@ -199,8 +199,8 @@
   <!-- EN: head-weighted -->
   <UMW_HeadWeighted.label>先重心</UMW_HeadWeighted.label>
 
-  <!-- EN: Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover. -->
-  <UMW_HeadWeighted.description>質量が打撃側の端に寄せられているため,一振りごとに壊滅的な力が乗りますが,立て直しは遅くなります.</UMW_HeadWeighted.description>
+  <!-- EN: The weight is gathered toward the striking end, so each swing lands harder but is slower to recover. -->
+  <UMW_HeadWeighted.description>重さが打撃側の端に寄せられているため,一振りごとの打撃は重くなりますが,振った後の立て直しは遅くなります.</UMW_HeadWeighted.description>
 
   <!-- EN: devastating -->
   <UMW_HeadWeighted.traitAdjectives.0>壊滅的な</UMW_HeadWeighted.traitAdjectives.0>
@@ -241,8 +241,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>針先</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
-  <UMW_NeedlePoint.description>細い針のように絞り込まれた先端は,骨と筋肉の下深くまで潜り込み,その奥の臓器を狙います.きれいに突き入れるには,より遅く慎重な突きが必要です.</UMW_NeedlePoint.description>
+  <!-- EN: The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts. -->
+  <UMW_NeedlePoint.description>先端は細い針のように絞り込まれており,骨や筋肉の間をすり抜けてその奥の臓器まで届きます.ただし狙い通りに刺すには,時間をかけて慎重に突く必要があります.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>針の</UMW_NeedlePoint.traitAdjectives.0>
@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>杭打ちヘッド</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset. -->
-  <UMW_Piledriver.description>ヘッドは杭打ち機として作られています.使用者の合図で武器の全質量を地面に叩き込み,大地を伝わってスタンさせる衝撃波を送り出せます.この衝撃は敵味方を区別せず,味方も敵も同様にスタンさせますが,身構えている使用者だけは影響を受けません.一度使うと,機構が元に戻るまで時間がかかります.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
+  <UMW_Piledriver.description>ヘッドは杭打ち機のような構造になっています.使用者は地面を打って衝撃波を起こし,周囲の者をスタンさせることができます.衝撃波は敵にも味方にも及びますが,身構えている使用者は影響を受けません.一度使うと,機構が元に戻るまでしばらく時間がかかります.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>杭打ちの</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>由緒ある</UMW_Storied.label>
 
-  <!-- EN: This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days. -->
-  <UMW_Storied.description>この武器には,名を持つ歴代の持ち主と語り継がれる武勲が記録として刻まれています.使用者はこれを高く掲げて鼓舞の叫びを上げることができ,それを目にした味方は気を引き締め,しばらくの間は傷を負ってもほとんど動きが鈍りません.この瞬間は数日に一度しか呼び起こせません.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
+  <UMW_Storied.description>この武器には名前と来歴があり,歴代の持ち主の武勲は今も語り継がれています.使用者は武器を高く掲げて鼓舞の叫びを上げ,その姿を見た味方を奮い立たせることができます.一度使うと,再び叫びを上げられるようになるまで数日かかります.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>由緒ある</UMW_Storied.traitAdjectives.0>

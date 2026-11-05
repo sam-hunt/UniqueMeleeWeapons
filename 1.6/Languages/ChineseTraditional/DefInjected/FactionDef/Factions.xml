@@ -4,8 +4,8 @@
   <!-- EN: warband -->
   <UMW_Warband.label>戰團</UMW_Warband.label>
 
-  <!-- EN: A roving company of fighters who live by the raid, preying on settlements and travellers across the land. -->
-  <UMW_Warband.description>一夥以劫掠為生、四處遊蕩的戰士，不斷騷擾這片土地上的定居點和旅行者。</UMW_Warband.description>
+  <!-- EN: A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them. -->
+  <UMW_Warband.description>一群四處遊蕩、以劫掠為生的部落戰士，經常襲擊周遭的據點和旅行者。</UMW_Warband.description>
 
   <!-- EN: warrior -->
   <UMW_Warband.pawnSingular>戰士</UMW_Warband.pawnSingular>

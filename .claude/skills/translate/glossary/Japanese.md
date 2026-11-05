@@ -80,3 +80,10 @@ tools). Descriptions mirror vanilla: サイフォーカスに適した…素材 
 (Royalty `Apparel_PsyfocusShirt`/`Vest`/`Robe`), 精神感応性を…抑えます (`PsychicSensitivityDownMinor`).
 金具 (fittings) is the ordinary word, as in the label. Colours (katakana compounds like 単分子ホワイト):
 エルテックスミント (eltex mint) / エルテックスグリーン (eltex green).
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: 「カスタマイズされた部品を持つ〈X〉です.」 with X the noun from the existing label. Cumbersome: 「この武器は扱いが難しく,振りが遅くなります.」 (Odyssey's sentence, 照準 swapped for 振り).
+- Tech level in prose = テックレベル (Core Keyed `TechLevelTooLow`, `ResearchCostComparison`), never 技術レベル; bands テックレベルが中世以下 / 産業革命以上. Ultratech stays 最先端技術級の特性 (attributive, per the table above). Low-tech = ローテク (Core Shooting skill); abandoned settlement = 放棄された入植地 (vanilla AbandonedSettlement).
+- Drafted = 徴兵中の入植者 (`CommandDraftLabel` 徴兵; 臨戦状態 was not vanilla). Default = デフォルト. Caked blood = こびりつく (固まりつく is not a vanilla verb). Recover between swings = 振った後の立て直し. Half-filled group box = チェックボックスが半分だけ埋まっている.
+- Signature phrases are deliberately split across surfaces: "friend and foe" 敵味方の区別なく (ability) / 敵にも味方にも及びます (trait); "take heart / steels / rallied" 勇気づけられ / 奮い立たせる / 士気が高まっています.

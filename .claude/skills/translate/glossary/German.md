@@ -223,3 +223,11 @@ Hammer). The namerLabels are `|N|Breitschwert`, `|F|Klinge`, `|N|Schwert`,
 `|F|Schneide` and `|M|Hammer`, `|M|Vorschlaghammer`, `|M|Kopf`,
 `|M|Gravitationshammer`; tools are Klinge/Spitze and Kopf/Stiel (hafted, as on
 the Royalty warhammer).
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: "Ein einzigartiger <Nomen> mit angepassten Teilen." (`Gun_Revolver_Unique.description`). Cumbersome is Odyssey's sentence with only the aim clause swapped: "Diese Waffe ist unhandlich und verlangsamt das Zuschlagen."
+- Settings vocabulary grounded on Core Keyed: "deaktiviert / aktiviert" (never "ausgeschaltet", "umschalten"), toggles "Wenn aktiviert, ... Wenn deaktiviert, ...", "erscheinen / vorkommen" over "auftauchen", drafted = "im Kampfmodus" (`CommandDraftLabel`), "generiert" for generated (not "hergestellt", which reads as crafted).
+- "ultratech" in prose = "Merkmale der Techstufe Ultra" (Core `TechLevel_Ultra`); tech bands "mittelalterlicher oder niedrigerer Techstufe" / "industrieller oder höherer Techstufe". Closed compound "Außenweltlersiedlung". Quest frequency label "Häufigkeit".
+- Recover between swings = "nach jedem Schwung schneller/langsamer wieder bereit" (not "sich fangen", which suits a person). Rallied hediff = "angespornt"; the rallying cry sentence names "alle Verbündeten in Sichtweite".
+- Injected labels that would need agreement are quoted instead: "die Waffe '{0}'", "Das Merkmal '{0}'", "Quest 'Antike Söldner'".

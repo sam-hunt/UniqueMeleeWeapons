@@ -81,3 +81,9 @@ conventions in zh): broadsword = 巨剑 / 利刃 / 剑 / 剑锋; gravity hammer 
 uniques (剑刃 / 剑尖, 锤头 / 锤柄) rather than the pack's 握柄.
 
 2026-11 (Combat Extended compat): venomous stab (the `UMW_VenomousStab` wound) = 淬毒刺伤, the trait's 淬毒 plus Core `Stab` 刺伤, kept distinct from the damage label 毒刺伤; its scar reuses Core `Stab` permanentLabel 刺伤疤痕. Info-card joiners: applies {1} = ，附带{1} (hediff 中毒 etc.), leaving {1} = ，造成{1}.
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: 一把配有定制部件的X。 (spear keeps 一杆; warhammer moved from 一柄 to 一把 after vanilla Zeushammer). Cumbersome: 该武器操作笨重，挥击速度较慢。
+- Stagger = 抑止状态 (Core `StaggerDurationFactor` 从被攻击而速度减慢的抑止状态下恢复), not 打乱脚步 or 踉跄. Braced wielder = 稳住架势的使用者. Wood as a material noun = 原木 (Core `WoodLog`), adjective 木制; weapon labels injected bare (木制{0}, no quotes). Tech bands 中世纪及以下科技等级 / 工业时代及以上科技等级 (及以上 from `NormalQualityOrBetter`).
+- UI section names take corner brackets 「武器」; a cited quest name takes curly quotes “古代雇佣兵”. Radius and reach sliders open on a noun phrase (冲击波的波及范围, 呐喊的传播范围), never a "How far" clause. Trader caravans stay 商队（{0}）; 远行队 is the player's own caravan.

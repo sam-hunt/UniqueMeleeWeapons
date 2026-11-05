@@ -18,8 +18,8 @@
   <!-- EN: unique warcasket broadsword -->
   <UMW_WarcasketBroadsword_Unique.label>einzigartiges Kriegssarg-Breitschwert</UMW_WarcasketBroadsword_Unique.label>
 
-  <!-- EN: A warcasket broadsword bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketBroadsword_Unique.description>Ein Kriegssarg-Breitschwert mit den Spuren einer Meisterhand. Keine zwei sind gleich geschmiedet.</UMW_WarcasketBroadsword_Unique.description>
+  <!-- EN: A warcasket broadsword with customized parts. -->
+  <UMW_WarcasketBroadsword_Unique.description>Ein einzigartiges Kriegssarg-Breitschwert mit angepassten Teilen.</UMW_WarcasketBroadsword_Unique.description>
 
   <!-- EN: blade -->
   <UMW_WarcasketBroadsword_Unique.tools.blade.label>Klinge</UMW_WarcasketBroadsword_Unique.tools.blade.label>
@@ -49,8 +49,8 @@
   <!-- EN: unique warcasket gravity hammer -->
   <UMW_WarcasketGravityHammer_Unique.label>einzigartiger Kriegssarg-Gravitationshammer</UMW_WarcasketGravityHammer_Unique.label>
 
-  <!-- EN: A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike. -->
-  <UMW_WarcasketGravityHammer_Unique.description>Ein Kriegssarg-Gravitationshammer mit den Spuren einer Meisterhand. Keine zwei sind gleich geschmiedet.</UMW_WarcasketGravityHammer_Unique.description>
+  <!-- EN: A warcasket gravity hammer with customized parts. -->
+  <UMW_WarcasketGravityHammer_Unique.description>Ein einzigartiger Kriegssarg-Gravitationshammer mit angepassten Teilen.</UMW_WarcasketGravityHammer_Unique.description>
 
   <!-- EN: head -->
   <UMW_WarcasketGravityHammer_Unique.tools.head.label>Kopf</UMW_WarcasketGravityHammer_Unique.tools.head.label>

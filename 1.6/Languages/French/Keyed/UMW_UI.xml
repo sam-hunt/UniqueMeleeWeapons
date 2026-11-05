@@ -31,14 +31,14 @@
   <!-- EN: Compatibility -->
   <UMW_SettingsCompat>Compatibilité</UMW_SettingsCompat>
 
-  <!-- EN: Which unique weapons can be generated. A weapon turned off leaves every reward and loot pool, and the others fill its place; weapons already in your save are untouched. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
-  <UMW_SettingsWeaponsDesc>Quelles armes uniques peuvent être générées. Une arme désactivée quitte tous les groupes de récompenses et de butin, et les autres armes prennent sa place ; les armes déjà présentes dans votre sauvegarde ne sont pas touchées. La case d'un groupe bascule tout le groupe, et une case à moitié remplie signifie que certaines de ses lignes sont désactivées. Cliquez et faites glisser sur les lignes pour en basculer plusieurs à la fois.</UMW_SettingsWeaponsDesc>
+  <!-- EN: The unique weapons that can be generated. A weapon that is turned off will no longer appear as a reward or in loot, and the others will take its place. Weapons already in your save are not affected. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsWeaponsDesc>Les armes uniques qui peuvent être générées. Une arme désactivée n'apparaîtra plus en récompense ni dans le butin, et les autres prendront sa place. Les armes déjà présentes dans votre sauvegarde ne sont pas affectées. La case d'un groupe coche ou décoche tout le groupe. Une case partiellement cochée indique que certaines de ses lignes sont désactivées. Cliquez et faites glisser sur les lignes pour en cocher ou décocher plusieurs à la fois.</UMW_SettingsWeaponsDesc>
 
-  <!-- EN: Which traits can roll on newly made unique weapons. A trait turned off leaves the roll, and others fill its place; weapons that already carry it keep it. The last trait a weapon could roll first is held on. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
-  <UMW_SettingsTraitsDesc>Quels traits peuvent être tirés sur les armes uniques nouvellement créées. Un trait désactivé est exclu du tirage, et les autres traits prennent sa place ; les armes qui le possèdent déjà le conservent. Le dernier trait qu'une arme pourrait tirer en premier reste activé. La case d'un groupe bascule tout le groupe, et une case à moitié remplie signifie que certaines de ses lignes sont désactivées. Cliquez et faites glisser sur les lignes pour en basculer plusieurs à la fois.</UMW_SettingsTraitsDesc>
+  <!-- EN: The traits that can appear on newly generated unique weapons. A trait that is turned off will no longer appear, and the others will take its place. Weapons that already carry it keep it. Every weapon must keep at least one trait it can start with, so the last one left for a weapon cannot be turned off. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsTraitsDesc>Les traits qui peuvent apparaître sur les armes uniques nouvellement générées. Un trait désactivé n'apparaîtra plus, et les autres prendront sa place. Les armes qui le possèdent déjà le conservent. Chaque arme doit conserver au moins un trait qu'elle peut recevoir à sa création. Son dernier trait ne peut donc pas être désactivé. La case d'un groupe coche ou décoche tout le groupe. Une case partiellement cochée indique que certaines de ses lignes sont désactivées. Cliquez et faites glisser sur les lignes pour en cocher ou décocher plusieurs à la fois.</UMW_SettingsTraitsDesc>
 
-  <!-- EN: Unique melee weapons in trader stock, all off by default. A trader that can stock them also buys them, whether or not its stocking is on. Weapons turned off in the Weapons section never appear. -->
-  <UMW_SettingsTradersDesc>Armes de mêlée uniques dans le stock des commerçants, toutes désactivées par défaut. Un commerçant qui peut en proposer en achète aussi, que sa mise en stock soit activée ou non. Les armes désactivées dans la section Armes n'apparaissent jamais.</UMW_SettingsTradersDesc>
+  <!-- EN: Unique melee weapons in trader stock. Every trader is off by default. A trader that can stock them will also buy them, even while its row is off. Weapons turned off in the Weapons section never appear in stock. -->
+  <UMW_SettingsTradersDesc>Les armes de mêlée uniques en vente chez les commerçants. Par défaut, aucun commerçant n'en propose. Un commerçant capable d'en proposer en achètera aussi, même si sa ligne est désactivée. Les armes désactivées dans la section « Armes » n'apparaissent jamais en stock.</UMW_SettingsTradersDesc>
 
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
@@ -75,8 +75,8 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. -->
   <UMW_IntegrationGroupDesc>Tout ce qui vient de {0} dans cette section.</UMW_IntegrationGroupDesc>
-  <!-- EN: Traits original to {0}, of its own design. -->
-  <UMW_OwnTraitsGroupDesc>Des traits originaux de {0}, conçus par le mod lui-même.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Traits original to {0}. -->
+  <UMW_OwnTraitsGroupDesc>Traits propres à {0}.</UMW_OwnTraitsGroupDesc>
   <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. -->
   <UMW_OdysseyTraitsGroupDesc>Les équivalents de mêlée des traits que {0} donne à ses armes à distance uniques.</UMW_OdysseyTraitsGroupDesc>
 
@@ -95,8 +95,8 @@
   <UMW_WeaponEnabledDesc>Autoriser la génération de cette arme : {0}.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait, labelled from the trait's own def label; {0} is that label (lowercase). -->
-  <!-- EN: Allow {0} to roll on newly made unique weapons. -->
-  <UMW_TraitEnabledDesc>Autoriser le trait {0} lors du tirage des armes uniques nouvellement créées.</UMW_TraitEnabledDesc>
+  <!-- EN: Allow {0} to appear on newly generated unique weapons. -->
+  <UMW_TraitEnabledDesc>Autoriser le trait {0} à apparaître sur les armes uniques nouvellement générées.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "wood" in English, lowercase). -->
@@ -107,8 +107,8 @@
        injected label, so the French reaches it through the vanilla material frame "en bois" (Core's
        ThingMadeOfStuffLabel is "{1} en {0}") rather than an agreeing adjective, and puts no article
        in front of it. -->
-  <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
-  <UMW_ExcludeWoodStuffDesc>Les armes uniques tirent un matériau valide au hasard. Avec cette option active, le bois n'est jamais tiré, de sorte qu'une récompense durement gagnée n'arrive jamais sous forme de {0} en bois.</UMW_ExcludeWoodStuffDesc>
+  <!-- EN: When enabled, unique weapons will never be generated from wood, so a quest reward is never a wooden {0}. When disabled, wood is one of the materials a weapon can be made from. -->
+  <UMW_ExcludeWoodStuffDesc>Si cette option est activée, les armes uniques ne seront jamais générées en bois, et les quêtes n'offriront plus de {0} en bois en récompense. Si elle est désactivée, le bois fait partie des matériaux possibles pour une arme.</UMW_ExcludeWoodStuffDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("Fournisseur militaire", "Chaman"), so it tracks
@@ -116,34 +116,34 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Armes uniques dans le stock du {0}</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits never roll on its stock: a war party deals in period arms. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Une caravane de {0} apporte, environ une visite sur deux, une arme de mêlée unique de facture médiévale ou plus ancienne. Les traits ultratechnologiques ne sont jamais tirés sur son stock : une troupe de guerre ne traite qu'en armes d'époque.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits will bring one unique melee weapon of medieval or lower tech level. Ultratech traits never appear on its stock. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Environ une visite de {0} sur deux apportera une arme de mêlée unique de niveau technologique médiéval ou inférieur. Les armes de son stock ne portent jamais de traits ultratechnologiques.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. -->
-  <UMW_TraderStocksUniquesShamanDesc>Une caravane de {0} apporte, environ une visite sur deux, une arme de mêlée unique de facture médiévale ou plus ancienne. Les traits ultratechnologiques peuvent être tirés sur son stock : les chamans commercent des reliques qu'ils ne comprennent pas entièrement.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits will bring one unique melee weapon of medieval or lower tech level. Ultratech traits can appear on its stock, since shamans trade in relics they do not fully understand. -->
+  <UMW_TraderStocksUniquesShamanDesc>Environ une visite de {0} sur deux apportera une arme de mêlée unique de niveau technologique médiéval ou inférieur. Les armes de son stock peuvent porter des traits ultratechnologiques, car les chamans font commerce de reliques qu'ils ne comprennent pas entièrement.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Outlander rows. "medieval" / "industrial" are Core TechLevel_Medieval / TechLevel_Industrial
-       (médiéval / industriel), inflected as adjectives of "facture". The settlement row is fixed text:
+       (médiéval / industriel), inflected as adjectives of "niveau technologique". The settlement row is fixed text:
        Core Settlement.label is "base de faction" and the outlander pawn word is "étrangers"
        (OutlanderCivil/Rough.pawnsPlural). The two combat-supplier rows recast "{0} caravan" as
        "caravane ({0})" / "de {0}", as {0} is a whole noun phrase. -->
   <!-- EN: Unique weapons in Outlander settlement stock -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Armes uniques dans le stock des bases d'étrangers</UMW_TraderStocksUniquesOutlanderSettlement>
 
-  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Environ une base d'étrangers sur cinq propose une arme de mêlée unique de facture industrielle ou plus récente.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: About one in five outlander settlements will stock one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Environ une base d'étrangers sur cinq proposera une arme de mêlée unique de niveau technologique industriel ou supérieur.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
 
   <!-- EN: Unique weapons in {0} caravan stock -->
   <UMW_TraderStocksUniquesCaravan>Armes uniques dans le stock des caravanes ({0})</UMW_TraderStocksUniquesCaravan>
 
-  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesCaravanDesc>Environ une caravane de {0} sur cinq apporte une arme de mêlée unique de facture industrielle ou plus récente.</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: About one in five {0} caravan visits will bring one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesCaravanDesc>Environ une caravane de {0} sur cinq apportera une arme de mêlée unique de niveau technologique industriel ou supérieur.</UMW_TraderStocksUniquesCaravanDesc>
 
   <!-- EN: Unique weapons in {0} trade ship stock -->
   <UMW_TraderStocksUniquesShip>Armes uniques dans le stock des vaisseaux commerciaux ({0})</UMW_TraderStocksUniquesShip>
 
-  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesShipDesc>Environ un vaisseau commercial de {0} sur cinq transporte une arme de mêlée unique de facture industrielle ou plus récente.</UMW_TraderStocksUniquesShipDesc>
+  <!-- EN: About one in five {0} trade ships will carry one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesShipDesc>Environ un vaisseau commercial de {0} sur cinq transportera une arme de mêlée unique de niveau technologique industriel ou supérieur.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
        its def, already localized) followed by the first string, which names in parentheses the
@@ -172,20 +172,20 @@
   <UMW_HediffDurationHours>{0} : durée de {1} heures</UMW_HediffDurationHours>
 
   <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
-  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>Temps de repos entre deux secousses telluriques. La valeur par défaut correspond à celle du pulsar IEM dans {0}. 0 supprime le temps de recharge.</UMW_EarthshakeCooldownDesc>
+  <!-- EN: The time the wielder must wait between earthshakes. The default matches the EMP pulser from {0}. At 0 there is no cooldown. -->
+  <UMW_EarthshakeCooldownDesc>Le temps que l'utilisateur doit attendre entre deux secousses telluriques. La valeur par défaut correspond à celle du pulsar IEM présent dans {0}. À 0, il n'y a aucun temps de recharge.</UMW_EarthshakeCooldownDesc>
 
-  <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
-  <UMW_EarthshakeRadiusDesc>Portée de l'onde de choc étourdissante. Les murs ne l'arrêtent pas, mais un vide sans plancher le fait. Elle ne fait pas de distinction : un rayon plus large atteint aussi vos propres colons.</UMW_EarthshakeRadiusDesc>
+  <!-- EN: How far the shockwave reaches. It passes under walls but not across gaps with no floor. A wider radius will catch your own colonists too. -->
+  <UMW_EarthshakeRadiusDesc>Le rayon de l'onde de choc. Elle passe sous les murs, mais ne franchit pas le vide. Un rayon plus large atteindra aussi vos propres colons.</UMW_EarthshakeRadiusDesc>
 
-  <!-- EN: Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight. -->
-  <UMW_RallyingCryCooldownDesc>Temps de repos entre deux cris de ralliement. Mesuré en jours à dessein : la valeur par défaut en fait un moment digne d'un héritage familial, et non une aura permanente réappliquée à chaque combat.</UMW_RallyingCryCooldownDesc>
+  <!-- EN: The time the wielder must wait between rallying cries. The default is long enough that a cry stays a rare moment rather than something raised in every fight. -->
+  <UMW_RallyingCryCooldownDesc>Le temps que l'utilisateur doit attendre entre deux cris de ralliement. La valeur par défaut est assez longue pour que le cri reste un moment rare et ne soit pas poussé à chaque combat.</UMW_RallyingCryCooldownDesc>
 
-  <!-- EN: How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers. -->
-  <UMW_RallyingCryRadiusDesc>Portée du cri. Il galvanise tout humanoïde non hostile à portée et en vue directe, mais les murs le bloquent. Il réveille aussi les dormeurs.</UMW_RallyingCryRadiusDesc>
+  <!-- EN: How far the cry carries. Everyone in range who is not hostile and can see the wielder will be rallied. Walls block it. Sleepers in range will be woken instead. -->
+  <UMW_RallyingCryRadiusDesc>Le rayon du cri. Toute personne non hostile à portée qui voit l'utilisateur sera galvanisée. Les murs le bloquent. Les personnes endormies à portée sont simplement réveillées.</UMW_RallyingCryRadiusDesc>
 
-  <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
-  <UMW_RalliedDurationDesc>Durée de l'effet galvanisé, qui réduit de moitié la douleur et la durée pendant laquelle un coup fait tituber. Les dormeurs sont réveillés à la place, et le prennent mal.</UMW_RalliedDurationDesc>
+  <!-- EN: How long the rallied effect lasts. While it lasts, pain is halved and staggering blows are shaken off twice as fast. -->
+  <UMW_RalliedDurationDesc>La durée pendant laquelle une personne reste galvanisée. Tant qu'il dure, la douleur est réduite de moitié et l'on se remet deux fois plus vite des coups qui font tituber.</UMW_RalliedDurationDesc>
 
   <!-- Settings: Warband quest. The section is headed by the camp's world-map icon and the
        UMW_SettingsQuestSection header above. The first string is that header's tooltip,
@@ -194,14 +194,14 @@
        official localization. The second is the slider row's label; {0} is the slider's current
        value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
        vanilla content names too. Taken here from the official localization. -->
-  <!-- EN: An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}. -->
-  <UMW_WarbandQuestDesc>Une quête de site d'opportunité : une bande de guerre tribale retranchée dans une colonie abandonnée, menée par un chef qui porte une arme de mêlée unique. Capturez ou tuez le chef pour la récupérer. L'équivalent à faible niveau technologique de la quête des mercenaires anciens présente dans {0}.</UMW_WarbandQuestDesc>
+  <!-- EN: A quest to raid a tribal warband holed up in an abandoned settlement. Their chief carries a unique melee weapon. Capture or kill the chief to take it. It is the low-tech counterpart of the ancient mercenaries quest from {0}. -->
+  <UMW_WarbandQuestDesc>Une quête qui consiste à attaquer une bande de guerre tribale retranchée dans une colonie abandonnée. Son chef porte une arme de mêlée unique. Capturez ou tuez le chef pour la récupérer. C'est l'équivalent primitif de la quête des mercenaires anciens présente dans {0}.</UMW_WarbandQuestDesc>
 
-  <!-- EN: Commonality: {0} -->
+  <!-- EN: Frequency: {0} -->
   <UMW_QuestCommonality>Fréquence : {0}</UMW_QuestCommonality>
 
-  <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
-  <UMW_WarbandQuestWeightDesc>Fréquence à laquelle la quête de la bande de guerre est proposée face aux autres quêtes de sites d'opportunité (mercenaires anciens, camps de bandits, planques...). Plus la valeur est élevée, plus elle est proposée souvent. 0 la désactive.</UMW_WarbandQuestWeightDesc>
+  <!-- EN: How often the warband quest is offered compared with similar quests such as ancient mercenaries, bandit camps and item stashes. Higher values offer it more often. At 0 it is never offered. -->
+  <UMW_WarbandQuestWeightDesc>La fréquence à laquelle la quête de la bande de guerre est proposée par rapport aux quêtes similaires, comme les mercenaires anciens, les camps de bandits et les planques. Plus la valeur est élevée, plus elle sera souvent proposée. À 0, elle n'est jamais proposée.</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
@@ -210,7 +210,7 @@
   <!-- EN: Match the {0} to {1} -->
   <UMW_MatchVteSpear>Faire correspondre la {0} à {1}</UMW_MatchVteSpear>
 
-  <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
-  <UMW_MatchVteSpearDesc>{1} redessine la lance de base en diagonale et plus longue. Avec cette option activée, la {0} est tournée et agrandie pour correspondre dans les mains d'un personnage mobilisé. Purement cosmétique. Prend effet après un redémarrage.</UMW_MatchVteSpearDesc>
+  <!-- EN: {1} draws the vanilla spear longer and at a diagonal. When enabled, the {0} is turned and enlarged to match it in a drafted pawn's hands. When disabled, it keeps its own size and angle. The change is purely cosmetic and takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1} redessine la lance de base, plus longue et inclinée en diagonale. Si cette option est activée, la {0} sera tournée et agrandie pour s'y accorder dans les mains d'un colon mobilisé. Si elle est désactivée, elle gardera sa taille et son angle d'origine. Ce changement est purement cosmétique et prend effet après un redémarrage.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

@@ -36,8 +36,8 @@
   <!-- EN: bell-cast -->
   <UMW_BellCast.label>колокольное литьё</UMW_BellCast.label>
 
-  <!-- EN: The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target. -->
-  <UMW_BellCast.description>Боевая часть отлита цельной, как колокол. Точный удар отдаётся резонансом сквозь броню и кости, ненадолго оглушая цель.</UMW_BellCast.description>
+  <!-- EN: The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target. -->
+  <UMW_BellCast.description>Боевая часть отлита единым куском, как колокол. От точного удара звон проходит сквозь броню и кости и ненадолго оглушает цель.</UMW_BellCast.description>
 
   <!-- EN: bell-cast -->
   <UMW_BellCast.traitAdjectives.0>колокольный</UMW_BellCast.traitAdjectives.0>
@@ -52,8 +52,8 @@
   <!-- EN: blood-stained -->
   <UMW_BloodStained.label>окровавленное</UMW_BloodStained.label>
 
-  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it. -->
-  <UMW_BloodStained.description>Это оружие покрыто слоями тёмной запёкшейся крови. Один его вид способен обратить раненых им в паническое бегство, однако столь жуткая ноша гнетёт всех, кроме самых закалённых. Торговцы дадут за него меньше.</UMW_BloodStained.description>
+  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it. -->
+  <UMW_BloodStained.description>Это оружие покрыто слоями тёмной засохшей крови. Тех, кого оно ранило, один его вид может обратить в паническое бегство. Большинству людей тяжело носить такую жуткую вещь, но некоторым это нравится. Торговцы заплатят за него меньше.</UMW_BloodStained.description>
 
   <!-- EN: blood-stained -->
   <UMW_BloodStained.traitAdjectives.0>окровавленный</UMW_BloodStained.traitAdjectives.0>
@@ -71,8 +71,8 @@
   <!-- EN: carbonized -->
   <UMW_Carbonized.label>обугленное</UMW_Carbonized.label>
 
-  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly. -->
-  <UMW_Carbonized.description>Это оружие прошло через огонь. Его обугленная поверхность закалена жаром, а то, что уже сгорело, не так легко загорается вновь. Закалённая поверхность бьёт сильнее, чем должна бы, но обожжённая основа хрупка и быстро изнашивается.</UMW_Carbonized.description>
+  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster. -->
+  <UMW_Carbonized.description>Это оружие прошло через огонь. Его обугленная поверхность закалена жаром и с трудом загорается снова. Оно бьёт немного сильнее обычного, но обожжённый материал стал хрупким и быстрее изнашивается.</UMW_Carbonized.description>
 
   <!-- EN: carbonized -->
   <UMW_Carbonized.traitAdjectives.0>обугленный</UMW_Carbonized.traitAdjectives.0>
@@ -90,8 +90,8 @@
   <!-- EN: counterweighted -->
   <UMW_Counterweighted.label>с противовесом</UMW_Counterweighted.label>
 
-  <!-- EN: A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
-  <UMW_Counterweighted.description>Противовес укрощает тяжесть оружия: оно быстрее восстанавливается между взмахами ценой небольшой потери силы удара.</UMW_Counterweighted.description>
+  <!-- EN: A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
+  <UMW_Counterweighted.description>Противовес уравновешивает тяжесть оружия, и после взмаха оно быстрее готово к новому удару. Однако сами удары становятся чуть слабее.</UMW_Counterweighted.description>
 
   <!-- EN: balanced -->
   <UMW_Counterweighted.traitAdjectives.0>сбалансированный</UMW_Counterweighted.traitAdjectives.0>
@@ -103,8 +103,8 @@
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.label>громоздкое</UMW_Cumbersome.label>
 
-  <!-- EN: This weapon is bulky and overbuilt, slowing its swing. -->
-  <UMW_Cumbersome.description>Это оружие громоздкое и излишне массивное, что замедляет замах.</UMW_Cumbersome.description>
+  <!-- EN: This weapon is unwieldy to use, making it slower to swing. -->
+  <UMW_Cumbersome.description>Это оружие неудобно использовать, что замедляет замах.</UMW_Cumbersome.description>
 
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.traitAdjectives.0>громоздкий</UMW_Cumbersome.traitAdjectives.0>
@@ -119,8 +119,8 @@
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.label>безынерционное</UMW_DeadBlow.label>
 
-  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them. -->
-  <UMW_DeadBlow.description>Полая боевая часть заполнена сыпучей дробью: при ударе дробь подаётся вперёд и вкладывает в цель весь импульс без малейшего отскока. Поражённые цели шатаются и оступаются, даже если удар не сбил их с ног.</UMW_DeadBlow.description>
+  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, so none of the blow's force bounces back. Targets it strikes will stagger, even when the blow does not drop them. -->
+  <UMW_DeadBlow.description>Полая боевая часть заполнена дробью. При ударе дробь смещается вперёд, и вся сила уходит в цель без отскока. Цель пошатнётся, даже если удар не собьёт её с ног.</UMW_DeadBlow.description>
 
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.traitAdjectives.0>безынерционный</UMW_DeadBlow.traitAdjectives.0>
@@ -170,8 +170,8 @@
   <!-- EN: flanged -->
   <UMW_Flanged.label>ребристое</UMW_Flanged.label>
 
-  <!-- EN: Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it. -->
-  <UMW_Flanged.description>Боевая часть покрыта рёбрами, которые концентрируют силу удара в узкую кромку: броневые пластины от такого удара трескаются, а не просто мнутся.</UMW_Flanged.description>
+  <!-- EN: The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it. -->
+  <UMW_Flanged.description>Боевая часть снабжена острыми рёбрами, которые сосредотачивают силу удара на узкой кромке. Броневые пластины от такого удара трескаются, а не мнутся.</UMW_Flanged.description>
 
   <!-- EN: flanged -->
   <UMW_Flanged.traitAdjectives.0>ребристый</UMW_Flanged.traitAdjectives.0>
@@ -199,8 +199,8 @@
   <!-- EN: head-weighted -->
   <UMW_HeadWeighted.label>утяжелённое</UMW_HeadWeighted.label>
 
-  <!-- EN: Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover. -->
-  <UMW_HeadWeighted.description>Масса смещена к ударному концу, поэтому каждый взмах обрушивается с сокрушительной силой, однако оружие медленнее восстанавливается после удара.</UMW_HeadWeighted.description>
+  <!-- EN: The weight is gathered toward the striking end, so each swing lands harder but is slower to recover. -->
+  <UMW_HeadWeighted.description>Вес смещён к ударному концу, поэтому удары становятся сильнее, но и восстановиться после взмаха труднее.</UMW_HeadWeighted.description>
 
   <!-- EN: devastating -->
   <UMW_HeadWeighted.traitAdjectives.0>сокрушительный</UMW_HeadWeighted.traitAdjectives.0>
@@ -241,8 +241,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>игольчатое остриё</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
-  <UMW_NeedlePoint.description>Остриё сведено в тонкую иглу и проникает глубоко под кости и мышцы, добираясь до внутренних органов. Чтобы попасть точно, нужны более медленные и выверенные выпады.</UMW_NeedlePoint.description>
+  <!-- EN: The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts. -->
+  <UMW_NeedlePoint.description>Остриё заточено в тонкую иглу, которая проскальзывает мимо костей и мышц к внутренним органам. Но чтобы точно направить его, выпады приходится делать медленнее и выверенней.</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>игольчатый</UMW_NeedlePoint.traitAdjectives.0>
@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>копёр</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset. -->
-  <UMW_Piledriver.description>Боевая часть устроена как копёр. По команде вся масса оружия обрушивается в землю, посылая по ней оглушающую ударную волну. Волна бьёт без разбора и оглушает как друзей, так и врагов, но сам упёршийся в оружие владелец остаётся невредим. После срабатывания механизму нужно время, чтобы взвестись заново.</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
+  <UMW_Piledriver.description>Боевая часть устроена как копёр. Владелец может со всей силы ударить им о землю, и по ней пройдёт оглушающая ударная волна. Она задевает и друзей, и врагов, но не самого владельца. После использования механизм какое-то время взводится заново.</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>копровый</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>прославленное</UMW_Storied.label>
 
-  <!-- EN: This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days. -->
-  <UMW_Storied.description>Это оружие хранит записанную родословную: имена носивших его и память об их деяниях. Владелец может вскинуть его с воодушевляющим кличем; союзники, видя оружие, обретают твёрдость духа, и какое-то время раны почти не замедляют их. Взывать к этому можно лишь раз в несколько дней.</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
+  <UMW_Storied.description>У этого оружия есть имя и история, и деяния тех, кто носил его, не забыты. Владелец может поднять его над головой и издать боевой клич, который придаст сил всем союзникам, кто его видит. После этого издать клич снова можно лишь через несколько дней.</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>прославленный</UMW_Storied.traitAdjectives.0>

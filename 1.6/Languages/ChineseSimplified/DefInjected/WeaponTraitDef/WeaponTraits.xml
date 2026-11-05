@@ -36,8 +36,8 @@
   <!-- EN: bell-cast -->
   <UMW_BellCast.label>钟铸锤头</UMW_BellCast.label>
 
-  <!-- EN: The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target. -->
-  <UMW_BellCast.description>锤头如钟一般整体铸成。干净利落的一击会令共振穿透护甲与骨骼，短暂击晕目标。</UMW_BellCast.description>
+  <!-- EN: The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target. -->
+  <UMW_BellCast.description>锤头像钟一样整体铸成。干净利落的一击会震透护甲和骨骼，短暂击晕目标。</UMW_BellCast.description>
 
   <!-- EN: bell-cast -->
   <UMW_BellCast.traitAdjectives.0>钟铸</UMW_BellCast.traitAdjectives.0>
@@ -52,8 +52,8 @@
   <!-- EN: blood-stained -->
   <UMW_BloodStained.label>染血</UMW_BloodStained.label>
 
-  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it. -->
-  <UMW_BloodStained.description>该武器上结着一层又一层深色的干涸血块。被它所伤的人一见到它就可能惊慌逃窜；但携带如此骇人之物，除了铁石心肠者，谁都会感到心头沉重。商人会压价收购。</UMW_BloodStained.description>
+  <!-- EN: This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it. -->
+  <UMW_BloodStained.description>该武器上结着一层又一层深色的干涸血块。被它伤到的人一看见就可能惊慌逃窜。大多数人带着如此骇人的东西会感到心情沉重，但也有少数人乐在其中。商人会压价收购。</UMW_BloodStained.description>
 
   <!-- EN: blood-stained -->
   <UMW_BloodStained.traitAdjectives.0>染血</UMW_BloodStained.traitAdjectives.0>
@@ -71,8 +71,8 @@
   <!-- EN: carbonized -->
   <UMW_Carbonized.label>碳化</UMW_Carbonized.label>
 
-  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly. -->
-  <UMW_Carbonized.description>该武器经历过烈火。焦黑的表面被高温硬化，而烧过的东西也不易再度燃烧。硬化的表面打击力超乎寻常，但烧焦的基体变得脆弱，也经不起风吹日晒。</UMW_Carbonized.description>
+  <!-- EN: This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster. -->
+  <UMW_Carbonized.description>该武器曾被烈火焚烧。焦黑的表面经高温硬化，不容易再次着火。打击力比普通武器略强，但烧焦的本体较脆，磨损也更快。</UMW_Carbonized.description>
 
   <!-- EN: carbonized -->
   <UMW_Carbonized.traitAdjectives.0>碳化</UMW_Carbonized.traitAdjectives.0>
@@ -90,8 +90,8 @@
   <!-- EN: counterweighted -->
   <UMW_Counterweighted.label>配重</UMW_Counterweighted.label>
 
-  <!-- EN: A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
-  <UMW_Counterweighted.description>配重块驯服了武器的沉重感，使其在挥击之间恢复得更快，但威力略有损失。</UMW_Counterweighted.description>
+  <!-- EN: A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power. -->
+  <UMW_Counterweighted.description>配重块平衡了武器的重量，使其在两次挥击之间恢复得更快，但威力略有下降。</UMW_Counterweighted.description>
 
   <!-- EN: balanced -->
   <UMW_Counterweighted.traitAdjectives.0>平衡</UMW_Counterweighted.traitAdjectives.0>
@@ -103,8 +103,8 @@
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.label>笨重</UMW_Cumbersome.label>
 
-  <!-- EN: This weapon is bulky and overbuilt, slowing its swing. -->
-  <UMW_Cumbersome.description>该武器粗大笨重、用料过度，挥击速度较慢。</UMW_Cumbersome.description>
+  <!-- EN: This weapon is unwieldy to use, making it slower to swing. -->
+  <UMW_Cumbersome.description>该武器操作笨重，挥击速度较慢。</UMW_Cumbersome.description>
 
   <!-- EN: cumbersome -->
   <UMW_Cumbersome.traitAdjectives.0>笨重</UMW_Cumbersome.traitAdjectives.0>
@@ -119,8 +119,8 @@
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.label>无回弹锤头</UMW_DeadBlow.label>
 
-  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them. -->
-  <UMW_DeadBlow.description>中空的锤头内填满松散的弹丸，撞击时弹丸向前涌去，将这一击的全部动量灌入目标，没有丝毫回弹。被击中的目标会摇晃踉跄，即使这一击没有将其击倒。</UMW_DeadBlow.description>
+  <!-- EN: The hollow head is filled with loose shot that slams forward on impact, so none of the blow's force bounces back. Targets it strikes will stagger, even when the blow does not drop them. -->
+  <UMW_DeadBlow.description>中空的锤头内装满松散的弹丸，撞击时弹丸向前涌去，打击的力道毫无回弹。被击中的目标即使没有倒下，也会陷入抑止状态。</UMW_DeadBlow.description>
 
   <!-- EN: dead-blow -->
   <UMW_DeadBlow.traitAdjectives.0>无回弹</UMW_DeadBlow.traitAdjectives.0>
@@ -170,8 +170,8 @@
   <!-- EN: flanged -->
   <UMW_Flanged.label>棱脊锤头</UMW_Flanged.label>
 
-  <!-- EN: Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it. -->
-  <UMW_Flanged.description>锤头上隆起道道棱脊，将打击的力量集中于狭窄的棱边，足以击裂装甲板，而不只是将其砸凹。</UMW_Flanged.description>
+  <!-- EN: The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it. -->
+  <UMW_Flanged.description>锤头上隆起一道道凸缘，将打击的力量集中在狭窄的棱边上，足以击裂装甲板，而不只是砸出凹痕。</UMW_Flanged.description>
 
   <!-- EN: flanged -->
   <UMW_Flanged.traitAdjectives.0>棱脊</UMW_Flanged.traitAdjectives.0>
@@ -199,8 +199,8 @@
   <!-- EN: head-weighted -->
   <UMW_HeadWeighted.label>头重</UMW_HeadWeighted.label>
 
-  <!-- EN: Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover. -->
-  <UMW_HeadWeighted.description>重量集中于打击端，每一次挥击都势大力沉，但挥击后恢复较慢。</UMW_HeadWeighted.description>
+  <!-- EN: The weight is gathered toward the striking end, so each swing lands harder but is slower to recover. -->
+  <UMW_HeadWeighted.description>重量集中在打击端，因此每次挥击都更有力，但挥击后的恢复也更慢。</UMW_HeadWeighted.description>
 
   <!-- EN: devastating -->
   <UMW_HeadWeighted.traitAdjectives.0>毁灭</UMW_HeadWeighted.traitAdjectives.0>
@@ -241,8 +241,8 @@
   <!-- EN: needle point -->
   <UMW_NeedlePoint.label>针尖</UMW_NeedlePoint.label>
 
-  <!-- EN: Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts. -->
-  <UMW_NeedlePoint.description>尖端收束成一根细针，可深入骨骼与肌肉之下，直探体内脏器。若要稳稳刺中，出刺便须更慢、更为审慎。</UMW_NeedlePoint.description>
+  <!-- EN: The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts. -->
+  <UMW_NeedlePoint.description>尖端被磨成细针状，可以从骨骼和肌肉之间穿过，刺中下方的器官。想要刺得精准，出刺就要更慢、更谨慎。</UMW_NeedlePoint.description>
 
   <!-- EN: needle -->
   <UMW_NeedlePoint.traitAdjectives.0>针锋</UMW_NeedlePoint.traitAdjectives.0>
@@ -292,8 +292,8 @@
   <!-- EN: piledriver -->
   <UMW_Piledriver.label>打桩头</UMW_Piledriver.label>
 
-  <!-- EN: The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset. -->
-  <UMW_Piledriver.description>锤头采用打桩机构造。使用者可随时驱动武器，将其全部质量猛然砸入地面，沿大地送出一道足以击晕的冲击波。这股冲击不分敌我，友军和敌人都会被击晕，唯有撑稳武器的使用者安然无恙。使用之后，机构需要一段时间才能复位。</UMW_Piledriver.description>
+  <!-- EN: The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset. -->
+  <UMW_Piledriver.description>锤头采用打桩机结构。使用者可以将武器的全部重量猛砸向地面，释放一道沿地面传开的冲击波。冲击波会击晕敌我双方，但稳住架势的使用者不受影响。使用后，机构需要一定时间才能复位。</UMW_Piledriver.description>
 
   <!-- EN: piledriving -->
   <UMW_Piledriver.traitAdjectives.0>打桩</UMW_Piledriver.traitAdjectives.0>
@@ -368,8 +368,8 @@
   <!-- EN: storied -->
   <UMW_Storied.label>传世</UMW_Storied.label>
 
-  <!-- EN: This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days. -->
-  <UMW_Storied.description>该武器承载着一份记录在册的传承，铭刻着历代持有者的名号与流传的功绩。持有者可以将它高高举起、发出振奋人心的呐喊；目睹此物的盟友会因此坚定意志，一时之间伤痛几乎无法拖慢他们的脚步。此等时刻每隔数日方能唤起一次。</UMW_Storied.description>
+  <!-- EN: This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again. -->
+  <UMW_Storied.description>该武器有自己的名字和来历，历代持有者的事迹至今仍被人们铭记。使用者可以将它高高举起，发出鼓舞呐喊，让目睹这一幕的盟友坚定意志。使用后，需要过几天才能再次发出呐喊。</UMW_Storied.description>
 
   <!-- EN: storied -->
   <UMW_Storied.traitAdjectives.0>传世</UMW_Storied.traitAdjectives.0>

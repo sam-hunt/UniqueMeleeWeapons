@@ -115,3 +115,9 @@ two load-bearing calls and now depends on them:
   labels silently changes which cost rule matches that trait for zh-Hant
   players** — nothing in either repo's checker can see the coupling. Update
   UWU's injection in the same pass as any relabel here.
+
+## 2026-11-06 player-text pass (register rewrite of 47 entries; machine-assisted, pending native review)
+
+- Unique weapon description frame is Odyssey's verbatim: 具有定制部件的X。 (定制 is the official wording even though it is a mainland form). Cumbersome: 這武器使用起來有夠笨拙，使得揮擊速度變慢。
+- Settlement = 據點 everywhere (Core `Settlement.label`, 88 hits; 定居點 has none), abandoned settlement = 被遺棄據點. Trade caravan = 商隊 (TradeCaravan); 旅隊 is the player's own. Drafted = 被徵召者. Tech level = 科技水準 (Core, three hits); ultratech = 高科技特質 (`TechLevel_Ultra` 高科技). Chief = 首領 (the faction's own leaderTitle).
+- Closers follow vanilla EMPPulser: 使用後 (not 使用之後). Braced wielder = 穩住身形. "friend and foe" deliberately differs between ability (不分敵我地擊昏) and trait (無論敵我). Injected labels keep 「{0}」 except 木製的「{0}」, which a native may prefer bare.

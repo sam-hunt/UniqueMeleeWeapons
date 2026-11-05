@@ -32,14 +32,14 @@
   <!-- EN: Compatibility -->
   <UMW_SettingsCompat>Compatibilidade</UMW_SettingsCompat>
 
-  <!-- EN: Which unique weapons can be generated. A weapon turned off leaves every reward and loot pool, and the others fill its place; weapons already in your save are untouched. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
-  <UMW_SettingsWeaponsDesc>Quais armas únicas podem ser geradas. Uma arma desativada sai de todos os grupos de recompensas e de pilhagem, e as outras ocupam o lugar dela. Armas já existentes no seu jogo salvo não são afetadas. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsWeaponsDesc>
+  <!-- EN: The unique weapons that can be generated. A weapon that is turned off will no longer appear as a reward or in loot, and the others will take its place. Weapons already in your save are not affected. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsWeaponsDesc>As armas únicas que podem ser geradas. Uma arma desativada deixará de aparecer como recompensa ou na pilhagem, e as outras ocuparão o lugar dela. Armas já existentes no seu jogo salvo não são afetadas. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsWeaponsDesc>
 
-  <!-- EN: Which traits can roll on newly made unique weapons. A trait turned off leaves the roll, and others fill its place; weapons that already carry it keep it. The last trait a weapon could roll first is held on. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
-  <UMW_SettingsTraitsDesc>Quais características podem ser sorteadas em armas únicas recém-criadas. Uma característica desativada sai do sorteio, e as outras ocupam o lugar dela. Armas que já a possuem a mantêm. A última característica que uma arma poderia sortear primeiro permanece ativada. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsTraitsDesc>
+  <!-- EN: The traits that can appear on newly generated unique weapons. A trait that is turned off will no longer appear, and the others will take its place. Weapons that already carry it keep it. Every weapon must keep at least one trait it can start with, so the last one left for a weapon cannot be turned off. A group's box switches the whole group, and a half-filled box means some of its rows are off. Click and drag across rows to switch several at once. -->
+  <UMW_SettingsTraitsDesc>As características que podem aparecer em armas únicas recém-geradas. Uma característica desativada deixará de aparecer, e as outras ocuparão o lugar dela. Armas que já a possuem continuarão com ela. Cada arma precisa ter pelo menos uma característica inicial disponível. Por isso, a última que restar para uma arma não pode ser desativada. A caixa de um grupo alterna o grupo inteiro, e uma caixa meio preenchida indica que algumas linhas estão desativadas. Clique e arraste pelas linhas para alternar várias de uma vez.</UMW_SettingsTraitsDesc>
 
-  <!-- EN: Unique melee weapons in trader stock, all off by default. A trader that can stock them also buys them, whether or not its stocking is on. Weapons turned off in the Weapons section never appear. -->
-  <UMW_SettingsTradersDesc>Armas corpo a corpo únicas no estoque dos comerciantes, todas desativadas por padrão. Um comerciante que pode estocá-las também as compra, estando o estoque ligado ou não. Armas desativadas na seção Armas nunca aparecem.</UMW_SettingsTradersDesc>
+  <!-- EN: Unique melee weapons in trader stock. Every trader is off by default. A trader that can stock them will also buy them, even while its row is off. Weapons turned off in the Weapons section never appear in stock. -->
+  <UMW_SettingsTradersDesc>Armas corpo a corpo únicas no estoque dos comerciantes. Todos os comerciantes começam desativados. Um comerciante que pode ter essas armas em estoque também as comprará, mesmo com a linha dele desativada. Armas desativadas na seção Armas nunca aparecerão no estoque.</UMW_SettingsTradersDesc>
 
   <!-- Settings: reusable label suffixes. Each includes a leading space, and every applicable one is
        appended (no precedence between them), so they must read cleanly back to back. -->
@@ -78,8 +78,8 @@
   <UMW_GroupCountSuffix> ({0})</UMW_GroupCountSuffix>
   <!-- EN: Everything from {0} in this section. -->
   <UMW_IntegrationGroupDesc>Tudo de {0} nesta seção.</UMW_IntegrationGroupDesc>
-  <!-- EN: Traits original to {0}, of its own design. -->
-  <UMW_OwnTraitsGroupDesc>Características originais de {0}, de design próprio.</UMW_OwnTraitsGroupDesc>
+  <!-- EN: Traits original to {0}. -->
+  <UMW_OwnTraitsGroupDesc>Características originais de {0}.</UMW_OwnTraitsGroupDesc>
   <!-- EN: Melee counterparts of the traits {0} gives its unique ranged weapons. -->
   <UMW_OdysseyTraitsGroupDesc>Equivalentes corpo a corpo das características que {0} dá às suas armas à distância únicas.</UMW_OdysseyTraitsGroupDesc>
 
@@ -98,8 +98,8 @@
   <UMW_WeaponEnabledDesc>Permitir a geração desta arma: {0}.</UMW_WeaponEnabledDesc>
 
   <!-- Settings: Traits. One checkbox per trait. {0} is the trait's own def label (lowercase). -->
-  <!-- EN: Allow {0} to roll on newly made unique weapons. -->
-  <UMW_TraitEnabledDesc>Permitir que a característica {0} seja sorteada em armas únicas recém-criadas.</UMW_TraitEnabledDesc>
+  <!-- EN: Allow {0} to appear on newly generated unique weapons. -->
+  <UMW_TraitEnabledDesc>Permitir que a característica {0} apareça em armas únicas recém-geradas.</UMW_TraitEnabledDesc>
 
   <!-- Settings: Generation -->
   <!-- {0} is the wood resource's item label (ThingDef WoodLog, "madeira", lowercase). -->
@@ -110,8 +110,8 @@
        injected label, so the Portuguese reaches it through the vanilla material frame "de madeira"
        (Core's ThingMadeOfStuffLabel is "{1} de {0}") and puts no article in front of it: "na forma de
        {0} de madeira" needs no gender agreement. -->
-  <!-- EN: Unique weapons roll a random eligible material. With this on, wood is never rolled, so a hard-won reward never lands as a wooden {0}. -->
-  <UMW_ExcludeWoodStuffDesc>Armas únicas sorteiam um material válido ao acaso. Com esta opção ativada, a madeira nunca é sorteada, para que uma recompensa duramente conquistada nunca chegue na forma de {0} de madeira.</UMW_ExcludeWoodStuffDesc>
+  <!-- EN: When enabled, unique weapons will never be generated from wood, so a quest reward is never a wooden {0}. When disabled, wood is one of the materials a weapon can be made from. -->
+  <UMW_ExcludeWoodStuffDesc>Quando ativado, nenhuma arma única será gerada em madeira, e uma recompensa de missão nunca virá como {0} de madeira. Quando desativado, as armas também podem ser feitas de madeira.</UMW_ExcludeWoodStuffDesc>
 
   <!-- Settings: Traders. Both toggles default off. The row label is a shared template: {0} is the
        trader kind's own def label, capitalized ("Comerciantes de guerra", "Comerciantes xamãs" -
@@ -121,11 +121,11 @@
   <!-- EN: Unique weapons in {0} stock -->
   <UMW_TraderStocksUniques>Armas únicas em estoque: {0}</UMW_TraderStocksUniques>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits never roll on its stock: a war party deals in period arms. -->
-  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga. Características ultratecnológicas nunca são sorteadas em seu estoque: uma tropa de guerra negocia com armas de sua própria época.</UMW_TraderStocksUniquesWarMerchantDesc>
+  <!-- EN: About half of {0} visits will bring one unique melee weapon of medieval or lower tech level. Ultratech traits never appear on its stock. -->
+  <UMW_TraderStocksUniquesWarMerchantDesc>Cerca de metade das visitas de {0} trará uma arma corpo a corpo única com nível de tecnologia medieval ou inferior. Características ultratecnológicas nunca aparecerão no estoque.</UMW_TraderStocksUniquesWarMerchantDesc>
 
-  <!-- EN: About half of {0} visits bring one unique melee weapon of medieval or older make. Ultratech traits may roll on its stock: shamans trade in relics they do not fully understand. -->
-  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} traz uma arma corpo a corpo única de fabricação medieval ou mais antiga. Características ultratecnológicas podem ser sorteadas em seu estoque: xamãs negociam com relíquias que não compreendem totalmente.</UMW_TraderStocksUniquesShamanDesc>
+  <!-- EN: About half of {0} visits will bring one unique melee weapon of medieval or lower tech level. Ultratech traits can appear on its stock, since shamans trade in relics they do not fully understand. -->
+  <UMW_TraderStocksUniquesShamanDesc>Cerca de metade das visitas de {0} trará uma arma corpo a corpo única com nível de tecnologia medieval ou inferior. Características ultratecnológicas podem aparecer no estoque, já que xamãs negociam relíquias que não compreendem totalmente.</UMW_TraderStocksUniquesShamanDesc>
 
   <!-- Outlander rows, shown only while some unique weapon is of industrial or later make. The
        settlement row's text is fixed (the trader kind has no def label of its own); the caravan and
@@ -137,20 +137,20 @@
   <!-- EN: Unique weapons in Outlander settlement stock -->
   <UMW_TraderStocksUniquesOutlanderSettlement>Armas únicas em estoque: assentamento forasteiro</UMW_TraderStocksUniquesOutlanderSettlement>
 
-  <!-- EN: About one in five outlander settlements stocks one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Cerca de um em cada cinco assentamentos forasteiros tem em estoque uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
+  <!-- EN: About one in five outlander settlements will stock one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesOutlanderSettlementDesc>Cerca de um em cada cinco assentamentos forasteiros terá em estoque uma arma corpo a corpo única com nível de tecnologia industrial ou superior.</UMW_TraderStocksUniquesOutlanderSettlementDesc>
 
   <!-- EN: Unique weapons in {0} caravan stock -->
   <UMW_TraderStocksUniquesCaravan>Armas únicas em estoque: caravana ({0})</UMW_TraderStocksUniquesCaravan>
 
-  <!-- EN: About one in five {0} caravan visits brings one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesCaravanDesc>Cerca de uma em cada cinco visitas de caravana ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesCaravanDesc>
+  <!-- EN: About one in five {0} caravan visits will bring one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesCaravanDesc>Cerca de uma em cada cinco visitas de caravana ({0}) trará uma arma corpo a corpo única com nível de tecnologia industrial ou superior.</UMW_TraderStocksUniquesCaravanDesc>
 
   <!-- EN: Unique weapons in {0} trade ship stock -->
   <UMW_TraderStocksUniquesShip>Armas únicas em estoque: nave comercial ({0})</UMW_TraderStocksUniquesShip>
 
-  <!-- EN: About one in five {0} trade ships carries one unique melee weapon of industrial or later make. -->
-  <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) traz uma arma corpo a corpo única de fabricação industrial ou mais recente.</UMW_TraderStocksUniquesShipDesc>
+  <!-- EN: About one in five {0} trade ships will carry one unique melee weapon of industrial or higher tech level. -->
+  <UMW_TraderStocksUniquesShipDesc>Cerca de uma em cada cinco naves comerciais ({0}) trará uma arma corpo a corpo única com nível de tecnologia industrial ou superior.</UMW_TraderStocksUniquesShipDesc>
 
   <!-- Settings: Trait abilities. Each ability is a subsection headed by its own icon and name (from
        its def, already localized) followed by the first string, which names in parentheses the
@@ -180,20 +180,20 @@
   <UMW_HediffDurationHours>{0}: duração de {1} horas</UMW_HediffDurationHours>
 
   <!-- {0} is the Odyssey DLC's name, injected already coloured: do not inflect it. -->
-  <!-- EN: Rest time between earthshakes. The default matches the EMP pulser from {0}. 0 removes the cooldown. -->
-  <UMW_EarthshakeCooldownDesc>Tempo de descanso entre dois tremores de terra. O valor padrão corresponde ao pulsador PEM de {0}. Com 0, o tempo de recarga é removido.</UMW_EarthshakeCooldownDesc>
+  <!-- EN: The time the wielder must wait between earthshakes. The default matches the EMP pulser from {0}. At 0 there is no cooldown. -->
+  <UMW_EarthshakeCooldownDesc>O tempo que o usuário precisa esperar entre um tremor de terra e outro. O valor padrão corresponde ao pulsador PEM de {0}. Com 0, não há tempo de recarga.</UMW_EarthshakeCooldownDesc>
 
-  <!-- EN: Reach of the stunning shockwave. Walls do not stop it; gaps with no floor do. It is indiscriminate: a wider radius catches your own colonists too. -->
-  <UMW_EarthshakeRadiusDesc>Alcance da onda de choque atordoante. Paredes não a detêm; vãos sem piso, sim. Ela não distingue amigos de inimigos: um raio maior também atinge seus próprios colonos.</UMW_EarthshakeRadiusDesc>
+  <!-- EN: How far the shockwave reaches. It passes under walls but not across gaps with no floor. A wider radius will catch your own colonists too. -->
+  <UMW_EarthshakeRadiusDesc>Até onde a onda de choque alcança. Passa por baixo das paredes, mas não atravessa vãos sem piso. Um raio maior também atingirá seus próprios colonos.</UMW_EarthshakeRadiusDesc>
 
-  <!-- EN: Rest time between rallying cries. Measured in days on purpose: the default makes it an heirloom moment, not a standing aura re-applied every fight. -->
-  <UMW_RallyingCryCooldownDesc>Tempo de descanso entre dois gritos de guerra. Medido em dias de propósito: com o valor padrão isso vira um momento digno de uma relíquia de família, e não uma aura permanente reaplicada em cada combate.</UMW_RallyingCryCooldownDesc>
+  <!-- EN: The time the wielder must wait between rallying cries. The default is long enough that a cry stays a rare moment rather than something raised in every fight. -->
+  <UMW_RallyingCryCooldownDesc>O intervalo mínimo entre um grito de guerra e outro. O valor padrão é longo o bastante para que o grito continue sendo um momento raro, e não algo usado em todo combate.</UMW_RallyingCryCooldownDesc>
 
-  <!-- EN: How far the cry carries. Rallies every non-hostile humanlike in range with line of sight; blocked by walls. Also wakes sleepers. -->
-  <UMW_RallyingCryRadiusDesc>Até onde o grito alcança. Encoraja todo humanoide não hostil dentro do alcance que tenha linha de visão; bloqueado por paredes. Também acorda quem está dormindo.</UMW_RallyingCryRadiusDesc>
+  <!-- EN: How far the cry carries. Everyone in range who is not hostile and can see the wielder will be rallied. Walls block it. Sleepers in range will be woken instead. -->
+  <UMW_RallyingCryRadiusDesc>O alcance do grito de guerra. Quem não for hostil e puder ver o usuário ficará enardecido. Paredes bloqueiam o grito. Quem estiver dormindo no alcance apenas acordará.</UMW_RallyingCryRadiusDesc>
 
-  <!-- EN: How long the rallied buff lasts, halving pain and stagger time. Sleepers are woken instead, and resent it. -->
-  <UMW_RalliedDurationDesc>Quanto tempo o efeito do grito dura, reduzindo à metade a dor e o tempo de cambaleio. Quem está dormindo acorda em vez de recebê-lo, e não gosta nada disso.</UMW_RalliedDurationDesc>
+  <!-- EN: How long the rallied effect lasts. While it lasts, pain is halved and staggering blows are shaken off twice as fast. -->
+  <UMW_RalliedDurationDesc>Quanto tempo dura o efeito do grito de guerra. Enquanto durar, a dor cai pela metade e os golpes fazem cambalear pela metade do tempo.</UMW_RalliedDurationDesc>
 
   <!-- Settings: Warband quest. The section is headed by the camp's world-map icon and the
        UMW_SettingsQuestSection header above. The first string is that header's tooltip,
@@ -203,14 +203,14 @@
        value. The desc's quest examples (ancient mercenaries, bandit camps, item stashes) are
        vanilla content names too. Taken here from the official localization (Odyssey's
        questSubjectRules, Core's BanditCamp and ItemStash SitePartDefs). -->
-  <!-- EN: An opportunity-site quest: a tribal warband holed up in an abandoned settlement, led by a chief who carries a unique melee weapon. Capture or kill the chief to take it. The low-tech counterpart of the ancient mercenaries quest from {0}. -->
-  <UMW_WarbandQuestDesc>Uma missão de local de oportunidade: um bando de guerra tribal entrincheirado em um assentamento abandonado, liderado por um chefe que carrega uma arma corpo a corpo única. Capture ou mate o chefe para ficar com ela. A versão de baixa tecnologia da missão dos mercenários antigos presente em {0}.</UMW_WarbandQuestDesc>
+  <!-- EN: A quest to raid a tribal warband holed up in an abandoned settlement. Their chief carries a unique melee weapon. Capture or kill the chief to take it. It is the low-tech counterpart of the ancient mercenaries quest from {0}. -->
+  <UMW_WarbandQuestDesc>Uma missão para atacar um bando de guerra tribal entrincheirado em um assentamento abandonado. O chefe do bando carrega uma arma corpo a corpo única. Capture ou mate o chefe para ficar com ela. É a versão de baixa tecnologia da missão dos mercenários antigos de {0}.</UMW_WarbandQuestDesc>
 
-  <!-- EN: Commonality: {0} -->
-  <UMW_QuestCommonality>Frequência de missão: {0}</UMW_QuestCommonality>
+  <!-- EN: Frequency: {0} -->
+  <UMW_QuestCommonality>Frequência: {0}</UMW_QuestCommonality>
 
-  <!-- EN: How often the warband quest is offered against the other opportunity-site quests (ancient mercenaries, bandit camps, item stashes...). Higher = offered more often. 0 disables it. -->
-  <UMW_WarbandQuestWeightDesc>Com que frequência a missão do bando de guerra é oferecida frente às outras missões de locais de oportunidade (mercenários antigos, acampamentos de bandidos, esconderijos de itens...). Mais alto = oferecida mais vezes. Com 0, a missão fica desativada.</UMW_WarbandQuestWeightDesc>
+  <!-- EN: How often the warband quest is offered compared with similar quests such as ancient mercenaries, bandit camps and item stashes. Higher values offer it more often. At 0 it is never offered. -->
+  <UMW_WarbandQuestWeightDesc>Com que frequência a missão do bando de guerra é oferecida em comparação com missões parecidas, como mercenários antigos, acampamentos de bandidos e esconderijos de itens. Valores mais altos farão com que seja oferecida mais vezes. Com 0, nunca será oferecida.</UMW_WarbandQuestWeightDesc>
 
   <!-- Settings: Compatibility. Shown only when Vanilla Textures Expanded is active. The toggle
        defaults on and is read when the game loads, hence the restart sentence. {0} is our unique
@@ -219,7 +219,7 @@
   <!-- EN: Match the {0} to {1} -->
   <UMW_MatchVteSpear>Fazer a {0} corresponder a {1}</UMW_MatchVteSpear>
 
-  <!-- EN: {1} draws the vanilla spear diagonally and longer. With this on, the {0} is turned and enlarged to match it in a drafted pawn's hands. Purely cosmetic. Takes effect after a restart. -->
-  <UMW_MatchVteSpearDesc>{1} redesenha a lança do jogo base na diagonal e mais comprida. Com esta opção ativada, a {0} é girada e aumentada para corresponder a ela nas mãos de um colono alistado. Puramente estético. Tem efeito depois de reiniciar o jogo.</UMW_MatchVteSpearDesc>
+  <!-- EN: {1} draws the vanilla spear longer and at a diagonal. When enabled, the {0} is turned and enlarged to match it in a drafted pawn's hands. When disabled, it keeps its own size and angle. The change is purely cosmetic and takes effect after a restart. -->
+  <UMW_MatchVteSpearDesc>{1} exibe a lança do jogo base mais comprida e na diagonal. Quando ativado, a {0} será girada e aumentada para combinar com essa lança nas mãos de um colono alistado. Quando desativado, manterá o próprio tamanho e ângulo. A mudança é apenas estética e terá efeito depois de reiniciar o jogo.</UMW_MatchVteSpearDesc>
 
 </LanguageData>

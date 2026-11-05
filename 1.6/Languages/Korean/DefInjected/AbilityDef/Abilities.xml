@@ -4,14 +4,14 @@
   <!-- EN: earthshake -->
   <UMW_Earthshake.label>지진 강타</UMW_Earthshake.label>
 
-  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing. -->
-  <UMW_Earthshake.description>무기의 온 질량을 땅에 내리찍어, 대지를 타고 퍼지는 충격파로 주변을 기절시킵니다. 충격은 벽 아래를 지나가며 적과 아군을 가리지 않고 기절시킵니다. 몸을 버틴 사용자만 중심을 잃지 않습니다.</UMW_Earthshake.description>
+  <!-- EN: Slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. The shock will pass under walls and stun friend and foe alike. Only the braced wielder keeps their footing. -->
+  <UMW_Earthshake.description>무기의 온 무게를 실어 땅을 내리찍습니다. 땅을 타고 충격파가 퍼져 나갑니다. 충격파는 벽 아래로도 전해지며 적과 아군을 가리지 않고 기절시킵니다. 단단히 버티고 선 사용자만은 중심을 잃지 않습니다.</UMW_Earthshake.description>
 
 
   <!-- EN: rallying cry -->
   <UMW_RallyingCry.label>결집의 외침</UMW_RallyingCry.label>
 
-  <!-- EN: Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them. -->
-  <UMW_RallyingCry.description>무기를 높이 들어 올리며 외칩니다. 그 모습을 본 아군은 마음을 다잡고, 한동안은 상처를 입어도 좀처럼 움직임이 둔해지지 않습니다.</UMW_RallyingCry.description>
+  <!-- EN: Raise the weapon high and shout. Allies who see it will take heart, and for a time wounds will barely slow them. -->
+  <UMW_RallyingCry.description>무기를 높이 들어 올리며 외칩니다. 이 모습을 본 아군은 용기를 얻으며, 한동안은 상처를 입어도 거의 느려지지 않습니다.</UMW_RallyingCry.description>
 
 </LanguageData>

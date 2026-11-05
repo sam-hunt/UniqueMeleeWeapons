@@ -31,14 +31,14 @@
   </UMW_OpportunitySite_Warband.questNameRules.rulesStrings>
 
   <!-- EN:
-    <li>questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travellers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]</li>
+    <li>questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travelers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]</li>
     <li>location(atLandmark==true)->The warriors are hiding out in an abandoned settlement at [landmarkName].</li>
     <li>location(atLandmark==false)->The warriors are hiding out in an abandoned settlement.</li>
   -->
   <UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings>
-    <li>questDescription->[discoveryMethod]一夥四處劫掠的部落戰士的位置。他們一直在騷擾周邊地區的定居點和旅行者。\n\n該戰團由[LEADER_nameDef]領導，擁有一件獨特的[WEAPON_quality]武器。該戰團包含：\n\n[warbandList]\n\n如果你能俘虜或殺死首領，你就可以獲得這件獨特的武器。\n\n[location]</li>
-    <li>location(atLandmark==true)->戰士們正藏身於[landmarkName]的廢棄定居點中。</li>
-    <li>location(atLandmark==false)->戰士們正藏身於一處廢棄定居點中。</li>
+    <li>questDescription->[discoveryMethod]一夥四處劫掠的部落戰士的位置。他們一直在騷擾周邊地區的據點和旅行者。\n\n該戰團由[LEADER_nameDef]領導，擁有一件獨特的[WEAPON_quality]武器。該戰團包含：\n\n[warbandList]\n\n如果你能俘虜或殺死首領，你就可以獲得這件獨特的武器。\n\n[location]</li>
+    <li>location(atLandmark==true)->戰士們正藏身於[landmarkName]的廢棄據點中。</li>
+    <li>location(atLandmark==false)->戰士們正藏身於一處廢棄據點中。</li>
   </UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings>
 
   <!-- EN:
