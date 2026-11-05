@@ -35,7 +35,7 @@
   <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_Broadsword">
     <defName>UMW_WarcasketBroadsword_Unique</defName>
     <label>unique warcasket broadsword</label>
-    <description>A warcasket broadsword bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A warcasket broadsword with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketBroadsword</texPath>

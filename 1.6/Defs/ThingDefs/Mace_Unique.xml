@@ -5,7 +5,7 @@
   <ThingDef ParentName="MeleeWeapon_Mace">
     <defName>UMW_Mace_Unique</defName>
     <label>unique mace</label>
-    <description>A mace bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A mace with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Mace</texPath>

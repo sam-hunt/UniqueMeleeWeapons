@@ -10,7 +10,7 @@
   <WeaponTraitDef>
     <defName>UMW_Cumbersome</defName>
     <label>cumbersome</label>
-    <description>This weapon is bulky and overbuilt, slowing its swing.</description>
+    <description>This weapon is unwieldy to use, making it slower to swing.</description>
     <commonality>1</commonality>
     <canGenerateAlone>false</canGenerateAlone>
     <weaponCategory>UMW_Melee</weaponCategory>

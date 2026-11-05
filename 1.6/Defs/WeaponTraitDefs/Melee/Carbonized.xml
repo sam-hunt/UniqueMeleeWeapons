@@ -22,7 +22,7 @@
   <WeaponTraitDef>
     <defName>UMW_Carbonized</defName>
     <label>carbonized</label>
-    <description>This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly.</description>
+    <description>This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster.</description>
     <commonality>0.5</commonality>
     <canGenerateAlone>false</canGenerateAlone>
     <weaponCategory>UMW_Melee</weaponCategory>

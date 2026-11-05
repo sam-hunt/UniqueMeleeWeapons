@@ -7,7 +7,7 @@
   <ThingDef ParentName="MeleeWeapon_Warhammer">
     <defName>UMW_Warhammer_Unique</defName>
     <label>unique warhammer</label>
-    <description>A warhammer bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A warhammer with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Warhammer</texPath>

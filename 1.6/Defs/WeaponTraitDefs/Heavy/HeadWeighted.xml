@@ -14,7 +14,7 @@
   <WeaponTraitDef>
     <defName>UMW_HeadWeighted</defName>
     <label>head-weighted</label>
-    <description>Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover.</description>
+    <description>The weight is gathered toward the striking end, so each swing lands harder but is slower to recover.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Heavy</weaponCategory>
     <exclusionTags>

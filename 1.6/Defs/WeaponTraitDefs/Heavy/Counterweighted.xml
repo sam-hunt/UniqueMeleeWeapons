@@ -5,7 +5,7 @@
   <WeaponTraitDef>
     <defName>UMW_Counterweighted</defName>
     <label>counterweighted</label>
-    <description>A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power.</description>
+    <description>A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Heavy</weaponCategory>
     <exclusionTags>

@@ -8,7 +8,7 @@
   <ThingDef ParentName="MeleeWeapon_Axe">
     <defName>UMW_Axe_Unique</defName>
     <label>unique axe</label>
-    <description>An axe bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>An axe with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Axe</texPath>

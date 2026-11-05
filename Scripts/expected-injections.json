@@ -28,7 +28,7 @@
   "defInjections": {
     "AbilityDef": {
       "UMW_Earthshake.description": {
-        "english": "Slam the weapon's full mass into the ground, sending a stunning shockwave out through the earth. The shock passes under walls and stuns friend and foe alike; only the braced wielder keeps their footing.",
+        "english": "Slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. The shock will pass under walls and stun friend and foe alike. Only the braced wielder keeps their footing.",
         "required": true
       },
       "UMW_Earthshake.label": {
@@ -36,7 +36,7 @@
         "required": true
       },
       "UMW_RallyingCry.description": {
-        "english": "Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them.",
+        "english": "Raise the weapon high and shout. Allies who see it will take heart, and for a time wounds will barely slow them.",
         "required": true
       },
       "UMW_RallyingCry.label": {
@@ -118,7 +118,7 @@
     },
     "FactionDef": {
       "UMW_Warband.description": {
-        "english": "A roving company of fighters who live by the raid, preying on settlements and travellers across the land.",
+        "english": "A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them.",
         "required": true
       },
       "UMW_Warband.label": {
@@ -185,7 +185,7 @@
         "required": true
       },
       "UMW_Rallied.description": {
-        "english": "Stirred by the rallying cry of a storied weapon's bearer. For a time, wounds barely register, and a hit does little to break their stride.",
+        "english": "Stirred by a rallying cry. For a time, pain is dulled and staggering blows are quickly shaken off.",
         "required": true
       },
       "UMW_Rallied.label": {
@@ -301,7 +301,7 @@
     "QuestScriptDef": {
       "UMW_OpportunitySite_Warband.questDescriptionRules.rulesStrings": {
         "english": [
-          "questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travellers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]",
+          "questDescription->[discoveryMethod] the location of a band of marauding tribal warriors. This war party has been preying on settlements and travelers across the surrounding lands.\n\nThe band is led by [LEADER_nameDef], who possesses a unique [WEAPON_quality] weapon. The group contains:\n\n[warbandList]\n\nIf you're able to capture or kill the leader, you can take the unique weapon.\n\n[location]",
           "location(atLandmark==true)->The warriors are hiding out in an abandoned settlement at [landmarkName].",
           "location(atLandmark==false)->The warriors are hiding out in an abandoned settlement."
         ],
@@ -457,7 +457,7 @@
         "normalized": "UMW_Axe_Unique.comps.5.namerLabels"
       },
       "UMW_Axe_Unique.description": {
-        "english": "An axe bearing the marks of a master's hand. No two are forged alike.",
+        "english": "An axe with customized parts.",
         "required": true
       },
       "UMW_Axe_Unique.label": {
@@ -496,7 +496,7 @@
         "normalized": "UMW_BreachAxe_Unique.comps.5.namerLabels"
       },
       "UMW_BreachAxe_Unique.description": {
-        "english": "A breach axe bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A breach axe with customized parts.",
         "required": true
       },
       "UMW_BreachAxe_Unique.label": {
@@ -535,7 +535,7 @@
         "normalized": "UMW_Gladius_Unique.comps.5.namerLabels"
       },
       "UMW_Gladius_Unique.description": {
-        "english": "A gladius bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A gladius with customized parts.",
         "required": true
       },
       "UMW_Gladius_Unique.label": {
@@ -579,7 +579,7 @@
         "normalized": "UMW_Knife_Unique.comps.5.namerLabels"
       },
       "UMW_Knife_Unique.description": {
-        "english": "A knife honed by a master's hand. No two are forged alike.",
+        "english": "A knife with customized parts.",
         "required": true
       },
       "UMW_Knife_Unique.label": {
@@ -623,7 +623,7 @@
         "normalized": "UMW_LongSword_Unique.comps.5.namerLabels"
       },
       "UMW_LongSword_Unique.description": {
-        "english": "A longsword bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A longsword with customized parts.",
         "required": true
       },
       "UMW_LongSword_Unique.label": {
@@ -667,7 +667,7 @@
         "normalized": "UMW_Mace_Unique.comps.5.namerLabels"
       },
       "UMW_Mace_Unique.description": {
-        "english": "A mace bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A mace with customized parts.",
         "required": true
       },
       "UMW_Mace_Unique.label": {
@@ -706,7 +706,7 @@
         "normalized": "UMW_Spear_Unique.comps.5.namerLabels"
       },
       "UMW_Spear_Unique.description": {
-        "english": "A spear bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A spear with customized parts.",
         "required": true
       },
       "UMW_Spear_Unique.label": {
@@ -745,7 +745,7 @@
         "normalized": "UMW_WarcasketBroadsword_Unique.comps.4.namerLabels"
       },
       "UMW_WarcasketBroadsword_Unique.description": {
-        "english": "A warcasket broadsword bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A warcasket broadsword with customized parts.",
         "required": true
       },
       "UMW_WarcasketBroadsword_Unique.label": {
@@ -793,7 +793,7 @@
         "normalized": "UMW_WarcasketGravityHammer_Unique.comps.4.namerLabels"
       },
       "UMW_WarcasketGravityHammer_Unique.description": {
-        "english": "A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A warcasket gravity hammer with customized parts.",
         "required": true
       },
       "UMW_WarcasketGravityHammer_Unique.label": {
@@ -841,7 +841,7 @@
         "normalized": "UMW_Warhammer_Unique.comps.5.namerLabels"
       },
       "UMW_Warhammer_Unique.description": {
-        "english": "A warhammer bearing the marks of a master's hand. No two are forged alike.",
+        "english": "A warhammer with customized parts.",
         "required": true
       },
       "UMW_Warhammer_Unique.label": {
@@ -871,7 +871,7 @@
         "normalized": "UMW_BloodStainedWeapon.stages.0.label"
       },
       "UMW_BloodStainedWeapon.stages.bloodstained_weapon-1.description": {
-        "english": "I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me to the core.",
+        "english": "I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me.",
         "required": true,
         "normalized": "UMW_BloodStainedWeapon.stages.1.description"
       },
@@ -966,7 +966,7 @@
         "required": true
       },
       "UMW_BellCast.description": {
-        "english": "The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target.",
+        "english": "The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target.",
         "required": true
       },
       "UMW_BellCast.exclusionTags": {
@@ -989,7 +989,7 @@
         "required": true
       },
       "UMW_BloodStained.description": {
-        "english": "This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it.",
+        "english": "This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it.",
         "required": true
       },
       "UMW_BloodStained.exclusionTags": {
@@ -1014,7 +1014,7 @@
         "required": true
       },
       "UMW_Carbonized.description": {
-        "english": "This weapon has been through fire. Its charred surface is hardened by the heat, and what is already burnt does not easily burn again. The hardened surface hits harder than it should, but the scorched body is brittle and weathers badly.",
+        "english": "This weapon has been through fire. Its charred surface is hardened by the heat and will not easily burn again. It hits a little harder than normal, but the scorched body is brittle and wears out faster.",
         "required": true
       },
       "UMW_Carbonized.exclusionTags": {
@@ -1039,7 +1039,7 @@
         "required": true
       },
       "UMW_Counterweighted.description": {
-        "english": "A counterweight tames the heft, making the weapon quicker to recover between swings at a slight cost to power.",
+        "english": "A counterweight balances the heft, making the weapon quicker to recover between swings at a slight cost to power.",
         "required": true
       },
       "UMW_Counterweighted.exclusionTags": {
@@ -1061,7 +1061,7 @@
         "required": true
       },
       "UMW_Cumbersome.description": {
-        "english": "This weapon is bulky and overbuilt, slowing its swing.",
+        "english": "This weapon is unwieldy to use, making it slower to swing.",
         "required": true
       },
       "UMW_Cumbersome.exclusionTags": {
@@ -1084,7 +1084,7 @@
         "required": true
       },
       "UMW_DeadBlow.description": {
-        "english": "The hollow head is filled with loose shot that slams forward on impact, dumping the blow's full momentum into the target without a trace of rebound. Struck targets reel and stumble, even when the blow doesn't drop them.",
+        "english": "The hollow head is filled with loose shot that slams forward on impact, so none of the blow's force bounces back. Targets it strikes will stagger, even when the blow does not drop them.",
         "required": true
       },
       "UMW_DeadBlow.exclusionTags": {
@@ -1204,7 +1204,7 @@
         "required": true
       },
       "UMW_Flanged.description": {
-        "english": "Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it.",
+        "english": "The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it.",
         "required": true
       },
       "UMW_Flanged.label": {
@@ -1243,7 +1243,7 @@
         "required": true
       },
       "UMW_HeadWeighted.description": {
-        "english": "Mass is gathered toward the striking end so each swing lands with devastating force, though it is slower to recover.",
+        "english": "The weight is gathered toward the striking end, so each swing lands harder but is slower to recover.",
         "required": true
       },
       "UMW_HeadWeighted.exclusionTags": {
@@ -1358,7 +1358,7 @@
         "required": true
       },
       "UMW_NeedlePoint.description": {
-        "english": "Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts.",
+        "english": "The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts.",
         "required": true
       },
       "UMW_NeedlePoint.exclusionTags": {
@@ -1436,7 +1436,7 @@
         "required": true
       },
       "UMW_Piledriver.description": {
-        "english": "The head is built as a piledriver. On command the weapon's full mass can be slammed into the ground, sending a stunning shockwave out through the earth. The shock is indiscriminate; it stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes time to reset.",
+        "english": "The head is built as a piledriver. The wielder can slam the weapon's full mass into the ground, sending a stunning shockwave through the earth. It stuns friend and foe alike, though the braced wielder is spared. Once used, the mechanism takes some time to reset.",
         "required": true
       },
       "UMW_Piledriver.exclusionTags": {
@@ -1565,7 +1565,7 @@
         "required": true
       },
       "UMW_Storied.description": {
-        "english": "This weapon carries a recorded lineage of named bearers and remembered deeds. The wielder can raise it high in a rallying cry; allies who see it are steeled, and for a time wounds barely slow them. Such a moment can only be called upon once every few days.",
+        "english": "This weapon has a name and a history, and the deeds of those who carried it are remembered. The wielder can raise it high in a rallying cry that steels allies who see it. Once used, it takes days before the cry can be raised again.",
         "required": true
       },
       "UMW_Storied.exclusionTags": {

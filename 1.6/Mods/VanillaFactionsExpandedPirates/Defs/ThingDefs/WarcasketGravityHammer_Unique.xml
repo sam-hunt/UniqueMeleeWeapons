@@ -37,7 +37,7 @@
   <ThingDef ParentName="VFEP_WarcasketMeleeWeapon_GravityHammer">
     <defName>UMW_WarcasketGravityHammer_Unique</defName>
     <label>unique warcasket gravity hammer</label>
-    <description>A warcasket gravity hammer bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A warcasket gravity hammer with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/WarcasketGravityHammer</texPath>

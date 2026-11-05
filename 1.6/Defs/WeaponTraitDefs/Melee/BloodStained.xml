@@ -22,7 +22,7 @@
   <WeaponTraitDef>
     <defName>UMW_BloodStained</defName>
     <label>blood-stained</label>
-    <description>This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic, though carrying so grisly a thing weighs on all but the hardened. Traders will pay less for it.</description>
+    <description>This weapon is caked in layers of dark, dried blood. The sight of it can send the people it wounds fleeing in panic. Carrying something so grisly weighs on most people, though a few relish it. Traders will pay less for it.</description>
     <commonality>0.5</commonality>
     <weaponCategory>UMW_Melee</weaponCategory>
     <exclusionTags>

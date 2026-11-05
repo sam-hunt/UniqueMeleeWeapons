@@ -16,7 +16,7 @@
   <WeaponTraitDef>
     <defName>UMW_BellCast</defName>
     <label>bell-cast</label>
-    <description>The head is cast solid like a bell. A clean strike rings a resonance through armor and bone, briefly stunning the target.</description>
+    <description>The head is cast solid like a bell. A clean strike rings through armor and bone, briefly stunning the target.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Blunt</weaponCategory>
     <exclusionTags>

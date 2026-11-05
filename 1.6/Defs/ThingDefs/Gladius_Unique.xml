@@ -7,7 +7,7 @@
   <ThingDef ParentName="MeleeWeapon_Gladius">
     <defName>UMW_Gladius_Unique</defName>
     <label>unique gladius</label>
-    <description>A gladius bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A gladius with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Gladius</texPath>

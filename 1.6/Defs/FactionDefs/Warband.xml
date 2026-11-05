@@ -19,7 +19,7 @@
   <FactionDef ParentName="FactionBase">
     <defName>UMW_Warband</defName>
     <label>warband</label>
-    <description>A roving company of fighters who live by the raid, preying on settlements and travellers across the land.</description>
+    <description>A roving band of tribal fighters who live by raiding, preying on the settlements and travelers around them.</description>
     <pawnSingular>warrior</pawnSingular>
     <pawnsPlural>warriors</pawnsPlural>
     <categoryTag>Tribal</categoryTag>

@@ -54,7 +54,7 @@
     <!-- Deliberately silent about the waking side effects: the gizmo text is for what the player is
          choosing to do, and the shout rousing sleepers is a consequence they can see happen. The
          mod-settings tooltips do spell it out, since the radius slider governs it. -->
-    <description>Raise the weapon high and shout. Allies who see it are steeled, and for a time wounds barely slow them.</description>
+    <description>Raise the weapon high and shout. Allies who see it will take heart, and for a time wounds will barely slow them.</description>
     <iconPath>UI/Commands/UMW_RallyingCry</iconPath>
     <aiCanUse>true</aiCanUse> <!-- faction-symmetric: an AI cast rallies its own side; see header -->
     <targetRequired>False</targetRequired>

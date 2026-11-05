@@ -52,7 +52,7 @@
   <WeaponTraitDef>
     <defName>UMW_NeedlePoint</defName>
     <label>needle point</label>
-    <description>Tapered to a fine needle, the point drives deep beneath bone and muscle, seeking the organs within. Placing it cleanly demands slower, deliberate thrusts.</description>
+    <description>The point is tapered to a fine needle that slips past bone and muscle to reach the organs beneath. Placing it cleanly takes slower, more deliberate thrusts.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Pointed</weaponCategory>
     <exclusionTags>

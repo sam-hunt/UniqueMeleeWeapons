@@ -5,7 +5,7 @@
   <ThingDef ParentName="MeleeWeapon_Knife">
     <defName>UMW_Knife_Unique</defName>
     <label>unique knife</label>
-    <description>A knife honed by a master's hand. No two are forged alike.</description>
+    <description>A knife with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Knife</texPath>

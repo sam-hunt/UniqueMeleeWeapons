@@ -7,7 +7,7 @@
   <ThingDef ParentName="MeleeWeapon_LongSword">
     <defName>UMW_LongSword_Unique</defName>
     <label>unique longsword</label>
-    <description>A longsword bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A longsword with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/LongSword</texPath>

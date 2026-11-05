@@ -15,7 +15,7 @@
   <ThingDef ParentName="MeleeWeapon_BreachAxe">
     <defName>UMW_BreachAxe_Unique</defName>
     <label>unique breach axe</label>
-    <description>A breach axe bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A breach axe with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/BreachAxe</texPath>

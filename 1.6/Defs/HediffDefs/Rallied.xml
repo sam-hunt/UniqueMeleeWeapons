@@ -16,13 +16,13 @@
        RageSpeed (an enrage hediff of exactly this shape: not-bad, painFactor plus statFactors) and
        Biotech's Unstoppable gene are vanilla's only two users and both take it to 0 for outright
        immunity; half is the proportionate read for a 2-hour buff on an ordinary human, and it keeps
-       "wounds barely slow them" in the ability description literally true of both halves of the
+       "wounds will barely slow them" in the ability description literally true of both halves of the
        payload. Not subject to 1.6/Defs/CLAUDE.md's control-effect budget: that governs stun/stagger effects we
        inflict on others, and this is resistance on our own side, adding nothing to the census. -->
   <HediffDef>
     <defName>UMW_Rallied</defName>
     <label>rallied</label>
-    <description>Stirred by the rallying cry of a storied weapon's bearer. For a time, wounds barely register, and a hit does little to break their stride.</description>
+    <description>Stirred by a rallying cry. For a time, pain is dulled and staggering blows are quickly shaken off.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <everCurableByItem>false</everCurableByItem>
     <isBad>false</isBad>

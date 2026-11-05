@@ -30,7 +30,7 @@
   <WeaponTraitDef>
     <defName>UMW_Flanged</defName>
     <label>flanged</label>
-    <description>Flanges ridge the head, concentrating the force of a blow into a narrow edge that cracks armor plate rather than merely denting it.</description>
+    <description>The head is ridged with flanges that concentrate the force of a blow into a narrow edge, cracking armor plate rather than denting it.</description>
     <commonality>1</commonality>
     <weaponCategory>UMW_Blunt</weaponCategory>
     <statOffsets>

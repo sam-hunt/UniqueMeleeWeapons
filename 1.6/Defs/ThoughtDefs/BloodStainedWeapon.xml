@@ -40,7 +40,7 @@
       </li>
       <li>
         <label>blood-stained weapon</label>
-        <description>I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me to the core.</description>
+        <description>I'm carrying a weapon caked in dried blood. Its reek, and the thought of what it's done, thrill me.</description>
         <baseMoodEffect>3</baseMoodEffect>
       </li>
     </stages>

@@ -5,7 +5,7 @@
   <ThingDef ParentName="MeleeWeapon_Spear">
     <defName>UMW_Spear_Unique</defName>
     <label>unique spear</label>
-    <description>A spear bearing the marks of a master's hand. No two are forged alike.</description>
+    <description>A spear with customized parts.</description>
     <thingClass>UniqueMeleeWeapons.UniqueMeleeWeapon</thingClass>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponMelee/UniqueWeapons/Spear</texPath>
