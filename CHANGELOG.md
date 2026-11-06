@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Entries are short one-liners ready to paste as Steam Workshop change notes: what changed for the player, no rationale, no def names, no sub-bullets. -->
 
+## [1.6.1] - 2026-11-06
+
+### Fixed
+
+- Combat Extended: the info card now shows a trait's armor penetration minimum and names the trait that sets it.
+- Combat Extended: damage readouts now include the Razored, Serrated, Needle Point and Studded damage bonuses.
+
 ## [1.6.0] - 2026-11-06
 
 ### Added
@@ -163,6 +170,7 @@ Initial release.
 - Translations for Simplified Chinese, French, German, Japanese, Korean, Brazilian
   Portuguese, Russian and Spanish.
 
+[1.6.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.6.1
 [1.6.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.6.0
 [1.5.1]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.1
 [1.5.0]: https://github.com/sam-hunt/UniqueMeleeWeapons/releases/tag/v1.5.0

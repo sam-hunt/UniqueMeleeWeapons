@@ -1,8 +1,6 @@
 # TODOs
 
-- **Update/Add workshop images** with new VFEP uniques/katanas/CE/Eltex traits
-- **Upload recompressed gallery images** to the Workshop page
-- **Reply to the eltex Workshop commenter** (Simplified Chinese): trait(s) yes, eltex cost not here (UWU's domain). English draft in the spec §8.
+- **Update/Add workshop images** with new VFEP uniques/katanas/CE/Eltex traits/settings page
 
 ## Later
 
