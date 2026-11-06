@@ -152,8 +152,10 @@
          factor traits. The floors reach CE's AP readout through Hook 5 (2026-11-06, after a
          Workshop report that a Monomolecular longsword's card still read a plain longsword's
          penetration): the stat line and final value are lifted, and the breakdown gains one line
-         per floored tool; our trait block states the Normal-quality floor. Nothing else of ours
-         reaches a CE readout.
+         per floored tool; our trait block states the Normal-quality floor. The per-tool
+         damageFactor entries (Razored, Serrated, NeedlePoint, Studded) apply in combat natively
+         and reach CE's damage and DPS readouts through Hook 6. Nothing else of ours reaches a CE
+         readout.
        - CE's auto aim does NOT see the floors: CompMeleeTargettingGizmo picks the swing height
          from the raw tool AP, so a floored wielder on auto aims as if it held the untraited
          weapon. Known and accepted; the reasoning is in the floor hook's C# header.

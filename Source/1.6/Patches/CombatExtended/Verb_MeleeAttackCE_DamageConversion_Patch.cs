@@ -6,7 +6,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 2 of 5: damage conversion on CE's melee verb, the mirror of
+// Combat Extended hook 2 of 6: damage conversion on CE's melee verb, the mirror of
 // Verb_MeleeAttackDamage_DamageConversion_Patch. Lifecycle (gate, timing, degraded mode) is owned
 // by CombatExtendedCompat, which resolves the target by name after every mod's static ctor.
 //

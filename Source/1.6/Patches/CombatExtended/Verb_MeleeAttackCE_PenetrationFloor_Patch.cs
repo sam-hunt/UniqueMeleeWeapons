@@ -6,7 +6,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 4 of 5: the quality-scaled armor-penetration floors of MeleeToolMod on
+// Combat Extended hook 4 of 6: the quality-scaled armor-penetration floors of MeleeToolMod on
 // CE's melee verb, the CE half of Verb_MeleeAttack_ToolMods_Patch (its damage half needs no CE
 // hook: MeleeWeapon_DamageMultiplier rides AdjustedMeleeDamageAmount, which CE still calls).
 // Lifecycle (gate, timing, degraded mode) is owned by CombatExtendedCompat, which resolves the
@@ -93,8 +93,9 @@ internal static class Verb_MeleeAttackCE_PenetrationFloor_Patch
     }
 
     // The quality-scaled floor this tool gets from the weapon's traits, in CE units, or -1 when no
-    // trait floors it. Shared with the info-card hook (StatWorker_MeleeArmorPenetrationCE_Floor_Patch)
-    // so the readout and the swing can never disagree. Highest floor wins.
+    // trait floors it. Shared with the info-card hook
+    // (StatWorker_MeleeArmorPenetrationCE_Floor_Patch) so the readout and the swing can never
+    // disagree. Highest floor wins.
     internal static float FloorFor(Tool tool, Thing weapon, bool sharp)
     {
         if (weapon == null || penetrationFactorStat == null)

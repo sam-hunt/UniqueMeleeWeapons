@@ -9,7 +9,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 5 of 5: the quality-scaled armor-penetration floors on CE's info card, the
+// Combat Extended hook 5 of 6: the quality-scaled armor-penetration floors on CE's info card, the
 // display half of hook 4 (Verb_MeleeAttackCE_PenetrationFloor_Patch). In vanilla the card needs
 // nothing, because the stat card and the swing share the AdjustedArmorPenetration overload
 // Verb_MeleeAttack_ToolMods_Patch postfixes; CE's card shares nothing with its swing. Lifecycle

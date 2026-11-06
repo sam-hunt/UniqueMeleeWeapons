@@ -12,7 +12,9 @@ namespace UniqueMeleeWeapons.Patches;
 // both expose a (Tool, Pawn, Thing equipment, HediffComp_VerbGiver) overload that the public
 // (Verb, Pawn) entry delegates to, and the pawn stat cards (StatWorker_MeleeArmorPenetration etc.)
 // route through the SAME overload — so one postfix on each reaches both live combat and the
-// wielded-weapon stat display.
+// wielded-weapon stat display. Not under Combat Extended: CE's swing still reaches the damage
+// overload, but its cards read neither getter, so hooks 5 and 6 under Patches/CombatExtended/
+// lift CE's penetration and damage readouts through the same shared functions.
 //
 // Cost mirrors the other melee postfixes: non-unique weapons fail the CompUniqueWeapon check and
 // bail before allocating. No caching/flush — recomputed each swing from the live trait list.
@@ -60,6 +62,25 @@ internal static class MeleeToolModResolver
         }
         return result;
     }
+
+    // The product of every matching damageFactor, or 1. Shared by the swing (below) and Combat
+    // Extended's damage readout
+    // (Patches/CombatExtended/StatWorker_MeleeDamageBaseCE_ToolDamage_Patch), so the card and the
+    // hit can never disagree.
+    internal static float DamageFactor(Tool tool, Thing equipment)
+    {
+        List<MeleeToolMod> mods = CollectMods(tool, equipment);
+        if (mods == null)
+        {
+            return 1f;
+        }
+        float factor = 1f;
+        for (int i = 0; i < mods.Count; i++)
+        {
+            factor *= mods[i].damageFactor;
+        }
+        return factor;
+    }
 }
 
 [HarmonyPatch(typeof(VerbProperties), nameof(VerbProperties.AdjustedMeleeDamageAmount),
@@ -68,15 +89,7 @@ public static class Verb_MeleeAttack_ToolMods_Damage_Patch
 {
     public static void Postfix(ref float __result, Tool tool, Thing equipment)
     {
-        List<MeleeToolMod> mods = MeleeToolModResolver.CollectMods(tool, equipment);
-        if (mods == null)
-        {
-            return;
-        }
-        for (int i = 0; i < mods.Count; i++)
-        {
-            __result *= mods[i].damageFactor;
-        }
+        __result *= MeleeToolModResolver.DamageFactor(tool, equipment);
     }
 }
 

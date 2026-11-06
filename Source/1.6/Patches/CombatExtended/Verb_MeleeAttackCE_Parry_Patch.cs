@@ -6,7 +6,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 3 of 5: the MeleeParryExtension parry chance on CE's melee verb, the
+// Combat Extended hook 3 of 6: the MeleeParryExtension parry chance on CE's melee verb, the
 // mirror of Verb_MeleeAttackDamage_Parry_Patch. Lifecycle (gate, timing, degraded mode) is owned
 // by CombatExtendedCompat, which resolves the target by name after every mod's static ctor.
 //
