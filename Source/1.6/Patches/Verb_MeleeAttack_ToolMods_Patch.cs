@@ -34,6 +34,20 @@ internal static class MeleeToolModResolver
     // equipment is not a unique weapon or no entry matches.
     internal static List<MeleeToolMod> CollectMods(Tool tool, Thing equipment)
     {
+        return Collect(tool, equipment, wantOwners: false, out _);
+    }
+
+    // As above, also reporting which trait each entry came from (owners[i] owns mods[i]), for a
+    // readout that names the trait behind a number. Owners is non-null exactly when the result
+    // is. The vanilla swing never asks for it and allocates nothing extra.
+    internal static List<MeleeToolMod> CollectMods(Tool tool, Thing equipment, out List<WeaponTraitDef> owners)
+    {
+        return Collect(tool, equipment, wantOwners: true, out owners);
+    }
+
+    private static List<MeleeToolMod> Collect(Tool tool, Thing equipment, bool wantOwners, out List<WeaponTraitDef> owners)
+    {
+        owners = null;
         if (!(equipment is ThingWithComps weapon))
         {
             return null;
@@ -57,6 +71,10 @@ internal static class MeleeToolModResolver
                 if (ext.mods[j].Matches(tool))
                 {
                     (result ??= new List<MeleeToolMod>()).Add(ext.mods[j]);
+                    if (wantOwners)
+                    {
+                        (owners ??= new List<WeaponTraitDef>()).Add(traits[i]);
+                    }
                 }
             }
         }

@@ -95,14 +95,21 @@ internal static class Verb_MeleeAttackCE_PenetrationFloor_Patch
     // The quality-scaled floor this tool gets from the weapon's traits, in CE units, or -1 when no
     // trait floors it. Shared with the info-card hook
     // (StatWorker_MeleeArmorPenetrationCE_Floor_Patch) so the readout and the swing can never
-    // disagree. Highest floor wins.
+    // disagree. Highest floor wins; the overload below also names the trait it came from (null
+    // when nothing floors), which the swing never needs and the card prints.
     internal static float FloorFor(Tool tool, Thing weapon, bool sharp)
     {
+        return FloorFor(tool, weapon, sharp, out _);
+    }
+
+    internal static float FloorFor(Tool tool, Thing weapon, bool sharp, out WeaponTraitDef source)
+    {
+        source = null;
         if (weapon == null || penetrationFactorStat == null)
         {
             return -1f;
         }
-        List<MeleeToolMod> mods = MeleeToolModResolver.CollectMods(tool, weapon);
+        List<MeleeToolMod> mods = MeleeToolModResolver.CollectMods(tool, weapon, out List<WeaponTraitDef> owners);
         if (mods == null)
         {
             return -1f;
@@ -114,9 +121,15 @@ internal static class Verb_MeleeAttackCE_PenetrationFloor_Patch
             if (candidate > floor)
             {
                 floor = candidate;
+                source = owners[i];
             }
         }
-        return floor < 0f ? -1f : floor * QualityFactor(weapon);
+        if (floor < 0f)
+        {
+            source = null;
+            return -1f;
+        }
+        return floor * QualityFactor(weapon);
     }
 
     // MeleePenetrationFactor's quality factor for this weapon's quality, and only that: def and

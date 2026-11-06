@@ -23,10 +23,10 @@
   <UMW_TraitStat_QualityMinimumSharpCE>min. {0} mm RHA bei normaler Qualität, steigt mit der Qualität</UMW_TraitStat_QualityMinimumSharpCE>
   <!-- EN: min. {0} MPa at normal quality, rising with quality -->
   <UMW_TraitStat_QualityMinimumBluntCE>min. {0} MPa bei normaler Qualität, steigt mit der Qualität</UMW_TraitStat_QualityMinimumBluntCE>
-  <!-- EN: {0}: sharp penetration raised to {1} mm RHA by a weapon trait -->
-  <UMW_CETooltip_FloorSharp>{0}: scharfe Durchdringung auf {1} mm RHA erhöht durch ein Waffenmerkmal</UMW_CETooltip_FloorSharp>
-  <!-- EN: {0}: blunt penetration raised to {1} MPa by a weapon trait -->
-  <UMW_CETooltip_FloorBlunt>{0}: stumpfe Durchdringung auf {1} MPa erhöht durch ein Waffenmerkmal</UMW_CETooltip_FloorBlunt>
+  <!-- EN: {0}: sharp penetration raised to {1} mm RHA by the {2} trait -->
+  <UMW_CETooltip_FloorSharp>{0}: scharfe Durchdringung auf {1} mm RHA erhöht durch das Merkmal „{2}“</UMW_CETooltip_FloorSharp>
+  <!-- EN: {0}: blunt penetration raised to {1} MPa by the {2} trait -->
+  <UMW_CETooltip_FloorBlunt>{0}: stumpfe Durchdringung auf {1} MPa erhöht durch das Merkmal „{2}“</UMW_CETooltip_FloorBlunt>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. -->

@@ -23,10 +23,10 @@
   <UMW_TraitStat_QualityMinimumSharpCE>최소 {0} mm RHA (평범 품질 기준), 품질에 따라 상승</UMW_TraitStat_QualityMinimumSharpCE>
   <!-- EN: min. {0} MPa at normal quality, rising with quality -->
   <UMW_TraitStat_QualityMinimumBluntCE>최소 {0} MPa (평범 품질 기준), 품질에 따라 상승</UMW_TraitStat_QualityMinimumBluntCE>
-  <!-- EN: {0}: sharp penetration raised to {1} mm RHA by a weapon trait -->
-  <UMW_CETooltip_FloorSharp>{0}: 무기 특성으로 날붙이 관통력이 {1} mm RHA로 상승</UMW_CETooltip_FloorSharp>
-  <!-- EN: {0}: blunt penetration raised to {1} MPa by a weapon trait -->
-  <UMW_CETooltip_FloorBlunt>{0}: 무기 특성으로 둔기 관통력이 {1} MPa로 상승</UMW_CETooltip_FloorBlunt>
+  <!-- EN: {0}: sharp penetration raised to {1} mm RHA by the {2} trait -->
+  <UMW_CETooltip_FloorSharp>{0}: ‘{2}’ 특성 효과로 날붙이 관통력이 {1} mm RHA로 상승</UMW_CETooltip_FloorSharp>
+  <!-- EN: {0}: blunt penetration raised to {1} MPa by the {2} trait -->
+  <UMW_CETooltip_FloorBlunt>{0}: ‘{2}’ 특성 효과로 둔기 관통력이 {1} MPa로 상승</UMW_CETooltip_FloorBlunt>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. -->

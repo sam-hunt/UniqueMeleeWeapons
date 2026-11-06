@@ -35,8 +35,10 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 //   - public GetExplanationUnfinalized(StatRequest, ToStringNumberSense): the per-tool breakdown
 //     ("Sharp penetration: 0.72 x 1.35 = 0.97 mm RHA"). CE's lines are one StringBuilder of
 //     translated text, so instead of rewriting them (parsing localized output) the postfix APPENDS
-//     one line per floored tool and capacity (UMW_CETooltip_FloorSharp/Blunt), leaving CE's text
-//     byte-identical. Above it the card's final value already carries the lifted average.
+//     one line per floored tool and capacity (UMW_CETooltip_FloorSharp/Blunt) naming the tool,
+//     the lifted value and the trait whose floor won (FloorFor's out parameter; a Workshop reader
+//     of the first version could not tell which of three traits "a weapon trait" was), leaving
+//     CE's text byte-identical. Above it the card's final value already carries the lifted average.
 // Both rewrite only when some tool's floor actually beats CE's own number; otherwise the result
 // is left exactly as CE built it, which is every weapon that is not one of ours with a floor.
 //
@@ -167,11 +169,11 @@ internal static class StatWorker_MeleeArmorPenetrationCE_Floor_Patch
                 ToolReading r = readings[i];
                 if (r.sharpFloor > r.sharp)
                 {
-                    sb.AppendLine("UMW_CETooltip_FloorSharp".Translate(r.tool.LabelCap, r.sharpFloor.ToStringByStyle(ToStringStyle.FloatMaxTwo)));
+                    sb.AppendLine("UMW_CETooltip_FloorSharp".Translate(r.tool.LabelCap, r.sharpFloor.ToStringByStyle(ToStringStyle.FloatMaxTwo), r.sharpSource.label));
                 }
                 if (r.bluntFloor > r.blunt)
                 {
-                    sb.AppendLine("UMW_CETooltip_FloorBlunt".Translate(r.tool.LabelCap, r.bluntFloor.ToStringByStyle(ToStringStyle.FloatMaxTwo)));
+                    sb.AppendLine("UMW_CETooltip_FloorBlunt".Translate(r.tool.LabelCap, r.bluntFloor.ToStringByStyle(ToStringStyle.FloatMaxTwo), r.bluntSource.label));
                 }
             }
             __result = sb.ToString();
@@ -189,6 +191,8 @@ internal static class StatWorker_MeleeArmorPenetrationCE_Floor_Patch
         public float blunt;
         public float sharpFloor; // quality-scaled floor in CE units, or -1
         public float bluntFloor;
+        public WeaponTraitDef sharpSource; // the trait that set each floor; null when the floor is -1
+        public WeaponTraitDef bluntSource;
 
         public float SharpShown => Mathf.Max(sharp, sharpFloor);
         public float BluntShown => Mathf.Max(blunt, bluntFloor);
@@ -231,8 +235,10 @@ internal static class StatWorker_MeleeArmorPenetrationCE_Floor_Patch
                 tool = tool,
                 sharp = (float)sharpField.GetValue(tool) * factor,
                 blunt = (float)bluntField.GetValue(tool) * factor,
-                sharpFloor = Verb_MeleeAttackCE_PenetrationFloor_Patch.FloorFor(tool, weapon, sharp: true),
-                bluntFloor = Verb_MeleeAttackCE_PenetrationFloor_Patch.FloorFor(tool, weapon, sharp: false),
+                sharpFloor = Verb_MeleeAttackCE_PenetrationFloor_Patch.FloorFor(tool, weapon, sharp: true, out WeaponTraitDef sharpSource),
+                bluntFloor = Verb_MeleeAttackCE_PenetrationFloor_Patch.FloorFor(tool, weapon, sharp: false, out WeaponTraitDef bluntSource),
+                sharpSource = sharpSource,
+                bluntSource = bluntSource,
             };
             anyLifted |= r.sharpFloor > r.sharp || r.bluntFloor > r.blunt;
             readings.Add(r);
