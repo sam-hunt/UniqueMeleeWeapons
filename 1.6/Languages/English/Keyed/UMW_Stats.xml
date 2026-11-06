@@ -23,6 +23,13 @@
        rather than CE's CE_mmRHA / CE_MPa so no text couples to a foreign Keyed file. -->
   <UMW_TraitStat_QualityMinimumSharpCE>min. {0} mm RHA at normal quality, rising with quality</UMW_TraitStat_QualityMinimumSharpCE>
   <UMW_TraitStat_QualityMinimumBluntCE>min. {0} MPa at normal quality, rising with quality</UMW_TraitStat_QualityMinimumBluntCE>
+  <!-- Combat Extended only: appended to the breakdown tooltip of CE's own melee armor penetration
+       stat (Source/1.6/Patches/CombatExtended/StatWorker_MeleeArmorPenetrationCE_Floor_Patch.cs),
+       under CE's per-tool lines, for a tool whose trait minimum beats CE's own number. {0} is the
+       tool's label as CE lists it ("Edge", "Point"), {1} the lifted value at this weapon's quality.
+       Units as in the two lines above. -->
+  <UMW_CETooltip_FloorSharp>{0}: sharp penetration raised to {1} mm RHA by a weapon trait</UMW_CETooltip_FloorSharp>
+  <UMW_CETooltip_FloorBlunt>{0}: blunt penetration raised to {1} MPa by a weapon trait</UMW_CETooltip_FloorBlunt>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. The

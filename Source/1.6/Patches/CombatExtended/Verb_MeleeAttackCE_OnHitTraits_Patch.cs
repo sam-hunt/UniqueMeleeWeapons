@@ -5,7 +5,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 1 of 4: on-hit trait effects on CE's melee verb, the mirror of
+// Combat Extended hook 1 of 5: on-hit trait effects on CE's melee verb, the mirror of
 // Verb_MeleeAttackDamage_OnHitTraits_Patch. Lifecycle (gate, timing, degraded mode) is owned by
 // CombatExtendedCompat, which resolves the target by name after every mod's static ctor.
 //

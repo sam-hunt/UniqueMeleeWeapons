@@ -149,8 +149,14 @@
          changing its venom comp numbers; the ranged branch (keep ToxicBuildup, cut
          severityPerDamageDealt) remains the one-operation alternative.
        - CE's melee tooltip shows Quilloned's parry through Hook 3 and CE's AP readout shows the
-         factor traits; the floors show only in our trait block (the C# header). Nothing else of
-         ours reaches a CE readout.
+         factor traits. The floors reach CE's AP readout through Hook 5 (2026-11-06, after a
+         Workshop report that a Monomolecular longsword's card still read a plain longsword's
+         penetration): the stat line and final value are lifted, and the breakdown gains one line
+         per floored tool; our trait block states the Normal-quality floor. Nothing else of ours
+         reaches a CE readout.
+       - CE's auto aim does NOT see the floors: CompMeleeTargettingGizmo picks the swing height
+         from the raw tool AP, so a floored wielder on auto aims as if it held the untraited
+         weapon. Known and accepted; the reasoning is in the floor hook's C# header.
 
        Royalty traits sit under a PatchOperationConditional on node existence, like
        AddNameToBaseMeleeWeapons.xml does for the Royalty bases, so this root never depends on the

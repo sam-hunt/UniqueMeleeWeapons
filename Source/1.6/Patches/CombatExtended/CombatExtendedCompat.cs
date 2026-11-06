@@ -13,10 +13,14 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 //   Verb_MeleeAttackCE_DamageConversion_Patch  <- Verb_MeleeAttackDamage_DamageConversion_Patch
 //   Verb_MeleeAttackCE_Parry_Patch             <- Verb_MeleeAttackDamage_Parry_Patch
 //   Verb_MeleeAttackCE_PenetrationFloor_Patch  <- the AP half of Verb_MeleeAttack_ToolMods_Patch
-// Each exposes the same three members: TryApply (resolve its target by name, patch, return the
+//   StatWorker_MeleeArmorPenetrationCE_Floor_Patch <- the same floors on CE's info card (vanilla's
+//                                                 card shares the swing's getter, so needs none)
+// Hooks 1 to 4 each expose the same three members: TryApply (resolve its target by name, patch, return the
 // count applied), Missing (set when its lookup failed) and Vetoes (which traits to keep out of
 // the rolls while Missing); a hook that compares against a CE StatDef adds ResolveStat, called
-// on every Run (see GUARDS). The per-hook rationale is in each file's header.
+// on every Run (see GUARDS). Hook 5 is display-only: it exposes Missing and TryApply, vetoes
+// nothing and is left out of AnyMissing, because a miss there costs only the readout while combat
+// still applies the floors (its header). The per-hook rationale is in each file's header.
 //
 // WHY. CombatExtended.Verb_MeleeAttackCE derives from the abstract Verb_MeleeAttack, not from
 // Verb_MeleeAttackDamage, and reimplements the whole swing (hit, dodge, parry, crit, damage) with
@@ -30,7 +34,7 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // which CE still calls; cooldown, mass, HP and CE's own MeleePenetrationFactor are stat reads).
 // The XML half of the compat root (1.6/Mods/CombatExtended/Patches/) moves the factor-shaped AP
 // traits onto MeleePenetrationFactor statFactors and strips the vanilla per-tool AP fields; the
-// four hooks cover what no stat can express. Decompile-verified against CE 16.7.4.0.
+// four verb hooks cover what no stat can express, and hook 5 makes CE's card show one of them. Decompile-verified against CE 16.7.4.0.
 //
 // TIMING (the BetterTradersGuild v1.1.0 lesson, Source/1.6/CLAUDE.md). Applying a detour JITs
 // the target and runs its declaring type's static constructor; CE's verb touches CE_StatDefOf, so
@@ -45,7 +49,7 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // so a CE refactor degrades to "those traits do not roll" rather than a startup error. Each
 // hook's apply runs in its own try/catch (TryHook), so a throw inside one marks only THAT hook
 // missing and the hooks that did apply keep their traits rolling; only a failure outside any hook
-// (the type lookup itself) marks all four. Patches are applied once per process (Harmony would
+// (the verb type lookup itself) marks all four verb hooks; hook 5 resolves its own type. Patches are applied once per process (Harmony would
 // dedupe by id, but the flag keeps a reload from repeating the warning); the StatDef references the parry and
 // floor hooks hold are re-resolved on EVERY Run, because a mid-session language change replaces
 // every def instance and a reference cached at first apply would then compare unequal forever
@@ -136,7 +140,9 @@ public static class CombatExtendedCompat
             + TryHook("parry", () => Verb_MeleeAttackCE_Parry_Patch.TryApply(verbType, harmony),
                 () => Verb_MeleeAttackCE_Parry_Patch.Missing = true)
             + TryHook("penetration floor", () => Verb_MeleeAttackCE_PenetrationFloor_Patch.TryApply(verbType, harmony),
-                () => Verb_MeleeAttackCE_PenetrationFloor_Patch.Missing = true);
+                () => Verb_MeleeAttackCE_PenetrationFloor_Patch.Missing = true)
+            + TryHook("penetration readout", () => StatWorker_MeleeArmorPenetrationCE_Floor_Patch.TryApply(harmony),
+                () => StatWorker_MeleeArmorPenetrationCE_Floor_Patch.Missing = true);
         Log.Message($"[Unique Melee Weapons] Combat Extended detected; applied {count} melee trait hooks to {VerbTypeName}.");
     }
 

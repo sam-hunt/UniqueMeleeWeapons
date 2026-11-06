@@ -6,7 +6,7 @@ using Verse;
 
 namespace UniqueMeleeWeapons.Patches.CombatExtended;
 
-// Combat Extended hook 4 of 4: the quality-scaled armor-penetration floors of MeleeToolMod on
+// Combat Extended hook 4 of 5: the quality-scaled armor-penetration floors of MeleeToolMod on
 // CE's melee verb, the CE half of Verb_MeleeAttack_ToolMods_Patch (its damage half needs no CE
 // hook: MeleeWeapon_DamageMultiplier rides AdjustedMeleeDamageAmount, which CE still calls).
 // Lifecycle (gate, timing, degraded mode) is owned by CombatExtendedCompat, which resolves the
@@ -23,8 +23,22 @@ namespace UniqueMeleeWeapons.Patches.CombatExtended;
 // DamageInfosToApply compares the raw ToolCE.armorPenetrationSharp field against the target's
 // sharp armor to decide its own forced-internal hit, so a floored edge never unlocks that path
 // against armor above its raw value (vanilla's DamageWorker_Stab part choice still rolls). Minor
-// and accepted. CE's info card reads ToolCE fields directly and never shows the floor; our
-// trait block does (TraitEffectSummary's CE-unit line).
+// and accepted. A second raw read decides AIM, not penetration (found 2026-11-06, CE 16.7.4.0):
+// CompMeleeTargettingGizmo.finalHeight, which picks the swing's body height whenever the
+// attacker has no player-set height (every non-player pawn, and player pawns left on auto),
+// estimates the weapon's AP as the highest raw ToolCE.armorPenetrationSharp times
+// MeleePenetrationFactor, no floor. At Melee 8 to 15 it aims high whenever that estimate is below
+// the target's torso sharp armor; at 16 and up it skips a neck/eye/head whose covering apparel
+// out-armors it. So a Monomolecular wielder judges its blade by the longsword's ~1 mm RHA, aims
+// at heads against any armored torso and steers off helmets its 24+ mm edge would cut. Accepted,
+// not patched: the fix is a postfix re-deciding finalHeight, i.e. re-implementing CE's targeting
+// rules (skill bands, part priority list, per-apparel armor sums) in a hook that would drift with
+// every CE retune, for an aim preference that still hits and still penetrates. A player can set
+// the height by hand (the gizmo); revisit if CE exposes the estimate as an overridable getter.
+// CE's info card reads ToolCE fields directly, so hook 5
+// (StatWorker_MeleeArmorPenetrationCE_Floor_Patch) lifts its readout through FloorFor, the one
+// place the floor is computed; our trait block states the Normal-quality value
+// (TraitEffectSummary's CE-unit line).
 //
 // THE STAT. MeleePenetrationFactor is re-resolved on every play-data load (ResolveStat, from
 // CombatExtendedCompat.Run): a mid-session language change replaces every def instance, and a
@@ -71,15 +85,26 @@ internal static class Verb_MeleeAttackCE_PenetrationFloor_Patch
 
     private static void ApplyFloor(ref float result, Verb verb, bool sharp)
     {
-        ThingWithComps weapon = verb.EquipmentSource;
-        if (weapon == null)
+        float floor = FloorFor(verb.tool, verb.EquipmentSource, sharp);
+        if (result < floor)
         {
-            return;
+            result = floor;
         }
-        List<MeleeToolMod> mods = MeleeToolModResolver.CollectMods(verb.tool, weapon);
+    }
+
+    // The quality-scaled floor this tool gets from the weapon's traits, in CE units, or -1 when no
+    // trait floors it. Shared with the info-card hook (StatWorker_MeleeArmorPenetrationCE_Floor_Patch)
+    // so the readout and the swing can never disagree. Highest floor wins.
+    internal static float FloorFor(Tool tool, Thing weapon, bool sharp)
+    {
+        if (weapon == null || penetrationFactorStat == null)
+        {
+            return -1f;
+        }
+        List<MeleeToolMod> mods = MeleeToolModResolver.CollectMods(tool, weapon);
         if (mods == null)
         {
-            return;
+            return -1f;
         }
         float floor = -1f;
         for (int i = 0; i < mods.Count; i++)
@@ -90,15 +115,7 @@ internal static class Verb_MeleeAttackCE_PenetrationFloor_Patch
                 floor = candidate;
             }
         }
-        if (floor < 0f)
-        {
-            return;
-        }
-        floor *= QualityFactor(weapon);
-        if (result < floor)
-        {
-            result = floor;
-        }
+        return floor < 0f ? -1f : floor * QualityFactor(weapon);
     }
 
     // MeleePenetrationFactor's quality factor for this weapon's quality, and only that: def and

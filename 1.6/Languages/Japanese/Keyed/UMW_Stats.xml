@@ -23,6 +23,10 @@
   <UMW_TraitStat_QualityMinimumSharpCE>最低{0} mm RHA（標準品の場合）、品質が上がるほど上昇</UMW_TraitStat_QualityMinimumSharpCE>
   <!-- EN: min. {0} MPa at normal quality, rising with quality -->
   <UMW_TraitStat_QualityMinimumBluntCE>最低{0} MPa（標準品の場合）、品質が上がるほど上昇</UMW_TraitStat_QualityMinimumBluntCE>
+  <!-- EN: {0}: sharp penetration raised to {1} mm RHA by a weapon trait -->
+  <UMW_CETooltip_FloorSharp>{0}：武器の特性により、鋭利な攻撃の貫通力が{1} mm RHAに上昇</UMW_CETooltip_FloorSharp>
+  <!-- EN: {0}: blunt penetration raised to {1} MPa by a weapon trait -->
+  <UMW_CETooltip_FloorBlunt>{0}：武器の特性により、鈍器の貫通力が{1} MPaに上昇</UMW_CETooltip_FloorBlunt>
 
   <!-- Rerouted base hit. {0} is the injury hediff's label; the bleed clause is appended in
        parentheses when the new wound bleeds at a different rate than the one it replaces. -->
