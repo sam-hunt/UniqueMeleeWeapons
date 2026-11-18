@@ -26,7 +26,11 @@ public class UniqueMeleeWeaponsMod : Mod
         ContentPack = content;
         Settings = GetSettings<UniqueMeleeWeaponsSettings>();
         Harmony = new Harmony("shunter.uniquemeleeweapons");
-        Harmony.PatchAll();
+        // The assembly is named through a type of ours: Harmony 3 obsoletes the
+        // parameterless PatchAll(), whose caller detection can fail after inlining or
+        // tail calls, and Assembly.GetExecutingAssembly() has returned Harmony's own
+        // assembly from a constructor another mod patched (HarmonyRimWorld #52).
+        Harmony.PatchAll(typeof(UniqueMeleeWeaponsMod).Assembly);
         Patches.ShaderDatabase_LoadShader_Fallback_Patch.Apply(Harmony);
         Log.Message($"[Unique Melee Weapons] Initialized with {Harmony.GetPatchedMethods().EnumerableCount()} patches.");
     }
